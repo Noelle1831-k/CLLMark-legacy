@@ -8,6 +8,7 @@
         "7.1": ["op", "augmented_assignment"], "7.2": ["op", "assignment"], "7.3": ["op", "e2ne"],"7.4": ["op","e2ne_re"],"7.5":["op", "ne2e"],"7.6": ["op","ne2e_re"] ,"7.7":["op", "smaller"], "7.8":["op", "bigger"], "7.9":["op","expcmp"],"7.10": ["op","cmp"],"7.11": ["op","hashequalB"],"7.12": ["op","hashequalS"],"7.13": ["op","hashnotequalB"],"7.14": ["op","hashnotequalS"],
         "9.1": ["declare", "split"], "9.2": ["declare", "merge_simple"],
         "10.1": ["return", "add_bracket"], "10.2": ["return", "del_bracket"], "10.3": ["return", "add_None"], "10.4": ["return", "del_None"],
+        "14.1": ["membership", "not_in"], "14.2": ["membership", "not_x_in"], "15.1": ["identity", "is_not"], "15.2": ["identity", "not_x_is"], "16.1": ["branch", "plain"], "16.2": ["branch", "negated"], "17.1": ["conditional", "plain"], "17.2": ["conditional", "negated"], "18.1": ["sum", "implicit_start"], "18.2": ["sum", "explicit_start"], "19.1": ["range", "implicit_step"], "19.2": ["range", "explicit_step"], "20.1": ["while", "condition"], "20.2": ["while", "true_break"], "21.1": ["exit", "else"], "21.2": ["exit", "fallthrough"],
         "13": ["func","get_func"]
     },
     "c":{
@@ -18,16 +19,27 @@
         "6.1": ["declare", "split"], "6.2": ["declare", "merge"],
         "7.1": ["loop", "obc"], "7.2": ["loop", "aoc"], "7.3": ["loop", "abo"], "7.4": ["loop", "aoo"], "7.5": ["loop", "obo"], "7.6": ["loop", "ooc"], "7.7": ["loop", "ooo"],"7.8": ["loop", "for"],
         "8.1": ["if", "if"],
+        "14.1": ["branch", "plain"], "14.2": ["branch", "negated"], "15.1": ["conditional", "plain"], "15.2": ["conditional", "negated"], "16.1": ["conjunction", "and"], "16.2": ["conjunction", "nested_if"], "17.1": ["parameter", "array"], "17.2": ["parameter", "pointer"], "18.1": ["void_return", "implicit"], "18.2": ["void_return", "explicit"], "19.1": ["member", "arrow"], "19.2": ["member", "dereference"], "20.1": ["exit", "else"], "20.2": ["exit", "fallthrough"],
         "13": ["func","get_func"]
     },
     "cpp":{
         "2.1": ["op", "augmented_assignment"], "2.2": ["op", "assignment"], "2.3": ["op", "e2ne"],"2.4": ["op","e2ne_re"],"2.5":["op", "ne2e"],"2.6": ["op","ne2e_re"] ,"2.7":["op", "smaller"], "2.8":["op", "bigger"], "2.9":["op","expcmp"],"2.10": ["op","cmp"],"2.11": ["op","hashequalB"],"2.12": ["op","hashequalS"],"2.13": ["op","hashnotequalB"],"2.14": ["op","hashnotequalS"],
         "3.1": ["update", "left"], "3.2": ["update", "right"],
         "4.1": ["main", "int_void_return"], "4.2": ["main", "int_void"], "4.3": ["main", "int_return"], "4.4": ["main", "int"], "4.5": ["main", "int_arg_return"], "4.6": ["main", "int_arg"], "4.7": ["main", "void_arg"], "4.8": ["main", "void"],
-        "6.1": ["declare", "split"], "6.2": ["declare", "merge"], "6.3": ["declare", "first"], "6.4": ["declare", "temp"], "6.5": ["declare", "assign_split"],
+        "6.1": ["declare", "split"], "6.2": ["declare", "merge"],
         "7.1": ["loop", "obc"], "7.2": ["loop", "aoc"], "7.3": ["loop", "abo"], "7.4": ["loop", "aoo"], "7.5": ["loop", "obo"], "7.6": ["loop", "ooc"], "7.7": ["loop", "ooo"],"7.8": ["loop", "for"],
         "8.1": ["if", "if"],
         "9.1": ["cpp", "cout"], "9.2": ["cpp", "printf"], "9.3": ["cpp", "cin"],"9.4": ["cpp", "scanf"],
+        "14.1": ["branch", "plain"], "14.2": ["branch", "negated"], "15.1": ["conditional", "plain"], "15.2": ["conditional", "negated"], "16.1": ["conjunction", "and"], "16.2": ["conjunction", "nested_if"], "17.1": ["parameter", "array"], "17.2": ["parameter", "pointer"], "18.1": ["void_return", "implicit"], "18.2": ["void_return", "explicit"], "20.1": ["exit", "else"], "20.2": ["exit", "fallthrough"], "21.1": ["alias", "using"], "21.2": ["alias", "typedef"], "22.1": ["cast", "functional"], "22.2": ["cast", "c_style"],
+        "13": ["func","get_func"]
+    },
+    "javascript":{
+        "2.1": ["op", "augmented_assignment"], "2.2": ["op", "assignment"], "2.3": ["op", "e2ne"], "2.4": ["op", "e2ne_re"], "2.5": ["op", "ne2e"], "2.6": ["op", "ne2e_re"], "2.7": ["op", "literal_right"], "2.8": ["op", "literal_left"], "2.11": ["op", "hashequalB"], "2.12": ["op", "hashequalS"], "2.13": ["op", "hashnotequalB"], "2.14": ["op", "hashnotequalS"],
+        "3.1": ["update", "left"], "3.2": ["update", "right"],
+        "6.1": ["declare", "split"], "6.2": ["declare", "merge"],
+        "7.1": ["loop", "while"], "7.2": ["loop", "for"],
+        "14.1": ["branch", "plain"], "14.2": ["branch", "negated"], "15.1": ["conditional", "plain"], "15.2": ["conditional", "negated"], "16.1": ["conjunction", "and"], "16.2": ["conjunction", "nested_if"],
+        "18.1": ["return", "implicit"], "18.2": ["return", "explicit"], "19.1": ["member", "dot"], "19.2": ["member", "bracket"], "23.1": ["property", "shorthand"], "23.2": ["property", "explicit"],
         "13": ["func","get_func"]
     }
 }

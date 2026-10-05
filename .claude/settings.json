@@ -1,0 +1,15 @@
+{
+  "env": {
+    "CLAUDE_CODE_SUBAGENT_MODEL": "sonnet"
+  },
+  "permissions": {
+    "deny": [
+      "Bash(.venv-benchmark/bin/python tools/research_loop.py baseline:*)",
+      "Bash(python tools/research_loop.py baseline:*)",
+      "Edit(dataset/**)",
+      "Write(dataset/**)",
+      "Edit(benchmarks/baselines/**)",
+      "Write(benchmarks/baselines/**)"
+    ]
+  }
+}

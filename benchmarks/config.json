@@ -1,0 +1,57 @@
+{
+  "protocol_version": "cllmark-3",
+  "seed": 20261005,
+  "watermark": [1, 0, 1, 0],
+  "jobs": 8,
+  "unit_timeout_seconds": 180,
+  "compile_timeout_seconds": 20,
+  "test_timeout_seconds": 3,
+  "test_timeout_retries": 1,
+  "project_test_timeout_seconds": 120,
+  "rule_properties": true,
+  "attacks": [1, 2],
+  "problem_files": {
+    "python": "dataset/Jsonl/mbpp_release_v1.jsonl",
+    "cpp": "dataset/Jsonl/mbcpp_release_v1.2.jsonl",
+    "javascript": "dataset/Jsonl/mbjsp_release_v1.2.jsonl"
+  },
+  "projects": {
+    "bytes": {"test": ["node_modules/.bin/mocha", "--check-leaks", "--reporter", "dot"]},
+    "cookie": {"test": ["node_modules/.bin/mocha", "--reporter", "dot", "--check-leaks", "test/"]},
+    "js-yaml": {"test": ["node_modules/.bin/mocha", "--reporter", "dot"]},
+    "minimist": {"test": ["node_modules/.bin/tape", "test/**/*.js"]}
+  },
+  "gates": {
+    "rate_drop_tolerance": 0.01,
+    "fpr_increase_tolerance": 0.01,
+    "new_functional_regressions": 0,
+    "new_harness_errors": 0,
+    "lost_eligible_units": 0,
+    "timing_relative_tolerance": 0.30,
+    "timing_absolute_tolerance_ms": 1.0
+  },
+  "cohorts": [
+    {"name": "mbpp_generated", "path": "dataset/MBPP_G", "language": "python", "level": "function", "role": "generated", "oracle": "mbxp"},
+    {"name": "mbpp_generated_subset", "path": "dataset/MBPP_G_L", "language": "python", "level": "function", "role": "generated", "oracle": "mbxp"},
+    {"name": "mbpp_human", "path": "dataset/MBPP_H", "language": "python", "level": "function", "role": "human", "oracle": "mbxp"},
+    {"name": "mbcpp_generated", "path": "dataset/MBCPP_G", "language": "cpp", "level": "function", "role": "generated", "oracle": "mbxp"},
+    {"name": "mbcpp_generated_subset", "path": "dataset/MBCPP_G_L", "language": "cpp", "level": "function", "role": "generated", "oracle": "mbxp"},
+    {"name": "mbcpp_human", "path": "dataset/MBCPP_H", "language": "cpp", "level": "function", "role": "human", "oracle": "mbxp"},
+    {"name": "c_generated", "path": "dataset/MBCP_G", "language": "c", "level": "function", "role": "generated", "oracle": "none"},
+    {"name": "c_historical_marked", "path": "dataset/MBCP_W", "language": "c", "level": "function", "role": "historical", "oracle": "none"},
+    {"name": "codenet_generated", "path": "dataset/CodeNet_G", "language": "c", "level": "function", "role": "generated", "oracle": "unmapped_codenet"},
+    {"name": "codenet_human", "path": "dataset/CodeNet_H", "language": "c", "level": "function", "role": "human", "oracle": "unmapped_codenet"},
+    {"name": "cpp_snippets", "path": "code_snippets", "language": "cpp", "level": "function", "role": "unknown", "oracle": "none"},
+    {"name": "python_projects", "path": "Python_func", "language": "python", "level": "project", "role": "generated", "oracle": "none"},
+    {"name": "c_projects", "path": "C_func", "language": "c", "level": "project", "role": "generated", "oracle": "none"},
+    {"name": "cpp_projects", "path": "C++_func", "language": "cpp", "level": "project", "role": "generated", "oracle": "none"},
+    {"name": "python_projects_historical", "path": "Python_func_test", "language": "python", "level": "project", "role": "historical", "oracle": "none"},
+    {"name": "c_projects_historical_1", "path": "data/C_func_test", "language": "c", "level": "project", "role": "historical", "oracle": "none"},
+    {"name": "c_projects_historical_2", "path": "data/C_func_test2", "language": "c", "level": "project", "role": "historical", "oracle": "none"},
+    {"name": "cpp_projects_historical_1", "path": "data/C++_func_test", "language": "cpp", "level": "project", "role": "historical", "oracle": "none"},
+    {"name": "cpp_projects_historical_2", "path": "data/C++_func_test2", "language": "cpp", "level": "project", "role": "historical", "oracle": "none"},
+    {"name": "mbjsp_generated", "path": "dataset/MBJSP_G", "language": "javascript", "level": "function", "role": "generated", "oracle": "mbxp"},
+    {"name": "mbjsp_human", "path": "dataset/MBJSP_H", "language": "javascript", "level": "function", "role": "human", "oracle": "mbxp"},
+    {"name": "js_projects", "path": "dataset/JS_projects", "language": "javascript", "level": "project", "role": "human", "oracle": "project_tests"}
+  ]
+}

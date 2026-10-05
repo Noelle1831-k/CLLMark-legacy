@@ -1,0 +1,3 @@
+function perimeterTriangle(a, b, c) {
+  return a + b + c;
+}

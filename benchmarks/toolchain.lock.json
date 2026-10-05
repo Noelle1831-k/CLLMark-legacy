@@ -1,0 +1,9 @@
+{
+  "tree_sitter": "0.20.2",
+  "grammars": {
+    "c": {"tag": "v0.20.7", "commit": "df6ac34d5eb1dccfac8f2a9011a8491300818d7c"},
+    "cpp": {"tag": "v0.20.5", "commit": "e0c1678a78731e78655b7d953efb4daecf58be46"},
+    "python": {"tag": "v0.20.4", "commit": "c01fb4e38587e959b9058b8cd34b9e6a3068c827"},
+    "javascript": {"tag": "v0.20.1", "commit": "f1e5a09b8d02f8209a68249c93f0ad647b228e6e"}
+  }
+}
