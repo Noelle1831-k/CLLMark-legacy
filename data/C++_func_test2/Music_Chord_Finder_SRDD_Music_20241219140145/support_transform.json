@@ -1,0 +1,42 @@
+{
+    "processAudio.cpp": [
+        "output"
+    ],
+    "showResults.cpp": [
+        "output"
+    ],
+    "displayKeyboard.cpp": [],
+    "extractFrequencies.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "output"
+    ],
+    "getUserInput.cpp": [
+        "output",
+        "input"
+    ],
+    "identifyChord.cpp": [],
+    "mapFrequenciesToNotes.cpp": [
+        "declare"
+    ],
+    "loadAudioFile.cpp": [],
+    "displayFretboard.cpp": [],
+    "detectChords.cpp": [],
+    "performFFTAnalysis.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "generateChordDiagram.cpp": []
+}

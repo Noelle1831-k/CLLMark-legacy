@@ -1,0 +1,42 @@
+{
+    "pasteNotes.c": [],
+    "deleteNotes.c": [],
+    "copyNotes.c": [],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "selectStyle.c": [
+        "array_init"
+    ],
+    "createMelodySequence.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "editMelody.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse"
+    ],
+    "freeMelody.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "selectInstrument.c": [
+        "array_init"
+    ],
+    "loadLibrary.c": [],
+    "playMelody.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "createMelody.c": []
+}

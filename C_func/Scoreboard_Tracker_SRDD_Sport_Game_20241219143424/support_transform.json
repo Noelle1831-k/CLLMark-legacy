@@ -1,0 +1,73 @@
+{
+    "addSport.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "support_transform.json": [],
+    "getStringInput.c": [
+        "array_access"
+    ],
+    "viewScore.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "getIntInput.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "main.c": [
+        "main_style",
+        "array_init",
+        "declare"
+    ],
+    "initializeScores.c": [],
+    "initializeGames.c": [],
+    "displayMenu.c": [],
+    "addGame.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access"
+    ],
+    "listSports.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "updateScore.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "initializeSports.c": [],
+    "listGames.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ]
+}

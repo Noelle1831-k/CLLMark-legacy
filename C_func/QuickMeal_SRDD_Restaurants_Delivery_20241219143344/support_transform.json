@@ -1,0 +1,37 @@
+{
+    "support_transform.json": [],
+    "trackOrder.c": [],
+    "processPayment.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "array_access"
+    ],
+    "placeOrder.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "array_init",
+        "array_access"
+    ],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "displayMenu.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "displayMainMenu.c": [],
+    "handleUserChoice.c": []
+}

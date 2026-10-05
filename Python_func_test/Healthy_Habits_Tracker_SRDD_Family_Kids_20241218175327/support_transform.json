@@ -1,0 +1,70 @@
+{
+    "get_user.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "plot_progress.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "plot_bar_chart.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_random_tip.py": [],
+    "get_progress.py": [
+        "init_list",
+        "list"
+    ],
+    "compare_progress.py": [
+        "list_index",
+        "string_quota",
+        "f_string"
+    ],
+    "add_user.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "input_user_progress.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "compare_users_progress.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "set_user_goal.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "get_tips.py": [],
+    "plot_pie_chart.py": [
+        "range_index",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "input_progress.py": [
+        "init_list",
+        "list"
+    ],
+    "visualize_progress.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "set_goal.py": []
+}

@@ -1,0 +1,75 @@
+{
+    "calculateMedian.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "calculateFrequency.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "displaySummary.cpp": [
+        "output"
+    ],
+    "calculateRange.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "calculateMode.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "support_transform.json": [],
+    "importData.cpp": [
+        "while_to_for"
+    ],
+    "main.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for",
+        "output"
+    ],
+    "addCategoricalSummary.cpp": [],
+    "isNumerical.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "calculateMean.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "addNumericalSummary.cpp": []
+}

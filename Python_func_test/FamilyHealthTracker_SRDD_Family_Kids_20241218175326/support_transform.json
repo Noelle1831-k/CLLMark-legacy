@@ -1,0 +1,87 @@
+{
+    "get_metric.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "display_appointments.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "schedule_appointment.py": [
+        "init_list",
+        "string_quota",
+        "f_string"
+    ],
+    "update_profile.py": [],
+    "display_goals.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "calculate_bmi.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "display_articles.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "send_reminder.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "get_goals.py": [
+        "init_list",
+        "list"
+    ],
+    "get_health_metric.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "add_metric.py": [],
+    "add_article.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "display_notifications.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "add_health_metric.py": [],
+    "get_appointments.py": [
+        "init_list",
+        "list"
+    ],
+    "set_goal.py": [
+        "init_list",
+        "list"
+    ],
+    "display_metrics.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ]
+}

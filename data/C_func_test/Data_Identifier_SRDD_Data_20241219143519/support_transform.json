@@ -1,0 +1,55 @@
+{
+    "analyze_column.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "split_string.c": [
+        "array_access",
+        "declare",
+        "while_to_for"
+    ],
+    "is_boolean.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "load_dataset.c": [],
+    "is_integer.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "is_float.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "print_results.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "main.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "array_init",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "read_file.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init",
+        "array_access",
+        "declare",
+        "while_to_for"
+    ]
+}

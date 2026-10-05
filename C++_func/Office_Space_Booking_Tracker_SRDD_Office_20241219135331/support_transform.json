@@ -1,0 +1,43 @@
+{
+    "displayFloorPlan.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "setSpecialRequirements.cpp": [],
+    "start.cpp": [
+        "declare"
+    ],
+    "setAvailability.cpp": [],
+    "support_transform.json": [],
+    "makeBooking.cpp": [],
+    "getId.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "bookWorkspace.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "isAvailable.cpp": [],
+    "getSpecialRequirements.cpp": [],
+    "checkAvailability.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "FloorPlan.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

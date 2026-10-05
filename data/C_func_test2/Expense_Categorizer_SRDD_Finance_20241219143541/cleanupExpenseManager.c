@@ -1,0 +1,5 @@
+void cleanupExpenseManager(ExpenseManager* manager) {
+    for (int i = 0; (i <= manager->count && i != manager->count); i++) {
+        free(manager->expenses[i]);
+    }
+}

@@ -1,0 +1,122 @@
+{
+    "get_financial_suggestions.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "provide_suggestions.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "generate_pie_chart.py": [
+        "list_index",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "load_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "view_visualizations.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "get_user_data.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "add_expense.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "add_transaction.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "add_income.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_financial_summary.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "analyze_income.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "generate_line_chart.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_bar_chart.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "get_user_choice.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [],
+    "calculate_trends.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "view_financial_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "analyze_spending.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "run.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "generate_report.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "save_data.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "add_event.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "compare_priority.c": [
+        "declare"
+    ],
+    "init_scheduler.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "print_event.c": [],
+    "create_event.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "support_transform.json": [],
+    "free_scheduler.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "sort_events.c": [],
+    "display_menu.c": [],
+    "list_events.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "validate_event.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "handle_user_input.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init",
+        "declare"
+    ],
+    "free_event.c": []
+}

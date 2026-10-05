@@ -1,0 +1,2 @@
+void initializeSuggestionEngine(SuggestionEngine* engine) {
+}

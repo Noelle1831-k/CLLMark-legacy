@@ -1,0 +1,72 @@
+{
+    "addIncome.c": [
+        "self_assignment"
+    ],
+    "processInput.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "array_init"
+    ],
+    "saveData.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "calculateBalance.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "generateReport.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "addExpense.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse"
+    ],
+    "editExpense.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_init"
+    ],
+    "waitForInput.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "displayMenu.c": [],
+    "deleteExpense.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "displayWelcomeMessage.c": [],
+    "viewSummary.c": [],
+    "loadData.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "clearScreen.c": []
+}

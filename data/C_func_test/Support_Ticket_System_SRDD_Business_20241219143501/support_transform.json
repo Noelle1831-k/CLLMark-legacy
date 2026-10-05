@@ -1,0 +1,33 @@
+{
+    "deleteTicket.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "createTicket.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "logActivity.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "displayMenu.c": [],
+    "listTickets.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

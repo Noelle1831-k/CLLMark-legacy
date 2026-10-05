@@ -1,0 +1,68 @@
+{
+    "remove_expense.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "for_OOO"
+    ],
+    "get_integer_input.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "initialize_budget_data.c": [],
+    "save_budget_data.c": [],
+    "list_expenses.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "display_menu.c": [],
+    "calculate_balance.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "save_budget_data_to_file.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "add_expense.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "set_income.c": [],
+    "read_line.c": [
+        "array_access"
+    ],
+    "execute_choice.c": [],
+    "get_float_input.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "load_budget_data.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

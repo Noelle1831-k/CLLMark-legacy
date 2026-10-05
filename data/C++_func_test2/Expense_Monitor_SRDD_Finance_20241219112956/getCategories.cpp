@@ -1,0 +1,1 @@
+const vector<Category>& User::getCategories() const { return categories; }

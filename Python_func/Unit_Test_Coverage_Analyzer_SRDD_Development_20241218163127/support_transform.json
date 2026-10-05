@@ -1,0 +1,62 @@
+{
+    "read_file.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "highlight_uncovered.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "log_message.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "analyze_coverage.py": [
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_coverage.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "identify_uncovered_sections.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "display_results.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "parse_unit_tests.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "write_file.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "parse_source_code.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_report.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

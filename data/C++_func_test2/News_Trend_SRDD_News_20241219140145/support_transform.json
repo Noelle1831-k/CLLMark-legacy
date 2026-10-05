@@ -1,0 +1,27 @@
+{
+    "getDate.cpp": [],
+    "getTitle.cpp": [],
+    "getContent.cpp": [],
+    "displayTrends.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "output"
+    ],
+    "main.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "analyzeTrends.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "addArticle.cpp": []
+}

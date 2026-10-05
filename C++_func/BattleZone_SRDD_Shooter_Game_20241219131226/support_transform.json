@@ -1,0 +1,58 @@
+{
+    "renderGame.cpp": [
+        "output"
+    ],
+    "support_transform.json": [],
+    "move.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "declare"
+    ],
+    "main.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "initializeGame.cpp": [
+        "output"
+    ],
+    "respawn.cpp": [],
+    "updateGameState.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "output"
+    ],
+    "generateRandomNumber.cpp": [],
+    "takeDamage.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "fire.cpp": [],
+    "checkCollision.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "applyEffect.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "render.cpp": [],
+    "isAlive.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "syncGameState.cpp": [
+        "output"
+    ],
+    "connectToServer.cpp": [
+        "output"
+    ],
+    "getPosition.cpp": []
+}

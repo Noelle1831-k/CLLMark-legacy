@@ -1,0 +1,20 @@
+def main():
+    # Initialize core components
+    user = User()
+    connection = Connection()
+    post = Post()
+    message = Message()
+    feed = Feed()
+    notification = Notification()
+    # Example operations
+    user.create_profile("John Doe", "john@example.com")
+    user.create_profile("Jane Smith", "jane@example.com")
+    connection.send_request("john@example.com", "jane@example.com")
+    connection.accept_request("jane@example.com", "john@example.com")
+    post.create_post("john@example.com", "Hello, world!")
+    message.send_message("john@example.com", "jane@example.com", "Hi Jane!")
+    feed.generate_feed("john@example.com")
+    notification.send_notification("john@example.com", "You have a new connection request.")
+    connection.list_connections("john@example.com")
+    connection.remove_connection("john@example.com", "jane@example.com")
+    connection.list_connections("john@example.com")

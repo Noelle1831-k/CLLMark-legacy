@@ -1,0 +1,53 @@
+{
+    "support_transform.json": [],
+    "createVictoryCondition.c": [],
+    "listObjectives.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "placeBonus.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "freeBoard.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "defineObjective.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "createObjectives.c": [],
+    "placeObstacle.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "checkVictoryCondition.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "setVictoryCondition.c": [],
+    "createBoard.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "showBoard.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ]
+}

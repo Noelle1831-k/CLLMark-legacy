@@ -1,0 +1,43 @@
+{
+    "printChore.cpp": [],
+    "name.cpp": [],
+    "main.cpp": [
+        "main_style",
+        "declare"
+    ],
+    "addAchievement.cpp": [],
+    "addChild.cpp": [],
+    "~Chore.cpp": [],
+    "isChoreComplete.cpp": [],
+    "triggerAchievements.cpp": [],
+    "isDeadlinePassed.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "assignChores.cpp": [],
+    "createChore.cpp": [],
+    "showLeaderboard.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ],
+    "completeChore.cpp": [
+        "self_assignment"
+    ],
+    "grantReward.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "grantBadge.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "printDeadlineStatus.cpp": [
+        "output"
+    ],
+    "showProgress.cpp": [],
+    "checkEligibility.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ]
+}

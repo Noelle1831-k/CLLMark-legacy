@@ -1,0 +1,73 @@
+{
+    "customizeRecipe.cpp": [],
+    "getFlavorPreferences.cpp": [],
+    "addTag.cpp": [],
+    "hasRestriction.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "filterRecipes.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "addRecipe.cpp": [],
+    "displayRecipe.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "displayRecipes.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "output"
+    ],
+    "matchesTags.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "scaleRecipe.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "adjustIngredient.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "addFlavorPreference.cpp": [],
+    "addUserPreferences.cpp": [
+        "output"
+    ],
+    "addStep.cpp": [],
+    "run.cpp": [
+        "output"
+    ],
+    "substituteIngredient.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "getRestrictions.cpp": [],
+    "addRecipeToDatabase.cpp": [
+        "output"
+    ],
+    "addRestriction.cpp": [],
+    "removeFlavorPreference.cpp": [],
+    "addIngredient.cpp": [],
+    "removeRestriction.cpp": [],
+    "searchRecipesByName.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ]
+}

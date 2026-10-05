@@ -1,0 +1,53 @@
+{
+    "updateProgress.cpp": [
+        "self_assignment"
+    ],
+    "sendNotification.cpp": [],
+    "addMilestone.cpp": [],
+    "updateGoalProgress.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "displayProgressBar.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "getTargetAmount.cpp": [],
+    "main.cpp": [
+        "main_style",
+        "output"
+    ],
+    "checkMilestones.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "removeGoal.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "getName.cpp": [],
+    "getCurrentAmount.cpp": [],
+    "generateProgressReport.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "output"
+    ],
+    "scheduleReminder.cpp": [],
+    "getGoals.cpp": [],
+    "addGoal.cpp": []
+}

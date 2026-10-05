@@ -1,0 +1,31 @@
+{
+    "updateProgress.cpp": [],
+    "getFrequency.cpp": [],
+    "getTitle.cpp": [],
+    "support_transform.json": [],
+    "addHabit.cpp": [],
+    "getProgress.cpp": [],
+    "main.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "addTask.cpp": [],
+    "getCompletionStatus.cpp": [],
+    "getDeadline.cpp": [],
+    "markAsCompleted.cpp": [],
+    "getName.cpp": [],
+    "getDescription.cpp": [],
+    "getTasks.cpp": [],
+    "getHabits.cpp": [],
+    "generateReport.cpp": [
+        "output"
+    ],
+    "getGoals.cpp": [],
+    "getTimeAllocation.cpp": [],
+    "addGoal.cpp": []
+}

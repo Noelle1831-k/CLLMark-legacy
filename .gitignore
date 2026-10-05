@@ -1,0 +1,41 @@
+# Local credentials and preserved originals
+.env
+.env.*
+!.env.example
+.local-only/
+*.pem
+*.key
+
+# Python environments and caches (including historical data/ snapshot)
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# Platform-specific build products and downloaded grammars
+build/
+tree-sitter-*/
+*.so
+*.dylib
+*.dll
+*.pyd
+*.lib
+*.exp
+
+# Editors, OS files and generated AST diagrams
+.idea/
+.vscode/
+.DS_Store
+ast_tree
+ast_tree.*
+
+# Historical temporary files
+change/
+Temp/
+*bak
+process.txt
+dos2unix.py
+code_snippets.rar

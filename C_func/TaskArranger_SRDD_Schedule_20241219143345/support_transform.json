@@ -1,0 +1,53 @@
+{
+    "removeNotification.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "printTask.c": [],
+    "initTask.c": [],
+    "initUserInterface.c": [],
+    "support_transform.json": [],
+    "listTasks.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "initNotificationManager.c": [],
+    "addNotification.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "removeTask.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "initTaskManager.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "updateTask.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "addTask.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "runUserInterface.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init",
+        "declare"
+    ],
+    "listNotifications.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

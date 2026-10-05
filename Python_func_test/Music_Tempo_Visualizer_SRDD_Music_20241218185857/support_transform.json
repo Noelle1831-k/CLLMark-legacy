@@ -1,0 +1,73 @@
+{
+    "display_visualization.py": [
+        "print_flush",
+        "string_quota",
+        "f_string"
+    ],
+    "_smooth_tempo.py": [
+        "init_list",
+        "list"
+    ],
+    "__init__.py": [],
+    "extract_tempo_data.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "interact_with_visualization.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "handle_user_input.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "load_file.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "return",
+        "return_none"
+    ],
+    "create_visualization.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "customize_visualization.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "analyze_tempo.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "get_file_path.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "run.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ]
+}

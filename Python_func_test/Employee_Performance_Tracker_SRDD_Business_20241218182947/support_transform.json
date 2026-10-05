@@ -1,0 +1,34 @@
+{
+    "delete_report.py": [
+        "init_list"
+    ],
+    "disconnect.py": [],
+    "conduct_evaluation.py": [],
+    "update_evaluation.py": [],
+    "update_goal.py": [],
+    "fetch_results.py": [],
+    "execute_query.py": [],
+    "delete_goal.py": [],
+    "deserialize_report.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "create_tables.py": [],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "connect.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "update_report.py": [],
+    "set_performance_goal.py": [],
+    "generate_report.py": [],
+    "set_goal.py": [],
+    "delete_evaluation.py": []
+}

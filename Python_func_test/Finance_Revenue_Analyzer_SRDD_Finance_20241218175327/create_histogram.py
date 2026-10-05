@@ -1,0 +1,10 @@
+def create_histogram(self, data):
+        amounts = list(data.values())
+        plt.figure(figsize=(12, 7))
+        plt.hist(amounts, bins=10, color='purple', alpha=0.7)
+        plt.xlabel('Amount ($)')
+        plt.ylabel('Frequency')
+        plt.title('Revenue Amount Distribution')
+        plt.grid(axis='y', linestyle='--', alpha=0.7)
+        plt.tight_layout()
+        plt.show()

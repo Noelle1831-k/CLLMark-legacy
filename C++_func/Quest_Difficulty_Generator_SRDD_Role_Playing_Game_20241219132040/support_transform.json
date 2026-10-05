@@ -1,0 +1,47 @@
+{
+    "generateDynamicQuest.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "getRandomNumber.cpp": [],
+    "adjustDifficulty.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "getRandomString.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "getTimeConstraint.cpp": [],
+    "support_transform.json": [],
+    "getPreference.cpp": [],
+    "main.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "output"
+    ],
+    "getPlayerPreferences.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "while_to_for",
+        "output"
+    ],
+    "getName.cpp": [],
+    "calculateDifficulty.cpp": [],
+    "getDifficulty.cpp": [],
+    "getDescription.cpp": [],
+    "getEnemyStrength.cpp": [],
+    "getSkillLevel.cpp": [],
+    "getRequiredSkills.cpp": [],
+    "generateQuest.cpp": []
+}

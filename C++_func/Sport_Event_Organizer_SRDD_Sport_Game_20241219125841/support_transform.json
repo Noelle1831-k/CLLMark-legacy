@@ -1,0 +1,46 @@
+{
+    "updateProgress.cpp": [],
+    "addTeam.cpp": [],
+    "support_transform.json": [],
+    "getReferees.cpp": [],
+    "getProgress.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.cpp": [
+        "main_style",
+        "output"
+    ],
+    "getTeams.cpp": [],
+    "displaySchedule.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "registerParticipant.cpp": [],
+    "generateSchedule.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "declare",
+        "for_OOO"
+    ],
+    "getParticipants.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "assignReferees.cpp": [],
+    "getDetails.cpp": [],
+    "displayReport.cpp": [
+        "output"
+    ],
+    "generateReport.cpp": [
+        "output"
+    ],
+    "setDetails.cpp": []
+}

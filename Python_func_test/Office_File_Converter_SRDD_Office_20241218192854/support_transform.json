@@ -1,0 +1,73 @@
+{
+    "read_file.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "convert_spreadsheet.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "convert_file.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "convert_presentation.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "__init__.py": [],
+    "display_interface.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "write_file.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "_determine_file_type.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "convert_document.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "convert_image.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "select_output_format.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": [],
+    "upload_file.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "_map_choice_to_format.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

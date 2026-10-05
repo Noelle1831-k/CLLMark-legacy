@@ -1,0 +1,38 @@
+{
+    "buildStructure.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "main_style",
+        "output"
+    ],
+    "getResources.cpp": [],
+    "startGame.cpp": [
+        "while_to_for"
+    ],
+    "generateChallenges.cpp": [],
+    "initializeGame.cpp": [],
+    "getGravity.cpp": [],
+    "getName.cpp": [],
+    "hasAtmosphereSupport.cpp": [],
+    "displayStatus.cpp": [],
+    "endGame.cpp": [
+        "output"
+    ],
+    "generateRandomNumber.cpp": [],
+    "handleInput.cpp": [
+        "output",
+        "input"
+    ],
+    "manageResources.cpp": [
+        "self_assignment",
+        "output"
+    ],
+    "GameManager.cpp": []
+}

@@ -1,0 +1,56 @@
+{
+    "add_vocabulary.c": [],
+    "remove_vocabulary.c": [],
+    "check_progress.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "show_study_time.c": [],
+    "show_vocabulary.c": [],
+    "log_study_session.c": [],
+    "save_goals.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "display_menu.c": [],
+    "process_user_input.c": [],
+    "show_goals.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "calculate_total_study_time.c": [],
+    "show_grammar_rules.c": [],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "set_goal.c": [
+        "update_reverse"
+    ],
+    "load_goals.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "update_goal.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "remove_grammar_rule.c": [],
+    "add_grammar_rule.c": []
+}

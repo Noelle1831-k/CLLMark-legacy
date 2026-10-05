@@ -1,0 +1,50 @@
+{
+    "viewItem.cpp": [],
+    "viewMarketplace.cpp": [
+        "output"
+    ],
+    "viewUsers.cpp": [
+        "output"
+    ],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "removeUser.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "output"
+    ],
+    "ConnectHive.cpp": [],
+    "main.cpp": [
+        "main_style",
+        "output",
+        "input"
+    ],
+    "viewProfile.cpp": [],
+    "searchUser.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "output"
+    ],
+    "getName.cpp": [],
+    "addUser.cpp": [
+        "declare",
+        "output"
+    ],
+    "removeItemFromMarket.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "output"
+    ],
+    "addItemToMarket.cpp": [
+        "declare",
+        "output",
+        "input"
+    ]
+}

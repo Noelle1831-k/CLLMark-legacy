@@ -1,0 +1,58 @@
+{
+    "getStats.cpp": [],
+    "startRace.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "applyBooster.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "output"
+    ],
+    "calculateLapTime.cpp": [
+        "output"
+    ],
+    "name.cpp": [],
+    "main.cpp": [
+        "main_style",
+        "output"
+    ],
+    "updatePosition.cpp": [
+        "output"
+    ],
+    "getTrackInfo.cpp": [],
+    "startGame.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "declare",
+        "output",
+        "input"
+    ],
+    "displayResults.cpp": [
+        "output"
+    ],
+    "brake.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "generateTrack.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "calculateOptimalLine.cpp": [],
+    "Game.cpp": [],
+    "difficulty.cpp": [],
+    "accelerate.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "~Game.cpp": []
+}

@@ -1,0 +1,42 @@
+{
+    "stopTimer.c": [],
+    "initializeGame.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_init",
+        "for_OOO"
+    ],
+    "addPlayer.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access"
+    ],
+    "endGame.c": [],
+    "nextPlayer.c": [],
+    "getCurrentPlayer.c": [
+        "array_access"
+    ],
+    "startGame.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init"
+    ],
+    "displayTimer.c": [],
+    "main.c": [
+        "main_style",
+        "declare"
+    ],
+    "displayCurrentPlayer.c": [],
+    "startTimer.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "displayEndMessage.c": [],
+    "resetTimer.c": []
+}

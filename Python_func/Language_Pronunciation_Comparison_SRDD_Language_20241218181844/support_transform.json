@@ -1,0 +1,84 @@
+{
+    "start_application.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "load_audio_file.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "return_none"
+    ],
+    "support_transform.json": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "display_results.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "record_user_audio.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_similarity.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "save_audio_file.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "analyze_audio_file.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_exercises.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "evaluate_performance.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "give_feedback.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "compare_pronunciations.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota"
+    ],
+    "load_native_pronunciations.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "displayTasks.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "main.cpp": [
+        "main_style",
+        "output"
+    ],
+    "addTask.cpp": [],
+    "getDueDate.cpp": [],
+    "calculatePriority.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare"
+    ],
+    "getName.cpp": [],
+    "getTasks.cpp": [],
+    "updateTask.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "removeTask.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "getPriority.cpp": [],
+    "analyzeTasks.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "setPriority.cpp": []
+}

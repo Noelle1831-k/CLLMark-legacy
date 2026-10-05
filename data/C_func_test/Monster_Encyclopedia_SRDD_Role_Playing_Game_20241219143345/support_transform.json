@@ -1,0 +1,67 @@
+{
+    "getInput.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "addMonster.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "displayMonster.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "displayAllMonsters.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "markDefeated.c": [],
+    "createMonster.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "searchMonster.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "for_OOO"
+    ],
+    "initializeDatabase.c": [],
+    "sortMonsters.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "freeDatabase.c": [],
+    "updateMonster.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "for_OOO"
+    ],
+    "updateMonsterDetails.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

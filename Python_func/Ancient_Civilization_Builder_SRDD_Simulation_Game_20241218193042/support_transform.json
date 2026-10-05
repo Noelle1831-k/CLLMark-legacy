@@ -1,0 +1,112 @@
+{
+    "decrease_happiness.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "build_structure.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "display_status.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "advance_time.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "run_game_loop.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "upgrade.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "apply_impact.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "end_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "consume_resource.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "make_decision.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "__init__.py": [],
+    "manage_resources.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "start_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "is_game_over.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "get_challenges.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "upgrade_structure.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "add_resource.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "increase_population.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ]
+}

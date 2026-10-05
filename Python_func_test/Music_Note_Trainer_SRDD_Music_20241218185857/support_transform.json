@@ -1,0 +1,94 @@
+{
+    "run0.py": [
+        "print_flush",
+        "list",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "run_1.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "view_progress.py": [],
+    "start_exercise.py": [],
+    "create_exercise.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "run_3.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "run2.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "run_2.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "set_difficulty.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "get_user_input.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "set_level.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "update_progress.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "run.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "run1.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "display.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "display_progress.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ]
+}

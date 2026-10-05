@@ -1,0 +1,64 @@
+{
+    "setPrices.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "conductCampaign.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "manageEmployees.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "processTurn.c": [],
+    "initializeBusiness.c": [],
+    "startGame.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "while_to_for"
+    ],
+    "expandBusiness.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "manageInventory.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "makeInvestment.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "optimizeOperations.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "hireEmployee.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse"
+    ],
+    "displayMenu.c": [],
+    "getUserChoice.c": [],
+    "controlProduction.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "calculateProfits.c": [
+        "self_assignment",
+        "declare"
+    ]
+}

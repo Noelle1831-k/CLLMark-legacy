@@ -1,0 +1,3 @@
+void Expense::setAmount(double amt) {
+    amount = amt;
+}

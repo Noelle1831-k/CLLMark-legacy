@@ -1,0 +1,35 @@
+{
+    "display_error.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "display_banner.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "detect_language.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "translate.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_user_input.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "get_playlist_details.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "reorder_songs_in_playlist.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "remove_song_from_playlist.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "start.py": [],
+    "get_playlist.py": [],
+    "remove_song.py": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "reorder_songs.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "get_details.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "add_song.py": [],
+    "__init__.py": [],
+    "create_playlist.py": [],
+    "main.py": [],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "__str__.py": [],
+    "list_playlists.py": [],
+    "delete_playlist.py": [],
+    "add_song_to_playlist.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

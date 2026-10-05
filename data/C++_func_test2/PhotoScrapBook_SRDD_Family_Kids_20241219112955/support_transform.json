@@ -1,0 +1,54 @@
+{
+    "uploadPhoto.cpp": [],
+    "addPage.cpp": [
+        "output"
+    ],
+    "setFontStyle.cpp": [],
+    "getAlbums.cpp": [],
+    "getPhotosInAlbum.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.cpp": [
+        "main_style",
+        "declare",
+        "output",
+        "input"
+    ],
+    "getPhotos.cpp": [],
+    "addPhotoToAlbum.cpp": [],
+    "applyTemplate.cpp": [],
+    "shareViaLink.cpp": [
+        "output"
+    ],
+    "addSticker.cpp": [],
+    "addPhoto.cpp": [],
+    "renderScrapbook.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "setBackgroundColor.cpp": [],
+    "shareViaEmail.cpp": [
+        "output"
+    ],
+    "displayPage.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "showMenu.cpp": [
+        "output"
+    ],
+    "createAlbum.cpp": [],
+    "addCaption.cpp": [],
+    "organizePhotos.cpp": [
+        "output"
+    ]
+}

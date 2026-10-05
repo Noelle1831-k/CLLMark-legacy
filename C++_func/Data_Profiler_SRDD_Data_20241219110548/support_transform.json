@@ -1,0 +1,70 @@
+{
+    "splitString.cpp": [
+        "while_to_for"
+    ],
+    "calculateMedian.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "plotBoxPlot.cpp": [],
+    "calculateMode.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "calculateStandardDeviation.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "support_transform.json": [],
+    "findMissingValues.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "generateSummary.cpp": [],
+    "visualizeData.cpp": [],
+    "plotHistogram.cpp": [],
+    "analyzeData.cpp": [],
+    "loadData.cpp": [],
+    "readCSV.cpp": [
+        "while_to_for"
+    ],
+    "calculateMean.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "identifyOutliers.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "detectDataTypes.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

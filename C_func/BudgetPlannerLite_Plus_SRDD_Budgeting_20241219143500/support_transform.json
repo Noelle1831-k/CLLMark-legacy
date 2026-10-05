@@ -1,0 +1,51 @@
+{
+    "addIncome.c": [
+        "self_assignment"
+    ],
+    "support_transform.json": [],
+    "saveData.c": [],
+    "initializeData.c": [],
+    "addExpense.c": [
+        "self_assignment"
+    ],
+    "viewBudget.c": [],
+    "trackSavingsProgress.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style"
+    ],
+    "manageBudget.c": [],
+    "displayBudgetBreakdown.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "getValidatedInput.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse"
+    ],
+    "displayMainMenu.c": [],
+    "getValidatedDouble.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse"
+    ],
+    "setSavingsGoal.c": [],
+    "handleUserChoice.c": [],
+    "addToSavings.c": [
+        "self_assignment"
+    ]
+}

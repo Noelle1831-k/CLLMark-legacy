@@ -1,0 +1,12 @@
+def generate_scatter_plot(self, data):
+        labels = list(data.keys())
+        sizes = list(data.values())
+        plt.figure(figsize=(10, 6))
+        plt.scatter(labels, sizes, color='red')
+        plt.xlabel('Categories')
+        plt.ylabel('Amount')
+        plt.title('Budget Breakdown - Scatter Plot')
+        plt.grid(True)
+        plt.xticks(rotation=45, ha='right')
+        plt.tight_layout()
+        plt.show()

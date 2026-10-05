@@ -1,0 +1,44 @@
+{
+    "delay.c": [],
+    "updateGame.c": [
+        "declare"
+    ],
+    "endGame.c": [],
+    "support_transform.json": [],
+    "initializePlayer.c": [],
+    "initializeTarget.c": [],
+    "startGame.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "isHit.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare"
+    ],
+    "getRandomNumber.c": [],
+    "shoot.c": [
+        "self_assignment"
+    ],
+    "updateLeaderboard.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "displayLeaderboard.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "getScore.c": [],
+    "moveTarget.c": []
+}

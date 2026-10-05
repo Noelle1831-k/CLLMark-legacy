@@ -1,0 +1,51 @@
+{
+    "randomInt.cpp": [],
+    "isHitStatus.cpp": [],
+    "isHit.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "markAsHit.cpp": [],
+    "isRunning.cpp": [],
+    "renderGame.cpp": [],
+    "aim.cpp": [],
+    "updateGame.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "move.cpp": [
+        "self_assignment"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "startGame.cpp": [
+        "while_to_for",
+        "output"
+    ],
+    "generateTargets.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "reload.cpp": [],
+    "getBulletY.cpp": [],
+    "randomFloat.cpp": [],
+    "getBulletX.cpp": [],
+    "fire.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse"
+    ],
+    "checkGameOver.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "adjustScope.cpp": [],
+    "shoot.cpp": []
+}

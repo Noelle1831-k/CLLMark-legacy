@@ -1,0 +1,1 @@
+int Book::getReadingProgress() const { return readingProgress; }

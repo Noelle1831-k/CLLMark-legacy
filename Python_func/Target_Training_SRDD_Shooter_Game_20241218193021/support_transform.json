@@ -1,0 +1,72 @@
+{
+    "generate_random_position.py": [
+        "return"
+    ],
+    "shoot.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "hit.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "update.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "increase_score.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "stop_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "spawn.py": [
+        "return"
+    ],
+    "__init__.py": [],
+    "check_collision.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "start_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [],
+    "move.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "detect_collision.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

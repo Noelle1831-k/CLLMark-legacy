@@ -1,0 +1,86 @@
+{
+    "send_request.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "register.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "create_profile.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "list_opportunities.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "receive_message.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "respond_to_request.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "accept_request.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "decline_request.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "participate.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "send_message.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "main.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "list_resources.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "search_professionals.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

@@ -1,0 +1,153 @@
+{
+    "calculate_wind_effect.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "select_rifle.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_position.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "shoot.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_mission.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_rifle_details.py": [],
+    "_create_mission_objectives.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "_set_difficulty_level.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "_apply_scope_effect.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "is_hit.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "display_results.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "end_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "_initialize_rifles.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "_calculate_accuracy.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "is_completed.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "aim.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_hit_probability.py": [],
+    "calculate_effective_range.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "start_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "_assign_target_difficulty.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "adjust_scope.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "setup_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_trajectory.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "evaluate_mission.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ]
+}

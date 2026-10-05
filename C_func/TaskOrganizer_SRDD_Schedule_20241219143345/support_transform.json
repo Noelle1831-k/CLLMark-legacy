@@ -1,0 +1,50 @@
+{
+    "set_reminder.c": [],
+    "handle_choice.c": [],
+    "support_transform.json": [],
+    "set_time_slot.c": [],
+    "display_menu.c": [],
+    "get_task_by_priority.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "init_schedule.c": [],
+    "run.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "display_schedule.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "send_notification.c": [],
+    "add_task.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "set_priority.c": [],
+    "init_notification.c": [],
+    "init_task_organizer_app.c": [],
+    "display_task.c": [],
+    "update_progress.c": [],
+    "init_task.c": [],
+    "input_task.c": [
+        "array_init",
+        "declare"
+    ],
+    "remove_task.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

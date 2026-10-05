@@ -1,0 +1,30 @@
+{
+    "startMeditationSession.c": [],
+    "startMindfulActivity.c": [],
+    "startBreathingExercise.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "getValidatedInput.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "displayBreathingGuide.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "displayMainMenu.c": [],
+    "startMindfulnessGame.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "declare"
+    ],
+    "handleUserChoice.c": []
+}

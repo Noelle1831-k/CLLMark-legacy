@@ -1,0 +1,118 @@
+{
+    "accelerate.py": [
+        "self_assignment"
+    ],
+    "generate_turns.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "range_index",
+        "string_quota",
+        "f_string"
+    ],
+    "play_music.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "update.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "steer.py": [
+        "self_assignment"
+    ],
+    "bbox_intersect.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "brake.py": [],
+    "handle_input.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "load_track.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "render.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "update_position.py": [
+        "self_assignment"
+    ],
+    "get_user_input.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "start_game.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [],
+    "calculate_velocity.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_obstacles.py": [
+        "print_flush",
+        "print_end",
+        "range_index",
+        "string_quota"
+    ],
+    "play_sound.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "draw_vehicle.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "display_score.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "draw_track.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_track_data.py": [
+        "init_list",
+        "list",
+        "range_index",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "detect_collision.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

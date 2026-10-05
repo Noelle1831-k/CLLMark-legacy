@@ -1,0 +1,38 @@
+{
+    "runApp.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init"
+    ],
+    "loginUser.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init",
+        "declare"
+    ],
+    "initializeApp.c": [],
+    "support_transform.json": [],
+    "shutdownApp.c": [],
+    "startStream.c": [],
+    "sendMessage.c": [
+        "array_init"
+    ],
+    "selectMovie.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "logoutUser.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "registerUser.c": [],
+    "syncStream.c": [],
+    "loadMovies.c": [
+        "update_reverse",
+        "array_access"
+    ],
+    "receiveMessage.c": []
+}

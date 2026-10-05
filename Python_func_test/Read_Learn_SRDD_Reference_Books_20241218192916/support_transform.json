@@ -1,0 +1,99 @@
+{
+    "load_preferences.py": [
+        "print_flush",
+        "string_quota",
+        "f_string"
+    ],
+    "add_bookmark.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "start.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "load_bookmarks.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "save_books.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "display_categories.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "view_bookmarks.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "load_books.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "add_book.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "_build_categories.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "modify_preferences.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "remove_bookmark.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "save_bookmarks.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "save_preferences.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

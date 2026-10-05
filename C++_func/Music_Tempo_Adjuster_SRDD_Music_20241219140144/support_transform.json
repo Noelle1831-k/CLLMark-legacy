@@ -1,0 +1,31 @@
+{
+    "readFile.cpp": [],
+    "support_transform.json": [],
+    "adjustTempo.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "processAudioData.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "main.cpp": [
+        "main_style",
+        "declare"
+    ],
+    "getUserInput.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output",
+        "input"
+    ],
+    "loadAudioFile.cpp": [],
+    "writeFile.cpp": [],
+    "displayResult.cpp": [],
+    "maintainPitch.cpp": [
+        "output"
+    ]
+}

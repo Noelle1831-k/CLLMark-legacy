@@ -1,0 +1,36 @@
+{
+    "displayRewards.c": [],
+    "runApp.c": [
+        "declare",
+        "while_to_for"
+    ],
+    "initializeApp.c": [],
+    "trackFamilyProgress.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "createChallenge.c": [
+        "array_init"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "createUser.c": [
+        "array_init"
+    ],
+    "trackProgress.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "playTutorial.c": [],
+    "displayMenu.c": [],
+    "loadTutorials.c": [],
+    "createFamily.c": [
+        "array_init"
+    ],
+    "completeChallenge.c": [],
+    "assignReward.c": [],
+    "sendMotivation.c": []
+}

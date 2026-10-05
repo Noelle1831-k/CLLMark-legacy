@@ -1,0 +1,32 @@
+{
+    "speech_to_text.c": [
+        "array_access"
+    ],
+    "start_conversation.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init",
+        "array_access"
+    ],
+    "provide_conversation_topics.c": [],
+    "text_to_speech.c": [],
+    "login.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init",
+        "array_access",
+        "while_to_for"
+    ],
+    "main.c": [
+        "main_style",
+        "array_init"
+    ],
+    "provide_feedback.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "register_user.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

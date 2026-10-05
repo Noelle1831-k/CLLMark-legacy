@@ -1,0 +1,24 @@
+{
+    "processAudio.c": [],
+    "captureAudio.c": [],
+    "compareAudio.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "playAudio.c": [],
+    "support_transform.json": [],
+    "saveProgress.c": [],
+    "main.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style"
+    ],
+    "startExercise.c": [],
+    "provideFeedback.c": [],
+    "initializeExercises.c": []
+}

@@ -1,0 +1,37 @@
+{
+    "load_data.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "support_transform.json": [],
+    "display_history.c": [],
+    "display_progress_chart.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "save_data.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "display_savings_history_chart.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "get_savings_input.c": [],
+    "main.c": [
+        "main_style",
+        "array_init",
+        "declare"
+    ],
+    "set_goal.c": [],
+    "record_savings.c": [
+        "self_assignment"
+    ],
+    "calculate_progress.c": [],
+    "get_history_input.c": [],
+    "display_dashboard.c": []
+}

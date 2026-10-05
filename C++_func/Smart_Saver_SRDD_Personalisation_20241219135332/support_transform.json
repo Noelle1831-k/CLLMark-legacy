@@ -1,0 +1,54 @@
+{
+    "getDate.cpp": [],
+    "displayAllExpenses.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "support_transform.json": [],
+    "displayExpense.cpp": [],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "getCategory.cpp": [],
+    "main.cpp": [
+        "main_style",
+        "output"
+    ],
+    "showRecommendations.cpp": [],
+    "getUserInput.cpp": [
+        "output",
+        "input"
+    ],
+    "getTotalExpenses.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "showExpenses.cpp": [
+        "output"
+    ],
+    "addExpense.cpp": [
+        "declare",
+        "output",
+        "input"
+    ],
+    "getExpensesByCategory.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getAmount.cpp": [],
+    "generateRecommendations.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ]
+}

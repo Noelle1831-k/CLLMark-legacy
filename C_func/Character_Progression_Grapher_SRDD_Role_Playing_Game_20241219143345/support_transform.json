@@ -1,0 +1,57 @@
+{
+    "customize_graph.c": [],
+    "support_transform.json": [],
+    "generate_graph.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "display_graph_details.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "init_graph.c": [],
+    "load_character_data.c": [],
+    "init_file_handler.c": [],
+    "init_user_interface.c": [],
+    "save_graph_data.c": [],
+    "add_attribute.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "add_skill.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "init_character.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "display_character_details.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "get_user_input.c": [],
+    "get_progression_data.c": [],
+    "display_graph.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "add_equipment.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ]
+}

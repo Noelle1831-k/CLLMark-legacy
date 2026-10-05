@@ -1,0 +1,69 @@
+{
+    "get_user.py": [],
+    "send_reminders.py": [
+        "string_quota"
+    ],
+    "remove_exercise.py": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "send_notification.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "save_user.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "receive_notifications.py": [],
+    "modify_exercise.py": [],
+    "track_progress.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "customize_challenge.py": [],
+    "get_exercises.py": [],
+    "save_challenge.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "get_details.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "delete_user.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "delete_challenge.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "main.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "create_challenge.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "get_challenge.py": [],
+    "get_challenges.py": [],
+    "add_exercise.py": [],
+    "get_challenge_by_id.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ]
+}

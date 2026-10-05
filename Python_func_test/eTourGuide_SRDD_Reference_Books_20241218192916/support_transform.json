@@ -1,0 +1,79 @@
+{
+    "load_media.py": [
+        "string_quota"
+    ],
+    "display_exit_message.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "load_books.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "display_welcome_message.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "display_books.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "start_tour.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "get_info.py": [
+        "string_quota"
+    ],
+    "display_media.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "get_user_choice.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_location_choice.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "display_invalid_choice_message.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "load_tour_data.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

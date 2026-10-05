@@ -1,0 +1,49 @@
+{
+    "load_data.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init",
+        "while_to_for"
+    ],
+    "string_trim.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "while_to_for"
+    ],
+    "free_data.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "parse_data.c": [
+        "array_access",
+        "declare",
+        "while_to_for"
+    ],
+    "calculate_percentage.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "count_columns.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "check_consistency.c": [],
+    "check_accuracy.c": [],
+    "main.c": [
+        "main_style",
+        "array_init"
+    ],
+    "generate_report.c": [],
+    "check_validity.c": [],
+    "check_completeness.c": [],
+    "log_message.c": []
+}

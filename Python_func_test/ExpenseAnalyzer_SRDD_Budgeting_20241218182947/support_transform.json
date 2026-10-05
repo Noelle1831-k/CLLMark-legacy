@@ -1,0 +1,96 @@
+{
+    "show_report.py": [
+        "print_flush",
+        "string_quota",
+        "f_string"
+    ],
+    "display_error.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "generate_pie_chart.py": [
+        "list_index",
+        "string_quota",
+        "f_string"
+    ],
+    "load_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "display_success.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "confirm_action.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "get_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "set_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "add_expense.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_detailed_report.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "add_income.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "generate_line_chart.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "categorize_expense.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "get_user_input.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "generate_report.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "save_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_chart.py": [
+        "list_index",
+        "string_quota",
+        "f_string"
+    ]
+}

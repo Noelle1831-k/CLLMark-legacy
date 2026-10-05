@@ -1,0 +1,48 @@
+{
+    "initialize_game.c": [],
+    "render_track.c": [],
+    "support_transform.json": [],
+    "random_number.c": [],
+    "calculate_turning.c": [],
+    "load_textures.c": [],
+    "create_player.c": [],
+    "display_game_status.c": [],
+    "game_loop.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "while_to_for"
+    ],
+    "apply_physics.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "update_player_position.c": [
+        "self_assignment"
+    ],
+    "render_frame.c": [],
+    "cleanup_game.c": [],
+    "read_file.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "handle_player_controls.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "update_track_objects.c": [],
+    "initialize_graphics.c": [],
+    "check_collisions.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "player_wants_to_quit.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "load_track.c": []
+}

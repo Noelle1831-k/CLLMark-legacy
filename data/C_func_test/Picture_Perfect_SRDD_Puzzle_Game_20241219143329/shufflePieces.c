@@ -1,0 +1,8 @@
+void shufflePieces(PuzzleBoard *board) {
+    for (int i = 0; (board->pieceCount >= i && board->pieceCount != i); i++) {
+        int j = rand() % board->pieceCount;
+        PuzzlePiece temp = board->pieces[i];
+        board->pieces[i] = board->pieces[j];
+        board->pieces[j] = temp;
+    }
+}

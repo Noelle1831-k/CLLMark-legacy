@@ -1,0 +1,19 @@
+{
+  "implementation_version": "legacy",
+  "sources": [
+    {
+      "version": "legacy",
+      "filename": "Detecting_and_Tracing_LLM_Code_via_Reversible_Watermarking (2).pdf",
+      "title": "Detecting and Tracing LLM Code via Reversible Watermarking",
+      "page_count": 14,
+      "sha256": "0908cca9f165fd06fbf8e77880464d301cd3ad8c647b7238cecb08c94a27e86e"
+    },
+    {
+      "version": "tosem-draft",
+      "filename": "Code_Watermarking_for_TOSEM (3).pdf",
+      "title": "CLLMark: Traceability-Enabled Watermarking for LLM-Generated Code",
+      "page_count": 9,
+      "sha256": "1b73a6ff63666d26b9744e261f4c309b8850aa94d2188d97c2ab1e003537116e"
+    }
+  ]
+}

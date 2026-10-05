@@ -1,0 +1,67 @@
+{
+    "strcasestr.c": [
+        "declare"
+    ],
+    "save_article.c": [],
+    "update_preferences.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "for_OOO"
+    ],
+    "support_transform.json": [],
+    "search_articles.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "fetch_news.c": [
+        "array_access"
+    ],
+    "load_preferences.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "while_to_for"
+    ],
+    "show_menu.c": [],
+    "to_lowercase.c": [
+        "update_reverse",
+        "for_OOO"
+    ],
+    "view_saved_articles.c": [],
+    "main.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style"
+    ],
+    "display_recommended_news.c": [],
+    "read_file.c": [
+        "array_init",
+        "while_to_for"
+    ],
+    "handle_menu_choice.c": [
+        "array_init"
+    ],
+    "save_preferences.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "filter_news.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ]
+}

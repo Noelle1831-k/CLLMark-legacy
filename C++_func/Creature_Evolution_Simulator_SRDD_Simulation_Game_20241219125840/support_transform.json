@@ -1,0 +1,36 @@
+{
+    "adjustHumidity.cpp": [
+        "self_assignment"
+    ],
+    "start.cpp": [
+        "output"
+    ],
+    "mutate.cpp": [
+        "self_assignment"
+    ],
+    "support_transform.json": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "adapt.cpp": [
+        "self_assignment"
+    ],
+    "adjustTemperature.cpp": [
+        "self_assignment"
+    ],
+    "run.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "displayStatus.cpp": [
+        "output"
+    ],
+    "adjustFoodAvailability.cpp": [
+        "self_assignment"
+    ],
+    "adjustPredatorPresence.cpp": [
+        "self_assignment"
+    ]
+}

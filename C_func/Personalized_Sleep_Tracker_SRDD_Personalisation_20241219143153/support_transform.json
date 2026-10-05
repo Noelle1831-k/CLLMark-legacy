@@ -1,0 +1,26 @@
+{
+    "run_app.c": [],
+    "update_preferences.c": [],
+    "support_transform.json": [],
+    "init_sleep_data.c": [],
+    "init_analyzer.c": [],
+    "generate_recommendations.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "analyze_data.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "init_app.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "get_data.c": [],
+    "init_user.c": [],
+    "add_entry.c": []
+}

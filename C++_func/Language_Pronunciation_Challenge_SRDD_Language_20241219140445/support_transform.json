@@ -1,0 +1,35 @@
+{
+    "playAudio.cpp": [],
+    "support_transform.json": [],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "getUserChoice.cpp": [
+        "output",
+        "input"
+    ],
+    "main.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "declare",
+        "output"
+    ],
+    "recordUserAudio.cpp": [],
+    "saveAudioFile.cpp": [],
+    "loadAudioFile.cpp": [],
+    "selectDifficulty.cpp": [
+        "output",
+        "input"
+    ],
+    "selectLanguage.cpp": [
+        "output",
+        "input"
+    ],
+    "analyzePronunciation.cpp": [],
+    "provideFeedback.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ]
+}

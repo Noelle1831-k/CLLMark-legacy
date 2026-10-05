@@ -1,0 +1,61 @@
+{
+    "update_screen_time.py": [],
+    "track_sleep.py": [
+        "init_list",
+        "list"
+    ],
+    "get_reminder.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_techniques.py": [],
+    "set_sleep_goal.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "get_sleep_data.py": [
+        "init_list",
+        "list"
+    ],
+    "get_recommendations.py": [
+        "init_list",
+        "list"
+    ],
+    "analyze_sleep_patterns.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "set_reminder.py": [],
+    "generate_recommendations.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "get_sleep_goal.py": [],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__str__.py": [
+        "string_quota"
+    ],
+    "recommend_technique.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "update_caffeine_intake.py": []
+}

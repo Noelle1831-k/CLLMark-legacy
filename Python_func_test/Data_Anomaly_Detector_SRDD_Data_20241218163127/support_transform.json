@@ -1,0 +1,68 @@
+{
+    "calculate_z_score.py": [
+        "print_flush",
+        "string_quota",
+        "f_string"
+    ],
+    "display_dashboard.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "import_data.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "detect_anomalies.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "normalize_data.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "statistical_analysis.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "select_variables.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "visualize_anomalies.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "machine_learning_analysis.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "main.py": [],
+    "generate_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

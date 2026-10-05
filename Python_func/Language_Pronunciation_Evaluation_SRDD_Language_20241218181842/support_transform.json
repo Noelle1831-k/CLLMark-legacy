@@ -1,0 +1,35 @@
+{
+    "support_transform.json": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "record_audio.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "analyze_pronunciation.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "generate_feedback.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ]
+}

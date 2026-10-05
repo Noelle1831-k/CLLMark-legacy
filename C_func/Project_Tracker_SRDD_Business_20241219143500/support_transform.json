@@ -1,0 +1,20 @@
+{
+    "support_transform.json": [],
+    "generateReport.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "createTask.c": [],
+    "assignTask.c": [],
+    "main.c": [
+        "main_style",
+        "array_init",
+        "declare"
+    ],
+    "trackProgress.c": []
+}

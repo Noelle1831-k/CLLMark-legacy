@@ -1,0 +1,3 @@
+void Expense::setCategory(string cat) {
+    category = cat;
+}

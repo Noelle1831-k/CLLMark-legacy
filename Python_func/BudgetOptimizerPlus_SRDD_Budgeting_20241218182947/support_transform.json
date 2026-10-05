@@ -1,0 +1,79 @@
+{
+    "load_data.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "track_progress.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "generate_recommendations.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "get_spending_patterns.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "update_spending.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "analyze_spending.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "set_goal.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "save_data.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

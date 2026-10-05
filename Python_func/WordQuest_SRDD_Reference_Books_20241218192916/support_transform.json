@@ -1,0 +1,89 @@
+{
+    "play1.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "handle_choice.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "load_user_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "play_1.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "save_user_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_random_words.py": [],
+    "play.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "load_word_list.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_suggestions.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "play_2.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "play0.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ]
+}

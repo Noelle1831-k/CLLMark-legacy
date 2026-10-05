@@ -1,0 +1,13 @@
+def display_menu(self):
+        print("\nInventory Tracker Menu:")
+        print("1. Add Inventory Item")
+        print("2. Remove Inventory Item")
+        print("3. Update Inventory Item")
+        print("4. Create Order")
+        print("5. Cancel Order")
+        print("6. Process Order")
+        print("7. Generate Inventory Report")
+        print("8. Generate Order Report")
+        print("9. Search Inventory Item")
+        print("10. Search Order")
+        print("11. Exit")

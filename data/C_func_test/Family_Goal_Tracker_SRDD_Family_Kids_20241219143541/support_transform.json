@@ -1,0 +1,69 @@
+{
+    "clearInputBuffer.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "assignGoal.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "array_init"
+    ],
+    "initializeReminders.c": [],
+    "displayVisualizations.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "celebrateAchievements.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "setReminder.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse"
+    ],
+    "viewAllGoals.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "initializeGoalManager.c": [],
+    "trackProgress.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "displayMenu.c": [],
+    "printCurrentDate.c": [],
+    "createGoal.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "array_access"
+    ]
+}

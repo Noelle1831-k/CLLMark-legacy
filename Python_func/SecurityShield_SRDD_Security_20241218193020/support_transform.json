@@ -1,0 +1,64 @@
+{
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "encrypt_data.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "revoke_access.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "scan_devices.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "list_access.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "detect_unauthorized_access.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "log_event.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "grant_access.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "decrypt_data.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "displayGroup.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "createGroup.cpp": [
+        "output"
+    ],
+    "support_transform.json": [],
+    "main.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "displayResource.cpp": [],
+    "createProfile.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "declare",
+        "while_to_for",
+        "output"
+    ],
+    "addResource.cpp": [
+        "output"
+    ],
+    "displayProfile.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "addMember.cpp": []
+}

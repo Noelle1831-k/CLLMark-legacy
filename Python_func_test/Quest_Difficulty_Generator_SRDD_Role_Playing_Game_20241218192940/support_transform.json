@@ -1,0 +1,29 @@
+{
+    "determine_skills.py": [
+        "init_list",
+        "list",
+        "range_index",
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_time_limit.py": [],
+    "__init__.py": [],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_quest.py": [],
+    "__str__.py": [
+        "string_quota"
+    ],
+    "select_enemies.py": [
+        "init_list",
+        "list",
+        "range_index",
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_difficulty.py": []
+}

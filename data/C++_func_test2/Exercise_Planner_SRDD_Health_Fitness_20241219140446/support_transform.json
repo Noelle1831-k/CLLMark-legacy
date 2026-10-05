@@ -1,0 +1,50 @@
+{
+    "sendNotification.cpp": [],
+    "getPersonalDetails.cpp": [],
+    "scheduleWorkout.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "output"
+    ],
+    "removeExercise.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getExerciseDetails.cpp": [],
+    "setExerciseDetails.cpp": [],
+    "sendReminder.cpp": [
+        "output"
+    ],
+    "getPlan.cpp": [],
+    "getSchedule.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "addExercise.cpp": [],
+    "generatePlan.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "declare"
+    ],
+    "setPersonalDetails.cpp": [],
+    "getNotifications.cpp": [
+        "output"
+    ],
+    "getGoals.cpp": [],
+    "setGoals.cpp": []
+}

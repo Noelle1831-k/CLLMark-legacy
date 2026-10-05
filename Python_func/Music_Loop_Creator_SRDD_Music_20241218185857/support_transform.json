@@ -1,0 +1,106 @@
+{
+    "remove_note_from_pattern.py": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "add_note_to_pattern.py": [],
+    "edit_grid.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "add_note.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "assign_pattern.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "initialize_ui.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "remove_note.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "export.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "create_new_pattern.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "set_tempo.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "play.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "export_loop.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_tempo.py": [],
+    "display_grid.py": [
+        "print_flush",
+        "print_end",
+        "range_index",
+        "string_quota",
+        "f_string"
+    ],
+    "play_sound.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "run.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "get_instrument_by_name.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "load_sound.py": [
+        "string_quota"
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "get_exercise_info.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "record_progress.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "get_tips.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_plan.py": [
+        "init_list",
+        "list"
+    ],
+    "display_plan.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_workout_plan.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "set_sport.py": [],
+    "generate_report.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "add_record.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "set_training_goals.py": [],
+    "add_exercise.py": []
+}

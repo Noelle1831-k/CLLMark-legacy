@@ -1,0 +1,66 @@
+{
+    "endGame.c": [],
+    "increaseDifficulty.c": [
+        "self_assignment"
+    ],
+    "isComplete.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "startGame.c": [],
+    "shufflePieces.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "movePiece.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "loadLevel.c": [],
+    "removePiece.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "rotate.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "displayBoard.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "play.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init",
+        "declare",
+        "while_to_for"
+    ],
+    "rotatePiece.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "connect.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "addPiece.c": []
+}

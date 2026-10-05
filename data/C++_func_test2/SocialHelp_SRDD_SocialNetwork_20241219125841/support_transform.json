@@ -1,0 +1,57 @@
+{
+    "getRequests.cpp": [],
+    "addRequest.cpp": [],
+    "addAssistance.cpp": [],
+    "getSkills.cpp": [],
+    "getType.cpp": [],
+    "getLocation.cpp": [],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "getCurrentTimestamp.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "getMessages.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "getName.cpp": [],
+    "getUsers.cpp": [],
+    "getUser.cpp": [],
+    "createAssistance.cpp": [
+        "declare",
+        "output",
+        "input"
+    ],
+    "sendMessage.cpp": [
+        "declare"
+    ],
+    "run.cpp": [],
+    "createRequest.cpp": [
+        "declare",
+        "output",
+        "input"
+    ],
+    "getEmail.cpp": [],
+    "viewMessages.cpp": [
+        "output",
+        "input"
+    ],
+    "addUser.cpp": [],
+    "viewAssistances.cpp": [],
+    "viewRequests.cpp": [],
+    "createUser.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "handleUserInput.cpp": [
+        "output",
+        "input"
+    ],
+    "getAssistances.cpp": []
+}

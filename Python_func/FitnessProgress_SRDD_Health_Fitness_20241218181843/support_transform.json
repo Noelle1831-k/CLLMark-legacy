@@ -1,0 +1,65 @@
+{
+    "get_entries.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "login_user.py": [
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "calculate_progress.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "display_dashboard.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "update_entry.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "refresh_dashboard.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "register_user.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "query_db.py": [],
+    "__init__.py": [],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "delete_entry.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "connect_db.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_report.py": [
+        "string_quota"
+    ],
+    "add_entry.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

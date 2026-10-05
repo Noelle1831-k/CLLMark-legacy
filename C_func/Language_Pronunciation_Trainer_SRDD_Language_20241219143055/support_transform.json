@@ -1,0 +1,36 @@
+{
+    "run_intonation_practice.c": [],
+    "load_tongue_twisters.c": [],
+    "support_transform.json": [],
+    "(.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "analyze_audio_data.c": [],
+    "display_feedback.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "start_microphone_capture.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "array_init"
+    ],
+    "print_instructions.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "run_tongue_twister.c": [],
+    "run_word_stress_drill.c": [],
+    "calculate_pronunciation_accuracy.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ]
+}

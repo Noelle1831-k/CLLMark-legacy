@@ -1,0 +1,67 @@
+{
+    "chooseActivity.cpp": [
+        "output"
+    ],
+    "start.cpp": [],
+    "endSession.cpp": [
+        "output"
+    ],
+    "MainApp.cpp": [
+        "output"
+    ],
+    "simulateColoring.cpp": [
+        "output"
+    ],
+    "startSession.cpp": [
+        "output"
+    ],
+    "support_transform.json": [],
+    "displayMenu.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "viewJournalEntries.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "startGame.cpp": [],
+    "chooseColors.cpp": [
+        "output",
+        "input"
+    ],
+    "endGame.cpp": [
+        "output"
+    ],
+    "play.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "displayPage.cpp": [
+        "output"
+    ],
+    "showInstructions.cpp": [
+        "output"
+    ],
+    "guideBreathingExercise.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "writeJournalEntry.cpp": [
+        "output"
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "import_data.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "plot_correlation_matrix.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "plot_scatter.py": [
+        "string_quota"
+    ],
+    "generate_correlation_matrix.py": [],
+    "select_variables.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "__init__.py": [],
+    "calculate_correlation.py": [
+        "return_none"
+    ],
+    "run.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "validate_data.py": []
+}

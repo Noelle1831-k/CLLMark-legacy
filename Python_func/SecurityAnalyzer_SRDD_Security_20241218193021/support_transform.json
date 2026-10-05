@@ -1,0 +1,74 @@
+{
+    "check_system_integrity.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "check_security_patches.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "scan_applications.py": [],
+    "run_scan.py": [],
+    "identify_open_ports.py": [
+        "list",
+        "string_quota"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "check_outdated_versions.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "verify_user_permissions.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "format_report.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "analyze_application_logs.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "check_dns_configuration.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "scan_network.py": [],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "scan_system.py": [],
+    "save_report.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "check_firewall_settings.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "log_results.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "validate_application_configs.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_report.py": [
+        "print_flush",
+        "print_end"
+    ]
+}

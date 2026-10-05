@@ -1,0 +1,35 @@
+{
+    "loginUser.c": [],
+    "authenticateUser.c": [],
+    "displayMessages.c": [],
+    "support_transform.json": [],
+    "joinGroup.c": [
+        "array_init"
+    ],
+    "sendMessage.c": [
+        "array_init",
+        "declare"
+    ],
+    "saveUserToDatabase.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "registerUser.c": [],
+    "createGroup.c": [
+        "array_init"
+    ],
+    "saveMessageToGroup.c": [],
+    "handleUserLogin.c": [
+        "array_init",
+        "declare"
+    ],
+    "handleGroupChatOptions.c": [],
+    "displayMainMenu.c": [],
+    "saveGroupToDatabase.c": [],
+    "addUserToGroup.c": [],
+    "handleUserRegistration.c": [
+        "array_init",
+        "declare"
+    ],
+    "loadMessagesForUser.c": []
+}

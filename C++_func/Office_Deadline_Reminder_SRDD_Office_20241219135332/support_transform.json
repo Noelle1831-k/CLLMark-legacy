@@ -1,0 +1,102 @@
+{
+    "getAllTasks.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "setReminder.cpp": [],
+    "getRemindersForTask.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "setTaskDetails.cpp": [],
+    "support_transform.json": [],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "getReminderTime.cpp": [],
+    "getTaskDetails.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "addTask.cpp": [
+        "declare",
+        "output",
+        "input"
+    ],
+    "getDeadline.cpp": [],
+    "getTaskID.cpp": [],
+    "markAsCompleted.cpp": [],
+    "removeReminder.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "getTaskById.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "updateTask.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "removeTask.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "addReminder.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "declare",
+        "output",
+        "input"
+    ],
+    "getUpcomingDeadlines.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "checkAllReminders.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "handleUserInput.cpp": [
+        "while_to_for",
+        "output"
+    ],
+    "getReminderDetails.cpp": []
+}

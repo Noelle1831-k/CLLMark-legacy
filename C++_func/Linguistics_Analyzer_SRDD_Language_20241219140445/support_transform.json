@@ -1,0 +1,40 @@
+{
+    "support_transform.json": [],
+    "detectGrammaticalErrors.cpp": [],
+    "checkGrammar.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "output"
+    ],
+    "main.cpp": [
+        "main_style",
+        "output"
+    ],
+    "determineSentenceStructure.cpp": [],
+    "tokenize.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "determineStructure.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "output"
+    ],
+    "identifyPartsOfSpeech.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "identify.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "analyzeSentence.cpp": [
+        "output"
+    ],
+    "tokenizeSentence.cpp": []
+}

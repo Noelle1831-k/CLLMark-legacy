@@ -1,0 +1,62 @@
+{
+    "createChallenge.cpp": [],
+    "listExperiences.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "viewChallenge.cpp": [],
+    "support_transform.json": [],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "editChallenge.cpp": [],
+    "main.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "viewProfile.cpp": [],
+    "editHunt.cpp": [],
+    "createHunt.cpp": [],
+    "validateEmail.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "createProfile.cpp": [],
+    "shareExperience.cpp": [],
+    "listHunts.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "addChallengeToHunt.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse"
+    ],
+    "registerUser.cpp": [],
+    "viewHunt.cpp": [],
+    "loginUser.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "participateInHunt.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse"
+    ],
+    "inviteParticipants.cpp": [],
+    "editProfile.cpp": [],
+    "createHunt_1.cpp": []
+}

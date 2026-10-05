@@ -1,0 +1,35 @@
+{
+    "startChallenges.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare",
+        "while_to_for"
+    ],
+    "showChallenge.cpp": [],
+    "showTimer.cpp": [],
+    "setTimer.cpp": [],
+    "nextChallenge.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "output"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "startTimer.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "displayTime.cpp": [],
+    "isTimeUp.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "addChallenge.cpp": [],
+    "resetTimer.cpp": []
+}

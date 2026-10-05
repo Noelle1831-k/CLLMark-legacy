@@ -1,0 +1,41 @@
+{
+    "resetScore.cpp": [
+        "output"
+    ],
+    "initialize.cpp": [
+        "output"
+    ],
+    "ammoStatus.cpp": [],
+    "move.cpp": [
+        "output"
+    ],
+    "checkHit.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ],
+    "spawnTarget.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "startGame.cpp": [
+        "output",
+        "input"
+    ],
+    "reload.cpp": [
+        "output"
+    ],
+    "updateScore.cpp": [
+        "self_assignment"
+    ],
+    "generateRandom.cpp": [],
+    "fire.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "output"
+    ],
+    "displayScore.cpp": []
+}

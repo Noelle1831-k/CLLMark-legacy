@@ -1,0 +1,55 @@
+{
+    "set_category.py": [],
+    "remove_reminder.py": [],
+    "view_progress.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "add_achievement.py": [],
+    "complete_achievement.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "calculate_reward.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "set_deadline.py": [],
+    "__init__.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "view_rewards.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "set_tags.py": [],
+    "add_reminder.py": [],
+    "update_achievement.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "set_status.py": [],
+    "notify_user.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ]
+}

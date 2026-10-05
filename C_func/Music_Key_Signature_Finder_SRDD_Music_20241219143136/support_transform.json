@@ -1,0 +1,31 @@
+{
+    "support_transform.json": [],
+    "initializeInterface.c": [],
+    "main.c": [
+        "main_style",
+        "array_init",
+        "declare"
+    ],
+    "displayMenu.c": [],
+    "displayEducationalResources.c": [],
+    "validateNotesInput.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "getUserChoice.c": [],
+    "findKeySignature.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "for_OOO"
+    ]
+}

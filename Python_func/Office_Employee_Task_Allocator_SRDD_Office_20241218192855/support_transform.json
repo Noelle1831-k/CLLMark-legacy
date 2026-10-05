@@ -1,0 +1,54 @@
+{
+    "add_employee.py": [],
+    "add_task.py": [],
+    "generate_task_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_workload.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "__init___1.py": [
+        "init_list",
+        "list"
+    ],
+    "assign_task.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "__init__0.py": [
+        "init_list",
+        "list"
+    ],
+    "__init__.py": [],
+    "main.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_id.py": [],
+    "get_tasks.py": [],
+    "update_task_status.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "generate_workload_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_employees.py": []
+}

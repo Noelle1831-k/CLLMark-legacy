@@ -1,0 +1,3 @@
+void ScoreManager::applyComboBonus() {
+    comboMultiplier++;
+}

@@ -1,0 +1,81 @@
+{
+    "createClub.cpp": [
+        "output"
+    ],
+    "joinBookClub.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "declare",
+        "output",
+        "input"
+    ],
+    "support_transform.json": [],
+    "shareBookRecommendations.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "output",
+        "input"
+    ],
+    "createBookClub.cpp": [
+        "output",
+        "input"
+    ],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "viewClubDetails.cpp": [
+        "output"
+    ],
+    "leaveClub.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "getUsername.cpp": [],
+    "viewProfile.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "createProfile.cpp": [
+        "output"
+    ],
+    "removeMember.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "run.cpp": [],
+    "joinClub.cpp": [],
+    "startDiscussion.cpp": [],
+    "createUserProfile.cpp": [
+        "declare",
+        "output",
+        "input"
+    ],
+    "participateInDiscussions.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "output",
+        "input"
+    ],
+    "handleInput.cpp": [
+        "output",
+        "input"
+    ],
+    "addMember.cpp": [],
+    "getUserId.cpp": []
+}

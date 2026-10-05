@@ -1,0 +1,1 @@
+int Book::getYear() const { return year; }

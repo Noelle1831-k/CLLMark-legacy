@@ -1,0 +1,47 @@
+{
+    "translateText.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "for_OOO"
+    ],
+    "addTranslation.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse"
+    ],
+    "showMenu.c": [],
+    "safeMalloc.c": [],
+    "loadDictionary.c": [
+        "array_init",
+        "array_access",
+        "while_to_for"
+    ],
+    "saveTranslationsToFile.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "array_init",
+        "array_access",
+        "declare"
+    ],
+    "saveDictionary.c": [],
+    "trimString.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "while_to_for"
+    ]
+}

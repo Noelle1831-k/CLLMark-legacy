@@ -1,0 +1,37 @@
+{
+    "viewReminders.c": [],
+    "startChallenge.c": [
+        "array_init"
+    ],
+    "sendReminder.c": [],
+    "loadChallenges.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "viewProgress.c": [],
+    "logProgress.c": [],
+    "setReminder.c": [],
+    "saveChallenge.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "deleteChallenge.c": [],
+    "clearReminder.c": [],
+    "createChallenge.c": [
+        "array_init",
+        "declare"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "displayMenu.c": [],
+    "exitApp.c": [],
+    "viewChallenges.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "resetProgress.c": [],
+    "updateProgress.c": []
+}

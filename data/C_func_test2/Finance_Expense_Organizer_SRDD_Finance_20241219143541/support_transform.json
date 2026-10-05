@@ -1,0 +1,59 @@
+{
+    "addCategory.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "listExpenses.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "destroyUserInterface.c": [],
+    "createUserInterface.c": [],
+    "destroyCategory.c": [],
+    "createExpense.c": [],
+    "addExpense.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "createCategory.c": [],
+    "createCategoryManager.c": [],
+    "destroyExpense.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "removeExpense.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "destroyCategoryManager.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "createExpenseManager.c": [],
+    "runUserInterface.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "array_init",
+        "declare"
+    ],
+    "destroyExpenseManager.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "listCategories.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "printCategory.c": [],
+    "printExpense.c": []
+}

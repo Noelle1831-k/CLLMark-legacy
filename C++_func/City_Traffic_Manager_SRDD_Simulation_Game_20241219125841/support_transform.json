@@ -1,0 +1,69 @@
+{
+    "support_transform.json": [],
+    "optimizeSignal.cpp": [],
+    "calculateTrafficFlow.cpp": [],
+    "stopSimulation.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "modifyTrafficSignal.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "modifyPublicTransport.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "addRoad.cpp": [],
+    "modifyRoad.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "getName.cpp": [],
+    "addTrafficSignal.cpp": [],
+    "pauseSimulation.cpp": [
+        "output"
+    ],
+    "changeSignal.cpp": [],
+    "getRoad.cpp": [],
+    "getIntersection.cpp": [],
+    "scheduleTransport.cpp": [],
+    "setTiming.cpp": [],
+    "optimizeSchedule.cpp": [],
+    "addRoute.cpp": [],
+    "addPublicTransport.cpp": [],
+    "setLength.cpp": [],
+    "simulateTraffic.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "setLanes.cpp": [],
+    "startSimulation.cpp": [
+        "output"
+    ]
+}

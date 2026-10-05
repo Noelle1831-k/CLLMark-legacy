@@ -1,0 +1,33 @@
+{
+    "parse_query.py": [
+        "string_quota",
+        "f_string",
+        "return"
+    ],
+    "load_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_data.py": [],
+    "execute_query.py": [
+        "init_list"
+    ],
+    "__init__.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "start_server.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "handle_request.py": [
+        "string_quota",
+        "f_string",
+        "return"
+    ]
+}

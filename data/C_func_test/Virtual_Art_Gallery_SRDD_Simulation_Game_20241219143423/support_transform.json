@@ -1,0 +1,29 @@
+{
+    "initializeGame.c": [],
+    "saveGalleriesToFile.c": [],
+    "createGallery.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_init"
+    ],
+    "loadGalleriesFromFile.c": [],
+    "displayGalleries.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "addArtwork.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "terminateGame.c": [],
+    "loadArtworksFromFile.c": [],
+    "saveArtworksToFile.c": [],
+    "gameLoop.c": []
+}

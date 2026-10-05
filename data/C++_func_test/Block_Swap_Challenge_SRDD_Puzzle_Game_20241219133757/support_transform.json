@@ -1,0 +1,56 @@
+{
+    "decrementMoves.cpp": [
+        "update_reverse"
+    ],
+    "getType.cpp": [],
+    "getMoves.cpp": [],
+    "swapBlocks.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "declare",
+        "output",
+        "input"
+    ],
+    "displayBoard.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "startGame.cpp": [],
+    "setType.cpp": [],
+    "displayInstructions.cpp": [
+        "output"
+    ],
+    "displayStatus.cpp": [],
+    "updateScore.cpp": [
+        "self_assignment"
+    ],
+    "calculateScore.cpp": [],
+    "clearMatches.cpp": [],
+    "activatePowerUp.cpp": [
+        "output"
+    ],
+    "checkGameOver.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "nextLevel.cpp": [
+        "self_assignment",
+        "update_reverse"
+    ],
+    "getScore.cpp": [],
+    "initializeBoard.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "rows.cpp": [],
+    "checkMatches.cpp": [],
+    "resetMoves.cpp": []
+}

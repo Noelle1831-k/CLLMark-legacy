@@ -1,0 +1,26 @@
+{
+    "remove_task.py": [],
+    "update_task.py": [],
+    "add_task.py": [],
+    "update_status.py": [],
+    "allocate_time.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_tasks.py": [],
+    "generate_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

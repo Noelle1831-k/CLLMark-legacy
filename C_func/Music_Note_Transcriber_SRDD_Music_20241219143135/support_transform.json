@@ -1,0 +1,51 @@
+{
+    "loadTranscription.c": [
+        "array_init"
+    ],
+    "recordAudio.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "array_init"
+    ],
+    "saveTranscription.c": [],
+    "support_transform.json": [],
+    "(.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "recognizeNotes.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "for_OOO"
+    ],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "array_init",
+        "declare"
+    ],
+    "printArray.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "displayMenu.c": [],
+    "extractFeatures.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "for_OOO"
+    ],
+    "calculateFrequency.c": []
+}

@@ -1,0 +1,72 @@
+{
+    "displayStaff.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "displayKeyboard.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "getInterval.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "support_transform.json": [],
+    "playScale.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "generateScale.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "displayResults.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style",
+        "array_init",
+        "declare"
+    ],
+    "handleUserInput.c": [],
+    "getScaleNotes.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "getNoteAtInterval.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ]
+}

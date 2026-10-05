@@ -1,0 +1,56 @@
+{
+    "track_spending.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "plot_budget_breakdown.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "load_data.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_budget.py": [],
+    "add_expense.py": [],
+    "run_application.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "add_income.py": [
+        "self_assignment"
+    ],
+    "get_financial_summary.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "generate_recommendations.py": [
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "display_spending_patterns.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "save_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "set_budget_goal.py": []
+}

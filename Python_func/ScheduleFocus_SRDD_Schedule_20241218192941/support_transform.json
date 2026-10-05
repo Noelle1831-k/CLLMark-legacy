@@ -1,0 +1,76 @@
+{
+    "remove_task.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "validate_time.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "update_task.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "return_none"
+    ],
+    "add_task.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "return_none"
+    ],
+    "support_transform.json": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_duration.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "set_reminder.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "check_overlap.py": [
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "start_focus_session.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "__str__.py": [
+        "string_quota"
+    ],
+    "list_tasks.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "parse_date.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

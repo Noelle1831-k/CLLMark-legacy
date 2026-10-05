@@ -1,0 +1,22 @@
+{
+    "support_transform.json": [],
+    "analyze.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "main.cpp": [
+        "main_style",
+        "output"
+    ],
+    "getKey.cpp": [],
+    "getEducationalResources.cpp": [],
+    "setKey.cpp": [],
+    "displayKeySignature.cpp": []
+}

@@ -1,0 +1,44 @@
+{
+    "createProfile.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "shareFile.c": [
+        "array_init"
+    ],
+    "saveDatabase.c": [],
+    "initDatabase.c": [],
+    "listProfiles.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "startChat.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init"
+    ],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "displayMenu.c": [],
+    "handleInvalidInput.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "searchUsers.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "for_OOO"
+    ]
+}

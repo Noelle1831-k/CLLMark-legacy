@@ -1,0 +1,2 @@
+void Outlaw::attack() {
+}

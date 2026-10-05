@@ -1,0 +1,53 @@
+{
+    "get_user.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "save_recipe.py": [],
+    "suggest.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "create_profile.py": [
+        "string_quota"
+    ],
+    "start.py": [],
+    "load_profile.py": [
+        "string_quota",
+        "return_none"
+    ],
+    "get_recipe.py": [
+        "string_quota",
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "suggest_substitution.py": [
+        "string_quota"
+    ],
+    "start_timer.py": [],
+    "__init__.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "run_timer.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "share_recipe.py": [],
+    "add_recipe.py": [
+        "string_quota"
+    ],
+    "__str__.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "add_to_grocery_list.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "add_items.py": []
+}

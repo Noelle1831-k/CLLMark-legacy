@@ -1,0 +1,3 @@
+void MeetingOrganizer::organizeMeetings() {
+    categorizeMeetings();
+}

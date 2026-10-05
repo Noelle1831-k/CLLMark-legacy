@@ -1,0 +1,54 @@
+{
+    "saveUserData.c": [],
+    "listTransactions.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "formatCurrency.c": [],
+    "updateUserProfile.c": [],
+    "support_transform.json": [],
+    "deleteTransaction.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse"
+    ],
+    "generateBudgetReport.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "trackBudget.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "calculateNetWorth.c": [],
+    "setBudget.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access"
+    ],
+    "initializeDashboard.c": [],
+    "loadUserData.c": [],
+    "addTransaction.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access"
+    ],
+    "main.c": [
+        "main_style",
+        "while_to_for"
+    ],
+    "createUser.c": [],
+    "displayUserProfile.c": [],
+    "getCurrentDate.c": []
+}

@@ -1,0 +1,49 @@
+{
+    "resolve_complaint.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "add_agent.py": [],
+    "add_customer.py": [],
+    "submit_complaint.py": [],
+    "update_status.py": [],
+    "fetch_results.py": [],
+    "assign_agent.py": [],
+    "track_complaint.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "execute_query.py": [],
+    "escalate.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "assign_complaint.py": [
+        "string_quota"
+    ],
+    "create_complaint.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "connect.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "receive_complaint.py": []
+}

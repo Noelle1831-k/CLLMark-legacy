@@ -1,0 +1,50 @@
+{
+    "findTaskById.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "updateStatus.cpp": [],
+    "calculateTimeSpent.cpp": [],
+    "displayTasks.cpp": [],
+    "getStatus.cpp": [],
+    "generateReports.cpp": [
+        "output"
+    ],
+    "getId.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "addTask.cpp": [],
+    "displayTimeSpent.cpp": [],
+    "getName.cpp": [],
+    "startTimer.cpp": [],
+    "filterTasksByStatus.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "validatePriority.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "stopTimer.cpp": [],
+    "getDescription.cpp": [],
+    "updateTask.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "removeTask.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "sortTasksByPriority.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "getTimeSlot.cpp": [],
+    "validateStatus.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "printTask.cpp": [],
+    "setPriority.cpp": []
+}

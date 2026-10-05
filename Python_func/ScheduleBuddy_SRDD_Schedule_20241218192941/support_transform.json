@@ -1,0 +1,73 @@
+{
+    "validate_time.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "validate_date.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "format_date.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "display_schedule.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "update_event.py": [],
+    "find_event.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "view_schedule_ui.py": [],
+    "display_event.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "__init__.py": [],
+    "add_event_ui.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "remove_event.py": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "remove_event_ui.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "main.py": [],
+    "main_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "format_time.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "add_event.py": []
+}

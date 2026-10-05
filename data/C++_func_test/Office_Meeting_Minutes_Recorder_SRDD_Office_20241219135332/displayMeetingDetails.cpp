@@ -1,0 +1,3 @@
+void MeetingRecorder::displayMeetingDetails() {
+    loadMeetingDetails();
+}

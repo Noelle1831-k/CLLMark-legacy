@@ -1,0 +1,31 @@
+{
+    "importData.cpp": [
+        "while_to_for"
+    ],
+    "main.cpp": [
+        "main_style",
+        "output",
+        "input"
+    ],
+    "generateFrequencyTable.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "output"
+    ],
+    "analyzeFrequency.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "generateHistogram.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "getNotes.cpp": [],
+    "exportProgression.cpp": [],
+    "support_transform.json": [],
+    "getChordName.cpp": [],
+    "main.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "loadFromFile.cpp": [
+        "while_to_for"
+    ],
+    "getScale.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "getMoodName.cpp": [],
+    "saveToFile.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "generateProgression.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "getChordPatterns.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "getKeyName.cpp": []
+}

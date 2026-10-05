@@ -1,0 +1,47 @@
+{
+    "trimWhitespace.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "while_to_for"
+    ],
+    "displayBookDetails.c": [],
+    "searchBooksByAuthor.c": [],
+    "toLowerCase.c": [
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "addBookToLibrary.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access"
+    ],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "searchBooksByTitle.c": [],
+    "handleUserInput.c": [
+        "array_init",
+        "declare"
+    ],
+    "displayMenu.c": [],
+    "searchBooksByKeyword.c": [],
+    "searchOnline.c": [],
+    "loadLibrary.c": [],
+    "displayLibrary.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "createBook.c": []
+}

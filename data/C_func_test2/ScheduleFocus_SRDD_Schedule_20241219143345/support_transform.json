@@ -1,0 +1,48 @@
+{
+    "create_task.c": [],
+    "print_task.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "main_menu.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "quicksort_tasks.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "notify_user.c": [],
+    "optimize_schedule.c": [],
+    "save_user_data.c": [],
+    "delete_task.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "create_schedule.c": [],
+    "add_task.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "create_user.c": [],
+    "partition.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "remove_task.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "load_user_data.c": []
+}

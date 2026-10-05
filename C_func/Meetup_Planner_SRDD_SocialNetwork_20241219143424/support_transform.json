@@ -1,0 +1,42 @@
+{
+    "joinEvent.c": [],
+    "freeEvent.c": [
+        "while_to_for"
+    ],
+    "addParticipant.c": [],
+    "support_transform.json": [
+        "array_access"
+    ],
+    "addUser.c": [],
+    "displayUserEvents.c": [
+        "while_to_for"
+    ],
+    "removeParticipant.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "while_to_for"
+    ],
+    "sendMessage.c": [],
+    "displayEventParticipants.c": [
+        "while_to_for"
+    ],
+    "createDatabase.c": [],
+    "freeUser.c": [
+        "while_to_for"
+    ],
+    "main.c": [
+        "main_style",
+        "declare"
+    ],
+    "createUser.c": [],
+    "addEvent.c": [],
+    "leaveEvent.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "while_to_for"
+    ],
+    "createEvent.c": [],
+    "freeDatabase.c": [
+        "while_to_for"
+    ]
+}

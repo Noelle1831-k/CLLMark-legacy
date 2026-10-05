@@ -1,0 +1,33 @@
+{
+    "python":{
+        "1.1": ["print", "add_flush"], "1.2": ["print", "del_flush"], "1.3": ["print", "add_end"], "1.4": ["print", "del_end"],
+        "2.1": ["list", "init_call_list"], "2.2": ["list", "init_list"], "2.3": ["list", "call_list"], "2.4": ["list", "list"], 
+        "3.1": ["dict", "init_call_dict"], "3.2": ["dict", "init_dict"], "3.3": ["dict", "call_dict"], "3.4": ["dict", "dict"], 
+        "4.1": ["range", "add_zero"], "4.2": ["range", "del_zero"], "4.3": ["range", "add_slice_index"], "4.4": ["range", "del_slice_index"],
+        "6.1": ["string", "single"], "6.2": ["string", "double"], "6.3": ["string", "add_f"],"6.4": ["string","del_f"],
+        "7.1": ["op", "augmented_assignment"], "7.2": ["op", "assignment"], "7.3": ["op", "e2ne"],"7.4": ["op","e2ne_re"],"7.5":["op", "ne2e"],"7.6": ["op","ne2e_re"] ,"7.7":["op", "smaller"], "7.8":["op", "bigger"], "7.9":["op","expcmp"],"7.10": ["op","cmp"],"7.11": ["op","hashequalB"],"7.12": ["op","hashequalS"],"7.13": ["op","hashnotequalB"],"7.14": ["op","hashnotequalS"],
+        "9.1": ["declare", "split"], "9.2": ["declare", "merge_simple"],
+        "10.1": ["return", "add_bracket"], "10.2": ["return", "del_bracket"], "10.3": ["return", "add_None"], "10.4": ["return", "del_None"],
+        "13": ["func","get_func"]
+    },
+    "c":{
+        "2.1": ["op", "augmented_assignment"], "2.2": ["op", "assignment"], "2.3": ["op", "e2ne"],"2.4": ["op","e2ne_re"],"2.5":["op", "ne2e"],"2.6": ["op","ne2e_re"] ,"2.7":["op", "smaller"], "2.8":["op", "bigger"], "2.9":["op","expcmp"],"2.10": ["op","cmp"],"2.11": ["op","hashequalB"],"2.12": ["op","hashequalS"],"2.13": ["op","hashnotequalB"],"2.14": ["op","hashnotequalS"],
+        "3.1": ["update", "left"], "3.2": ["update", "right"],
+        "4.1": ["main", "int_void_return"], "4.2": ["main", "int_void"], "4.3": ["main", "int_return"], "4.4": ["main", "int"], "4.5": ["main", "int_arg_return"], "4.6": ["main", "int_arg"], "4.7": ["main", "void_arg"], "4.8": ["main", "void"],
+        "5.1": ["array", "dyn_mem"], "5.2": ["array", "static_mem"], "5.3": ["array", "pointer"], "5.4": ["array", "array"],
+        "6.1": ["declare", "split"], "6.2": ["declare", "merge"],
+        "7.1": ["loop", "obc"], "7.2": ["loop", "aoc"], "7.3": ["loop", "abo"], "7.4": ["loop", "aoo"], "7.5": ["loop", "obo"], "7.6": ["loop", "ooc"], "7.7": ["loop", "ooo"],"7.8": ["loop", "for"],
+        "8.1": ["if", "if"],
+        "13": ["func","get_func"]
+    },
+    "cpp":{
+        "2.1": ["op", "augmented_assignment"], "2.2": ["op", "assignment"], "2.3": ["op", "e2ne"],"2.4": ["op","e2ne_re"],"2.5":["op", "ne2e"],"2.6": ["op","ne2e_re"] ,"2.7":["op", "smaller"], "2.8":["op", "bigger"], "2.9":["op","expcmp"],"2.10": ["op","cmp"],"2.11": ["op","hashequalB"],"2.12": ["op","hashequalS"],"2.13": ["op","hashnotequalB"],"2.14": ["op","hashnotequalS"],
+        "3.1": ["update", "left"], "3.2": ["update", "right"],
+        "4.1": ["main", "int_void_return"], "4.2": ["main", "int_void"], "4.3": ["main", "int_return"], "4.4": ["main", "int"], "4.5": ["main", "int_arg_return"], "4.6": ["main", "int_arg"], "4.7": ["main", "void_arg"], "4.8": ["main", "void"],
+        "6.1": ["declare", "split"], "6.2": ["declare", "merge"], "6.3": ["declare", "first"], "6.4": ["declare", "temp"], "6.5": ["declare", "assign_split"],
+        "7.1": ["loop", "obc"], "7.2": ["loop", "aoc"], "7.3": ["loop", "abo"], "7.4": ["loop", "aoo"], "7.5": ["loop", "obo"], "7.6": ["loop", "ooc"], "7.7": ["loop", "ooo"],"7.8": ["loop", "for"],
+        "8.1": ["if", "if"],
+        "9.1": ["cpp", "cout"], "9.2": ["cpp", "printf"], "9.3": ["cpp", "cin"],"9.4": ["cpp", "scanf"],
+        "13": ["func","get_func"]
+    }
+}

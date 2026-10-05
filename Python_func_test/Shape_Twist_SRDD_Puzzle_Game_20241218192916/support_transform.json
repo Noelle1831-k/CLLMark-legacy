@@ -1,0 +1,51 @@
+{
+    "get_position.py": [],
+    "display_game.py": [
+        "print_flush",
+        "string_quota",
+        "f_string"
+    ],
+    "rotate.py": [],
+    "flip.py": [],
+    "set_position.py": [],
+    "reset_game.py": [],
+    "calculate_overlap.py": [
+        "list"
+    ],
+    "process_input.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "get_user_input.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "update_display.py": [
+        "print_flush",
+        "print_end"
+    ],
+    "start_game.py": [],
+    "main.py": [],
+    "__str__.py": [
+        "string_quota"
+    ],
+    "load_silhouette.py": [
+        "list"
+    ],
+    "check_solution.py": [],
+    "generate_random_shapes.py": [
+        "list",
+        "range_index",
+        "string_quota",
+        "f_string"
+    ],
+    "is_shape_fit.py": [
+        "list"
+    ]
+}

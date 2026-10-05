@@ -1,0 +1,42 @@
+{
+    "random_between.c": [],
+    "generate_shot_velocity.c": [],
+    "display_training_statistics.c": [],
+    "simulate_shot.c": [],
+    "run_training_session.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "support_transform.json": [],
+    "evaluate_reaction_time.c": [],
+    "track_goalie_position.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "menu.c": [],
+    "main.c": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare"
+    ],
+    "evaluate_performance.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "calculate_shot_angle.c": [],
+    "calculate_shot_direction.c": [],
+    "provide_feedback.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "calculate_goalie_positioning.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ]
+}

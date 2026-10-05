@@ -1,0 +1,33 @@
+{
+    "get_context.py": [],
+    "start_dialogue.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_dialogue.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "another_helper_function.py": [],
+    "update_history.py": [],
+    "__init__.py": [],
+    "update_context.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "complex_algorithm.py": [],
+    "update_dialogue_history.py": []
+}

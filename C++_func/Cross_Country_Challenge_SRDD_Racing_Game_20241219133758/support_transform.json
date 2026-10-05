@@ -1,0 +1,57 @@
+{
+    "start.cpp": [
+        "output"
+    ],
+    "Vehicle.cpp": [],
+    "initialize.cpp": [
+        "output"
+    ],
+    "updateVehiclePositions.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "support_transform.json": [],
+    "customize.cpp": [
+        "output"
+    ],
+    "Terrain.cpp": [],
+    "finish.cpp": [
+        "output"
+    ],
+    "handleCollisions.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "chooseVehicle.cpp": [
+        "output"
+    ],
+    "update.cpp": [
+        "output"
+    ],
+    "generateObstacles.cpp": [
+        "output"
+    ],
+    "run.cpp": [
+        "output"
+    ],
+    "Player.cpp": [],
+    "handle.cpp": [
+        "output"
+    ],
+    "Race.cpp": [],
+    "calculate.cpp": [
+        "output"
+    ],
+    "render.cpp": [
+        "output"
+    ]
+}

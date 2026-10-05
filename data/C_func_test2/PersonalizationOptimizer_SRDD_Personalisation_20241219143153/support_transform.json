@@ -1,0 +1,67 @@
+{
+    "loadUserPreferences.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "optimizeSettings.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "freeAnalysisResult.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "freeUserPreferences.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "freeOptimizedSettings.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "findMostFrequent.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "analyzeUserPreferences.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "calculateAverage.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "main.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "declare"
+    ],
+    "saveOptimizedSettings.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

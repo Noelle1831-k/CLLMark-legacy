@@ -1,0 +1,57 @@
+{
+    "end_session.py": [],
+    "add_grammar_point.py": [],
+    "add_word.py": [],
+    "display_dashboard.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_progress.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "start_session.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "set_goals.py": [],
+    "add_goal.py": [],
+    "remove_grammar_point.py": [],
+    "list_grammar_points.py": [],
+    "schedule_task.py": [],
+    "track_study_time.py": [
+        "self_assignment"
+    ],
+    "update_grammar.py": [],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "send_reminder.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "get_total_study_time.py": [],
+    "set_reminder.py": [],
+    "remove_goal.py": [],
+    "main.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "add_vocabulary.py": [],
+    "remove_word.py": [],
+    "list_goals.py": [],
+    "list_vocabulary.py": []
+}

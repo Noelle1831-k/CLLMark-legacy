@@ -1,0 +1,55 @@
+{
+    "calculateRemainingBudget.cpp": [],
+    "generateBarGraph.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "getExpenses.cpp": [],
+    "support_transform.json": [],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "setBudgetGoal.cpp": [],
+    "getIncomes.cpp": [],
+    "main.cpp": [
+        "main_style",
+        "output"
+    ],
+    "loadFromFile.cpp": [
+        "while_to_for",
+        "output"
+    ],
+    "addIncome.cpp": [
+        "self_assignment"
+    ],
+    "generatePieChart.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "getValidatedString.cpp": [
+        "input"
+    ],
+    "saveToFile.cpp": [
+        "output"
+    ],
+    "addExpense.cpp": [
+        "self_assignment"
+    ],
+    "generateReport.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "getValidatedDouble.cpp": [
+        "output",
+        "input"
+    ]
+}

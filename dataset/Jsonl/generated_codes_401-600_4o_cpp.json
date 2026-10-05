@@ -1,0 +1,1002 @@
+[
+    {
+        "sequence": 401,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to remove uppercase substrings from a given string by using regex.\n * > removeUppercase(string(\"cAstyoUrFavoRitETVshoWs\"))\n * string(\"cstyoravoitshos\")\n * > removeUppercase(string(\"wAtchTheinTernEtrAdIo\"))\n * string(\"wtchheinerntrdo\")\n * > removeUppercase(string(\"VoicESeaRchAndreComMendaTionS\"))\n * string(\"oiceachndreomendaion\")\n */\nstring removeUppercase(string str1) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nstring removeUppercase(string str1) {\n    regex uppercase_regex(\"[A-Z]+\");\n    return regex_replace(str1, uppercase_regex, \"\");\n}"
+    },
+    {
+        "sequence": 402,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to get the first element of each sublist.\n * > extract(vector<vector<int>>{{1, 2}, {3, 4, 5}, {6, 7, 8, 9}})\n * {1, 3, 6}\n * > extract(vector<vector<int>>{{1, 2, 3}, {4, 5}})\n * {1, 4}\n * > extract(vector<vector<int>>{{9, 8, 1}, {1, 2}})\n * {9, 1}\n */\nvector<int> extract(vector<vector<int>> lst) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> extract(vector<vector<int>> lst) {\n    vector<int> result;\n    for (const auto& sublist : lst) {\n        if (!sublist.empty()) {\n            result.push_back(sublist[0]);\n        }\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 403,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to count the upper case characters in a given string.\n * > upperCtr(string(\"PYthon\"))\n * 1\n * > upperCtr(string(\"BigData\"))\n * 1\n * > upperCtr(string(\"program\"))\n * 0\n */\nint upperCtr(string str) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint upperCtr(string str) {\n    int count = 0;\n    for(char c : str) {\n        if(isupper(c)) {\n            count++;\n        }\n    }\n    return count;\n}"
+    },
+    {
+        "sequence": 404,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the maximum product subarray of the given array.\n * > maxSubarrayProduct(vector<int>{1, -2, -3, 0, 7, -8, -2})\n * 112\n * > maxSubarrayProduct(vector<int>{6, -3, -10, 0, 2})\n * 180\n * > maxSubarrayProduct(vector<int>{-2, -40, 0, -2, -3})\n * 80\n */\nint maxSubarrayProduct(vector<int> arr) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint maxSubarrayProduct(vector<int> arr) {\n    int n = arr.size();\n    if (n == 0) return 0;\n    \n    int max_prod = arr[0];\n    int min_prod = arr[0];\n    int result = arr[0];\n    \n    for (int i = 1; i < n; i++) {\n        if (arr[i] < 0) swap(max_prod, min_prod);\n        \n        max_prod = max(arr[i], max_prod * arr[i]);\n        min_prod = min(arr[i], min_prod * arr[i]);\n        \n        result = max(result, max_prod);\n    }\n    \n    return result;\n}"
+    },
+    {
+        "sequence": 405,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to check if all values are same in a dictionary.\n * > checkValue(unordered_map<string, int>{{string(\"Cierra Vega\"), 12}, {string(\"Alden Cantrell\"), 12}, {string(\"Kierra Gentry\"), 12}, {string(\"Pierre Cox\"), 12}}, 10)\n * false\n * > checkValue(unordered_map<string, int>{{string(\"Cierra Vega\"), 12}, {string(\"Alden Cantrell\"), 12}, {string(\"Kierra Gentry\"), 12}, {string(\"Pierre Cox\"), 12}}, 12)\n * true\n * > checkValue(unordered_map<string, int>{{string(\"Cierra Vega\"), 12}, {string(\"Alden Cantrell\"), 12}, {string(\"Kierra Gentry\"), 12}, {string(\"Pierre Cox\"), 12}}, 5)\n * false\n */\nbool checkValue(unordered_map<string, int> dict, int n) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nbool checkValue(unordered_map<string, int> dict, int n) {\n    for (auto it : dict) {\n        if (it.second != n) {\n            return false;\n        }\n    }\n    return true;\n}"
+    },
+    {
+        "sequence": 406,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the peak element in the given array.\n * > findPeak(vector<int>{1, 3, 20, 4, 1, 0}, 6)\n * 2\n * > findPeak(vector<int>{2, 3, 4, 5, 6}, 5)\n * 4\n * > findPeak(vector<int>{8, 9, 11, 12, 14, 15}, 6)\n * 5\n */\nint findPeak(vector<int> arr, int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint findPeak(vector<int> arr, int n) {\n    int low = 0, high = n - 1;\n    while (low <= high) {\n        int mid = low + (high - low) / 2;\n        if ((mid == 0 || arr[mid - 1] <= arr[mid]) && \n            (mid == n - 1 || arr[mid + 1] <= arr[mid])) {\n            return mid;\n        } else if (mid > 0 && arr[mid - 1] > arr[mid]) {\n            high = mid - 1;\n        } else {\n            low = mid + 1;\n        }\n    }\n    return -1; // This should never be reached if input is correct\n}"
+    },
+    {
+        "sequence": 407,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to convert decimal number to octal number.\n * > decimalToOctal(10)\n * 12\n * > decimalToOctal(2)\n * 2\n * > decimalToOctal(33)\n * 41\n */\nint decimalToOctal(int decinum) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nint decimalToOctal(int decinum) {\n    int octalNum = 0, placeValue = 1;\n    while (decinum > 0) {\n        int remainder = decinum % 8;\n        octalNum += remainder * placeValue;\n        decinum /= 8;\n        placeValue *= 10;\n    }\n    return octalNum;\n}"
+    },
+    {
+        "sequence": 408,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the maximum product formed by multiplying numbers of an increasing subsequence of that array.\n * > maxProduct(vector<int>{3, 100, 4, 5, 150, 6}, 6)\n * 45000\n * > maxProduct(vector<int>{4, 42, 55, 68, 80}, 5)\n * 50265600\n * > maxProduct(vector<int>{10, 22, 9, 33, 21, 50, 41, 60}, 8)\n * 21780000\n */\nint maxProduct(vector<int> arr, int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint maxProduct(vector<int> arr, int n) {\n    vector<int> dp(n);\n    int max_prod = 0;\n\n    for (int i = 0; i < n; i++) {\n        dp[i] = arr[i];\n        for (int j = 0; j < i; j++) {\n            if (arr[i] > arr[j] && dp[i] < dp[j] * arr[i]) {\n                dp[i] = dp[j] * arr[i];\n            }\n        }\n        max_prod = max(max_prod, dp[i]);\n    }\n\n    return max_prod;\n}"
+    },
+    {
+        "sequence": 409,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the maximum profit earned from a maximum of k stock transactions\n * > maxProfit(vector<int>{1, 5, 2, 3, 7, 6, 4, 5}, 3)\n * 10\n * > maxProfit(vector<int>{2, 4, 7, 5, 4, 3, 5}, 2)\n * 7\n * > maxProfit(vector<int>{10, 6, 8, 4, 2}, 2)\n * 2\n */\nint maxProfit(vector<int> price, int k) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nint maxProfit(vector<int> price, int k) {\n    int n = price.size();\n    if (n == 0 || k == 0) return 0;\n\n    vector<vector<int>> dp(k + 1, vector<int>(n, 0));\n\n    for (int t = 1; t <= k; t++) {\n        int maxDiff = -price[0];\n        for (int d = 1; d < n; d++) {\n            dp[t][d] = max(dp[t][d - 1], price[d] + maxDiff);\n            maxDiff = max(maxDiff, dp[t - 1][d] - price[d]);\n        }\n    }\n\n    return dp[k][n - 1];\n}"
+    },
+    {
+        "sequence": 410,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the pairwise addition of the elements of the given tuples.\n * > addPairwise(vector<int>{1, 5, 7, 8, 10})\n * {6, 12, 15, 18}\n * > addPairwise(vector<int>{2, 6, 8, 9, 11})\n * {8, 14, 17, 20}\n * > addPairwise(vector<int>{3, 7, 9, 10, 12})\n * {10, 16, 19, 22}\n */\nvector<int> addPairwise(vector<int> testTup) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> addPairwise(vector<int> testTup) {\n    vector<int> result;\n    for (int i = 0; i < testTup.size() - 1; i++) {\n        result.push_back(testTup[i] + testTup[i + 1]);\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 411,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find remainder of array multiplication divided by n.\n * > findRemainder(vector<int>{100, 10, 5, 25, 35, 14}, 6, 11)\n * 9\n * > findRemainder(vector<int>{1, 1, 1}, 3, 1)\n * 0\n * > findRemainder(vector<int>{1, 2, 1}, 3, 2)\n * 0\n */\nint findRemainder(vector<int> arr, int lens, int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint findRemainder(vector<int> arr, int lens, int n) {\n    long long product = 1;\n    for (int i = 0; i < lens; i++) {\n        product = (product * arr[i]) % n;\n    }\n    return product % n;\n}"
+    },
+    {
+        "sequence": 412,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to check whether the given list contains consecutive numbers or not.\n * > checkConsecutive(vector<int>{1, 2, 3, 4, 5})\n * true\n * > checkConsecutive(vector<int>{1, 2, 3, 5, 6})\n * false\n * > checkConsecutive(vector<int>{1, 2, 1})\n * false\n */\nbool checkConsecutive(vector<int> l) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nbool checkConsecutive(vector<int> l) {\n    if (l.empty()) return false;\n    sort(l.begin(), l.end());\n    for (size_t i = 1; i < l.size(); ++i) {\n        if (l[i] - l[i - 1] != 1) return false;\n    }\n    return true;\n}"
+    },
+    {
+        "sequence": 413,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to replace characters in a string.\n * > replaceChar(string(\"polygon\"), string(\"y\"), string(\"l\"))\n * string(\"pollgon\")\n * > replaceChar(string(\"character\"), string(\"c\"), string(\"a\"))\n * string(\"aharaater\")\n * > replaceChar(string(\"python\"), string(\"l\"), string(\"a\"))\n * string(\"python\")\n */\nstring replaceChar(string str1, string ch, string newch) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nstring replaceChar(string str1, string ch, string newch) {\n    size_t pos = 0;\n    while ((pos = str1.find(ch, pos)) != string::npos) {\n        str1.replace(pos, ch.length(), newch);\n        pos += newch.length();\n    }\n    return str1;\n}"
+    },
+    {
+        "sequence": 414,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the sum of the largest and smallest value in a given array.\n * > bigSum(vector<int>{1, 2, 3})\n * 4\n * > bigSum(vector<int>{-1, 2, 3, 4})\n * 3\n * > bigSum(vector<int>{2, 3, 6})\n * 8\n */\nint bigSum(vector<int> nums) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint bigSum(vector<int> nums) {\n    int minValue = *min_element(nums.begin(), nums.end());\n    int maxValue = *max_element(nums.begin(), nums.end());\n    return minValue + maxValue;\n}"
+    },
+    {
+        "sequence": 415,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to convert the given string to lower case.\n * > isLower(string(\"InValid\"))\n * string(\"invalid\")\n * > isLower(string(\"TruE\"))\n * string(\"true\")\n * > isLower(string(\"SenTenCE\"))\n * string(\"sentence\")\n */\nstring isLower(string str) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring isLower(string str) {\n    transform(str.begin(), str.end(), str.begin(), ::tolower);\n    return str;\n}"
+    },
+    {
+        "sequence": 416,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to remove lowercase substrings from a given string.\n * > removeLowercase(string(\"PYTHon\"))\n * string(\"PYTH\")\n * > removeLowercase(string(\"FInD\"))\n * string(\"FID\")\n * > removeLowercase(string(\"STRinG\"))\n * string(\"STRG\")\n */\nstring removeLowercase(string str1) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring removeLowercase(string str1) {\n    string result = \"\";\n    for (char c : str1) {\n        if (!islower(c)) {\n            result += c;\n        }\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 417,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the first digit of a given number.\n * > firstDigit(123)\n * 1\n * > firstDigit(456)\n * 4\n * > firstDigit(12)\n * 1\n */\nint firstDigit(int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint firstDigit(int n) {\n    while (n >= 10) {\n        n /= 10;\n    }\n    return n;\n}"
+    },
+    {
+        "sequence": 418,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the maximum occurring character in a given string.\n * > getMaxOccuringChar(string(\"data\"))\n * string(\"a\")\n * > getMaxOccuringChar(string(\"create\"))\n * string(\"e\")\n * > getMaxOccuringChar(string(\"brilliant girl\"))\n * string(\"i\")\n */\nstring getMaxOccuringChar(string str1) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring getMaxOccuringChar(string str1) {\n    unordered_map<char, int> freq;\n    int max_occurrence = 0;\n    char max_char;\n    \n    for (char ch : str1) {\n        if (ch != ' ') {\n            freq[ch]++;\n            if (freq[ch] > max_occurrence || (freq[ch] == max_occurrence && ch < max_char)) {\n                max_occurrence = freq[ch];\n                max_char = ch;\n            }\n        }\n    }\n    \n    return string(1, max_char);\n}"
+    },
+    {
+        "sequence": 419,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to determine if there is a subset of the given set with sum equal to the given sum.\n * > isSubsetSum(vector<int>{3, 34, 4, 12, 5, 2}, 6, 9)\n * true\n * > isSubsetSum(vector<int>{3, 34, 4, 12, 5, 2}, 6, 30)\n * false\n * > isSubsetSum(vector<int>{3, 34, 4, 12, 5, 2}, 6, 15)\n * true\n */\nbool isSubsetSum(vector<int> set, int n, int sum) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nbool isSubsetSum(vector<int> set, int n, int sum) {\n    vector<vector<bool>> dp(n + 1, vector<bool>(sum + 1, false));\n\n    for (int i = 0; i <= n; i++)\n        dp[i][0] = true;\n\n    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= sum; j++) {\n            if (set[i - 1] <= j)\n                dp[i][j] = dp[i - 1][j] || dp[i - 1][j - set[i - 1]];\n            else\n                dp[i][j] = dp[i - 1][j];\n        }\n    }\n\n    return dp[n][sum];\n}"
+    },
+    {
+        "sequence": 420,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find sequences of one upper case letter followed by lower case letters in the given string by using regex.\n * > match(string(\"Geeks\"))\n * string(\"Yes\")\n * > match(string(\"geeksforGeeks\"))\n * string(\"Yes\")\n * > match(string(\"geeks\"))\n * string(\"No\")\n */\nstring match(string text) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring match(string text) {\n    regex pattern(\"[A-Z][a-z]+\");\n    if (regex_search(text, pattern)) {\n        return \"Yes\";\n    } else {\n        return \"No\";\n    }\n}"
+    },
+    {
+        "sequence": 421,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the first natural number whose factorial is divisible by x.\n * > firstFactorialDivisibleNumber(10)\n * 5\n * > firstFactorialDivisibleNumber(15)\n * 5\n * > firstFactorialDivisibleNumber(5)\n * 4\n */\nint firstFactorialDivisibleNumber(int x) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint firstFactorialDivisibleNumber(int x) {\n    int n = 1;\n    int fact = 1;\n    while (true) {\n        fact *= n;\n        if (fact % x == 0) {\n            return n;\n        }\n        n++;\n    }\n}"
+    },
+    {
+        "sequence": 422,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to remove the matching tuples from the given two tuples.\n * > removeMatchingTuple(vector<vector<string>>{{string(\"Hello\"), string(\"dude\")}, {string(\"How\"), string(\"are\")}, {string(\"you\"), string(\"?\")}}, vector<vector<string>>{{string(\"Hello\"), string(\"dude\")}, {string(\"How\"), string(\"are\")}})\n * {{string(\"you\"), string(\"?\")}}\n * > removeMatchingTuple(vector<vector<string>>{{string(\"Part\"), string(\"of\")}, {string(\"the\"), string(\"journey\")}, {string(\"is \"), string(\"end\")}}, vector<vector<string>>{{string(\"Journey\"), string(\"the\")}, {string(\"is\"), string(\"end\")}})\n * {{string(\"Part\"), string(\"of\")}, {string(\"the\"), string(\"journey\")}, {string(\"is \"), string(\"end\")}}\n * > removeMatchingTuple(vector<vector<string>>{{string(\"Its\"), string(\"been\")}, {string(\"a\"), string(\"long\")}, {string(\"day\"), string(\"without\")}}, vector<vector<string>>{{string(\"a\"), string(\"long\")}, {string(\"my\"), string(\"friend\")}})\n * {{string(\"Its\"), string(\"been\")}, {string(\"day\"), string(\"without\")}}\n */\nvector<vector<string>> removeMatchingTuple(vector<vector<string>> testList1, vector<vector<string>> testList2) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<vector<string>> removeMatchingTuple(vector<vector<string>> testList1, vector<vector<string>> testList2) {\n    set<vector<string>> set2(testList2.begin(), testList2.end());\n    vector<vector<string>> result;\n    for (const auto& tuple : testList1) {\n        if (set2.find(tuple) == set2.end()) {\n            result.push_back(tuple);\n        }\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 423,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the largest palindromic number in the given array.\n * > largestPalindrome(vector<int>{1, 232, 54545, 999991}, 4)\n * 54545\n * > largestPalindrome(vector<int>{1, 2, 3, 4, 5, 50}, 6)\n * 5\n */\nint largestPalindrome(vector<int> a, int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nbool isPalindrome(int num) {\n    string str = to_string(num);\n    string revStr = str;\n    reverse(revStr.begin(), revStr.end());\n    return str == revStr;\n}\n\nint largestPalindrome(vector<int> a, int n) {\n    int largest = -1;\n    for (int i = 0; i < n; i++) {\n        if (isPalindrome(a[i])) {\n            largest = max(largest, a[i]);\n        }\n    }\n    return largest;\n}"
+    },
+    {
+        "sequence": 424,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to compute binomial probability for the given number.\n * > binomialProbability(10, 5, 0.3333333333333333)\n * 0.13656454808718185\n * > binomialProbability(11, 6, 0.5)\n * 0.2255859375\n * > binomialProbability(12, 7, 0.6)\n * 0.227030335488\n */\ndouble binomialProbability(int n, int k, double p) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\ndouble binomialProbability(int n, int k, double p) {\n    double probability = 1;\n    for (int i = 0; i < k; ++i) {\n        probability *= (n - i) * p / (i + 1);\n    }\n    for (int i = 0; i < n - k; ++i) {\n        probability *= (1 - p);\n    }\n    return probability;\n}"
+    },
+    {
+        "sequence": 425,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to sort a list of tuples in increasing order by the last element in each tuple.\n * > sortTuple(vector<vector<int>>{{1, 3}, {3, 2}, {2, 1}})\n * {{2, 1}, {3, 2}, {1, 3}}\n * > sortTuple(vector<vector<int>>{{2, 4}, {3, 3}, {1, 1}})\n * {{1, 1}, {3, 3}, {2, 4}}\n * > sortTuple(vector<vector<int>>{{3, 9}, {6, 7}, {4, 3}})\n * {{4, 3}, {6, 7}, {3, 9}}\n */\nvector<vector<int>> sortTuple(vector<vector<int>> tup) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<vector<int>> sortTuple(vector<vector<int>> tup) {\n    sort(tup.begin(), tup.end(), [](const vector<int>& a, const vector<int>& b) {\n        return a.back() < b.back();\n    });\n    return tup;\n}"
+    },
+    {
+        "sequence": 426,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the area of a pentagon.\n * > areaPentagon(5)\n * 43.01193501472417\n * > areaPentagon(10)\n * 172.0477400588967\n * > areaPentagon(15)\n * 387.10741513251753\n */\ndouble areaPentagon(int a) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\ndouble areaPentagon(int a) {\n    double area = (sqrt(5 * (5 + 2 * sqrt(5))) * pow(a, 2)) / 4;\n    return area;\n}"
+    },
+    {
+        "sequence": 427,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the frequency of the largest value in a given array.\n * > frequencyOfLargest(5, vector<int>{1, 2, 3, 4, 4})\n * 2\n * > frequencyOfLargest(3, vector<int>{5, 6, 5})\n * 1\n * > frequencyOfLargest(4, vector<int>{2, 7, 7, 7})\n * 3\n */\nint frequencyOfLargest(int n, vector<int> arr) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint frequencyOfLargest(int n, vector<int> arr) {\n    int maxVal = *max_element(arr.begin(), arr.end());\n    return count(arr.begin(), arr.end(), maxVal);\n}"
+    },
+    {
+        "sequence": 428,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the sum of geometric progression series.\n * > sumGp(1, 5, 2)\n * 31\n * > sumGp(1, 5, 4)\n * 341\n * > sumGp(2, 6, 3)\n * 728\n */\nint sumGp(int a, int n, int r) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint sumGp(int a, int n, int r) {\n    int sum = 0;\n    for(int i = 0; i < n; ++i) {\n        sum += a * pow(r, i);\n    }\n    return sum;\n}"
+    },
+    {
+        "sequence": 429,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to search an element in the given array by using binary search.\n * > binarySearch(vector<int>{1, 2, 3, 5, 8}, 6)\n * false\n * > binarySearch(vector<int>{7, 8, 9, 10, 13}, 10)\n * true\n * > binarySearch(vector<int>{11, 13, 14, 19, 22, 36}, 23)\n * false\n */\nbool binarySearch(vector<int> itemList, int item) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nbool binarySearch(vector<int> itemList, int item) {\n    int left = 0, right = itemList.size() - 1;\n    while (left <= right) {\n        int mid = left + (right - left) / 2;\n        if (itemList[mid] == item) {\n            return true;\n        } else if (itemList[mid] < item) {\n            left = mid + 1;\n        } else {\n            right = mid - 1;\n        }\n    }\n    return false;\n}"
+    },
+    {
+        "sequence": 430,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to calculate a grid of hexagon coordinates where function returns a list of lists containing 6 tuples of x, y point coordinates.\n * > calculatePolygons(1, 1, 4, 4, 3)\n * {{{-5.0, -4.196152422706632}, {-5.0, -0.7320508075688767}, {-2.0, 1.0}, {1.0, -0.7320508075688767}, {1.0, -4.196152422706632}, {-2.0, -5.928203230275509}, {-5.0, -4.196152422706632}}, {{1.0, -4.196152422706632}, {1.0, -0.7320508075688767}, {4.0, 1.0}, {7.0, -0.7320508075688767}, {7.0, -4.196152422706632}, {4.0, -5.928203230275509}, {1.0, -4.196152422706632}}, {{7.0, -4.196152422706632}, {7.0, -0.7320508075688767}, {10.0, 1.0}, {13.0, -0.7320508075688767}, {13.0, -4.196152422706632}, {10.0, -5.928203230275509}, {7.0, -4.196152422706632}}, {{-2.0, 1.0000000000000004}, {-2.0, 4.464101615137755}, {1.0, 6.196152422706632}, {4.0, 4.464101615137755}, {4.0, 1.0000000000000004}, {1.0, -0.7320508075688767}, {-2.0, 1.0000000000000004}}, {{4.0, 1.0000000000000004}, {4.0, 4.464101615137755}, {7.0, 6.196152422706632}, {10.0, 4.464101615137755}, {10.0, 1.0000000000000004}, {7.0, -0.7320508075688767}, {4.0, 1.0000000000000004}}, {{-5.0, 6.196152422706632}, {-5.0, 9.660254037844387}, {-2.0, 11.392304845413264}, {1.0, 9.660254037844387}, {1.0, 6.196152422706632}, {-2.0, 4.464101615137755}, {-5.0, 6.196152422706632}}, {{1.0, 6.196152422706632}, {1.0, 9.660254037844387}, {4.0, 11.392304845413264}, {7.0, 9.660254037844387}, {7.0, 6.196152422706632}, {4.0, 4.464101615137755}, {1.0, 6.196152422706632}}, {{7.0, 6.196152422706632}, {7.0, 9.660254037844387}, {10.0, 11.392304845413264}, {13.0, 9.660254037844387}, {13.0, 6.196152422706632}, {10.0, 4.464101615137755}, {7.0, 6.196152422706632}}, {{-2.0, 11.392304845413264}, {-2.0, 14.85640646055102}, {1.0, 16.588457268119896}, {4.0, 14.85640646055102}, {4.0, 11.392304845413264}, {1.0, 9.660254037844387}, {-2.0, 11.392304845413264}}, {{4.0, 11.392304845413264}, {4.0, 14.85640646055102}, {7.0, 16.588457268119896}, {10.0, 14.85640646055102}, {10.0, 11.392304845413264}, {7.0, 9.660254037844387}, {4.0, 11.392304845413264}}}\n * > calculatePolygons(5, 4, 7, 9, 8)\n * {{{-11.0, -9.856406460551018}, {-11.0, -0.6188021535170058}, {-3.0, 4.0}, {5.0, -0.6188021535170058}, {5.0, -9.856406460551018}, {-3.0, -14.475208614068023}, {-11.0, -9.856406460551018}}, {{5.0, -9.856406460551018}, {5.0, -0.6188021535170058}, {13.0, 4.0}, {21.0, -0.6188021535170058}, {21.0, -9.856406460551018}, {13.0, -14.475208614068023}, {5.0, -9.856406460551018}}, {{21.0, -9.856406460551018}, {21.0, -0.6188021535170058}, {29.0, 4.0}, {37.0, -0.6188021535170058}, {37.0, -9.856406460551018}, {29.0, -14.475208614068023}, {21.0, -9.856406460551018}}, {{-3.0, 4.0}, {-3.0, 13.237604307034012}, {5.0, 17.856406460551018}, {13.0, 13.237604307034012}, {13.0, 4.0}, {5.0, -0.6188021535170058}, {-3.0, 4.0}}, {{13.0, 4.0}, {13.0, 13.237604307034012}, {21.0, 17.856406460551018}, {29.0, 13.237604307034012}, {29.0, 4.0}, {21.0, -0.6188021535170058}, {13.0, 4.0}}, {{-11.0, 17.856406460551018}, {-11.0, 27.09401076758503}, {-3.0, 31.712812921102035}, {5.0, 27.09401076758503}, {5.0, 17.856406460551018}, {-3.0, 13.237604307034012}, {-11.0, 17.856406460551018}}, {{5.0, 17.856406460551018}, {5.0, 27.09401076758503}, {13.0, 31.712812921102035}, {21.0, 27.09401076758503}, {21.0, 17.856406460551018}, {13.0, 13.237604307034012}, {5.0, 17.856406460551018}}, {{21.0, 17.856406460551018}, {21.0, 27.09401076758503}, {29.0, 31.712812921102035}, {37.0, 27.09401076758503}, {37.0, 17.856406460551018}, {29.0, 13.237604307034012}, {21.0, 17.856406460551018}}, {{-3.0, 31.712812921102035}, {-3.0, 40.95041722813605}, {5.0, 45.569219381653056}, {13.0, 40.95041722813605}, {13.0, 31.712812921102035}, {5.0, 27.09401076758503}, {-3.0, 31.712812921102035}}, {{13.0, 31.712812921102035}, {13.0, 40.95041722813605}, {21.0, 45.569219381653056}, {29.0, 40.95041722813605}, {29.0, 31.712812921102035}, {21.0, 27.09401076758503}, {13.0, 31.712812921102035}}}\n * > calculatePolygons(9, 6, 4, 3, 2)\n * {{{5.0, 2.5358983848622456}, {5.0, 4.8452994616207485}, {7.0, 6.0}, {9.0, 4.8452994616207485}, {9.0, 2.5358983848622456}, {7.0, 1.3811978464829942}, {5.0, 2.5358983848622456}}, {{7.0, 6.0}, {7.0, 8.309401076758503}, {9.0, 9.464101615137753}, {11.0, 8.309401076758503}, {11.0, 6.0}, {9.0, 4.8452994616207485}, {7.0, 6.0}}}\n */\nvector<vector<vector<double>>> calculatePolygons(int startx, int starty, int endx, int endy, int radius) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<vector<vector<double>>> calculatePolygons(int startx, int starty, int endx, int endy, int radius) {\n    vector<vector<vector<double>>> hexagons;\n    double sqrt3 = sqrt(3);\n    \n    for (int x = startx; x <= endx; ++x) {\n        for (int y = starty; y <= endy; ++y) {\n            if ((x + y) % 2 == 0) {\n                double cx = radius * 3 * x;\n                double cy = radius * sqrt3 * y;\n\n                vector<vector<double>> hexagon = {\n                    {cx - radius, cy - radius * sqrt3 / 2},\n                    {cx - radius, cy + radius * sqrt3 / 2},\n                    {cx, cy + radius * sqrt3},\n                    {cx + radius, cy + radius * sqrt3 / 2},\n                    {cx + radius, cy - radius * sqrt3 / 2},\n                    {cx, cy - radius * sqrt3},\n                    {cx - radius, cy - radius * sqrt3 / 2}\n                };\n                hexagons.push_back(hexagon);\n            }\n        }\n    }\n    return hexagons;\n}"
+    },
+    {
+        "sequence": 431,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to convert the given binary tuple to integer.\n * > binaryToInteger(vector<int>{1, 1, 0, 1, 0, 0, 1})\n * string(\"105\")\n * > binaryToInteger(vector<int>{0, 1, 1, 0, 0, 1, 0, 1})\n * string(\"101\")\n * > binaryToInteger(vector<int>{1, 1, 0, 1, 0, 1})\n * string(\"53\")\n */\nstring binaryToInteger(vector<int> testTup) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring binaryToInteger(vector<int> testTup) {\n    int value = 0;\n    for (int bit : testTup) {\n        value = (value << 1) | bit;\n    }\n    return to_string(value);\n}"
+    },
+    {
+        "sequence": 432,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to remove lowercase substrings from a given string by using regex.\n * > removeLowercase(string(\"KDeoALOklOOHserfLoAJSIskdsf\"))\n * string(\"KDALOOOHLAJSI\")\n * > removeLowercase(string(\"ProducTnamEstreAmIngMediAplAYer\"))\n * string(\"PTEAIMAAY\")\n * > removeLowercase(string(\"maNufacTuredbYSheZenTechNolOGIes\"))\n * string(\"NTYSZTNOGI\")\n */\nstring removeLowercase(string str1) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring removeLowercase(string str1) {\n    return regex_replace(str1, regex(\"[a-z]+\"), \"\");\n}"
+    },
+    {
+        "sequence": 433,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the smallest integers from a given list of numbers using heap queue algorithm.\n * > heapQueueSmallest(vector<int>{25, 35, 22, 85, 14, 65, 75, 25, 58}, 3)\n * {14, 22, 25}\n * > heapQueueSmallest(vector<int>{25, 35, 22, 85, 14, 65, 75, 25, 58}, 2)\n * {14, 22}\n * > heapQueueSmallest(vector<int>{25, 35, 22, 85, 14, 65, 75, 22, 58}, 5)\n * {14, 22, 22, 25, 35}\n */\nvector<int> heapQueueSmallest(vector<int> nums, int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> heapQueueSmallest(vector<int> nums, int n) {\n    priority_queue<int, vector<int>, greater<int>> minHeap(nums.begin(), nums.end());\n    vector<int> result;\n    for (int i = 0; i < n && !minHeap.empty(); ++i) {\n        result.push_back(minHeap.top());\n        minHeap.pop();\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 434,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the surface area of a cone.\n * > surfaceareaCone(5, 12)\n * 282.7433388230814\n * > surfaceareaCone(10, 15)\n * 880.5179353159282\n * > surfaceareaCone(19, 17)\n * 2655.923961165254\n */\ndouble surfaceareaCone(int r, int h) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\ndouble surfaceareaCone(int r, int h) {\n    double pi = 3.141592653589793;\n    double l = sqrt(r * r + h * h);\n    return pi * r * r + pi * r * l;\n}"
+    },
+    {
+        "sequence": 435,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find gcd of two positive integers.\n * > gcd(12, 17)\n * 1\n * > gcd(4, 6)\n * 2\n * > gcd(2, 9)\n * 1\n */\nint gcd(int x, int y) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint gcd(int x, int y) {\n    while (y != 0) {\n        int temp = y;\n        y = x % y;\n        x = temp;\n    }\n    return x;\n}"
+    },
+    {
+        "sequence": 436,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the diameter of a circle.\n * > diameterCircle(10)\n * 20\n * > diameterCircle(40)\n * 80\n * > diameterCircle(15)\n * 30\n */\nint diameterCircle(int r) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint diameterCircle(int r) {\n    return 2 * r;\n}"
+    },
+    {
+        "sequence": 437,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to concatenate all elements of the given list into a string.\n * > concatenateElements(vector<string>{string(\"hello\"), string(\"there\"), string(\"have\"), string(\"a\"), string(\"rocky\"), string(\"day\")})\n * string(\"  hello there have a rocky day\")\n * > concatenateElements(vector<string>{string(\"Hi\"), string(\"there\"), string(\"How\"), string(\"are\"), string(\"you\")})\n * string(\"  Hi there How are you\")\n * > concatenateElements(vector<string>{string(\"Part\"), string(\"of\"), string(\"the\"), string(\"journey\"), string(\"is\"), string(\"end\")})\n * string(\"  Part of the journey is end\")\n */\nstring concatenateElements(vector<string> list) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nstring concatenateElements(vector<string> list) {\n    string result = \" \";\n    for (const string& word : list) {\n        result += word + \" \";\n    }\n    result.pop_back(); // Remove the trailing space\n    return result;\n}"
+    },
+    {
+        "sequence": 438,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find common divisor between two numbers in a given pair.\n * > numCommDiv(2, 4)\n * 2\n * > numCommDiv(2, 8)\n * 2\n * > numCommDiv(12, 24)\n * 6\n */\nint numCommDiv(int x, int y) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint numCommDiv(int x, int y) {\n    int gcd = __gcd(x, y);\n    int count = 0;\n    for (int i = 1; i <= sqrt(gcd); i++) {\n        if (gcd % i == 0) {\n            if (gcd / i == i) {\n                count++;\n            } else {\n                count += 2;\n            }\n        }\n    }\n    return count;\n}"
+    },
+    {
+        "sequence": 439,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find remainder of two numbers.\n * > find(3, 3)\n * 0\n * > find(10, 3)\n * 1\n * > find(16, 5)\n * 1\n */\nint find(int n, int m) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint find(int n, int m) {\n    return n % m;\n}"
+    },
+    {
+        "sequence": 440,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to add consecutive numbers of a given list.\n * > addConsecutiveNums(vector<int>{1, 1, 3, 4, 4, 5, 6, 7})\n * {2, 4, 7, 8, 9, 11, 13}\n * > addConsecutiveNums(vector<int>{4, 5, 8, 9, 6, 10})\n * {9, 13, 17, 15, 16}\n * > addConsecutiveNums(vector<int>{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})\n * {3, 5, 7, 9, 11, 13, 15, 17, 19}\n */\nvector<int> addConsecutiveNums(vector<int> nums) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> addConsecutiveNums(vector<int> nums) {\n    vector<int> result;\n    for (size_t i = 0; i < nums.size() - 1; ++i) {\n        result.push_back(nums[i] + nums[i + 1]);\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 441,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the cube sum of first n natural numbers.\n * > sumOfSeries(5)\n * 225\n * > sumOfSeries(2)\n * 9\n * > sumOfSeries(3)\n * 36\n */\nint sumOfSeries(int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint sumOfSeries(int n) {\n    int sum = 0;\n    for (int i = 1; i <= n; i++) {\n        sum += i * i * i;\n    }\n    return sum;\n}"
+    },
+    {
+        "sequence": 442,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to move all zeroes to the end of the given array.\n * > reOrder(vector<int>{6, 0, 8, 2, 3, 0, 4, 0, 1})\n * {6, 8, 2, 3, 4, 1, 0, 0, 0}\n * > reOrder(vector<int>{4, 0, 2, 7, 0, 9, 0, 12, 0})\n * {4, 2, 7, 9, 12, 0, 0, 0, 0}\n * > reOrder(vector<int>{3, 11, 0, 74, 14, 0, 1, 0, 2})\n * {3, 11, 74, 14, 1, 2, 0, 0, 0}\n */\nvector<int> reOrder(vector<int> a) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> reOrder(vector<int> a) {\n    int n = a.size();\n    int j = 0; // index for non-zero elements\n    for (int i = 0; i < n; i++) {\n        if (a[i] != 0) {\n            swap(a[j], a[i]);\n            j++;\n        }\n    }\n    return a;\n}"
+    },
+    {
+        "sequence": 443,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to calculate the permutation coefficient of given p(n, k).\n * > permutationCoefficient(10, 2)\n * 90\n * > permutationCoefficient(10, 3)\n * 720\n * > permutationCoefficient(10, 1)\n * 10\n */\nint permutationCoefficient(int n, int k) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nint permutationCoefficient(int n, int k) {\n    int result = 1;\n    for (int i = 0; i < k; i++) {\n        result *= (n - i);\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 444,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to remove specific words from a given list.\n * > removeWords(vector<string>{string(\"red\"), string(\"green\"), string(\"blue\"), string(\"white\"), string(\"black\"), string(\"orange\")}, vector<string>{string(\"white\"), string(\"orange\")})\n * {string(\"red\"), string(\"green\"), string(\"blue\"), string(\"black\")}\n * > removeWords(vector<string>{string(\"red\"), string(\"green\"), string(\"blue\"), string(\"white\"), string(\"black\"), string(\"orange\")}, vector<string>{string(\"black\"), string(\"orange\")})\n * {string(\"red\"), string(\"green\"), string(\"blue\"), string(\"white\")}\n * > removeWords(vector<string>{string(\"red\"), string(\"green\"), string(\"blue\"), string(\"white\"), string(\"black\"), string(\"orange\")}, vector<string>{string(\"blue\"), string(\"white\")})\n * {string(\"red\"), string(\"green\"), string(\"black\"), string(\"orange\")}\n */\nvector<string> removeWords(vector<string> list1, vector<string> removewords) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<string> removeWords(vector<string> list1, vector<string> removewords) {\n    unordered_set<string> removeSet(removewords.begin(), removewords.end());\n    vector<string> result;\n    for (const string& word : list1) {\n        if (removeSet.find(word) == removeSet.end()) {\n            result.push_back(word);\n        }\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 445,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to check if the common elements between two given lists are in the same order or not.\n * > sameOrder(vector<string>{string(\"red\"), string(\"green\"), string(\"black\"), string(\"orange\")}, vector<string>{string(\"red\"), string(\"pink\"), string(\"green\"), string(\"white\"), string(\"black\")})\n * true\n * > sameOrder(vector<string>{string(\"red\"), string(\"pink\"), string(\"green\"), string(\"white\"), string(\"black\")}, vector<string>{string(\"white\"), string(\"orange\"), string(\"pink\"), string(\"black\")})\n * false\n * > sameOrder(vector<string>{string(\"red\"), string(\"green\"), string(\"black\"), string(\"orange\")}, vector<string>{string(\"red\"), string(\"pink\"), string(\"green\"), string(\"white\"), string(\"black\")})\n * true\n */\nbool sameOrder(vector<string> l1, vector<string> l2) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nbool sameOrder(vector<string> l1, vector<string> l2) {\n    vector<string> common1, common2;\n    unordered_set<string> set1(l1.begin(), l1.end());\n\n    for (const auto &s : l2) {\n        if (set1.count(s)) {\n            common2.push_back(s);\n        }\n    }\n    \n    unordered_set<string> set2(l2.begin(), l2.end());\n    \n    for (const auto &s : l1) {\n        if (set2.count(s)) {\n            common1.push_back(s);\n        }\n    }\n    \n    return common1 == common2;\n}"
+    },
+    {
+        "sequence": 446,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the average of odd numbers till a given odd number.\n * > averageOdd(9)\n * 5\n * > averageOdd(5)\n * 3\n * > averageOdd(11)\n * 6\n */\nint averageOdd(int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint averageOdd(int n) {\n    int sum = 0, count = 0;\n    for (int i = 1; i <= n; i += 2) {\n        sum += i;\n        count++;\n    }\n    return count == 0 ? 0 : sum / count;\n}"
+    },
+    {
+        "sequence": 447,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the number of subsequences having product smaller than k for the given non negative array.\n * > noOfSubsequences(vector<int>{1, 2, 3, 4}, 10)\n * 11\n * > noOfSubsequences(vector<int>{4, 8, 7, 2}, 50)\n * 9\n * > noOfSubsequences(vector<int>{5, 6, 7, 8}, 15)\n * 4\n */\nint noOfSubsequences(vector<int> arr, int k) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint noOfSubsequences(vector<int> arr, int k) {\n    int n = arr.size();\n    int count = 0;\n\n    for (int i = 0; i < (1 << n); i++) {\n        long long product = 1;\n        bool valid = true;\n\n        for (int j = 0; j < n; j++) {\n            if (i & (1 << j)) {\n                product *= arr[j];\n                if (product >= k) {\n                    valid = false;\n                    break;\n                }\n            }\n        }\n\n        if (valid && product < k && product != 1) {\n            count++;\n        }\n    }\n    return count;\n}"
+    },
+    {
+        "sequence": 448,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find minimum sum of factors of a given number.\n * > findMinSum(12)\n * 7\n * > findMinSum(105)\n * 15\n * > findMinSum(2)\n * 2\n */\nint findMinSum(int num) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint findMinSum(int num) {\n    if (num <= 2) return num;\n    \n    int minSum = INT_MAX;\n    \n    for (int i = 2; i <= sqrt(num); ++i) {\n        if (num % i == 0) {\n            int sum = i + num / i;\n            minSum = min(minSum, sum);\n        }\n    }\n    \n    return minSum == INT_MAX ? num + 1 : minSum;\n}"
+    },
+    {
+        "sequence": 449,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the summation of tuple elements in the given tuple list.\n * > sumElements(vector<int>{7, 8, 9, 1, 10, 7})\n * 42\n * > sumElements(vector<int>{1, 2, 3, 4, 5, 6})\n * 21\n * > sumElements(vector<int>{11, 12, 13, 45, 14})\n * 95\n */\nint sumElements(vector<int> testTup) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nint sumElements(vector<int> testTup) {\n    int sum = 0;\n    for (int num : testTup) {\n        sum += num;\n    }\n    return sum;\n}"
+    },
+    {
+        "sequence": 450,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to check if there is a subset with sum divisible by m.\n * > modularSum(vector<int>{3, 1, 7, 5}, 4, 6)\n * true\n * > modularSum(vector<int>{1, 7}, 2, 5)\n * false\n * > modularSum(vector<int>{1, 6}, 2, 5)\n * false\n */\nbool modularSum(vector<int> arr, int n, int m) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nbool modularSum(vector<int> arr, int n, int m) {\n    if (n > m) return true;\n\n    vector<bool> dp(m, false);\n    dp[0] = true;\n\n    for (int i = 0; i < n; i++) {\n        vector<bool> temp(dp);\n        for (int j = 0; j < m; j++) {\n            if (dp[j]) {\n                temp[(j + arr[i]) % m] = true;\n            }\n        }\n        dp = temp;\n    }\n    return dp[0];\n}"
+    },
+    {
+        "sequence": 451,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to sort a list of elements using radix sort.\n * > radixSort(vector<int>{15, 79, 25, 68, 37})\n * {15, 25, 37, 68, 79}\n * > radixSort(vector<int>{9, 11, 8, 7, 3, 2})\n * {2, 3, 7, 8, 9, 11}\n * > radixSort(vector<int>{36, 12, 24, 26, 29})\n * {12, 24, 26, 29, 36}\n */\nvector<int> radixSort(vector<int> nums) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> radixSort(vector<int> nums) {\n    auto getMax = [](const vector<int>& arr) {\n        return *max_element(arr.begin(), arr.end());\n    };\n    \n    auto countSort = [](vector<int>& arr, int exp) {\n        vector<int> output(arr.size());\n        vector<int> count(10, 0);\n        \n        for (int i = 0; i < arr.size(); i++)\n            count[(arr[i] / exp) % 10]++;\n        \n        for (int i = 1; i < 10; i++)\n            count[i] += count[i - 1];\n        \n        for (int i = arr.size() - 1; i >= 0; i--) {\n            output[count[(arr[i] / exp) % 10] - 1] = arr[i];\n            count[(arr[i] / exp) % 10]--;\n        }\n        \n        for (int i = 0; i < arr.size(); i++)\n            arr[i] = output[i];\n    };\n\n    int m = getMax(nums);\n    for (int exp = 1; m / exp > 0; exp *= 10)\n        countSort(nums, exp);\n    \n    return nums;\n}"
+    },
+    {
+        "sequence": 452,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the largest postive number from the given list.\n * > largestPos(vector<int>{1, 2, 3, 4, -1})\n * 4\n * > largestPos(vector<int>{0, 1, 2, -5, -1, 6})\n * 6\n * > largestPos(vector<int>{0, 0, 1, 0})\n * 1\n */\nint largestPos(vector<int> list1) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint largestPos(vector<int> list1) {\n    int maxPos = -1;\n    for (int num : list1) {\n        if (num > 0 && num > maxPos) {\n            maxPos = num;\n        }\n    }\n    return maxPos;\n}"
+    },
+    {
+        "sequence": 453,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the square root of a perfect number.\n * > sqrtRoot(4)\n * 2\n * > sqrtRoot(16)\n * 4\n * > sqrtRoot(400)\n * 20\n */\nint sqrtRoot(int num) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint sqrtRoot(int num) {\n    return static_cast<int>(sqrt(num));\n}"
+    },
+    {
+        "sequence": 454,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to calculate volume of a tetrahedron.\n * > volumeTetrahedron(10)\n * 117.85\n * > volumeTetrahedron(15)\n * 397.75\n * > volumeTetrahedron(20)\n * 942.81\n */\ndouble volumeTetrahedron(int num) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\ndouble volumeTetrahedron(int num) {\n    return (pow(num, 3) * sqrt(2)) / 12;\n}"
+    },
+    {
+        "sequence": 455,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the lcm of the given array elements.\n * > getLcm(vector<int>{2, 7, 3, 9, 4})\n * 252\n * > getLcm(vector<int>{1, 2, 8, 3})\n * 24\n * > getLcm(vector<int>{3, 8, 4, 10, 5})\n * 120\n */\nint getLcm(vector<int> l) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint gcd(int a, int b) {\n    while (b != 0) {\n        int temp = b;\n        b = a % b;\n        a = temp;\n    }\n    return a;\n}\n\nint getLcm(vector<int> l) {\n    int lcm = l[0];\n    for (int i = 1; i < l.size(); i++) {\n        lcm = (lcm * l[i]) / gcd(lcm, l[i]);\n    }\n    return lcm;\n}"
+    },
+    {
+        "sequence": 456,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to print check if the triangle is scalene or not.\n * > checkIsosceles(6, 8, 12)\n * true\n * > checkIsosceles(6, 6, 12)\n * false\n * > checkIsosceles(6, 15, 20)\n * true\n */\nbool checkIsosceles(int x, int y, int z) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nbool checkIsosceles(int x, int y, int z) {\n    return x != y && y != z && x != z;\n}"
+    },
+    {
+        "sequence": 457,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the longest bitonic subsequence for the given array.\n * > lbs(vector<int>{0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15})\n * 7\n * > lbs(vector<int>{1, 11, 2, 10, 4, 5, 2, 1})\n * 6\n * > lbs(vector<int>{80, 60, 30, 40, 20, 10})\n * 5\n */\nint lbs(vector<int> arr) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint lbs(vector<int> arr) {\n    int n = arr.size();\n    vector<int> lis(n, 1), lds(n, 1);\n\n    for (int i = 1; i < n; i++) {\n        for (int j = 0; j < i; j++) {\n            if (arr[i] > arr[j] && lis[i] < lis[j] + 1) {\n                lis[i] = lis[j] + 1;\n            }\n        }\n    }\n\n    for (int i = n - 2; i >= 0; i--) {\n        for (int j = n - 1; j > i; j--) {\n            if (arr[i] > arr[j] && lds[i] < lds[j] + 1) {\n                lds[i] = lds[j] + 1;\n            }\n        }\n    }\n\n    int max_lbs = 0;\n    for (int i = 0; i < n; i++) {\n        max_lbs = max(max_lbs, lis[i] + lds[i] - 1);\n    }\n\n    return max_lbs;\n}"
+    },
+    {
+        "sequence": 458,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to check whether a given string has a capital letter, a lower case letter, a number and specified length using lambda function.\n * > checkString(string(\"python\"))\n * {string(\"String must have 1 upper case character.\"), string(\"String must have 1 number.\"), string(\"String length should be atleast 8.\")}\n * > checkString(string(\"123python\"))\n * {string(\"String must have 1 upper case character.\")}\n * > checkString(string(\"123Python\"))\n * {string(\"Valid string.\")}\n */\nvector<string> checkString(string str1) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<string> checkString(string str1) {\n    vector<string> results;\n    auto hasUpperCase = [](string s) {\n        return any_of(s.begin(), s.end(), [](char c) { return isupper(c); });\n    };\n    auto hasLowerCase = [](string s) {\n        return any_of(s.begin(), s.end(), [](char c) { return islower(c); });\n    };\n    auto hasNumber = [](string s) {\n        return any_of(s.begin(), s.end(), [](char c) { return isdigit(c); });\n    };\n    auto hasMinLength = [](string s, int len) {\n        return s.length() >= len;\n    };\n\n    if (!hasUpperCase(str1)) {\n        results.push_back(\"String must have 1 upper case character.\");\n    }\n    if (!hasLowerCase(str1)) {\n        results.push_back(\"String must have 1 lower case character.\");\n    }\n    if (!hasNumber(str1)) {\n        results.push_back(\"String must have 1 number.\");\n    }\n    if (!hasMinLength(str1, 8)) {\n        results.push_back(\"String length should be atleast 8.\");\n    }\n    if (results.empty()) {\n        results.push_back(\"Valid string.\");\n    }\n    return results;\n}"
+    },
+    {
+        "sequence": 459,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the sum of maximum increasing subsequence of the given array.\n * > maxSumIncreasingSubsequence(vector<int>{1, 101, 2, 3, 100, 4, 5}, 7)\n * 106\n * > maxSumIncreasingSubsequence(vector<int>{3, 4, 5, 10}, 4)\n * 22\n * > maxSumIncreasingSubsequence(vector<int>{10, 5, 4, 3}, 4)\n * 10\n */\nint maxSumIncreasingSubsequence(vector<int> arr, int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint maxSumIncreasingSubsequence(vector<int> arr, int n) {\n    vector<int> dp = arr;\n    for (int i = 1; i < n; i++) {\n        for (int j = 0; j < i; j++) {\n            if (arr[i] > arr[j] && dp[i] < dp[j] + arr[i]) {\n                dp[i] = dp[j] + arr[i];\n            }\n        }\n    }\n    return *max_element(dp.begin(), dp.end());\n}"
+    },
+    {
+        "sequence": 460,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to check whether two given lines are parallel or not.\n * > parallelLines(vector<int>{2, 3, 4}, vector<int>{2, 3, 8})\n * true\n * > parallelLines(vector<int>{2, 3, 4}, vector<int>{4, -3, 8})\n * false\n * > parallelLines(vector<int>{3, 3}, vector<int>{5, 5})\n * true\n */\nbool parallelLines(vector<int> line1, vector<int> line2) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nbool parallelLines(vector<int> line1, vector<int> line2) {\n    if (line1.size() != line2.size() || line1.size() < 2) return false;\n    double ratio = static_cast<double>(line1[0]) / line2[0];\n    for (int i = 1; i < line1.size(); i++) {\n        if (static_cast<double>(line1[i]) / line2[i] != ratio) return false;\n    }\n    return true;\n}"
+    },
+    {
+        "sequence": 461,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to capitalize first and last letters of each word of a given string.\n * > capitalizeFirstLastLetters(string(\"python\"))\n * string(\"PythoN\")\n * > capitalizeFirstLastLetters(string(\"bigdata\"))\n * string(\"BigdatA\")\n * > capitalizeFirstLastLetters(string(\"Hadoop\"))\n * string(\"HadooP\")\n */\nstring capitalizeFirstLastLetters(string str1) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring capitalizeFirstLastLetters(string str1) {\n    if (str1.length() == 0) return str1;\n    if (str1.length() == 1) {\n        str1[0] = toupper(str1[0]);\n        return str1;\n    }\n    str1[0] = toupper(str1[0]);\n    str1[str1.length() - 1] = toupper(str1[str1.length() - 1]);\n    return str1;\n}"
+    },
+    {
+        "sequence": 462,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find all pairs in an integer array whose sum is equal to a given number.\n * > getPairsCount(vector<int>{1, 5, 7, -1, 5}, 5, 6)\n * 3\n * > getPairsCount(vector<int>{1, 5, 7, -1}, 4, 6)\n * 2\n * > getPairsCount(vector<int>{1, 1, 1, 1}, 4, 2)\n * 6\n */\nint getPairsCount(vector<int> arr, int n, int sum) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint getPairsCount(vector<int> arr, int n, int sum) {\n    unordered_map<int, int> freq;\n    int count = 0;\n    for (int i = 0; i < n; i++) {\n        int complement = sum - arr[i];\n        if (freq.find(complement) != freq.end()) {\n            count += freq[complement];\n        }\n        freq[arr[i]]++;\n    }\n    return count;\n}"
+    },
+    {
+        "sequence": 463,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the nth jacobsthal-lucas number.\n * > jacobsthalLucas(5)\n * 31\n * > jacobsthalLucas(2)\n * 5\n * > jacobsthalLucas(4)\n * 17\n */\nint jacobsthalLucas(int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint jacobsthalLucas(int n) {\n    if (n == 0) return 2;\n    if (n == 1) return 1;\n    return jacobsthalLucas(n - 1) + 2 * jacobsthalLucas(n - 2);\n}"
+    },
+    {
+        "sequence": 464,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the ration of negative numbers in an array of integers.\n * > negativeCount(vector<int>{0, 1, 2, -1, -5, 6, 0, -3, -2, 3, 4, 6, 8})\n * 0.31\n * > negativeCount(vector<int>{2, 1, 2, -1, -5, 6, 4, -3, -2, 3, 4, 6, 8})\n * 0.31\n * > negativeCount(vector<int>{2, 4, -6, -9, 11, -12, 14, -5, 17})\n * 0.44\n */\ndouble negativeCount(vector<int> nums) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\ndouble negativeCount(vector<int> nums) {\n    int negativeCount = count_if(nums.begin(), nums.end(), [](int x) { return x < 0; });\n    return static_cast<double>(negativeCount) / nums.size();\n}"
+    },
+    {
+        "sequence": 465,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find minimum number of coins that make a given value.\n * > minCoins(vector<int>{9, 6, 5, 1}, 4, 11)\n * 2\n * > minCoins(vector<int>{4, 5, 6, 7, 8, 9}, 6, 9)\n * 1\n * > minCoins(vector<int>{1, 2, 3}, 3, 4)\n * 2\n */\nint minCoins(vector<int> coins, int m, int v) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint minCoins(vector<int> coins, int m, int v) {\n    vector<int> dp(v+1, INT_MAX);\n    dp[0] = 0;\n\n    for(int i = 1; i <= v; ++i) {\n        for(int j = 0; j < m; ++j) {\n            if(coins[j] <= i) {\n                int sub_res = dp[i - coins[j]];\n                if(sub_res != INT_MAX && sub_res + 1 < dp[i]) {\n                    dp[i] = sub_res + 1;\n                }\n            }\n        }\n    }\n    return dp[v] == INT_MAX ? -1 : dp[v];\n}"
+    },
+    {
+        "sequence": 466,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to check if the two given strings are permutations of each other.\n * > checkPermutation(string(\"abc\"), string(\"cba\"))\n * true\n * > checkPermutation(string(\"test\"), string(\"ttew\"))\n * false\n * > checkPermutation(string(\"xxyz\"), string(\"yxzx\"))\n * true\n */\nbool checkPermutation(string str1, string str2) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nbool checkPermutation(string str1, string str2) {\n    if (str1.length() != str2.length()) return false;\n    sort(str1.begin(), str1.end());\n    sort(str2.begin(), str2.end());\n    return str1 == str2;\n}"
+    },
+    {
+        "sequence": 467,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to search a literals string in a string and also find the location within the original string where the pattern occurs.\n * > searchLiteral(string(\"python\"), string(\"python programming language\"))\n * {0, 6}\n * > searchLiteral(string(\"programming\"), string(\"python programming language\"))\n * {7, 18}\n * > searchLiteral(string(\"language\"), string(\"python programming language\"))\n * {19, 27}\n */\nvector<int> searchLiteral(string pattern, string text) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> searchLiteral(string pattern, string text) {\n    vector<int> result;\n    size_t pos = text.find(pattern);\n    if (pos != string::npos) {\n        result.push_back(pos);\n        result.push_back(pos + pattern.length() - 1);\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 468,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the top or bottom surface area of a cylinder.\n * > topbottomSurfacearea(10)\n * 314.15000000000003\n * > topbottomSurfacearea(5)\n * 78.53750000000001\n * > topbottomSurfacearea(4)\n * 50.264\n */\ndouble topbottomSurfacearea(int r) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\ndouble topbottomSurfacearea(int r) {\n    return M_PI * r * r;\n}"
+    },
+    {
+        "sequence": 469,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to select the nth items of a list.\n * > nthItems(vector<int>{1, 2, 3, 4, 5, 6, 7, 8, 9}, 2)\n * {1, 3, 5, 7, 9}\n * > nthItems(vector<int>{10, 15, 19, 17, 16, 18}, 3)\n * {10, 17}\n * > nthItems(vector<int>{14, 16, 19, 15, 17}, 4)\n * {14, 17}\n */\nvector<int> nthItems(vector<int> list, int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> nthItems(vector<int> list, int n) {\n    vector<int> result;\n    for (size_t i = 0; i < list.size(); i += n) {\n        result.push_back(list[i]);\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 470,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the first repeated word in a given string.\n * > firstRepeatedWord(string(\"ab ca bc ab\"))\n * string(\"ab\")\n * > firstRepeatedWord(string(\"ab ca bc\"))\n * string(\"None\")\n * > firstRepeatedWord(string(\"ab ca bc ca ab bc\"))\n * string(\"ca\")\n */\nstring firstRepeatedWord(string str1) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring firstRepeatedWord(string str1) {\n    unordered_set<string> seen;\n    stringstream ss(str1);\n    string word;\n    while (ss >> word) {\n        if (seen.find(word) != seen.end()) {\n            return word;\n        }\n        seen.insert(word);\n    }\n    return \"None\";\n}"
+    },
+    {
+        "sequence": 471,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to convert a given string list to a tuple.\n * > stringListToTuple(string(\"python 3.0\"))\n * {string(\"p\"), string(\"y\"), string(\"t\"), string(\"h\"), string(\"o\"), string(\"n\"), string(\"3\"), string(\".\"), string(\"0\")}\n * > stringListToTuple(string(\"bigdata\"))\n * {string(\"b\"), string(\"i\"), string(\"g\"), string(\"d\"), string(\"a\"), string(\"t\"), string(\"a\")}\n * > stringListToTuple(string(\"language\"))\n * {string(\"l\"), string(\"a\"), string(\"n\"), string(\"g\"), string(\"u\"), string(\"a\"), string(\"g\"), string(\"e\")}\n */\nvector<string> stringListToTuple(string str1) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<string> stringListToTuple(string str1) {\n    vector<string> result;\n    for (char ch : str1) {\n        result.push_back(string(1, ch));\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 472,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the difference between highest and least frequencies in a given array.\n * > findDiff(vector<int>{1, 1, 2, 2, 7, 8, 4, 5, 1, 4}, 10)\n * 2\n * > findDiff(vector<int>{1, 7, 9, 2, 3, 3, 1, 3, 3}, 9)\n * 3\n * > findDiff(vector<int>{1, 2, 1, 2}, 4)\n * 0\n */\nint findDiff(vector<int> arr, int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint findDiff(vector<int> arr, int n) {\n    unordered_map<int, int> freq;\n    for (int i = 0; i < n; i++) {\n        freq[arr[i]]++;\n    }\n\n    int maxFreq = INT_MIN, minFreq = INT_MAX;\n    for (const auto &entry : freq) {\n        int currentFreq = entry.second;\n        maxFreq = max(maxFreq, currentFreq);\n        minFreq = min(minFreq, currentFreq);\n    }\n\n    return maxFreq - minFreq;\n}"
+    },
+    {
+        "sequence": 473,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find if the given number is abundant or not.\n * > checkAbundant(12)\n * true\n * > checkAbundant(15)\n * false\n * > checkAbundant(18)\n * true\n */\nbool checkAbundant(int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nbool checkAbundant(int n) {\n    int sum = 0;\n    for (int i = 1; i <= n / 2; i++) {\n        if (n % i == 0) {\n            sum += i;\n        }\n    }\n    return sum > n;\n}"
+    },
+    {
+        "sequence": 474,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to replace all occurrences of spaces, commas, or dots with a colon in the given string by using regex.\n * > fillSpaces(string(\"Boult Curve Wireless Neckband\"))\n * string(\"Boult:Curve:Wireless:Neckband\")\n * > fillSpaces(string(\"Stereo Sound Sweatproof\"))\n * string(\"Stereo:Sound:Sweatproof\")\n * > fillSpaces(string(\"Probass Curve Audio\"))\n * string(\"Probass:Curve:Audio\")\n */\nstring fillSpaces(string text) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring fillSpaces(string text) {\n    regex re(\"[ ,.]\");\n    return regex_replace(text, re, \":\");\n}"
+    },
+    {
+        "sequence": 475,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to add two numbers and print number of digits of sum.\n * > countDigits(9875, 10)\n * 4\n * > countDigits((long long)98759853034, 100)\n * 11\n * > countDigits(1234567, 500)\n * 7\n */\nint countDigits(int num1, int num2) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint countDigits(long long num1, long long num2) {\n    long long sum = num1 + num2;\n    return to_string(sum).length();\n}"
+    },
+    {
+        "sequence": 476,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to flatten the tuple list to a string.\n * > flattenTuple(vector<vector<string>>{{string(\"1\"), string(\"4\"), string(\"6\")}, {string(\"5\"), string(\"8\")}, {string(\"2\"), string(\"9\")}, {string(\"1\"), string(\"10\")}})\n * string(\"1 4 6 5 8 2 9 1 10\")\n * > flattenTuple(vector<vector<string>>{{string(\"2\"), string(\"3\"), string(\"4\")}, {string(\"6\"), string(\"9\")}, {string(\"3\"), string(\"2\")}, {string(\"2\"), string(\"11\")}})\n * string(\"2 3 4 6 9 3 2 2 11\")\n * > flattenTuple(vector<vector<string>>{{string(\"14\"), string(\"21\"), string(\"9\")}, {string(\"24\"), string(\"19\")}, {string(\"12\"), string(\"29\")}, {string(\"23\"), string(\"17\")}})\n * string(\"14 21 9 24 19 12 29 23 17\")\n */\nstring flattenTuple(vector<vector<string>> testList) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring flattenTuple(vector<vector<string>> testList) {\n    string result;\n    for (const auto& sublist : testList) {\n        for (const auto& element : sublist) {\n            if (!result.empty()) result += \" \";\n            result += element;\n        }\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 477,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to toggle only first and last bits of a given number.\n * > toggleFAndLBits(10)\n * 3\n * > toggleFAndLBits(15)\n * 6\n * > toggleFAndLBits(20)\n * 5\n */\nint toggleFAndLBits(int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint toggleFAndLBits(int n) {\n    if (n == 0) return 1;\n    int bits = log2(n) + 1;\n    int mask = (1 << (bits - 1)) | 1;\n    return n ^ mask;\n}"
+    },
+    {
+        "sequence": 478,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the sum of hamming distances of all consecutive numbers from o to n.\n * > totalHammingDistance(4)\n * 7\n * > totalHammingDistance(2)\n * 3\n * > totalHammingDistance(5)\n * 8\n */\nint totalHammingDistance(int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint hammingDistance(int a, int b) {\n    return __builtin_popcount(a ^ b);\n}\n\nint totalHammingDistance(int n) {\n    int totalDistance = 0;\n    for (int i = 0; i < n; ++i) {\n        totalDistance += hammingDistance(i, i + 1);\n    }\n    return totalDistance;\n}"
+    },
+    {
+        "sequence": 479,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the length of the longest increasing subsequence of the given sequence.\n * > longestIncreasingSubsequence(vector<int>{10, 22, 9, 33, 21, 50, 41, 60})\n * 5\n * > longestIncreasingSubsequence(vector<int>{3, 10, 2, 1, 20})\n * 3\n * > longestIncreasingSubsequence(vector<int>{50, 3, 10, 7, 40, 80})\n * 4\n */\nint longestIncreasingSubsequence(vector<int> arr) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint longestIncreasingSubsequence(vector<int> arr) {\n    if (arr.empty()) return 0;\n    vector<int> lis(arr.size(), 1);\n    \n    for (int i = 1; i < arr.size(); ++i) {\n        for (int j = 0; j < i; ++j) {\n            if (arr[i] > arr[j] && lis[i] < lis[j] + 1) {\n                lis[i] = lis[j] + 1;\n            }\n        }\n    }\n    \n    return *max_element(lis.begin(), lis.end());\n}"
+    },
+    {
+        "sequence": 480,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the sum of fifth power of first n odd natural numbers.\n * > oddNumSum(1)\n * 1\n * > oddNumSum(2)\n * 244\n * > oddNumSum(3)\n * 3369\n */\nint oddNumSum(int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint oddNumSum(int n) {\n    int sum = 0;\n    for (int i = 0; i < n; ++i) {\n        int oddNumber = 2 * i + 1;\n        sum += pow(oddNumber, 5);\n    }\n    return sum;\n}"
+    },
+    {
+        "sequence": 481,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the maximum element in a sorted and rotated array.\n * > findMax(vector<int>{2, 3, 5, 6, 9}, 0, 4)\n * 9\n * > findMax(vector<int>{3, 4, 5, 2, 1}, 0, 4)\n * 5\n * > findMax(vector<int>{1, 2, 3}, 0, 2)\n * 3\n */\nint findMax(vector<int> arr, int low, int high) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint findMax(vector<int> arr, int low, int high) {\n    if (low == high) \n        return arr[low];\n    if (high == low + 1)\n        return max(arr[low], arr[high]);\n    int mid = low + (high - low) / 2;\n    if (arr[mid] > arr[mid + 1] && arr[mid] > arr[mid - 1])\n        return arr[mid];\n    if (arr[mid] > arr[high])\n        return findMax(arr, mid + 1, high);\n    return findMax(arr, low, mid - 1);\n}"
+    },
+    {
+        "sequence": 482,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to extract a specified column from a given nested list.\n * > extractColumn(vector<vector<int>>{{1, 2, 3}, {2, 4, 5}, {1, 1, 1}}, 0)\n * {1, 2, 1}\n * > extractColumn(vector<vector<int>>{{1, 2, 3}, {-2, 4, -5}, {1, -1, 1}}, 2)\n * {3, -5, 1}\n * > extractColumn(vector<vector<int>>{{1, 3}, {5, 7}, {1, 3}, {13, 15, 17}, {5, 7}, {9, 11}}, 0)\n * {1, 5, 1, 13, 5, 9}\n */\nvector<int> extractColumn(vector<vector<int>> list1, int n) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> extractColumn(vector<vector<int>> list1, int n) {\n    vector<int> result;\n    for (const auto& row : list1) {\n        if (n < row.size()) {\n            result.push_back(row[n]);\n        }\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 483,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to check whether a given sequence is linear or not.\n * > seqLinear(vector<int>{0, 2, 4, 6, 8, 10})\n * string(\"Linear Sequence\")\n * > seqLinear(vector<int>{1, 2, 3})\n * string(\"Linear Sequence\")\n * > seqLinear(vector<int>{1, 5, 2})\n * string(\"Non Linear Sequence\")\n */\nstring seqLinear(vector<int> seqNums) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring seqLinear(vector<int> seqNums) {\n    if (seqNums.size() < 2) return \"Linear Sequence\";\n    int diff = seqNums[1] - seqNums[0];\n    for (size_t i = 2; i < seqNums.size(); ++i) {\n        if (seqNums[i] - seqNums[i - 1] != diff) {\n            return \"Non Linear Sequence\";\n        }\n    }\n    return \"Linear Sequence\";\n}"
+    },
+    {
+        "sequence": 484,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to convert the given tuple to a floating-point number.\n * > tupleToFloat(vector<int>{4, 56})\n * 4.56\n * > tupleToFloat(vector<int>{7, 256})\n * 7.256\n * > tupleToFloat(vector<int>{8, 123})\n * 8.123\n */\ndouble tupleToFloat(vector<int> testTup) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\ndouble tupleToFloat(vector<int> testTup) {\n    if (testTup.size() != 2) return 0.0;\n    stringstream ss;\n    ss << testTup[0] << \".\" << testTup[1];\n    double result;\n    ss >> result;\n    return result;\n}"
+    },
+    {
+        "sequence": 485,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find odd numbers from a mixed list.\n * > split(vector<int>{1, 2, 3, 4, 5, 6})\n * {1, 3, 5}\n * > split(vector<int>{10, 11, 12, 13})\n * {11, 13}\n * > split(vector<int>{7, 8, 9, 1})\n * {7, 9, 1}\n */\nvector<int> split(vector<int> list) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> split(vector<int> list) {\n    vector<int> odd_numbers;\n    for (int num : list) {\n        if (num % 2 != 0) {\n            odd_numbers.push_back(num);\n        }\n    }\n    return odd_numbers;\n}"
+    },
+    {
+        "sequence": 486,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the difference between sum of cubes of first n natural numbers and the sum of first n natural numbers.\n * > difference(3)\n * 30\n * > difference(5)\n * 210\n * > difference(2)\n * 6\n */\nint difference(int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint difference(int n) {\n    int sumOfCubes = 0;\n    int sumOfNumbers = 0;\n    \n    for (int i = 1; i <= n; ++i) {\n        sumOfCubes += i * i * i;\n        sumOfNumbers += i;\n    }\n    \n    return sumOfCubes - sumOfNumbers;\n}"
+    },
+    {
+        "sequence": 487,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to count the pairs with xor as an odd number.\n * > findOddPair(vector<int>{5, 4, 7, 2, 1}, 5)\n * 6\n * > findOddPair(vector<int>{7, 2, 8, 1, 0, 5, 11}, 7)\n * 12\n * > findOddPair(vector<int>{1, 2, 3}, 3)\n * 2\n */\nint findOddPair(vector<int> a, int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint findOddPair(vector<int> a, int n) {\n    int odd_count = 0, even_count = 0;\n    for (int i = 0; i < n; i++) {\n        if (a[i] % 2 == 0)\n            even_count++;\n        else\n            odd_count++;\n    }\n    return odd_count * even_count;\n}"
+    },
+    {
+        "sequence": 488,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to toggle characters case in a string.\n * > toggleString(string(\"Python\"))\n * string(\"pYTHON\")\n * > toggleString(string(\"Pangram\"))\n * string(\"pANGRAM\")\n * > toggleString(string(\"LIttLE\"))\n * string(\"liTTle\")\n */\nstring toggleString(string str) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring toggleString(string str) {\n    for (char &c : str) {\n        if (isupper(c)) \n            c = tolower(c);\n        else if (islower(c)) \n            c = toupper(c);\n    }\n    return str;\n}"
+    },
+    {
+        "sequence": 489,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the digit distance between two integers.\n * > digitDistanceNums(1, 2)\n * 1\n * > digitDistanceNums(23, 56)\n * 6\n * > digitDistanceNums(123, 256)\n * 7\n */\nint digitDistanceNums(int n1, int n2) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint digitDistanceNums(int n1, int n2) {\n    int distance = 0;\n    while (n1 > 0 || n2 > 0) {\n        int digit1 = n1 % 10;\n        int digit2 = n2 % 10;\n        distance += abs(digit1 - digit2);\n        n1 /= 10;\n        n2 /= 10;\n    }\n    return distance;\n}"
+    },
+    {
+        "sequence": 490,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the largest sum of contiguous subarray in the given array.\n * > maxSubArraySum(vector<int>{-2, -3, 4, -1, -2, 1, 5, -3}, 8)\n * 7\n * > maxSubArraySum(vector<int>{-3, -4, 5, -2, -3, 2, 6, -4}, 8)\n * 8\n * > maxSubArraySum(vector<int>{-4, -5, 6, -3, -4, 3, 7, -5}, 8)\n * 10\n */\nint maxSubArraySum(vector<int> a, int size) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nint maxSubArraySum(vector<int> a, int size) {\n    int max_so_far = INT_MIN, max_ending_here = 0;\n    for (int i = 0; i < size; i++) {\n        max_ending_here += a[i];\n        if (max_so_far < max_ending_here) {\n            max_so_far = max_ending_here;\n        }\n        if (max_ending_here < 0) {\n            max_ending_here = 0;\n        }\n    }\n    return max_so_far;\n}"
+    },
+    {
+        "sequence": 491,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the union of elements of the given tuples.\n * > unionElements(vector<int>{3, 4, 5, 6}, vector<int>{5, 7, 4, 10})\n * {3, 4, 5, 6, 7, 10}\n * > unionElements(vector<int>{1, 2, 3, 4}, vector<int>{3, 4, 5, 6})\n * {1, 2, 3, 4, 5, 6}\n * > unionElements(vector<int>{11, 12, 13, 14}, vector<int>{13, 15, 16, 17})\n * {11, 12, 13, 14, 15, 16, 17}\n */\nvector<int> unionElements(vector<int> testTup1, vector<int> testTup2) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> unionElements(vector<int> testTup1, vector<int> testTup2) {\n    set<int> resultSet(testTup1.begin(), testTup1.end());\n    resultSet.insert(testTup2.begin(), testTup2.end());\n    return vector<int>(resultSet.begin(), resultSet.end());\n}"
+    },
+    {
+        "sequence": 492,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the maximum length of sublist.\n * > findMaxLength(vector<vector<int>>{{1}, {1, 4}, {5, 6, 7, 8}})\n * 4\n * > findMaxLength(vector<vector<int>>{{0, 1}, {2, 2}, {3, 2, 1}})\n * 3\n * > findMaxLength(vector<vector<int>>{{7}, {22, 23}, {13, 14, 15}, {10, 20, 30, 40, 50}})\n * 5\n */\nint findMaxLength(vector<vector<int>> lst) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint findMaxLength(vector<vector<int>> lst) {\n    int maxLength = 0;\n    for (const auto& sublist : lst) {\n        maxLength = max(maxLength, static_cast<int>(sublist.size()));\n    }\n    return maxLength;\n}"
+    },
+    {
+        "sequence": 493,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to extract values between quotation marks of a string.\n * > extractValues(string(\"\\\"Python\\\", \\\"PHP\\\", \\\"Java\\\"\"))\n * {string(\"Python\"), string(\"PHP\"), string(\"Java\")}\n * > extractValues(string(\"\\\"python\\\",\\\"program\\\",\\\"language\\\"\"))\n * {string(\"python\"), string(\"program\"), string(\"language\")}\n * > extractValues(string(\"\\\"red\\\",\\\"blue\\\",\\\"green\\\",\\\"yellow\\\"\"))\n * {string(\"red\"), string(\"blue\"), string(\"green\"), string(\"yellow\")}\n */\nvector<string> extractValues(string text) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<string> extractValues(string text) {\n    vector<string> result;\n    string current;\n    bool insideQuotes = false;\n    for (char ch : text) {\n        if (ch == '\\\"') {\n            if (insideQuotes) {\n                result.push_back(current);\n                current.clear();\n            }\n            insideQuotes = !insideQuotes;\n        } else if (insideQuotes) {\n            current += ch;\n        }\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 494,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to count unequal element pairs from the given array.\n * > countPairs(vector<int>{1, 2, 1}, 3)\n * 2\n * > countPairs(vector<int>{1, 1, 1, 1}, 4)\n * 0\n * > countPairs(vector<int>{1, 2, 3, 4, 5}, 5)\n * 10\n */\nint countPairs(vector<int> arr, int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint countPairs(vector<int> arr, int n) {\n    int count = 0;\n    for (int i = 0; i < n; i++) {\n        for (int j = i + 1; j < n; j++) {\n            if (arr[i] != arr[j]) {\n                count++;\n            }\n        }\n    }\n    return count;\n}"
+    },
+    {
+        "sequence": 495,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to split a string into characters.\n * > split(string(\"python\"))\n * {string(\"p\"), string(\"y\"), string(\"t\"), string(\"h\"), string(\"o\"), string(\"n\")}\n * > split(string(\"Name\"))\n * {string(\"N\"), string(\"a\"), string(\"m\"), string(\"e\")}\n * > split(string(\"program\"))\n * {string(\"p\"), string(\"r\"), string(\"o\"), string(\"g\"), string(\"r\"), string(\"a\"), string(\"m\")}\n */\nvector<string> split(string word) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<string> split(string word) {\n    vector<string> result;\n    for (char c : word) {\n        result.push_back(string(1, c));\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 496,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to get the sum of a non-negative integer.\n * > sumDigits(345)\n * 12\n * > sumDigits(12)\n * 3\n * > sumDigits(97)\n * 16\n */\nint sumDigits(int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint sumDigits(int n) {\n    int sum = 0;\n    while (n > 0) {\n        sum += n % 10;\n        n /= 10;\n    }\n    return sum;\n}"
+    },
+    {
+        "sequence": 497,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to check whether a specified list is sorted or not.\n * > issortList(vector<int>{1, 2, 4, 6, 8, 10, 12, 14, 16, 17})\n * true\n * > issortList(vector<int>{1, 2, 4, 6, 8, 10, 12, 14, 20, 17})\n * false\n * > issortList(vector<int>{1, 2, 4, 6, 8, 10, 15, 14, 20})\n * false\n */\nbool issortList(vector<int> list1) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nbool issortList(vector<int> list1) {\n    for (size_t i = 1; i < list1.size(); ++i) {\n        if (list1[i] < list1[i - 1]) {\n            return false;\n        }\n    }\n    return true;\n}"
+    },
+    {
+        "sequence": 498,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to sort each sublist of strings in a given list of lists.\n * > sortSublists(vector<vector<string>>{{string(\"green\"), string(\"orange\")}, {string(\"black\"), string(\"white\")}, {string(\"white\"), string(\"black\"), string(\"orange\")}})\n * {{string(\"green\"), string(\"orange\")}, {string(\"black\"), string(\"white\")}, {string(\"black\"), string(\"orange\"), string(\"white\")}}\n * > sortSublists(vector<vector<string>>{{string(\"green\"), string(\"orange\")}, {string(\"black\")}, {string(\"green\"), string(\"orange\")}, {string(\"white\")}})\n * {{string(\"green\"), string(\"orange\")}, {string(\"black\")}, {string(\"green\"), string(\"orange\")}, {string(\"white\")}}\n * > sortSublists(vector<vector<string>>{{string(\"a\"), string(\"b\")}, {string(\"d\"), string(\"c\")}, {string(\"g\"), string(\"h\")}, {string(\"f\"), string(\"e\")}})\n * {{string(\"a\"), string(\"b\")}, {string(\"c\"), string(\"d\")}, {string(\"g\"), string(\"h\")}, {string(\"e\"), string(\"f\")}}\n */\nvector<vector<string>> sortSublists(vector<vector<string>> list1) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<vector<string>> sortSublists(vector<vector<string>> list1) {\n    for (auto& sublist : list1) {\n        sort(sublist.begin(), sublist.end());\n    }\n    return list1;\n}"
+    },
+    {
+        "sequence": 499,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to remove words from a given list of strings containing a character or string.\n * > removeWords(vector<string>{string(\"Red color\"), string(\"Orange#\"), string(\"Green\"), string(\"Orange @\"), string(\"White\")}, vector<string>{string(\"#\"), string(\"color\"), string(\"@\")})\n * {string(\"Red\"), string(\"\"), string(\"Green\"), string(\"Orange\"), string(\"White\")}\n * > removeWords(vector<string>{string(\"Red &\"), string(\"Orange+\"), string(\"Green\"), string(\"Orange @\"), string(\"White\")}, vector<string>{string(\"&\"), string(\"+\"), string(\"@\")})\n * {string(\"Red\"), string(\"\"), string(\"Green\"), string(\"Orange\"), string(\"White\")}\n * > removeWords(vector<string>{string(\"Red &\"), string(\"Orange+\"), string(\"Green\"), string(\"Orange @\"), string(\"White\")}, vector<string>{string(\"@\")})\n * {string(\"Red &\"), string(\"Orange+\"), string(\"Green\"), string(\"Orange\"), string(\"White\")}\n */\nvector<string> removeWords(vector<string> list1, vector<string> charlist) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<string> removeWords(vector<string> list1, vector<string> charlist) {\n    vector<string> result;\n    for (string &s : list1) {\n        for (string &rem : charlist) {\n            size_t pos = s.find(rem);\n            if (pos != string::npos) {\n                s.erase(pos, rem.length());\n            }\n        }\n        result.push_back(s);\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 500,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find maximum possible sum of disjoint pairs for the given array of integers and a number k.\n * > maxSumPairDiffLessthanK(vector<int>{3, 5, 10, 15, 17, 12, 9}, 7, 4)\n * 62\n * > maxSumPairDiffLessthanK(vector<int>{5, 15, 10, 300}, 4, 12)\n * 25\n * > maxSumPairDiffLessthanK(vector<int>{1, 2, 3, 4, 5, 6}, 6, 6)\n * 21\n */\nint maxSumPairDiffLessthanK(vector<int> arr, int n, int k) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint maxSumPairDiffLessthanK(vector<int> arr, int n, int k) {\n    sort(arr.begin(), arr.end());\n    int sum = 0;\n    for (int i = n - 1; i > 0; i--) {\n        if (arr[i] - arr[i - 1] < k) {\n            sum += arr[i] + arr[i - 1];\n            i--; // Skip the next element as it's already paired\n        }\n    }\n    return sum;\n}"
+    },
+    {
+        "sequence": 501,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to remove two duplicate numbers from a given number of lists.\n * > twoUniqueNums(vector<int>{1, 2, 3, 2, 3, 4, 5})\n * {1, 4, 5}\n * > twoUniqueNums(vector<int>{1, 2, 3, 2, 4, 5})\n * {1, 3, 4, 5}\n * > twoUniqueNums(vector<int>{1, 2, 3, 4, 5})\n * {1, 2, 3, 4, 5}\n */\nvector<int> twoUniqueNums(vector<int> nums) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> twoUniqueNums(vector<int> nums) {\n    unordered_map<int, int> freq;\n    for (int num : nums) {\n        freq[num]++;\n    }\n    vector<int> result;\n    for (int num : nums) {\n        if (freq[num] == 1) {\n            result.push_back(num);\n        }\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 502,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to calculate the product of the unique numbers of a given list.\n * > uniqueProduct(vector<int>{10, 20, 30, 40, 20, 50, 60, 40})\n * 720000000\n * > uniqueProduct(vector<int>{1, 2, 3, 1})\n * 6\n * > uniqueProduct(vector<int>{7, 8, 9, 0, 1, 1})\n * 0\n */\nint uniqueProduct(vector<int> listData) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint uniqueProduct(vector<int> listData) {\n    set<int> uniqueSet(listData.begin(), listData.end());\n    int product = 1;\n    for(int num : uniqueSet) {\n        product *= num;\n        if (product == 0) break;\n    }\n    return product;\n}"
+    },
+    {
+        "sequence": 503,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the surface area of a cylinder.\n * > surfaceareaCylinder(10, 5)\n * 942.45\n * > surfaceareaCylinder(4, 5)\n * 226.18800000000002\n * > surfaceareaCylinder(4, 10)\n * 351.848\n */\ndouble surfaceareaCylinder(int r, int h) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\ndouble surfaceareaCylinder(int r, int h) {\n    const double pi = 3.141592653589793;\n    return 2 * pi * r * (r + h);\n}"
+    },
+    {
+        "sequence": 504,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find nth number in a sequence which is not a multiple of a given number.\n * > countNo(2, 3, 1, 10)\n * 5\n * > countNo(3, 6, 4, 20)\n * 11\n * > countNo(5, 10, 4, 20)\n * 16\n */\nint countNo(int a, int n, int l, int r) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint countNo(int a, int n, int l, int r) {\n    int count = 0;\n    for (int i = l; i <= r; i++) {\n        if (i % a != 0) {\n            count++;\n            if (count == n) return i;\n        }\n    }\n    return -1; // In case such an element doesn't exist\n}"
+    },
+    {
+        "sequence": 505,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to check whether an array is subarray of another or not.\n * > isSubArray(vector<int>{1, 4, 3, 5}, vector<int>{1, 2}, 4, 2)\n * false\n * > isSubArray(vector<int>{1, 2, 1}, vector<int>{1, 2, 1}, 3, 3)\n * true\n * > isSubArray(vector<int>{1, 0, 2, 2}, vector<int>{2, 2, 0}, 4, 3)\n * false\n */\nbool isSubArray(vector<int> a, vector<int> b, int n, int m) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nbool isSubArray(vector<int> a, vector<int> b, int n, int m) {\n    if (m > n) return false;\n    for (int i = 0; i <= n - m; i++) {\n        bool found = true;\n        for (int j = 0; j < m; j++) {\n            if (a[i + j] != b[j]) {\n                found = false;\n                break;\n            }\n        }\n        if (found) return true;\n    }\n    return false;\n}"
+    },
+    {
+        "sequence": 506,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the last digit in factorial of a given number.\n * > lastDigitFactorial(4)\n * 4\n * > lastDigitFactorial(21)\n * 0\n * > lastDigitFactorial(30)\n * 0\n */\nint lastDigitFactorial(int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint lastDigitFactorial(int n) {\n    if (n >= 5) return 0;\n    int factorial = 1;\n    for (int i = 2; i <= n; ++i) {\n        factorial *= i;\n    }\n    return factorial % 10;\n}"
+    },
+    {
+        "sequence": 507,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to interleave lists of the same length.\n * > interleaveLists(vector<int>{1, 2, 3, 4, 5, 6, 7}, vector<int>{10, 20, 30, 40, 50, 60, 70}, vector<int>{100, 200, 300, 400, 500, 600, 700})\n * {1, 10, 100, 2, 20, 200, 3, 30, 300, 4, 40, 400, 5, 50, 500, 6, 60, 600, 7, 70, 700}\n * > interleaveLists(vector<int>{10, 20}, vector<int>{15, 2}, vector<int>{5, 10})\n * {10, 15, 5, 20, 2, 10}\n * > interleaveLists(vector<int>{11, 44}, vector<int>{10, 15}, vector<int>{20, 5})\n * {11, 10, 20, 44, 15, 5}\n */\nvector<int> interleaveLists(vector<int> list1, vector<int> list2, vector<int> list3) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> interleaveLists(vector<int> list1, vector<int> list2, vector<int> list3) {\n    vector<int> result;\n    int n = list1.size();\n    for (int i = 0; i < n; ++i) {\n        result.push_back(list1[i]);\n        result.push_back(list2[i]);\n        result.push_back(list3[i]);\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 508,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the dissimilar elements in the given two tuples.\n * > findDissimilar(vector<int>{3, 4, 5, 6}, vector<int>{5, 7, 4, 10})\n * {3, 6, 7, 10}\n * > findDissimilar(vector<int>{1, 2, 3, 4}, vector<int>{7, 2, 3, 9})\n * {1, 4, 7, 9}\n * > findDissimilar(vector<int>{21, 11, 25, 26}, vector<int>{26, 34, 21, 36})\n * {34, 36, 11, 25}\n */\nvector<int> findDissimilar(vector<int> testTup1, vector<int> testTup2) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> findDissimilar(vector<int> testTup1, vector<int> testTup2) {\n    unordered_set<int> set1(testTup1.begin(), testTup1.end());\n    unordered_set<int> set2(testTup2.begin(), testTup2.end());\n    vector<int> result;\n\n    for (int num : testTup1) {\n        if (set2.find(num) == set2.end()) {\n            result.push_back(num);\n        }\n    }\n\n    for (int num : testTup2) {\n        if (set1.find(num) == set1.end()) {\n            result.push_back(num);\n        }\n    }\n\n    return result;\n}"
+    },
+    {
+        "sequence": 509,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the surface area of the square pyramid.\n * > surfaceArea(3, 4)\n * 33\n * > surfaceArea(4, 5)\n * 56\n * > surfaceArea(1, 2)\n * 5\n */\nint surfaceArea(int b, int s) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint surfaceArea(int b, int s) {\n    int baseArea = b * b;\n    double slantHeight = sqrt((b / 2.0) * (b / 2.0) + s * s);\n    double lateralArea = 2 * b * slantHeight;\n    return baseArea + lateralArea;\n}"
+    },
+    {
+        "sequence": 510,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to check if a dictionary is empty or not.\n * > myDict(unordered_set<int>{10})\n * false\n * > myDict(unordered_set<int>{11})\n * false\n */\nbool myDict(unordered_set<int> dict1) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nbool myDict(unordered_set<int> dict1) {\n    return dict1.empty();\n}"
+    },
+    {
+        "sequence": 511,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function for nth catalan number.\n * > catalanNumber(10)\n * 16796\n * > catalanNumber(9)\n * 4862\n * > catalanNumber(7)\n * 429\n */\nint catalanNumber(int num) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint catalanNumber(int num) {\n    vector<int> catalan(num + 1, 0);\n    catalan[0] = 1; \n\n    for (int i = 1; i <= num; ++i) {\n        for (int j = 0; j < i; ++j) {\n            catalan[i] += catalan[j] * catalan[i - j - 1];\n        }\n    }\n\n    return catalan[num];\n}"
+    },
+    {
+        "sequence": 512,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find all adverbs and their positions in a given sentence by using regex.\n * > findAdverbs(string(\"Clearly, he has no excuse for such behavior.\"))\n * string(\"0-7: Clearly\")\n * > findAdverbs(string(\"Please handle the situation carefuly\"))\n * string(\"28-36: carefuly\")\n * > findAdverbs(string(\"Complete the task quickly\"))\n * string(\"18-25: quickly\")\n */\nstring findAdverbs(string text) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring findAdverbs(string text) {\n    regex adverbRegex(R\"(\\b\\w+ly\\b)\");\n    smatch matches;\n    string result = \"\";\n    auto searchStart = text.cbegin();\n    while (regex_search(searchStart, text.cend(), matches, adverbRegex)) {\n        int start = matches.position() + distance(text.cbegin(), searchStart);\n        int end = start + matches.length();\n        result += to_string(start) + \"-\" + to_string(end) + \": \" + matches.str() + \"\\n\";\n        searchStart = matches.suffix().first;\n    }\n    return result.empty() ? \"No adverbs found\" : result;\n}"
+    },
+    {
+        "sequence": 513,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to split the array and add the first part to the end.\n * > splitArr(vector<int>{12, 10, 5, 6, 52, 36}, 6, 2)\n * {5, 6, 52, 36, 12, 10}\n * > splitArr(vector<int>{1, 2, 3, 4}, 4, 1)\n * {2, 3, 4, 1}\n * > splitArr(vector<int>{0, 1, 2, 3, 4, 5, 6, 7}, 8, 3)\n * {3, 4, 5, 6, 7, 0, 1, 2}\n */\nvector<int> splitArr(vector<int> a, int n, int k) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> splitArr(vector<int> a, int n, int k) {\n    vector<int> result;\n    for (int i = k; i < n; ++i) {\n        result.push_back(a[i]);\n    }\n    for (int i = 0; i < k; ++i) {\n        result.push_back(a[i]);\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 514,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to convert a list to a tuple.\n * > listTuple(vector<int>{5, 10, 7, 4, 15, 3})\n * {5, 10, 7, 4, 15, 3}\n * > listTuple(vector<int>{2, 4, 5, 6, 2, 3, 4, 4, 7})\n * {2, 4, 5, 6, 2, 3, 4, 4, 7}\n * > listTuple(vector<int>{58, 44, 56})\n * {58, 44, 56}\n */\nvector<int> listTuple(vector<int> listx) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> listTuple(vector<int> listx) {\n    return listx;\n}"
+    },
+    {
+        "sequence": 515,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the difference between largest and smallest value in a given array.\n * > bigDiff(vector<int>{1, 2, 3, 4})\n * 3\n * > bigDiff(vector<int>{4, 5, 12})\n * 8\n * > bigDiff(vector<int>{9, 2, 3})\n * 7\n */\nint bigDiff(vector<int> nums) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint bigDiff(vector<int> nums) {\n    int maxVal = *max_element(nums.begin(), nums.end());\n    int minVal = *min_element(nums.begin(), nums.end());\n    return maxVal - minVal;\n}"
+    },
+    {
+        "sequence": 516,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find perfect squares between two given numbers.\n * > perfectSquares(1, 30)\n * {1, 4, 9, 16, 25}\n * > perfectSquares(50, 100)\n * {64, 81, 100}\n * > perfectSquares(100, 200)\n * {100, 121, 144, 169, 196}\n */\nvector<int> perfectSquares(int a, int b) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> perfectSquares(int a, int b) {\n    vector<int> result;\n    int start = ceil(sqrt(a));\n    int end = floor(sqrt(b));\n    for (int i = start; i <= end; ++i) {\n        int square = i * i;\n        if (square >= a && square <= b) {\n            result.push_back(square);\n        }\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 517,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to interchange the first and last elements in a list.\n * > swapList(vector<int>{12, 35, 9, 56, 24})\n * {24, 35, 9, 56, 12}\n * > swapList(vector<int>{1, 2, 3})\n * {3, 2, 1}\n * > swapList(vector<int>{4, 5, 6})\n * {6, 5, 4}\n */\nvector<int> swapList(vector<int> newlist) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> swapList(vector<int> newlist) {\n    if (newlist.size() > 1) {\n        swap(newlist[0], newlist[newlist.size() - 1]);\n    }\n    return newlist;\n}"
+    },
+    {
+        "sequence": 518,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find sum of product of binomial co-efficients.\n * > sumOfProduct(3)\n * 15\n * > sumOfProduct(4)\n * 56\n * > sumOfProduct(1)\n * 1\n */\nint sumOfProduct(int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint sumOfProduct(int n) {\n    int sum = 0;\n    for (int i = 0; i <= n; ++i) {\n        sum += pow(2, n - i) * pow(2, i);\n    }\n    return sum;\n}"
+    },
+    {
+        "sequence": 519,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to remove leading zeroes from an ip address.\n * > removezeroIp(string(\"216.08.094.196\"))\n * string(\"216.8.94.196\")\n * > removezeroIp(string(\"12.01.024\"))\n * string(\"12.1.24\")\n * > removezeroIp(string(\"216.08.094.0196\"))\n * string(\"216.8.94.196\")\n */\nstring removezeroIp(string ip) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nstring removezeroIp(string ip) {\n    stringstream ss(ip);\n    string result;\n    string segment;\n    bool first = true;\n\n    while (getline(ss, segment, '.')) {\n        if (!first) result += \".\";\n        first = false;\n        int num = stoi(segment);\n        result += to_string(num);\n    }\n\n    return result;\n}"
+    },
+    {
+        "sequence": 520,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the difference of first even and odd number of a given list.\n * > diffEvenOdd(vector<int>{1, 3, 5, 7, 4, 1, 6, 8})\n * 3\n * > diffEvenOdd(vector<int>{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})\n * 1\n * > diffEvenOdd(vector<int>{1, 5, 7, 9, 10})\n * 9\n */\nint diffEvenOdd(vector<int> list1) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nint diffEvenOdd(vector<int> list1) {\n    int firstEven = -1, firstOdd = -1;\n    for (int num : list1) {\n        if (num % 2 == 0 && firstEven == -1) {\n            firstEven = num;\n        }\n        if (num % 2 != 0 && firstOdd == -1) {\n            firstOdd = num;\n        }\n        if (firstEven != -1 && firstOdd != -1) break;\n    }\n    return abs(firstEven - firstOdd);\n}"
+    },
+    {
+        "sequence": 521,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find kth element from the given two sorted arrays.\n * > findKth(vector<int>{2, 3, 6, 7, 9}, vector<int>{1, 4, 8, 10}, 5, 4, 5)\n * 6\n * > findKth(vector<int>{100, 112, 256, 349, 770}, vector<int>{72, 86, 113, 119, 265, 445, 892}, 5, 7, 7)\n * 256\n * > findKth(vector<int>{3, 4, 7, 8, 10}, vector<int>{2, 5, 9, 11}, 5, 4, 6)\n * 8\n */\nint findKth(vector<int> arr1, vector<int> arr2, int m, int n, int k) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint findKth(vector<int> arr1, vector<int> arr2, int m, int n, int k) {\n    if (m > n) return findKth(arr2, arr1, n, m, k);\n    if (m == 0) return arr2[k - 1];\n    if (k == 1) return min(arr1[0], arr2[0]);\n\n    int i = min(m, k / 2);\n    int j = min(n, k / 2);\n\n    if (arr1[i - 1] > arr2[j - 1]) \n        return findKth(arr1, vector<int>(arr2.begin() + j, arr2.end()), m, n - j, k - j);\n    else \n        return findKth(vector<int>(arr1.begin() + i, arr1.end()), arr2, m - i, n, k - i);\n}"
+    },
+    {
+        "sequence": 522,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to check whether the given number is armstrong or not.\n * > armstrongNumber(153)\n * true\n * > armstrongNumber(259)\n * false\n * > armstrongNumber(4458)\n * false\n */\nbool armstrongNumber(int number) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nbool armstrongNumber(int number) {\n    int sum = 0, temp = number, digits = 0;\n    while (temp > 0) {\n        digits++;\n        temp /= 10;\n    }\n    temp = number;\n    while (temp > 0) {\n        int digit = temp % 10;\n        sum += pow(digit, digits);\n        temp /= 10;\n    }\n    return sum == number;\n}"
+    },
+    {
+        "sequence": 523,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to check whether the given number is even or not using bitwise operator.\n * > isEven(1)\n * false\n * > isEven(2)\n * true\n * > isEven(3)\n * false\n */\nbool isEven(int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nbool isEven(int n) {\n    return (n & 1) == 0;\n}"
+    },
+    {
+        "sequence": 524,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the first repeated character in a given string.\n * > firstRepeatedChar(string(\"abcabc\"))\n * string(\"a\")\n * > firstRepeatedChar(string(\"abc\"))\n * string(\"None\")\n * > firstRepeatedChar(string(\"123123\"))\n * string(\"1\")\n */\nstring firstRepeatedChar(string str1) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring firstRepeatedChar(string str1) {\n    unordered_set<char> seen;\n    for (char c : str1) {\n        if (seen.find(c) != seen.end()) {\n            return string(1, c);\n        }\n        seen.insert(c);\n    }\n    return \"None\";\n}"
+    },
+    {
+        "sequence": 525,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to get a lucid number smaller than or equal to n.\n * > getLudic(10)\n * {1, 2, 3, 5, 7}\n * > getLudic(25)\n * {1, 2, 3, 5, 7, 11, 13, 17, 23, 25}\n * > getLudic(45)\n * {1, 2, 3, 5, 7, 11, 13, 17, 23, 25, 29, 37, 41, 43}\n */\nvector<int> getLudic(int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> getLudic(int n) {\n    vector<int> ludicNumbers;\n    vector<int> numbers(n);\n    iota(numbers.begin(), numbers.end(), 1);\n    \n    int index = 1; // Start at the second element, since 1 is always ludic\n    while (index < numbers.size()) {\n        int step = numbers[index];\n        ludicNumbers.push_back(step);\n        numbers.erase(remove_if(numbers.begin() + index, numbers.end(),\n                                [step](int val, int i = 0) mutable { return (++i) % step == 0; }),\n                      numbers.end());\n        ++index;\n    }\n\n    return ludicNumbers;\n}"
+    },
+    {
+        "sequence": 526,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to reverse words in a given string.\n * > reverseWords(string(\"python program\"))\n * string(\"program python\")\n * > reverseWords(string(\"java language\"))\n * string(\"language java\")\n * > reverseWords(string(\"indian man\"))\n * string(\"man indian\")\n */\nstring reverseWords(string s) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring reverseWords(string s) {\n    istringstream iss(s);\n    vector<string> words;\n    string word;\n    while (iss >> word) {\n        words.push_back(word);\n    }\n    reverse(words.begin(), words.end());\n    string result = \"\";\n    for (size_t i = 0; i < words.size(); ++i) {\n        if (i > 0) result += \" \";\n        result += words[i];\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 527,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to check if the given integer is a prime number.\n * > primeNum(13)\n * true\n * > primeNum(7)\n * true\n * > primeNum(-1010)\n * false\n */\nbool primeNum(int num) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nbool primeNum(int num) {\n    if (num <= 1) return false;\n    if (num <= 3) return true;\n    if (num % 2 == 0 || num % 3 == 0) return false;\n    for (int i = 5; i * i <= num; i += 6) {\n        if (num % i == 0 || num % (i + 2) == 0) return false;\n    }\n    return true;\n}"
+    },
+    {
+        "sequence": 528,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to convert degrees to radians.\n * > radianDegree(90)\n * 1.5707963267948966\n * > radianDegree(60)\n * 1.0471975511965976\n * > radianDegree(120)\n * 2.0943951023931953\n */\ndouble radianDegree(int degree) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\ndouble radianDegree(int degree) {\n    return degree * (M_PI / 180.0);\n}"
+    },
+    {
+        "sequence": 529,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find nth bell number.\n * > bellNumber(2)\n * 2\n * > bellNumber(3)\n * 5\n * > bellNumber(4)\n * 15\n */\nint bellNumber(int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint bellNumber(int n) {\n    vector<vector<int>> bell(n+1, vector<int>(n+1, 0));\n    bell[0][0] = 1;\n    for (int i = 1; i <= n; i++) {\n        bell[i][0] = bell[i-1][i-1];\n        for (int j = 1; j <= i; j++) {\n            bell[i][j] = bell[i-1][j-1] + bell[i][j-1];\n        }\n    }\n    return bell[n][0];\n}"
+    },
+    {
+        "sequence": 530,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find minimum possible value for the given periodic function.\n * > floorMin(10, 20, 30)\n * 15\n * > floorMin(1, 2, 1)\n * 0\n * > floorMin(11, 10, 9)\n * 9\n */\nint floorMin(int a, int b, int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint floorMin(int a, int b, int n) {\n    return min(a, min(b, n));\n}"
+    },
+    {
+        "sequence": 531,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to remove the k'th element from a given list.\n * > removeKthElement(vector<int>{1, 1, 2, 3, 4, 4, 5, 1}, 3)\n * {1, 1, 3, 4, 4, 5, 1}\n * > removeKthElement(vector<int>{0, 0, 1, 2, 3, 4, 4, 5, 6, 6, 6, 7, 8, 9, 4, 4}, 4)\n * {0, 0, 1, 3, 4, 4, 5, 6, 6, 6, 7, 8, 9, 4, 4}\n * > removeKthElement(vector<int>{10, 10, 15, 19, 18, 18, 17, 26, 26, 17, 18, 10}, 5)\n * {10, 10, 15, 19, 18, 17, 26, 26, 17, 18, 10}\n */\nvector<int> removeKthElement(vector<int> list1, int l) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> removeKthElement(vector<int> list1, int l) {\n    if (l >= 0 && l < list1.size()) {\n        list1.erase(list1.begin() + l);\n    }\n    return list1;\n}"
+    },
+    {
+        "sequence": 532,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the maximum of nth column from the given tuple list.\n * > maxOfNth(vector<vector<int>>{{5, 6, 7}, {1, 3, 5}, {8, 9, 19}}, 2)\n * 19\n * > maxOfNth(vector<vector<int>>{{6, 7, 8}, {2, 4, 6}, {9, 10, 20}}, 1)\n * 10\n * > maxOfNth(vector<vector<int>>{{7, 8, 9}, {3, 5, 7}, {10, 11, 21}}, 1)\n * 11\n */\nint maxOfNth(vector<vector<int>> testList, int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint maxOfNth(vector<vector<int>> testList, int n) {\n    int maxVal = INT_MIN;\n    for (const auto& row : testList) {\n        if (n < row.size()) {\n            maxVal = max(maxVal, row[n]);\n        }\n    }\n    return maxVal;\n}"
+    },
+    {
+        "sequence": 533,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the cumulative sum of all the values that are present in the given tuple list.\n * > cummulativeSum(vector<vector<int>>{{1, 3}, {5, 6, 7}, {2, 6}})\n * 30\n * > cummulativeSum(vector<vector<int>>{{2, 4}, {6, 7, 8}, {3, 7}})\n * 37\n * > cummulativeSum(vector<vector<int>>{{3, 5}, {7, 8, 9}, {4, 8}})\n * 44\n */\nint cummulativeSum(vector<vector<int>> testList) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint cummulativeSum(vector<vector<int>> testList) {\n    int sum = 0;\n    for (const auto& sublist : testList) {\n        for (int num : sublist) {\n            sum += num;\n        }\n    }\n    return sum;\n}"
+    },
+    {
+        "sequence": 534,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find average value of the numbers in a given tuple of tuples.\n * > averageTuple(vector<vector<int>>{{10, 10, 10, 12}, {30, 45, 56, 45}, {81, 80, 39, 32}, {1, 2, 3, 4}})\n * {30.5, 34.25, 27.0, 23.25}\n * > averageTuple(vector<vector<int>>{{1, 1, -5}, {30, -15, 56}, {81, -60, -39}, {-10, 2, 3}})\n * {25.5, -18.0, 3.75}\n * > averageTuple(vector<vector<int>>{{100, 100, 100, 120}, {300, 450, 560, 450}, {810, 800, 390, 320}, {10, 20, 30, 40}})\n * {305.0, 342.5, 270.0, 232.5}\n */\nvector<double> averageTuple(vector<vector<int>> nums) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<double> averageTuple(vector<vector<int>> nums) {\n    if (nums.empty() || nums[0].empty()) return {};\n    \n    int m = nums.size();\n    int n = nums[0].size();\n    vector<double> averages(n, 0.0);\n    \n    for (int j = 0; j < n; ++j) {\n        double sum = 0.0;\n        for (int i = 0; i < m; ++i) {\n            sum += nums[i][j];\n        }\n        averages[j] = sum / m;\n    }\n    \n    return averages;\n}"
+    },
+    {
+        "sequence": 535,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to perfom the modulo of tuple elements in the given two tuples.\n * > tupleModulo(vector<int>{10, 4, 5, 6}, vector<int>{5, 6, 7, 5})\n * {0, 4, 5, 1}\n * > tupleModulo(vector<int>{11, 5, 6, 7}, vector<int>{6, 7, 8, 6})\n * {5, 5, 6, 1}\n * > tupleModulo(vector<int>{12, 6, 7, 8}, vector<int>{7, 8, 9, 7})\n * {5, 6, 7, 1}\n */\nvector<int> tupleModulo(vector<int> testTup1, vector<int> testTup2) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> tupleModulo(vector<int> testTup1, vector<int> testTup2) {\n    vector<int> result;\n    for (size_t i = 0; i < testTup1.size(); ++i) {\n        result.push_back(testTup1[i] % testTup2[i]);\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 536,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to divide two lists using map and lambda function.\n * > divList(vector<int>{4, 5, 6}, vector<int>{1, 2, 3})\n * {4.0, 2.5, 2.0}\n * > divList(vector<int>{3, 2}, vector<int>{1, 4})\n * {3.0, 0.5}\n * > divList(vector<int>{90, 120}, vector<int>{50, 70})\n * {1.8, 1.7142857142857142}\n */\nvector<double> divList(vector<int> nums1, vector<int> nums2) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<double> divList(vector<int> nums1, vector<int> nums2) {\n    vector<double> result;\n    transform(nums1.begin(), nums1.end(), nums2.begin(), back_inserter(result), [](int a, int b) {\n        return static_cast<double>(a) / b;\n    });\n    return result;\n}"
+    },
+    {
+        "sequence": 537,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to move all the numbers in it to the given string.\n * > moveNum(string(\"I1love143you55three3000thousand\"))\n * string(\"Iloveyouthreethousand1143553000\")\n * > moveNum(string(\"Avengers124Assemble\"))\n * string(\"AvengersAssemble124\")\n * > moveNum(string(\"Its11our12path13to14see15things16do17things\"))\n * string(\"Itsourpathtoseethingsdothings11121314151617\")\n */\nstring moveNum(string testStr) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring moveNum(string testStr) {\n    string letters, numbers;\n    for (char c : testStr) {\n        if (isdigit(c)) {\n            numbers += c;\n        } else {\n            letters += c;\n        }\n    }\n    return letters + numbers;\n}"
+    },
+    {
+        "sequence": 538,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the largest subset where each pair is divisible.\n * > largestSubset(vector<int>{1, 3, 6, 13, 17, 18}, 6)\n * 4\n * > largestSubset(vector<int>{10, 5, 3, 15, 20}, 5)\n * 3\n * > largestSubset(vector<int>{18, 1, 3, 6, 13, 17}, 6)\n * 4\n */\nint largestSubset(vector<int> a, int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint largestSubset(vector<int> a, int n) {\n    sort(a.begin(), a.end());\n    vector<int> dp(n, 1);\n\n    for (int i = 1; i < n; ++i) {\n        for (int j = 0; j < i; ++j) {\n            if (a[i] % a[j] == 0 || a[j] % a[i] == 0) {\n                dp[i] = max(dp[i], dp[j] + 1);\n            }\n        }\n    }\n\n    return *max_element(dp.begin(), dp.end());\n}"
+    },
+    {
+        "sequence": 539,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to increment the numeric values in the given strings by k.\n * > incrementNumerics(vector<string>{string(\"MSM\"), string(\"234\"), string(\"is\"), string(\"98\"), string(\"123\"), string(\"best\"), string(\"4\")}, 6)\n * {string(\"MSM\"), string(\"240\"), string(\"is\"), string(\"104\"), string(\"129\"), string(\"best\"), string(\"10\")}\n * > incrementNumerics(vector<string>{string(\"Dart\"), string(\"356\"), string(\"is\"), string(\"88\"), string(\"169\"), string(\"Super\"), string(\"6\")}, 12)\n * {string(\"Dart\"), string(\"368\"), string(\"is\"), string(\"100\"), string(\"181\"), string(\"Super\"), string(\"18\")}\n * > incrementNumerics(vector<string>{string(\"Flutter\"), string(\"451\"), string(\"is\"), string(\"44\"), string(\"96\"), string(\"Magnificent\"), string(\"12\")}, 33)\n * {string(\"Flutter\"), string(\"484\"), string(\"is\"), string(\"77\"), string(\"129\"), string(\"Magnificent\"), string(\"45\")}\n */\nvector<string> incrementNumerics(vector<string> testList, int k) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<string> incrementNumerics(vector<string> testList, int k) {\n    for(auto &s : testList) {\n        if(all_of(s.begin(), s.end(), ::isdigit)) {\n            int num = stoi(s);\n            num += k;\n            s = to_string(num);\n        }\n    }\n    return testList;\n}"
+    },
+    {
+        "sequence": 540,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the median of two sorted arrays of same size.\n * > getMedian(vector<int>{1, 12, 15, 26, 38}, vector<int>{2, 13, 17, 30, 45}, 5)\n * 16.0\n * > getMedian(vector<int>{2, 4, 8, 9}, vector<int>{7, 13, 19, 28}, 4)\n * 8.5\n * > getMedian(vector<int>{3, 6, 14, 23, 36, 42}, vector<int>{2, 18, 27, 39, 49, 55}, 6)\n * 25.0\n */\ndouble getMedian(vector<int> arr1, vector<int> arr2, int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\ndouble getMedian(vector<int> arr1, vector<int> arr2, int n) {\n    int i = 0;\n    int j = 0;\n    int m1 = -1, m2 = -1;\n    for (int count = 0; count <= n; count++) {\n        if (i != n && (j == n || arr1[i] <= arr2[j])) {\n            m1 = m2;\n            m2 = arr1[i];\n            i++;\n        } else {\n            m1 = m2;\n            m2 = arr2[j];\n            j++;\n        }\n    }\n    return (m1 + m2) / 2.0;\n}"
+    },
+    {
+        "sequence": 541,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the n-th power of individual elements in a list using lambda function.\n * > nthNums(vector<int>{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 2)\n * {1, 4, 9, 16, 25, 36, 49, 64, 81, 100}\n * > nthNums(vector<int>{10, 20, 30}, 3)\n * {1000, 8000, 27000}\n * > nthNums(vector<int>{12, 15}, 5)\n * {248832, 759375}\n */\nvector<int> nthNums(vector<int> nums, int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> nthNums(vector<int> nums, int n) {\n    vector<int> result;\n    transform(nums.begin(), nums.end(), back_inserter(result), [n](int x) { return pow(x, n); });\n    return result;\n}"
+    },
+    {
+        "sequence": 542,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to convert the given string to upper case.\n * > isUpper(string(\"person\"))\n * string(\"PERSON\")\n * > isUpper(string(\"final\"))\n * string(\"FINAL\")\n * > isUpper(string(\"Valid\"))\n * string(\"VALID\")\n */\nstring isUpper(string str) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nstring isUpper(string str) {\n    transform(str.begin(), str.end(), str.begin(), ::toupper);\n    return str;\n}"
+    },
+    {
+        "sequence": 543,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to interchange first and last elements in a given list.\n * > swapList(vector<int>{1, 2, 3})\n * {3, 2, 1}\n * > swapList(vector<int>{1, 2, 3, 4, 4})\n * {4, 2, 3, 4, 1}\n * > swapList(vector<int>{4, 5, 6})\n * {6, 5, 4}\n */\nvector<int> swapList(vector<int> newlist) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> swapList(vector<int> newlist) {\n    if (newlist.size() > 1) {\n        swap(newlist[0], newlist[newlist.size() - 1]);\n    }\n    return newlist;\n}"
+    },
+    {
+        "sequence": 544,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the largest triangle that can be inscribed in the semicircle.\n * > triangleArea(0)\n * 0\n * > triangleArea(-1)\n * -1\n * > triangleArea(2)\n * 4\n */\nint triangleArea(int r) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nint triangleArea(int r) {\n    if (r <= 0) return r;\n    return r * r;\n}"
+    },
+    {
+        "sequence": 545,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the smallest missing number from the given array.\n * > findFirstMissing(vector<int>{0, 1, 2, 3}, 0, 3)\n * 4\n * > findFirstMissing(vector<int>{0, 1, 2, 6, 9}, 0, 4)\n * 3\n * > findFirstMissing(vector<int>{2, 3, 5, 8, 9}, 0, 4)\n * 0\n */\nint findFirstMissing(vector<int> array, int start, int end) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint findFirstMissing(vector<int> array, int start, int end) {\n    if (start > end)\n        return end + 1;\n\n    if (array[start] != start)\n        return start;\n\n    int mid = start + (end - start) / 2;\n\n    if (array[mid] == mid)\n        return findFirstMissing(array, mid + 1, end);\n\n    return findFirstMissing(array, start, mid - 1);\n}"
+    },
+    {
+        "sequence": 546,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to replace all spaces in the given string with character * list item * list item * list item * list item '%20'.\n * > replaceSpaces(string(\"My Name is Dawood\"))\n * string(\"My%20Name%20is%20Dawood\")\n * > replaceSpaces(string(\"I am a Programmer\"))\n * string(\"I%20am%20a%20Programmer\")\n * > replaceSpaces(string(\"I love Coding\"))\n * string(\"I%20love%20Coding\")\n */\nstring replaceSpaces(string str) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring replaceSpaces(string str) {\n    string result;\n    for (char c : str) {\n        if (c == ' ') {\n            result += \"%20\";\n        } else {\n            result += c;\n        }\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 547,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find even numbers from a mixed list.\n * > split(vector<int>{1, 2, 3, 4, 5})\n * {2, 4}\n * > split(vector<int>{4, 5, 6, 7, 8, 0, 1})\n * {4, 6, 8, 0}\n */\nvector<int> split(vector<int> list) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> split(vector<int> list) {\n    vector<int> evens;\n    for (int num : list) {\n        if (num % 2 == 0) {\n            evens.push_back(num);\n        }\n    }\n    return evens;\n}"
+    },
+    {
+        "sequence": 548,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to extract all the adjacent coordinates of the given coordinate tuple.\n * > getCoordinates(vector<int>{3, 4})\n * {{2, 3}, {2, 4}, {2, 5}, {3, 3}, {3, 4}, {3, 5}, {4, 3}, {4, 4}, {4, 5}}\n * > getCoordinates(vector<int>{4, 5})\n * {{3, 4}, {3, 5}, {3, 6}, {4, 4}, {4, 5}, {4, 6}, {5, 4}, {5, 5}, {5, 6}}\n * > getCoordinates(vector<int>{5, 6})\n * {{4, 5}, {4, 6}, {4, 7}, {5, 5}, {5, 6}, {5, 7}, {6, 5}, {6, 6}, {6, 7}}\n */\nvector<vector<int>> getCoordinates(vector<int> testTup) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<vector<int>> getCoordinates(vector<int> testTup) {\n    vector<vector<int>> result;\n    int row = testTup[0];\n    int col = testTup[1];\n    \n    for (int i = row - 1; i <= row + 1; ++i) {\n        for (int j = col - 1; j <= col + 1; ++j) {\n            result.push_back({i, j});\n        }\n    }\n    \n    return result;\n}"
+    },
+    {
+        "sequence": 549,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to replace whitespaces with an underscore and vice versa in a given string by using regex.\n * > replaceSpaces(string(\"Jumanji The Jungle\"))\n * string(\"Jumanji_The_Jungle\")\n * > replaceSpaces(string(\"The Avengers\"))\n * string(\"The_Avengers\")\n * > replaceSpaces(string(\"Fast and Furious\"))\n * string(\"Fast_and_Furious\")\n */\nstring replaceSpaces(string text) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring replaceSpaces(string text) {\n    text = regex_replace(text, regex(\"_\"), \" \"); \n    text = regex_replace(text, regex(\" \"), \"_\"); \n    return text;\n}"
+    },
+    {
+        "sequence": 550,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to move all zeroes to the end of the given list.\n * > moveZero(vector<int>{1, 0, 2, 0, 3, 4})\n * {1, 2, 3, 4, 0, 0}\n * > moveZero(vector<int>{2, 3, 2, 0, 0, 4, 0, 5, 0})\n * {2, 3, 2, 4, 5, 0, 0, 0, 0}\n * > moveZero(vector<int>{0, 1, 0, 1, 1})\n * {1, 1, 1, 0, 0}\n */\nvector<int> moveZero(vector<int> numList) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> moveZero(vector<int> numList) {\n    int nonZeroIndex = 0;\n    for (int i = 0; i < numList.size(); ++i) {\n        if (numList[i] != 0) {\n            numList[nonZeroIndex++] = numList[i];\n        }\n    }\n    for (int i = nonZeroIndex; i < numList.size(); ++i) {\n        numList[i] = 0;\n    }\n    return numList;\n}"
+    },
+    {
+        "sequence": 551,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the sum of xor of all pairs of numbers in the given array.\n * > pairOrSum(vector<int>{5, 9, 7, 6}, 4)\n * 47\n * > pairOrSum(vector<int>{7, 3, 5}, 3)\n * 12\n * > pairOrSum(vector<int>{7, 3}, 2)\n * 4\n */\nint pairOrSum(vector<int> arr, int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint pairOrSum(vector<int> arr, int n) {\n    int result = 0;\n    for (int i = 0; i < n; i++) {\n        for (int j = i + 1; j < n; j++) {\n            result += (arr[i] ^ arr[j]);\n        }\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 552,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the sum of fourth power of first n even natural numbers.\n * > evenPowerSum(2)\n * 272\n * > evenPowerSum(3)\n * 1568\n * > evenPowerSum(4)\n * 5664\n */\nint evenPowerSum(int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint evenPowerSum(int n) {\n    int sum = 0;\n    for (int i = 1; i <= n; ++i) {\n        int evenNum = 2 * i;\n        sum += pow(evenNum, 4);\n    }\n    return sum;\n}"
+    },
+    {
+        "sequence": 553,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to push all values into a heap and then pop off the smallest values one at a time.\n * > heapSort(vector<int>{1, 3, 5, 7, 9, 2, 4, 6, 8, 0})\n * {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}\n * > heapSort(vector<int>{25, 35, 22, 85, 14, 65, 75, 25, 58})\n * {14, 22, 25, 25, 35, 58, 65, 75, 85}\n * > heapSort(vector<int>{7, 1, 9, 5})\n * {1, 5, 7, 9}\n */\nvector<int> heapSort(vector<int> iterable) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> heapSort(vector<int> iterable) {\n    priority_queue<int, vector<int>, greater<int>> minHeap;\n    for (int elem : iterable) {\n        minHeap.push(elem);\n    }\n    vector<int> sortedValues;\n    while (!minHeap.empty()) {\n        sortedValues.push_back(minHeap.top());\n        minHeap.pop();\n    }\n    return sortedValues;\n}"
+    },
+    {
+        "sequence": 554,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to check if roots of a quadratic equation are reciprocal of each other or not.\n * > checkSolution(2, 0, 2)\n * string(\"Yes\")\n * > checkSolution(2, -5, 2)\n * string(\"Yes\")\n * > checkSolution(1, 2, 3)\n * string(\"No\")\n */\nstring checkSolution(int a, int b, int c) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring checkSolution(int a, int b, int c) {\n    if (b == 0 && a == c) {\n        return \"Yes\";\n    }\n    return \"No\";\n}"
+    },
+    {
+        "sequence": 555,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to check whether the given amount has no profit and no loss\n * > noprofitNoloss(1500, 1200)\n * false\n * > noprofitNoloss(100, 100)\n * true\n * > noprofitNoloss(2000, 5000)\n * false\n */\nbool noprofitNoloss(int actualCost, int saleAmount) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nbool noprofitNoloss(int actualCost, int saleAmount) {\n    return actualCost == saleAmount;\n}"
+    },
+    {
+        "sequence": 556,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to calculate wind chill index.\n * > windChill(120, 35)\n * 40\n * > windChill(40, 70)\n * 86\n * > windChill(10, 100)\n * 116\n */\nint windChill(int v, int t) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint windChill(int v, int t) {\n    return 35.74 + 0.6215 * t - 35.75 * pow(v, 0.16) + 0.4275 * t * pow(v, 0.16);\n}"
+    },
+    {
+        "sequence": 557,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to sum the length of the names of a given list of names after removing the names that start with a lowercase letter.\n * > sampleNam(vector<string>{string(\"sally\"), string(\"Dylan\"), string(\"rebecca\"), string(\"Diana\"), string(\"Joanne\"), string(\"keith\")})\n * 16\n * > sampleNam(vector<string>{string(\"php\"), string(\"res\"), string(\"Python\"), string(\"abcd\"), string(\"Java\"), string(\"aaa\")})\n * 10\n * > sampleNam(vector<string>{string(\"abcd\"), string(\"Python\"), string(\"abba\"), string(\"aba\")})\n * 6\n */\nint sampleNam(vector<string> sampleNames) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint sampleNam(vector<string> sampleNames) {\n    int sum = 0;\n    for (const string &name : sampleNames) {\n        if (!name.empty() && isupper(name[0])) {\n            sum += name.length();\n        }\n    }\n    return sum;\n}"
+    },
+    {
+        "sequence": 558,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to remove the parenthesis area in a string.\n * > removeParenthesis(vector<string>{string(\"python (chrome)\")})\n * string(\"python\")\n * > removeParenthesis(vector<string>{string(\"string(.abc)\")})\n * string(\"string\")\n * > removeParenthesis(vector<string>{string(\"alpha(num)\")})\n * string(\"alpha\")\n */\nstring removeParenthesis(vector<string> items) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring removeParenthesis(vector<string> items) {\n    string result;\n    for (const string& item : items) {\n        string temp;\n        bool insideParenthesis = false;\n        for (char ch : item) {\n            if (ch == '(') {\n                insideParenthesis = true;\n            } else if (ch == ')') {\n                insideParenthesis = false;\n            } else if (!insideParenthesis) {\n                temp += ch;\n            }\n        }\n        result += temp;\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 559,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the nth nonagonal number.\n * > isNonagonal(10)\n * 325\n * > isNonagonal(15)\n * 750\n * > isNonagonal(18)\n * 1089\n */\nint isNonagonal(int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint isNonagonal(int n) {\n    return n * (7 * n - 5) / 2;\n}"
+    },
+    {
+        "sequence": 560,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function that matches a word containing 'z', not at the start or end of the word.\n * > textMatchWordzMiddle(string(\"pythonzabc.\"))\n * string(\"Found a match!\")\n * > textMatchWordzMiddle(string(\"xyzabc.\"))\n * string(\"Found a match!\")\n * > textMatchWordzMiddle(string(\"  lang  .\"))\n * string(\"Not matched!\")\n */\nstring textMatchWordzMiddle(string text) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring textMatchWordzMiddle(string text) {\n    regex pattern(R\"(\\b\\w+z\\w+\\b)\");\n    if (regex_search(text, pattern)) {\n        return \"Found a match!\";\n    } else {\n        return \"Not matched!\";\n    }\n}"
+    },
+    {
+        "sequence": 561,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to reverse an array upto a given position.\n * > reverseArrayUptoK(vector<int>{1, 2, 3, 4, 5, 6}, 4)\n * {4, 3, 2, 1, 5, 6}\n * > reverseArrayUptoK(vector<int>{4, 5, 6, 7}, 2)\n * {5, 4, 6, 7}\n * > reverseArrayUptoK(vector<int>{9, 8, 7, 6, 5}, 3)\n * {7, 8, 9, 6, 5}\n */\nvector<int> reverseArrayUptoK(vector<int> input, int k) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> reverseArrayUptoK(vector<int> input, int k) {\n    if (k > input.size() || k < 0) return input;\n    reverse(input.begin(), input.begin() + k);\n    return input;\n}"
+    },
+    {
+        "sequence": 562,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the product of it’s kth index in the given tuples.\n * > findKProduct(vector<vector<int>>{{5, 6, 7}, {1, 3, 5}, {8, 9, 19}}, 2)\n * 665\n * > findKProduct(vector<vector<int>>{{6, 7, 8}, {2, 4, 6}, {9, 10, 20}}, 1)\n * 280\n * > findKProduct(vector<vector<int>>{{7, 8, 9}, {3, 5, 7}, {10, 11, 21}}, 0)\n * 210\n */\nint findKProduct(vector<vector<int>> testList, int k) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint findKProduct(vector<vector<int>> testList, int k) {\n    int product = 1;\n    for (const auto& tuple : testList) {\n        if (k < tuple.size()) {\n            product *= tuple[k];\n        }\n    }\n    return product;\n}"
+    },
+    {
+        "sequence": 563,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to count number of cubes of size k in a cube of size n.\n * > noOfCubes(2, 1)\n * 8\n * > noOfCubes(5, 2)\n * 64\n * > noOfCubes(1, 1)\n * 1\n */\nint noOfCubes(int n, int k) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint noOfCubes(int n, int k) {\n    if (k > n) return 0;\n    int countPerSide = n / k;\n    return countPerSide * countPerSide * countPerSide;\n}"
+    },
+    {
+        "sequence": 564,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to split a string at uppercase letters.\n * > splitUpperstring(string(\"PythonProgramLanguage\"))\n * {string(\"Python\"), string(\"Program\"), string(\"Language\")}\n * > splitUpperstring(string(\"PythonProgram\"))\n * {string(\"Python\"), string(\"Program\")}\n * > splitUpperstring(string(\"ProgrammingLanguage\"))\n * {string(\"Programming\"), string(\"Language\")}\n */\nvector<string> splitUpperstring(string text) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<string> splitUpperstring(string text) {\n    vector<string> result;\n    string current;\n    for (char ch : text) {\n        if (isupper(ch) && !current.empty()) {\n            result.push_back(current);\n            current.clear();\n        }\n        current += ch;\n    }\n    if (!current.empty()) {\n        result.push_back(current);\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 565,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to exchange the position of every n-th value with (n+1)th value and (n+1)th value with n-th value in a given list.\n * > exchangeElements(vector<int>{0, 1, 2, 3, 4, 5})\n * {1, 0, 3, 2, 5, 4}\n * > exchangeElements(vector<int>{5, 6, 7, 8, 9, 10})\n * {6, 5, 8, 7, 10, 9}\n * > exchangeElements(vector<int>{25, 35, 45, 55, 75, 95})\n * {35, 25, 55, 45, 95, 75}\n */\nvector<int> exchangeElements(vector<int> lst) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> exchangeElements(vector<int> lst) {\n    for (int i = 0; i < lst.size() - 1; i += 2) {\n        swap(lst[i], lst[i + 1]);\n    }\n    return lst;\n}"
+    },
+    {
+        "sequence": 566,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to calculate the sum of the numbers in a list between the indices of a specified range.\n * > sumRangeList(vector<int>{2, 1, 5, 6, 8, 3, 4, 9, 10, 11, 8, 12}, 8, 10)\n * 29\n * > sumRangeList(vector<int>{1, 2, 3, 4, 5}, 1, 2)\n * 5\n * > sumRangeList(vector<int>{1, 0, 1, 2, 5, 6}, 4, 5)\n * 11\n */\nint sumRangeList(vector<int> nums, int m, int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint sumRangeList(vector<int> nums, int m, int n) {\n    int sum = 0;\n    for (int i = m; i <= n; ++i) {\n        sum += nums[i];\n    }\n    return sum;\n}"
+    },
+    {
+        "sequence": 567,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to check whether the given two arrays are equal or not.\n * > areEqual(vector<int>{1, 2, 3}, vector<int>{3, 2, 1}, 3, 3)\n * true\n * > areEqual(vector<int>{1, 1, 1}, vector<int>{2, 2, 2}, 3, 3)\n * false\n * > areEqual(vector<int>{8, 9}, vector<int>{4, 5, 6}, 2, 3)\n * false\n */\nbool areEqual(vector<int> arr1, vector<int> arr2, int n, int m) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nbool areEqual(vector<int> arr1, vector<int> arr2, int n, int m) {\n    if (n != m) return false;\n    sort(arr1.begin(), arr1.end());\n    sort(arr2.begin(), arr2.end());\n    return arr1 == arr2;\n}"
+    },
+    {
+        "sequence": 568,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to check if one tuple is a subset of another tuple.\n * > checkSubset(vector<int>{10, 4, 5, 6}, vector<int>{5, 10})\n * true\n * > checkSubset(vector<int>{1, 2, 3, 4}, vector<int>{5, 6})\n * false\n * > checkSubset(vector<int>{7, 8, 9, 10}, vector<int>{10, 8})\n * true\n */\nbool checkSubset(vector<int> testTup1, vector<int> testTup2) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nbool checkSubset(vector<int> testTup1, vector<int> testTup2) {\n    unordered_set<int> set(testTup1.begin(), testTup1.end());\n    for (int elem : testTup2) {\n        if (set.find(elem) == set.end()) {\n            return false;\n        }\n    }\n    return true;\n}"
+    },
+    {
+        "sequence": 569,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to flatten the given tuple matrix into the tuple list with each tuple representing each column.\n * > matrixToList(vector<vector<vector<int>>>{{{4, 5}, {7, 8}}, {{10, 13}, {18, 17}}, {{0, 4}, {10, 1}}})\n * string(\"[(4, 7, 10, 18, 0, 10), (5, 8, 13, 17, 4, 1)]\")\n * > matrixToList(vector<vector<vector<int>>>{{{5, 6}, {8, 9}}, {{11, 14}, {19, 18}}, {{1, 5}, {11, 2}}})\n * string(\"[(5, 8, 11, 19, 1, 11), (6, 9, 14, 18, 5, 2)]\")\n * > matrixToList(vector<vector<vector<int>>>{{{6, 7}, {9, 10}}, {{12, 15}, {20, 21}}, {{23, 7}, {15, 8}}})\n * string(\"[(6, 9, 12, 20, 23, 15), (7, 10, 15, 21, 7, 8)]\")\n */\nstring matrixToList(vector<vector<vector<int>>> testList) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring matrixToList(vector<vector<vector<int>>> testList) {\n    int numRows = testList.size();\n    int numCols = testList[0].size();\n    vector<vector<int>> result(numCols);\n\n    for (int col = 0; col < numCols; ++col) {\n        for (int row = 0; row < numRows; ++row) {\n            result[col].push_back(testList[row][col][0]);\n            result[col].push_back(testList[row][col][1]);\n        }\n    }\n\n    stringstream ss;\n    ss << \"[\";\n    for (int i = 0; i < result.size(); ++i) {\n        ss << \"(\";\n        for (int j = 0; j < result[i].size(); ++j) {\n            ss << result[i][j];\n            if (j != result[i].size() - 1) ss << \", \";\n        }\n        ss << \")\";\n        if (i != result.size() - 1) ss << \", \";\n    }\n    ss << \"]\";\n    \n    return ss.str();\n}"
+    },
+    {
+        "sequence": 570,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the perimeter of a rectangle.\n * > rectanglePerimeter(10, 20)\n * 60\n * > rectanglePerimeter(10, 5)\n * 30\n * > rectanglePerimeter(4, 2)\n * 12\n */\nint rectanglePerimeter(int l, int b) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint rectanglePerimeter(int l, int b) {\n    return 2 * (l + b);\n}"
+    },
+    {
+        "sequence": 571,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the sum of fifth power of n natural numbers.\n * > fifthPowerSum(2)\n * 33\n * > fifthPowerSum(4)\n * 1300\n * > fifthPowerSum(3)\n * 276\n */\nint fifthPowerSum(int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint fifthPowerSum(int n) {\n    int sum = 0;\n    for(int i = 1; i <= n; ++i) {\n        sum += pow(i, 5);\n    }\n    return sum;\n}"
+    },
+    {
+        "sequence": 572,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the minimum sum of absolute differences of two arrays.\n * > findMinSum(vector<int>{3, 2, 1}, vector<int>{2, 1, 3}, 3)\n * 0\n * > findMinSum(vector<int>{1, 2, 3}, vector<int>{4, 5, 6}, 3)\n * 9\n * > findMinSum(vector<int>{4, 1, 8, 7}, vector<int>{2, 3, 6, 5}, 4)\n * 6\n */\nint findMinSum(vector<int> a, vector<int> b, int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint findMinSum(vector<int> a, vector<int> b, int n) {\n    sort(a.begin(), a.end());\n    sort(b.begin(), b.end());\n    int minSum = 0;\n    for (int i = 0; i < n; ++i) {\n        minSum += abs(a[i] - b[i]);\n    }\n    return minSum;\n}"
+    },
+    {
+        "sequence": 573,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the first digit in factorial of a given number.\n * > firstDigit(5)\n * 1\n * > firstDigit(10)\n * 3\n * > firstDigit(7)\n * 5\n */\nint firstDigit(int n) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nint firstDigit(int n) {\n    if (n == 0 || n == 1) return 1;\n    double fact = 1;\n    for (int i = 2; i <= n; i++) {\n        fact *= i;\n    }\n    while (fact >= 10) {\n        fact /= 10;\n    }\n    return int(fact);\n}"
+    },
+    {
+        "sequence": 574,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the item with maximum occurrences in a given list.\n * > maxOccurrences(vector<int>{2, 3, 8, 4, 7, 9, 8, 2, 6, 5, 1, 6, 1, 2, 3, 4, 6, 9, 1, 2})\n * 2\n * > maxOccurrences(vector<int>{1, 3, 5, 7, 1, 3, 13, 15, 17, 5, 7, 9, 1, 11})\n * 1\n * > maxOccurrences(vector<int>{1, 2, 3, 2, 4, 5, 1, 1, 1})\n * 1\n */\nint maxOccurrences(vector<int> list1) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nint maxOccurrences(vector<int> list1) {\n    unordered_map<int, int> freq;\n    for (int num : list1) {\n        freq[num]++;\n    }\n    int maxFreq = 0;\n    int maxItem = list1[0];\n    for (auto &entry : freq) {\n        if (entry.second > maxFreq) {\n            maxFreq = entry.second;\n            maxItem = entry.first;\n        }\n    }\n    return maxItem;\n}"
+    },
+    {
+        "sequence": 575,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to print duplicants from a list of integers.\n * > repeat(vector<int>{10, 20, 30, 20, 20, 30, 40, 50, -20, 60, 60, -20, -20})\n * {20, 30, -20, 60}\n * > repeat(vector<int>{-1, 1, -1, 8})\n * {-1}\n * > repeat(vector<int>{1, 2, 3, 1, 2})\n * {1, 2}\n */\nvector<int> repeat(vector<int> x) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> repeat(vector<int> x) {\n    unordered_map<int, int> freq;\n    vector<int> result;\n    for (int num : x) {\n        freq[num]++;\n    }\n    for (const auto& entry : freq) {\n        if (entry.second > 1) {\n            result.push_back(entry.first);\n        }\n    }\n    sort(result.begin(), result.end());\n    return result;\n}"
+    },
+    {
+        "sequence": 576,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to choose points from two ranges such that no point lies in both the ranges.\n * > findPoints(5, 10, 1, 5)\n * {1, 10}\n * > findPoints(3, 5, 7, 9)\n * {3, 9}\n * > findPoints(1, 5, 2, 8)\n * {1, 8}\n */\nvector<int> findPoints(int l1, int r1, int l2, int r2) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> findPoints(int l1, int r1, int l2, int r2) {\n    if (r1 < l2 || r2 < l1) {\n        return {l1, r2};\n    } else {\n        if (l1 < l2) {\n            return {l1, r2};\n        } else {\n            return {l2, r1};\n        }\n    }\n}"
+    },
+    {
+        "sequence": 577,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the maximum sum that can be formed which has no three consecutive elements present.\n * > maxSumOfThreeConsecutive(vector<int>{100, 1000, 100, 1000, 1}, 5)\n * 2101\n * > maxSumOfThreeConsecutive(vector<int>{3000, 2000, 1000, 3, 10}, 5)\n * 5013\n * > maxSumOfThreeConsecutive(vector<int>{1, 2, 3, 4, 5, 6, 7, 8}, 8)\n * 27\n */\nint maxSumOfThreeConsecutive(vector<int> arr, int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint maxSumOfThreeConsecutive(vector<int> arr, int n) {\n    if (n == 0) return 0;\n    if (n == 1) return arr[0];\n    if (n == 2) return arr[0] + arr[1];\n    \n    vector<int> dp(n, 0);\n    dp[0] = arr[0];\n    dp[1] = arr[0] + arr[1];\n    dp[2] = max(arr[0] + arr[1], max(arr[1] + arr[2], arr[0] + arr[2]));\n\n    for (int i = 3; i < n; ++i) {\n        dp[i] = max({dp[i - 1], dp[i - 2] + arr[i], dp[i - 3] + arr[i] + arr[i - 1]});\n    }\n\n    return dp[n - 1];\n}"
+    },
+    {
+        "sequence": 578,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to sort a list in a dictionary.\n * > sortedDict(unordered_map<string, vector<int>>{{string(\"n1\"), {2, 3, 1}}, {string(\"n2\"), {5, 1, 2}}, {string(\"n3\"), {3, 2, 4}}})\n * {{string(\"n1\"), {1, 2, 3}}, {string(\"n2\"), {1, 2, 5}}, {string(\"n3\"), {2, 3, 4}}}\n * > sortedDict(unordered_map<string, vector<int>>{{string(\"n1\"), {25, 37, 41}}, {string(\"n2\"), {41, 54, 63}}, {string(\"n3\"), {29, 38, 93}}})\n * {{string(\"n1\"), {25, 37, 41}}, {string(\"n2\"), {41, 54, 63}}, {string(\"n3\"), {29, 38, 93}}}\n * > sortedDict(unordered_map<string, vector<int>>{{string(\"n1\"), {58, 44, 56}}, {string(\"n2\"), {91, 34, 58}}, {string(\"n3\"), {100, 200, 300}}})\n * {{string(\"n1\"), {44, 56, 58}}, {string(\"n2\"), {34, 58, 91}}, {string(\"n3\"), {100, 200, 300}}}\n */\nunordered_map<string, vector<int>> sortedDict(unordered_map<string, vector<int>> dict1) {\n",
+        "code": "include <bits/stdc++.h>  \nusing namespace std;\n\nunordered_map<string, vector<int>> sortedDict(unordered_map<string, vector<int>> dict1) {\n    for (auto& pair : dict1) {\n        sort(pair.second.begin(), pair.second.end());\n    }\n    return dict1;\n}"
+    },
+    {
+        "sequence": 579,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find the largest possible value of k such that k modulo x is y.\n * > findMaxVal(15, 10, 5)\n * 15\n * > findMaxVal(187, 10, 5)\n * 185\n * > findMaxVal(16, 11, 1)\n * 12\n */\nint findMaxVal(int n, int x, int y) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint findMaxVal(int n, int x, int y) {\n    int k = (n / x) * x + y;\n    if (k > n) {\n        k -= x;\n    }\n    return k;\n}"
+    },
+    {
+        "sequence": 580,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the average of even numbers till a given even number.\n * > averageEven(2)\n * 2\n * > averageEven(4)\n * 3\n * > averageEven(100)\n * 51\n */\nint averageEven(int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint averageEven(int n) {\n    int sum = 0;\n    int count = n / 2;\n    for (int i = 2; i <= n; i += 2) {\n        sum += i;\n    }\n    return sum / count;\n}"
+    },
+    {
+        "sequence": 581,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to shift first element to the end of given list.\n * > moveLast(vector<int>{1, 2, 3, 4})\n * {2, 3, 4, 1}\n * > moveLast(vector<int>{2, 3, 4, 1, 5, 0})\n * {3, 4, 1, 5, 0, 2}\n * > moveLast(vector<int>{5, 4, 3, 2, 1})\n * {4, 3, 2, 1, 5}\n */\nvector<int> moveLast(vector<int> numList) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> moveLast(vector<int> numList) {\n    if (numList.empty()) return numList;\n    int firstElement = numList[0];\n    numList.erase(numList.begin());\n    numList.push_back(firstElement);\n    return numList;\n}"
+    },
+    {
+        "sequence": 582,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to count occurrence of a character in a string.\n * > countChar(string(\"Python\"), string(\"o\"))\n * 1\n * > countChar(string(\"little\"), string(\"t\"))\n * 2\n * > countChar(string(\"assert\"), string(\"s\"))\n * 2\n */\nint countChar(string str, string chr) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nint countChar(string str, string chr) {\n    return count(str.begin(), str.end(), chr[0]);\n}"
+    },
+    {
+        "sequence": 583,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to count number of vowels in the string.\n * > checkVow(string(\"corner\"), string(\"AaEeIiOoUu\"))\n * 2\n * > checkVow(string(\"valid\"), string(\"AaEeIiOoUu\"))\n * 2\n * > checkVow(string(\"true\"), string(\"AaEeIiOoUu\"))\n * 2\n */\nint checkVow(string str, string vowels) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint checkVow(string str, string vowels) {\n    unordered_set<char> vowelSet(vowels.begin(), vowels.end());\n    int count = 0;\n    for (char c : str) {\n        if (vowelSet.count(c)) {\n            count++;\n        }\n    }\n    return count;\n}"
+    },
+    {
+        "sequence": 584,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to replace multiple occurence of character by single.\n * > replace(string(\"peep\"), string(\"e\"))\n * string(\"pep\")\n * > replace(string(\"Greek\"), string(\"e\"))\n * string(\"Grek\")\n * > replace(string(\"Moon\"), string(\"o\"))\n * string(\"Mon\")\n */\nstring replace(string str, string chr) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring replace(string str, string chr) {\n    string result;\n    char target = chr[0];\n    bool found = false;\n    for(char c : str) {\n        if(c == target) {\n            if(!found) {\n                result.push_back(c);\n                found = true;\n            }\n        } else {\n            result.push_back(c);\n            found = false;\n        }\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 585,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to check whether the given ip address is valid or not using regex.\n * > checkIp(string(\"192.168.0.1\"))\n * string(\"Valid IP address\")\n * > checkIp(string(\"110.234.52.124\"))\n * string(\"Valid IP address\")\n * > checkIp(string(\"366.1.2.2\"))\n * string(\"Invalid IP address\")\n */\nstring checkIp(string ip) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring checkIp(string ip) {\n    regex ipPattern(\"^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$\");\n    if (regex_match(ip, ipPattern)) {\n        return \"Valid IP address\";\n    } else {\n        return \"Invalid IP address\";\n    }\n}"
+    },
+    {
+        "sequence": 586,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to check whether a sequence of numbers has a decreasing trend or not.\n * > decreasingTrend(vector<int>{-4, -3, -2, -1})\n * true\n * > decreasingTrend(vector<int>{1, 2, 3})\n * true\n * > decreasingTrend(vector<int>{3, 2, 1})\n * false\n */\nbool decreasingTrend(vector<int> nums) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nbool decreasingTrend(vector<int> nums) {\n    bool increasing = true, decreasing = true;\n    for (int i = 1; i < nums.size(); i++) {\n        if (nums[i] > nums[i - 1]) decreasing = false;\n        if (nums[i] < nums[i - 1]) increasing = false;\n    }\n    return increasing || decreasing;\n}"
+    },
+    {
+        "sequence": 587,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to set the right most unset bit.\n * > setRightMostUnsetBit(21)\n * 23\n * > setRightMostUnsetBit(11)\n * 15\n * > setRightMostUnsetBit(15)\n * 15\n */\nint setRightMostUnsetBit(int n) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint setRightMostUnsetBit(int n) {\n    if (n == 0) return 1;\n    int m = 1;\n    while (n & m) {\n        m <<= 1;\n    }\n    return n | m;\n}"
+    },
+    {
+        "sequence": 588,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to find maximum of three numbers.\n * > maxOfThree(10, 20, 30)\n * 30\n * > maxOfThree(55, 47, 39)\n * 55\n * > maxOfThree(10, 49, 30)\n * 49\n */\nint maxOfThree(int num1, int num2, int num3) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint maxOfThree(int num1, int num2, int num3) {\n    return max(max(num1, num2), num3);\n}"
+    },
+    {
+        "sequence": 589,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to convert a list of multiple integers into a single integer.\n * > convert(vector<int>{1, 2, 3})\n * 123\n * > convert(vector<int>{4, 5, 6})\n * 456\n * > convert(vector<int>{7, 8, 9})\n * 789\n */\nint convert(vector<int> list) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint convert(vector<int> list) {\n    int result = 0;\n    for(int num : list) {\n        result = result * 10 + num;\n    }\n    return result;\n}"
+    },
+    {
+        "sequence": 590,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to remove duplicate words from a given string using collections module.\n * > removeDuplicate(string(\"Python Exercises Practice Solution Exercises\"))\n * string(\"Python Exercises Practice Solution\")\n * > removeDuplicate(string(\"Python Exercises Practice Solution Python\"))\n * string(\"Python Exercises Practice Solution\")\n * > removeDuplicate(string(\"Python Exercises Practice Solution Practice\"))\n * string(\"Python Exercises Practice Solution\")\n */\nstring removeDuplicate(string str) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring removeDuplicate(string str) {\n    istringstream iss(str);\n    vector<string> words;\n    set<string> seen;\n    string word;\n    while (iss >> word) {\n        if (seen.insert(word).second) {\n            words.push_back(word);\n        }\n    }\n    return accumulate(next(words.begin()), words.end(), words[0], [](string a, string b) { \n        return a + \" \" + b; \n    });\n}"
+    },
+    {
+        "sequence": 591,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to add two integers. however, if the sum is between the given range it will return 20.\n * > sumNums(2, 10, 11, 20)\n * 20\n * > sumNums(15, 17, 1, 10)\n * 32\n * > sumNums(10, 15, 5, 30)\n * 20\n */\nint sumNums(int x, int y, int m, int n) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nint sumNums(int x, int y, int m, int n) {\n    int sum = x + y;\n    if (sum >= m && sum <= n) {\n        return 20;\n    }\n    return sum;\n}"
+    },
+    {
+        "sequence": 592,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to remove everything except alphanumeric characters from the given string by using regex.\n * > removeExtraChar(string(\"**\\//Google Android// - 12. \"))\n * string(\"GoogleAndroid12\")\n * > removeExtraChar(string(\"****\\//Google Flutter//*** - 36. \"))\n * string(\"GoogleFlutter36\")\n * > removeExtraChar(string(\"**\\//Google Firebase// - 478. \"))\n * string(\"GoogleFirebase478\")\n */\nstring removeExtraChar(string text1) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring removeExtraChar(string text1) {\n    text1 = regex_replace(text1, regex(\"[^a-zA-Z0-9]\"), \"\");\n    return text1;\n}"
+    },
+    {
+        "sequence": 593,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to check if the triangle is valid or not.\n * > validityTriangle(60, 50, 90)\n * false\n * > validityTriangle(45, 75, 60)\n * true\n * > validityTriangle(30, 50, 100)\n * true\n */\nbool validityTriangle(int a, int b, int c) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nbool validityTriangle(int a, int b, int c) {\n    return (a + b + c == 180 && a > 0 && b > 0 && c > 0);\n}"
+    },
+    {
+        "sequence": 594,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to remove spaces from a given string.\n * > removeSpaces(string(\"a b c\"))\n * string(\"abc\")\n * > removeSpaces(string(\"1 2 3\"))\n * string(\"123\")\n * > removeSpaces(string(\" b c\"))\n * string(\"bc\")\n */\nstring removeSpaces(string str1) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nstring removeSpaces(string str1) {\n    str1.erase(remove(str1.begin(), str1.end(), ' '), str1.end());\n    return str1;\n}"
+    },
+    {
+        "sequence": 595,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to access dictionary key’s element by index.\n * > accessKey(unordered_map<string, int>{{string(\"physics\"), 80}, {string(\"math\"), 90}, {string(\"chemistry\"), 86}}, 0)\n * string(\"physics\")\n * > accessKey(unordered_map<string, int>{{string(\"python\"), 10}, {string(\"java\"), 20}, {string(\"C++\"), 30}}, 2)\n * string(\"C++\")\n * > accessKey(unordered_map<string, int>{{string(\"program\"), 15}, {string(\"computer\"), 45}}, 1)\n * string(\"computer\")\n */\nstring accessKey(unordered_map<string, int> ditionary, int key) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nstring accessKey(unordered_map<string, int> dictionary, int index) {\n    if (index < 0 || index >= dictionary.size()) {\n        throw out_of_range(\"Index is out of range\");\n    }\n    auto it = dictionary.begin();\n    advance(it, index);\n    return it->first;\n}"
+    },
+    {
+        "sequence": 596,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to check whether a sequence of numbers has an increasing trend or not.\n * > increasingTrend(vector<int>{1, 2, 3, 4})\n * true\n * > increasingTrend(vector<int>{4, 3, 2, 1})\n * false\n * > increasingTrend(vector<int>{0, 1, 4, 9})\n * true\n */\nbool increasingTrend(vector<int> nums) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nbool increasingTrend(vector<int> nums) {\n    for (int i = 0; i < nums.size() - 1; i++) {\n        if (nums[i] >= nums[i + 1]) {\n            return false;\n        }\n    }\n    return true;\n}"
+    },
+    {
+        "sequence": 597,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to find the smallest prime divisor of a number.\n * > smallestDivisor(10)\n * 2\n * > smallestDivisor(25)\n * 5\n * > smallestDivisor(31)\n * 31\n */\nint smallestDivisor(int n) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nint smallestDivisor(int n) {\n    if (n % 2 == 0) return 2;\n    for (int i = 3; i * i <= n; i += 2) {\n        if (n % i == 0) return i;\n    }\n    return n;\n}"
+    },
+    {
+        "sequence": 598,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a function to multiply two lists using map and lambda function.\n * > mulList(vector<int>{1, 2, 3}, vector<int>{4, 5, 6})\n * {4, 10, 18}\n * > mulList(vector<int>{1, 2}, vector<int>{3, 4})\n * {3, 8}\n * > mulList(vector<int>{90, 120}, vector<int>{50, 70})\n * {4500, 8400}\n */\nvector<int> mulList(vector<int> nums1, vector<int> nums2) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> mulList(vector<int> nums1, vector<int> nums2) {\n    vector<int> result;\n    transform(nums1.begin(), nums1.end(), nums2.begin(), back_inserter(result), [](int a, int b) { return a * b; });\n    return result;\n}"
+    },
+    {
+        "sequence": 599,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to check whether the given number can be represented by sum of two squares or not.\n * > sumSquare(25)\n * true\n * > sumSquare(24)\n * false\n * > sumSquare(17)\n * true\n */\nbool sumSquare(int n) {\n",
+        "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nbool sumSquare(int n) {\n    for (int a = 0; a * a <= n; ++a) {\n        int b = n - a * a;\n        int sqrt_b = sqrt(b);\n        if (sqrt_b * sqrt_b == b) {\n            return true;\n        }\n    }\n    return false;\n}"
+    },
+    {
+        "sequence": 600,
+        "prompt": "#include <bits/stdc++.h>\nusing namespace std;\n\n\n/**\n * Write a c++ function to count occurences of a character in a repeated string.\n * > countChar(string(\"abcac\"), string(\"a\"))\n * 4\n * > countChar(string(\"abca\"), string(\"c\"))\n * 2\n * > countChar(string(\"aba\"), string(\"a\"))\n * 7\n */\nint countChar(string str, string x) {\n",
+        "code": "include <bits/stdc++.h>\nusing namespace std;\n\nint countChar(string str, string x) {\n    long long n = str.size();\n    long long countOfXInStr = count(str.begin(), str.end(), x[0]);\n    long long repeatCount = 1e9 / n;\n    long long total = countOfXInStr * repeatCount;\n    long long remaining = 1e9 % n;\n    total += count(str.begin(), str.begin() + remaining, x[0]);\n    return total;\n}"
+    }
+]

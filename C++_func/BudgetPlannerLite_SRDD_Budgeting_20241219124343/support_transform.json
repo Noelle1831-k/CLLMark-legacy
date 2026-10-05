@@ -1,0 +1,47 @@
+{
+    "support_transform.json": [],
+    "setBudgetGoal.cpp": [
+        "output"
+    ],
+    "printMenu.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "addIncome.cpp": [
+        "self_assignment",
+        "output",
+        "input"
+    ],
+    "viewRemainingBudget.cpp": [
+        "output"
+    ],
+    "getTotalExpenses.cpp": [],
+    "addExpense.cpp": [
+        "self_assignment",
+        "output",
+        "input"
+    ],
+    "getTransactions.cpp": [],
+    "getBudgetGoal.cpp": [],
+    "displayBudgetBreakdown.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "getTotalIncome.cpp": []
+}

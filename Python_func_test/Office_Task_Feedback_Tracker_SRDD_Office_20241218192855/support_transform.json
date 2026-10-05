@@ -1,0 +1,33 @@
+{
+    "categorize_feedback.py": [],
+    "submit_feedback.py": [],
+    "update_status.py": [],
+    "update_feedback_status.py": [],
+    "add_feedback.py": [],
+    "__init__.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_all_feedback.py": [],
+    "track_feedback.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_feedback.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "review_feedback.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ]
+}

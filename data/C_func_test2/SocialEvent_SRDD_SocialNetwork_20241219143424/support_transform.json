@@ -1,0 +1,44 @@
+{
+    "cleanup_events.c": [],
+    "initialize_network.c": [],
+    "cleanup_users.c": [],
+    "view_connections.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "browse_events.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style",
+        "while_to_for"
+    ],
+    "rsvp_event.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "create_user.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse"
+    ],
+    "initialize_events.c": [],
+    "initialize_users.c": [],
+    "cleanup_network.c": [],
+    "print_line.c": [],
+    "connect_users.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare"
+    ]
+}

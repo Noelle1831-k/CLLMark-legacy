@@ -1,0 +1,2 @@
+void initReminderSystem(ReminderSystem *system) {
+}

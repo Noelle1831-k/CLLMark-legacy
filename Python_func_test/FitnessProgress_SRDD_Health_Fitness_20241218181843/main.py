@@ -1,0 +1,12 @@
+def main():
+    db = database.Database()
+    db.connect_db()
+    user_manager = user.User(db)
+    fitness_data_manager = fitness_data.FitnessData(db)
+    progress_tracker_manager = progress_tracker.ProgressTracker(fitness_data_manager)
+    dashboard_manager = dashboard.Dashboard(user_manager, fitness_data_manager, progress_tracker_manager)
+    user_manager.register_user("JohnDoe", "password123")
+    user_manager.login_user("JohnDoe", "password123")
+    fitness_data_manager.add_entry("JohnDoe", "2023-10-01", "Running", 5, 30)
+    fitness_data_manager.add_entry("JohnDoe", "2023-10-02", "Cycling", 10, 45)
+    dashboard_manager.display_dashboard()

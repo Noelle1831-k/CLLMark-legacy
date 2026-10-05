@@ -1,0 +1,38 @@
+{
+    "grammarExercise.cpp": [
+        "output",
+        "input"
+    ],
+    "support_transform.json": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "exitApplication.cpp": [
+        "output"
+    ],
+    "startApplication.cpp": [
+        "output"
+    ],
+    "mainMenu.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "speakingExercise.cpp": [
+        "output"
+    ],
+    "vocabularyExercise.cpp": [
+        "output",
+        "input"
+    ],
+    "reviewPastExercises.cpp": [
+        "output"
+    ],
+    "listeningExercise.cpp": [
+        "output",
+        "input"
+    ],
+    "storeExerciseResult.cpp": []
+}

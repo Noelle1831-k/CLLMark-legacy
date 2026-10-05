@@ -1,0 +1,43 @@
+{
+    "setReminder.cpp": [],
+    "setTaskDetails.cpp": [],
+    "support_transform.json": [],
+    "adjustTimeSlot.cpp": [],
+    "getTaskDetails.cpp": [],
+    "allocateTimeSlot.cpp": [],
+    "main.cpp": [
+        "main_style",
+        "declare"
+    ],
+    "addTask.cpp": [],
+    "checkReminders.cpp": [
+        "output"
+    ],
+    "displaySchedule.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getTasks.cpp": [],
+    "removeTask.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "displayReport.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "generateReport.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ]
+}

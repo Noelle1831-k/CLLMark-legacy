@@ -1,0 +1,41 @@
+{
+    "initializeGame.c": [],
+    "shootTarget.c": [],
+    "renderGame.c": [],
+    "updateGame.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "updateMissions.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "updatePlayer.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "support_transform.json": [],
+    "missionCompleted.c": [],
+    "initializePlayer.c": [],
+    "getRandomNumber.c": [],
+    "initializeRifles.c": [
+        "array_access"
+    ],
+    "handleInput.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "initializeMissions.c": [],
+    "main.c": [
+        "main_style",
+        "while_to_for"
+    ],
+    "cleanupGame.c": [],
+    "getRifle.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "renderMissions.c": [],
+    "renderPlayer.c": []
+}

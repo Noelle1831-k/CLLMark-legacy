@@ -1,0 +1,58 @@
+{
+    "remove_task.py": [],
+    "send_notification.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "update_task.py": [],
+    "add_task.py": [],
+    "get_project_by_id.py": [],
+    "update_status.py": [],
+    "create_project.py": [],
+    "delete_project.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "assign_task.py": [],
+    "get_task_by_id.py": [],
+    "remove_member.py": [],
+    "remove_dependency.py": [],
+    "delete_task.py": [],
+    "validate_email.py": [
+        "string_quota"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "get_notification_by_id.py": [],
+    "get_user_by_id.py": [],
+    "mark_as_read.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "delete_user.py": [],
+    "main.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "create_notification.py": [],
+    "create_user.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_id.py": [],
+    "calculate_due_date.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "create_task.py": [],
+    "delete_notification.py": [],
+    "add_member.py": [],
+    "add_dependency.py": []
+}

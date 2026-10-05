@@ -1,0 +1,40 @@
+{
+    "run_application.c": [
+        "array_access",
+        "declare"
+    ],
+    "check_achievement.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "assign_to_user.c": [],
+    "get_points.c": [],
+    "support_transform.json": [],
+    "display_leaderboard.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "initialize_system.c": [
+        "array_access"
+    ],
+    "add_points.c": [
+        "self_assignment"
+    ],
+    "update_leaderboard.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "mark_as_completed.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "award_badge.c": [],
+    "award_reward.c": []
+}

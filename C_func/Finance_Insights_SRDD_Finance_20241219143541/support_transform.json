@@ -1,0 +1,40 @@
+{
+    "saveUserData.c": [],
+    "initialize.c": [],
+    "support_transform.json": [],
+    "deleteTransaction.c": [],
+    "generateReport.c": [],
+    "displayChart.c": [],
+    "generateChart.c": [],
+    "displayReport.c": [],
+    "loadUserData.c": [],
+    "updateUser.c": [],
+    "addTransaction.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "createUser.c": [],
+    "displayMenu.c": [],
+    "deleteUser.c": [],
+    "updateTransaction.c": [],
+    "analyzeTransactions.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "handleUserChoice.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "declare",
+        "while_to_for"
+    ]
+}

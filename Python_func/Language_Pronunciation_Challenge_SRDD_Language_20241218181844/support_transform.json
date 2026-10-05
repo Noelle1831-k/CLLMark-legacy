@@ -1,0 +1,58 @@
+{
+    "load_recordings.py": [
+        "string_quota"
+    ],
+    "set_language.py": [],
+    "generate_evaluation.py": [
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "language_code.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "start_challenge.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "load_languages.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "evaluate_pronunciation.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "set_difficulty.py": [],
+    "__init__.py": [],
+    "provide_feedback.py": [],
+    "load_difficulties.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "get_user_input.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_feedback.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "compare_pronunciations.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

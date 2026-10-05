@@ -1,0 +1,64 @@
+{
+    "remove_task.py": [
+        "string_quota",
+        "f_string",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "send_notification.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "update_task.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "add_task.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "set_priority.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_schedule.py": [],
+    "display_schedule.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "allocate_time.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "optimize_schedule.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "set_reminder.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "list_tasks.py": [],
+    "generate_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

@@ -1,0 +1,1 @@
+void Budget::setTotalBudget(double total) { totalBudget = total; }

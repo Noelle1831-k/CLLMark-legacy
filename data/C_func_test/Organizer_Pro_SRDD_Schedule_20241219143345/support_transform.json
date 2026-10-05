@@ -1,0 +1,42 @@
+{
+    "list_tasks.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "create_task.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "categorize_task.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "declare",
+        "for_OOO"
+    ],
+    "show_menu.c": [],
+    "edit_task.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "run_scheduler.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ]
+}

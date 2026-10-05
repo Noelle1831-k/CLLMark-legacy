@@ -1,0 +1,48 @@
+{
+    "set_budget.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "add_expense.py": [],
+    "add_income.py": [],
+    "get_details.py": [
+        "string_quota"
+    ],
+    "check_budget_status.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "check_budget.py": [],
+    "__init__.py": [],
+    "update_budget.py": [
+        "self_assignment"
+    ],
+    "create_bar_chart.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "visualize_data.py": [],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "create_pie_chart.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

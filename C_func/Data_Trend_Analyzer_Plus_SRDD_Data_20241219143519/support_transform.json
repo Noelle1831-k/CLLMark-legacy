@@ -1,0 +1,56 @@
+{
+    "analyzeTrends.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "exponentialSmoothing.c": [],
+    "linearRegression.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "handleUserSelection.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "buildPredictiveModel.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "support_transform.json": [],
+    "forecastTrends.c": [],
+    "calculateMovingAverage.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style",
+        "while_to_for"
+    ],
+    "displayMenu.c": [],
+    "parseCSV.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "while_to_for"
+    ],
+    "importData.c": [],
+    "allocateMemory.c": [],
+    "printError.c": [],
+    "performHypothesisTest.c": [],
+    "twoSampleTTest.c": [
+        "declare"
+    ]
+}

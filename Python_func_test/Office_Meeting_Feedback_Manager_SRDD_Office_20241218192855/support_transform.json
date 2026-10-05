@@ -1,0 +1,76 @@
+{
+    "display_feedback.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "load_data.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "create_meeting.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "view_feedback.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "find_meeting.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "dict_to_meeting.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "add_feedback.py": [],
+    "meeting_to_dict.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "handle_input.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "provide_feedback.py": [],
+    "dict_to_feedback.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_feedback.py": [],
+    "feedback_to_dict.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "save_data.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

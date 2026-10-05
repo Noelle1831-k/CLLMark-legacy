@@ -1,0 +1,34 @@
+{
+    "splitString.cpp": [
+        "while_to_for"
+    ],
+    "getTitle.cpp": [],
+    "support_transform.json": [],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "getCategory.cpp": [],
+    "main.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "updatePreferences.cpp": [],
+    "getPreferences.cpp": [],
+    "getCuratedNews.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "NewsManager.cpp": []
+}

@@ -1,0 +1,1 @@
+double FoodItem::getCalories() const { return calories; }

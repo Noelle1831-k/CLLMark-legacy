@@ -1,0 +1,6 @@
+int UserInterface::getUserChoice() const {
+    int choice;
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+    return choice;
+}

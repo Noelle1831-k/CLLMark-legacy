@@ -1,0 +1,2 @@
+return actualCost == saleAmount;
+}

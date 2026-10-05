@@ -1,0 +1,28 @@
+{
+    "isHintNeeded.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "isGameComplete.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "startGame.cpp": [
+        "while_to_for",
+        "output"
+    ],
+    "checkCompletion.cpp": [],
+    "displayWelcomeMessage.cpp": [
+        "output"
+    ],
+    "loadNextLevel.cpp": [
+        "update_reverse"
+    ],
+    "provideHint.cpp": [
+        "output"
+    ],
+    "generatePuzzle.cpp": []
+}

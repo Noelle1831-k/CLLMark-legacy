@@ -1,0 +1,63 @@
+{
+    "scanForThreats.c": [],
+    "decryptPassword.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_access"
+    ],
+    "initialize.c": [],
+    "retrievePassword.c": [
+        "array_init",
+        "declare"
+    ],
+    "initializeBrowserProtection.c": [],
+    "passwordManagerInterface.c": [
+        "array_init"
+    ],
+    "storePassword.c": [
+        "array_init"
+    ],
+    "blockMaliciousWebsite.c": [],
+    "analyzeThreat.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "hashFunction.c": [
+        "update_reverse",
+        "while_to_for"
+    ],
+    "detectPhishing.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "array_init"
+    ],
+    "startMonitoring.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "initializeMonitoring.c": [],
+    "run.c": [],
+    "startSecureSession.c": [],
+    "encryptPassword.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_access"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "initializePasswordManager.c": [],
+    "generateRandomString.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "logEvent.c": [],
+    "blockThreat.c": []
+}

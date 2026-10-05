@@ -1,0 +1,62 @@
+{
+    "getDoubleInput.c": [
+        "array_init"
+    ],
+    "addIncome.c": [
+        "self_assignment"
+    ],
+    "setBudgetGoal.c": [],
+    "support_transform.json": [],
+    "addExpense.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "saveBudgetToFile.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "calculateTotalExpenses.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "visualizeBudget.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "getStringInput.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "array_access"
+    ],
+    "getIntInput.c": [
+        "array_init"
+    ],
+    "main.c": [
+        "main_style",
+        "array_init"
+    ],
+    "createBudget.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "calculateRemainingBudget.c": [],
+    "displayMenu.c": [],
+    "loadBudgetFromFile.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

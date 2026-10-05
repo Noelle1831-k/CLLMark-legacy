@@ -1,0 +1,49 @@
+{
+    "sort_monsters.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "display_all_monsters.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "update_monster.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "mark_defeated.py": [],
+    "mark_monster_defeated.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "main.py": [],
+    "__str__.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "add_monster.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "update_info.py": [],
+    "search_monster.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

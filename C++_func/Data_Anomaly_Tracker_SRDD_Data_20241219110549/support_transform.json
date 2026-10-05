@@ -1,0 +1,33 @@
+{
+    "loadDataset.cpp": [
+        "declare",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "applyMLModel.cpp": [
+        "output"
+    ],
+    "support_transform.json": [],
+    "main.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "output"
+    ],
+    "getDataset.cpp": [],
+    "displayDataset.cpp": [
+        "output"
+    ],
+    "detectAnomalies.cpp": [
+        "output"
+    ],
+    "calculateStatistics.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ]
+}

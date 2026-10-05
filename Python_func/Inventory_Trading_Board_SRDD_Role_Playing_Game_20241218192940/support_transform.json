@@ -1,0 +1,66 @@
+{
+    "register.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "authenticate.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "process_trade.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "list_item.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "__init__.py": [],
+    "send_message.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "rate_user.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "search_items.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "__str__.py": [
+        "string_quota"
+    ]
+}

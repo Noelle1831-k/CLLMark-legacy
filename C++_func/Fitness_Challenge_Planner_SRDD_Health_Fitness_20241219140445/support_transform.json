@@ -1,0 +1,38 @@
+{
+    "sendNotification.cpp": [],
+    "getType.cpp": [],
+    "viewChallenge.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "support_transform.json": [],
+    "main.cpp": [
+        "main_style",
+        "declare"
+    ],
+    "getUsername.cpp": [],
+    "getRepetitions.cpp": [],
+    "getName.cpp": [],
+    "getDistance.cpp": [],
+    "getDuration.cpp": [],
+    "setUsername.cpp": [],
+    "addChallenge.cpp": [],
+    "viewProgress.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "viewExercise.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "addExercise.cpp": [],
+    "getSets.cpp": [],
+    "setAge.cpp": [],
+    "getExercises.cpp": [],
+    "trackProgress.cpp": [],
+    "getIntensity.cpp": []
+}

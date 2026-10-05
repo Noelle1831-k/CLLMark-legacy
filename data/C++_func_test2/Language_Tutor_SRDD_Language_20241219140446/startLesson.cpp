@@ -1,0 +1,3 @@
+void startLesson() {
+        displayExercise();
+    }

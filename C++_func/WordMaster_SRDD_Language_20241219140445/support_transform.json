@@ -1,0 +1,56 @@
+{
+    "createNewProfile.cpp": [
+        "output"
+    ],
+    "getVocabulary.cpp": [],
+    "displayVocabulary.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "support_transform.json": [],
+    "main.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "wordExists.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "addWord.cpp": [
+        "output"
+    ],
+    "getMeaning.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "addLearnedWord.cpp": [],
+    "startPractice.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "output"
+    ],
+    "viewLearnedWords.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "VocabularyManager.cpp": []
+}

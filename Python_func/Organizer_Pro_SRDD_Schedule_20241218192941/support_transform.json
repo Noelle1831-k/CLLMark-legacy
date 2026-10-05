@@ -1,0 +1,96 @@
+{
+    "remove_task.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "send_notification.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "update_task.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "add_task.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_list_view.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "__init__.py": [],
+    "set_reminder.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "generate_calendar_view.py": [
+        "print_flush",
+        "print_end",
+        "range_index",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "get_user_input.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "list_tasks.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "generate_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ]
+}

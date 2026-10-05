@@ -1,0 +1,66 @@
+{
+    "checkGoalStatus.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "displayDashboard.cpp": [
+        "output"
+    ],
+    "setGoal.cpp": [],
+    "generateChart.cpp": [
+        "output"
+    ],
+    "analyzeSpending.cpp": [
+        "output"
+    ],
+    "handleExpenses.cpp": [
+        "output",
+        "input"
+    ],
+    "getCurrentDate.cpp": [],
+    "formatCurrency.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "handleBudgetGoal.cpp": [
+        "output",
+        "input"
+    ],
+    "addIncome.cpp": [],
+    "categorizeExpenses.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "run.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "getTotalExpenses.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "addExpense.cpp": [],
+    "generateReport.cpp": [
+        "output"
+    ],
+    "handleIncome.cpp": [
+        "output",
+        "input"
+    ],
+    "getTotalIncome.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

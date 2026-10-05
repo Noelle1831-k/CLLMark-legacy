@@ -1,0 +1,3 @@
+void cleanupData() {
+    freeMovieList(movieDatabase);
+}

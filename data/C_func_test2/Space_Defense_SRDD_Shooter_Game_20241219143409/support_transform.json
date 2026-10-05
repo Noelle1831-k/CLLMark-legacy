@@ -1,0 +1,61 @@
+{
+    "createInputHandler.c": [],
+    "createAliens.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_init",
+        "for_OOO"
+    ],
+    "renderGame.c": [],
+    "updateGame.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "processInput.c": [],
+    "createPowerUps.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_init",
+        "for_OOO"
+    ],
+    "checkCollisions.c": [],
+    "destroyUpgradeSystem.c": [],
+    "destroyCollisionManager.c": [],
+    "createSpaceship.c": [],
+    "applyUpgrades.c": [],
+    "handleInput.c": [],
+    "createUpgradeSystem.c": [],
+    "destroyBullets.c": [],
+    "destroyAliens.c": [],
+    "createGame.c": [],
+    "updateAliens.c": [],
+    "renderBullets.c": [],
+    "main.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "while_to_for"
+    ],
+    "destroyPowerUps.c": [],
+    "updatePowerUps.c": [],
+    "updateSpaceship.c": [],
+    "createRenderer.c": [],
+    "createCollisionManager.c": [],
+    "createBullets.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_init",
+        "for_OOO"
+    ],
+    "renderAliens.c": [],
+    "destroyInputHandler.c": [],
+    "renderSpaceship.c": [],
+    "updateBullets.c": [],
+    "destroySpaceship.c": [],
+    "destroyGame.c": [],
+    "destroyRenderer.c": [],
+    "renderPowerUps.c": []
+}

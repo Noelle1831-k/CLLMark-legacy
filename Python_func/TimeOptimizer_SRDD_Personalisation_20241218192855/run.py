@@ -1,0 +1,10 @@
+def run(self):
+        print("Welcome to the Personalization Software Application!")
+        user_input = self.user_analyzer.collect_data()
+        patterns = self.user_analyzer.analyze_patterns(user_input)
+        self.data_storage.save_data(user_input)
+        routines = self.productivity_optimizer.suggest_routines(patterns)
+        tools = self.productivity_optimizer.recommend_tools(patterns)
+        self.time_manager.schedule_tasks(routines)
+        self.time_manager.set_reminders(routines)
+        print("Application has successfully optimized your productivity.")

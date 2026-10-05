@@ -1,0 +1,1 @@
+int Quest::getProgress() { return progress; }

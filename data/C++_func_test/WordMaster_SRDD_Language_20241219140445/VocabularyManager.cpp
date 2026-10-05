@@ -1,0 +1,2 @@
+VocabularyManager::VocabularyManager() {
+}

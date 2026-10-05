@@ -1,0 +1,71 @@
+{
+    "remove_task.py": [],
+    "add_task.py": [],
+    "is_due.py": [
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "analyze.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "get_schedule.py": [],
+    "generate_detailed_report.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "get_recommendations.py": [],
+    "track_completion_time.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "export_analysis.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "clear_recommendations.py": [
+        "init_list",
+        "list"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "send_reminder.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "set_reminder.py": [],
+    "generate_recommendations.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "visualize_priority_distribution.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_tasks.py": []
+}

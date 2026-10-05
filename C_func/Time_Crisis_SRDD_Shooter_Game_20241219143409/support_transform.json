@@ -1,0 +1,61 @@
+{
+    "initialize_game.c": [],
+    "reload_weapon.c": [],
+    "take_cover.c": [],
+    "check_level_completion.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "initialize_weapons.c": [],
+    "fire_weapon.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "player_shoot.c": [],
+    "support_transform.json": [],
+    "enemy_attack.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "move_enemy.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "switch_weapon.c": [],
+    "move_player.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "initialize_player.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "start_game.c": [
+        "while_to_for"
+    ],
+    "load_level.c": [],
+    "end_game.c": [],
+    "boss_attack_pattern.c": [],
+    "update_score.c": [
+        "self_assignment"
+    ],
+    "spawn_boss.c": [],
+    "initialize_enemies.c": [],
+    "free_resources.c": [],
+    "spawn_enemy.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access"
+    ],
+    "detect_collision.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

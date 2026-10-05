@@ -1,0 +1,79 @@
+{
+    "save_settings.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "_apply.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "display_dashboard.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "_process.py": [
+        "list",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "_complex_analysis.py": [
+        "self_assignment"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "load_settings.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "apply_settings.py": [],
+    "update_dashboard.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "_optimize.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "log_error.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "collect_data.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "_generate_recommendation.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "generate_recommendations.py": [],
+    "optimize_settings.py": [],
+    "process_data.py": [],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "analyze_data.py": [],
+    "log_info.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ]
+}

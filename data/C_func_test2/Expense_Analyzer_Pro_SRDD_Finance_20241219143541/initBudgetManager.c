@@ -1,0 +1,2 @@
+void initBudgetManager(BudgetManager *manager) {
+}

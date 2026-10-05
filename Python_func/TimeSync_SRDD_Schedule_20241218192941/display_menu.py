@@ -1,0 +1,10 @@
+def display_menu(self):
+        print("\nTimeSync Application")
+        print("1. Add Task")
+        print("2. Remove Task")
+        print("3. Update Task")
+        print("4. View Schedule")
+        print("5. Sync Tasks")
+        print("6. Set Reminder")
+        print("7. Generate Report")
+        print("8. Exit")

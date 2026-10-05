@@ -1,0 +1,50 @@
+{
+    "support_transform.json": [],
+    "addUser.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "addRequest.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "findUser.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "sendMessage.c": [
+        "declare"
+    ],
+    "addRequestToUser.c": [],
+    "createDatabase.c": [],
+    "createRequest.c": [],
+    "main.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "array_init",
+        "declare"
+    ],
+    "createUser.c": [],
+    "searchRequests.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "addSkill.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "setAvailability.c": [],
+    "freeDatabase.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

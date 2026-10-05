@@ -1,0 +1,42 @@
+{
+    "updateProgress.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output",
+        "input"
+    ],
+    "displayGoals.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "addMilestone.cpp": [],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "displayGoal.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "getProgress.cpp": [],
+    "main.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "output",
+        "input"
+    ],
+    "getName.cpp": [],
+    "setMilestones.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output",
+        "input"
+    ],
+    "getGoals.cpp": [],
+    "addGoal.cpp": []
+}

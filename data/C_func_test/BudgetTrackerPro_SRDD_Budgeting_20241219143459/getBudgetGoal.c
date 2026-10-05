@@ -1,0 +1,3 @@
+double getBudgetGoal() {
+    return budgetGoal;  
+}

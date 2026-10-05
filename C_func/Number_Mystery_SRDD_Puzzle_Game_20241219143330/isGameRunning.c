@@ -1,0 +1,3 @@
+int isGameRunning() {
+    return gameRunning;
+}

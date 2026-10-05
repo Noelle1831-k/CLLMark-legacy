@@ -1,0 +1,69 @@
+{
+    "serializeExpenses.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "for_OOO"
+    ],
+    "initializeSavingsGoal.c": [],
+    "support_transform.json": [],
+    "deserializeExpenses.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "array_init",
+        "declare",
+        "while_to_for"
+    ],
+    "viewSavingsProgress.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "loadDataFromFile.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "addExpense.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access"
+    ],
+    "serializeSavings.c": [
+        "array_init"
+    ],
+    "deserializeSavings.c": [],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "array_init",
+        "declare"
+    ],
+    "displayMenu.c": [],
+    "saveDataToFile.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "initializeExpenseTracker.c": [],
+    "generateRecommendations.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "viewExpenses.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "setSavingsGoal.c": []
+}

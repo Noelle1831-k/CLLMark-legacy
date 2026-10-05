@@ -1,0 +1,59 @@
+{
+    "support_transform.json": [],
+    "display_progress.c": [
+        "array_init",
+        "while_to_for"
+    ],
+    "get_word.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "random_int.c": [],
+    "display_menu.c": [],
+    "to_lowercase.c": [
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "main.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "main_style",
+        "array_init",
+        "declare"
+    ],
+    "load_words.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "while_to_for"
+    ],
+    "start_quiz.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "declare",
+        "for_OOO"
+    ],
+    "save_progress.c": [],
+    "check_spelling.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init",
+        "declare"
+    ]
+}

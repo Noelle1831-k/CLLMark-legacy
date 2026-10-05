@@ -1,0 +1,46 @@
+{
+    "initializeGame.c": [
+        "array_access"
+    ],
+    "resetGame.c": [
+        "array_access"
+    ],
+    "support_transform.json": [],
+    "setTeamName.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "getCurrentTime.c": [
+        "array_init"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "validateInput.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse"
+    ],
+    "displayMenu.c": [],
+    "updateScore.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "updateElapsedTime.c": [],
+    "getTeamName.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "displayGameStats.c": [
+        "array_access"
+    ],
+    "handleUserChoice.c": [
+        "declare"
+    ],
+    "clearScreen.c": []
+}

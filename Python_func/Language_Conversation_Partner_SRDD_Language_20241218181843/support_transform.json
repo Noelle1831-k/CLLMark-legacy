@@ -1,0 +1,65 @@
+{
+    "add_conversation_topic.py": [],
+    "start_text_chat.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "end_chat.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_chat_log.py": [],
+    "remove_partner.py": [],
+    "get_user_info.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_conversation_topics.py": [],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "provide_feedback.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "start_voice_chat.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "find_partner.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "remove_language_guide.py": [],
+    "get_all_feedback.py": [],
+    "get_language_guides.py": [],
+    "get_chat_history.py": [],
+    "log_chat.py": [],
+    "add_chat_history.py": [],
+    "add_partner.py": [],
+    "add_language_guide.py": [],
+    "list_all_partners.py": [],
+    "remove_conversation_topic.py": []
+}

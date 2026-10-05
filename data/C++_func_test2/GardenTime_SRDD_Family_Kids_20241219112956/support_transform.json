@@ -1,0 +1,33 @@
+{
+    "identifyPlant.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "output",
+        "input"
+    ],
+    "startQuiz.cpp": [
+        "output",
+        "input"
+    ],
+    "displayTutorial.cpp": [
+        "output",
+        "input"
+    ],
+    "main.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "Plant.cpp": [],
+    "Tutorial.cpp": [],
+    "Quiz.cpp": [],
+    "getInfo.cpp": [],
+    "checkAnswer.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "output"
+    ]
+}

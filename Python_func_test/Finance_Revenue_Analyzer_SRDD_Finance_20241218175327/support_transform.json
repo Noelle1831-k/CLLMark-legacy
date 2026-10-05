@@ -1,0 +1,134 @@
+{
+    "load_data.py": [
+        "init_list",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_comparison_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "historical_analysis.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_detailed_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "categorize_revenue.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_historical_report.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_forecast_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_summary.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "analyze_growth_opportunities.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "add_revenue.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "create_bar_chart.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "visualize_revenue.py": [],
+    "generate_detailed_comparison_report.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "create_line_chart.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "optimize_revenue.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "recommendations.py": [
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "create_scatter_plot.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "create_pie_chart.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "generate_report.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "create_histogram.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "validate_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "compare_to_targets.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "save_data.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

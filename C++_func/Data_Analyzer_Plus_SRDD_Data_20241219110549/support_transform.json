@@ -1,0 +1,51 @@
+{
+    "calculateCorrelation.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "predictData.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "support_transform.json": [],
+    "createLineChart.cpp": [],
+    "main.cpp": [
+        "main_style",
+        "output"
+    ],
+    "calculateVariance.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "visualizeData.cpp": [],
+    "loadData.cpp": [
+        "while_to_for"
+    ],
+    "analyzeTrends.cpp": [
+        "output"
+    ],
+    "cleanData.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "calculateMean.cpp": [],
+    "createBarChart.cpp": [],
+    "testHypothesis.cpp": [
+        "output"
+    ]
+}

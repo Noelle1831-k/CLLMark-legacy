@@ -1,0 +1,58 @@
+{
+    "QMainWindow.cpp": [],
+    "displayAlert.cpp": [],
+    "scanAndNeutralize.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "stopMonitoring.cpp": [],
+    "startMonitoring.cpp": [],
+    "setupUI.cpp": [
+        "declare"
+    ],
+    "encryptPassword.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "updateDashboard.cpp": [],
+    "scanLogs.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "monitorBehavior.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "analyzeTraffic.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "logEvent.cpp": [],
+    "~MainWindow.cpp": []
+}

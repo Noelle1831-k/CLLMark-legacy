@@ -1,0 +1,60 @@
+{
+    "add_song_to_library.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "add_song_to_playlist.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "display_playlist.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "create_playlist.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "find_song_by_id.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "shuffle_playlist.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style",
+        "declare"
+    ],
+    "find_playlist_by_id.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "initialize_library.c": [],
+    "reorder_playlist.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "create_song.c": [],
+    "display_song.c": []
+}

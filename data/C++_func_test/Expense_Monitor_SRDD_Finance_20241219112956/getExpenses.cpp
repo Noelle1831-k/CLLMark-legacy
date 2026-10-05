@@ -1,0 +1,1 @@
+const vector<Expense>& Category::getExpenses() const { return expenses; }

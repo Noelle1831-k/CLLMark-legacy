@@ -1,0 +1,42 @@
+{
+    "initApp.c": [],
+    "searchSongs.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "for_OOO"
+    ],
+    "support_transform.json": [],
+    "saveCurrentPlaylist.c": [],
+    "shareCurrentPlaylist.c": [],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "analyzeMood.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "displayMenu.c": [],
+    "handleUserChoice.c": [
+        "array_init"
+    ],
+    "loadSongDatabase.c": [
+        "array_access"
+    ],
+    "generateMoodPlaylist.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "for_OOO"
+    ]
+}

@@ -1,0 +1,48 @@
+{
+    "login_user.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_exercise_info.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "load_exercise_library.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "track_progress.py": [],
+    "update_profile.py": [],
+    "log_workout.py": [],
+    "generate_plan.py": [
+        "list",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "get_plan.py": [],
+    "register_user.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "analyze_progress.py": [
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "create_workout_plan.py": [],
+    "get_profile.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

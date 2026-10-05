@@ -1,0 +1,3 @@
+ThemeManager::ThemeManager() {
+    loadPredefinedThemes();
+}

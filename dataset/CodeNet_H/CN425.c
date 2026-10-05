@@ -1,0 +1,16 @@
+a=-1,A=65,d;
+char
+*N="GKSOCNWLDFVTBRXHAJUPEMQI",
+*E="PHLTIDOXQAGWECSUMBKVJFNR",
+s[9];
+main(c)
+{
+for(;c-48&&scanf("%s",s);a+=d/4+1)
+(c=*s)<A?~a&&printf("%d\n",a),a=d=0:0,
+d=(c==78?d=N[d]:
+c==69?d=E[d]:
+c==83?d=N[N[N[d]-A]-A]:
+c==87?d=E[E[E[d]-A]-A]:d+A)-A,
+c==82?d=d&28|d%4+1%3:d,
+c==76?d=d&28|d%4+3%3:d;
+}

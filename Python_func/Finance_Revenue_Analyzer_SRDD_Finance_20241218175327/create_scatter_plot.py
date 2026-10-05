@@ -1,0 +1,13 @@
+def create_scatter_plot(self, data):
+        sources = list(data.keys())
+        amounts = list(data.values())
+        colors = np.random.rand(len(sources))
+        plt.figure(figsize=(12, 7))
+        plt.scatter(sources, amounts, c=colors, alpha=0.5, cmap='viridis', s=100)
+        plt.xticks(rotation=45, ha='right')
+        plt.xlabel('Revenue Sources')
+        plt.ylabel('Amount ($)')
+        plt.title('Revenue Scatter Plot')
+        plt.colorbar()
+        plt.tight_layout()
+        plt.show()

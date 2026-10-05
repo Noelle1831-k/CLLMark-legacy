@@ -1,0 +1,44 @@
+{
+    "has_sufficient_resources.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "free_building.c": [],
+    "add_resources.c": [
+        "self_assignment"
+    ],
+    "initialize_game_engine.c": [],
+    "consume_resources.c": [
+        "self_assignment"
+    ],
+    "add_building.c": [],
+    "is_game_over.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "upgrade_building.c": [],
+    "main.c": [
+        "main_style",
+        "while_to_for"
+    ],
+    "initialize_civilization.c": [],
+    "create_building.c": [],
+    "print_civilization_status.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "simulate_turn.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "free_civilization.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "free_game_engine.c": []
+}

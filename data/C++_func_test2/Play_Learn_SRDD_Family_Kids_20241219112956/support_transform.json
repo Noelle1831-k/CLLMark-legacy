@@ -1,0 +1,27 @@
+{
+    "start.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "output",
+        "input"
+    ],
+    "MainApp.cpp": [],
+    "displayMenu.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "main.cpp": [
+        "main_style",
+        "output",
+        "input"
+    ],
+    "playGame.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ]
+}

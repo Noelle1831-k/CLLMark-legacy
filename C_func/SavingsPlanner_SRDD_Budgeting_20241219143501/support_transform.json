@@ -1,0 +1,44 @@
+{
+    "saveUserData.c": [],
+    "addIncome.c": [
+        "self_assignment"
+    ],
+    "displaySavingsProgress.c": [],
+    "support_transform.json": [],
+    "initializeData.c": [],
+    "generateReport.c": [],
+    "addExpense.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "loadUserData.c": [],
+    "main.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style"
+    ],
+    "displayMenu.c": [],
+    "inputExpense.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_init"
+    ],
+    "executeChoice.c": [],
+    "showSavingsVisualization.c": [],
+    "updateSavingsTarget.c": [],
+    "generateBarChart.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "setSavingsTarget.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "inputIncome.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ]
+}

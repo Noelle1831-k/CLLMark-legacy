@@ -1,0 +1,58 @@
+{
+    "generateMonthlyReport.cpp": [
+        "output"
+    ],
+    "loadUserData.cpp": [
+        "declare",
+        "while_to_for"
+    ],
+    "login.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "declare",
+        "output",
+        "input"
+    ],
+    "addTransaction.cpp": [
+        "output"
+    ],
+    "printDetails.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "inputDetails.cpp": [
+        "output"
+    ],
+    "User.cpp": [],
+    "manageAccount.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "run.cpp": [
+        "output",
+        "input"
+    ],
+    "registerUser.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "declare",
+        "output",
+        "input"
+    ],
+    "saveUserData.cpp": [],
+    "viewTransactions.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "generateAnnualReport.cpp": [
+        "output"
+    ]
+}

@@ -1,0 +1,64 @@
+{
+    "end_session.py": [
+        "print_flush",
+        "string_quota",
+        "f_string"
+    ],
+    "add_word.py": [],
+    "get_progress.py": [],
+    "start_session.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse"
+    ],
+    "check_answer.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "get_random_word.py": [],
+    "__init__.py": [],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "get_all_words.py": [],
+    "update_progress.py": [
+        "self_assignment"
+    ],
+    "generate_question.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "take_quiz.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "get_progress_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

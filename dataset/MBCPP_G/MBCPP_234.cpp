@@ -1,0 +1,2 @@
+return l * l * l;
+}

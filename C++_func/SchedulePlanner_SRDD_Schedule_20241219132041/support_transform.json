@@ -1,0 +1,52 @@
+{
+    "updateTaskStatus.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "sendNotification.cpp": [],
+    "getStatus.cpp": [],
+    "support_transform.json": [],
+    "setTimeSlot.cpp": [],
+    "findTaskByName.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.cpp": [
+        "main_style",
+        "declare"
+    ],
+    "addTask.cpp": [],
+    "display.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "setName.cpp": [],
+    "getName.cpp": [],
+    "getTasks.cpp": [],
+    "removeTask.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "getTimeSlot.cpp": [],
+    "generateReport.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "getPriority.cpp": [],
+    "setStatus.cpp": [],
+    "scheduleReminder.cpp": [],
+    "setPriority.cpp": []
+}

@@ -1,0 +1,75 @@
+{
+    "check_time_limit.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "shoot.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "complete_mission.py": [],
+    "silence_shot.py": [
+        "list"
+    ],
+    "update_environment.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_challenges.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "end_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "aim.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "start_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "check_eliminate_target.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "adjust_scope.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "load_mission.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "check_avoid_detection.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

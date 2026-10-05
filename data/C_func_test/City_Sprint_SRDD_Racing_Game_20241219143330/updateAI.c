@@ -1,0 +1,11 @@
+void updateAI(AI* aiCar) {
+    if (aiCar->difficulty == 0) {
+        aiCar->car.speed = aiCar->car.speed + 0.5; 
+    } else if (aiCar->difficulty == 1) {
+        aiCar->car.speed = aiCar->car.speed + 1.0; 
+    } else {
+        aiCar->car.speed = aiCar->car.speed + 1.5; 
+    }
+    aiCar->car.position.x = aiCar->car.position.x + aiCar->car.speed * cos(aiCar->car.direction);
+    aiCar->car.position.y = aiCar->car.position.y + aiCar->car.speed * sin(aiCar->car.direction);
+}

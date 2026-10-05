@@ -1,0 +1,52 @@
+{
+    "displayTrack.cpp": [
+        "output"
+    ],
+    "gameLoop.cpp": [
+        "declare",
+        "while_to_for"
+    ],
+    "initialize.cpp": [
+        "output"
+    ],
+    "support_transform.json": [],
+    "renderGraphics.cpp": [
+        "output"
+    ],
+    "getTimeRemaining.cpp": [],
+    "checkTime.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "output"
+    ],
+    "moveForward.cpp": [
+        "self_assignment"
+    ],
+    "main.cpp": [
+        "main_style",
+        "output"
+    ],
+    "solvePuzzle.cpp": [
+        "output"
+    ],
+    "applyBrakes.cpp": [
+        "self_assignment"
+    ],
+    "updatePhysics.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ],
+    "startTimer.cpp": [],
+    "generateTrack.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "getPosition.cpp": []
+}

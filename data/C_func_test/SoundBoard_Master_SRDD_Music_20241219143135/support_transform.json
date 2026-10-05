@@ -1,0 +1,48 @@
+{
+    "list_sounds_in_category.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "create_category.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access"
+    ],
+    "list_categories.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "run_program.c": [],
+    "load_sound_clip.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse"
+    ],
+    "play_sound_clip.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "assign_hotkey.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "handle_user_input.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "for_OOO"
+    ],
+    "initialize_program.c": [],
+    "play_sound.c": []
+}

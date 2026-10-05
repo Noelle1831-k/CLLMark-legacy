@@ -1,0 +1,62 @@
+{
+    "start_tracking.py": [
+        "print_flush",
+        "string_quota",
+        "f_string"
+    ],
+    "get_tracking_data.py": [],
+    "signal_handler.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "stop_tracking.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "display_analysis_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "_track.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "main.py": [],
+    "analyze_data.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "format_data.py": [],
+    "display_tracking_info.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "_generate_data_point.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_report.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "log_activity.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

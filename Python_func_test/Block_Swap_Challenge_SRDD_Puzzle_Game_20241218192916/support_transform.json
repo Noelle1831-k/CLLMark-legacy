@@ -1,0 +1,81 @@
+{
+    "_activate_color_clear.py": [
+        "range_index",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "is_match.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "is_adjacent.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "_activate_row_clear.py": [
+        "range_index"
+    ],
+    "make_move.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "next_level.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "check_for_powerups.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "activate.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "clear_matches.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "__init__.py": [],
+    "increase_difficulty.py": [
+        "self_assignment"
+    ],
+    "is_level_cleared.py": [],
+    "_activate_column_clear.py": [
+        "range_index"
+    ],
+    "random_powerup.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "find_matches.py": [
+        "range_index"
+    ],
+    "_activate_bomb.py": [],
+    "start_game.py": [
+        "self_assignment"
+    ],
+    "main.py": [],
+    "check_game_over.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "apply_gravity.py": [
+        "range_index",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "swap_blocks.py": [],
+    "initialize_board.py": [
+        "range_index"
+    ]
+}

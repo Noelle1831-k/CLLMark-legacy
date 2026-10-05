@@ -1,0 +1,3 @@
+int getTransactionCount() {
+    return transactionCount;
+}

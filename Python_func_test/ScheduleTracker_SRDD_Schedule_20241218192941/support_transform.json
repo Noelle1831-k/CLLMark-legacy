@@ -1,0 +1,99 @@
+{
+    "remove_task.py": [
+        "print_flush",
+        "string_quota",
+        "f_string"
+    ],
+    "clear_visualization.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "update_task.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "add_task.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "remove_reminder.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "add_task_for_visualization.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp",
+        "return_none"
+    ],
+    "set_reminder.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "get_user_input.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "_display_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_daily_view.py": [
+        "print_flush",
+        "print_end",
+        "range_index",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "_compile_report_data.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "list_tasks.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "generate_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

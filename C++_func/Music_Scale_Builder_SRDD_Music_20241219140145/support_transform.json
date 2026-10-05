@@ -1,0 +1,57 @@
+{
+    "calculateFrequency.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "getNotes.cpp": [],
+    "getFrequency.cpp": [],
+    "getOctave.cpp": [],
+    "generateScale.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "playNote.cpp": [],
+    "support_transform.json": [],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "name.cpp": [],
+    "explainChords.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "displayNoteInfo.cpp": [],
+    "playScale.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getName.cpp": [],
+    "explainIntervals.cpp": [
+        "output"
+    ],
+    "displayScale.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "addInterval.cpp": [],
+    "handleInput.cpp": [
+        "output",
+        "input"
+    ]
+}

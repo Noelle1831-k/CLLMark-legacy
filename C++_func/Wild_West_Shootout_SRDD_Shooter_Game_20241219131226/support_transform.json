@@ -1,0 +1,44 @@
+{
+    "loadTexture.cpp": [],
+    "complete.cpp": [],
+    "attack.cpp": [],
+    "start.cpp": [],
+    "currentMode.cpp": [],
+    "type.cpp": [],
+    "disconnect.cpp": [],
+    "support_transform.json": [],
+    "playSound.cpp": [],
+    "move.cpp": [],
+    "name.cpp": [],
+    "AudioManager.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "loadGameModes.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "output",
+        "input"
+    ],
+    "reload.cpp": [],
+    "update.cpp": [],
+    "renderScene.cpp": [],
+    "connect.cpp": [],
+    "takeDamage.cpp": [
+        "self_assignment"
+    ],
+    "GraphicsManager.cpp": [],
+    "fire.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse"
+    ],
+    "stopSound.cpp": [],
+    "health.cpp": [],
+    "Multiplayer.cpp": [],
+    "description.cpp": [],
+    "shoot.cpp": [],
+    "interact.cpp": [],
+    "load.cpp": [],
+    "render.cpp": []
+}

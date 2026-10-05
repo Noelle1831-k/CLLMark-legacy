@@ -1,0 +1,44 @@
+{
+    "add_bookmark.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "update_preferences.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "fetch_articles.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "share_article.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "display_preferences.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "display_articles.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "rank_articles.py": [],
+    "summarize_article.py": [
+        "list_index",
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": []
+}

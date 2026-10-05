@@ -1,0 +1,43 @@
+{
+    "createProfile.c": [],
+    "addGenrePreference.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "exploreCollections.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "popularBooks.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style",
+        "array_init",
+        "declare"
+    ],
+    "displayMenu.c": [],
+    "suggestTitles.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "generateRecommendations.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getDetails.c": [],
+    "rateBook.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "updateRating.c": []
+}

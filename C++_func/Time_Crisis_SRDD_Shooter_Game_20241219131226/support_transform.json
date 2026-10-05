@@ -1,0 +1,32 @@
+{
+    "start.cpp": [
+        "while_to_for",
+        "output"
+    ],
+    "isRunning.cpp": [],
+    "support_transform.json": [],
+    "loadLevels.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "update.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "render.cpp": [
+        "output"
+    ]
+}

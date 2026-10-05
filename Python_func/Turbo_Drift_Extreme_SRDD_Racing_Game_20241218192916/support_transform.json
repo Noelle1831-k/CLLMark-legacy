@@ -1,0 +1,122 @@
+{
+    "update_score.py": [
+        "self_assignment"
+    ],
+    "apply_friction.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "display_end_screen.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "simulate_input.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "game_loop.py": [],
+    "process_controller_input.py": [],
+    "reset_score.py": [],
+    "select_car.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "start.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "check_collisions.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "clear_screen.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "initialize_graphics.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_final_score.py": [],
+    "is_destroyed.py": [],
+    "end_game.py": [],
+    "draw_car.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "handle_input.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "update_game_state.py": [],
+    "process_input.py": [],
+    "__init__.py": [],
+    "load_track.py": [],
+    "render.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "is_completed.py": [
+        "list"
+    ],
+    "check_game_over.py": [],
+    "generate_obstacles.py": [
+        "list",
+        "range_index",
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_drift.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "draw_obstacles.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "map_input_to_commands.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "draw_track.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "generate_track_layout.py": [
+        "list",
+        "range_index",
+        "string_quota",
+        "f_string"
+    ],
+    "update_physics.py": [],
+    "get_input.py": [],
+    "render_graphics.py": [],
+    "initialize_game.py": [],
+    "process_keyboard_input.py": []
+}

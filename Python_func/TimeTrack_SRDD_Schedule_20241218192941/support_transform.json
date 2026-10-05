@@ -1,0 +1,70 @@
+{
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "get_categories.py": [],
+    "allocate_time.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "remove_category.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "remove_activity.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "add_activity.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "handle_user_input.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "set_time_allocator.py": [],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "visualize_time_allocation.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_time_allocation.py": [],
+    "add_category.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "get_activities.py": []
+}

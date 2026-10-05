@@ -1,0 +1,61 @@
+{
+    "_calculate_relevance_score.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "filter_news_by_preferences.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "load_user_preferences0.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "load_user_preferences.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_similarity.py": [],
+    "update_user_preferences.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "load_user_preferences_1.py": [],
+    "fetch_news.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "update_user_preferences1.py": [],
+    "generate_recommendations.py": [
+        "init_list",
+        "list",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "train_model.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "update_user_preferences0.py": [],
+    "preprocess_text.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "update_user_preferences_1.py": []
+}

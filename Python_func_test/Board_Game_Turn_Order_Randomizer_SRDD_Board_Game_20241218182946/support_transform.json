@@ -1,0 +1,41 @@
+{
+    "display_error.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "randomize.py": [
+        "list_index"
+    ],
+    "display_turn_order.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_turn_order.py": [],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp",
+        "return_none"
+    ],
+    "randomize_turn_order.py": [],
+    "validate_input.py": [],
+    "get_player_names.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ]
+}

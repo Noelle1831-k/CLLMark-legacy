@@ -1,0 +1,49 @@
+{
+    "support_transform.json": [],
+    "generateReport.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "setReminder.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare"
+    ],
+    "createTask.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "initializeTaskList.c": [],
+    "displayTasks.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "isValidRange.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style"
+    ],
+    "clearBuffer.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "updateTaskProgress.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "declare"
+    ]
+}

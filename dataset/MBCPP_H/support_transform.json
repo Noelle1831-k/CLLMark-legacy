@@ -1,0 +1,3111 @@
+{
+    "MBCPP_235.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_864.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_774.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_263.cpp": [],
+    "MBCPP_826.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_811.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_805.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "MBCPP_223.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_701.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_486.cpp": [],
+    "MBCPP_411.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_747.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_501.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "MBCPP_273.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_476.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_767.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_619.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_296.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_838.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_478.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_23.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_187.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_311.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_684.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_950.cpp": [],
+    "MBCPP_766.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_90.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "MBCPP_5.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_220.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_871.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_29.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_815.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_346.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "MBCPP_247.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_685.cpp": [],
+    "MBCPP_898.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_291.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_889.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_214.cpp": [],
+    "MBCPP_203.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_438.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_268.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_230.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_27.cpp": [
+        "self_assignment"
+    ],
+    "MBCPP_357.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "MBCPP_169.cpp": [],
+    "MBCPP_603.cpp": [],
+    "MBCPP_544.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_329.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_47.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "while_to_for"
+    ],
+    "MBCPP_450.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_83.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_310.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_592.cpp": [],
+    "MBCPP_274.cpp": [],
+    "MBCPP_314.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_369.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_130.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_189.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_279.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "MBCPP_135.cpp": [],
+    "MBCPP_19.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_752.cpp": [],
+    "MBCPP_772.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_896.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_338.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_881.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_517.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_55.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_878.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_780.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_60.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_810.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_445.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_221.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_765.cpp": [],
+    "MBCPP_74.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_244.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "MBCPP_557.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_943.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_689.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_777.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_63.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare"
+    ],
+    "MBCPP_608.cpp": [],
+    "MBCPP_505.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_769.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "MBCPP_22.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "MBCPP_527.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_532.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_380.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_543.cpp": [],
+    "support_transform.json": [],
+    "MBCPP_95.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_196.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "MBCPP_776.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_655.cpp": [],
+    "MBCPP_71.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_156.cpp": [],
+    "MBCPP_957.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_808.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_756.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_394.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_633.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_403.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_437.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_202.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_123.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_578.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_227.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "MBCPP_651.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_819.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_463.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_577.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_287.cpp": [],
+    "MBCPP_225.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_51.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_149.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_426.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_32.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_610.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_760.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_671.cpp": [],
+    "MBCPP_97.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "MBCPP_322.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_644.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_456.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_166.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_602.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_277.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "MBCPP_107.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_18.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_702.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_829.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_44.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_236.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare"
+    ],
+    "MBCPP_759.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_96.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_492.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_45.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_515.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_713.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "MBCPP_550.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_62.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "MBCPP_542.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_908.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_192.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_480.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_824.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_377.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_558.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "while_to_for"
+    ],
+    "MBCPP_340.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_971.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_588.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_727.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_99.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "MBCPP_923.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_895.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_226.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_736.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_57.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_944.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_78.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_629.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_922.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_295.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_430.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare"
+    ],
+    "MBCPP_468.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_264.cpp": [],
+    "MBCPP_641.cpp": [],
+    "MBCPP_626.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_349.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_304.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_938.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_860.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_624.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_319.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_171.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "MBCPP_483.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_511.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_120.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "MBCPP_691.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "MBCPP_883.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_901.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_593.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_710.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_604.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "declare"
+    ],
+    "MBCPP_559.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_383.cpp": [],
+    "MBCPP_806.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_241.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_270.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_428.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_556.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_177.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "MBCPP_100.cpp": [],
+    "MBCPP_102.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_929.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_907.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare"
+    ],
+    "MBCPP_855.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_286.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_175.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_921.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "MBCPP_53.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_158.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_545.cpp": [
+        "declare"
+    ],
+    "MBCPP_554.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_818.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_190.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_620.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_797.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_594.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_436.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_534.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_681.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_453.cpp": [],
+    "MBCPP_790.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_751.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_892.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_852.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_207.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_763.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_131.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_676.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_173.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_259.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_7.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "declare"
+    ],
+    "MBCPP_936.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_697.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse"
+    ],
+    "MBCPP_589.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_119.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_906.cpp": [],
+    "MBCPP_269.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_856.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_487.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_183.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_937.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_631.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_667.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_328.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_961.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_10.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_695.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_572.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse"
+    ],
+    "MBCPP_508.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "MBCPP_863.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_470.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_3.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "MBCPP_11.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_461.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_661.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_874.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse"
+    ],
+    "MBCPP_732.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_831.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_38.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_36.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "MBCPP_485.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_210.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "MBCPP_548.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_748.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_549.cpp": [],
+    "MBCPP_409.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "MBCPP_374.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_945.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "MBCPP_414.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_637.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "MBCPP_434.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_360.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_809.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_905.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_894.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_228.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_467.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_42.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_734.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_507.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_529.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_552.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse"
+    ],
+    "MBCPP_324.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_141.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_144.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_41.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_916.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_472.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_343.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_540.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_918.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_249.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_622.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_958.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_489.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_178.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_794.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_717.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_846.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_537.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_646.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_538.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_573.cpp": [
+        "self_assignment"
+    ],
+    "MBCPP_139.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_105.cpp": [
+        "update_reverse"
+    ],
+    "MBCPP_193.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_562.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_125.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_289.cpp": [],
+    "MBCPP_784.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "MBCPP_321.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_108.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_122.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_351.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_606.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_516.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_842.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_315.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_504.cpp": [],
+    "MBCPP_721.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_412.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_742.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_266.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_300.cpp": [],
+    "MBCPP_285.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "MBCPP_224.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_184.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_258.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare"
+    ],
+    "MBCPP_639.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "MBCPP_121.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_40.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "MBCPP_956.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "MBCPP_28.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_662.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_518.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_555.cpp": [],
+    "MBCPP_159.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_401.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_488.cpp": [],
+    "MBCPP_628.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_364.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_764.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_926.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_70.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_656.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_597.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_821.cpp": [],
+    "MBCPP_185.cpp": [],
+    "MBCPP_167.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "while_to_for"
+    ],
+    "MBCPP_325.cpp": [],
+    "MBCPP_281.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_318.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_217.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_24.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_451.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_163.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_366.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_668.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_386.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_459.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_600.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "while_to_for"
+    ],
+    "MBCPP_583.cpp": [],
+    "MBCPP_845.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "MBCPP_914.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_942.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_754.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_469.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_30.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_219.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_191.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_880.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "declare"
+    ],
+    "MBCPP_385.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_9.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_615.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_672.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare"
+    ],
+    "MBCPP_252.cpp": [],
+    "MBCPP_205.cpp": [],
+    "MBCPP_415.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_136.cpp": [],
+    "MBCPP_400.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_181.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_836.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_786.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_350.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_260.cpp": [],
+    "MBCPP_89.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_148.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_586.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_962.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_638.cpp": [],
+    "MBCPP_477.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_129.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_68.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_110.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "MBCPP_398.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_917.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "MBCPP_605.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "while_to_for"
+    ],
+    "MBCPP_391.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_844.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_332.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_474.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_632.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_164.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_34.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_54.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_495.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "MBCPP_200.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_781.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_382.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_146.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_297.cpp": [],
+    "MBCPP_448.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_965.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_179.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_913.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "MBCPP_563.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_536.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_81.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "MBCPP_658.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare"
+    ],
+    "MBCPP_875.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_344.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_800.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_877.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_128.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_172.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_869.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_531.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse"
+    ],
+    "MBCPP_828.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_650.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_630.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_678.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_575.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_812.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_739.cpp": [],
+    "MBCPP_902.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "MBCPP_861.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "declare"
+    ],
+    "MBCPP_419.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_876.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_885.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_614.cpp": [
+        "self_assignment"
+    ],
+    "MBCPP_352.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_890.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_339.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "MBCPP_738.cpp": [],
+    "MBCPP_150.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "declare"
+    ],
+    "MBCPP_33.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_502.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_775.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_250.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse"
+    ],
+    "MBCPP_39.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_320.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_857.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_165.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_903.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_733.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_384.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_708.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_155.cpp": [],
+    "MBCPP_420.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_232.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_353.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_275.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_103.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_204.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_564.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_663.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_832.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare"
+    ],
+    "MBCPP_664.cpp": [],
+    "MBCPP_229.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_441.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_524.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_802.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_211.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_669.cpp": [],
+    "MBCPP_853.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_378.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_256.cpp": [],
+    "MBCPP_161.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "MBCPP_967.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_109.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_969.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_745.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_371.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_714.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_928.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_953.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "MBCPP_388.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "MBCPP_443.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "MBCPP_680.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "MBCPP_849.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

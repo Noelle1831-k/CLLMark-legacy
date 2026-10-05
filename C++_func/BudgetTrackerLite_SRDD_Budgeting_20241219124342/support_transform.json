@@ -1,0 +1,68 @@
+{
+    "calculateRemainingBudget.cpp": [],
+    "calculateTotalExpenses.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getExpenses.cpp": [],
+    "support_transform.json": [],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "setBudgetGoal.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ],
+    "main.cpp": [
+        "main_style",
+        "output",
+        "input"
+    ],
+    "displayBarChart.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "getIncome.cpp": [],
+    "getDoubleInput.cpp": [
+        "output",
+        "input"
+    ],
+    "addIncome.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ],
+    "getStringInput.cpp": [],
+    "addExpense.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ],
+    "resetData.cpp": [],
+    "generateReport.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "displayPieChart.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output"
+    ]
+}

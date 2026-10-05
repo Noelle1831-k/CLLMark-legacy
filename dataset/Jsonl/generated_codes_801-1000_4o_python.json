@@ -1,0 +1,872 @@
+[
+    {
+        "sequence": 801,
+        "prompt": "\n\ndef test_three_equal(x,y,z):\n  \"\"\"\n  Write a python function to count the number of equal numbers from three given integers.\n  >>> test_three_equal(1,1,1)\n  3\n  >>> test_three_equal(-1,-2,-3)\n  0\n  >>> test_three_equal(1,2,2)\n  2\n  \"\"\"\n",
+        "code": "def test_three_equal(x, y, z):\n    if x == y == z:\n        return 3\n    elif x == y or y == z or x == z:\n        return 2\n    else:\n        return 0"
+    },
+    {
+        "sequence": 802,
+        "prompt": "\n\ndef count_Rotation(arr,n):\n    \"\"\"\n    Write a python function to count the number of rotations required to generate a sorted array.\n    >>> count_Rotation([3,2,1],3)\n    1\n    >>> count_Rotation([4,5,1,2,3],5)\n    2\n    >>> count_Rotation([7,8,9,1,2,3],6)\n    3\n    \"\"\"\n",
+        "code": "def count_Rotation(arr, n):\n    min_val = min(arr)\n    return arr.index(min_val)"
+    },
+    {
+        "sequence": 803,
+        "prompt": "\n\ndef is_Perfect_Square(n) :\n    \"\"\"\n    Write a python function to check whether the given number is a perfect square or not.\n    >>> is_Perfect_Square(10)\n    False\n    >>> is_Perfect_Square(36)\n    True\n    >>> is_Perfect_Square(14)\n    False\n    \"\"\"\n",
+        "code": "def is_Perfect_Square(n):\n    if n < 0:\n        return False\n    root = int(n ** 0.5)\n    return root * root == n"
+    },
+    {
+        "sequence": 804,
+        "prompt": "\n\ndef is_Product_Even(arr,n):\n    \"\"\"\n    Write a python function to check whether the product of numbers is even or not.\n    >>> is_Product_Even([1,2,3],3)\n    True\n    >>> is_Product_Even([1,2,1,4],4)\n    True\n    >>> is_Product_Even([1,1],2)\n    False\n    \"\"\"\n",
+        "code": "def is_Product_Even(arr, n):\n    for num in arr:\n        if num % 2 == 0:\n            return True\n    return False"
+    },
+    {
+        "sequence": 805,
+        "prompt": "\n\ndef max_sum_list(lists):\n \"\"\"\n Write a function to find the list in a list of lists whose sum of elements is the highest.\n >>> max_sum_list([[1,2,3], [4,5,6], [10,11,12], [7,8,9]])\n [10, 11, 12]\n >>> max_sum_list([[3,2,1], [6,5,4], [12,11,10]])\n [12,11,10]\n >>> max_sum_list([[2,3,1]])\n [2,3,1]\n \"\"\"\n",
+        "code": "def max_sum_list(lists):\n    return max(lists, key=sum)"
+    },
+    {
+        "sequence": 806,
+        "prompt": "\n\ndef max_run_uppercase(test_str):\n  \"\"\"\n  Write a function to find maximum run of uppercase characters in the given string.\n  >>> max_run_uppercase('GeMKSForGERksISBESt')\n  5\n  >>> max_run_uppercase('PrECIOusMOVemENTSYT')\n  6\n  >>> max_run_uppercase('GooGLEFluTTER')\n  4\n  \"\"\"\n",
+        "code": "def max_run_uppercase(test_str):\n  max_run = 0\n  current_run = 0\n  for char in test_str:\n    if char.isupper():\n      current_run += 1\n      max_run = max(max_run, current_run)\n    else:\n      current_run = 0\n  return max_run"
+    },
+    {
+        "sequence": 807,
+        "prompt": "\n\ndef first_odd(nums):\n  \"\"\"\n  Write a python function to find the first odd number in a given list of numbers.\n  >>> first_odd([1,3,5])\n  1\n  >>> first_odd([2,4,1,3])\n  1\n  >>> first_odd ([8,9,1])\n  9\n  \"\"\"\n",
+        "code": "def first_odd(nums):\n    for num in nums:\n        if num % 2 != 0:\n            return num\n    return None"
+    },
+    {
+        "sequence": 808,
+        "prompt": "\n\ndef check_K(test_tup, K):\n  \"\"\"\n  Write a function to check if the given tuples contain the k or not.\n  >>> check_K((10, 4, 5, 6, 8), 6)\n  True\n  >>> check_K((1, 2, 3, 4, 5, 6), 7)\n  False\n  >>> check_K((7, 8, 9, 44, 11, 12), 11)\n  True\n  \"\"\"\n",
+        "code": "def check_K(test_tup, K):\n    return K in test_tup"
+    },
+    {
+        "sequence": 809,
+        "prompt": "\n\ndef check_smaller(test_tup1, test_tup2):\n  \"\"\"\n  Write a function to check if each element of second tuple is smaller than its corresponding index in first tuple.\n  >>> check_smaller((1, 2, 3), (2, 3, 4))\n  False\n  >>> check_smaller((4, 5, 6), (3, 4, 5))\n  True\n  >>> check_smaller((11, 12, 13), (10, 11, 12))\n  True\n  \"\"\"\n",
+        "code": "def check_smaller(test_tup1, test_tup2):\n    return all(x > y for x, y in zip(test_tup1, test_tup2))"
+    },
+    {
+        "sequence": 810,
+        "prompt": "\n\ndef count_variable(a,b,c,d):\n  \"\"\"\n  Write a function to iterate over elements repeating each as many times as its count.\n  >>> count_variable(4,2,0,-2)\n  ['p', 'p', 'p', 'p', 'q', 'q']\n  >>> count_variable(0,1,2,3)\n  ['q', 'r', 'r', 's', 's', 's']\n  >>> count_variable(11,15,12,23)\n  ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'q', 'q', 'q', 'q', 'q', 'q', 'q', 'q', 'q', 'q', 'q', 'q', 'q', 'q', 'q', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's']\n  \"\"\"\n",
+        "code": "def count_variable(a, b, c, d):\n    result = []\n    letters = ['p', 'q', 'r', 's']\n    counts = [a, b, c, d]\n    for i in range(4):\n        result.extend([letters[i]] * counts[i])\n    return result"
+    },
+    {
+        "sequence": 811,
+        "prompt": "\n\ndef check_identical(test_list1, test_list2):\n  \"\"\"\n  Write a function to check if two lists of tuples are identical or not.\n  >>> check_identical([(10, 4), (2, 5)], [(10, 4), (2, 5)])\n  True\n  >>> check_identical([(1, 2), (3, 7)], [(12, 14), (12, 45)])\n  False\n  >>> check_identical([(2, 14), (12, 25)], [(2, 14), (12, 25)])\n  True\n  \"\"\"\n",
+        "code": "def check_identical(test_list1, test_list2):\n    return test_list1 == test_list2"
+    },
+    {
+        "sequence": 812,
+        "prompt": "\n\ndef road_rd(street):\n  \"\"\"\n  Write a function to abbreviate 'road' as 'rd.' in a given string.\n  >>> road_rd(\"ravipadu Road\")\n  ('ravipadu Rd.')\n  >>> road_rd(\"palnadu Road\")\n  ('palnadu Rd.')\n  >>> road_rd(\"eshwar enclave Road\")\n  ('eshwar enclave Rd.')\n  \"\"\"\n",
+        "code": "def road_rd(street):\n    return street.replace('Road', 'Rd.')"
+    },
+    {
+        "sequence": 813,
+        "prompt": "\n\ndef string_length(str1):\n    \"\"\"\n    Write a function to find length of the string.\n    >>> string_length('python')\n    6\n    >>> string_length('program')\n    7\n    >>> string_length('language')\n    8\n    \"\"\"\n",
+        "code": "def string_length(str1):\n    return len(str1)"
+    },
+    {
+        "sequence": 814,
+        "prompt": "\n\ndef rombus_area(p,q):\n  \"\"\"\n  Write a function to find the area of a rombus.\n  >>> rombus_area(10,20)\n  100\n  >>> rombus_area(10,5)\n  25\n  >>> rombus_area(4,2)\n  4\n  \"\"\"\n",
+        "code": "def rombus_area(p, q):\n    return (p * q) / 2"
+    },
+    {
+        "sequence": 815,
+        "prompt": "\n\ndef sort_by_dnf(arr, n):\n  \"\"\"\n  Write a function to sort the given array without using any sorting algorithm. the given array consists of only 0, 1, and 2.\n  >>> sort_by_dnf([1,2,0,1,0,1,2,1,1], 9)\n  [0, 0, 1, 1, 1, 1, 1, 2, 2]\n  >>> sort_by_dnf([1,0,0,1,2,1,2,2,1,0], 10)\n  [0, 0, 0, 1, 1, 1, 1, 2, 2, 2]\n  >>> sort_by_dnf([2,2,1,0,0,0,1,1,2,1], 10)\n  [0, 0, 0, 1, 1, 1, 1, 2, 2, 2]\n  \"\"\"\n",
+        "code": "def sort_by_dnf(arr, n):\n    low = 0\n    mid = 0\n    high = n - 1\n    while mid <= high:\n        if arr[mid] == 0:\n            arr[low], arr[mid] = arr[mid], arr[low]\n            low += 1\n            mid += 1\n        elif arr[mid] == 1:\n            mid += 1\n        else:\n            arr[mid], arr[high] = arr[high], arr[mid]\n            high -= 1\n    return arr"
+    },
+    {
+        "sequence": 816,
+        "prompt": "\n\ndef clear_tuple(test_tup):\n  \"\"\"\n  Write a function to clear the values of the given tuples.\n  >>> clear_tuple((1, 5, 3, 6, 8))\n  ()\n  >>> clear_tuple((2, 1, 4 ,5 ,6))\n  ()\n  >>> clear_tuple((3, 2, 5, 6, 8))\n  ()\n  \"\"\"\n",
+        "code": "def clear_tuple(test_tup):\n    return ()"
+    },
+    {
+        "sequence": 817,
+        "prompt": "\n\ndef div_of_nums(nums,m,n):\n \"\"\"\n Write a function to find numbers divisible by m or n from a list of numbers using lambda function.\n >>> div_of_nums([19, 65, 57, 39, 152, 639, 121, 44, 90, 190],19,13)\n [19, 65, 57, 39, 152, 190]\n >>> div_of_nums([1, 2, 3, 5, 7, 8, 10],2,5)\n [2, 5, 8, 10]\n >>> div_of_nums([10,15,14,13,18,12,20],10,5)\n [10, 15, 20]\n \"\"\"\n",
+        "code": "def div_of_nums(nums, m, n):\n    return list(filter(lambda x: x % m == 0 or x % n == 0, nums))"
+    },
+    {
+        "sequence": 818,
+        "prompt": "\n\ndef lower_ctr(str):\n      \"\"\"\n      Write a python function to count lower case letters in a given string.\n      >>> lower_ctr('abc')\n      3\n      >>> lower_ctr('string')\n      6\n      >>> lower_ctr('Python')\n      5\n      \"\"\"\n",
+        "code": "def lower_ctr(str):\n    return sum(1 for c in str if c.islower())"
+    },
+    {
+        "sequence": 819,
+        "prompt": "\n\ndef count_duplic(lists):\n    \"\"\"\n    Write a function to count the frequency of consecutive duplicate elements in a given list of numbers.\n    >>> count_duplic([1,2,2,2,4,4,4,5,5,5,5])\n    ([1, 2, 4, 5], [1, 3, 3, 4])\n    >>> count_duplic([2,2,3,1,2,6,7,9])\n    ([2, 3, 1, 2, 6, 7, 9], [2, 1, 1, 1, 1, 1, 1])\n    >>> count_duplic([2,1,5,6,8,3,4,9,10,11,8,12])\n    ([2, 1, 5, 6, 8, 3, 4, 9, 10, 11, 8, 12], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])\n    \"\"\"\n",
+        "code": "def count_duplic(lists):\n    if not lists:\n        return ([], [])\n\n    values = [lists[0]]\n    counts = [1]\n\n    for current in lists[1:]:\n        if current == values[-1]:\n            counts[-1] += 1\n        else:\n            values.append(current)\n            counts.append(1)\n    \n    return (values, counts)"
+    },
+    {
+        "sequence": 820,
+        "prompt": "\n\ndef check_monthnum_number(monthnum1):\n  \"\"\"\n  Write a function to check whether the given month number contains 28 days or not.\n  >>> check_monthnum_number(2)\n  True\n  >>> check_monthnum_number(1)\n  False\n  >>> check_monthnum_number(3)\n  False\n  \"\"\"\n",
+        "code": "def check_monthnum_number(monthnum1):\n    return monthnum1 == 2"
+    },
+    {
+        "sequence": 821,
+        "prompt": "\n\ndef merge_dictionaries(dict1,dict2):\n    \"\"\"\n    Write a function to merge two dictionaries into a single expression.\n    >>> merge_dictionaries({ \"R\": \"Red\", \"B\": \"Black\", \"P\": \"Pink\" }, { \"G\": \"Green\", \"W\": \"White\" })\n    {'B': 'Black', 'R': 'Red', 'P': 'Pink', 'G': 'Green', 'W': 'White'}\n    >>> merge_dictionaries({ \"R\": \"Red\", \"B\": \"Black\", \"P\": \"Pink\" },{ \"O\": \"Orange\", \"W\": \"White\", \"B\": \"Black\" })\n    {'O': 'Orange', 'P': 'Pink', 'B': 'Black', 'W': 'White', 'R': 'Red'}\n    >>> merge_dictionaries({ \"G\": \"Green\", \"W\": \"White\" },{ \"O\": \"Orange\", \"W\": \"White\", \"B\": \"Black\" })\n    {'W': 'White', 'O': 'Orange', 'G': 'Green', 'B': 'Black'}\n    \"\"\"\n",
+        "code": "def merge_dictionaries(dict1, dict2):\n    return {**dict1, **dict2}"
+    },
+    {
+        "sequence": 822,
+        "prompt": "\n\ndef pass_validity(p):\n \"\"\"\n Write a function to return true if the password is valid.\n >>> pass_validity(\"password\")\n False\n >>> pass_validity(\"Password@10\")\n True\n >>> pass_validity(\"password@10\")\n False\n \"\"\"\n",
+        "code": "def pass_validity(p):\n    import re\n    return bool(re.match(r'^(?=.*[A-Z])(?=.*[@$!%*?&])(?=.*[0-9])[A-Za-z\\d@$!%*?&]{8,}$', p))"
+    },
+    {
+        "sequence": 823,
+        "prompt": "\n\ndef check_substring(string, sample) :\n  \"\"\"\n  Write a function to check if the given string starts with a substring using regex.\n  >>> check_substring(\"dreams for dreams makes life fun\", \"makes\")\n  'string doesnt start with the given substring'\n  >>> check_substring(\"Hi there how are you Hi alex\", \"Hi\")\n  'string starts with the given substring'\n  >>> check_substring(\"Its been a long day\", \"been\")\n  'string doesnt start with the given substring'\n  \"\"\"\n",
+        "code": "import re\n\ndef check_substring(string, sample):\n    pattern = '^' + re.escape(sample)\n    if re.match(pattern, string):\n        return 'string starts with the given substring'\n    else:\n        return 'string doesnt start with the given substring'"
+    },
+    {
+        "sequence": 824,
+        "prompt": "\n\ndef remove_even(l):\n    \"\"\"\n    Write a python function to remove even numbers from a given list.\n    >>> remove_even([1,3,5,2])\n    [1,3,5]\n    >>> remove_even([5,6,7])\n    [5,7]\n    >>> remove_even([1,2,3,4])\n    [1,3]\n    \"\"\"\n",
+        "code": "def remove_even(l):\n    return [x for x in l if x % 2 != 0]"
+    },
+    {
+        "sequence": 825,
+        "prompt": "\n\ndef access_elements(nums, list_index):\n    \"\"\"\n    Write a python function to access multiple elements of specified index from a given list.\n    >>> access_elements([2,3,8,4,7,9],[0,3,5])\n    [2, 4, 9]\n    >>> access_elements([1, 2, 3, 4, 5],[1,2])\n    [2,3]\n    >>> access_elements([1,0,2,3],[0,1])\n    [1,0]\n    \"\"\"\n",
+        "code": "def access_elements(nums, list_index):\n    return [nums[i] for i in list_index]"
+    },
+    {
+        "sequence": 826,
+        "prompt": "\n\ndef check_Type_Of_Triangle(a,b,c):\n    \"\"\"\n    Write a python function to find the type of triangle from the given sides.\n    >>> check_Type_Of_Triangle(1,2,3)\n    \"Obtuse-angled Triangle\"\n    >>> check_Type_Of_Triangle(2,2,2)\n    \"Acute-angled Triangle\"\n    >>> check_Type_Of_Triangle(1,0,1)\n    \"Right-angled Triangle\"\n    \"\"\"\n",
+        "code": "def check_Type_Of_Triangle(a, b, c):\n    if a <= 0 or b <= 0 or c <= 0:\n        return \"Invalid Triangle\"\n    sides = sorted([a, b, c])\n    if sides[0] + sides[1] <= sides[2]:\n        return \"Invalid Triangle\"\n    a2, b2, c2 = sides[0]**2, sides[1]**2, sides[2]**2\n    if a2 + b2 == c2:\n        return \"Right-angled Triangle\"\n    elif a2 + b2 > c2:\n        if a == b == c:\n            return \"Equilateral (Acute-angled) Triangle\"\n        return \"Acute-angled Triangle\"\n    else:\n        return \"Obtuse-angled Triangle\""
+    },
+    {
+        "sequence": 827,
+        "prompt": "\n\ndef sum_column(list1, C):\n    \"\"\"\n    Write a function to sum a specific column of a list in a given list of lists.\n    >>> sum_column( [[1,2,3,2],[4,5,6,2],[7,8,9,5],],0)\n    12\n    >>> sum_column( [[1,2,3,2],[4,5,6,2],[7,8,9,5],],1)\n    15\n    >>> sum_column( [[1,2,3,2],[4,5,6,2],[7,8,9,5],],3)\n    9\n    \"\"\"\n",
+        "code": "def sum_column(list1, C):\n    return sum(row[C] for row in list1)"
+    },
+    {
+        "sequence": 828,
+        "prompt": "\n\ndef count_alpha_dig_spl(string):\n  \"\"\"\n  Write a function to count alphabets,digits and special charactes in a given string.\n  >>> count_alpha_dig_spl(\"abc!@#123\")\n  (3,3,3)\n  >>> count_alpha_dig_spl(\"dgsuy@#$%&1255\")\n  (5,4,5)\n  >>> count_alpha_dig_spl(\"fjdsif627348#%$^&\")\n  (6,6,5)\n  \"\"\"\n",
+        "code": "def count_alpha_dig_spl(string):\n    alphabets = digits = special_chars = 0\n    for char in string:\n        if char.isalpha():\n            alphabets += 1\n        elif char.isdigit():\n            digits += 1\n        else:\n            special_chars += 1\n    return alphabets, digits, special_chars"
+    },
+    {
+        "sequence": 829,
+        "prompt": "\n\ndef second_frequent(input):\n\t\"\"\"\n\tWrite a function to find out the second most repeated (or frequent) string in the given sequence.\n\t>>> second_frequent(['aaa','bbb','ccc','bbb','aaa','aaa'])\n\t'bbb'\n\t>>> second_frequent(['abc','bcd','abc','bcd','bcd','bcd'])\n\t'abc'\n\t>>> second_frequent(['cdma','gsm','hspa','gsm','cdma','cdma'])\n\t'gsm'\n\t\"\"\"\n",
+        "code": "def second_frequent(input):\n    from collections import Counter\n    count = Counter(input)\n    most_common = count.most_common(2)\n    return most_common[1][0] if len(most_common) > 1 else None"
+    },
+    {
+        "sequence": 830,
+        "prompt": "\n\ndef round_up(a, digits):\n    \"\"\"\n    Write a function to round up a number to specific digits.\n    >>> round_up(123.01247,0)\n    124\n    >>> round_up(123.01247,1)\n    123.1\n    >>> round_up(123.01247,2)\n    123.02\n    \"\"\"\n",
+        "code": "def round_up(a, digits):\n    factor = 10 ** digits\n    return int(a * factor + 0.9999999999) / factor"
+    },
+    {
+        "sequence": 831,
+        "prompt": "\n\ndef count_Pairs(arr,n):\n    \"\"\"\n    Write a python function to count equal element pairs from the given array.\n    >>> count_Pairs([1,1,1,1],4)\n    6\n    >>> count_Pairs([1,5,1],3)\n    1\n    >>> count_Pairs([3,2,1,7,8,9],6)\n    0\n    \"\"\"\n",
+        "code": "def count_Pairs(arr, n):\n    count = 0\n    freq = {}\n    for num in arr:\n        if num in freq:\n            count += freq[num]\n            freq[num] += 1\n        else:\n            freq[num] = 1\n    return count"
+    },
+    {
+        "sequence": 832,
+        "prompt": "\n\ndef extract_max(input):\n\t\"\"\"\n\tWrite a function to extract the maximum numeric value from a string by using regex.\n\t>>> extract_max('100klh564abc365bg')\n\t564\n\t>>> extract_max('hello300how546mer231')\n\t546\n\t>>> extract_max('its233beenalong343journey234')\n\t343\n\t\"\"\"\n",
+        "code": "import re\n\ndef extract_max(input):\n    numbers = re.findall(r'\\d+', input)\n    return max(map(int, numbers)) if numbers else 0"
+    },
+    {
+        "sequence": 833,
+        "prompt": "\n\ndef get_key(dict):\n    \"\"\"\n    Write a function to get dictionary keys as a list.\n    >>> get_key({1:'python',2:'java'})\n    [1,2]\n    >>> get_key({10:'red',20:'blue',30:'black'})\n    [10,20,30]\n    >>> get_key({27:'language',39:'java',44:'little'})\n    [27,39,44]\n    \"\"\"\n",
+        "code": "def get_key(dict):\n    return list(dict.keys())"
+    },
+    {
+        "sequence": 834,
+        "prompt": "\n\ndef generate_matrix(n):\n        \"\"\"\n        Write a function to generate a square matrix filled with elements from 1 to n raised to the power of 2 in spiral order.\n        >>> generate_matrix(3)\n        [[1, 2, 3], [8, 9, 4], [7, 6, 5]]\n        >>> generate_matrix(2)\n        [[1,2],[4,3]]\n        >>> generate_matrix(7)\n        [[1, 2, 3, 4, 5, 6, 7], [24, 25, 26, 27, 28, 29, 8], [23, 40, 41, 42, 43, 30, 9], [22, 39, 48, 49, 44, 31, 10], [21, 38, 47, 46, 45, 32, 11], [20, 37, 36, 35, 34, 33, 12], [19, 18, 17, 16, 15, 14, 13]]\n        \"\"\"\n",
+        "code": "def generate_matrix(n):\n    matrix = [[0] * n for _ in range(n)]\n    left, right, top, bottom = 0, n - 1, 0, n - 1\n    num = 1\n    while left <= right and top <= bottom:\n        for j in range(left, right + 1):\n            matrix[top][j] = num\n            num += 1\n        top += 1\n        for i in range(top, bottom + 1):\n            matrix[i][right] = num\n            num += 1\n        right -= 1\n        if top <= bottom:\n            for j in range(right, left - 1, -1):\n                matrix[bottom][j] = num\n                num += 1\n            bottom -= 1\n        if left <= right:\n            for i in range(bottom, top - 1, -1):\n                matrix[i][left] = num\n                num += 1\n            left += 1\n    return matrix"
+    },
+    {
+        "sequence": 835,
+        "prompt": "\n\ndef slope(x1,y1,x2,y2):\n    \"\"\"\n    Write a python function to find the slope of a line.\n    >>> slope(4,2,2,5)\n    -1.5\n    >>> slope(2,4,4,6)\n    1\n    >>> slope(1,2,4,2)\n    0\n    \"\"\"\n",
+        "code": "def slope(x1, y1, x2, y2):\n    if x1 == x2:\n        raise ValueError(\"Slope is undefined for vertical lines.\")\n    return (y2 - y1) / (x2 - x1)"
+    },
+    {
+        "sequence": 836,
+        "prompt": "\n\ndef max_sub_array_sum(a,size):\n\t\"\"\"\n\tWrite a function to find length of the subarray having maximum sum.\n\t>>> max_sub_array_sum([-2, -3, 4, -1, -2, 1, 5, -3],8)\n\t5\n\t>>> max_sub_array_sum([1, -2, 1, 1, -2, 1],6)\n\t2\n\t>>> max_sub_array_sum([-1, -2, 3, 4, 5],5)\n\t3\n\t\"\"\"\n",
+        "code": "def max_sub_array_sum(a, size):\n    max_so_far = float('-inf')\n    max_ending_here = 0\n    start = 0\n    end = 0\n    s = 0\n\n    for i in range(size):\n        max_ending_here += a[i]\n        if max_so_far < max_ending_here:\n            max_so_far = max_ending_here\n            start = s\n            end = i\n        if max_ending_here < 0:\n            max_ending_here = 0\n            s = i + 1\n\n    return end - start + 1 if max_so_far > 0 else 0"
+    },
+    {
+        "sequence": 837,
+        "prompt": "\n\ndef cube_Sum(n):\n    \"\"\"\n    Write a python function to find the cube sum of first n odd natural numbers.\n    >>> cube_Sum(2)\n    28\n    >>> cube_Sum(3)\n    153\n    >>> cube_Sum(4)\n    496\n    \"\"\"\n",
+        "code": "def cube_Sum(n):\n    return sum((2 * i - 1) ** 3 for i in range(1, n + 1))"
+    },
+    {
+        "sequence": 838,
+        "prompt": "\n\ndef min_Swaps(s1,s2) :\n    \"\"\"\n    Write a python function to find minimum number swaps required to make two binary strings equal.\n    >>> min_Swaps(\"0011\",\"1111\")\n    1\n    >>> min_Swaps(\"00011\",\"01001\")\n    2\n    >>> min_Swaps(\"111\",\"111\")\n    0\n    \"\"\"\n",
+        "code": "def min_Swaps(s1, s2):\n    x, y = 0, 0\n    for a, b in zip(s1, s2):\n        if a == '0' and b == '1':\n            x += 1\n        elif a == '1' and b == '0':\n            y += 1\n    if (x + y) % 2 != 0:\n        return -1\n    return x // 2 + y // 2 + (x % 2) * 2"
+    },
+    {
+        "sequence": 839,
+        "prompt": "\n\ndef sort_tuple(tup):\n\t\"\"\"\n\tWrite a function to sort the tuples alphabetically by the first item of each tuple.\n\t>>> sort_tuple([(\"Amana\", 28), (\"Zenat\", 30), (\"Abhishek\", 29),(\"Nikhil\", 21), (\"B\", \"C\")])\n\t[('Abhishek', 29), ('Amana', 28), ('B', 'C'), ('Nikhil', 21), ('Zenat', 30)]\n\t>>> sort_tuple([(\"aaaa\", 28), (\"aa\", 30), (\"bab\", 29), (\"bb\", 21), (\"csa\", \"C\")])\n\t[('aa', 30), ('aaaa', 28), ('bab', 29), ('bb', 21), ('csa', 'C')]\n\t>>> sort_tuple([(\"Sarala\", 28), (\"Ayesha\", 30), (\"Suman\", 29),(\"Sai\", 21), (\"G\", \"H\")])\n\t[('Ayesha', 30), ('G', 'H'), ('Sai', 21), ('Sarala', 28), ('Suman', 29)]\n\t\"\"\"\n",
+        "code": "def sort_tuple(tup):\n    return sorted(tup, key=lambda x: x[0])"
+    },
+    {
+        "sequence": 840,
+        "prompt": "\n\ndef Check_Solution(a,b,c):\n    \"\"\"\n    Write a python function to check whether the roots of a quadratic equation are numerically equal but opposite in sign or not.\n    >>> Check_Solution(2,0,-1)\n    \"Yes\"\n    >>> Check_Solution(1,-5,6)\n    \"No\"\n    >>> Check_Solution(2,0,2)\n    \"Yes\"\n    \"\"\"\n",
+        "code": "def Check_Solution(a, b, c):\n    discriminant = b ** 2 - 4 * a * c\n    if discriminant < 0:\n        return \"No\"\n    sqrt_discriminant = discriminant ** 0.5\n    root1 = (-b + sqrt_discriminant) / (2 * a)\n    root2 = (-b - sqrt_discriminant) / (2 * a)\n    if root1 == -root2:\n        return \"Yes\"\n    return \"No\""
+    },
+    {
+        "sequence": 841,
+        "prompt": "\n\ndef get_inv_count(arr, n):\n\t\"\"\"\n\tWrite a function to count the number of inversions in the given array.\n\t>>> get_inv_count([1, 20, 6, 4, 5], 5)\n\t5\n\t>>> get_inv_count([8, 4, 2, 1], 4)\n\t6\n\t>>> get_inv_count([3, 1, 2], 3)\n\t2\n\t\"\"\"\n",
+        "code": "def get_inv_count(arr, n):\n    inv_count = 0\n    for i in range(n):\n        for j in range(i + 1, n):\n            if arr[i] > arr[j]:\n                inv_count += 1\n    return inv_count\n\n# Test cases\nprint(get_inv_count([1, 20, 6, 4, 5], 5))  # Output: 5\nprint(get_inv_count([8, 4, 2, 1], 4))     # Output: 6\nprint(get_inv_count([3, 1, 2], 3))        # Output: 2"
+    },
+    {
+        "sequence": 842,
+        "prompt": "\n\ndef get_odd_occurence(arr, arr_size):\n  \"\"\"\n  Write a function to find the number which occurs for odd number of times in the given array.\n  >>> get_odd_occurence([2, 3, 5, 4, 5, 2, 4, 3, 5, 2, 4, 4, 2], 13)\n  5\n  >>> get_odd_occurence([1, 2, 3, 2, 3, 1, 3], 7)\n  3\n  >>> get_odd_occurence([5, 7, 2, 7, 5, 2, 5], 7)\n  5\n  \"\"\"\n",
+        "code": "def get_odd_occurence(arr, arr_size):\n    result = 0\n    for i in range(arr_size):\n        result ^= arr[i]\n    return result"
+    },
+    {
+        "sequence": 843,
+        "prompt": "\n\ndef nth_super_ugly_number(n, primes):\n    \"\"\"\n    Write a function to find the nth super ugly number from a given prime list of size k using heap queue algorithm.\n    >>> nth_super_ugly_number(12,[2,7,13,19])\n    32\n    >>> nth_super_ugly_number(10,[2,7,13,19])\n    26\n    >>> nth_super_ugly_number(100,[2,7,13,19])\n    5408\n    \"\"\"\n",
+        "code": "def nth_super_ugly_number(n, primes):\n    import heapq\n    ugly_numbers = [1]\n    indices = [0] * len(primes)\n    values = list(primes)\n    heapq.heapify(values)\n    for _ in range(1, n):\n        next_ugly = heapq.heappop(values)\n        ugly_numbers.append(next_ugly)\n        for i in range(len(primes)):\n            if indices[i] < len(ugly_numbers) and primes[i] * ugly_numbers[indices[i]] == next_ugly:\n                indices[i] += 1\n            heapq.heappush(values, primes[i] * ugly_numbers[indices[i]])\n    return ugly_numbers[-1]"
+    },
+    {
+        "sequence": 844,
+        "prompt": "\n\ndef get_Number(n, k):\n    \"\"\"\n    Write a python function to find the kth element in an array containing odd elements first and then even elements.\n    >>> get_Number(8,5)\n    2\n    >>> get_Number(7,2)\n    3\n    >>> get_Number(5,2)\n    3\n    \"\"\"\n",
+        "code": "def get_Number(n, k):\n    odd = [i for i in range(1, n + 1) if i % 2 != 0]\n    even = [i for i in range(1, n + 1) if i % 2 == 0]\n    combined = odd + even\n    return combined[k - 1]"
+    },
+    {
+        "sequence": 845,
+        "prompt": "\n\ndef find_Digits(n):\n    \"\"\"\n    Write a python function to count the number of digits in factorial of a given number.\n    >>> find_Digits(7)\n    4\n    >>> find_Digits(5)\n    3\n    >>> find_Digits(4)\n    2\n    \"\"\"\n",
+        "code": "def find_Digits(n):\n    import math\n    factorial_value = math.factorial(n)\n    return len(str(factorial_value))"
+    },
+    {
+        "sequence": 846,
+        "prompt": "\n\ndef find_platform(arr, dep, n):\n    \"\"\"\n    Write a function to find the minimum number of platforms required for a railway/bus station.\n    >>> find_platform([900, 940, 950, 1100, 1500, 1800],[910, 1200, 1120, 1130, 1900, 2000],6)\n    3\n    >>> find_platform([100,200,300,400],[700,800,900,1000],4)\n    4\n    >>> find_platform([5,6,7,8],[4,3,2,1],4)\n    1\n    \"\"\"\n",
+        "code": "def find_platform(arr, dep, n):\n    arr.sort()\n    dep.sort()\n    platform_needed = 1\n    result = 1\n    i, j = 1, 0\n\n    while i < n and j < n:\n        if arr[i] <= dep[j]:\n            platform_needed += 1\n            i += 1\n        elif arr[i] > dep[j]:\n            platform_needed -= 1\n            j += 1\n        result = max(result, platform_needed)\n\n    return result"
+    },
+    {
+        "sequence": 847,
+        "prompt": "\n\ndef lcopy(xs):\n  \"\"\"\n  Write a python function to copy a list from a singleton tuple.\n  >>> lcopy([1, 2, 3])\n  [1, 2, 3]\n  >>> lcopy([4, 8, 2, 10, 15, 18])\n  [4, 8, 2, 10, 15, 18]\n  >>> lcopy([4, 5, 6])\n  [4, 5, 6]\n  \"\"\"\n",
+        "code": "def lcopy(xs):\n    return tuple(xs)[0][:]\n\n# This implementation creates a singleton tuple from the input list `xs`,\n# takes the first element of the tuple, and uses slicing to return a copy of the list."
+    },
+    {
+        "sequence": 848,
+        "prompt": "\n\ndef area_trapezium(base1,base2,height):\n \"\"\"\n Write a function to find the area of a trapezium.\n >>> area_trapezium(6,9,4)\n 30\n >>> area_trapezium(10,20,30)\n 450\n >>> area_trapezium(15,25,35)\n 700\n \"\"\"\n",
+        "code": "def area_trapezium(base1, base2, height):\n    return 0.5 * (base1 + base2) * height"
+    },
+    {
+        "sequence": 849,
+        "prompt": "\n\ndef Sum(N):\n    \"\"\"\n    Write a python function to find sum of all prime divisors of a given number.\n    >>> Sum(60)\n    10\n    >>> Sum(39)\n    16\n    >>> Sum(40)\n    7\n    \"\"\"\n",
+        "code": "def Sum(N):\n    def is_prime(n):\n        if n <= 1:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    sum_prime_divisors = 0\n    for i in range(2, N + 1):\n        if N % i == 0 and is_prime(i):\n            sum_prime_divisors += i\n    return sum_prime_divisors"
+    },
+    {
+        "sequence": 850,
+        "prompt": "\n\ndef is_triangleexists(a,b,c):\n    \"\"\"\n    Write a function to check if a triangle of positive area is possible with the given angles.\n    >>> is_triangleexists(50,60,70)\n    True\n    >>> is_triangleexists(90,45,45)\n    True\n    >>> is_triangleexists(150,30,70)\n    False\n    \"\"\"\n",
+        "code": "def is_triangleexists(a, b, c):\n    return a + b + c == 180 and a > 0 and b > 0 and c > 0"
+    },
+    {
+        "sequence": 851,
+        "prompt": "\n\ndef Sum_of_Inverse_Divisors(N,Sum):\n    \"\"\"\n    Write a python function to find sum of inverse of divisors.\n    >>> Sum_of_Inverse_Divisors(6,12)\n    2\n    >>> Sum_of_Inverse_Divisors(9,13)\n    1.44\n    >>> Sum_of_Inverse_Divisors(1,4)\n    4\n    \"\"\"\n",
+        "code": "def Sum_of_Inverse_Divisors(N, Sum):\n    inverses = sum(1/d for d in range(1, N + 1) if N % d == 0)\n    return round(Sum / inverses, 2)"
+    },
+    {
+        "sequence": 852,
+        "prompt": "\n\ndef remove_negs(num_list):\n    \"\"\"\n    Write a python function to remove negative numbers from a list.\n    >>> remove_negs([1,-2,3,-4])\n    [1,3]\n    >>> remove_negs([1,2,3,-4])\n    [1,2,3]\n    >>> remove_negs([4,5,-6,7,-8])\n    [4,5,7]\n    \"\"\"\n",
+        "code": "def remove_negs(num_list):\n    return [num for num in num_list if num >= 0]"
+    },
+    {
+        "sequence": 853,
+        "prompt": "\n\ndef sum_of_odd_Factors(n):\n    \"\"\"\n    Write a python function to find sum of odd factors of a number.\n    >>> sum_of_odd_Factors(30)\n    24\n    >>> sum_of_odd_Factors(18)\n    13\n    >>> sum_of_odd_Factors(2)\n    1\n    \"\"\"\n",
+        "code": "def sum_of_odd_Factors(n):\n    total = 0\n    for i in range(1, n+1, 2):\n        if n % i == 0:\n            total += i\n    return total"
+    },
+    {
+        "sequence": 854,
+        "prompt": "\n\ndef raw_heap(rawheap):\n  \"\"\"\n  Write a function which accepts an arbitrary list and converts it to a heap using heap queue algorithm.\n  >>> raw_heap([25, 44, 68, 21, 39, 23, 89])\n  [21, 25, 23, 44, 39, 68, 89]\n  >>> raw_heap([25, 35, 22, 85, 14, 65, 75, 25, 58])\n  [14, 25, 22, 25, 35, 65, 75, 85, 58]\n  >>> raw_heap([4, 5, 6, 2])\n  [2, 4, 6, 5]\n  \"\"\"\n",
+        "code": "import heapq\n\ndef raw_heap(rawheap):\n    heapq.heapify(rawheap)\n    return rawheap"
+    },
+    {
+        "sequence": 855,
+        "prompt": "\n\ndef check_Even_Parity(x):\n    \"\"\"\n    Write a python function to check for even parity of a given number.\n    >>> check_Even_Parity(10)\n    True\n    >>> check_Even_Parity(11)\n    False\n    >>> check_Even_Parity(18)\n    True\n    \"\"\"\n",
+        "code": "def check_Even_Parity(x):\n    return bin(x).count('1') % 2 == 0"
+    },
+    {
+        "sequence": 856,
+        "prompt": "\n\ndef find_Min_Swaps(arr,n) :\n    \"\"\"\n    Write a python function to find minimum adjacent swaps required to sort binary array.\n    >>> find_Min_Swaps([1,0,1,0],4)\n    3\n    >>> find_Min_Swaps([0,1,0],3)\n    1\n    >>> find_Min_Swaps([0,0,1,1,0],5)\n    2\n    \"\"\"\n",
+        "code": "def find_Min_Swaps(arr, n):\n    zeros = arr.count(0)\n    current_zeros = 0\n    swaps = 0\n    \n    for i in range(n):\n        if arr[i] == 0:\n            current_zeros += 1\n        else:\n            swaps += current_zeros\n\n    min_swaps = swaps\n    current_ones = n - zeros\n\n    for i in range(1, n):\n        if arr[i - 1] == 1:\n            swaps -= zeros\n        else:\n            swaps += current_ones\n        min_swaps = min(min_swaps, swaps)\n\n    return min_swaps"
+    },
+    {
+        "sequence": 857,
+        "prompt": "\n\ndef listify_list(list1):\n  \"\"\"\n  Write a function to list out the list of given strings individually using map function.\n  >>> listify_list(['Red', 'Blue', 'Black', 'White', 'Pink'])\n  [['R', 'e', 'd'], ['B', 'l', 'u', 'e'], ['B', 'l', 'a', 'c', 'k'], ['W', 'h', 'i', 't', 'e'], ['P', 'i', 'n', 'k']]\n  >>> listify_list(['python'])\n  [['p', 'y', 't', 'h', 'o', 'n']]\n  >>> listify_list([' red ', 'green',' black', 'blue ',' orange', 'brown'])\n  [[' ', 'r', 'e', 'd', ' '], ['g', 'r', 'e', 'e', 'n'], [' ', 'b', 'l', 'a', 'c', 'k'], ['b', 'l', 'u', 'e', ' '], [' ', 'o', 'r', 'a', 'n', 'g', 'e'], ['b', 'r', 'o', 'w', 'n']]\n  \"\"\"\n",
+        "code": "\ndef listify_list(list1):\n    return list(map(list, list1))"
+    },
+    {
+        "sequence": 858,
+        "prompt": "\n\ndef count_list(input_list):\n    \"\"\"\n    Write a function to count number of lists in a given list of lists and square the count.\n    >>> count_list([[0], [1, 3], [5, 7], [9, 11], [13, 15, 17]])\n    25\n    >>> count_list([[1, 3], [5, 7], [9, 11], [13, 15, 17]] )\n    16\n    >>> count_list([[2, 4], [[6,8], [4,5,8]], [10, 12, 14]])\n    9\n    \"\"\"\n",
+        "code": "def count_list(input_list):\n    return len(input_list) ** 2"
+    },
+    {
+        "sequence": 859,
+        "prompt": "\n\ndef sub_lists(my_list):\n\t\"\"\"\n\tWrite a function to generate all sublists of a given list.\n\t>>> sub_lists([10, 20, 30, 40])\n\t[[], [10], [20], [30], [40], [10, 20], [10, 30], [10, 40], [20, 30], [20, 40], [30, 40], [10, 20, 30], [10, 20, 40], [10, 30, 40], [20, 30, 40], [10, 20, 30, 40]]\n\t>>> sub_lists(['X', 'Y', 'Z'])\n\t[[], ['X'], ['Y'], ['Z'], ['X', 'Y'], ['X', 'Z'], ['Y', 'Z'], ['X', 'Y', 'Z']]\n\t>>> sub_lists([1,2,3])\n\t[[],[1],[2],[3],[1,2],[1,3],[2,3],[1,2,3]]\n\t\"\"\"\n",
+        "code": "def sub_lists(my_list):\n    from itertools import combinations\n    result = []\n    for i in range(len(my_list) + 1):\n        result.extend(combinations(my_list, i))\n    return [list(sublist) for sublist in result]"
+    },
+    {
+        "sequence": 860,
+        "prompt": "\n\ndef check_alphanumeric(string):\n\t\"\"\"\n\tWrite a function to check whether the given string is ending with only alphanumeric characters or not using regex.\n\t>>> check_alphanumeric(\"dawood@\")\n\t'Discard'\n\t>>> check_alphanumeric(\"skdmsam326\")\n\t'Accept'\n\t>>> check_alphanumeric(\"cooltricks@\")\n\t'Discard'\n\t\"\"\"\n",
+        "code": "import re\n\ndef check_alphanumeric(string):\n    if re.search(r'[a-zA-Z0-9]$', string):\n        return 'Accept'\n    return 'Discard'"
+    },
+    {
+        "sequence": 861,
+        "prompt": "\n\ndef anagram_lambda(texts,str):\n  \"\"\"\n  Write a function to find all anagrams of a string in a given list of strings using lambda function.\n  >>> anagram_lambda([\"bcda\", \"abce\", \"cbda\", \"cbea\", \"adcb\"],\"abcd\")\n  ['bcda', 'cbda', 'adcb']\n  >>> anagram_lambda([\"recitals\",\" python\"], \"articles\" )\n  [\"recitals\"]\n  >>> anagram_lambda([\" keep\",\" abcdef\",\" xyz\"],\" peek\")\n  [\" keep\"]\n  \"\"\"\n",
+        "code": "def anagram_lambda(texts, str):\n    sorted_str = ''.join(sorted(str.replace(\" \", \"\")))\n    return list(filter(lambda x: ''.join(sorted(x.replace(\" \", \"\"))) == sorted_str, texts))"
+    },
+    {
+        "sequence": 862,
+        "prompt": "\n\ndef n_common_words(text,n):\n  \"\"\"\n  Write a function to find the occurrences of n most common words in a given text.\n  >>> n_common_words(\"python is a programming language\",1)\n  [('python', 1)]\n  >>> n_common_words(\"python is a programming language\",1)\n  [('python', 1)]\n  >>> n_common_words(\"python is a programming language\",5)\n  [('python', 1),('is', 1), ('a', 1), ('programming', 1), ('language', 1)]\n  \"\"\"\n",
+        "code": "from collections import Counter\n\ndef n_common_words(text, n):\n    words = text.split()\n    word_counts = Counter(words)\n    return word_counts.most_common(n)"
+    },
+    {
+        "sequence": 863,
+        "prompt": "\n\ndef find_longest_conseq_subseq(arr, n):\n\t\"\"\"\n\tWrite a function to find the length of the longest sub-sequence such that elements in the subsequences are consecutive integers.\n\t>>> find_longest_conseq_subseq([1, 2, 2, 3], 4)\n\t3\n\t>>> find_longest_conseq_subseq([1, 9, 3, 10, 4, 20, 2], 7)\n\t4\n\t>>> find_longest_conseq_subseq([36, 41, 56, 35, 44, 33, 34, 92, 43, 32, 42], 11)\n\t5\n\t\"\"\"\n",
+        "code": "def find_longest_conseq_subseq(arr, n):\n    if n == 0:\n        return 0\n    arr = list(set(arr))\n    arr.sort()\n    max_len = 1\n    current_len = 1\n\n    for i in range(1, len(arr)):\n        if arr[i] == arr[i - 1] + 1:\n            current_len += 1\n        else:\n            max_len = max(max_len, current_len)\n            current_len = 1\n\n    return max(max_len, current_len)"
+    },
+    {
+        "sequence": 864,
+        "prompt": "\n\ndef palindrome_lambda(texts):\n  \"\"\"\n  Write a function to find palindromes in a given list of strings using lambda function.\n  >>> palindrome_lambda([\"php\", \"res\", \"Python\", \"abcd\", \"Java\", \"aaa\"])\n  ['php', 'aaa']\n  >>> palindrome_lambda([\"abcd\", \"Python\", \"abba\", \"aba\"])\n  ['abba', 'aba']\n  >>> palindrome_lambda([\"abcd\", \"abbccbba\", \"abba\", \"aba\"])\n  ['abbccbba', 'abba', 'aba']\n  \"\"\"\n",
+        "code": "def palindrome_lambda(texts):\n    return list(filter(lambda text: text == text[::-1], texts))"
+    },
+    {
+        "sequence": 865,
+        "prompt": "\n\ndef ntimes_list(nums,n):\n    \"\"\"\n    Write a function to print n-times a list using map function.\n    >>> ntimes_list([1, 2, 3, 4, 5, 6, 7],3)\n    [3, 6, 9, 12, 15, 18, 21]\n    >>> ntimes_list([1, 2, 3, 4, 5, 6, 7],4)\n    [4, 8, 12, 16, 20, 24, 28]\n    >>> ntimes_list([1, 2, 3, 4, 5, 6, 7],10)\n    [10, 20, 30, 40, 50, 60, 70]\n    \"\"\"\n",
+        "code": "def ntimes_list(nums, n):\n    return list(map(lambda x: x * n, nums))"
+    },
+    {
+        "sequence": 866,
+        "prompt": "\n\ndef check_monthnumb(monthname2):\n  \"\"\"\n  Write a function to check whether the given month name contains 31 days or not.\n  >>> check_monthnumb(\"February\")\n  False\n  >>> check_monthnumb(\"January\")\n  True\n  >>> check_monthnumb(\"March\")\n  True\n  \"\"\"\n",
+        "code": "def check_monthnumb(monthname2):\n    return monthname2 in [\"January\", \"March\", \"May\", \"July\", \"August\", \"October\", \"December\"]"
+    },
+    {
+        "sequence": 867,
+        "prompt": "\n\ndef min_Num(arr,n):\n    \"\"\"\n    Write a python function to add a minimum number such that the sum of array becomes even.\n    >>> min_Num([1,2,3,4,5,6,7,8,9],9)\n    1\n    >>> min_Num([1,2,3,4,5,6,7,8],8)\n    2\n    >>> min_Num([1,2,3],3)\n    2\n    \"\"\"\n",
+        "code": "def min_Num(arr, n):\n    total_sum = sum(arr)\n    if total_sum % 2 == 0:\n        return 0\n    else:\n        return 1 if any(num % 2 != 0 for num in arr) else 2"
+    },
+    {
+        "sequence": 868,
+        "prompt": "\n\ndef length_Of_Last_Word(a):\n    \"\"\"\n    Write a python function to find the length of the last word in a given string.\n    >>> length_Of_Last_Word(\"python language\")\n    8\n    >>> length_Of_Last_Word(\"PHP\")\n    3\n    >>> length_Of_Last_Word(\"\")\n    0\n    \"\"\"\n",
+        "code": "def length_Of_Last_Word(a):\n    return len(a.strip().split(' ')[-1]) if a.strip() else 0"
+    },
+    {
+        "sequence": 869,
+        "prompt": "\n\ndef remove_list_range(list1, leftrange, rigthrange):\n   \"\"\"\n   Write a function to remove sublists from a given list of lists, which are outside a given range.\n   >>> remove_list_range([[2], [0], [1, 2, 3], [0, 1, 2, 3, 6, 7], [9, 11], [13, 14, 15, 17]],13,17)\n   [[13, 14, 15, 17]]\n   >>> remove_list_range([[2], [0], [1, 2, 3], [0, 1, 2, 3, 6, 7], [9, 11], [13, 14, 15, 17]],1,3)\n   [[2], [1, 2, 3]]\n   >>> remove_list_range([[2], [0], [1, 2, 3], [0, 1, 2, 3, 6, 7], [9, 11], [13, 14, 15, 17]],0,7)\n   [[2], [0], [1, 2, 3], [0, 1, 2, 3, 6, 7]]\n   \"\"\"\n",
+        "code": "def remove_list_range(list1, leftrange, rigthrange):\n    return [sublst for sublst in list1 if all(leftrange <= item <= rigthrange for item in sublst)]"
+    },
+    {
+        "sequence": 870,
+        "prompt": "\n\ndef sum_positivenum(nums):\n  \"\"\"\n  Write a function to calculate the sum of the positive numbers of a given list of numbers using lambda function.\n  >>> sum_positivenum([2, 4, -6, -9, 11, -12, 14, -5, 17])\n  48\n  >>> sum_positivenum([10,15,-14,13,-18,12,-20])\n  50\n  >>> sum_positivenum([19, -65, 57, 39, 152,-639, 121, 44, 90, -190])\n  522\n  \"\"\"\n",
+        "code": "def sum_positivenum(nums):\n    return sum(filter(lambda x: x > 0, nums))"
+    },
+    {
+        "sequence": 871,
+        "prompt": "\n\ndef are_Rotations(string1,string2):\n    \"\"\"\n    Write a python function to check whether the given strings are rotations of each other or not.\n    >>> are_Rotations(\"abc\",\"cba\")\n    False\n    >>> are_Rotations(\"abcd\",\"cdba\")\n    False\n    >>> are_Rotations(\"abacd\",\"cdaba\")\n    True\n    \"\"\"\n",
+        "code": "def are_Rotations(string1, string2):\n    if len(string1) != len(string2):\n        return False\n    return string2 in (string1 + string1)"
+    },
+    {
+        "sequence": 872,
+        "prompt": "\n\ndef check_subset(list1,list2):\n    \"\"\"\n    Write a function to check if a nested list is a subset of another nested list.\n    >>> check_subset([[1, 3], [5, 7], [9, 11], [13, 15, 17]] ,[[1, 3],[13,15,17]])\n    True\n    >>> check_subset([[1, 2], [2, 3], [3, 4], [5, 6]],[[3, 4], [5, 6]])\n    True\n    >>> check_subset([[[1, 2], [2, 3]], [[3, 4], [5, 7]]],[[[3, 4], [5, 6]]])\n    False\n    \"\"\"\n",
+        "code": "def check_subset(list1, list2):\n    return all(item in list1 for item in list2)"
+    },
+    {
+        "sequence": 873,
+        "prompt": "\n\ndef fibonacci(n):\n  \"\"\"\n  Write a function to solve the fibonacci sequence using recursion.\n  >>> fibonacci(7)\n  13\n  >>> fibonacci(8)\n  21\n  >>> fibonacci(9)\n  34\n  \"\"\"\n",
+        "code": "def fibonacci(n):\n    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        return fibonacci(n-1) + fibonacci(n-2)"
+    },
+    {
+        "sequence": 874,
+        "prompt": "\n\ndef check_Concat(str1,str2):\n    \"\"\"\n    Write a python function to check if the string is a concatenation of another string.\n    >>> check_Concat(\"abcabcabc\",\"abc\")\n    True\n    >>> check_Concat(\"abcab\",\"abc\")\n    False\n    >>> check_Concat(\"aba\",\"ab\")\n    False\n    \"\"\"\n",
+        "code": "def check_Concat(str1, str2):\n    if not str2:\n        return False\n    if len(str1) % len(str2) != 0:\n        return False\n    return str1 == str2 * (len(str1) // len(str2))"
+    },
+    {
+        "sequence": 875,
+        "prompt": "\n\ndef min_difference(test_list):\n  \"\"\"\n  Write a function to find the minimum difference in the tuple pairs of given tuples.\n  >>> min_difference([(3, 5), (1, 7), (10, 3), (1, 2)])\n  1\n  >>> min_difference([(4, 6), (12, 8), (11, 4), (2, 13)])\n  2\n  >>> min_difference([(5, 17), (3, 9), (12, 5), (3, 24)])\n  6\n  \"\"\"\n",
+        "code": "def min_difference(test_list):\n    return min(abs(a - b) for a, b in test_list)"
+    },
+    {
+        "sequence": 876,
+        "prompt": "\n\ndef lcm(x, y):\n   \"\"\"\n   Write a python function to find lcm of two positive integers.\n   >>> lcm(4,6)\n   12\n   >>> lcm(15,17)\n   255\n   >>> lcm(2,6)\n   6\n   \"\"\"\n",
+        "code": "def lcm(x, y):\n    from math import gcd\n    return (x * y) // gcd(x, y)"
+    },
+    {
+        "sequence": 877,
+        "prompt": "\n\ndef sort_String(str) :\n    \"\"\"\n    Write a python function to sort the given string.\n    >>> sort_String(\"cba\")\n    \"abc\"\n    >>> sort_String(\"data\")\n    \"aadt\"\n    >>> sort_String(\"zxy\")\n    \"xyz\"\n    \"\"\"\n",
+        "code": "def sort_String(str):\n    return ''.join(sorted(str))"
+    },
+    {
+        "sequence": 878,
+        "prompt": "\n\ndef check_tuples(test_tuple, K):\n  \"\"\"\n  Write a function to check if the given tuple contains only k elements.\n  >>> check_tuples((3, 5, 6, 5, 3, 6),[3, 6, 5])\n  True\n  >>> check_tuples((4, 5, 6, 4, 6, 5),[4, 5, 6])\n  True\n  >>> check_tuples((9, 8, 7, 6, 8, 9),[9, 8, 1])\n  False\n  \"\"\"\n",
+        "code": "def check_tuples(test_tuple, K):\n    return set(test_tuple) == set(K)"
+    },
+    {
+        "sequence": 879,
+        "prompt": "\n\ndef text_match(text):\n  \"\"\"\n  Write a function that matches a string that has an 'a' followed by anything, ending in 'b' by using regex.\n  >>> text_match(\"aabbbbd\")\n  'Not matched!'\n  >>> text_match(\"aabAbbbc\")\n  'Not matched!'\n  >>> text_match(\"accddbbjjjb\")\n  'Found a match!'\n  \"\"\"\n",
+        "code": "import re\n\ndef text_match(text):\n    if re.search(r'a.*b$', text):\n        return 'Found a match!'\n    else:\n        return 'Not matched!'"
+    },
+    {
+        "sequence": 880,
+        "prompt": "\n\ndef Check_Solution(a,b,c) :\n    \"\"\"\n    Write a python function to find number of solutions in quadratic equation.\n    >>> Check_Solution(2,5,2)\n    \"2 solutions\"\n    >>> Check_Solution(1,1,1)\n    \"No solutions\"\n    >>> Check_Solution(1,2,1)\n    \"1 solution\"\n    \"\"\"\n",
+        "code": "def Check_Solution(a, b, c):\n    discriminant = b**2 - 4*a*c\n    if discriminant > 0:\n        return \"2 solutions\"\n    elif discriminant == 0:\n        return \"1 solution\"\n    else:\n        return \"No solutions\""
+    },
+    {
+        "sequence": 881,
+        "prompt": "\n\ndef sum_even_odd(list1):\n    \"\"\"\n    Write a function to find the sum of first even and odd number of a given list.\n    >>> sum_even_odd([1,3,5,7,4,1,6,8])\n    5\n    >>> sum_even_odd([1,2,3,4,5,6,7,8,9,10])\n    3\n    >>> sum_even_odd([1,5,7,9,10])\n    11\n    \"\"\"\n",
+        "code": "def sum_even_odd(list1):\n    first_even = None\n    first_odd = None\n    \n    for num in list1:\n        if num % 2 == 0 and first_even is None:\n            first_even = num\n        elif num % 2 != 0 and first_odd is None:\n            first_odd = num\n        if first_even is not None and first_odd is not None:\n            break\n    \n    if first_even is not None and first_odd is not None:\n        return first_even + first_odd\n    return None"
+    },
+    {
+        "sequence": 882,
+        "prompt": "\n\ndef parallelogram_perimeter(b,h):\n  \"\"\"\n  Write a function to caluclate perimeter of a parallelogram.\n  >>> parallelogram_perimeter(10,20)\n  400\n  >>> parallelogram_perimeter(15,20)\n  600\n  >>> parallelogram_perimeter(8,9)\n  144\n  \"\"\"\n",
+        "code": "def parallelogram_perimeter(b, h):\n    return 2 * (b + h) * 10"
+    },
+    {
+        "sequence": 883,
+        "prompt": "\n\ndef div_of_nums(nums,m,n):\n \"\"\"\n Write a function to find numbers divisible by m and n from a list of numbers using lambda function.\n >>> div_of_nums([19, 65, 57, 39, 152, 639, 121, 44, 90, 190],2,4)\n [ 152,44]\n >>> div_of_nums([1, 2, 3, 5, 7, 8, 10],2,5)\n [10]\n >>> div_of_nums([10,15,14,13,18,12,20],10,5)\n [10,20]\n \"\"\"\n",
+        "code": "def div_of_nums(nums, m, n):\n    return list(filter(lambda x: x % m == 0 and x % n == 0, nums))"
+    },
+    {
+        "sequence": 884,
+        "prompt": "\n\ndef all_Bits_Set_In_The_Given_Range(n,l,r):\n    \"\"\"\n    Write a python function to check whether all the bits are within a given range or not.\n    >>> all_Bits_Set_In_The_Given_Range(10,2,1)\n    True\n    >>> all_Bits_Set_In_The_Given_Range(5,2,4)\n    False\n    >>> all_Bits_Set_In_The_Given_Range(22,2,3)\n    True\n    \"\"\"\n",
+        "code": "def all_Bits_Set_In_The_Given_Range(n, l, r):\n    for i in range(l, r + 1):\n        if not (n & (1 << (i - 1))):\n            return False\n    return True"
+    },
+    {
+        "sequence": 885,
+        "prompt": "\n\ndef is_Isomorphic(str1,str2):\n    \"\"\"\n    Write a python function to check whether the two given strings are isomorphic to each other or not.\n    >>> is_Isomorphic(\"paper\",\"title\")\n    True\n    >>> is_Isomorphic(\"ab\",\"ba\")\n    True\n    >>> is_Isomorphic(\"ab\",\"aa\")\n    False\n    \"\"\"\n",
+        "code": "def is_Isomorphic(str1, str2):\n    if len(str1) != len(str2):\n        return False\n    mapping_str1 = {}\n    mapping_str2 = {}\n    for char1, char2 in zip(str1, str2):\n        if (char1 in mapping_str1 and mapping_str1[char1] != char2) or (char2 in mapping_str2 and mapping_str2[char2] != char1):\n            return False\n        mapping_str1[char1] = char2\n        mapping_str2[char2] = char1\n    return True"
+    },
+    {
+        "sequence": 886,
+        "prompt": "\n\ndef sum_num(numbers):\n    \"\"\"\n    Write a function to add all the numbers in a list and divide it with the length of the list.\n    >>> sum_num((8, 2, 3, 0, 7))\n    4.0\n    >>> sum_num((-10,-20,-30))\n    -20.0\n    >>> sum_num((19,15,18))\n    17.333333333333332\n    \"\"\"\n",
+        "code": "def sum_num(numbers):\n    return sum(numbers) / len(numbers)"
+    },
+    {
+        "sequence": 887,
+        "prompt": "\n\ndef is_odd(n) :\n    \"\"\"\n    Write a python function to check whether the given number is odd or not using bitwise operator.\n    >>> is_odd(5)\n    True\n    >>> is_odd(6)\n    False\n    >>> is_odd(7)\n    True\n    \"\"\"\n",
+        "code": "def is_odd(n):\n    return n & 1 == 1"
+    },
+    {
+        "sequence": 888,
+        "prompt": "\n\ndef substract_elements(test_tup1, test_tup2):\n  \"\"\"\n  Write a function to substract the elements of the given nested tuples.\n  >>> substract_elements(((1, 3), (4, 5), (2, 9), (1, 10)), ((6, 7), (3, 9), (1, 1), (7, 3)))\n  ((-5, -4), (1, -4), (1, 8), (-6, 7))\n  >>> substract_elements(((13, 4), (14, 6), (13, 10), (12, 11)), ((19, 8), (14, 10), (12, 2), (18, 4)))\n  ((-6, -4), (0, -4), (1, 8), (-6, 7))\n  >>> substract_elements(((19, 5), (18, 7), (19, 11), (17, 12)), ((12, 9), (17, 11), (13, 3), (19, 5)))\n  ((7, -4), (1, -4), (6, 8), (-2, 7))\n  \"\"\"\n",
+        "code": "def substract_elements(test_tup1, test_tup2):\n    return tuple((a[0] - b[0], a[1] - b[1]) for a, b in zip(test_tup1, test_tup2))"
+    },
+    {
+        "sequence": 889,
+        "prompt": "\n\ndef reverse_list_lists(lists):\n    \"\"\"\n    Write a function to reverse each list in a given list of lists.\n    >>> reverse_list_lists([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]])\n    [[4, 3, 2, 1], [8, 7, 6, 5], [12, 11, 10, 9], [16, 15, 14, 13]]\n    >>> reverse_list_lists([[1,2],[2,3],[3,4]])\n    [[2,1],[3,2],[4,3]]\n    >>> reverse_list_lists([[10,20],[30,40]])\n    [[20,10],[40,30]]\n    \"\"\"\n",
+        "code": "def reverse_list_lists(lists):\n    return [lst[::-1] for lst in lists]"
+    },
+    {
+        "sequence": 890,
+        "prompt": "\n\ndef find_Extra(arr1,arr2,n) :\n    \"\"\"\n    Write a python function to find the index of an extra element present in one sorted array.\n    >>> find_Extra([1,2,3,4],[1,2,3],3)\n    3\n    >>> find_Extra([2,4,6,8,10],[2,4,6,8],4)\n    4\n    >>> find_Extra([1,3,5,7,9,11],[1,3,5,7,9],5)\n    5\n    \"\"\"\n",
+        "code": "def find_Extra(arr1, arr2, n):\n    for i in range(n):\n        if i >= len(arr2) or arr1[i] != arr2[i]:\n            return i\n    return n"
+    },
+    {
+        "sequence": 891,
+        "prompt": "\n\ndef same_Length(A,B):\n    \"\"\"\n    Write a python function to check whether the given two numbers have same number of digits or not.\n    >>> same_Length(12,1)\n    False\n    >>> same_Length(2,2)\n    True\n    >>> same_Length(10,20)\n    True\n    \"\"\"\n",
+        "code": "def same_Length(A, B):\n    return len(str(A)) == len(str(B))"
+    },
+    {
+        "sequence": 892,
+        "prompt": "\n\ndef remove_spaces(text):\n \"\"\"\n Write a function to remove multiple spaces in a string.\n >>> remove_spaces('python  program')\n ('python program')\n >>> remove_spaces('python   programming    language')\n ('python programming language')\n >>> remove_spaces('python                     program')\n ('python program')\n \"\"\"\n",
+        "code": "import re\n\ndef remove_spaces(text):\n    return re.sub(r'\\s+', ' ', text)"
+    },
+    {
+        "sequence": 893,
+        "prompt": "\n\ndef Extract(lst):\n    \"\"\"\n    Write a python function to get the last element of each sublist.\n    >>> Extract([[1, 2, 3], [4, 5], [6, 7, 8, 9]])\n    [3, 5, 9]\n    >>> Extract([['x', 'y', 'z'], ['m'], ['a', 'b'], ['u', 'v']])\n    ['z', 'm', 'b', 'v']\n    >>> Extract([[1, 2, 3], [4, 5]])\n    [3, 5]\n    \"\"\"\n",
+        "code": "def Extract(lst):\n    return [sublist[-1] for sublist in lst]"
+    },
+    {
+        "sequence": 894,
+        "prompt": "\n\ndef float_to_tuple(test_str):\n  \"\"\"\n  Write a function to convert the given string of float type into tuple.\n  >>> float_to_tuple(\"1.2, 1.3, 2.3, 2.4, 6.5\")\n  (1.2, 1.3, 2.3, 2.4, 6.5)\n  >>> float_to_tuple(\"2.3, 2.4, 5.6, 5.4, 8.9\")\n  (2.3, 2.4, 5.6, 5.4, 8.9)\n  >>> float_to_tuple(\"0.3, 0.5, 7.8, 9.4\")\n  (0.3, 0.5, 7.8, 9.4)\n  \"\"\"\n",
+        "code": "def float_to_tuple(test_str):\n    return tuple(map(float, test_str.split(', ')))"
+    },
+    {
+        "sequence": 895,
+        "prompt": "\n\ndef max_sum_subseq(A):\n    \"\"\"\n    Write a function to find the maximum sum of subsequences of given array with no adjacent elements.\n    >>> max_sum_subseq([1, 2, 9, 4, 5, 0, 4, 11, 6])\n    26\n    >>> max_sum_subseq([1, 2, 9, 5, 6, 0, 5, 12, 7])\n    28\n    >>> max_sum_subseq([1, 3, 10, 5, 6, 0, 6, 14, 21])\n    44\n    \"\"\"\n",
+        "code": "def max_sum_subseq(A):\n    if not A:\n        return 0\n    n = len(A)\n    if n == 1:\n        return A[0]\n    incl = A[0]\n    excl = 0\n    for i in range(1, n):\n        new_excl = max(excl, incl)\n        incl = excl + A[i]\n        excl = new_excl\n    return max(incl, excl)"
+    },
+    {
+        "sequence": 896,
+        "prompt": "\n\ndef sort_list_last(tuples):\n  \"\"\"\n  Write a function to sort a list in increasing order by the last element in each tuple from a given list of non-empty tuples.\n  >>> sort_list_last([(2, 5), (1, 2), (4, 4), (2, 3), (2, 1)])\n  [(2, 1), (1, 2), (2, 3), (4, 4), (2, 5)]\n  >>> sort_list_last([(9,8), (4, 7), (3,5), (7,9), (1,2)])\n  [(1,2), (3,5), (4,7), (9,8), (7,9)]\n  >>> sort_list_last([(20,50), (10,20), (40,40)])\n  [(10,20),(40,40),(20,50)]\n  \"\"\"\n",
+        "code": "def sort_list_last(tuples):\n    return sorted(tuples, key=lambda x: x[-1])\n\n# Test cases\nprint(sort_list_last([(2, 5), (1, 2), (4, 4), (2, 3), (2, 1)]))\nprint(sort_list_last([(9, 8), (4, 7), (3, 5), (7, 9), (1, 2)]))\nprint(sort_list_last([(20, 50), (10, 20), (40, 40)]))"
+    },
+    {
+        "sequence": 897,
+        "prompt": "\n\ndef is_Word_Present(sentence,word):\n    \"\"\"\n    Write a python function to check whether the word is present in a given sentence or not.\n    >>> is_Word_Present(\"machine learning\",\"machine\")\n    True\n    >>> is_Word_Present(\"easy\",\"fun\")\n    False\n    >>> is_Word_Present(\"python language\",\"code\")\n    False\n    \"\"\"\n",
+        "code": "def is_Word_Present(sentence, word):\n    return word in sentence.split()"
+    },
+    {
+        "sequence": 898,
+        "prompt": "\n\ndef extract_elements(numbers, n):\n    \"\"\"\n    Write a function to extract specified number of elements from a given list, which follow each other continuously.\n    >>> extract_elements([1, 1, 3, 4, 4, 5, 6, 7],2)\n    [1, 4]\n    >>> extract_elements([0, 1, 2, 3, 4, 4, 4, 4, 5, 7],4)\n    [4]\n    >>> extract_elements([0,0,0,0,0],5)\n    [0]\n    \"\"\"\n",
+        "code": "def extract_elements(numbers, n):\n    result = []\n    for i in range(len(numbers) - n + 1):\n        if len(set(numbers[i:i+n])) == 1:\n            result.append(numbers[i])\n    return result"
+    },
+    {
+        "sequence": 899,
+        "prompt": "\n\ndef check(arr,n):\n    \"\"\"\n    Write a python function to check whether an array can be sorted or not by picking only the corner elements.\n    >>> check([3,2,1,2,3,4],6)\n    True\n    >>> check([2,1,4,5,1],5)\n    True\n    >>> check([1,2,2,1,2,3],6)\n    True\n    \"\"\"\n",
+        "code": "def check(arr, n):\n    left, right = 0, n - 1\n    prev = float('-inf')\n    \n    while left <= right:\n        if arr[left] <= arr[right]:\n            if arr[left] >= prev:\n                prev = arr[left]\n                left += 1\n            else:\n                return False\n        else:\n            if arr[right] >= prev:\n                prev = arr[right]\n                right -= 1\n            else:\n                return False\n    \n    return True"
+    },
+    {
+        "sequence": 900,
+        "prompt": "\n\ndef match_num(string):\n    \"\"\"\n    Write a function where a string will start with a specific number.\n    >>> match_num('5-2345861')\n    True\n    >>> match_num('6-2345861')\n    False\n    >>> match_num('78910')\n    False\n    \"\"\"\n",
+        "code": "import re\n\ndef match_num(string):\n    pattern = r'^5.*'\n    return bool(re.match(pattern, string))"
+    },
+    {
+        "sequence": 901,
+        "prompt": "\n\ndef smallest_multiple(n):\n    \"\"\"\n    Write a function to find the smallest multiple of the first n numbers.\n    >>> smallest_multiple(13)\n    360360\n    >>> smallest_multiple(2)\n    2\n    >>> smallest_multiple(1)\n    1\n    \"\"\"\n",
+        "code": "def smallest_multiple(n):\n    from math import gcd\n    from functools import reduce\n    \n    def lcm(a, b):\n        return a * b // gcd(a, b)\n    \n    return reduce(lcm, range(1, n + 1))"
+    },
+    {
+        "sequence": 902,
+        "prompt": "\n\ndef add_dict(d1,d2):\n   \"\"\"\n   Write a function to combine two dictionaries by adding values for common keys.\n   >>> add_dict({'a': 100, 'b': 200, 'c':300},{'a': 300, 'b': 200, 'd':400})\n   ({'b': 400, 'd': 400, 'a': 400, 'c': 300})\n   >>> add_dict({'a': 500, 'b': 700, 'c':900},{'a': 500, 'b': 600, 'd':900})\n   ({'b': 1300, 'd': 900, 'a': 1000, 'c': 900})\n   >>> add_dict({'a':900,'b':900,'d':900},{'a':900,'b':900,'d':900})\n   ({'b': 1800, 'd': 1800, 'a': 1800})\n   \"\"\"\n",
+        "code": "def add_dict(d1, d2):\n    result = d1.copy()\n    for key, value in d2.items():\n        if key in result:\n            result[key] += value\n        else:\n            result[key] = value\n    return result"
+    },
+    {
+        "sequence": 903,
+        "prompt": "\n\ndef count_Unset_Bits(n) :\n    \"\"\"\n    Write a python function to count the total unset bits from 1 to n.\n    >>> count_Unset_Bits(2)\n    1\n    >>> count_Unset_Bits(5)\n    4\n    >>> count_Unset_Bits(14)\n    17\n    \"\"\"\n",
+        "code": "def count_Unset_Bits(n) :  \n    total_bits = 0\n    unset_bits = 0\n    for i in range(n + 1):\n        total_bits += len(bin(i)) - 2\n        unset_bits += len(bin(i)) - 2 - bin(i).count('1')\n    return unset_bits"
+    },
+    {
+        "sequence": 904,
+        "prompt": "\n\ndef even_num(x):\n  \"\"\"\n  Write a function to return true if the given number is even else return false.\n  >>> even_num(13.5)\n  False\n  >>> even_num(0)\n  True\n  >>> even_num(-9)\n  False\n  \"\"\"\n",
+        "code": "def even_num(x):\n    return isinstance(x, int) and x % 2 == 0"
+    },
+    {
+        "sequence": 905,
+        "prompt": "\n\ndef sum_of_square(n):\n   \"\"\"\n   Write a python function to find the sum of squares of binomial co-efficients.\n   >>> sum_of_square(4)\n   70\n   >>> sum_of_square(5)\n   252\n   >>> sum_of_square(2)\n   6\n   \"\"\"\n",
+        "code": "def sum_of_square(n):\n    from math import comb\n    return sum(comb(n, k)**2 for k in range(n + 1))"
+    },
+    {
+        "sequence": 906,
+        "prompt": "\n\ndef extract_date(url):\n        \"\"\"\n        Write a function to extract year, month and date from a url by using regex.\n        >>> extract_date(\"https://www.washingtonpost.com/news/football-insider/wp/2016/09/02/odell-beckhams-fame-rests-on-one-stupid-little-ball-josh-norman-tells-author/\")\n        [('2016', '09', '02')]\n        >>> extract_date(\"https://www.indiatoday.in/movies/celebrities/story/wp/2020/11/03/odeof-sushant-singh-rajput-s-death-his-brother-in-law-shares-advice-for-fans-1749646/\")\n        [('2020', '11', '03')]\n        >>> extract_date(\"https://economictimes.indiatimes.com/news/economy/2020/12/29/finance/pension-assets-under-pfrda-touch-rs-5-32-lakh-crore/articleshow/79736619.cms\")\n        [('2020', '12', '29')]\n        \"\"\"\n",
+        "code": "import re\n\ndef extract_date(url):\n    return re.findall(r'/(\\d{4})/(\\d{2})/(\\d{2})/', url)"
+    },
+    {
+        "sequence": 907,
+        "prompt": "\n\ndef lucky_num(n):\n \"\"\"\n Write a function to print the first n lucky numbers.\n >>> lucky_num(10)\n [1, 3, 7, 9, 13, 15, 21, 25, 31, 33]\n >>> lucky_num(5)\n [1, 3, 7, 9, 13]\n >>> lucky_num(8)\n [1, 3, 7, 9, 13, 15, 21, 25]\n \"\"\"\n",
+        "code": "def lucky_num(n):\n    numbers = list(range(1, 100))\n    i = 1\n    while i < len(numbers):\n        del numbers[numbers[i] - 1::numbers[i]]\n        i += 1\n    return numbers[:n]"
+    },
+    {
+        "sequence": 908,
+        "prompt": "\n\ndef find_fixed_point(arr, n):\n\t\"\"\"\n\tWrite a function to find the fixed point in the given array.\n\t>>> find_fixed_point([-10, -1, 0, 3, 10, 11, 30, 50, 100],9)\n\t3\n\t>>> find_fixed_point([1, 2, 3, 4, 5, 6, 7, 8],8)\n\t-1\n\t>>> find_fixed_point([0, 2, 5, 8, 17],5)\n\t0\n\t\"\"\"\n",
+        "code": "def find_fixed_point(arr, n):\n\tfor i in range(n):\n\t\tif arr[i] == i:\n\t\t\treturn i\n\treturn -1"
+    },
+    {
+        "sequence": 909,
+        "prompt": "\n\ndef previous_palindrome(num):\n    \"\"\"\n    Write a function to find the previous palindrome of a specified number.\n    >>> previous_palindrome(99)\n    88\n    >>> previous_palindrome(1221)\n    1111\n    >>> previous_palindrome(120)\n    111\n    \"\"\"\n",
+        "code": "def previous_palindrome(num):\n    num -= 1\n    while str(num) != str(num)[::-1]:\n        num -= 1\n    return num"
+    },
+    {
+        "sequence": 910,
+        "prompt": "\n\ndef check_date(m, d, y):\n    \"\"\"\n    Write a function to validate a gregorian date.\n    >>> check_date(11,11,2002)\n    True\n    >>> check_date(13,11,2002)\n    False\n    >>> check_date('11','11','2002')\n    True\n    \"\"\"\n",
+        "code": "from datetime import datetime\n\ndef check_date(m, d, y):\n    try:\n        datetime(int(y), int(m), int(d))\n        return True\n    except ValueError:\n        return False"
+    },
+    {
+        "sequence": 911,
+        "prompt": "\n\ndef maximum_product(nums):\n    \"\"\"\n    Write a function to compute maximum product of three numbers of a given array of integers using heap queue algorithm.\n    >>> maximum_product( [12, 74, 9, 50, 61, 41])\n    225700\n    >>> maximum_product([25, 35, 22, 85, 14, 65, 75, 25, 58])\n    414375\n    >>> maximum_product([18, 14, 10, 9, 8, 7, 9, 3, 2, 4, 1])\n    2520\n    \"\"\"\n",
+        "code": "def maximum_product(nums):\n    import heapq\n    largest = heapq.nlargest(3, nums)\n    smallest = heapq.nsmallest(2, nums)\n    return max(largest[0] * largest[1] * largest[2], largest[0] * smallest[0] * smallest[1])"
+    },
+    {
+        "sequence": 912,
+        "prompt": "\n\ndef lobb_num(n, m):\n\t\"\"\"\n\tWrite a function to find ln, m lobb number.\n\t>>> lobb_num(5, 3)\n\t35\n\t>>> lobb_num(3, 2)\n\t5\n\t>>> lobb_num(4, 2)\n\t20\n\t\"\"\"\n",
+        "code": "from math import comb\n\ndef lobb_num(n, m):\n    return comb(2 * n, n + m) * (m + 1) // (n + m + 1)"
+    },
+    {
+        "sequence": 913,
+        "prompt": "\n\ndef end_num(string):\n    \"\"\"\n    Write a function to check for a number at the end of a string.\n    >>> end_num('abcdef')\n    False\n    >>> end_num('abcdef7')\n    True\n    >>> end_num('abc')\n    False\n    \"\"\"\n",
+        "code": "def end_num(string):\n    return string[-1].isdigit() if string else False"
+    },
+    {
+        "sequence": 914,
+        "prompt": "\n\ndef is_Two_Alter(s):\n    \"\"\"\n    Write a python function to check whether the given string is made up of two alternating characters or not.\n    >>> is_Two_Alter(\"abab\")\n    True\n    >>> is_Two_Alter(\"aaaa\")\n    False\n    >>> is_Two_Alter(\"xyz\")\n    False\n    \"\"\"\n",
+        "code": "def is_Two_Alter(s):\n    if len(s) < 2:\n        return False\n    first_char, second_char = s[0], s[1]\n    if first_char == second_char:\n        return False\n    for i in range(len(s)):\n        if i % 2 == 0 and s[i] != first_char:\n            return False\n        elif i % 2 == 1 and s[i] != second_char:\n            return False\n    return True"
+    },
+    {
+        "sequence": 915,
+        "prompt": "\n\ndef rearrange_numbs(array_nums):\n  \"\"\"\n  Write a function to rearrange positive and negative numbers in a given array using lambda function.\n  >>> rearrange_numbs([-1, 2, -3, 5, 7, 8, 9, -10])\n  [2, 5, 7, 8, 9, -10, -3, -1]\n  >>> rearrange_numbs([10,15,14,13,-18,12,-20])\n  [10, 12, 13, 14, 15, -20, -18]\n  >>> rearrange_numbs([-20,20,-10,10,-30,30])\n  [10, 20, 30, -30, -20, -10]\n  \"\"\"\n",
+        "code": "def rearrange_numbs(array_nums):\n    return sorted(array_nums, key=lambda x: (x < 0, abs(x)))"
+    },
+    {
+        "sequence": 916,
+        "prompt": "\n\ndef find_triplet_array(A, arr_size, sum):\n\t\"\"\"\n\tWrite a function to find if there is a triplet in the array whose sum is equal to a given value.\n\t>>> find_triplet_array([1, 4, 45, 6, 10, 8], 6, 22)\n\t(4, 10, 8)\n\t>>> find_triplet_array([12, 3, 5, 2, 6, 9], 6, 24)\n\t(12, 3, 9)\n\t>>> find_triplet_array([1, 2, 3, 4, 5], 5, 9)\n\t(1, 3, 5)\n\t\"\"\"\n",
+        "code": "def find_triplet_array(A, arr_size, sum):\n    A.sort()\n    for i in range(arr_size - 2):\n        left = i + 1\n        right = arr_size - 1\n        while left < right:\n            current_sum = A[i] + A[left] + A[right]\n            if current_sum == sum:\n                return (A[i], A[left], A[right])\n            elif current_sum < sum:\n                left += 1\n            else:\n                right -= 1\n    return None"
+    },
+    {
+        "sequence": 917,
+        "prompt": "\n\ndef text_uppercase_lowercase(text):\n        \"\"\"\n        Write a function to find the sequences of one upper case letter followed by lower case letters.\n        >>> text_uppercase_lowercase(\"AaBbGg\")\n        ('Found a match!')\n        >>> text_uppercase_lowercase(\"aA\")\n        ('Not matched!')\n        >>> text_uppercase_lowercase(\"PYTHON\")\n        ('Not matched!')\n        \"\"\"\n",
+        "code": "def text_uppercase_lowercase(text):\n    import re\n    pattern = r'[A-Z][a-z]+'\n    if re.search(pattern, text):\n        return ('Found a match!')\n    else:\n        return ('Not matched!')"
+    },
+    {
+        "sequence": 918,
+        "prompt": "\n\ndef coin_change(S, m, n):\n    \"\"\"\n    Write a function to count coin change.\n    >>> coin_change([1, 2, 3],3,4)\n    4\n    >>> coin_change([4,5,6,7,8,9],6,9)\n    2\n    >>> coin_change([4,5,6,7,8,9],6,4)\n    1\n    \"\"\"\n",
+        "code": "def coin_change(S, m, n):\n    if n == 0:\n        return 1\n    if n < 0 or m <= 0:\n        return 0\n    return coin_change(S, m - 1, n) + coin_change(S, m, n - S[m - 1])"
+    },
+    {
+        "sequence": 919,
+        "prompt": "\n\ndef multiply_list(items):\n    \"\"\"\n    Write a python function to multiply all items in the list.\n    >>> multiply_list([1,-2,3])\n    -6\n    >>> multiply_list([1,2,3,4])\n    24\n    >>> multiply_list([3,1,2,3])\n    18\n    \"\"\"\n",
+        "code": "def multiply_list(items):\n    result = 1\n    for item in items:\n        result *= item\n    return result"
+    },
+    {
+        "sequence": 920,
+        "prompt": "\n\ndef remove_tuple(test_list):\n  \"\"\"\n  Write a function to remove all tuples with all none values in the given tuple list.\n  >>> remove_tuple([(None, 2), (None, None), (3, 4), (12, 3), (None, )] )\n  '[(None, 2), (3, 4), (12, 3)]'\n  >>> remove_tuple([(None, None), (None, None), (3, 6), (17, 3), (None,1 )] )\n  '[(3, 6), (17, 3), (None, 1)]'\n  >>> remove_tuple([(1, 2), (2, None), (3, None), (24, 3), (None, None )] )\n  '[(1, 2), (2, None), (3, None), (24, 3)]'\n  \"\"\"\n",
+        "code": "def remove_tuple(test_list):\n    return str([t for t in test_list if not all(e is None for e in t)])"
+    },
+    {
+        "sequence": 921,
+        "prompt": "\n\ndef chunk_tuples(test_tup, N):\n  \"\"\"\n  Write a function to perform chunking of tuples each of size n.\n  >>> chunk_tuples((10, 4, 5, 6, 7, 6, 8, 3, 4), 3)\n  [(10, 4, 5), (6, 7, 6), (8, 3, 4)]\n  >>> chunk_tuples((1, 2, 3, 4, 5, 6, 7, 8, 9), 2)\n  [(1, 2), (3, 4), (5, 6), (7, 8), (9,)]\n  >>> chunk_tuples((11, 14, 16, 17, 19, 21, 22, 25), 4)\n  [(11, 14, 16, 17), (19, 21, 22, 25)]\n  \"\"\"\n",
+        "code": "def chunk_tuples(test_tup, N):\n    return [tuple(test_tup[i:i + N]) for i in range(0, len(test_tup), N)]"
+    },
+    {
+        "sequence": 922,
+        "prompt": "\n\ndef max_product(arr):\n    \"\"\"\n    Write a function to find a pair with the highest product from a given array of integers.\n    >>> max_product([1, 2, 3, 4, 7, 0, 8, 4])\n    (7, 8)\n    >>> max_product([0, -1, -2, -4, 5, 0, -6])\n    (-4, -6)\n    >>> max_product([1, 3, 5, 6, 8, 9])\n    (8,9)\n    \"\"\"\n",
+        "code": "def max_product(arr):\n    if len(arr) < 2:\n        return None\n    max1 = max2 = float('-inf')\n    min1 = min2 = float('inf')\n    for num in arr:\n        if num > max1:\n            max2 = max1\n            max1 = num\n        elif num > max2:\n            max2 = num\n        if num < min1:\n            min2 = min1\n            min1 = num\n        elif num < min2:\n            min2 = num\n    if max1 * max2 > min1 * min2:\n        return (max1, max2)\n    else:\n        return (min1, min2)"
+    },
+    {
+        "sequence": 923,
+        "prompt": "\n\ndef super_seq(X, Y, m, n):\n\t\"\"\"\n\tWrite a function to find the length of the shortest string that has both str1 and str2 as subsequences.\n\t>>> super_seq(\"AGGTAB\", \"GXTXAYB\", 6, 7)\n\t9\n\t>>> super_seq(\"feek\", \"eke\", 4, 3)\n\t5\n\t>>> super_seq(\"PARRT\", \"RTA\", 5, 3)\n\t6\n\t\"\"\"\n",
+        "code": "def super_seq(X, Y, m, n):\n    dp = [[0] * (n + 1) for _ in range(m + 1)]\n    for i in range(m + 1):\n        for j in range(n + 1):\n            if i == 0:\n                dp[i][j] = j\n            elif j == 0:\n                dp[i][j] = i\n            elif X[i - 1] == Y[j - 1]:\n                dp[i][j] = 1 + dp[i - 1][j - 1]\n            else:\n                dp[i][j] = 1 + min(dp[i - 1][j], dp[i][j - 1])\n    return dp[m][n]"
+    },
+    {
+        "sequence": 924,
+        "prompt": "\n\ndef max_of_two( x, y ):\n    \"\"\"\n    Write a function to find maximum of two numbers.\n    >>> max_of_two(10,20)\n    20\n    >>> max_of_two(19,15)\n    19\n    >>> max_of_two(-10,-20)\n    -10\n    \"\"\"\n",
+        "code": "def max_of_two(x, y):\n    return x if x > y else y"
+    },
+    {
+        "sequence": 925,
+        "prompt": "\n\ndef mutiple_tuple(nums):\n    \"\"\"\n    Write a python function to calculate the product of all the numbers of a given tuple.\n    >>> mutiple_tuple((4, 3, 2, 2, -1, 18))\n    -864\n    >>> mutiple_tuple((1,2,3))\n    6\n    >>> mutiple_tuple((-2,-4,-6))\n    -48\n    \"\"\"\n",
+        "code": "def mutiple_tuple(nums):\n    result = 1\n    for num in nums:\n        result *= num\n    return result"
+    },
+    {
+        "sequence": 926,
+        "prompt": "\n\ndef rencontres_number(n, m):\n\t\"\"\"\n\tWrite a function to find n-th rencontres number.\n\t>>> rencontres_number(7, 2)\n\t924\n\t>>> rencontres_number(3, 0)\n\t2\n\t>>> rencontres_number(3, 1)\n\t3\n\t\"\"\"\n",
+        "code": "def rencontres_number(n, m):\n    if m > n:\n        return 0\n    if n == 0 and m == 0:\n        return 1\n    if n == 1 and m == 0:\n        return 0\n    if n == 1 and m == 1:\n        return 1\n    return (n - 1) * (rencontres_number(n - 1, m) + rencontres_number(n - 2, m - 1))"
+    },
+    {
+        "sequence": 927,
+        "prompt": "\n\ndef max_height(node):\n\t\"\"\"\n\tWrite a function to calculate the height of the given binary tree.\n\t>>> max_height(root)\n\t3\n\t>>> max_height(root1)\n\t5\n\t>>> max_height(root2)\n\t4\n\t\"\"\"\n",
+        "code": "def max_height(node):\n    if node is None:\n        return 0\n    left_height = max_height(node.left)\n    right_height = max_height(node.right)\n    return max(left_height, right_height) + 1"
+    },
+    {
+        "sequence": 928,
+        "prompt": "\n\ndef change_date_format(dt):\n        \"\"\"\n        Write a function to convert a date of yyyy-mm-dd format to dd-mm-yyyy format.\n        >>> change_date_format('2026-01-02')\n        '02-01-2026'\n        >>> change_date_format('2021-01-04')\n        '04-01-2021'\n        >>> change_date_format('2030-06-06')\n        '06-06-2030'\n        \"\"\"\n",
+        "code": "def change_date_format(dt):\n    return '-'.join(reversed(dt.split('-')))"
+    },
+    {
+        "sequence": 929,
+        "prompt": "\n\ndef count_tuplex(tuplex,value):\n  \"\"\"\n  Write a function to count repeated items of a tuple.\n  >>> count_tuplex((2, 4, 5, 6, 2, 3, 4, 4, 7),4)\n  3\n  >>> count_tuplex((2, 4, 5, 6, 2, 3, 4, 4, 7),2)\n  2\n  >>> count_tuplex((2, 4, 7, 7, 7, 3, 4, 4, 7),7)\n  4\n  \"\"\"\n",
+        "code": "def count_tuplex(tuplex, value):\n    return tuplex.count(value)"
+    },
+    {
+        "sequence": 930,
+        "prompt": "\n\ndef text_match(text):\n        \"\"\"\n        Write a function that matches a string that has an a followed by zero or more b's by using regex.\n        >>> text_match(\"msb\")\n        'Not matched!'\n        >>> text_match(\"a0c\")\n        'Found a match!'\n        >>> text_match(\"abbc\")\n        'Found a match!'\n        \"\"\"\n",
+        "code": "import re\n\ndef text_match(text):\n    pattern = r\"a0*b*\"\n    if re.fullmatch(pattern, text):\n        return 'Found a match!'\n    else:\n        return 'Not matched!'"
+    },
+    {
+        "sequence": 931,
+        "prompt": "\n\ndef sum_series(number):\n \"\"\"\n Write a function to calculate the sum of series 1³+2³+3³+….+n³.\n >>> sum_series(7)\n 784\n >>> sum_series(5)\n 225\n >>> sum_series(15)\n 14400\n \"\"\"\n",
+        "code": "def sum_series(number):\n    return sum(i**3 for i in range(1, number + 1))"
+    },
+    {
+        "sequence": 932,
+        "prompt": "\n\ndef remove_duplic_list(l):\n    \"\"\"\n    Write a function to remove duplicate words from a given list of strings.\n    >>> remove_duplic_list([\"Python\", \"Exercises\", \"Practice\", \"Solution\", \"Exercises\"])\n    ['Python', 'Exercises', 'Practice', 'Solution']\n    >>> remove_duplic_list([\"Python\", \"Exercises\", \"Practice\", \"Solution\", \"Exercises\",\"Java\"])\n    ['Python', 'Exercises', 'Practice', 'Solution', 'Java']\n    >>> remove_duplic_list([\"Python\", \"Exercises\", \"Practice\", \"Solution\", \"Exercises\",\"C++\",\"C\",\"C++\"])\n    ['Python', 'Exercises', 'Practice', 'Solution','C++','C']\n    \"\"\"\n",
+        "code": "def remove_duplic_list(l):\n    return list(dict.fromkeys(l))"
+    },
+    {
+        "sequence": 933,
+        "prompt": "\n\ndef camel_to_snake(text):\n  \"\"\"\n  Write a function to convert camel case string to snake case string by using regex.\n  >>> camel_to_snake('GoogleAssistant')\n  'google_assistant'\n  >>> camel_to_snake('ChromeCast')\n  'chrome_cast'\n  >>> camel_to_snake('QuadCore')\n  'quad_core'\n  \"\"\"\n",
+        "code": "import re\n\ndef camel_to_snake(text):\n    return re.sub(r'(?<!^)(?=[A-Z])', '_', text).lower()"
+    },
+    {
+        "sequence": 934,
+        "prompt": "\n\ndef dealnnoy_num(n, m):\n\t\"\"\"\n\tWrite a function to find the nth delannoy number.\n\t>>> dealnnoy_num(3, 4)\n\t129\n\t>>> dealnnoy_num(3, 3)\n\t63\n\t>>> dealnnoy_num(4, 5)\n\t681\n\t\"\"\"\n",
+        "code": "def dealnnoy_num(n, m):\n    if n == 0 or m == 0:\n        return 1\n    return dealnnoy_num(n - 1, m) + dealnnoy_num(n, m - 1) + dealnnoy_num(n - 1, m - 1)"
+    },
+    {
+        "sequence": 935,
+        "prompt": "\n\ndef series_sum(number):\n \"\"\"\n Write a function to calculate the sum of series 1²+2²+3²+….+n².\n >>> series_sum(6)\n 91\n >>> series_sum(7)\n 140\n >>> series_sum(12)\n 650\n \"\"\"\n",
+        "code": "def series_sum(number):\n    return sum(i**2 for i in range(1, number + 1))"
+    },
+    {
+        "sequence": 936,
+        "prompt": "\n\ndef re_arrange_tuples(test_list, ord_list):\n  \"\"\"\n  Write a function to re-arrange the given tuples based on the given ordered list.\n  >>> re_arrange_tuples([(4, 3), (1, 9), (2, 10), (3, 2)],  [1, 4, 2, 3])\n  [(1, 9), (4, 3), (2, 10), (3, 2)]\n  >>> re_arrange_tuples([(5, 4), (2, 10), (3, 11), (4, 3)],  [3, 4, 2, 3])\n  [(3, 11), (4, 3), (2, 10), (3, 11)]\n  >>> re_arrange_tuples([(6, 3), (3, 8), (5, 7), (2, 4)],  [2, 5, 3, 6])\n  [(2, 4), (5, 7), (3, 8), (6, 3)]\n  \"\"\"\n",
+        "code": "def re_arrange_tuples(test_list, ord_list):\n    ord_dict = {val: idx for idx, val in enumerate(ord_list)}\n    test_list.sort(key=lambda x: ord_dict.get(x[0], len(ord_list)))\n    return test_list"
+    },
+    {
+        "sequence": 937,
+        "prompt": "\n\ndef max_char(str1):\n    \"\"\"\n    Write a function to count the most common character in a given string.\n    >>> max_char(\"hello world\")\n    ('l')\n    >>> max_char(\"hello \")\n    ('l')\n    >>> max_char(\"python pr\")\n    ('p')\n    \"\"\"\n",
+        "code": "def max_char(str1):\n    from collections import Counter\n    if not str1:\n        return None\n    char_count = Counter(str1)\n    most_common_char = char_count.most_common(1)[0][0]\n    return most_common_char"
+    },
+    {
+        "sequence": 938,
+        "prompt": "\n\ndef find_closet(A, B, C, p, q, r):\n\t\"\"\"\n\tWrite a function to find three closest elements from three sorted arrays.\n\t>>> find_closet([1, 4, 10],[2, 15, 20],[10, 12],3,3,2)\n\t(10, 15, 10)\n\t>>> find_closet([20, 24, 100],[2, 19, 22, 79, 800],[10, 12, 23, 24, 119],3,5,5)\n\t(24, 22, 23)\n\t>>> find_closet([2, 5, 11],[3, 16, 21],[11, 13],3,3,2)\n\t(11, 16, 11)\n\t\"\"\"\n",
+        "code": "def find_closet(A, B, C, p, q, r):\n    i = j = k = 0\n    diff = float('inf')\n    closest_triplet = (0, 0, 0)\n    \n    while i < p and j < q and k < r:\n        maximum = max(A[i], B[j], C[k])\n        minimum = min(A[i], B[j], C[k])\n        \n        if maximum - minimum < diff:\n            diff = maximum - minimum\n            closest_triplet = (A[i], B[j], C[k])\n        \n        if diff == 0:\n            break\n        \n        if minimum == A[i]:\n            i += 1\n        elif minimum == B[j]:\n            j += 1\n        else:\n            k += 1\n    \n    return closest_triplet"
+    },
+    {
+        "sequence": 939,
+        "prompt": "\n\ndef sorted_models(models):\n \"\"\"\n Write a function to sort a list of dictionaries using lambda function.\n >>> sorted_models([{'make':'Nokia', 'model':216, 'color':'Black'}, {'make':'Mi Max', 'model':2, 'color':'Gold'}, {'make':'Samsung', 'model': 7, 'color':'Blue'}])\n [{'make': 'Nokia', 'model': 216, 'color': 'Black'}, {'make': 'Samsung', 'model': 7, 'color': 'Blue'}, {'make': 'Mi Max', 'model': 2, 'color': 'Gold'}]\n >>> sorted_models([{'make':'Vivo', 'model':20,'color':'Blue'},{'make': 'oppo','model':17,'color':'Gold'},{'make':'Apple','model':11,'color':'red'}])\n ([{'make':'Vivo', 'model':20,'color':'Blue'},{'make': 'oppo','model':17,'color':'Gold'},{'make':'Apple','model':11,'color':'red'}])\n >>> sorted_models([{'make':'micromax','model':40,'color':'grey'},{'make':'poco','model':60,'color':'blue'}])\n ([{'make':'poco','model':60,'color':'blue'},{'make':'micromax','model':40,'color':'grey'}])\n \"\"\"\n",
+        "code": "def sorted_models(models):\n    return sorted(models, key=lambda x: x['model'], reverse=False)"
+    },
+    {
+        "sequence": 940,
+        "prompt": "\n\ndef heap_sort(arr):\n    \"\"\"\n    Write a function to sort the given array by using heap sort.\n    >>> heap_sort([12, 2, 4, 5, 2, 3])\n    [2, 2, 3, 4, 5, 12]\n    >>> heap_sort([32, 14, 5, 6, 7, 19])\n    [5, 6, 7, 14, 19, 32]\n    >>> heap_sort([21, 15, 29, 78, 65])\n    [15, 21, 29, 65, 78]\n    \"\"\"\n",
+        "code": "def heap_sort(arr):\n    def heapify(arr, n, i):\n        largest = i\n        left = 2 * i + 1\n        right = 2 * i + 2\n        \n        if left < n and arr[largest] < arr[left]:\n            largest = left\n        \n        if right < n and arr[largest] < arr[right]:\n            largest = right\n        \n        if largest != i:\n            arr[i], arr[largest] = arr[largest], arr[i]\n            heapify(arr, n, largest)\n    \n    n = len(arr)\n    \n    for i in range(n // 2 - 1, -1, -1):\n        heapify(arr, n, i)\n    \n    for i in range(n-1, 0, -1):\n        arr[i], arr[0] = arr[0], arr[i]\n        heapify(arr, i, 0)\n    \n    return arr"
+    },
+    {
+        "sequence": 941,
+        "prompt": "\n\ndef count_elim(num):\n  \"\"\"\n  Write a function to count the elements in a list until an element is a tuple.\n  >>> count_elim([10,20,30,(10,20),40])\n  3\n  >>> count_elim([10,(20,30),(10,20),40])\n  1\n  >>> count_elim([(10,(20,30,(10,20),40))])\n  0\n  \"\"\"\n",
+        "code": "def count_elim(num):\n    count = 0\n    for item in num:\n        if isinstance(item, tuple):\n            break\n        count += 1\n    return count"
+    },
+    {
+        "sequence": 942,
+        "prompt": "\n\ndef check_element(test_tup, check_list):\n  \"\"\"\n  Write a function to check if any list element is present in the given list.\n  >>> check_element((4, 5, 7, 9, 3),  [6, 7, 10, 11])\n  True\n  >>> check_element((1, 2, 3, 4),  [4, 6, 7, 8, 9])\n  True\n  >>> check_element((3, 2, 1, 4, 5),  [9, 8, 7, 6])\n  False\n  \"\"\"\n",
+        "code": "def check_element(test_tup, check_list):\n    return any(elem in test_tup for elem in check_list)"
+    },
+    {
+        "sequence": 943,
+        "prompt": "\n\ndef combine_lists(num1,num2):\n  \"\"\"\n  Write a function to combine two given sorted lists using heapq module.\n  >>> combine_lists([1, 3, 5, 7, 9, 11],[0, 2, 4, 6, 8, 10])\n  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]\n  >>> combine_lists([1, 3, 5, 6, 8, 9], [2, 5, 7, 11])\n  [1,2,3,5,5,6,7,8,9,11]\n  >>> combine_lists([1,3,7],[2,4,6])\n  [1,2,3,4,6,7]\n  \"\"\"\n",
+        "code": "import heapq\n\ndef combine_lists(num1, num2):\n    return list(heapq.merge(num1, num2))"
+    },
+    {
+        "sequence": 944,
+        "prompt": "\n\ndef num_position(text):\n \"\"\"\n Write a function to separate and print the numbers and their position of a given string.\n >>> num_position(\"there are 70 flats in this apartment\")\n 10\n >>> num_position(\"every adult have 32 teeth\")\n 17\n >>> num_position(\"isha has 79 chocolates in her bag\")\n 9\n \"\"\"\n",
+        "code": "def num_position(text):\n    import re\n    match = re.search(r'\\d+', text)\n    if match:\n        print(match.start())\n    else:\n        print(-1)"
+    },
+    {
+        "sequence": 945,
+        "prompt": "\n\ndef tuple_to_set(t):\n  \"\"\"\n  Write a function to convert the given tuples into set.\n  >>> tuple_to_set(('x', 'y', 'z') )\n  {'y', 'x', 'z'}\n  >>> tuple_to_set(('a', 'b', 'c') )\n  {'c', 'a', 'b'}\n  >>> tuple_to_set(('z', 'd', 'e') )\n  {'d', 'e', 'z'}\n  \"\"\"\n",
+        "code": "def tuple_to_set(t):\n  return set(t)"
+    },
+    {
+        "sequence": 946,
+        "prompt": "\n\ndef most_common_elem(s,a):\n  \"\"\"\n  Write a function to find the most common elements and their counts of a specified text.\n  >>> most_common_elem('lkseropewdssafsdfafkpwe',3)\n  [('s', 4), ('e', 3), ('f', 3)]\n  >>> most_common_elem('lkseropewdssafsdfafkpwe',2)\n  [('s', 4), ('e', 3)]\n  >>> most_common_elem('lkseropewdssafsdfafkpwe',7)\n  [('s', 4), ('e', 3), ('f', 3), ('k', 2), ('p', 2), ('w', 2), ('d', 2)]\n  \"\"\"\n",
+        "code": "def most_common_elem(s, a):\n    from collections import Counter\n    counts = Counter(s)\n    return counts.most_common(a)"
+    },
+    {
+        "sequence": 947,
+        "prompt": "\n\ndef len_log(list1):\n    \"\"\"\n    Write a python function to find the length of the shortest word.\n    >>> len_log([\"win\",\"lose\",\"great\"])\n    3\n    >>> len_log([\"a\",\"ab\",\"abc\"])\n    1\n    >>> len_log([\"12\",\"12\",\"1234\"])\n    2\n    \"\"\"\n",
+        "code": "def len_log(list1):\n    return min(len(word) for word in list1)"
+    },
+    {
+        "sequence": 948,
+        "prompt": "\n\ndef get_item(tup1,index):\n  \"\"\"\n  Write a function to get an item of a tuple.\n  >>> get_item((\"w\", 3, \"r\", \"e\", \"s\", \"o\", \"u\", \"r\", \"c\", \"e\"),3)\n  ('e')\n  >>> get_item((\"w\", 3, \"r\", \"e\", \"s\", \"o\", \"u\", \"r\", \"c\", \"e\"),-4)\n  ('u')\n  >>> get_item((\"w\", 3, \"r\", \"e\", \"s\", \"o\", \"u\", \"r\", \"c\", \"e\"),-3)\n  ('r')\n  \"\"\"\n",
+        "code": "def get_item(tup1, index):\n    return (tup1[index],)"
+    },
+    {
+        "sequence": 949,
+        "prompt": "\n\ndef sort_list(test_list):\n  \"\"\"\n  Write a function to sort the given tuple list basis the total digits in tuple.\n  >>> sort_list([(3, 4, 6, 723), (1, 2), (12345,), (134, 234, 34)] )\n  '[(1, 2), (12345,), (3, 4, 6, 723), (134, 234, 34)]'\n  >>> sort_list([(3, 4, 8), (1, 2), (1234335,), (1345, 234, 334)] )\n  '[(1, 2), (3, 4, 8), (1234335,), (1345, 234, 334)]'\n  >>> sort_list([(34, 4, 61, 723), (1, 2), (145,), (134, 23)] )\n  '[(1, 2), (145,), (134, 23), (34, 4, 61, 723)]'\n  \"\"\"\n",
+        "code": "def sort_list(test_list):\n    return sorted(test_list, key=lambda x: sum(len(str(num)) for num in x))"
+    },
+    {
+        "sequence": 950,
+        "prompt": "\n\ndef chinese_zodiac(year):\n \"\"\"\n Write a function to display sign of the chinese zodiac for given year.\n >>> chinese_zodiac(1997)\n ('Ox')\n >>> chinese_zodiac(1998)\n ('Tiger')\n >>> chinese_zodiac(1994)\n ('Dog')\n \"\"\"\n",
+        "code": "def chinese_zodiac(year):\n    zodiac_signs = [\n        'Rat', 'Ox', 'Tiger', 'Rabbit', 'Dragon', 'Snake',\n        'Horse', 'Goat', 'Monkey', 'Rooster', 'Dog', 'Pig'\n    ]\n    index = (year - 1900) % 12\n    return zodiac_signs[index]"
+    },
+    {
+        "sequence": 951,
+        "prompt": "\n\ndef max_similar_indices(test_list1, test_list2):\n  \"\"\"\n  Write a function to find the maximum of similar indices in two lists of tuples.\n  >>> max_similar_indices([(2, 4), (6, 7), (5, 1)],[(5, 4), (8, 10), (8, 14)])\n  [(5, 4), (8, 10), (8, 14)]\n  >>> max_similar_indices([(3, 5), (7, 8), (6, 2)],[(6, 5), (9, 11), (9, 15)])\n  [(6, 5), (9, 11), (9, 15)]\n  >>> max_similar_indices([(4, 6), (8, 9), (7, 3)],[(7, 6), (10, 12), (10, 16)])\n  [(7, 6), (10, 12), (10, 16)]\n  \"\"\"\n",
+        "code": "def max_similar_indices(test_list1, test_list2):\n    return test_list2 if sum(x == y for x, y in test_list1) < sum(x == y for x, y in test_list2) else test_list1"
+    },
+    {
+        "sequence": 952,
+        "prompt": "\n\ndef nCr_mod_p(n, r, p):\n\t\"\"\"\n\tWrite a function to compute the value of ncr mod p.\n\t>>> nCr_mod_p(10, 2, 13)\n\t6\n\t>>> nCr_mod_p(11, 3, 14)\n\t11\n\t>>> nCr_mod_p(18, 14, 19)\n\t1\n\t\"\"\"\n",
+        "code": "def nCr_mod_p(n, r, p):\n    if r > n:\n        return 0\n    if r == 0 or r == n:\n        return 1\n    fact = [1] * (n + 1)\n    for i in range(2, n + 1):\n        fact[i] = fact[i - 1] * i % p\n    inv_fact = [1] * (n + 1)\n    inv_fact[n] = pow(fact[n], p - 2, p)\n    for i in range(n - 1, 0, -1):\n        inv_fact[i] = inv_fact[i + 1] * (i + 1) % p\n    return fact[n] * inv_fact[r] % p * inv_fact[n - r] % p"
+    },
+    {
+        "sequence": 953,
+        "prompt": "\n\ndef subset(ar, n):\n    \"\"\"\n    Write a python function to find the minimun number of subsets with distinct elements.\n    >>> subset([1, 2, 3, 4],4)\n    1\n    >>> subset([5, 6, 9, 3, 4, 3, 4],7)\n    2\n    >>> subset([1, 2, 3 ],3)\n    1\n    \"\"\"\n",
+        "code": "def subset(ar, n):\n    return len(ar) // len(set(ar))"
+    },
+    {
+        "sequence": 954,
+        "prompt": "\n\ndef profit_amount(actual_cost,sale_amount):\n \"\"\"\n Write a function that gives profit amount if the given amount has profit else return none.\n >>> profit_amount(1500,1200)\n 300\n >>> profit_amount(100,200)\n None\n >>> profit_amount(2000,5000)\n None\n \"\"\"\n",
+        "code": "def profit_amount(actual_cost, sale_amount):\n    if sale_amount < actual_cost:\n        return actual_cost - sale_amount\n    return None"
+    },
+    {
+        "sequence": 955,
+        "prompt": "\n\ndef is_abundant(n):\n    \"\"\"\n    Write a function to find out, if the given number is abundant.\n    >>> is_abundant(12)\n    True\n    >>> is_abundant(13)\n    False\n    >>> is_abundant(9)\n    False\n    \"\"\"\n",
+        "code": "def is_abundant(n):\n    divisors_sum = sum(i for i in range(1, n // 2 + 1) if n % i == 0)\n    return divisors_sum > n"
+    },
+    {
+        "sequence": 956,
+        "prompt": "\n\ndef split_list(text):\n  \"\"\"\n  Write a function to split the given string at uppercase letters by using regex.\n  >>> split_list(\"LearnToBuildAnythingWithGoogle\")\n  ['Learn', 'To', 'Build', 'Anything', 'With', 'Google']\n  >>> split_list(\"ApmlifyingTheBlack+DeveloperCommunity\")\n  ['Apmlifying', 'The', 'Black+', 'Developer', 'Community']\n  >>> split_list(\"UpdateInTheGoEcoSystem\")\n  ['Update', 'In', 'The', 'Go', 'Eco', 'System']\n  \"\"\"\n",
+        "code": "import re\n\ndef split_list(text):\n    return re.findall(r'[A-Z][^A-Z]*', text)"
+    },
+    {
+        "sequence": 957,
+        "prompt": "\n\ndef get_First_Set_Bit_Pos(n):\n     \"\"\"\n     Write a python function to get the position of rightmost set bit.\n     >>> get_First_Set_Bit_Pos(12)\n     3\n     >>> get_First_Set_Bit_Pos(18)\n     2\n     >>> get_First_Set_Bit_Pos(16)\n     5\n     \"\"\"\n",
+        "code": "def get_First_Set_Bit_Pos(n):\n    return (n & -n).bit_length()"
+    },
+    {
+        "sequence": 958,
+        "prompt": "\n\ndef int_to_roman( num):\n        \"\"\"\n        Write a function to convert an integer into a roman numeral.\n        >>> int_to_roman(1)\n        (\"I\")\n        >>> int_to_roman(50)\n        (\"L\")\n        >>> int_to_roman(4)\n        (\"IV\")\n        \"\"\"\n",
+        "code": "def int_to_roman(num):\n    roman_numerals = {\n        1: \"I\", 4: \"IV\", 5: \"V\", 9: \"IX\", 10: \"X\", \n        40: \"XL\", 50: \"L\", 90: \"XC\", 100: \"C\", \n        400: \"CD\", 500: \"D\", 900: \"CM\", 1000: \"M\"\n    }\n    result = \"\"\n    for value in sorted(roman_numerals.keys(), reverse=True):\n        while num >= value:\n            result += roman_numerals[value]\n            num -= value\n    return result"
+    },
+    {
+        "sequence": 959,
+        "prompt": "\n\ndef Average(lst):\n    \"\"\"\n    Write a python function to find the average of a list.\n    >>> Average([15, 9, 55, 41, 35, 20, 62, 49])\n    35.75\n    >>> Average([4, 5, 1, 2, 9, 7, 10, 8])\n    5.75\n    >>> Average([1,2,3])\n    2\n    \"\"\"\n",
+        "code": "def Average(lst):\n    return sum(lst) / len(lst) if lst else 0"
+    },
+    {
+        "sequence": 960,
+        "prompt": "\n\ndef get_noOfways(n):\n    \"\"\"\n    Write a function to solve tiling problem.\n    >>> get_noOfways(4)\n    3\n    >>> get_noOfways(3)\n    2\n    >>> get_noOfways(5)\n    5\n    \"\"\"\n",
+        "code": "def get_noOfways(n):\n    if n <= 2:\n        return n\n    a, b = 1, 2\n    for _ in range(3, n + 1):\n        a, b = b, a + b\n    return b"
+    },
+    {
+        "sequence": 961,
+        "prompt": "\n\ndef roman_to_int(s):\n        \"\"\"\n        Write a function to convert a roman numeral to an integer.\n        >>> roman_to_int('MMMCMLXXXVI')\n        3986\n        >>> roman_to_int('MMMM')\n        4000\n        >>> roman_to_int('C')\n        100\n        \"\"\"\n",
+        "code": "def roman_to_int(s):\n    values = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}\n    total = 0\n    prev_value = 0\n    for char in reversed(s):\n        current_value = values[char]\n        if current_value < prev_value:\n            total -= current_value\n        else:\n            total += current_value\n        prev_value = current_value\n    return total"
+    },
+    {
+        "sequence": 962,
+        "prompt": "\n\ndef sum_Even(l,r):\n    \"\"\"\n    Write a python function to find the sum of all even natural numbers within the range l and r.\n    >>> sum_Even(2,5)\n    6\n    >>> sum_Even(3,8)\n    18\n    >>> sum_Even(4,6)\n    10\n    \"\"\"\n",
+        "code": "def sum_Even(l, r):\n    return sum(i for i in range(l, r + 1) if i % 2 == 0)"
+    },
+    {
+        "sequence": 963,
+        "prompt": "\n\ndef discriminant_value(x,y,z):\n    \"\"\"\n    Write a function to calculate the discriminant value.\n    >>> discriminant_value(4,8,2)\n    (\"Two solutions\",32)\n    >>> discriminant_value(5,7,9)\n    (\"no real solution\",-131)\n    >>> discriminant_value(0,0,9)\n    (\"one solution\",0)\n    \"\"\"\n",
+        "code": "def discriminant_value(x, y, z):\n    disc = y**2 - 4*x*z\n    if disc > 0:\n        return (\"Two solutions\", disc)\n    elif disc == 0:\n        return (\"one solution\", disc)\n    else:\n        return (\"no real solution\", disc)"
+    },
+    {
+        "sequence": 964,
+        "prompt": "\n\ndef word_len(s):\n    \"\"\"\n    Write a python function to check whether the length of the word is even or not.\n    >>> word_len(\"program\")\n    False\n    >>> word_len(\"solution\")\n    True\n    >>> word_len(\"data\")\n    True\n    \"\"\"\n",
+        "code": "def word_len(s):\n    return len(s) % 2 == 0"
+    },
+    {
+        "sequence": 965,
+        "prompt": "\n\ndef camel_to_snake(text):\n        \"\"\"\n        Write a function to convert camel case string to snake case string.\n        >>> camel_to_snake('PythonProgram')\n        ('python_program')\n        >>> camel_to_snake('pythonLanguage')\n        ('python_language')\n        >>> camel_to_snake('ProgrammingLanguage')\n        ('programming_language')\n        \"\"\"\n",
+        "code": "def camel_to_snake(text):\n    import re\n    return re.sub(r'(?<!^)(?=[A-Z])', '_', text).lower()\n\nprint(camel_to_snake('PythonProgram'))  # ('python_program')\nprint(camel_to_snake('pythonLanguage'))  # ('python_language')\nprint(camel_to_snake('ProgrammingLanguage'))  # ('programming_language')"
+    },
+    {
+        "sequence": 966,
+        "prompt": "\n\ndef remove_empty(tuple1):\n \"\"\"\n Write a function to remove an empty tuple from a list of tuples.\n >>> remove_empty([(), (), ('',), ('a', 'b'), ('a', 'b', 'c'), ('d')])\n [('',), ('a', 'b'), ('a', 'b', 'c'), 'd']\n >>> remove_empty([(), (), ('',), (\"python\"), (\"program\")])\n [('',), (\"python\"), (\"program\")]\n >>> remove_empty([(), (), ('',), (\"java\")])\n [('',),(\"java\") ]\n \"\"\"\n",
+        "code": "def remove_empty(tuple1):\n    return [t for t in tuple1 if t != ()]"
+    },
+    {
+        "sequence": 967,
+        "prompt": "\n\ndef check(string):\n  \"\"\"\n  Write a python function to accept the strings which contains all vowels.\n  >>> check(\"SEEquoiaL\")\n  'accepted'\n  >>> check('program')\n  \"not accepted\"\n  >>> check('fine')\n  \"not accepted\"\n  \"\"\"\n",
+        "code": "def check(string):\n    string = string.lower()\n    vowels = set('aeiou')\n    if vowels.issubset(set(string)):\n        return 'accepted'\n    else:\n        return 'not accepted'"
+    },
+    {
+        "sequence": 968,
+        "prompt": "\n\ndef floor_Max(A,B,N):\n    \"\"\"\n    Write a python function to find maximum possible value for the given periodic function.\n    >>> floor_Max(11,10,9)\n    9\n    >>> floor_Max(5,7,4)\n    2\n    >>> floor_Max(2,2,1)\n    1\n    \"\"\"\n",
+        "code": "def floor_Max(A, B, N):\n    return min(B - 1, N) if B != 0 else A % N"
+    },
+    {
+        "sequence": 969,
+        "prompt": "\n\ndef join_tuples(test_list):\n  \"\"\"\n  Write a function to join the tuples if they have similar initial elements.\n  >>> join_tuples([(5, 6), (5, 7), (6, 8), (6, 10), (7, 13)] )\n  [(5, 6, 7), (6, 8, 10), (7, 13)]\n  >>> join_tuples([(6, 7), (6, 8), (7, 9), (7, 11), (8, 14)] )\n  [(6, 7, 8), (7, 9, 11), (8, 14)]\n  >>> join_tuples([(7, 8), (7, 9), (8, 10), (8, 12), (9, 15)] )\n  [(7, 8, 9), (8, 10, 12), (9, 15)]\n  \"\"\"\n",
+        "code": "def join_tuples(test_list):\n    result = []\n    temp_dict = {}\n    for tpl in test_list:\n        if tpl[0] not in temp_dict:\n            temp_dict[tpl[0]] = list(tpl)\n        else:\n            temp_dict[tpl[0]].extend(tpl[1:])\n    for key, val in temp_dict.items():\n        result.append(tuple(val))\n    return result"
+    },
+    {
+        "sequence": 970,
+        "prompt": "\n\ndef min_of_two( x, y ):\n    \"\"\"\n    Write a function to find minimum of two numbers.\n    >>> min_of_two(10,20)\n    10\n    >>> min_of_two(19,15)\n    15\n    >>> min_of_two(-10,-20)\n    -20\n    \"\"\"\n",
+        "code": "def min_of_two(x, y):\n    return x if x < y else y"
+    },
+    {
+        "sequence": 971,
+        "prompt": "\n\ndef maximum_segments(n, a, b, c) :\n\t\"\"\"\n\tWrite a function to find the maximum number of segments of lengths a, b and c that can be formed from n.\n\t>>> maximum_segments(7, 5, 2, 5)\n\t2\n\t>>> maximum_segments(17, 2, 1, 3)\n\t17\n\t>>> maximum_segments(18, 16, 3, 6)\n\t6\n\t\"\"\"\n",
+        "code": "def maximum_segments(n, a, b, c):\n    if n == 0:\n        return 0\n    if n < 0:\n        return -float('inf')\n    return max(1 + maximum_segments(n - a, a, b, c),\n               1 + maximum_segments(n - b, a, b, c),\n               1 + maximum_segments(n - c, a, b, c))"
+    },
+    {
+        "sequence": 972,
+        "prompt": "\n\ndef concatenate_nested(test_tup1, test_tup2):\n  \"\"\"\n  Write a function to concatenate the given two tuples to a nested tuple.\n  >>> concatenate_nested((3, 4), (5, 6))\n  (3, 4, 5, 6)\n  >>> concatenate_nested((1, 2), (3, 4))\n  (1, 2, 3, 4)\n  >>> concatenate_nested((4, 5), (6, 8))\n  (4, 5, 6, 8)\n  \"\"\"\n",
+        "code": "def concatenate_nested(test_tup1, test_tup2):\n    return test_tup1 + test_tup2"
+    },
+    {
+        "sequence": 973,
+        "prompt": "\n\ndef left_rotate(s,d):\n    \"\"\"\n    Write a python function to left rotate the string.\n    >>> left_rotate(\"python\",2)\n    \"thonpy\"\n    >>> left_rotate(\"bigdata\",3 )\n    \"databig\"\n    >>> left_rotate(\"hadoop\",1 )\n    \"adooph\"\n    \"\"\"\n",
+        "code": "def left_rotate(s, d):\n    return s[d:] + s[:d]"
+    },
+    {
+        "sequence": 974,
+        "prompt": "\n\ndef min_sum_path(A):\n\t\"\"\"\n\tWrite a function to find the minimum total path sum in the given triangle.\n\t>>> min_sum_path([[ 2 ], [3, 9 ], [1, 6, 7 ]])\n\t6\n\t>>> min_sum_path([[ 2 ], [3, 7 ], [8, 5, 6 ]])\n\t10\n\t>>> min_sum_path([[ 3 ], [6, 4 ], [5, 2, 7 ]])\n\t9\n\t\"\"\"\n",
+        "code": "def min_sum_path(A):\n    n = len(A)\n    for i in range(n-2, -1, -1):\n        for j in range(len(A[i])):\n            A[i][j] += min(A[i+1][j], A[i+1][j+1])\n    return A[0][0]"
+    }
+]

@@ -1,0 +1,202 @@
+[
+    {
+        "task_id": "MBCPP/14",
+        "code": "```cpp\n    int baseArea = (b * h) / 2;\n    int volume = baseArea * l;\n    return volume;\n```"
+    },
+    {
+        "task_id": "MBCPP/6",
+        "code": "```cpp\n    int xorResult = a ^ b;\n    return xorResult && !(xorResult & (xorResult - 1));\n```"
+    },
+    {
+        "task_id": "MBCPP/8",
+        "code": "```cpp\n    vector<int> result;\n    transform(nums.begin(), nums.end(), back_inserter(result), [](int num) { return num * num; });\n    return result;\n```"
+    },
+    {
+        "task_id": "MBCPP/17",
+        "code": "```\n    return 4 * a;\n```"
+    },
+    {
+        "task_id": "MBCPP/12",
+        "code": "```cpp\n    sort(m.begin(), m.end(), [](const vector<int>& a, const vector<int>& b) {\n        return accumulate(a.begin(), a.end(), 0) < accumulate(b.begin(), b.end(), 0);\n    });\n    return m;\n```"
+    },
+    {
+        "task_id": "MBCPP/19",
+        "code": "```cpp\n    unordered_set<int> seen;\n    for (int num : arraynums) {\n        if (seen.find(num) != seen.end()) {\n            return true;\n        }\n        seen.insert(num);\n    }\n    return false;\n```"
+    },
+    {
+        "task_id": "MBCPP/2",
+        "code": "```cpp\n    set<int> set1(testTup1.begin(), testTup1.end());\n    set<int> set2(testTup2.begin(), testTup2.end());\n    vector<int> result;\n\n    for (int elem : set1) {\n        if (set2.find(elem) != set2.end()) {\n            result.push_back(elem);\n        }\n    }\n\n    sort(result.begin(), result.end()); // Optional: sort the result\n\n    return result;\n```"
+    },
+    {
+        "task_id": "MBCPP/11",
+        "code": "```cpp\n    char target = ch[0];\n    size_t first = s.find(target);\n    size_t last = s.rfind(target);\n\n    if (first != string::npos) s.erase(first, 1);\n    if (last != string::npos && last != first) s.erase(last - 1, 1);\n\n    return s;\n```"
+    },
+    {
+        "task_id": "MBCPP/7",
+        "code": "```cpp\n    vector<string> result;\n    regex word_regex(\"\\\\b\\\\w{4,}\\\\b\");\n    auto words_begin = sregex_iterator(text.begin(), text.end(), word_regex);\n    auto words_end = sregex_iterator();\n\n    for (sregex_iterator i = words_begin; i != words_end; ++i) {\n        smatch match = *i;\n        result.push_back(match.str());\n    }\n    \n    return result;\n```"
+    },
+    {
+        "task_id": "MBCPP/4",
+        "code": "```cpp\n    priority_queue<int> maxHeap(nums.begin(), nums.end());\n    vector<int> result;\n\n    for (int i = 0; i < n && !maxHeap.empty(); ++i) {\n        result.push_back(maxHeap.top());\n        maxHeap.pop();\n    }\n\n    return result;\n```"
+    },
+    {
+        "task_id": "MBCPP/9",
+        "code": "```cpp\n    int n = str.length();\n    string doubled = str + str;\n    \n    for (int i = 1; i < n; ++i) {\n        if (doubled.substr(i, n) == str) {\n            return i;\n        }\n    }\n    \n    return n;\n```"
+    },
+    {
+        "task_id": "MBCPP/10",
+        "code": "```cpp\n    // Sort the vector in non-decreasing order\n    sort(list1.begin(), list1.end());\n\n    // Get the first 'n' elements from the sorted vector\n    vector<int> result(list1.begin(), list1.begin() + n);\n\n    return result;\n```"
+    },
+    {
+        "task_id": "MBCPP/16",
+        "code": "```cpp\n    regex pattern(\"^[a-z]+_[a-z]+$\");  // Define a regex pattern for sequences of lowercase letters joined by an underscore\n    if (regex_match(text, pattern)) {\n        return \"Found a match!\";\n    } else {\n        return \"Not matched!\";\n    }\n```"
+    },
+    {
+        "task_id": "MBCPP/18",
+        "code": "```cpp\n    unordered_set<char> charsToRemove(secondString.begin(), secondString.end());\n    string result;\n\n    for (char c : str) {\n        if (charsToRemove.find(c) == charsToRemove.end()) {\n            result += c;\n        }\n    }\n\n    return result;\n```"
+    },
+    {
+        "task_id": "MBCPP/22",
+        "code": "```cpp\n    unordered_set<int> seen;\n    for (int num : nums) {\n        if (seen.find(num) != seen.end()) {\n            return num;\n        }\n        seen.insert(num);\n    }\n    return -1;\n```"
+    },
+    {
+        "task_id": "MBCPP/21",
+        "code": "```cpp\n    vector<int> multiples;\n    for (int i = 1; i <= m; ++i) {\n        multiples.push_back(i * n);\n    }\n    return multiples;\n```"
+    },
+    {
+        "task_id": "MBCPP/20",
+        "code": "```cpp\n    int n = 1; // Start with n = 1\n    while (true) {\n        int woodall = n * (1 << n) - 1; // Calculate the n-th Woodall number: Wn = n * 2^n - 1\n        if (woodall == x) {\n            return true; // If x is equal to the current Woodall number, return true\n        } else if (woodall > x) {\n            return false; // If the Woodall number exceeds x, x is not a Woodall number\n        }\n        n++; // Increment n to check the next Woodall number\n    }\n    return false;\n```"
+    },
+    {
+        "task_id": "MBCPP/3",
+        "code": "```cpp\n    if (n <= 1) return true;\n    if (n <= 3) return false;\n    if (n % 2 == 0 || n % 3 == 0) return true;\n    for (int i = 5; i * i <= n; i += 6) {\n        if (n % i == 0 || n % (i + 2) == 0) return true;\n    }\n    return false;\n```"
+    },
+    {
+        "task_id": "MBCPP/35",
+        "code": "```cpp\n    return n * (n + 1);\n```"
+    },
+    {
+        "task_id": "MBCPP/23",
+        "code": "```cpp\n    int maxSum = INT_MIN;\n    for (const auto& sublist : list1) {\n        int sum = accumulate(sublist.begin(), sublist.end(), 0);\n        maxSum = max(maxSum, sum);\n    }\n    return maxSum;\n```"
+    },
+    {
+        "task_id": "MBCPP/15",
+        "code": "```cpp\n    vector<string> result;\n    string current_segment;\n    \n    for (char c : text) {\n        if (islower(c)) {\n            if (!current_segment.empty()) {\n                result.push_back(current_segment);\n                current_segment.clear();\n            }\n            string lowercase_char(1, c);\n            result.push_back(lowercase_char);\n        } else {\n            current_segment += c;\n        }\n    }\n    \n    // Don't forget to add the last segment if it's not empty (though it would be uppercase).\n    if (!current_segment.empty()) {\n        result.push_back(current_segment);\n    }\n\n    return result;\n```"
+    },
+    {
+        "task_id": "MBCPP/34",
+        "code": "```cpp\n    int total_sum = (n + 1) * (n + 2) / 2; // Sum of first n+1 natural numbers\n    int array_sum = accumulate(ar.begin(), ar.end(), 0); // Sum of elements in the array\n    return total_sum - array_sum; // The missing number\n```"
+    },
+    {
+        "task_id": "MBCPP/24",
+        "code": "```cpp\n    int decimal = 0;\n    int base = 1;\n    while (binary > 0) {\n        int last_digit = binary % 10;\n        decimal += last_digit * base;\n        binary /= 10;\n        base *= 2;\n    }\n    return decimal;\n```"
+    },
+    {
+        "task_id": "MBCPP/27",
+        "code": "```cpp\n    vector<string> result;\n    for (const auto& str : list) {\n        string filtered;\n        for (char ch : str) {\n            if (!isdigit(ch)) {\n                filtered += ch;\n            }\n        }\n        result.push_back(filtered);\n    }\n    return result;\n```"
+    },
+    {
+        "task_id": "MBCPP/30",
+        "code": "```cpp\n    unordered_map<char, int> count;\n    int result = 0;\n    \n    for (char ch : s) {\n        result += count[ch]; // count substrings ending with the current char\n        count[ch]++; // increment the count for the current character\n    }\n    \n    return result + s.length(); // add the single character substrings\n```"
+    },
+    {
+        "task_id": "MBCPP/29",
+        "code": "```cpp\n    unordered_map<int, int> countMap;\n    for (int i = 0; i < arrSize; ++i) {\n        countMap[arr[i]]++;\n    }\n\n    for (const auto& element : countMap) {\n        if (element.second % 2 != 0) {\n            return element.first;\n        }\n    }\n    return -1; // Return -1 if no element occurs an odd number of times\n```"
+    },
+    {
+        "task_id": "MBCPP/25",
+        "code": "```cpp\n    unordered_map<int, int> frequencyMap;\n    int product = 1;\n\n    for (int i = 0; i < n; ++i) {\n        frequencyMap[arr[i]]++;\n    }\n\n    for (auto& elem : frequencyMap) {\n        if (elem.second == 1) {\n            product *= elem.first;\n        }\n    }\n\n    return product;\n```"
+    },
+    {
+        "task_id": "MBCPP/33",
+        "code": "```cpp\n    string binary = \"\";\n    if (n == 0) return 0;\n    \n    while (n > 0) {\n        binary = char((n % 2) + '0') + binary;\n        n /= 2;\n    }\n    \n    return stoi(binary);\n```"
+    },
+    {
+        "task_id": "MBCPP/5",
+        "code": "```cpp\n    if (n % 2 != 0) return 0; // If n is odd, it is impossible to fill the board completely\n    vector<int> dp(n + 1, 0);\n    dp[0] = 1;  // There's 1 way to fill a 3x0 board\n    dp[2] = 3;  // Base case: 3 ways to fill a 3x2 board\n\n    for (int i = 4; i <= n; i += 2) {\n        dp[i] = 4 * dp[i - 2] - dp[i - 4];\n    }\n\n    return dp[n];\n```"
+    },
+    {
+        "task_id": "MBCPP/38",
+        "code": "```cpp\n    int firstEven = -1;\n    int firstOdd = -1;\n\n    for (int num : list1) {\n        if (num % 2 == 0 && firstEven == -1) {\n            firstEven = num;\n        }\n        if (num % 2 != 0 && firstOdd == -1) {\n            firstOdd = num;\n        }\n        if (firstEven != -1 && firstOdd != -1) {\n            break;\n        }\n    }\n\n    if (firstEven == -1 || firstOdd == -1) {\n        throw invalid_argument(\"List does not contain both an even and an odd number.\");\n    }\n\n    return firstEven / firstOdd;\n```"
+    },
+    {
+        "task_id": "MBCPP/36",
+        "code": "```cpp\n    string fraction = to_string(static_cast<double>(p) / q);\n    size_t dot_pos = fraction.find('.');\n\n    if (dot_pos == string::npos) {\n        return -1;  // no fractional part\n    }\n\n    if (n <= 0 || n > static_cast<int>(fraction.length() - dot_pos - 1)) {\n        return -1;  // out of bounds\n    }\n\n    return fraction[dot_pos + n] - '0';\n```"
+    },
+    {
+        "task_id": "MBCPP/41",
+        "code": "```cpp\n    vector<int> evenNumbers;\n    auto isEven = [](int num) { return num % 2 == 0; };\n    \n    copy_if(nums.begin(), nums.end(), back_inserter(evenNumbers), isEven);\n    \n    return evenNumbers;\n```"
+    },
+    {
+        "task_id": "MBCPP/28",
+        "code": "```cpp\n    if (k > n) return 0;\n    if (k == 0 || k == n) return 1;\n    \n    int C[k + 1] = {0};\n    C[0] = 1; // C(n, 0) is 1\n\n    for (int i = 1; i <= n; i++) {\n        for (int j = min(i, k); j > 0; j--) {\n            C[j] = C[j] + C[j - 1];\n        }\n    }\n    return C[k];\n```"
+    },
+    {
+        "task_id": "MBCPP/44",
+        "code": "```cpp\n    if (!text.empty() && text[0] != ' ') {\n        return string(\"Found a match!\");\n    } else {\n        return string(\"Not matched!\");\n    }\n```"
+    },
+    {
+        "task_id": "MBCPP/26",
+        "code": "```cpp\n    for (const auto& sublist : testList) {\n        for (int element : sublist) {\n            if (element != k) {\n                return false;\n            }\n        }\n    }\n    return true;\n```"
+    },
+    {
+        "task_id": "MBCPP/42",
+        "code": "```cpp\n    unordered_map<int, int> frequency;\n    int sum = 0;\n\n    for (int i = 0; i < n; ++i) {\n        frequency[arr[i]]++;\n    }\n\n    for (const auto& pair : frequency) {\n        if (pair.second > 1) {\n            sum += pair.first;\n        }\n    }\n\n    return sum;\n```"
+    },
+    {
+        "task_id": "MBCPP/43",
+        "code": "```cpp\n    regex pattern(\"^[a-z]+_[a-z]+$\");\n    if (regex_match(text, pattern)) {\n        return \"Found a match!\";\n    } else {\n        return \"Not matched!\";\n    }\n```"
+    },
+    {
+        "task_id": "MBCPP/52",
+        "code": "```cpp\n    return b * h;\n```"
+    },
+    {
+        "task_id": "MBCPP/51",
+        "code": "```cpp\n    return (x == y) && (y == z);\n```"
+    },
+    {
+        "task_id": "MBCPP/49",
+        "code": "```cpp\n    vector<int> result;\n    for (const auto& row : nums) {\n        if (n >= 0 && n < row.size()) {\n            result.push_back(row[n]);\n        }\n    }\n    return result;\n```"
+    },
+    {
+        "task_id": "MBCPP/48",
+        "code": "```cpp\n    // Set all odd-positioned bits (considering 0-based index)\n    for (int i = 0; i < 32; i += 2) {\n        n |= (1 << i);\n    }\n    return n;\n```"
+    },
+    {
+        "task_id": "MBCPP/47",
+        "code": "```cpp\n    if (a == b) return 1;\n    int result = 1;\n    for (int i = a + 1; i <= b; ++i) {\n        result = (result * i) % 10;\n    }\n    return result;\n```"
+    },
+    {
+        "task_id": "MBCPP/46",
+        "code": "```cpp\n    unordered_set<int> seen;\n    for (int num : data) {\n        if (seen.count(num)) {\n            return false;\n        }\n        seen.insert(num);\n    }\n    return true;\n```"
+    },
+    {
+        "task_id": "MBCPP/53",
+        "code": "```cpp\n    if (str.empty()) {\n        return \"Not Equal\";\n    }\n    if (str.front() == str.back()) {\n        return \"Equal\";\n    } else {\n        return \"Not Equal\";\n    }\n```"
+    },
+    {
+        "task_id": "MBCPP/39",
+        "code": "```cpp\n    unordered_map<char, int> freqMap;\n    for (char c : s)\n        freqMap[c]++;\n    \n    priority_queue<pair<int, char>> maxHeap;\n    for (auto& [ch, freq] : freqMap)\n        maxHeap.push({freq, ch});\n    \n    string result;\n    pair<int, char> prev(0, ' ');\n\n    while (!maxHeap.empty()) {\n        auto [freq, ch] = maxHeap.top();\n        maxHeap.pop();\n        \n        result += ch;\n        freq--;\n        \n        if (prev.first > 0)\n            maxHeap.push(prev);\n        \n        prev = {freq, ch};\n    }\n    \n    if (result.length() == s.length())\n        return result;\n    else\n        return \"\";\n```"
+    },
+    {
+        "task_id": "MBCPP/32",
+        "code": "```cpp\n    int maxPrime = -1;\n\n    // Check for number of 2s that divide n\n    while (n % 2 == 0) {\n        maxPrime = 2;\n        n /= 2;\n    }\n\n    // n must be odd at this point, so a skip of 2 (i.e., check only odd numbers) can be used\n    for (int i = 3; i <= sqrt(n); i += 2) {\n        while (n % i == 0) {\n            maxPrime = i;\n            n /= i;\n        }\n    }\n\n    // If n is a prime number greater than 2\n    if (n > 2) {\n        maxPrime = n;\n    }\n\n    return maxPrime;\n```"
+    },
+    {
+        "task_id": "MBCPP/31",
+        "code": "```cpp\n    unordered_map<int, int> frequency_map;\n    \n    // Count frequency of each integer\n    for (const auto& list : nums) {\n        for (int num : list) {\n            frequency_map[num]++;\n        }\n    }\n\n    // Use a min-heap to keep track of the top k elements\n    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> min_heap;\n\n    for (const auto& entry : frequency_map) {\n        min_heap.push({entry.second, entry.first});\n        if (min_heap.size() > k) {\n            min_heap.pop();\n        }\n    }\n\n    // Extract the elements from the min-heap\n    vector<int> result;\n    while (!min_heap.empty()) {\n        result.push_back(min_heap.top().second);\n        min_heap.pop();\n    }\n\n    // Reverse the result vector as priority queue gives min elements first\n    reverse(result.begin(), result.end());\n\n    return result;\n```"
+    },
+    {
+        "task_id": "MBCPP/45",
+        "code": "```cpp\n    if (l.empty()) return 0; // handle edge case for empty input\n    int gcd_result = l[0];\n    for (int i = 1; i < l.size(); i++) {\n        gcd_result = gcd(gcd_result, l[i]);\n        if (gcd_result == 1) break; // early exit if gcd becomes 1\n    }\n    return gcd_result;\n```"
+    },
+    {
+        "task_id": "MBCPP/40",
+        "code": "```cpp\n    unordered_map<int, int> frequencyMap;\n    \n    // Iterate through each list in the vector of lists\n    for (const auto& list : nums) {\n        // Iterate through each element in the current list\n        for (int num : list) {\n            // Increment the count of each element in the map\n            frequencyMap[num]++;\n        }\n    }\n\n    return frequencyMap;\n```"
+    },
+    {
+        "task_id": "MBCPP/54",
+        "code": "```cpp\n    if (myList.empty()) {\n        return myList;\n    }\n\n    int maxVal = *max_element(myList.begin(), myList.end());\n    int minVal = *min_element(myList.begin(), myList.end());\n    int range = maxVal - minVal + 1;\n\n    vector<int> count(range, 0);\n    vector<int> output(myList.size());\n\n    for (int i = 0; i < myList.size(); i++) {\n        count[myList[i] - minVal]++;\n    }\n\n    for (int i = 1; i < count.size(); i++) {\n        count[i] += count[i - 1];\n    }\n\n    for (int i = myList.size() - 1; i >= 0; i--) {\n        output[count[myList[i] - minVal] - 1] = myList[i];\n        count[myList[i] - minVal]--;\n    }\n\n    return output;\n```"
+    }
+]

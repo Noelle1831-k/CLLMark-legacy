@@ -1,0 +1,68 @@
+{
+    "remove_task.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "add_task.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "update_status.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "display_tasks.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "track_progress.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "organize_tasks.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "set_reminder.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "check_reminders.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "generate_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

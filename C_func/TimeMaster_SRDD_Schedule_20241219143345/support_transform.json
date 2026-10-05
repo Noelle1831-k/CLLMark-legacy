@@ -1,0 +1,73 @@
+{
+    "support_transform.json": [],
+    "sortTasksByPriority.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "generateReport.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "initializeScheduleManager.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "viewSchedule.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "updateTaskStatus.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "createTask.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "viewTasks.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "trackProgress.c": [
+        "array_init"
+    ],
+    "displayMenu.c": [],
+    "initializeTaskManager.c": [],
+    "allocateTimeSlot.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_init",
+        "array_access"
+    ],
+    "initializeProgressTracker.c": []
+}

@@ -1,0 +1,52 @@
+{
+    "getMembers.cpp": [],
+    "getConnections.cpp": [],
+    "removeUser.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "removeConnection.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "findUserByID.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "getUserID.cpp": [],
+    "getName.cpp": [],
+    "getAllUsers.cpp": [],
+    "removeMember.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "addConnection.cpp": [],
+    "connectUsers.cpp": [
+        "declare"
+    ],
+    "addUser.cpp": [],
+    "getIndustry.cpp": [],
+    "addMember.cpp": []
+}

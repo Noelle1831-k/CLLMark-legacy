@@ -1,0 +1,40 @@
+{
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "receive_message.py": [],
+    "add_user.py": [
+        "init_list",
+        "list"
+    ],
+    "find_users_nearby.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "register_user.py": [],
+    "find_neighbors.py": [],
+    "__init__.py": [],
+    "send_message.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "display_user_info.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "share_event.py": [],
+    "add_event.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

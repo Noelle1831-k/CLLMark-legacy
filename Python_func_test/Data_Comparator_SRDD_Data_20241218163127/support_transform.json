@@ -1,0 +1,46 @@
+{
+    "compare_datasets.py": [
+        "init_list",
+        "range_index",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse"
+    ],
+    "import_csv.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "import_excel.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota"
+    ],
+    "export_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "highlight_discrepancies.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_report.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ]
+}

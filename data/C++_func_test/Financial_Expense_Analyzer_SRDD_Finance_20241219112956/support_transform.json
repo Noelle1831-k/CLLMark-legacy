@@ -1,0 +1,35 @@
+{
+    "getDate.cpp": [],
+    "displaySummary.cpp": [
+        "self_assignment",
+        "output"
+    ],
+    "setDate.cpp": [],
+    "getExpenses.cpp": [],
+    "getCategory.cpp": [],
+    "main.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "setBudget.cpp": [],
+    "setCategory.cpp": [],
+    "getBudget.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "addExpense.cpp": [
+        "declare",
+        "output",
+        "input"
+    ],
+    "getAmount.cpp": [],
+    "setAmount.cpp": [],
+    "categoryExists.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ]
+}

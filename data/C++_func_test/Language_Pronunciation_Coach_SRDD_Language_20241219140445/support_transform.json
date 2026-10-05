@@ -1,0 +1,41 @@
+{
+    "loadNativeAudio.cpp": [
+        "output"
+    ],
+    "initialize.cpp": [
+        "output"
+    ],
+    "loadExercisesFromFile.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "loadExercise.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ],
+    "getExerciseCount.cpp": [],
+    "displayFeedback.cpp": [
+        "output"
+    ],
+    "calculateSimilarity.cpp": [],
+    "run.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "recordAudio.cpp": [
+        "output"
+    ],
+    "trackProgress.cpp": [],
+    "generateFeedback.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ],
+    "compareAudio.cpp": [
+        "output"
+    ]
+}

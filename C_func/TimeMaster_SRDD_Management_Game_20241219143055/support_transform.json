@@ -1,0 +1,29 @@
+{
+    "support_transform.json": [],
+    "showTasks.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "scheduleTask.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "createTask.c": [
+        "array_init",
+        "array_access",
+        "declare"
+    ],
+    "initTaskManager.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "initScheduler.c": [],
+    "showSchedule.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

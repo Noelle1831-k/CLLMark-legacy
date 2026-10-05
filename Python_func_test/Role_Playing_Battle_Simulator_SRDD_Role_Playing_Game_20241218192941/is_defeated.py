@@ -1,0 +1,2 @@
+def is_defeated(self):
+        return all((character.health < 0 or character.health == 0) for character in self.characters)

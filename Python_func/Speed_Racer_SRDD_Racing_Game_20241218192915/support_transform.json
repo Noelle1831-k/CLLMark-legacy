@@ -1,0 +1,89 @@
+{
+    "update_score.py": [
+        "self_assignment"
+    ],
+    "select_track.py": [],
+    "game_loop.py": [],
+    "update_weather.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "render_players.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "process_player_input.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "apply_physics.py": [
+        "self_assignment"
+    ],
+    "select_game_mode.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "render_track.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "connect_player.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "render_weather.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "set_difficulty.py": [],
+    "__init__.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "render.py": [],
+    "load_tracks.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "process_inputs.py": [],
+    "create_players.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_weather_effect.py": [],
+    "initialize_weather.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "disconnect_player.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "check_game_over.py": [],
+    "broadcast_message.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "customize_vehicle.py": [],
+    "update_weather_conditions.py": [],
+    "update_physics.py": [],
+    "initialize_game.py": [],
+    "customize.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

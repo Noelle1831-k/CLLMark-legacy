@@ -1,0 +1,1 @@
+void Quest::updateStatus(string newStatus) { status = newStatus; }

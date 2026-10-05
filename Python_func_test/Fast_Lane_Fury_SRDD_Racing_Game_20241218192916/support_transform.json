@@ -1,0 +1,75 @@
+{
+    "calculate_friction.py": [
+        "self_assignment"
+    ],
+    "accelerate.py": [
+        "self_assignment"
+    ],
+    "calculate_turns.py": [],
+    "calculate_path.py": [],
+    "update_velocity.py": [],
+    "render_track.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "steer.py": [
+        "self_assignment"
+    ],
+    "brake.py": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "update_ui.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "end_game.py": [],
+    "make_decision.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "update_game_state.py": [],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "load_track.py": [],
+    "initialize_cars.py": [
+        "range_index"
+    ],
+    "render_environment.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "update_position.py": [
+        "self_assignment"
+    ],
+    "get_user_input.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "update_display.py": [],
+    "start_game.py": [],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "render_car.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "update_ai_state.py": [],
+    "apply_gravity.py": [
+        "self_assignment"
+    ]
+}

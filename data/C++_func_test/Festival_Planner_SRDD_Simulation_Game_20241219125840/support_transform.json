@@ -1,0 +1,50 @@
+{
+    "initializeFestival.cpp": [
+        "output"
+    ],
+    "chooseLocation.cpp": [
+        "output",
+        "input"
+    ],
+    "refundTicket.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "generateChallenge.cpp": [
+        "output"
+    ],
+    "perform.cpp": [],
+    "sellTicket.cpp": [],
+    "getCapacity.cpp": [],
+    "checkWeather.cpp": [],
+    "applyChallenge.cpp": [
+        "output"
+    ],
+    "calculateRevenue.cpp": [],
+    "isAvailable.cpp": [],
+    "selectArtists.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "updateFacilities.cpp": [],
+    "simulateDay.cpp": [
+        "update_reverse",
+        "output"
+    ],
+    "getPopularity.cpp": [],
+    "generateReport.cpp": [
+        "output"
+    ]
+}

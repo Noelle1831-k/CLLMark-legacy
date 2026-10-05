@@ -1,0 +1,27 @@
+{
+    "handleError.c": [],
+    "displayChords.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "support_transform.json": [],
+    "freeChordData.c": [],
+    "freeAudioData.c": [],
+    "main.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "array_access"
+    ],
+    "analyzeAudio.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "for_OOO"
+    ],
+    "loadAudioData.c": []
+}

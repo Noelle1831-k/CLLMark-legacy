@@ -1,0 +1,44 @@
+{
+    "clearInputBuffer.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "showWateringSchedule.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "for_OOO"
+    ],
+    "showSoilPreparationTips.c": [],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "takeQuiz.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare"
+    ],
+    "identifyPlant.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "for_OOO"
+    ],
+    "showGardeningTutorials.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "printMenu.c": []
+}

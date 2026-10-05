@@ -1,0 +1,53 @@
+{
+    "merge_datasets.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "identify_common_fields.py": [],
+    "read_excel.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "import_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "merge_horizontally.py": [
+        "init_list",
+        "list"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "handle_inconsistencies.py": [],
+    "merge_vertically.py": [
+        "init_list",
+        "list"
+    ],
+    "__init__.py": [],
+    "get_user_input.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "read_csv.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

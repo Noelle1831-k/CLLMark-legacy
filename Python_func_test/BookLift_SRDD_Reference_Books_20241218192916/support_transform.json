@@ -1,0 +1,39 @@
+{
+    "get_average_rating.py": [],
+    "update_preferred_genres.py": [],
+    "load_user_profiles.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "load_books.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "generate_recommendations.py": [
+        "init_list",
+        "list_index"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__str__.py": [
+        "string_quota"
+    ],
+    "add_rating.py": [],
+    "get_curated_collections.py": [
+        "list",
+        "list_index",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "update_rating.py": [],
+    "explore_by_author.py": []
+}

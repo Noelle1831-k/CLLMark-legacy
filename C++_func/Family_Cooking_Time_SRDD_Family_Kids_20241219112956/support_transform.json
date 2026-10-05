@@ -1,0 +1,37 @@
+{
+    "ingredientSubstitutionMenu.cpp": [
+        "declare",
+        "output",
+        "input"
+    ],
+    "support_transform.json": [],
+    "addRecipeToFavorites.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output",
+        "input"
+    ],
+    "displayMenu.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "userProfile.cpp": [],
+    "viewRecipes.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "startCookingTimer.cpp": [
+        "output",
+        "input"
+    ],
+    "viewGroceryList.cpp": []
+}

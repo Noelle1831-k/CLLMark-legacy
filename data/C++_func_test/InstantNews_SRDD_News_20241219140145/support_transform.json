@@ -1,0 +1,43 @@
+{
+    "fetchFromSources.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "displayBookmarkedArticles.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "displayArticle.cpp": [],
+    "main.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "main_style",
+        "output",
+        "input"
+    ],
+    "shareArticle.cpp": [
+        "output"
+    ],
+    "getArticle.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "getBookmarks.cpp": [],
+    "fetchLatestNews.cpp": [],
+    "displayHeadlines.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "NewsManager.cpp": [],
+    "addBookmark.cpp": []
+}

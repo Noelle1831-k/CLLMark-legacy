@@ -1,0 +1,43 @@
+{
+    "setFront.cpp": [],
+    "displayDeck.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getFront.cpp": [],
+    "addFlashcard.cpp": [],
+    "getDeckSize.cpp": [],
+    "addSampleFlashcards.cpp": [
+        "declare"
+    ],
+    "getFlashcard.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "startGame.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "shuffleDeck.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "clearDeck.cpp": [],
+    "endGame.cpp": [],
+    "checkAnswer.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "setBack.cpp": [],
+    "showCard.cpp": [],
+    "getBack.cpp": []
+}

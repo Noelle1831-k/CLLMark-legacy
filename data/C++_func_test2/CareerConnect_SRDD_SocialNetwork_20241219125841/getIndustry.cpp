@@ -1,0 +1,1 @@
+string getIndustry() { return industry; }

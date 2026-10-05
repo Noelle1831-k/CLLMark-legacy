@@ -1,0 +1,2 @@
+void drawEnemy(Position position) {
+}

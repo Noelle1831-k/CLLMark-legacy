@@ -1,0 +1,63 @@
+{
+    "schedule_payment.py": [
+        "print_flush",
+        "string_quota",
+        "f_string"
+    ],
+    "send_alert.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "generate_expense_plan.py": [
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "allocate_budget.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "send_reminder.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "send_notifications.py": [
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "forecast_expenses.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "update_income.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "calculate_total_expenses.py": [],
+    "update_savings_goal.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "add_category.py": [
+        "string_quota"
+    ],
+    "track_goals.py": [
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ]
+}

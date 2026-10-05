@@ -1,0 +1,48 @@
+{
+    "removeSong.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "getArtist.cpp": [],
+    "playlist.cpp": [],
+    "addTag.cpp": [],
+    "getTitle.cpp": [],
+    "removeSongFromPlaylist.cpp": [],
+    "displayLibrary.cpp": [],
+    "dragAndDrop.cpp": [],
+    "getLibrary.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "addSong.cpp": [],
+    "getName.cpp": [],
+    "addTagToPlaylist.cpp": [],
+    "displayLibraryDetails.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "output"
+    ],
+    "displaySongDetails.cpp": [],
+    "run.cpp": [],
+    "getDuration.cpp": [],
+    "getSongs.cpp": [],
+    "removeTag.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "displayPlaylistDetails.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "output"
+    ],
+    "displayPlaylist.cpp": [],
+    "getTags.cpp": []
+}

@@ -1,0 +1,79 @@
+{
+    "send_notification.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "update_status.py": [
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "track_progress.py": [],
+    "set_deadline.py": [],
+    "create_goal.py": [],
+    "update_goal_progress.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "get_details.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "celebrate_achievement.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "get_info.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "send_reminder.py": [],
+    "is_completed.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "assign_to.py": [],
+    "learn_from_challenges.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "schedule_reminder.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "update_progress.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "assign_goal.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "visualize_progress.py": [],
+    "add_family_member.py": [],
+    "generate_chart.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

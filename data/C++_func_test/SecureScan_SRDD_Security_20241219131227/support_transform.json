@@ -1,0 +1,50 @@
+{
+    "checkIntegrity.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "output"
+    ],
+    "realTimeMonitoring.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "output"
+    ],
+    "scanApplications.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "onDemandScan.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "main_style",
+        "output",
+        "input"
+    ],
+    "generateFileHashes.cpp": [
+        "output"
+    ],
+    "scheduleScan.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "scanFiles.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "sendAlert.cpp": []
+}

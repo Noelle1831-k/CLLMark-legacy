@@ -1,0 +1,65 @@
+{
+    "analyze_data_types.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "load_data.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "detect_outliers.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "compute_statistics.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "create_visualizations.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "normalize_data.py": [],
+    "handle_missing_values.py": [],
+    "__init__.py": [],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "analyze_data.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "detect_missing_values.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

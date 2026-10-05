@@ -1,0 +1,50 @@
+{
+    "initializeGame.c": [],
+    "endGame.c": [],
+    "generateTargets.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "support_transform.json": [
+        "array_access"
+    ],
+    "checkLevelCompletion.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "randomNumber.c": [],
+    "initializePlayer.c": [],
+    "startGame.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "playLevel.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "registerHit.c": [
+        "update_reverse"
+    ],
+    "getTargetsHit.c": [],
+    "loadLevel.c": [],
+    "displayMessage.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "checkHit.c": [],
+    "createTarget.c": [],
+    "getScore.c": [],
+    "updateScore.c": [
+        "self_assignment"
+    ],
+    "moveTarget.c": [],
+    "upgradeWeapon.c": [
+        "update_reverse"
+    ]
+}

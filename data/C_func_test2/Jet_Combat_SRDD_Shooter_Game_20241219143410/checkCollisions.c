@@ -1,0 +1,13 @@
+void checkCollisions() {
+    for (int i = 0; (MAX_ENEMIES >= i && MAX_ENEMIES != i); ++i) {
+        if ((enemies[i].health >= 0 && enemies[i].health != 0) && ! (player.x != enemies[i].x) && ! (enemies[i].y != player.y)) {
+            player.health -= enemies[i].damage;
+            enemies[i].health = 0;  
+            printf("Collision! Player hit by %s. Player Health: %d\n", enemies[i].type, player.health);
+            if ((0 > player.health || 0 == player.health)) {
+                printf("Game Over! Player has been defeated.\n");
+                exit(0);
+            }
+        }
+    }
+}

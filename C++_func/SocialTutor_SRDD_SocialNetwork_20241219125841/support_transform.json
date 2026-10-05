@@ -1,0 +1,80 @@
+{
+    "searchBySubject.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "setAvailability.cpp": [],
+    "support_transform.json": [],
+    "getRole.cpp": [],
+    "cancelSession.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "main_style",
+        "output",
+        "input"
+    ],
+    "displaySession.cpp": [],
+    "User_1.cpp": [],
+    "User.cpp": [],
+    "hasSubject.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "displayProfile_1.cpp": [],
+    "updateSession.cpp": [
+        "output"
+    ],
+    "listUsers.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "manageMessages.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "listSessions.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "addUser.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "declare",
+        "output",
+        "input"
+    ],
+    "displayProfile.cpp": [
+        "output"
+    ],
+    "manageSessions.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output",
+        "input"
+    ]
+}

@@ -1,0 +1,51 @@
+{
+    "initExpenseManager.c": [],
+    "initReportGenerator.c": [],
+    "getExpensesByCategory.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "generateReport.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "addExpense.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "setBudget.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "initBudgetManager.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "generateVisualization.c": [],
+    "initRecommendationEngine.c": [],
+    "compareWithBudget.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "generateRecommendations.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "categorizeExpense.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ]
+}

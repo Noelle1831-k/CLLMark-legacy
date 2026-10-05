@@ -1,0 +1,43 @@
+{
+    "check_time_limit.py": [
+        "print_flush",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "shoot.py": [
+        "self_assignment",
+        "return_none"
+    ],
+    "draw.py": [],
+    "update.py": [],
+    "is_hit.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "__init__.py": [],
+    "draw_timer.py": [
+        "string_quota"
+    ],
+    "update_accuracy.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "handle_events.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "random_position.py": [
+        "return"
+    ],
+    "run.py": [],
+    "move.py": [
+        "list",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "update_high_scores.py": [
+        "list_index"
+    ]
+}

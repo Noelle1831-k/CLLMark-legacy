@@ -1,0 +1,52 @@
+{
+    "support_transform.json": [],
+    "extractFeatures.cpp": [],
+    "main.cpp": [
+        "main_style",
+        "declare",
+        "output"
+    ],
+    "extractInstrumentation.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "displayResults.cpp": [],
+    "predictGenre.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "extractRhythm.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getUserInput.cpp": [
+        "output",
+        "input"
+    ],
+    "calculateDistance.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "extractMelody.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "loadAudioFile.cpp": [],
+    "loadPretrainedModel.cpp": [
+        "while_to_for"
+    ],
+    "calculateConfidence.cpp": []
+}

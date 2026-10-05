@@ -1,0 +1,42 @@
+{
+    "plot_histogram.py": [
+        "print_flush",
+        "print_end",
+        "list_index",
+        "string_quota",
+        "f_string"
+    ],
+    "validate_variable.py": [],
+    "import_data.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "generate_frequency_table.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "validate_file_path.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

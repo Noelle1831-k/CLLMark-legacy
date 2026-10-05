@@ -1,0 +1,38 @@
+{
+    "loadUsers.cpp": [],
+    "getRecommendations.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "getTitle.cpp": [],
+    "getHistory.cpp": [],
+    "loadMovies.cpp": [],
+    "main.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "getRating.cpp": [],
+    "getGenre.cpp": [],
+    "getUser.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getPreferences.cpp": [],
+    "getMovies.cpp": [],
+    "getUserId.cpp": []
+}

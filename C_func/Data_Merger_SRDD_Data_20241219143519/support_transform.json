@@ -1,0 +1,45 @@
+{
+    "merge_horizontally.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "load_file.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "declare",
+        "while_to_for"
+    ],
+    "save_file.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "support_transform.json": [],
+    "display_menu.c": [],
+    "merge_vertically.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "main.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "array_init",
+        "declare"
+    ],
+    "handle_user_input.c": []
+}

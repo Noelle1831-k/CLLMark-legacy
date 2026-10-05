@@ -1,0 +1,34 @@
+{
+    "decryptPassword.c": [
+        "array_init"
+    ],
+    "scanForMalware.c": [],
+    "trackUserActivity.c": [],
+    "removeMalware.c": [],
+    "detectBehavioralAnomalies.c": [],
+    "analyzeTraffic.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init",
+        "declare",
+        "for_OOO"
+    ],
+    "detectAnomalies.c": [],
+    "initializeComponents.c": [],
+    "encryptPassword.c": [
+        "array_init"
+    ],
+    "runSecurityChecks.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "initializeFirewall.c": [],
+    "detectThreats.c": [],
+    "identifyThreats.c": [],
+    "alertUser.c": [],
+    "blockUnauthorizedAccess.c": [],
+    "monitorLogs.c": [
+        "array_init",
+        "while_to_for"
+    ]
+}

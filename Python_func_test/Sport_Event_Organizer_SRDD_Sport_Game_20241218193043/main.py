@@ -1,0 +1,12 @@
+def main():
+    event_manager = EventManager()
+    team_manager = TeamManager()
+    referee_manager = RefereeManager()
+    report_generator = ReportGenerator()
+    event_manager.input_event_details()
+    team_manager.assign_teams()
+    referee_manager.assign_referees()
+    event_manager.generate_schedule()
+    event_manager.update_game_progress()
+    team_manager.manage_roster()
+    report_generator.generate_event_report()

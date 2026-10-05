@@ -1,0 +1,3 @@
+string getTranslation() {
+        return translation;
+    }

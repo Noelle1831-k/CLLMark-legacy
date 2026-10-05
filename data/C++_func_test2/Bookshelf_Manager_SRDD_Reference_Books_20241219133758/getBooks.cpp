@@ -1,0 +1,1 @@
+vector<Book> Shelf::getBooks() const { return books; }

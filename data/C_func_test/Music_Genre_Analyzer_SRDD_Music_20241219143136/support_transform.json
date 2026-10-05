@@ -1,0 +1,27 @@
+{
+    "classifyGenre.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "normalizeData.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "readFile.c": [],
+    "processAudioFile.c": [],
+    "extractInstrumentation.c": [],
+    "main.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "array_init",
+        "array_access",
+        "declare"
+    ],
+    "extractMelody.c": [],
+    "extractRhythm.c": []
+}

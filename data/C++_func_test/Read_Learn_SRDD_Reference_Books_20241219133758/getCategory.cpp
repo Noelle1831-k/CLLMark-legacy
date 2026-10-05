@@ -1,0 +1,1 @@
+string getCategory() { return category; }

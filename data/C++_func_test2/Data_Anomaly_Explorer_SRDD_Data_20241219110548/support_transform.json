@@ -1,0 +1,31 @@
+{
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "importData.cpp": [
+        "while_to_for"
+    ],
+    "applyMachineLearningMethods.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "plotScatter.cpp": [
+        "output"
+    ],
+    "plotHistogram.cpp": [
+        "output"
+    ],
+    "getUserInput.cpp": [],
+    "detectAnomalies.cpp": [],
+    "applyStatisticalMethods.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "declare"
+    ],
+    "plotLineGraph.cpp": [
+        "output"
+    ]
+}

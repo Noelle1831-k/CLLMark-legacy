@@ -1,0 +1,1 @@
+double getTotalIncome() const { return totalIncome; }

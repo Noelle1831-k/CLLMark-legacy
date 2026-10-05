@@ -1,0 +1,32 @@
+{
+    "addEvent.cpp": [],
+    "getTitle.cpp": [],
+    "support_transform.json": [],
+    "displayEventDetails.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "main.cpp": [
+        "main_style",
+        "declare"
+    ],
+    "joinEvent.cpp": [],
+    "getName.cpp": [],
+    "sendMessage.cpp": [],
+    "displayEvents.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "displayJoinedEvents.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

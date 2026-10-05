@@ -1,0 +1,37 @@
+{
+    "support_transform.json": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "analyze.py": [
+        "init_list",
+        "list"
+    ],
+    "check.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "load_code.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_report.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ]
+}

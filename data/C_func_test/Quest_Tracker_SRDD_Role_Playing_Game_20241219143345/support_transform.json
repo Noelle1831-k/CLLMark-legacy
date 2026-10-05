@@ -1,0 +1,71 @@
+{
+    "filterQuestsByCategory.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "listQuests.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "markQuestComplete.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "updateQuest.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "displayQuest.c": [],
+    "updateQuestDetails.c": [],
+    "initializeReminderSystem.c": [],
+    "filterQuestsByTags.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "array_init",
+        "array_access",
+        "declare"
+    ],
+    "checkReminders.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "initializeQuestManager.c": [],
+    "displayMenu.c": [],
+    "addQuest.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "createQuest.c": [],
+    "addReminder.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ]
+}

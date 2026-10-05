@@ -1,0 +1,52 @@
+{
+    "addEntry.cpp": [],
+    "isWord.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "support_transform.json": [],
+    "findWord.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "level.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "isValidWord.cpp": [],
+    "startGame.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "output",
+        "input"
+    ],
+    "addScore.cpp": [
+        "self_assignment"
+    ],
+    "loadWords.cpp": [
+        "while_to_for"
+    ],
+    "generateGrid.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "startTimer.cpp": [],
+    "getElapsedTime.cpp": [],
+    "stopTimer.cpp": [],
+    "getTopScores.cpp": [],
+    "nextLevel.cpp": [
+        "update_reverse"
+    ],
+    "updateLeaderboard.cpp": [],
+    "getScore.cpp": [],
+    "displayLeaderboard.cpp": []
+}

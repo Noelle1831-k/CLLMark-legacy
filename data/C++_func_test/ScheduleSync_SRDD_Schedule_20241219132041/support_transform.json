@@ -1,0 +1,58 @@
+{
+    "updateProgress.cpp": [],
+    "notifyUser.cpp": [
+        "output"
+    ],
+    "setReminder.cpp": [],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "getProgress.cpp": [],
+    "main.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "declare",
+        "output",
+        "input"
+    ],
+    "addTask.cpp": [],
+    "displaySchedule.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "output"
+    ],
+    "getName.cpp": [],
+    "getTasks.cpp": [],
+    "displayTask.cpp": [],
+    "removeTask.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "output"
+    ],
+    "isCompleted.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "displayReport.cpp": [
+        "output"
+    ],
+    "syncSchedule.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "generateReport.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ]
+}

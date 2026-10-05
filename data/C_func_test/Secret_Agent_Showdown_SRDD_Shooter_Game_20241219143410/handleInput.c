@@ -1,0 +1,2 @@
+void handleInput(Player *player) {
+}

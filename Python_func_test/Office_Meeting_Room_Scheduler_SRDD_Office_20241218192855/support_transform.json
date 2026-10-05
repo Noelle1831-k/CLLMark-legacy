@@ -1,0 +1,51 @@
+{
+    "validate_time.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "start.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "validate_date.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_available_rooms.py": [],
+    "list_available_rooms.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "is_time_slot_available.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "get_room.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "__init__.py": [],
+    "release_room.py": [
+        "string_quota"
+    ],
+    "main.py": [],
+    "__str__.py": [
+        "string_quota"
+    ],
+    "view_room_schedule.py": [
+        "string_quota"
+    ],
+    "book_room.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

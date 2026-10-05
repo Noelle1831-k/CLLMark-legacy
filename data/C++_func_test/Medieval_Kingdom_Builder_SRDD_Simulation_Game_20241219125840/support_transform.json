@@ -1,0 +1,60 @@
+{
+    "buildStructure.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "upgrade_2.cpp": [
+        "output"
+    ],
+    "allocateResources.cpp": [
+        "output"
+    ],
+    "build_2.cpp": [
+        "output"
+    ],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "build.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "main_style",
+        "output",
+        "input"
+    ],
+    "upgrade_1.cpp": [
+        "output"
+    ],
+    "gatherResources.cpp": [
+        "output"
+    ],
+    "displayStatus.cpp": [
+        "output"
+    ],
+    "upgrade.cpp": [
+        "output"
+    ],
+    "build_1.cpp": [
+        "output"
+    ],
+    "planAttack.cpp": [
+        "output"
+    ],
+    "negotiate.cpp": [
+        "output"
+    ],
+    "defend.cpp": [
+        "output"
+    ],
+    "manageResources.cpp": [
+        "self_assignment",
+        "output"
+    ],
+    "upgradeStructure.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

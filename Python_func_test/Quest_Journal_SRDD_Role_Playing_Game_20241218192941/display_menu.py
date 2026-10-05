@@ -1,0 +1,10 @@
+def display_menu(self):
+        print("\nRole-Playing Game Quest Tracker")
+        print("1. Add Quest")
+        print("2. List Quests")
+        print("3. View Quest Details")
+        print("4. Delete Quest")
+        print("5. Set Categories or Tags")
+        print("6. Add Reminder")
+        print("7. Check Reminders")
+        print("8. Exit")

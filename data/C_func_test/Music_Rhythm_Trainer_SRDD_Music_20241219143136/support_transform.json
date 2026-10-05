@@ -1,0 +1,51 @@
+{
+    "clearInputBuffer.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "metronomeLoop.c": [
+        "while_to_for"
+    ],
+    "displayRhythmPattern.c": [],
+    "startMetronome.c": [],
+    "initializeMetronome.c": [],
+    "stopMetronome.c": [],
+    "sleep.c": [],
+    "main.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "main_style",
+        "array_init",
+        "declare"
+    ],
+    "setDifficultyLevel.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "trackProgress.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "displayMenu.c": [],
+    "loadRhythmPatterns.c": [
+        "array_access"
+    ],
+    "provideFeedback.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "getDifficultyLevel.c": [],
+    "clearScreen.c": [],
+    "selectRhythmPattern.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ]
+}

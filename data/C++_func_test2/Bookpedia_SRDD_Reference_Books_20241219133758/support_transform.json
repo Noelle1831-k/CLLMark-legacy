@@ -1,0 +1,54 @@
+{
+    "displayDetails.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "getAuthor.cpp": [],
+    "getTitle.cpp": [],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "getCategory.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "searchBook.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getRating.cpp": [],
+    "addBook.cpp": [],
+    "getReadingProgress.cpp": [],
+    "displayAllBooks.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "run.cpp": [],
+    "fetchBookDetails.cpp": [],
+    "getISBN.cpp": [],
+    "removeBook.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "generateRecommendations.cpp": [
+        "output"
+    ],
+    "getTags.cpp": [],
+    "handleUserInput.cpp": [
+        "output",
+        "input"
+    ]
+}

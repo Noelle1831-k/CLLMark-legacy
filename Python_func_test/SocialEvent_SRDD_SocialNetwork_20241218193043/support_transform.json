@@ -1,0 +1,35 @@
+{
+    "create_profile.py": [
+        "init_list",
+        "string_quota",
+        "f_string"
+    ],
+    "share_photo.py": [],
+    "start_discussion.py": [],
+    "rsvp.py": [],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "create_event.py": [],
+    "add_message.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__str__.py": [
+        "string_quota"
+    ],
+    "create_user.py": [],
+    "run.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "join_event.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

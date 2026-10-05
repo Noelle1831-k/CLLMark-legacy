@@ -1,0 +1,76 @@
+{
+    "initializeGame.c": [],
+    "applyEffect.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "renderGame.c": [],
+    "updateGame.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "increaseDifficulty.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "checkCollisions.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "attack.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "detectCollision.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "expireEffect.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "shoot.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "main.c": [
+        "main_style",
+        "while_to_for"
+    ],
+    "applyPowerUp.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "moveSpaceship.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "moveAlien.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "takeDamage.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "randomInt.c": []
+}

@@ -1,0 +1,30 @@
+{
+    "is_available.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "assign_task.py": [
+        "self_assignment"
+    ],
+    "generate_detailed_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "main.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "__str__.py": [
+        "string_quota"
+    ],
+    "update_progress.py": [],
+    "find_best_fit.py": [
+        "reverse_compare",
+        "exp_cmp",
+        "return_none"
+    ]
+}

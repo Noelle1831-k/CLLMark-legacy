@@ -1,0 +1,84 @@
+{
+    "neutralize_virus.py": [
+        "print_flush",
+        "string_quota",
+        "f_string"
+    ],
+    "log.py": [],
+    "encrypt_data.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "detect_threats.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "retrieve_password.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "neutralize_malware.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "stop_scanning.py": [],
+    "scan.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "neutralize_threat.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "store_password.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "stop.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "decrypt_data.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "delete_password.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "filter_content.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ]
+}

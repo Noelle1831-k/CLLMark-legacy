@@ -1,0 +1,45 @@
+{
+    "setReminder.c": [],
+    "createTask.c": [],
+    "markComplete.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "checkReminders.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "for_OOO"
+    ],
+    "updateTask.c": [],
+    "displayMenu.c": [],
+    "deleteTask.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "addTask.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "initializeTaskManager.c": [],
+    "displayTask.c": [],
+    "searchTask.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "displayAllTasks.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

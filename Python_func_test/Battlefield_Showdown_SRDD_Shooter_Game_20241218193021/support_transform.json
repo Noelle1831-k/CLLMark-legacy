@@ -1,0 +1,212 @@
+{
+    "deactivate_2.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "update_objectives.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "__repr___1.py": [
+        "string_quota"
+    ],
+    "__init__8.py": [],
+    "update_weather.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "deactivate0.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "activate_1.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "__init__2.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__5.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "capture.py": [],
+    "__init___3.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "deactivate.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "__repr__0.py": [
+        "string_quota"
+    ],
+    "activate_2.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "take_damage.py": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "update.py": [],
+    "__init___1.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "activate6.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "activate1.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "__init__0.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "upgrade.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "connect_players.py": [],
+    "get_state.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "activate.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "__repr__3.py": [
+        "string_quota"
+    ],
+    "__repr__.py": [
+        "string_quota"
+    ],
+    "__repr___2.py": [
+        "string_quota"
+    ],
+    "deactivate7.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "use_ability.py": [],
+    "deactivate4.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "__init__.py": [
+        "list"
+    ],
+    "status.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "fire.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "control_npc.py": [],
+    "__repr__1.py": [
+        "string_quota"
+    ],
+    "__init___4.py": [],
+    "complete_reload.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "die.py": [],
+    "disconnect_players.py": [],
+    "activate0.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "update_obstacles.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "activate_3.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "generate_obstacles.py": [
+        "init_list",
+        "list",
+        "range_index"
+    ],
+    "calculate_hit.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "attack.py": [],
+    "__init___2.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "move.py": [],
+    "activate3.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "deactivate_1.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "generate_objectives.py": [
+        "init_list",
+        "list",
+        "range_index",
+        "string_quota",
+        "f_string"
+    ],
+    "reload.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ]
+}

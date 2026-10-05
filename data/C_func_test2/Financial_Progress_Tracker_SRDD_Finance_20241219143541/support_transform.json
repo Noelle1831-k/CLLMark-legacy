@@ -1,0 +1,56 @@
+{
+    "saveUserData.c": [],
+    "addGoal.c": [
+        "update_reverse"
+    ],
+    "initializeApplication.c": [],
+    "exitApplication.c": [],
+    "handleViewProgress.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "handleNotifications.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "handleSetMilestone.c": [
+        "array_init"
+    ],
+    "loadUserData.c": [],
+    "displayProgressBar.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "calculateProgress.c": [],
+    "displayTimeline.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "updateGoalProgress.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "displayMainMenu.c": [],
+    "handleSetGoal.c": [
+        "array_init"
+    ]
+}

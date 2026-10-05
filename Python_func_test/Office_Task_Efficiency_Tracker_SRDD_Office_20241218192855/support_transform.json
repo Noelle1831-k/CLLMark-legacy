@@ -1,0 +1,69 @@
+{
+    "format_time_spent.py": [
+        "string_quota"
+    ],
+    "load_tasks.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "update_task.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "add_task.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_time_allocation_chart.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_task_by_id.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "view_tasks.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "delete_task.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "save_tasks.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_all_tasks.py": [],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "mark_complete.py": [],
+    "run.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "add_time.py": [
+        "self_assignment"
+    ],
+    "generate_report.py": [],
+    "calculate_days_until_deadline.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

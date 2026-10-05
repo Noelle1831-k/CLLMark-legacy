@@ -1,0 +1,134 @@
+{
+    "conduct_warfare.py": [],
+    "__init__2.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "display_army_strength.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "__init___3.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "process_turn.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "negotiate.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "display_status.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "conduct_diplomacy.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__1.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init___1.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "allocate_resources.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "__init__0.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "upgrade.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "display_alliances.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "defend.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "manage_resources.py": [],
+    "check_resources.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "display_resources.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "start_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "build.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "attack.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "__init___2.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "upgrade_structure.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "add_structure.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "form_alliance.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ]
+}

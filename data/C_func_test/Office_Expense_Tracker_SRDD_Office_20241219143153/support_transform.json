@@ -1,0 +1,58 @@
+{
+    "clearInputBuffer.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "cleanupCategories.c": [],
+    "resizeCategories.c": [
+        "self_assignment"
+    ],
+    "initializeSystem.c": [],
+    "generateReport.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "analyzeExpenditure.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "initializeCategories.c": [],
+    "setBudget.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "initializeExpenses.c": [],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "resizeExpenses.c": [
+        "self_assignment"
+    ],
+    "inputExpense.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "cleanupSystem.c": [],
+    "cleanupExpenses.c": [],
+    "categorizeExpense.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "declare",
+        "for_OOO"
+    ]
+}

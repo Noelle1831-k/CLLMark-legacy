@@ -1,0 +1,46 @@
+{
+    "getCorrectAnswer.c": [],
+    "viewProgress.c": [],
+    "support_transform.json": [],
+    "generateRandomNumber.c": [],
+    "generateMeaningQuestion.c": [
+        "array_init"
+    ],
+    "generateSynonymQuestion.c": [
+        "array_init"
+    ],
+    "selectWord.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "stringToLower.c": [
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "generateQuestion.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "createUser.c": [],
+    "generateAntonymQuestion.c": [
+        "array_init"
+    ],
+    "initializeDatabase.c": [],
+    "updateScore.c": [
+        "self_assignment"
+    ],
+    "checkAnswer.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "startQuiz.c": [
+        "array_init",
+        "declare"
+    ]
+}

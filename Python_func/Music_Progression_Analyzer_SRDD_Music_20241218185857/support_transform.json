@@ -1,0 +1,94 @@
+{
+    "generate_chord_chart.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "parse_chord.py": [],
+    "analyze_harmonic_structure.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "range_index",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "extract_chords.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_intervals.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "range_index",
+        "string_quota"
+    ],
+    "display_harmonic_insights.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "visualize_harmonic_patterns.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "get_manual_input.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "identify_chords.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota"
+    ],
+    "load_midi.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "return_none"
+    ],
+    "_identify_single_chord.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "validate_input.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ]
+}

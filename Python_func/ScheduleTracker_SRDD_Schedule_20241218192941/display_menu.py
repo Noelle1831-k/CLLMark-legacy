@@ -1,0 +1,10 @@
+def display_menu(self):
+        print("\n--- ScheduleTracker Menu ---")
+        print("1. Add Task")
+        print("2. Remove Task")
+        print("3. Update Task")
+        print("4. Set Reminder")
+        print("5. View Daily Schedule")
+        print("6. Generate Productivity Report")
+        print("7. Exit")
+        print("----------------------------")

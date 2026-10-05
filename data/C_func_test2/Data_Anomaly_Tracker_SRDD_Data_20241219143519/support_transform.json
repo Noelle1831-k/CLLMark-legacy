@@ -1,0 +1,42 @@
+{
+    "setupAlerts.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "importDataset.c": [
+        "array_init",
+        "array_access",
+        "while_to_for"
+    ],
+    "freeAnomalies.c": [],
+    "generateReport.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "detectAnomalies.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "main.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "array_init"
+    ],
+    "freeDataset.c": [],
+    "generateVisualizations.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

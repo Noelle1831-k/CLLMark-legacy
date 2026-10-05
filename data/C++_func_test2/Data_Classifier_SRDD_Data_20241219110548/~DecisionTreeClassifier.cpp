@@ -1,0 +1,3 @@
+DecisionTreeClassifier::~DecisionTreeClassifier() {
+    deleteTree(root);
+}

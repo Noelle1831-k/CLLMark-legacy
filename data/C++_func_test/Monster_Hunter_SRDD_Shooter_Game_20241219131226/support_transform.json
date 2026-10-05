@@ -1,0 +1,63 @@
+{
+    "attack.cpp": [],
+    "start.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "while_to_for",
+        "output"
+    ],
+    "addItem.cpp": [],
+    "customize.cpp": [
+        "output"
+    ],
+    "explore.cpp": [
+        "output"
+    ],
+    "move.cpp": [
+        "output"
+    ],
+    "unlockArea.cpp": [
+        "update_reverse"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "craft.cpp": [],
+    "equip.cpp": [
+        "output"
+    ],
+    "isDefeated.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "update.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "takeDamage.cpp": [
+        "self_assignment"
+    ],
+    "upgrade.cpp": [
+        "self_assignment"
+    ],
+    "removeItem.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "spawn.cpp": [],
+    "handleInput.cpp": [
+        "output",
+        "input"
+    ],
+    "render.cpp": [
+        "output"
+    ],
+    "isAlive.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ]
+}

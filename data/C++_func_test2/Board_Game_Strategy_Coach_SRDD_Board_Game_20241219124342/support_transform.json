@@ -1,0 +1,39 @@
+{
+    "getPlayerPositions.cpp": [],
+    "explainRecommendations.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "displayBoard.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "main_style",
+        "declare"
+    ],
+    "getResources.cpp": [],
+    "evaluateOptions.cpp": [
+        "output"
+    ],
+    "getObjectives.cpp": [],
+    "calculateOptimalMove.cpp": [
+        "output"
+    ],
+    "highlightMove.cpp": [],
+    "showExplanation.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "updateState.cpp": [
+        "output"
+    ],
+    "generateRecommendations.cpp": [
+        "output"
+    ]
+}

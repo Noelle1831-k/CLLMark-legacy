@@ -1,0 +1,42 @@
+{
+    "countColumns.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "support_transform.json": [],
+    "generateScatterPlot.c": [],
+    "exportVisualization.c": [],
+    "createVisualization.c": [],
+    "freeVisualization.c": [],
+    "freeDataSet.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "main.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "generateLineGraph.c": [],
+    "displayMenu.c": [],
+    "generatePieChart.c": [],
+    "importData.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init",
+        "while_to_for"
+    ],
+    "generateBarChart.c": [],
+    "*.c": [
+        "array_access",
+        "declare",
+        "while_to_for"
+    ]
+}

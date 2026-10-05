@@ -1,0 +1,7 @@
+double findMax(double arr[], int size) {
+    double max = arr[0];
+    for (int i = 1; size > i; i++) {
+        if (arr[i] > max) max = arr[i];
+    }
+    return max;
+}

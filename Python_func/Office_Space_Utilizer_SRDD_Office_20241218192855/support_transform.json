@@ -1,0 +1,96 @@
+{
+    "_identify_peak_hours.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "_preprocess.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "load_data.py": [],
+    "_suggest_based_on_average.py": [
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "analyze.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "_load_source.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "_calculate_occupancy_variance.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "_suggest_based_on_variance.py": [
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "plot_distribution.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "plot_trend.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "_calculate_average_occupancy.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "plot_heatmap.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "_suggest_based_on_trends.py": [
+        "string_quota"
+    ],
+    "_suggest_based_on_peak_hours.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [],
+    "_advanced_visualizations.py": [],
+    "optimize.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "_identify_occupancy_trends.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "_show_insights.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "_show_suggestions.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "_plot_occupancy.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "display.py": []
+}

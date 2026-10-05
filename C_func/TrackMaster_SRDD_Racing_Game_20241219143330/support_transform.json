@@ -1,0 +1,45 @@
+{
+    "initializeGame.c": [],
+    "support_transform.json": [],
+    "getRandomNumber.c": [],
+    "loadTrack.c": [
+        "array_init"
+    ],
+    "main.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style"
+    ],
+    "loadResources.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "displayMenu.c": [],
+    "exitGame.c": [],
+    "challengeFriends.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "raceAgainstAI.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare"
+    ],
+    "connectToServer.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "updatePlayerStats.c": [
+        "declare"
+    ],
+    "getUserChoice.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "array_init"
+    ],
+    "createTrack.c": [
+        "declare"
+    ]
+}

@@ -1,0 +1,1 @@
+double getTotalExpenses() const { return totalExpenses; }

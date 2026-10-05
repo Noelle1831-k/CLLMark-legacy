@@ -1,0 +1,50 @@
+{
+    "filter_destinations.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "set_budget.py": [],
+    "set_transportation_mode.py": [],
+    "sort_destinations.py": [],
+    "add_interest.py": [],
+    "load_user_preferences.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_itinerary.py": [
+        "init_list",
+        "list"
+    ],
+    "calculate_affinity.py": [
+        "self_assignment"
+    ],
+    "calculate_total_cost.py": [],
+    "load_destinations.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "set_accommodation_type.py": [],
+    "get_info.py": [
+        "string_quota"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "add_activity.py": [],
+    "add_destination.py": [
+        "self_assignment"
+    ],
+    "set_travel_dates.py": [],
+    "plan_itinerary.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

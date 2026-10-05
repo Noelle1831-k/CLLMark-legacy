@@ -1,0 +1,13 @@
+tqdm~=4.67.1
+tree-sitter==0.20.2
+inflection~=0.5.1
+graphviz
+numpy~=1.24.3
+mxeval~=1.0
+fire~=0.7.0
+setuptools~=75.1.0
+python~=3.9.21
+jsonlines~=2.0.0
+openai~=1.55.3
+astor~=0.8.1
+chardet~=5.2.0

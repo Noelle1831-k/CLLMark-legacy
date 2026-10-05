@@ -1,0 +1,42 @@
+{
+    "renderMapVisual.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "createMap.c": [],
+    "runApp.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "while_to_for"
+    ],
+    "freeMemory.c": [],
+    "initializeApp.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "support_transform.json": [],
+    "loadTileset.c": [],
+    "initializeUI.c": [],
+    "handleInput.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "addCorridor.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "addRoom.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "logError.c": [],
+    "cleanupApp.c": [],
+    "allocateMemory.c": [],
+    "getTile.c": [],
+    "updateUI.c": []
+}

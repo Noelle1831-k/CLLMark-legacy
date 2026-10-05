@@ -1,0 +1,41 @@
+{
+    "support_transform.json": [],
+    "generate_happy_progression.c": [],
+    "generate_sad_progression.c": [],
+    "validate_mood.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "main.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "array_init",
+        "declare"
+    ],
+    "generate_jazz_progression.c": [],
+    "validate_key.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "generate_chord_progression.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "save_chord_progression.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

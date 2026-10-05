@@ -1,0 +1,87 @@
+{
+    "plot_histogram.py": [
+        "print_flush",
+        "string_quota",
+        "f_string"
+    ],
+    "moving_average.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "plot_line.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "read_excel.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "load_data.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "decision_tree.py": [
+        "print_flush",
+        "print_end",
+        "list_index",
+        "string_quota",
+        "f_string"
+    ],
+    "t_test.py": [
+        "print_flush",
+        "print_end",
+        "list_index",
+        "string_quota"
+    ],
+    "plot_scatter.py": [
+        "print_flush",
+        "print_end",
+        "list_index",
+        "string_quota",
+        "f_string"
+    ],
+    "linear_regression.py": [
+        "print_flush",
+        "print_end",
+        "list_index",
+        "string_quota",
+        "f_string"
+    ],
+    "chi_square_test.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "predictive_modeling.py": [],
+    "exponential_smoothing.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "trend_analysis.py": [],
+    "hypothesis_testing.py": [],
+    "visualize_data.py": [],
+    "analyze_data.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "return"
+    ],
+    "read_csv.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

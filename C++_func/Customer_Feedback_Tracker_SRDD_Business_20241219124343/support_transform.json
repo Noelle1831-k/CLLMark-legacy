@@ -1,0 +1,63 @@
+{
+    "distributeForm.cpp": [
+        "output"
+    ],
+    "displayDashboard.cpp": [
+        "output"
+    ],
+    "createForm.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "navigateOptions.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "readFile.cpp": [
+        "while_to_for",
+        "output"
+    ],
+    "support_transform.json": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "visualizeData.cpp": [
+        "output"
+    ],
+    "stringToUpper.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "analyzeData.cpp": [
+        "output"
+    ],
+    "generateInsights.cpp": [
+        "output"
+    ],
+    "writeFile.cpp": [],
+    "editForm.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output",
+        "input"
+    ],
+    "FeedbackForm.cpp": [],
+    "collectResponses.cpp": [
+        "output"
+    ],
+    "displayForm.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

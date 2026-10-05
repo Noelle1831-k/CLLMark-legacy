@@ -1,0 +1,37 @@
+{
+    "accelerate.py": [
+        "self_assignment"
+    ],
+    "get_obstacles.py": [],
+    "update.py": [],
+    "use_turbo.py": [
+        "self_assignment"
+    ],
+    "check_collisions.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "render.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "process_inputs.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "slow_down.py": [],
+    "decelerate.py": [],
+    "generate_obstacles.py": [
+        "range_index"
+    ],
+    "run.py": [],
+    "apply_turbo.py": [],
+    "move.py": [
+        "self_assignment"
+    ]
+}

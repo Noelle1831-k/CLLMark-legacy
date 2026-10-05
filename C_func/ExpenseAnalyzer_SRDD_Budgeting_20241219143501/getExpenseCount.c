@@ -1,0 +1,3 @@
+int getExpenseCount() {
+    return expenseCount;
+}

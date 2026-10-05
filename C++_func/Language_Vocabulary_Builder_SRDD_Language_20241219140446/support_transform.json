@@ -1,0 +1,40 @@
+{
+    "showProfile.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "support_transform.json": [],
+    "getLearnedWords.cpp": [],
+    "getTranslation.cpp": [],
+    "main.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "display.cpp": [],
+    "addWord.cpp": [],
+    "Quiz.cpp": [],
+    "generateQuestion.cpp": [
+        "update_reverse",
+        "output",
+        "input"
+    ],
+    "addLearnedWord.cpp": [],
+    "getWord.cpp": [],
+    "updateScore.cpp": [],
+    "getAllWords.cpp": [],
+    "checkAnswer.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "Word.cpp": [],
+    "UserProfile.cpp": [],
+    "trackProgress.cpp": [],
+    "showScore.cpp": [],
+    "getRandomWord.cpp": []
+}

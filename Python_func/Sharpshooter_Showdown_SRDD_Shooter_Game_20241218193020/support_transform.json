@@ -1,0 +1,82 @@
+{
+    "load_level.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "update_score.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "game_loop.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "reset_score.py": [],
+    "shoot.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "check_hit.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "end_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "start_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_shot_position.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "get_top_scores.py": [],
+    "get_targets.py": [
+        "range_index",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "unlock_item.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "update_leaderboard.py": [
+        "list_index"
+    ],
+    "move.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

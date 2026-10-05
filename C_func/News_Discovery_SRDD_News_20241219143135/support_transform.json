@@ -1,0 +1,39 @@
+{
+    "support_transform.json": [],
+    "search_articles.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "for_OOO"
+    ],
+    "free_news_sources.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "customize_preferences.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init"
+    ],
+    "initialize_news_sources.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "main.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "array_init"
+    ],
+    "display_main_menu.c": [],
+    "fetch_news_articles.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

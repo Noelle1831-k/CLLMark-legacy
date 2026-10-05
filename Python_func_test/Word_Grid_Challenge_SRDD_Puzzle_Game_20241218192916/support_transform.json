@@ -1,0 +1,58 @@
+{
+    "update_score.py": [
+        "self_assignment"
+    ],
+    "find_words.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "start.py": [],
+    "setup_players.py": [
+        "range_index",
+        "string_quota",
+        "f_string"
+    ],
+    "update.py": [],
+    "next_level.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "play_turn.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "play_levels.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "generate.py": [
+        "range_index"
+    ],
+    "__init__.py": [],
+    "stop.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "main.py": [],
+    "is_special_word.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_score.py": [
+        "self_assignment"
+    ],
+    "display.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

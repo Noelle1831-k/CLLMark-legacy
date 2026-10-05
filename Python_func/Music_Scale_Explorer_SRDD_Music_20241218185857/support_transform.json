@@ -1,0 +1,38 @@
+{
+    "get_theory.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "load_scales.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "play_scale.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "visualize_scale.py": [
+        "init_list",
+        "list",
+        "range_index",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "get_scale.py": [],
+    "run.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

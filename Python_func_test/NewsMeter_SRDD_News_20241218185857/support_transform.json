@@ -1,0 +1,46 @@
+{
+    "check_source_reliability.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "verify_evidence_support.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "evaluate_author_expertise.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "analyze.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "normalize_score.py": [],
+    "generate_explanation.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "load_articles.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_score.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "assess_content_quality.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ]
+}

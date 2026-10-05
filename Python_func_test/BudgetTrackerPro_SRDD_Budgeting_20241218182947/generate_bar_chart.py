@@ -1,0 +1,11 @@
+def generate_bar_chart(self, data):
+        labels = data.keys()
+        sizes = data.values()
+        plt.figure(figsize=(10, 6))
+        plt.bar(labels, sizes, color='skyblue', edgecolor='black')
+        plt.xlabel('Categories')
+        plt.ylabel('Amount')
+        plt.title('Budget Breakdown - Bar Chart')
+        plt.xticks(rotation=45, ha='right')
+        plt.tight_layout()
+        plt.show()

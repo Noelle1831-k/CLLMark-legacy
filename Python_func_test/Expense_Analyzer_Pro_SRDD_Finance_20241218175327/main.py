@@ -1,0 +1,20 @@
+def main():
+    expense_manager = ExpenseManager()
+    forecasting_engine = ForecastingEngine()
+    recommendation_engine = RecommendationEngine()
+    report_generator = ReportGenerator()
+    visualization_tool = VisualizationTool()
+    budget_manager = BudgetManager()
+    # Example usage
+    expense_manager.add_expense('groceries', 150)
+    expense_manager.add_expense('transportation', 50)
+    expense_manager.add_expense('utilities', 100)
+    forecast = forecasting_engine.forecast_expenses(expense_manager.get_total_expenses())
+    recommendations = recommendation_engine.generate_recommendations(expense_manager.get_expenses_by_category())
+    report = report_generator.generate_report(expense_manager.get_expenses_by_category())
+    budget_comparison = budget_manager.get_budget_comparison(expense_manager.get_expenses_by_category())  # Pass expenses by category
+    visualization_tool.plot_expense_distribution(expense_manager.get_expenses_by_category())
+    print("Forecast:", forecast)
+    print("Recommendations:", recommendations)
+    print("Report:", report)
+    print("Budget Comparison:", budget_comparison)

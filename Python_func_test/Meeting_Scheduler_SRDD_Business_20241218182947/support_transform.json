@@ -1,0 +1,39 @@
+{
+    "remove_meeting.py": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "is_available.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "add_meeting.py": [],
+    "parse_time.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_duration.py": [],
+    "__repr__.py": [
+        "string_quota"
+    ],
+    "generate_meeting_id.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "find_available_slots.py": [
+        "init_list",
+        "list",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "overlaps.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "list_meetings.py": [],
+    "format_time.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

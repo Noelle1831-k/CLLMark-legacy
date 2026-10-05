@@ -1,0 +1,1 @@
+double getBudgetGoal() const { return budgetGoal; }

@@ -1,0 +1,125 @@
+{
+    "read_file.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "return_none"
+    ],
+    "load_files.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "sync_with_vcs.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "add_task.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "start.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "load_comments.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "add_user.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "commit_changes.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "authenticate_user.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "resolve_conflict.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "__init__.py": [],
+    "write_file.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "hash_password.py": [],
+    "view_comments.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota"
+    ],
+    "sync_changes.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "update_progress.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "load_projects.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "update_session.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "initialize_collaboration.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "remove_user.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "pull_changes.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "add_comment.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota"
+    ],
+    "verify_credentials.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

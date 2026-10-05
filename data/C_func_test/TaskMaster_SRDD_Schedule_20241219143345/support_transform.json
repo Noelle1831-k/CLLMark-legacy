@@ -1,0 +1,37 @@
+{
+    "set_reminder.c": [],
+    "track_progress.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "set_time_slot.c": [],
+    "add_task_to_schedule.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "init_schedule.c": [],
+    "display_schedule.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style",
+        "declare"
+    ],
+    "send_notification.c": [],
+    "add_task.c": [],
+    "free_schedule.c": [],
+    "set_priority.c": [],
+    "generate_report.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ]
+}

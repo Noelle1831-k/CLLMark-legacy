@@ -1,0 +1,30 @@
+{
+    "recommend_budget.py": [],
+    "remove_expense.py": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "get_total_expenses.py": [],
+    "add_expense.py": [
+        "self_assignment"
+    ],
+    "get_amount.py": [],
+    "analyze_expenses.py": [],
+    "__init__.py": [],
+    "get_income.py": [],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_savings.py": [],
+    "generate_report.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "get_financial_goals.py": [],
+    "update_amount.py": []
+}

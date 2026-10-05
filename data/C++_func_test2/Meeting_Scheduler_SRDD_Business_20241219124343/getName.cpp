@@ -1,0 +1,1 @@
+string Participant::getName() const { return name; }

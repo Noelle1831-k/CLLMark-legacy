@@ -1,0 +1,67 @@
+{
+    "delete_shared_file.py": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "add_user.py": [],
+    "__hash__.py": [],
+    "_generate_chat_id.py": [
+        "string_quota"
+    ],
+    "__repr__.py": [
+        "string_quota"
+    ],
+    "__init__.py": [],
+    "initiate_chat.py": [
+        "init_list",
+        "list"
+    ],
+    "delete_chat_history.py": [],
+    "update_user.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "add_connection.py": [
+        "init_list",
+        "list"
+    ],
+    "get_chat_history.py": [
+        "init_list",
+        "list"
+    ],
+    "get_shared_files.py": [
+        "init_list",
+        "list"
+    ],
+    "get_connections.py": [
+        "init_list",
+        "list"
+    ],
+    "search_users.py": [
+        "init_list",
+        "list",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "share_file.py": [
+        "init_list",
+        "list"
+    ],
+    "__eq__.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "remove_connection.py": [
+        "init_list",
+        "list"
+    ]
+}

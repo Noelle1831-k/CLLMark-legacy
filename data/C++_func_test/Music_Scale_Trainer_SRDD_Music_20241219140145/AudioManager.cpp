@@ -1,0 +1,3 @@
+AudioManager::AudioManager() {
+    loadAudioFiles();
+}

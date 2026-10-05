@@ -1,0 +1,46 @@
+{
+    "processTurn.cpp": [],
+    "support_transform.json": [],
+    "updateBalance.cpp": [
+        "self_assignment"
+    ],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "randomNumber.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "displayMarketTrends.cpp": [],
+    "startGame.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "displayStatus.cpp": [],
+    "endGame.cpp": [
+        "output"
+    ],
+    "analyzeTrends.cpp": [],
+    "cutCosts.cpp": [],
+    "diversifyInvestment.cpp": [
+        "output"
+    ],
+    "addRevenue.cpp": [
+        "self_assignment"
+    ],
+    "forecastGrowth.cpp": [
+        "output"
+    ],
+    "trend.cpp": [],
+    "makeInvestment.cpp": [],
+    "addExpense.cpp": [
+        "self_assignment"
+    ],
+    "getMarketImpact.cpp": [],
+    "addInvestment.cpp": [
+        "self_assignment"
+    ]
+}

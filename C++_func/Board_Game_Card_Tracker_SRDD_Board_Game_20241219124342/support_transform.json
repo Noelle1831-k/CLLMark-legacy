@@ -1,0 +1,75 @@
+{
+    "listCards.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "getCards.cpp": [],
+    "getAssociatedCards.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "updateQuantity.cpp": [],
+    "addTag.cpp": [],
+    "addCard_1.cpp": [],
+    "support_transform.json": [],
+    "addFolder.cpp": [],
+    "printDetails.cpp": [],
+    "main.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "getQuantity.cpp": [],
+    "searchCard.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "getCondition.cpp": [],
+    "listAllFolders.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "getName.cpp": [],
+    "removeCard.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "getName_1.cpp": [],
+    "addCardToFolder.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "listAllTags.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "addCard.cpp": [],
+    "getName_2.cpp": []
+}

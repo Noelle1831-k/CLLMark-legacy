@@ -1,0 +1,34 @@
+{
+    "perform_activity.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "display_pet_stats.c": [],
+    "create_pet.c": [],
+    "compete_in_tournament.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "rest_pet.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "display_menu.c": [],
+    "init_tournament.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "start_game.c": [],
+    "init_activity.c": [],
+    "end_game.c": [],
+    "feed_pet.c": [
+        "self_assignment"
+    ],
+    "train_pet.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ]
+}

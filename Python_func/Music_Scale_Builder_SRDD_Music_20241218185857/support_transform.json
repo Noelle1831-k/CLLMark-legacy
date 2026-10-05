@@ -1,0 +1,69 @@
+{
+    "explain_scale.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "get_frequency.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "play_scale.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment",
+        "return_none"
+    ],
+    "list_common_scales.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "remove_pitch.py": [],
+    "visualize_scale.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "range_index",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "set_root.py": [],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "get_semitones.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "add_pitch.py": [],
+    "main.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "adjust_octave_range.py": [],
+    "modify_intervals.py": [],
+    "get_notes.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ]
+}

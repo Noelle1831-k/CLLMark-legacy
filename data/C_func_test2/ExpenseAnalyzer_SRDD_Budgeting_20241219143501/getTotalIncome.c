@@ -1,0 +1,3 @@
+double getTotalIncome() {
+    return totalIncome;
+}

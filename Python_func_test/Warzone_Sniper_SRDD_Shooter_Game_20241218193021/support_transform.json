@@ -1,0 +1,57 @@
+{
+    "calculate_ballistics.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "return"
+    ],
+    "shoot.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "update.py": [],
+    "support.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "__init__.py": [],
+    "render.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "is_target_hit.py": [],
+    "adjust_scope.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": [],
+    "gather_info.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "move.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "update_conditions.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ]
+}

@@ -1,0 +1,3 @@
+int getTargetsHit() {
+    return targetsHit;
+}

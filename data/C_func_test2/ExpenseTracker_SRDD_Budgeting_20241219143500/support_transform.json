@@ -1,0 +1,46 @@
+{
+    "listExpenses.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "formatCurrency.c": [
+        "array_init"
+    ],
+    "processInput.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init"
+    ],
+    "addExpense.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "createUserInputHandler.c": [],
+    "destroyUserInputHandler.c": [],
+    "displayDashboard.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "removeExpense.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "validateInput.c": [],
+    "getUserInput.c": [
+        "array_init",
+        "array_access"
+    ],
+    "createExpenseManager.c": [],
+    "destroyExpenseManager.c": []
+}

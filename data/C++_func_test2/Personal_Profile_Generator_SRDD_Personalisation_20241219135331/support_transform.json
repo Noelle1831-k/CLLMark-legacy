@@ -1,0 +1,38 @@
+{
+    "getAddress.cpp": [],
+    "isValidName.cpp": [],
+    "trim.cpp": [],
+    "main.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "setPhoneNumber.cpp": [],
+    "getAge.cpp": [],
+    "setName.cpp": [],
+    "getName.cpp": [],
+    "createProfile.cpp": [
+        "declare",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "setAddress.cpp": [],
+    "isValidPhoneNumber.cpp": [],
+    "isValidAge.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "getPhoneNumber.cpp": [],
+    "getEmail.cpp": [],
+    "setEmail.cpp": [],
+    "isValidEmail.cpp": [],
+    "displayProfile.cpp": [
+        "output"
+    ],
+    "setAge.cpp": [],
+    "toLowerCase.cpp": []
+}

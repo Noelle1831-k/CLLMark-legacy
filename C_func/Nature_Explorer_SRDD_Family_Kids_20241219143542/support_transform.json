@@ -1,0 +1,39 @@
+{
+    "support_transform.json": [],
+    "identifySpecies.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "array_init",
+        "declare",
+        "while_to_for"
+    ],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "trackAdventure.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init",
+        "array_access",
+        "declare"
+    ],
+    "displayMenu.c": [],
+    "playVideos.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "exploreEcosystem.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "startQuiz.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse"
+    ]
+}

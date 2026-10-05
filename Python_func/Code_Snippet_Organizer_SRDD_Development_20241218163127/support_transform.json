@@ -1,0 +1,52 @@
+{
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "export_snippet.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "format_code.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "execute_snippet.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "preview_snippet.py": [
+        "string_quota"
+    ],
+    "remove_snippet.py": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "run_interface.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "__init__.py": [],
+    "main.py": [],
+    "search_snippets.py": [],
+    "add_snippet.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "highlight_syntax.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

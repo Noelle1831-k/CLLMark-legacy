@@ -1,0 +1,50 @@
+{
+    "initialize_logging.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "create_line_graph.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "handle_error.py": [
+        "string_quota"
+    ],
+    "load_data_from_database.py": [
+        "string_quota"
+    ],
+    "create_bar_chart.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "perform_statistical_analysis.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "load_data_from_csv.py": [
+        "string_quota"
+    ],
+    "log_info.py": [
+        "string_quota"
+    ],
+    "create_pie_chart.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "load_data_from_excel.py": [
+        "string_quota"
+    ],
+    "clean_and_transform.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

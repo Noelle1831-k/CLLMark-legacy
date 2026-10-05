@@ -1,0 +1,64 @@
+{
+    "generateSymbols.cpp": [],
+    "printGrid.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "setSymbols.cpp": [],
+    "support_transform.json": [],
+    "initializeGrid.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.cpp": [
+        "main_style",
+        "output"
+    ],
+    "isValidMove.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "processInput.cpp": [
+        "declare",
+        "output",
+        "input"
+    ],
+    "startGame.cpp": [
+        "while_to_for",
+        "output"
+    ],
+    "getSymbols.cpp": [],
+    "SudokuGrid.cpp": [],
+    "resetGame.cpp": [],
+    "resetGrid.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "isSolved.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "provideHint.cpp": [
+        "output"
+    ]
+}

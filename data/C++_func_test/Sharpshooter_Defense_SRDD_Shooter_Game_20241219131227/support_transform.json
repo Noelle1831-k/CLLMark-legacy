@@ -1,0 +1,77 @@
+{
+    "attack.cpp": [
+        "output"
+    ],
+    "getRandomNumber.cpp": [],
+    "activate.cpp": [
+        "output"
+    ],
+    "start.cpp": [
+        "output"
+    ],
+    "gameLoop.cpp": [
+        "output"
+    ],
+    "initialize.cpp": [
+        "output"
+    ],
+    "aim.cpp": [
+        "output"
+    ],
+    "move.cpp": [
+        "output"
+    ],
+    "apply.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "isGameOver.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "getHealth.cpp": [],
+    "spawnEnemies.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "updateGameState.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "takeDamage.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ],
+    "fire.cpp": [
+        "output"
+    ],
+    "checkCollision.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "adjustScope.cpp": [
+        "output"
+    ],
+    "shoot.cpp": [
+        "output"
+    ],
+    "checkCollisions.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "getX.cpp": [],
+    "getY.cpp": []
+}

@@ -1,0 +1,83 @@
+{
+    "select_character.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "determine_winner.py": [],
+    "update.py": [
+        "print_flush",
+        "print_end",
+        "list_index",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "end_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "equip.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "scavenge.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "start_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "shrink.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "initialize_players.py": [
+        "range_index"
+    ],
+    "attack.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse"
+    ],
+    "spawn_items.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "move.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "use.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "initialize_game.c": [],
+    "initialize_tanks.c": [],
+    "support_transform.json": [],
+    "render_game.c": [],
+    "check_game_over.c": [],
+    "update_game_state.c": [],
+    "game_loop.c": [
+        "while_to_for"
+    ],
+    "reset_tank.c": [],
+    "initialize_powerups.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "initialize_arena.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "apply_powerup_to_tank.c": [],
+    "move_tank.c": [],
+    "handle_user_input.c": [],
+    "attack_tank.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ]
+}

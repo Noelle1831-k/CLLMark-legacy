@@ -1,0 +1,1 @@
+vector<Transaction> getTransactions() const { return transactions; }

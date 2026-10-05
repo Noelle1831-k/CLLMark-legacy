@@ -1,0 +1,37 @@
+{
+    "add_verb.py": [],
+    "search_verb.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "conjugate.py": [],
+    "__init__.py": [],
+    "main.py": [],
+    "load_verbs.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "get_verb.py": [],
+    "display_conjugation.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ]
+}

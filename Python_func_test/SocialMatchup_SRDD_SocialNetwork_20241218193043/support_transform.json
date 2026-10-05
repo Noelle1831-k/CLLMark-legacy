@@ -1,0 +1,50 @@
+{
+    "display_ideas.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "add_interest.py": [],
+    "receive_message.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "remove_skill.py": [],
+    "calculate_compatibility.py": [],
+    "remove_interest.py": [],
+    "add_idea.py": [
+        "init_list"
+    ],
+    "__repr__.py": [
+        "string_quota"
+    ],
+    "__init__.py": [],
+    "send_message.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "display_conversation.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "find_matches.py": [
+        "init_list",
+        "list",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse"
+    ],
+    "main.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "add_skill.py": []
+}

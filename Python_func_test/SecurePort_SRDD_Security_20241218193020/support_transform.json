@@ -1,0 +1,46 @@
+{
+    "detect_intrusion.py": [
+        "list",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "terminate_connection.py": [
+        "string_quota"
+    ],
+    "signal_handler.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "authorize_connection.py": [
+        "string_quota"
+    ],
+    "start_monitoring.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "analyze_traffic.py": [
+        "string_quota"
+    ],
+    "stop.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "log_event.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "block_connection.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "activate_firewall.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

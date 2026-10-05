@@ -1,0 +1,3 @@
+void cleanupExpenses() {
+    free(expenses);
+}

@@ -1,0 +1,63 @@
+{
+    "initialize_user.c": [],
+    "support_transform.json": [],
+    "export_user_data.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "for_OOO"
+    ],
+    "analyze_spending.c": [],
+    "track_expenses.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "save_user_data.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style",
+        "array_init"
+    ],
+    "add_expense.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "load_from_file.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init",
+        "while_to_for"
+    ],
+    "generate_pie_chart.c": [],
+    "save_to_file.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "add_income.c": [
+        "self_assignment"
+    ],
+    "generate_bar_chart.c": [],
+    "set_budget_goal.c": [],
+    "load_user_data.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "for_OOO"
+    ]
+}

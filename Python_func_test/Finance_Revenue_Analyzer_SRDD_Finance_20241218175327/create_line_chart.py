@@ -1,0 +1,12 @@
+def create_line_chart(self, data):
+        sources = list(data.keys())
+        amounts = list(data.values())
+        plt.figure(figsize=(12, 7))
+        plt.plot(sources, amounts, marker='o', linestyle='-', color='green', linewidth=2, markersize=8)
+        plt.xticks(rotation=45, ha='right')
+        plt.xlabel('Revenue Sources')
+        plt.ylabel('Amount ($)')
+        plt.title('Revenue Trend Over Time')
+        plt.grid(True)
+        plt.tight_layout()
+        plt.show()

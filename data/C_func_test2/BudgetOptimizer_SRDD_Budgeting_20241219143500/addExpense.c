@@ -1,0 +1,19 @@
+void addExpense(ExpenseTracker *tracker) {
+    if (MAX_RECORDS <= tracker->expenseCount) {
+        printf("Expense records limit reached!\n");
+        return;
+    }
+    double amount;
+    char category[50];
+    printf("Enter expense category: ");
+    fgets(category, 50, stdin);
+    strtok(category, "\n"); 
+    printf("Enter expense amount: ");
+    scanf("%lf", &amount);
+    getchar(); 
+    tracker->expenses[tracker->expenseCount].amount = amount;
+    strcpy(tracker->expenses[tracker->expenseCount].category, category);
+    tracker->expenseCount++;
+    tracker->totalExpense += amount;
+    printf("Expense added successfully! Total expenses: $%.2lf\n", tracker->totalExpense);
+}

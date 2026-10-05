@@ -1,0 +1,2 @@
+Game::Game() : isRunning(true) {
+}

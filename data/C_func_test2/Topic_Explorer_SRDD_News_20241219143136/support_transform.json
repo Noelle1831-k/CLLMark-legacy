@@ -1,0 +1,39 @@
+{
+    "exploreTrendingTopics.c": [],
+    "accessNewsArticles.c": [],
+    "handleDates.c": [],
+    "initializeSystem.c": [],
+    "createNode.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "displayExitMessage.c": [],
+    "displayList.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "saveArticle.c": [
+        "array_init"
+    ],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "displayMenu.c": [],
+    "searchForTopics.c": [
+        "array_init"
+    ],
+    "shareArticle.c": [
+        "array_init"
+    ],
+    "handleUserChoice.c": [],
+    "appendNode.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ]
+}

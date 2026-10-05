@@ -1,0 +1,33 @@
+{
+    "support_transform.json": [],
+    "getSummary.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "setPreferences.cpp": [],
+    "main.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "categorizeArticle.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "categorizeArticles.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "summarizeArticle.cpp": [
+        "output"
+    ],
+    "getPreferences.cpp": [],
+    "saveArticle.cpp": [],
+    "loadArticles.cpp": []
+}

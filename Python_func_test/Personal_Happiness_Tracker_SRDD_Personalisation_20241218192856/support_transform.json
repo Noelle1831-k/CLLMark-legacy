@@ -1,0 +1,54 @@
+{
+    "retrieve_data.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "string_quota",
+        "f_string"
+    ],
+    "collect_user_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "detect_trends.py": [
+        "self_assignment"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "generate_recommendations.py": [
+        "string_quota",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "input_activities.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "input_events.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": [],
+    "display_recommendations.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "input_mood.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "analyze_mood.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "store_data.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

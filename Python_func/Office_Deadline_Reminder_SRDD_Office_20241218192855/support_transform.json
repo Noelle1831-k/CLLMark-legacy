@@ -1,0 +1,69 @@
+{
+    "find_task_by_name.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "remove_task.py": [
+        "string_quota",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "add_task.py": [
+        "string_quota"
+    ],
+    "update_status.py": [
+        "string_quota"
+    ],
+    "is_due.py": [
+        "string_quota",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "send_reminder.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "handle_user_input.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "update_task_deadline.py": [
+        "string_quota"
+    ],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "schedule_reminder.py": [
+        "string_quota",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_tasks.py": [],
+    "check_deadlines.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

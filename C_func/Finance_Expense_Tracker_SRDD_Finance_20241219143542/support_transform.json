@@ -1,0 +1,71 @@
+{
+    "read_from_file.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "array_init",
+        "while_to_for"
+    ],
+    "set_reminder.c": [
+        "array_init"
+    ],
+    "validate_input.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "support_transform.json": [],
+    "initialize_budgets.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "list_expenses.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "trigger_reminder.c": [],
+    "display_menu.c": [],
+    "calculate_percentage.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "cleanup_budgets.c": [],
+    "cleanup_expenses.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "add_expense.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init",
+        "array_access"
+    ],
+    "generate_pie_chart.c": [],
+    "save_to_file.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "initialize_expenses.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "generate_bar_chart.c": [],
+    "display_budget_report.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "set_budget.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init",
+        "array_access"
+    ]
+}

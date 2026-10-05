@@ -1,0 +1,2 @@
+void initUserAnalysis(UserAnalysis *analysis) {
+}

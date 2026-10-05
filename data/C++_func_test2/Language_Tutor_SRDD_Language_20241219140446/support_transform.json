@@ -1,0 +1,53 @@
+{
+    "chooseGrammar.cpp": [],
+    "start.cpp": [],
+    "displayExercise.cpp": [
+        "output",
+        "input"
+    ],
+    "takeQuiz.cpp": [],
+    "startQuiz.cpp": [],
+    "choosePronunciation.cpp": [],
+    "startExercise.cpp": [],
+    "checkAnswer_2.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "output"
+    ],
+    "chooseVocabulary.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "startLesson.cpp": [],
+    "checkAnswer_1.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "output"
+    ],
+    "showMenu.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "startPractice.cpp": [
+        "output"
+    ],
+    "checkAnswer.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "output"
+    ],
+    "giveFeedback.cpp": [
+        "output"
+    ],
+    "askQuestion.cpp": [
+        "output",
+        "input"
+    ],
+    "displayWord.cpp": [
+        "output",
+        "input"
+    ]
+}

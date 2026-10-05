@@ -1,0 +1,53 @@
+{
+    "generate_playlist.py": [],
+    "get_user_mood.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "share_playlist.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "get_song_list.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [],
+    "filter_songs.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "display_playlist.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "save_playlist.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "analyze_mood.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "run_app.py": []
+}

@@ -1,0 +1,3 @@
+~Logger() {
+        logFile.close();
+    }

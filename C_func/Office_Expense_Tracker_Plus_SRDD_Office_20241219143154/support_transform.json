@@ -1,0 +1,46 @@
+{
+    "support_transform.json": [],
+    "list_expenses.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "show_dashboard.c": [],
+    "scan_receipt.c": [],
+    "show_menu.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "categorize_expense.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_init",
+        "array_access"
+    ],
+    "add_expense.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "generate_report.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "set_budget.c": [],
+    "check_budget.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "sync_with_accounting.c": []
+}

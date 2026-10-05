@@ -1,0 +1,34 @@
+{
+    "matchString.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "declare"
+    ],
+    "executeQuery.cpp": [],
+    "main.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "declare"
+    ],
+    "displayResults.cpp": [],
+    "parseQuery.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "while_to_for"
+    ],
+    "getUserInput.cpp": [
+        "output"
+    ],
+    "loadData.cpp": [
+        "while_to_for"
+    ],
+    "getData.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

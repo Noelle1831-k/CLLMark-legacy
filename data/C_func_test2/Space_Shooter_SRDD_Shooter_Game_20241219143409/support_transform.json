@@ -1,0 +1,54 @@
+{
+    "initializeGame.c": [],
+    "initSpaceship.c": [],
+    "moveAliens.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "generateAsteroids.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "updateAsteroids.c": [],
+    "shoot.c": [],
+    "updateAliens.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "updateSpaceship.c": [],
+    "terminateGame.c": [],
+    "spawnAliens.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "applyPowerUp.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "moveSpaceship.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "gameLoop.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "moveAsteroids.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

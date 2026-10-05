@@ -1,0 +1,35 @@
+{
+    "load_data.c": [
+        "array_init",
+        "while_to_for"
+    ],
+    "free_validation_result.c": [],
+    "validate_data.c": [],
+    "check_consistency.c": [],
+    "check_accuracy.c": [],
+    "main.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "array_access"
+    ],
+    "trim_whitespace.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "while_to_for"
+    ],
+    "count_lines.c": [],
+    "check_validity.c": [],
+    "check_completeness.c": [],
+    "analyze_quality.c": [],
+    "free_data_set.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

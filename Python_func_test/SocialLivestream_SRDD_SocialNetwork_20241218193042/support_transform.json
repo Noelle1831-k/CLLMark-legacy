@@ -1,0 +1,57 @@
+{
+    "create_profile.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "add_reaction.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "broadcast.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "remove_follower.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "get_followers.py": [
+        "init_list",
+        "list"
+    ],
+    "follow_user.py": [],
+    "__init__.py": [],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "end_stream.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "add_follower.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota"
+    ],
+    "start_stream.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "add_comment.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

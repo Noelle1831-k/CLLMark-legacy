@@ -1,0 +1,37 @@
+{
+    "displayExerciseTutorial.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "clearInputBuffer.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "support_transform.json": [],
+    "main.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "main_style",
+        "while_to_for"
+    ],
+    "trackProgress.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "displayWorkoutPlan.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "generateWorkoutPlan.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "initializeUser.c": []
+}

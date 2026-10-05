@@ -1,0 +1,13 @@
+{
+    "support_transform.json": [],
+    "main.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output",
+        "input"
+    ]
+}

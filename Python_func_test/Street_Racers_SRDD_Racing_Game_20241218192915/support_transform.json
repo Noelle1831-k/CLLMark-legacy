@@ -1,0 +1,57 @@
+{
+    "control_car.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "game_loop.py": [],
+    "accelerate.py": [
+        "self_assignment"
+    ],
+    "generate_track.py": [
+        "range_index"
+    ],
+    "update.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "steer.py": [
+        "self_assignment"
+    ],
+    "check_collisions.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "initialize_graphics.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "process_input.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "clamp.py": [],
+    "__init__.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "load_track.py": [],
+    "render.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "update_position.py": [
+        "self_assignment"
+    ],
+    "run.py": [],
+    "update_physics.py": [],
+    "initialize_game.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

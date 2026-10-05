@@ -1,0 +1,3 @@
+int isMissionComplete() {
+    return missionComplete;
+}

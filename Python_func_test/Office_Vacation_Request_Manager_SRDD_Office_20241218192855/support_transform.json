@@ -1,0 +1,98 @@
+{
+    "generate_vacation_trends.py": [
+        "print_flush",
+        "string_quota",
+        "f_string"
+    ],
+    "add_employee.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "send_notification.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "get_employee_details.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "to_dict.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "approve_request.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "view_requests.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "export_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "save_vacation_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "load_employee_data.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "reject_request.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "save_employee_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "main_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "load_vacation_data.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "submit_vacation_request.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "initialize_application.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "process_request.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

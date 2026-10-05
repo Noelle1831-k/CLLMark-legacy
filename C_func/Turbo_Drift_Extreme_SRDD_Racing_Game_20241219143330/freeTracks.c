@@ -1,0 +1,3 @@
+void freeTracks() {
+    free(tracks);
+}

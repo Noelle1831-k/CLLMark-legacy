@@ -1,0 +1,43 @@
+{
+    "remove_location.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "print_scavenger_hunt.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "create_location.c": [],
+    "add_location.c": [],
+    "create_challenge.c": [],
+    "support_transform.json": [],
+    "add_challenge.c": [],
+    "delete_location.c": [],
+    "print_location.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "remove_challenge.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "delete_scavenger_hunt.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "create_user.c": [],
+    "print_challenge.c": [],
+    "delete_challenge.c": [],
+    "print_user.c": [],
+    "update_user.c": [],
+    "delete_user.c": [],
+    "create_scavenger_hunt.c": []
+}

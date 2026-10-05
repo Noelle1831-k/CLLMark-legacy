@@ -1,0 +1,28 @@
+{
+    "getInstrumentation.cpp": [],
+    "getMoodDescriptors.cpp": [],
+    "getHarmonicStructure.cpp": [],
+    "analyzeMood.cpp": [],
+    "support_transform.json": [],
+    "extractFeatures.cpp": [],
+    "main.cpp": [
+        "main_style",
+        "output",
+        "input"
+    ],
+    "getTempo.cpp": [],
+    "loadAudioFile.cpp": [],
+    "simulateChartGeneration.cpp": [
+        "output"
+    ],
+    "simulateFeatureExtraction.cpp": [],
+    "getKey.cpp": [],
+    "determineMood.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "generateCharts.cpp": []
+}

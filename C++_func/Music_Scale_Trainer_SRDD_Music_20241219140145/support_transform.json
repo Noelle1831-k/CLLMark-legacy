@@ -1,0 +1,44 @@
+{
+    "updateProgress.cpp": [],
+    "displayProgress.cpp": [
+        "output"
+    ],
+    "loadScales.cpp": [],
+    "ScaleTrainer.cpp": [],
+    "loadAudioFiles.cpp": [
+        "output"
+    ],
+    "generateRandomScale.cpp": [],
+    "startExercise.cpp": [
+        "declare",
+        "output",
+        "input"
+    ],
+    "UserProgress.cpp": [],
+    "AudioManager.cpp": [],
+    "validateInput.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.cpp": [
+        "main_style",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "saveProgress.cpp": [],
+    "loadProgress.cpp": [
+        "while_to_for"
+    ],
+    "playScaleAudio.cpp": [],
+    "generateRandomNumber.cpp": [],
+    "provideFeedback.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "output"
+    ]
+}

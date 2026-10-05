@@ -1,0 +1,51 @@
+{
+    "decrypt_password.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "for_OOO"
+    ],
+    "save_password.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "display_menu.c": [],
+    "start_app.c": [],
+    "encrypt_password.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "for_OOO"
+    ],
+    "get_password.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init",
+        "declare",
+        "while_to_for"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "handle_user_input.c": [
+        "array_init",
+        "declare"
+    ],
+    "delete_password.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "array_init",
+        "declare",
+        "while_to_for"
+    ]
+}

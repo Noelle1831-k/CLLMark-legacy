@@ -1,0 +1,47 @@
+{
+    "setSavingsGoal.cpp": [
+        "output"
+    ],
+    "calculateRemainingBudget.cpp": [],
+    "getExpenses.cpp": [],
+    "displaySavingsProgress.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "support_transform.json": [],
+    "main.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "output",
+        "input"
+    ],
+    "loadFromFile.cpp": [
+        "declare",
+        "while_to_for",
+        "output"
+    ],
+    "addIncome.cpp": [
+        "self_assignment",
+        "output"
+    ],
+    "getSavingsGoal.cpp": [],
+    "saveToFile.cpp": [
+        "output"
+    ],
+    "addExpense.cpp": [
+        "self_assignment",
+        "output"
+    ],
+    "generateReport.cpp": [
+        "output"
+    ],
+    "getSavings.cpp": [],
+    "displayPieChart.cpp": [
+        "self_assignment",
+        "output"
+    ]
+}

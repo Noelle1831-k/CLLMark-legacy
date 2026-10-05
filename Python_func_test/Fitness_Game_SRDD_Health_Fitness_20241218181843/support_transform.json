@@ -1,0 +1,75 @@
+{
+    "generate_random_exercises.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "get_stats.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "gain_points.py": [
+        "self_assignment"
+    ],
+    "add_score.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "view_profile.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "display_welcome_message.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "__init__.py": [],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "display_top_scores.py": [
+        "print_flush",
+        "print_end",
+        "list_index",
+        "string_quota",
+        "f_string"
+    ],
+    "get_feedback.py": [
+        "string_quota",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "level_up.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "perform.py": [],
+    "start_workout.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "complete_challenge.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "generate_challenge.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "evaluate.py": [
+        "string_quota"
+    ],
+    "load_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "extract_features.py": [
+        "list_index",
+        "return"
+    ],
+    "preprocess_data.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "train_model.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "predict_scores.py": [
+        "string_quota"
+    ]
+}

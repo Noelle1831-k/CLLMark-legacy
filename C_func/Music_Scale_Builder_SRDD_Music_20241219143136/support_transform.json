@@ -1,0 +1,38 @@
+{
+    "support_transform.json": [],
+    "create_scale.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "display_menu.c": [],
+    "display_music_theory.c": [],
+    "main.c": [
+        "main_style",
+        "array_init",
+        "declare"
+    ],
+    "customize_scale.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init"
+    ],
+    "play_scale.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "play_sound.c": [],
+    "print_line.c": [],
+    "visualize_scale.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

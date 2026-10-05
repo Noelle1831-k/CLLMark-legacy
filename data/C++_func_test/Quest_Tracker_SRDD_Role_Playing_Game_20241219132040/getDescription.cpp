@@ -1,0 +1,1 @@
+string Quest::getDescription() { return description; }

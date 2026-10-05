@@ -1,0 +1,54 @@
+{
+    "displayMainMenu.cpp": [
+        "output"
+    ],
+    "setReminder.cpp": [
+        "declare",
+        "output",
+        "input"
+    ],
+    "updateDetails.cpp": [],
+    "findAchievement.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getCategory.cpp": [],
+    "main.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "setDeadline.cpp": [],
+    "addAchievement.cpp": [],
+    "displayAchievement.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "output"
+    ],
+    "getDeadline.cpp": [],
+    "markAsCompleted.cpp": [],
+    "getName.cpp": [],
+    "getDescription.cpp": [],
+    "isCompleted.cpp": [],
+    "viewAllAchievements.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "displayReminder.cpp": [],
+    "updateAchievement.cpp": [
+        "declare",
+        "output"
+    ],
+    "markAchievementAsCompleted.cpp": []
+}

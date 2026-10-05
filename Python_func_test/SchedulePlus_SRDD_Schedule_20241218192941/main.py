@@ -1,0 +1,26 @@
+def main():
+    task_manager = TaskManager()
+    time_tracker = TimeTracker()
+    productivity_analyzer = ProductivityAnalyzer()
+    visualizer = Visualizer()
+    # Example usage
+    task_manager.add_task("Complete project report", "High", "2023-10-10")
+    task_manager.add_task("Prepare presentation", "Medium", "2023-10-12")
+    task_manager.add_task("Team meeting", "Low", "2023-10-15")
+    task_manager.add_task("Code review", "High", "2023-10-11")
+    time_tracker.allocate_time("Complete project report", "2 hours")
+    time_tracker.allocate_time("Prepare presentation", "1 hour")
+    time_tracker.allocate_time("Team meeting", "1 hour")
+    time_tracker.allocate_time("Code review", "1.5 hours")
+    time_tracker.track_time("Complete project report", "1.5 hours")
+    time_tracker.track_time("Prepare presentation", "0.5 hours")
+    time_tracker.track_time("Team meeting", "1 hour")
+    time_tracker.track_time("Code review", "1 hour")
+    # Set data for productivity analysis
+    productivity_analyzer.set_data(task_manager.list_tasks(), time_tracker.get_time_report())
+    productivity_analyzer.analyze_productivity()
+    # Generate and print productivity report
+    report = productivity_analyzer.generate_report()
+    print("Productivity Report:", report)
+    visualizer.plot_schedule(task_manager.list_tasks(), time_tracker.get_time_report())
+    visualizer.plot_productivity(report)

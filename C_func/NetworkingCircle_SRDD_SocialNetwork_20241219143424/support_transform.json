@@ -1,0 +1,59 @@
+{
+    "shareFile.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init"
+    ],
+    "loginUser.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "support_transform.json": [],
+    "initializeSystem.c": [],
+    "sendMessage.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init",
+        "declare"
+    ],
+    "connectUsers.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "displayConnections.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "registerUser.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "manageProfile.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init",
+        "array_access"
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "displayFrequencyTable.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "generateHistogram.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "printWelcomeMessage.c": [],
+    "(.c": [
+        "update_reverse",
+        "array_access",
+        "while_to_for"
+    ],
+    "freeFrequencyTable.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "main_style",
+        "array_init"
+    ],
+    "calculateFrequencies.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "freeDataset.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "handleUserInput.c": [
+        "array_access"
+    ],
+    "importData.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "while_to_for"
+    ]
+}

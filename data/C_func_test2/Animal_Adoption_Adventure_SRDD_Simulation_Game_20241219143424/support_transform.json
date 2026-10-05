@@ -1,0 +1,31 @@
+{
+    "initialize_game.c": [],
+    "display_animals.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "manage_animals.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "add_animal.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "main.c": [
+        "main_style",
+        "while_to_for"
+    ],
+    "save_game_state.c": [],
+    "display_main_menu.c": [],
+    "organize_outreach_event.c": [
+        "self_assignment"
+    ],
+    "update_animal_health.c": [],
+    "handle_game_event.c": [
+        "self_assignment"
+    ]
+}

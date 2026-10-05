@@ -1,0 +1,31 @@
+{
+    "saveCustomTheme.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_init",
+        "for_OOO"
+    ],
+    "applyPreDesignedThemes.c": [],
+    "main.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style"
+    ],
+    "displayMainMenu.c": [],
+    "loadCustomTheme.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "array_init",
+        "array_access",
+        "while_to_for"
+    ],
+    "customizeTheme.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "handleUserChoice.c": []
+}

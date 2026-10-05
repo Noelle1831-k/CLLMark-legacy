@@ -1,0 +1,109 @@
+{
+    "load_level.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "shoot.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "play_music.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "check_completion.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "game_over.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "take_damage.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "update.py": [
+        "range_index",
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "check_collisions.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "draw_sprite.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "handle_input.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "play.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "draw_text.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "__init__.py": [],
+    "render.py": [
+        "string_quota"
+    ],
+    "get_user_input.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "load_next_level.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "start_game.py": [],
+    "main.py": [],
+    "detect_player.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "play_sound.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "attack.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "move.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "display_result.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_time_factor.py": [],
+    "__init__.py": [],
+    "get_user_input.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "return"
+    ],
+    "main.py": [],
+    "calculate_enemy_factor.py": [],
+    "show_difficulty_rating.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "validate_input.py": [
+        "list"
+    ],
+    "calculate_difficulty.py": [],
+    "validate_parameters.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_skill_factor.py": []
+}

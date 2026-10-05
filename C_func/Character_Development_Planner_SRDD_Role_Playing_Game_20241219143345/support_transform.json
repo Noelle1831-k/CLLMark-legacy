@@ -1,0 +1,56 @@
+{
+    "input_character_skills.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "free_character.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "support_transform.json": [],
+    "display_progression_plan.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style"
+    ],
+    "input_character_attributes.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "generate_progression_plan.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "visualize_character.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "create_character.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "free_progression_plan.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ]
+}

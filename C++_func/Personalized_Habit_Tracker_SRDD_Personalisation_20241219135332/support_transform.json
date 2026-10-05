@@ -1,0 +1,65 @@
+{
+    "updateProgress.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "analyzeHabits.cpp": [],
+    "getFrequency.cpp": [],
+    "support_transform.json": [],
+    "displayHabit.cpp": [],
+    "updateHabitProgress.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "addHabit.cpp": [],
+    "getPersonalizedRecommendations.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "displayHabits.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "getProgress.cpp": [],
+    "main.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "getName.cpp": [],
+    "removeHabit.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "loadData.cpp": [],
+    "saveData.cpp": [],
+    "generateReport.cpp": [],
+    "generateRecommendations.cpp": [],
+    "getRecommendation.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ]
+}

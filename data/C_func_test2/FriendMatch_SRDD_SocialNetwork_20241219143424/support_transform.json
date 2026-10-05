@@ -1,0 +1,47 @@
+{
+    "receive_messages.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "match_users.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "send_message.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "plan_activity.c": [],
+    "add_interest.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "main.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "declare"
+    ],
+    "update_profile.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "remove_interest.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "create_profile.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

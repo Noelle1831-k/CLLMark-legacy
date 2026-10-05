@@ -1,0 +1,37 @@
+{
+    "getDate.cpp": [],
+    "sendNotification.cpp": [],
+    "setTotalBudget.cpp": [],
+    "displayExpenses.cpp": [],
+    "getExpenses.cpp": [],
+    "support_transform.json": [],
+    "getCategory.cpp": [],
+    "main.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "generateSummary.cpp": [
+        "self_assignment",
+        "output"
+    ],
+    "updateSpentAmount.cpp": [
+        "self_assignment"
+    ],
+    "getDescription.cpp": [],
+    "addExpense.cpp": [],
+    "getAmount.cpp": [],
+    "checkLimitExceeded.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "getRemainingBudget.cpp": [],
+    "getID.cpp": [],
+    "generateExpenseID.cpp": [
+        "update_reverse"
+    ]
+}

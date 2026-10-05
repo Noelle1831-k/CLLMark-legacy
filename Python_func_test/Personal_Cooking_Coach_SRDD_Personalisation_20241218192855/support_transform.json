@@ -1,0 +1,123 @@
+{
+    "search_recipes.py": [
+        "init_list"
+    ],
+    "remove_preference.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_total_nutrition.py": [],
+    "calculate_nutrition.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "get_nutritional_info.py": [],
+    "set_dietary_preferences.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "get_ingredients.py": [],
+    "__init___1.py": [
+        "init_list",
+        "list"
+    ],
+    "__init__0.py": [
+        "init_list",
+        "list"
+    ],
+    "get_instructions.py": [],
+    "generate_list.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "populate_sample_recipes.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_meal_plan.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_nutritional_information.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "get_meal_plan.py": [],
+    "handle_user_input.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "generate_grocery_list.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "add_item.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "add_recipe.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "add_preference.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "view_recipes.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_grocery_list.py": [],
+    "run.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_recipe_by_id.py": [
+        "return_none"
+    ],
+    "get_preferences.py": [],
+    "remove_item.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ]
+}

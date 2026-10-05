@@ -1,0 +1,28 @@
+{
+    "handleError.c": [],
+    "addRecipeToFavorites.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "displayRecipes.c": [],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "array_init",
+        "declare"
+    ],
+    "createUser.c": [],
+    "displayMenu.c": [],
+    "displayGroceryList.c": [],
+    "suggestSubstitution.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "startCookingTimer.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse"
+    ]
+}

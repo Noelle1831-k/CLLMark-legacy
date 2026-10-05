@@ -1,0 +1,72 @@
+{
+    "getShelfName.cpp": [],
+    "getNotes.cpp": [],
+    "searchBooks.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "getBooks.cpp": [],
+    "getAuthor.cpp": [],
+    "getTitle.cpp": [],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "removeBookFromShelf.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "main.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "addShelf.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "display.cpp": [],
+    "getRating.cpp": [],
+    "addBook.cpp": [],
+    "getGenre.cpp": [],
+    "getYear.cpp": [],
+    "displayBooks.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "removeBook.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "handleUserChoice.cpp": [
+        "declare",
+        "output",
+        "input"
+    ],
+    "generateReport.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "output"
+    ],
+    "addBookToShelf.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ]
+}

@@ -1,0 +1,85 @@
+{
+    "launchMarketingCampaign.cpp": [],
+    "isRunning.cpp": [],
+    "updateQuantity.cpp": [
+        "self_assignment"
+    ],
+    "initialize.cpp": [
+        "output"
+    ],
+    "makePurchase.cpp": [
+        "output"
+    ],
+    "manageInventory.cpp": [
+        "output"
+    ],
+    "support_transform.json": [],
+    "restockProduct.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.cpp": [
+        "main_style",
+        "while_to_for"
+    ],
+    "updateFinancialRecords.cpp": [
+        "output"
+    ],
+    "addProduct.cpp": [],
+    "simulateCustomerInteractions.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getQuantity.cpp": [],
+    "getPrice.cpp": [],
+    "getName.cpp": [],
+    "removeProduct.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "showProducts.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "update.cpp": [
+        "output"
+    ],
+    "launchCampaign.cpp": [
+        "output"
+    ],
+    "updateStock.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "interactWithStore.cpp": [
+        "output"
+    ],
+    "render.cpp": [
+        "output"
+    ],
+    "calculateProfits.cpp": [
+        "output"
+    ],
+    "terminate.cpp": [
+        "output"
+    ],
+    "displayStore.cpp": [
+        "output"
+    ]
+}

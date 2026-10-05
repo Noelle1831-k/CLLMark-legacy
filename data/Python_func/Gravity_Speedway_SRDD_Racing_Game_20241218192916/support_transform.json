@@ -1,0 +1,71 @@
+{
+    "update_score.py": [
+        "self_assignment"
+    ],
+    "load_background_image.py": [],
+    "accelerate.py": [
+        "self_assignment"
+    ],
+    "generate_track.py": [
+        "range_index"
+    ],
+    "apply_physics.py": [
+        "self_assignment"
+    ],
+    "render_vehicle.py": [],
+    "update_velocity.py": [],
+    "calculate_gravity.py": [],
+    "update.py": [],
+    "render_track.py": [],
+    "select_vehicle.py": [],
+    "render_background.py": [],
+    "brake.py": [
+        "self_assignment"
+    ],
+    "initialize.py": [
+        "range_index"
+    ],
+    "__init__.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "render.py": [],
+    "load_vehicle_images.py": [
+        "init_list",
+        "list",
+        "range_index"
+    ],
+    "update_position.py": [],
+    "check_collision.py": [
+        "list",
+        "self_assignment"
+    ],
+    "update_display.py": [],
+    "start_game.py": [],
+    "main.py": [],
+    "turn_right.py": [
+        "self_assignment"
+    ],
+    "render_obstacle.py": [],
+    "control_vehicle.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "display_score.py": [
+        "string_quota"
+    ],
+    "run.py": [],
+    "turn_left.py": [
+        "self_assignment"
+    ],
+    "load_obstacle_images.py": [
+        "init_list",
+        "list",
+        "range_index"
+    ],
+    "quit.py": [],
+    "process_events.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

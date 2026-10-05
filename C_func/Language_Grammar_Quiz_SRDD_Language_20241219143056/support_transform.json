@@ -1,0 +1,44 @@
+{
+    "support_transform.json": [],
+    "list_languages.c": [],
+    "handle_difficulty_selection.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_init"
+    ],
+    "main.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "array_init"
+    ],
+    "get_question_set.c": [],
+    "load_language_data.c": [],
+    "display_main_menu.c": [],
+    "give_feedback.c": [],
+    "evaluate_answer.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "generate_question.c": [
+        "declare"
+    ],
+    "start_quiz.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "for_OOO"
+    ],
+    "display_question.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "handle_language_selection.c": [
+        "array_init"
+    ]
+}

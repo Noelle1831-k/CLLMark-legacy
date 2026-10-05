@@ -1,0 +1,2 @@
+GraphicsManager::GraphicsManager() {
+}

@@ -1,0 +1,40 @@
+{
+    "getUserName.cpp": [],
+    "getProjectName.cpp": [],
+    "getAssignedTasks.cpp": [],
+    "displayTasks.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "displayProjectDetails.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "getStatus.cpp": [],
+    "support_transform.json": [],
+    "getRole.cpp": [],
+    "main.cpp": [
+        "main_style",
+        "declare"
+    ],
+    "addTask.cpp": [],
+    "sendMessage.cpp": [],
+    "getTaskName.cpp": [],
+    "getTasks.cpp": [],
+    "assignTask.cpp": [],
+    "scheduleMeeting.cpp": [],
+    "generateReport.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getPriority.cpp": [],
+    "setStatus.cpp": [],
+    "setPriority.cpp": []
+}

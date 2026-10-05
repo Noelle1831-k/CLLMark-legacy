@@ -1,0 +1,70 @@
+{
+    "_determine_confidence_level.py": [
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "_download_file.py": [
+        "string_quota",
+        "f_string",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "extract_features.py": [
+        "list"
+    ],
+    "__del__.py": [],
+    "summarize_confidence.py": [
+        "string_quota"
+    ],
+    "predict_genre.py": [
+        "list",
+        "return"
+    ],
+    "process_input.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "detailed_confidence_report.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "_handle_local_file.py": [
+        "string_quota"
+    ],
+    "cleanup.py": [],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "_get_genre_labels.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "_train_model.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "load_audio.py": [
+        "return"
+    ],
+    "summarize_features.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_confidence.py": [
+        "return"
+    ]
+}

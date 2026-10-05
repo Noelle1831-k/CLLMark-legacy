@@ -1,0 +1,49 @@
+{
+    "display_messages.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "add_user.py": [],
+    "find_users_by_industry.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "send_message.py": [],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "display_connections.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "send.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "add_connection.py": [],
+    "__str__.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "add_member.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "broadcast_message.py": [],
+    "connect_users.py": []
+}

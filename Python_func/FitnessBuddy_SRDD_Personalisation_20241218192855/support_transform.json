@@ -1,0 +1,45 @@
+{
+    "generate_nutrition_plan.py": [
+        "list",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "analyze_user_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_bmi.py": [],
+    "__init__.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_workout_plan.py": [
+        "list",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_caloric_needs.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

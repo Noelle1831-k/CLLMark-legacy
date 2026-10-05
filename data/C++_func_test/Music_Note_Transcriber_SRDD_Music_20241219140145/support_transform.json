@@ -1,0 +1,41 @@
+{
+    "generateNoteSequence.cpp": [],
+    "applyFourierTransform.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "declare",
+        "output"
+    ],
+    "extractFrequencyData.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "saveAudioToFile.cpp": [],
+    "getUserInput.cpp": [
+        "output",
+        "input"
+    ],
+    "displayTranscribedNotes.cpp": [],
+    "loadAudioFile.cpp": [],
+    "mapFrequencyToNotes.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "displayWelcomeMessage.cpp": [
+        "output"
+    ],
+    "recordAudio.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "output"
+    ]
+}

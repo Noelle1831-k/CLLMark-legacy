@@ -1,0 +1,38 @@
+{
+    "adjustDifficulty.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "initialize.c": [],
+    "recordAudio.c": [],
+    "playAudio.c": [],
+    "formatString.c": [],
+    "provideExplanation.c": [],
+    "startSession.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "array_init"
+    ],
+    "randomNumber.c": [],
+    "endSession.c": [],
+    "generateFeedback.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "loadProfile.c": [],
+    "generateExercise.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "updatePreferences.c": [],
+    "saveProfile.c": [],
+    "analyzeAudio.c": [],
+    "evaluateResponse.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

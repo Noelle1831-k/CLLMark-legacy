@@ -1,0 +1,34 @@
+{
+    "detect_code_smells.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "file_exists.c": [],
+    "support_transform.json": [],
+    "(.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "main.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "array_init",
+        "array_access",
+        "declare"
+    ],
+    "display_welcome_message.c": [],
+    "generate_report.c": [],
+    "read_file.c": [
+        "array_init",
+        "array_access"
+    ],
+    "analyze_code.c": []
+}

@@ -1,0 +1,83 @@
+{
+    "add_like.py": [
+        "self_assignment"
+    ],
+    "__init__2.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "add_task.py": [],
+    "__init___3.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "create_profile.py": [],
+    "__init__3.py": [
+        "init_list",
+        "list",
+        "self_assignment"
+    ],
+    "create_project.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__1.py": [
+        "init_list",
+        "list",
+        "self_assignment"
+    ],
+    "__init___1.py": [
+        "init_list",
+        "list"
+    ],
+    "like_content.py": [],
+    "__init__0.py": [
+        "init_list",
+        "list"
+    ],
+    "get_content_feed.py": [],
+    "invite_to_project.py": [],
+    "register_user.py": [
+        "return_none"
+    ],
+    "get_details.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "provide_feedback.py": [],
+    "get_profile_details.py": [],
+    "__init___4.py": [
+        "init_list",
+        "list",
+        "self_assignment"
+    ],
+    "update_bio.py": [],
+    "get_content_details.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "save_content.py": [],
+    "comment_on_content.py": [],
+    "search_content.py": [],
+    "__init___2.py": [
+        "init_list",
+        "list",
+        "self_assignment"
+    ],
+    "upload_content.py": [],
+    "get_project_details.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "add_contributor.py": [],
+    "add_content_to_feed.py": [],
+    "update_profile_picture.py": [],
+    "add_comment.py": []
+}

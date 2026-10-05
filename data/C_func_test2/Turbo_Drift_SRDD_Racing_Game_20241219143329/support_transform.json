@@ -1,0 +1,44 @@
+{
+    "handleKeyboardInput.c": [],
+    "initializeGame.c": [],
+    "drawTrack.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "generateTrack.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "handleCarInput.c": [
+        "self_assignment"
+    ],
+    "initializeCar.c": [],
+    "updateCarPhysics.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "declare"
+    ],
+    "rotateCar.c": [],
+    "renderFrame.c": [],
+    "keyPressed.c": [],
+    "drawRectangle.c": [],
+    "startGameLoop.c": [
+        "while_to_for"
+    ],
+    "initializeGraphics.c": [],
+    "randomFloat.c": [],
+    "handleMouseInput.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "updateWindow.c": [],
+    "drawLine.c": [],
+    "createWindow.c": [],
+    "initializeInput.c": [],
+    "clearScreen.c": []
+}

@@ -1,0 +1,56 @@
+{
+    "updateProgress.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ],
+    "updateQuest.cpp": [],
+    "start.cpp": [],
+    "questDetails.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getTitle.cpp": [],
+    "getStatus.cpp": [],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "getProgress.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "getQuests.cpp": [],
+    "checkReminders.cpp": [
+        "output"
+    ],
+    "getDescription.cpp": [],
+    "completeQuest.cpp": [],
+    "getCategories.cpp": [],
+    "findQuestByTitle.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "addReminder.cpp": [],
+    "getRewards.cpp": [],
+    "getTags.cpp": [],
+    "handleUserInput.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "addQuest.cpp": []
+}

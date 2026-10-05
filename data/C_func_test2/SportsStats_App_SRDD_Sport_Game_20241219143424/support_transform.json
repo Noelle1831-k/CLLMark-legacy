@@ -1,0 +1,85 @@
+{
+    "generateStatistics.c": [],
+    "addPlayer.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse"
+    ],
+    "updatePlayer.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "updateTrainingPlan.c": [],
+    "createTrainingPlan.c": [],
+    "deletePlayer.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "deleteMatch.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "deleteTrainingPlan.c": [],
+    "initializeSystem.c": [],
+    "trackAchievements.c": [],
+    "addMatch.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse"
+    ],
+    "updateMatch.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "addTeam.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse"
+    ],
+    "deleteTeam.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "updateTeam.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "manageTrainingPlans.c": [],
+    "calculateMatchStats.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "manageData.c": [],
+    "calculateTeamStats.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "createMatchReport.c": [],
+    "createPlayerReport.c": [],
+    "createTeamReport.c": [],
+    "clearScreen.c": [],
+    "calculatePlayerStats.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "printDivider.c": [],
+    "generateReports.c": []
+}

@@ -1,0 +1,66 @@
+{
+    "set_budget.py": [],
+    "get_expenses_summary.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "generate_pie_chart.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_budget.py": [],
+    "load_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_expenses_by_date_range.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_total_expenses.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "add_expense.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_bar_chart.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "check_budget.py": [
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "__init__.py": [],
+    "set_reminder.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "check_reminders.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "get_reminders.py": [],
+    "get_all_expenses.py": [],
+    "save_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_expenses_by_category.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

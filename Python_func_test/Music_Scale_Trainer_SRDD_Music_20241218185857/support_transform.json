@@ -1,0 +1,75 @@
+{
+    "get_audio_example.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "create_profile.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "load_resources.py": [],
+    "get_scale_info.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "_generate_notes.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "track_progress.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "play_scale.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "generate_exercise.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "validate_response_format.py": [],
+    "get_user_response.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "provide_feedback.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "load_all_resources.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "is_valid_username.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "run.py": [
+        "print_flush",
+        "print_end"
+    ],
+    "evaluate_response.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "get_notes.py": []
+}

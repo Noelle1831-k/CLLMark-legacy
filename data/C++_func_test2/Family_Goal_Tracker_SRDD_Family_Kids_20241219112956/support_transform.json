@@ -1,0 +1,49 @@
+{
+    "updateProgress.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "assignGoal.cpp": [],
+    "setReminder.cpp": [],
+    "getTitle.cpp": [],
+    "generateProgressChart.cpp": [
+        "output"
+    ],
+    "viewGoals.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "displayGoal.cpp": [],
+    "main.cpp": [
+        "main_style",
+        "declare"
+    ],
+    "celebrateAchievements.cpp": [
+        "output"
+    ],
+    "setGoalDetails.cpp": [],
+    "sendReminder.cpp": [
+        "output"
+    ],
+    "displayAchievements.cpp": [
+        "output"
+    ],
+    "updateGoal.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "trackProgress.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "addMember.cpp": [],
+    "addGoal.cpp": []
+}

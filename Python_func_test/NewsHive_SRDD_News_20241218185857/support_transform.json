@@ -1,0 +1,87 @@
+{
+    "bookmark_source.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "fetch_articles.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "share_article.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "load_user_preferences.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_saved_articles.py": [],
+    "set_preferences.py": [],
+    "view_saved_articles.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "execute_query.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "close_connection.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "fetch_news.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "save_user_preferences.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "connect.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "share_on_facebook.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "run.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "share_on_twitter.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "parse_article.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_preferences.py": [],
+    "save_article.py": []
+}

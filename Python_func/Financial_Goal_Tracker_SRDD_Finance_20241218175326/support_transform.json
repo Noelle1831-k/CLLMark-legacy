@@ -1,0 +1,94 @@
+{
+    "get_goal.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "send_notification.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "display_timeline.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "add_goal.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_progress_percentage.py": [],
+    "get_details.py": [
+        "string_quota"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "add_milestone.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "remove_goal.py": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "update_progress.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "return_none"
+    ],
+    "list_notifications.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "check_milestones.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "list_goals.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "display_progress_bar.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

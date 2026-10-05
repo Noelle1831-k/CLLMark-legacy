@@ -1,0 +1,63 @@
+{
+    "load_preferences.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "compile_digest.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "update_preferences.py": [],
+    "send_notification.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "send_email.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "filter_news.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "format_date.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "parse_news.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "fetch_news.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "save_preferences.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "log_activity.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

@@ -1,0 +1,56 @@
+{
+    "Obstacle.cpp": [],
+    "activate.cpp": [],
+    "start.cpp": [
+        "output"
+    ],
+    "loadTextures.cpp": [
+        "output"
+    ],
+    "gameLoop.cpp": [
+        "while_to_for"
+    ],
+    "Vehicle.cpp": [],
+    "~Vehicle.cpp": [],
+    "selectVehicle.cpp": [],
+    "Graphics.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "processInput.cpp": [
+        "output"
+    ],
+    "customizeVehicle.cpp": [],
+    "activateNitro.cpp": [
+        "self_assignment"
+    ],
+    "update.cpp": [],
+    "InputHandler.cpp": [],
+    "~Player.cpp": [],
+    "getSpeed.cpp": [],
+    "endGame.cpp": [
+        "output"
+    ],
+    "getBoostAmount.cpp": [],
+    "Game.cpp": [],
+    "RaceTrack.cpp": [],
+    "Player.cpp": [],
+    "setPosition.cpp": [],
+    "addShortcut.cpp": [
+        "update_reverse"
+    ],
+    "~RaceTrack.cpp": [],
+    "displayPlayerInfo.cpp": [
+        "output"
+    ],
+    "getHandling.cpp": [],
+    "~Game.cpp": [],
+    "render.cpp": [
+        "output"
+    ],
+    "NitroBoost.cpp": [],
+    "displayTrackInfo.cpp": [],
+    "getPosition.cpp": []
+}

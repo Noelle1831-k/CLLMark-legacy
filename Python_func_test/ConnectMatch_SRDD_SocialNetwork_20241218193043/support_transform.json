@@ -1,0 +1,52 @@
+{
+    "suggest_matches.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list_index",
+        "string_quota",
+        "f_string",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "display_all_users.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "add_user.py": [
+        "self_assignment"
+    ],
+    "to_dict.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_all_users.py": [],
+    "compute_similarity.py": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "__init__.py": [],
+    "get_user_by_id.py": [],
+    "find_matches.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "create_user.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "initialize_alert_system.c": [],
+    "initialize_ml_engine.c": [],
+    "fetch_system_log.c": [
+        "array_init"
+    ],
+    "analyze_user_behavior.c": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "analyze_log_entry.c": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "track_user_behavior.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "initialize_log_analyzer.c": [],
+    "capture_network_traffic.c": [
+        "array_init"
+    ],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare"
+    ],
+    "initialize_network_monitor.c": [],
+    "analyze_network_data.c": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "initialize_user_behavior.c": [],
+    "monitor_user_activity.c": [
+        "array_init"
+    ],
+    "log_message.c": [],
+    "analyze_logs.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "monitor_network.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "raise_alert.c": []
+}

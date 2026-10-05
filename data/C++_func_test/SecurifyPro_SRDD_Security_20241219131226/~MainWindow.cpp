@@ -1,0 +1,3 @@
+MainWindow::~MainWindow() {
+    delete monitoringTimer;
+}

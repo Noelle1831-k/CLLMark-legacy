@@ -1,0 +1,44 @@
+{
+    "to_lowercase.c": [
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "free_analysis_result.c": [],
+    "count_words.c": [
+        "array_access"
+    ],
+    "main.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "array_init",
+        "for_OOO"
+    ],
+    "read_file.c": [],
+    "determine_rhyme_scheme.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init"
+    ],
+    "determine_emotional_tone.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init"
+    ],
+    "determine_theme.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init"
+    ],
+    "analyze_lyrics.c": [],
+    "create_visualizations.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

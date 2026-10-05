@@ -1,0 +1,44 @@
+{
+    "updateWeather.cpp": [],
+    "Vehicle.cpp": [],
+    "initialize.cpp": [
+        "output"
+    ],
+    "support_transform.json": [],
+    "updateTrack.cpp": [],
+    "main.cpp": [
+        "main_style",
+        "output"
+    ],
+    "updatePosition.cpp": [
+        "self_assignment"
+    ],
+    "Weather.cpp": [],
+    "getCondition.cpp": [],
+    "brake.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "run.cpp": [
+        "while_to_for",
+        "output"
+    ],
+    "~GameEngine.cpp": [],
+    "updateVehiclePhysics.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "hasReachedFinishLine.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "Track.cpp": [],
+    "accelerate.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "render.cpp": [],
+    "getPosition.cpp": []
+}

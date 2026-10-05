@@ -1,0 +1,59 @@
+{
+    "displayMainMenu.cpp": [
+        "output"
+    ],
+    "isValidCategory.cpp": [],
+    "support_transform.json": [],
+    "addCategory.cpp": [
+        "output",
+        "input"
+    ],
+    "main.cpp": [
+        "main_style",
+        "output",
+        "input"
+    ],
+    "addIncome.cpp": [
+        "output",
+        "input"
+    ],
+    "loadData.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "declare",
+        "while_to_for",
+        "output"
+    ],
+    "manageCategories.cpp": [
+        "output",
+        "input"
+    ],
+    "saveData.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "addExpense.cpp": [
+        "output",
+        "input"
+    ],
+    "generateReport.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "viewCategories.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ]
+}

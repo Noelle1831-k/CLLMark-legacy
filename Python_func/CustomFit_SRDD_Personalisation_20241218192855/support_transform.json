@@ -1,0 +1,42 @@
+{
+    "display_tutorials.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "collect_user_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "get_user_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "track_progress.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_plan.py": [
+        "list_index",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

@@ -1,0 +1,3 @@
+void Arena::update() {
+    shrink();
+}

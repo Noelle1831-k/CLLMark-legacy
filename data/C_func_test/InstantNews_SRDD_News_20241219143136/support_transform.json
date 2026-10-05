@@ -1,0 +1,26 @@
+{
+    "createBookmarkManager.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "addBookmark.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "displayArticle.c": [],
+    "main.c": [
+        "main_style",
+        "declare"
+    ],
+    "createNewsArticle.c": [],
+    "handleUserInput.c": [],
+    "displayBookmarks.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "displayMainMenu.c": []
+}

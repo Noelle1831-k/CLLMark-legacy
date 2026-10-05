@@ -1,0 +1,47 @@
+{
+    "_article_matches_preferences.py": [],
+    "fetch_articles.py": [
+        "range_index",
+        "string_quota"
+    ],
+    "share_article.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "categorize_article.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_digest.py": [
+        "list_index",
+        "string_quota"
+    ],
+    "set_user_preferences.py": [],
+    "summarize_article.py": [
+        "string_quota"
+    ],
+    "get_user_preferences.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "save_article.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota"
+    ]
+}

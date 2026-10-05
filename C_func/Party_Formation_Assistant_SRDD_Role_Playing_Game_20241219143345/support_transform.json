@@ -1,0 +1,46 @@
+{
+    "add_character_to_party.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "initialize_character.c": [],
+    "support_transform.json": [],
+    "print_party.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "find_best_party.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "print_character.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "optimize_party.c": [
+        "declare"
+    ],
+    "main.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "array_init",
+        "for_OOO"
+    ],
+    "calculate_party_effectiveness.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "initialize_party.c": [],
+    "calculate_effectiveness.c": []
+}

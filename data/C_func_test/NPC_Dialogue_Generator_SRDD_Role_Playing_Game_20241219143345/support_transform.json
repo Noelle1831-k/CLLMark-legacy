@@ -1,0 +1,28 @@
+{
+    "createPlayer.c": [],
+    "createDialogueManager.c": [],
+    "createNPC.c": [],
+    "destroyNPC.c": [],
+    "destroyPlayer.c": [],
+    "createDialogueGenerator.c": [],
+    "startDialogue.c": [
+        "declare"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "destroyDialogueGenerator.c": [],
+    "destroyContextAnalyzer.c": [],
+    "analyzeContext.c": [
+        "array_init"
+    ],
+    "createContextAnalyzer.c": [],
+    "generateDialogue.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "array_init"
+    ],
+    "destroyDialogueManager.c": []
+}

@@ -1,0 +1,19 @@
+	int i,sm;
+	sm=num;
+	for(i=2;i<=sqrt(num);i++)
+	{
+	    if(num%i==0)
+	    {
+	        if(i<=sm)
+	        {
+	            sm=i;
+	        }
+	        if(num/i<=sm)
+	        {
+	            sm=num/i;
+	        }
+	    }
+	}
+	return(sm);
+}
+<|endoftext|>

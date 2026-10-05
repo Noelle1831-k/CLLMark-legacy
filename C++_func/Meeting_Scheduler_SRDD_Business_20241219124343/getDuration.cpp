@@ -1,0 +1,1 @@
+int Meeting::getDuration() const { return duration; }

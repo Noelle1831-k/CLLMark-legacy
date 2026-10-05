@@ -1,0 +1,68 @@
+{
+    "shutdown.cpp": [
+        "output"
+    ],
+    "initialize.cpp": [
+        "output"
+    ],
+    "setupAI.cpp": [
+        "output"
+    ],
+    "useSpecialAbility.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "renderTrack.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "processInput.cpp": [
+        "output"
+    ],
+    "setupPowerUps.cpp": [
+        "output"
+    ],
+    "brake.cpp": [
+        "self_assignment"
+    ],
+    "updateGameState.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "update.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse"
+    ],
+    "checkVictoryConditions.cpp": [
+        "output"
+    ],
+    "generateTrack.cpp": [
+        "output"
+    ],
+    "run.cpp": [
+        "while_to_for",
+        "output"
+    ],
+    "setupPlayers.cpp": [
+        "output"
+    ],
+    "accelerate.cpp": [
+        "self_assignment"
+    ],
+    "handleInput.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "checkCollisions.cpp": [
+        "output"
+    ]
+}

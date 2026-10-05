@@ -1,0 +1,60 @@
+{
+    "downloadFile.c": [
+        "array_init"
+    ],
+    "initializeNotifications.c": [],
+    "initializeTasks.c": [],
+    "addUser.c": [
+        "array_access"
+    ],
+    "initializeFileSharing.c": [],
+    "sendMessage.c": [],
+    "updateTaskStatus.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "declare",
+        "for_OOO"
+    ],
+    "assignTaskToUser.c": [],
+    "createTask.c": [
+        "array_access"
+    ],
+    "initializeDashboard.c": [],
+    "displayDashboard.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "generateUniqueId.c": [
+        "array_init"
+    ],
+    "getCurrentTime.c": [],
+    "assignTask.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "declare",
+        "for_OOO"
+    ],
+    "initializeUsers.c": [],
+    "main.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "array_init"
+    ],
+    "sendNotification.c": [
+        "array_init"
+    ],
+    "uploadFile.c": [
+        "array_init"
+    ]
+}

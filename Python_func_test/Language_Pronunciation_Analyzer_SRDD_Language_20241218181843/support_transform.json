@@ -1,0 +1,41 @@
+{
+    "record_audio.py": [
+        "print_flush",
+        "range_index",
+        "string_quota",
+        "f_string"
+    ],
+    "extract_features.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "compare_with_standard.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "analyze_pronunciation.py": [],
+    "normalize_audio.py": [],
+    "load_audio.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "process_audio.py": [],
+    "save_audio.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ]
+}

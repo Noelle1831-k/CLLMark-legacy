@@ -1,0 +1,26 @@
+{
+    "loadDictionary.cpp": [
+        "declare",
+        "while_to_for"
+    ],
+    "translate.cpp": [],
+    "readFile.cpp": [],
+    "support_transform.json": [],
+    "getTranslation.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "addTranslation.cpp": [],
+    "isWordExist.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "main.cpp": [
+        "main_style",
+        "declare",
+        "output"
+    ],
+    "addWord.cpp": [],
+    "Translator.cpp": [],
+    "writeFile.cpp": []
+}

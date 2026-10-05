@@ -1,0 +1,55 @@
+{
+    "apply_fade_out.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "apply_fade_in.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "support_transform.json": [],
+    "save_playlist.c": [],
+    "display_playlist.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "display_menu.c": [],
+    "adjust_playlist_volume.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "create_playlist.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "apply_crossfade.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "apply_volume_control.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "handle_user_input.c": [
+        "array_init",
+        "declare"
+    ],
+    "load_playlist.c": []
+}

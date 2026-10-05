@@ -1,0 +1,2 @@
+void initForecastingEngine(ForecastingEngine *engine) {
+}

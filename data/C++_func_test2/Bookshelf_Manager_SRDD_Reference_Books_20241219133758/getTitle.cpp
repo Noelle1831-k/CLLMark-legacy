@@ -1,0 +1,1 @@
+string Book::getTitle() const { return title; }

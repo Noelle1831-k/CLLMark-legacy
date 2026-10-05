@@ -1,0 +1,51 @@
+{
+    "splitString.cpp": [
+        "while_to_for"
+    ],
+    "checkCompleteness.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "checkAccuracy.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "trim.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "declare"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "checkValidity.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "loadData.cpp": [
+        "while_to_for"
+    ],
+    "checkConsistency.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "getData.cpp": [],
+    "generateReport.cpp": [
+        "output"
+    ],
+    "createReport.cpp": [
+        "output"
+    ]
+}

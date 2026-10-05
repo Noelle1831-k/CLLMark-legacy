@@ -1,0 +1,21 @@
+{
+    "calculate_cyclomatic_complexity.py": [
+        "list",
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "estimate_build_process.py": [],
+    "estimate_total_build_time.py": [],
+    "simulate_compiling_time.py": [],
+    "analyze_code.py": [
+        "self_assignment"
+    ],
+    "simulate_linking_time.py": [],
+    "__init__.py": [],
+    "calculate_module_impact.py": [],
+    "estimate_team_efficiency.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ]
+}

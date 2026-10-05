@@ -1,0 +1,32 @@
+{
+    "initializeGame.c": [],
+    "initScore.c": [],
+    "updatePhysics.c": [],
+    "renderGame.c": [],
+    "updateGame.c": [],
+    "renderGraphics.c": [],
+    "freeTracks.c": [],
+    "freeCars.c": [],
+    "handleInput.c": [],
+    "closeGraphics.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "initInput.c": [],
+    "loadCars.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "updateScore.c": [],
+    "cleanupGame.c": [],
+    "loadTracks.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "randomInt.c": [],
+    "initGraphics.c": []
+}

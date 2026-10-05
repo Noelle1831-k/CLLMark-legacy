@@ -1,0 +1,1 @@
+double Budget::getRemainingBudget() const { return totalBudget - spentAmount; }

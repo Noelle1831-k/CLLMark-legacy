@@ -1,0 +1,100 @@
+{
+    "shiftGear.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "initializeGame.c": [],
+    "calculateSpeed.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "updatePhysics.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "renderGame.c": [],
+    "initCars.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "checkCollisions.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "displayTrackInfo.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "randomNumber.c": [],
+    "getCar.c": [],
+    "handleInput.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "applyFriction.c": [
+        "self_assignment"
+    ],
+    "applyTerrainEffects.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "renderCars.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "waitForFrame.c": [],
+    "renderHUD.c": [],
+    "accelerate.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "brake.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "displayMenu.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "cleanupGame.c": [],
+    "gameLoop.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init",
+        "array_access",
+        "while_to_for"
+    ],
+    "initTrack.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "clearScreen.c": [],
+    "initGraphics.c": []
+}

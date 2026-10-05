@@ -1,0 +1,43 @@
+{
+    "displayExpenses.c": [
+        "while_to_for"
+    ],
+    "freeExpenseList.c": [
+        "while_to_for"
+    ],
+    "support_transform.json": [],
+    "pauseExecution.c": [],
+    "loadDataFromFile.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init",
+        "declare",
+        "while_to_for"
+    ],
+    "addExpense.c": [],
+    "generateSavingsRecommendation.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "calculateTotalExpenses.c": [
+        "self_assignment",
+        "while_to_for"
+    ],
+    "initializeExpenseList.c": [],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "array_init",
+        "array_access",
+        "declare"
+    ],
+    "displayMenu.c": [],
+    "saveDataToFile.c": [
+        "while_to_for"
+    ],
+    "getCurrentDate.c": [
+        "array_init"
+    ],
+    "clearScreen.c": []
+}

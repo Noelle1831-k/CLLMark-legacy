@@ -1,0 +1,62 @@
+{
+    "extractParameters.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "serializeToCSV.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "exportToCSV.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "generateBasicCases.cpp": [
+        "declare"
+    ],
+    "support_transform.json": [],
+    "main.cpp": [
+        "main_style",
+        "declare",
+        "output"
+    ],
+    "generateEdgeCases.cpp": [
+        "declare"
+    ],
+    "generateComplexCases.cpp": [],
+    "setExpectedOutputs.cpp": [],
+    "exportToJSON.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "setInputs.cpp": [],
+    "serializeToJSON.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getFunctionName.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "declare"
+    ]
+}

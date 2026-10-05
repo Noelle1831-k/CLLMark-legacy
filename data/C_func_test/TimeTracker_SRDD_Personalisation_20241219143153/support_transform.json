@@ -1,0 +1,66 @@
+{
+    "initReminderSystem.c": [],
+    "sendReminder.c": [],
+    "addDeadline.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "listDeadlines.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "removeAppointment.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "initDeadlineManager.c": [],
+    "setReminder.c": [],
+    "listTasks.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "addAppointment.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "analyzeUserData.c": [],
+    "removeTask.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "initTaskManager.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "addTask.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "removeDeadline.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "initRecommendationEngine.c": [],
+    "initUserAnalysis.c": [],
+    "initAppointmentManager.c": [],
+    "listAppointments.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "generateRecommendations.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ]
+}

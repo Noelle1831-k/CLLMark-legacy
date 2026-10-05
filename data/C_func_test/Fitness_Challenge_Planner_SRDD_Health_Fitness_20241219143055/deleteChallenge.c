@@ -1,0 +1,2 @@
+void deleteChallenge(char *name) {
+}

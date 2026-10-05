@@ -1,0 +1,3 @@
+void Player::decrementMoves() {
+    --moves;
+}

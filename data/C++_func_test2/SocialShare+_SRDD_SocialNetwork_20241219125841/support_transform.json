@@ -1,0 +1,20 @@
+{
+    "inviteCollaborator.cpp": [],
+    "listCollaborators.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getName.cpp": [],
+    "listFeedback.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getEmail.cpp": [],
+    "provideFeedback.cpp": [
+        "output"
+    ]
+}

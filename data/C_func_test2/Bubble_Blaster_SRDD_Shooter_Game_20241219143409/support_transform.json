@@ -1,0 +1,35 @@
+{
+    "increase_difficulty.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse"
+    ],
+    "delay.c": [],
+    "init_power_ups.c": [],
+    "activate_combo_bonus.c": [],
+    "init_game.c": [],
+    "draw_game_area.c": [],
+    "draw_power_ups.c": [],
+    "reset_score.c": [],
+    "draw_bubbles.c": [],
+    "init_graphics.c": [],
+    "reset_game.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "start_game.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "while_to_for"
+    ],
+    "update_bubble_positions.c": [],
+    "shoot_bubble.c": [],
+    "update_power_ups.c": [],
+    "end_game.c": [],
+    "init_combo_system.c": [],
+    "update_score.c": [
+        "self_assignment"
+    ],
+    "clear_bubbles.c": [],
+    "check_collision.c": []
+}

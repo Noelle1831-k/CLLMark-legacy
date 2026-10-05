@@ -1,0 +1,61 @@
+{
+    "update_status.c": [],
+    "update_details.c": [],
+    "set_reminder.c": [],
+    "get_progress.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "init_achievement.c": [],
+    "display_menu.c": [],
+    "add_achievement_to_category.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "mark_complete.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "init_manager.c": [],
+    "mark_achievement_complete.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "update_achievement.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "for_OOO"
+    ],
+    "handle_user_input.c": [
+        "array_init"
+    ],
+    "check_reminders.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "init_category.c": [],
+    "add_achievement.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "list_achievements_in_category.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

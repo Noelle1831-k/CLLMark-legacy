@@ -1,0 +1,61 @@
+{
+    "calculateRemainingBudget.cpp": [],
+    "support_transform.json": [],
+    "setBudgetGoal.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.cpp": [
+        "main_style",
+        "output"
+    ],
+    "displayBarChart.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "loadFromFile.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "while_to_for"
+    ],
+    "addIncome.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "getExpenseBreakdown.cpp": [],
+    "showMenu.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "saveToFile.cpp": [],
+    "addExpense.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "getIncomeBreakdown.cpp": [],
+    "handleInput.cpp": [
+        "output",
+        "input"
+    ],
+    "generateReport.cpp": [
+        "output"
+    ],
+    "displayPieChart.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ]
+}

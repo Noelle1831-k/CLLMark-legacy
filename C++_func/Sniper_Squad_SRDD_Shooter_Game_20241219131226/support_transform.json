@@ -1,0 +1,33 @@
+{
+    "chooseRifle.cpp": [],
+    "start.cpp": [
+        "output"
+    ],
+    "gameLoop.cpp": [
+        "output"
+    ],
+    "initializePlayers.cpp": [],
+    "support_transform.json": [],
+    "getLocation.cpp": [],
+    "MissionManager.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "allMissionsCompleted.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "equip.cpp": [],
+    "assignMission.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "Game.cpp": [],
+    "upgradeSkill.cpp": [],
+    "isCompleted.cpp": [],
+    "completeMission.cpp": []
+}

@@ -1,0 +1,1 @@
+string Meeting::getTime() const { return time; }

@@ -1,0 +1,13 @@
+{
+    "main.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "output",
+        "input"
+    ]
+}

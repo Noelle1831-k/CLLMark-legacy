@@ -1,0 +1,34 @@
+{
+    "displayDashboard.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "calculateStandardDeviation.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "main.cpp": [
+        "main_style",
+        "output"
+    ],
+    "generateInsights.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "loadOccupancyData.cpp": [
+        "update_reverse",
+        "while_to_for"
+    ]
+}

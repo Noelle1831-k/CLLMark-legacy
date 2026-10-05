@@ -1,0 +1,46 @@
+{
+    "get_daily_intake.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "add_intake.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "add_user.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_intake_summary.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "get_user_info.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "get_user_intake.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_user_intake_summary.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "log_water_intake.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__str__.py": [
+        "string_quota"
+    ]
+}

@@ -1,0 +1,63 @@
+{
+    "CreateCharacter.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output",
+        "input"
+    ],
+    "support_transform.json": [],
+    "main.cpp": [
+        "main_style",
+        "output",
+        "input"
+    ],
+    "RemoveSkillFromCharacter.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "DisplaySkill.cpp": [],
+    "DisplayCharacter.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "DisplayMenu.cpp": [
+        "output"
+    ],
+    "GetName.cpp": [],
+    "AddSkillToCharacter.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "RemoveSkill.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "DisplayPlanner.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "AddSkill.cpp": []
+}

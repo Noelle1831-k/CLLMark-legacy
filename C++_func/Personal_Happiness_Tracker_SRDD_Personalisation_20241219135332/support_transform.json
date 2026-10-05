@@ -1,0 +1,63 @@
+{
+    "displayUserData.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "support_transform.json": [],
+    "saveDataToFile.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "analyzeMoodTrends.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "loadDataFromFile.cpp": [
+        "while_to_for"
+    ],
+    "getMoodHistory.cpp": [],
+    "getEventHistory.cpp": [],
+    "run.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "declare",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "getActivityHistory.cpp": [],
+    "~Application.cpp": [],
+    "generateRecommendations.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "inputDailyData.cpp": [
+        "declare",
+        "output"
+    ],
+    "handleUserInput.cpp": [
+        "output"
+    ]
+}

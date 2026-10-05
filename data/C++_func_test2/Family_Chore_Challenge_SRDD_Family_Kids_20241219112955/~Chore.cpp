@@ -1,0 +1,3 @@
+~Chore() {
+        delete taskTimer;
+    }

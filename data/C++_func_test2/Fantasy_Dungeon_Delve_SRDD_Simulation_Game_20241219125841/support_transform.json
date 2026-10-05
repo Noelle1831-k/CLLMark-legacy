@@ -1,0 +1,48 @@
+{
+    "Dungeon.cpp": [],
+    "addExit.cpp": [],
+    "addMonster.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "hasTreasure.cpp": [],
+    "startGame.cpp": [],
+    "addTrap.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "displayRoomDetails.cpp": [],
+    "addTreasure.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "addRoom.cpp": [],
+    "generateLayout.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getDescription.cpp": [],
+    "processPlayerAction.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "setDescription.cpp": [],
+    "hasMonster.cpp": [],
+    "Game.cpp": [],
+    "hasTrap.cpp": [],
+    "setPosition.cpp": [],
+    "addPuzzle.cpp": [],
+    "getRoom.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "getNumRooms.cpp": [],
+    "getPosition.cpp": []
+}

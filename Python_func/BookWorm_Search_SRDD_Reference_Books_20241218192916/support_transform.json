@@ -1,0 +1,69 @@
+{
+    "load_books_from_file.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "start.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "search_books.py": [
+        "init_list",
+        "list"
+    ],
+    "display_results.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "add_book.py": [],
+    "__init__.py": [],
+    "main.py": [],
+    "__str__.py": [
+        "string_quota"
+    ],
+    "remove_book.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "keyword_search.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "advanced_search.py": [
+        "init_list",
+        "list",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "search.py": [],
+    "display.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "handle_selection.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

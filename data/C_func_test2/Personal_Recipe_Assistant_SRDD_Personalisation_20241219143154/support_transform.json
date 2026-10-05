@@ -1,0 +1,51 @@
+{
+    "substitute_ingredients.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "get_user_preferences.c": [
+        "array_access"
+    ],
+    "validate_input.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "customize_recipe.c": [
+        "array_init",
+        "declare"
+    ],
+    "load_recipes.c": [
+        "array_access"
+    ],
+    "adjust_ingredient_quantities.c": [],
+    "to_lowercase.c": [
+        "update_reverse",
+        "while_to_for"
+    ],
+    "main.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "array_init",
+        "declare",
+        "for_OOO"
+    ],
+    "string_compare.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "array_init",
+        "declare"
+    ],
+    "filter_recipes.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ]
+}

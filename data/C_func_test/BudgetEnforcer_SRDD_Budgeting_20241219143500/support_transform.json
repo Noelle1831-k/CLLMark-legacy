@@ -1,0 +1,48 @@
+{
+    "handleError.c": [],
+    "recordExpense.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "for_OOO"
+    ],
+    "viewProgress.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "gamificationMenu.c": [],
+    "initializeUserData.c": [],
+    "viewBudget.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "manageBudget.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "setFinancialGoal.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "addBudgetCategory.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "saveAllData.c": []
+}

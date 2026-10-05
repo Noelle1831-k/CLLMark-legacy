@@ -1,0 +1,1 @@
+void Task::setName(const string& name) { taskName = name; }

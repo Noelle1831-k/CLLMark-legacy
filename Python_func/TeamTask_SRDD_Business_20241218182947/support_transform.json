@@ -1,0 +1,54 @@
+{
+    "send_notification.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "update_status.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "assign_task.py": [],
+    "add_user.py": [],
+    "view_all_tasks.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "view_tasks.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "__init__.py": [],
+    "assign_to.py": [],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "notify_users.py": [
+        "string_quota",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "communicate.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "update_priority.py": [],
+    "add_file.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "create_task.py": [],
+    "share_file.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ]
+}

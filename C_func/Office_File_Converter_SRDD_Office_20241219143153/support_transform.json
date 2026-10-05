@@ -1,0 +1,38 @@
+{
+    "showConversionResult.c": [],
+    "support_transform.json": [],
+    "convertSpreadsheet.c": [
+        "array_init"
+    ],
+    "writeFile.c": [],
+    "readFile.c": [],
+    "convertDocument.c": [
+        "array_init"
+    ],
+    "validateFileFormat.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse"
+    ],
+    "convertImage.c": [
+        "array_init"
+    ],
+    "logConversion.c": [],
+    "main.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "declare"
+    ],
+    "displayMenu.c": [],
+    "getUserInput.c": [
+        "array_init"
+    ],
+    "getFileType.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "convertPresentation.c": [
+        "array_init"
+    ]
+}

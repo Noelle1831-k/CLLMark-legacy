@@ -1,0 +1,20 @@
+{
+    "estimateBuildTime.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare",
+        "output"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "analyzeComplexity.cpp": [
+        "output"
+    ],
+    "countModules.cpp": [
+        "output"
+    ],
+    "getTeamSize.cpp": [
+        "output"
+    ]
+}

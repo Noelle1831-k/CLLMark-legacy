@@ -1,0 +1,66 @@
+{
+    "start.cpp": [
+        "output",
+        "input"
+    ],
+    "addGame.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "handleAddGame.cpp": [
+        "declare",
+        "output",
+        "input"
+    ],
+    "support_transform.json": [],
+    "handleDeactivateGame.cpp": [
+        "output",
+        "input"
+    ],
+    "updateGame.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "displayAllGames.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "main.cpp": [
+        "main_style",
+        "output"
+    ],
+    "handleDisplayGames.cpp": [],
+    "displayGameInfo.cpp": [],
+    "handleUpdateGame.cpp": [
+        "declare",
+        "output",
+        "input"
+    ],
+    "findGameById.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "deactivateGame.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "updateScore.cpp": [
+        "output"
+    ],
+    "getGameId.cpp": [],
+    "isGameActive.cpp": []
+}

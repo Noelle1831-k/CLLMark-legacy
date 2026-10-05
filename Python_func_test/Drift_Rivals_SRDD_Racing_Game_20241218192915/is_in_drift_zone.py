@@ -1,0 +1,2 @@
+def is_in_drift_zone(self, position, zone):
+        return (abs(position[0] - zone[0]) <= 10 and abs(position[0] - zone[0]) != 10) and (abs(position[1] - zone[1]) <= 10 and abs(position[1] - zone[1]) != 10)

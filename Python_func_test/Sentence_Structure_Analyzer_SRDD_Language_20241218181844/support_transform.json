@@ -1,0 +1,26 @@
+{
+    "identify_relationships.py": [
+        "init_list",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "build_tree.py": [],
+    "analyze_sentence.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "provide_explanation.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "tag_sentence.py": [],
+    "tokenize_sentence.py": []
+}

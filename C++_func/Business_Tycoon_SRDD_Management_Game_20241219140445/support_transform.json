@@ -1,0 +1,76 @@
+{
+    "displayMainMenu.cpp": [
+        "output"
+    ],
+    "fireEmployee.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "addItem.cpp": [],
+    "initialize.cpp": [
+        "output"
+    ],
+    "manageInventory.cpp": [],
+    "hireEmployee.cpp": [],
+    "support_transform.json": [],
+    "loadFromData.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "displayEmployees.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "processInput.cpp": [
+        "output"
+    ],
+    "startGame.cpp": [
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "manage.cpp": [
+        "output"
+    ],
+    "manageEmployees.cpp": [],
+    "displayInventory.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "handleFinances.cpp": [],
+    "displayStatus.cpp": [],
+    "optimizeOperations.cpp": [
+        "self_assignment",
+        "output"
+    ],
+    "removeItem.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "startMarketingCampaign.cpp": [],
+    "getSaveData.cpp": [],
+    "expandBusiness.cpp": [
+        "self_assignment",
+        "output"
+    ],
+    "saveGame.cpp": [
+        "output"
+    ],
+    "loadGame.cpp": [
+        "output"
+    ]
+}

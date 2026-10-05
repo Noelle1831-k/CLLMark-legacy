@@ -1,0 +1,95 @@
+{
+    "generateStatistics.c": [],
+    "addPlayer.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access"
+    ],
+    "updatePlayer.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "updateTrainingPlan.c": [],
+    "support_transform.json": [],
+    "createTrainingPlan.c": [],
+    "deletePlayer.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "deleteMatch.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "deleteTrainingPlan.c": [],
+    "initializeSystem.c": [],
+    "trackAchievements.c": [],
+    "addMatch.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access"
+    ],
+    "updateMatch.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "addTeam.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access"
+    ],
+    "deleteTeam.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "updateTeam.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "manageTrainingPlans.c": [],
+    "calculateMatchStats.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "manageData.c": [],
+    "calculateTeamStats.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "createMatchReport.c": [],
+    "createPlayerReport.c": [],
+    "createTeamReport.c": [],
+    "clearScreen.c": [],
+    "calculatePlayerStats.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "printDivider.c": [],
+    "generateReports.c": []
+}

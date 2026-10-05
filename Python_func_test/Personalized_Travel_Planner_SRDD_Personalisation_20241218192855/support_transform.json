@@ -1,0 +1,32 @@
+{
+    "update_preferences.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_itinerary.py": [
+        "init_list",
+        "list",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "__init__.py": [],
+    "optimize_itinerary.py": [
+        "init_list",
+        "list"
+    ],
+    "add_activity.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ]
+}

@@ -1,0 +1,66 @@
+{
+    "organize_items.py": [
+        "print_flush",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "get_item_details.py": [
+        "string_quota",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "__init__.py": [],
+    "get_notifications.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "search_items.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "add_item.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp",
+        "return_none"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "run.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "search.py": [],
+    "remove_item.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "details.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "schedule_notification.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ]
+}

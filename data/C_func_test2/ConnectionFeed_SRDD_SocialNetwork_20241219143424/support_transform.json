@@ -1,0 +1,36 @@
+{
+    "manage_connections.c": [],
+    "remove_connection.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "initialize_system.c": [],
+    "manage_feed.c": [],
+    "add_connection.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse"
+    ],
+    "exit_application.c": [],
+    "display_menu.c": [],
+    "search_users.c": [],
+    "main.c": [
+        "main_style",
+        "while_to_for"
+    ],
+    "list_connections.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "manage_profiles.c": [],
+    "handle_user_input.c": []
+}

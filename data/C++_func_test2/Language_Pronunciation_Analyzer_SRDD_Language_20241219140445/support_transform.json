@@ -1,0 +1,31 @@
+{
+    "processAudio.cpp": [
+        "while_to_for",
+        "output"
+    ],
+    "main.cpp": [
+        "main_style",
+        "output"
+    ],
+    "~AudioInput.cpp": [
+        "output"
+    ],
+    "initializeDevice.cpp": [
+        "output"
+    ],
+    "captureAudio.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "analyzePronunciation.cpp": [
+        "while_to_for",
+        "output"
+    ],
+    "generateReport.cpp": [
+        "while_to_for",
+        "output"
+    ]
+}

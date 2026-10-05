@@ -1,0 +1,48 @@
+{
+    "plot_budget_breakdown.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "add_expense.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_budget_summary.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "plot_goals.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "add_income.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "main.py": [],
+    "calculate_total_income.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "set_goal.py": [],
+    "calculate_total_expenses.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

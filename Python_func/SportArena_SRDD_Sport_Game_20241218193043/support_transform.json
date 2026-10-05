@@ -1,0 +1,60 @@
+{
+    "display_arena.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_lighting.py": [],
+    "customize_arena.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "set_seating_capacity.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "set_lighting.py": [],
+    "get_dimensions.py": [],
+    "get_scoreboard.py": [],
+    "set_scoreboard.py": [],
+    "get_surface_type.py": [],
+    "set_dimensions.py": [],
+    "__init__.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_seating_capacity.py": [],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "load_arena.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "save_arena.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "set_surface_type.py": []
+}

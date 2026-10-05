@@ -1,0 +1,54 @@
+{
+    "viewExpenseForecast.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "trackGoals.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "support_transform.json": [],
+    "manageBills.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "for_OOO"
+    ],
+    "allocateExpenses.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "displayMenu.c": [],
+    "getValidatedInteger.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init"
+    ],
+    "getValidatedDouble.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init"
+    ]
+}

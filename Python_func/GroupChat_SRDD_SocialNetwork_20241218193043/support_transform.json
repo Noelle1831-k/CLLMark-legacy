@@ -1,0 +1,45 @@
+{
+    "download.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "format_message.py": [
+        "string_quota"
+    ],
+    "find_group.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "delete_group.py": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "leave_group.py": [],
+    "remove_member.py": [],
+    "join_group.py": [],
+    "register_user.py": [],
+    "__init__.py": [],
+    "send_message.py": [],
+    "upload.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "is_multimedia.py": [],
+    "add_member.py": [],
+    "broadcast_message.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "create_group.py": [],
+    "send_multimedia.py": []
+}

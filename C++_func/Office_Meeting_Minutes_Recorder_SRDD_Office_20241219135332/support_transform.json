@@ -1,0 +1,72 @@
+{
+    "inputMeetingDetails.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "declare",
+        "while_to_for",
+        "output"
+    ],
+    "support_transform.json": [],
+    "saveMeetingDetails.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "getUserChoice.cpp": [
+        "output",
+        "input"
+    ],
+    "viewNotes.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "main.cpp": [
+        "main_style",
+        "output"
+    ],
+    "displayMeetingDetails.cpp": [],
+    "loadMeetingDetails.cpp": [
+        "while_to_for",
+        "output"
+    ],
+    "playbackRecording.cpp": [
+        "output"
+    ],
+    "organizeMeetings.cpp": [],
+    "addNote.cpp": [
+        "output"
+    ],
+    "startRecording.cpp": [
+        "output"
+    ],
+    "searchMeeting.cpp": [
+        "output"
+    ],
+    "stopRecording.cpp": [
+        "output"
+    ],
+    "saveAudioFile.cpp": [
+        "output"
+    ],
+    "saveNotes.cpp": [
+        "output"
+    ],
+    "categorizeMeetings.cpp": [
+        "output"
+    ],
+    "editNote.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output",
+        "input"
+    ],
+    "recordMeetingDetails.cpp": [],
+    "displayWelcomeMessage.cpp": [
+        "output"
+    ]
+}

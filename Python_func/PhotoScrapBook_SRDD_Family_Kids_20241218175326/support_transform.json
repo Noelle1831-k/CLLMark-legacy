@@ -1,0 +1,64 @@
+{
+    "register.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "add_scrapbook.py": [],
+    "add_photo.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "create_scrapbook.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init___1.py": [],
+    "__init__0.py": [],
+    "add_decorative_element.py": [],
+    "view_scrapbooks.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "user_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "__init__.py": [],
+    "add_sticker.py": [],
+    "add_caption.py": [],
+    "add_page.py": [],
+    "view_shared_scrapbooks.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp",
+        "return_none"
+    ],
+    "run.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "login.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "share_scrapbook.py": []
+}

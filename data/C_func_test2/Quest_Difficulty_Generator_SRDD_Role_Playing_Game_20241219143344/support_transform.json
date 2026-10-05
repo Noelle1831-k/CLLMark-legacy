@@ -1,0 +1,35 @@
+{
+    "print_quest.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "generate_random.c": [],
+    "assign_required_skills.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "display_menu.c": [],
+    "create_player_profile.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "generate_quest.c": [],
+    "calculate_difficulty.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "populate_enemies.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "handle_user_input.c": [],
+    "assign_time_constraints.c": []
+}

@@ -1,0 +1,55 @@
+{
+    "handle_sync_password.py": [
+        "print_flush",
+        "string_quota",
+        "f_string"
+    ],
+    "handle_delete_password.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "encrypt.py": [],
+    "add_password.py": [],
+    "handle_add_password.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_password.py": [
+        "range_index",
+        "string_quota",
+        "f_string"
+    ],
+    "get_password.py": [
+        "return_none"
+    ],
+    "__init__.py": [],
+    "sync_to_cloud.py": [],
+    "handle_retrieve_password.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "sync_from_cloud.py": [],
+    "handle_generate_password.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "delete_password.py": [],
+    "decrypt.py": []
+}

@@ -1,0 +1,47 @@
+{
+    "updateStatus.cpp": [],
+    "updateProgress.cpp": [],
+    "sendNotification.cpp": [],
+    "getStatus.cpp": [],
+    "checkDueDates.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "getId.cpp": [],
+    "getProgress.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "addTask.cpp": [],
+    "listTasksByPriority.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "getDueDate.cpp": [],
+    "showTaskDetails.cpp": [
+        "output"
+    ],
+    "getName.cpp": [],
+    "addDependency.cpp": [],
+    "getDependencies.cpp": [],
+    "getTaskById.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "updateTask.cpp": [],
+    "listAllTasks.cpp": [],
+    "removeTask.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "getPriority.cpp": [],
+    "setDueDate.cpp": [],
+    "handleUserInput.cpp": [
+        "output",
+        "input"
+    ],
+    "setPriority.cpp": []
+}

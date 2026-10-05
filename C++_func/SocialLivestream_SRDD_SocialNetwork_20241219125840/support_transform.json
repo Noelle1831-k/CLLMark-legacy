@@ -1,0 +1,38 @@
+{
+    "getType.cpp": [],
+    "addCommentToStream.cpp": [],
+    "removeFollower.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getReactions.cpp": [],
+    "stopLivestream.cpp": [],
+    "getStatus.cpp": [],
+    "support_transform.json": [],
+    "getFollowers.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "getText.cpp": [],
+    "getUsername.cpp": [],
+    "startStream.cpp": [],
+    "getProfilePicture.cpp": [],
+    "addReactionToStream.cpp": [],
+    "addFollower.cpp": [],
+    "getComments.cpp": [],
+    "addReaction.cpp": [],
+    "stopStream.cpp": [],
+    "run.cpp": [
+        "declare",
+        "output"
+    ],
+    "startLivestream.cpp": [],
+    "addComment.cpp": [],
+    "getReactor.cpp": [],
+    "getCommenter.cpp": [],
+    "createUser.cpp": []
+}

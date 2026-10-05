@@ -1,0 +1,56 @@
+{
+    "addIncome.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access"
+    ],
+    "setBudgetGoal.c": [],
+    "pause.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "clearInputBuffer.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "support_transform.json": [],
+    "addExpense.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access"
+    ],
+    "viewBudgetBreakdown.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "trackSavings.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "sanitizeInput.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "array_access"
+    ],
+    "main.c": [
+        "main_style",
+        "array_init"
+    ],
+    "displayMenu.c": [],
+    "clearScreen.c": []
+}

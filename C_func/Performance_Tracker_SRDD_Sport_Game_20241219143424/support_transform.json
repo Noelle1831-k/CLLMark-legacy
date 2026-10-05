@@ -1,0 +1,41 @@
+{
+    "createAthleteList.c": [],
+    "support_transform.json": [],
+    "deleteAthlete.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "array_init",
+        "declare",
+        "while_to_for"
+    ],
+    "initializeUI.c": [],
+    "freeAthleteList.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "generatePerformanceReport.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "updatePerformanceMetrics.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "array_init",
+        "while_to_for"
+    ],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "displayMainMenu.c": [],
+    "addNewAthlete.c": []
+}

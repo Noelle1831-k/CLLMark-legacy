@@ -1,0 +1,34 @@
+{
+    "evaluateGrammar.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "output"
+    ],
+    "support_transform.json": [],
+    "addExplanation.cpp": [],
+    "main.cpp": [
+        "main_style",
+        "declare"
+    ],
+    "evaluateBias.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "output"
+    ],
+    "displayResults.cpp": [
+        "output"
+    ],
+    "evaluateSentiment.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "output"
+    ],
+    "evaluateSourceReliability.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "output"
+    ],
+    "getExplanation.cpp": [],
+    "generateScore.cpp": [],
+    "getScore.cpp": []
+}

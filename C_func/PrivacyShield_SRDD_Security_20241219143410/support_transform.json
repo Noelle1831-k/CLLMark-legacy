@@ -1,0 +1,63 @@
+{
+    "generate_secure_password.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "support_transform.json": [
+        "array_access"
+    ],
+    "securely_delete_files.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "for_OOO"
+    ],
+    "print_error.c": [],
+    "manage_passwords.c": [
+        "array_init",
+        "declare"
+    ],
+    "main.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style"
+    ],
+    "encrypt_files.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "array_init",
+        "declare",
+        "while_to_for"
+    ],
+    "decrypt_files.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "array_init",
+        "declare",
+        "while_to_for"
+    ],
+    "execute_choice.c": [],
+    "block_ads_and_trackers.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "display_dashboard.c": [],
+    "clear_input_buffer.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ]
+}

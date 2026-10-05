@@ -1,0 +1,85 @@
+{
+    "get_user.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "list_events.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "find_event_by_id.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "create_profile.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_events.py": [],
+    "update_profile.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "add_user.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "search_events.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "add_attendee.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "update_event.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "rsvp_event.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "__init__.py": [],
+    "send_message.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota"
+    ],
+    "create_event.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "receive_messages.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "add_event.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ]
+}

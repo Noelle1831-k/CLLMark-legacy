@@ -1,0 +1,63 @@
+{
+    "removePiece.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "checkSolution.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "loadLevel.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "startGame.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "while_to_for",
+        "output"
+    ],
+    "rotatePiece.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "placePiece.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "endGame.cpp": [
+        "output"
+    ],
+    "setPosition.cpp": [],
+    "levelNumber.cpp": [],
+    "getImageData.cpp": [],
+    "nextLevel.cpp": [
+        "update_reverse"
+    ],
+    "rows.cpp": [],
+    "isComplete.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getPosition.cpp": []
+}

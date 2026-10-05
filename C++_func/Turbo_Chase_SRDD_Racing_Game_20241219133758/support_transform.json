@@ -1,0 +1,97 @@
+{
+    "updateTraffic.cpp": [
+        "output"
+    ],
+    "updateStatus.cpp": [
+        "output"
+    ],
+    "activate.cpp": [
+        "output"
+    ],
+    "handleMouseClick.cpp": [
+        "output"
+    ],
+    "getVehicle.cpp": [],
+    "initialize.cpp": [
+        "output"
+    ],
+    "checkWinCondition.cpp": [],
+    "support_transform.json": [],
+    "boostSpeed.cpp": [
+        "output"
+    ],
+    "generateMap.cpp": [
+        "output"
+    ],
+    "blockRoad.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "spawnPowerUps.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "chooseVehicle.cpp": [
+        "output"
+    ],
+    "processInput.cpp": [
+        "output"
+    ],
+    "chasePlayer.cpp": [
+        "output"
+    ],
+    "brake.cpp": [
+        "output"
+    ],
+    "updateGraphics.cpp": [
+        "output"
+    ],
+    "displayHUD.cpp": [
+        "output"
+    ],
+    "maneuver.cpp": [
+        "output"
+    ],
+    "renderScene.cpp": [
+        "output"
+    ],
+    "deactivate.cpp": [
+        "output"
+    ],
+    "checkLoseCondition.cpp": [],
+    "run.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "while_to_for",
+        "output"
+    ],
+    "addObstacles.cpp": [
+        "output"
+    ],
+    "handleKeyPress.cpp": [
+        "output"
+    ],
+    "accelerate.cpp": [
+        "output"
+    ],
+    "checkCollisions.cpp": [
+        "output"
+    ],
+    "terminate.cpp": [
+        "output"
+    ],
+    "spawnPolice.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ]
+}

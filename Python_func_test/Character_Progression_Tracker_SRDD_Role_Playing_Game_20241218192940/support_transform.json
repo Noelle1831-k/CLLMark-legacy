@@ -1,0 +1,61 @@
+{
+    "load_character_data.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "string_quota",
+        "f_string"
+    ],
+    "get_summary.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "add_new_character.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "update_character.py": [],
+    "generate_visualization.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "add_skills.py": [],
+    "__init__.py": [],
+    "handle_user_input.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "add_attributes.py": [],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "save_character_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "view_character.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "add_equipment.py": []
+}

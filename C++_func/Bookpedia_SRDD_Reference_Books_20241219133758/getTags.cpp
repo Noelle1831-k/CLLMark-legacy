@@ -1,0 +1,1 @@
+vector<string> Book::getTags() const { return tags; }

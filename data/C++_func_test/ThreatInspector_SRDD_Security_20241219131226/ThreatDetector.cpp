@@ -1,0 +1,2 @@
+ThreatDetector::ThreatDetector() {
+}

@@ -1,0 +1,13 @@
+def main():
+    tracker = BudgetTracker()
+    tracker.add_income(5000, "Salary")
+    tracker.add_expense(1500, "Rent")
+    tracker.add_expense(200, "Groceries")
+    tracker.add_income(200, "Freelance")
+    tracker.add_expense(100, "Utilities")
+    tracker.add_income(300, "Investment")
+    report_gen = ReportGenerator()
+    summary_report = report_gen.generate_summary(tracker)
+    detailed_report = report_gen.generate_detailed_report(tracker)
+    print(summary_report)
+    print(detailed_report)

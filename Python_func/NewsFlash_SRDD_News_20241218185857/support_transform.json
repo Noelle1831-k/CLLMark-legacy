@@ -1,0 +1,75 @@
+{
+    "personalize_feed.py": [],
+    "display_news.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "is_fuzzy_match.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "fuzzy_search.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "build_index.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_summary.py": [
+        "list_index",
+        "string_quota",
+        "f_string",
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "fetch_news.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "summarize.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "categorize.py": [
+        "init_list",
+        "list"
+    ],
+    "levenshtein_distance.py": [
+        "list",
+        "range_index",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse"
+    ],
+    "tokenize.py": [
+        "string_quota"
+    ],
+    "run.py": [],
+    "determine_category.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "advanced_search.py": [],
+    "search.py": []
+}

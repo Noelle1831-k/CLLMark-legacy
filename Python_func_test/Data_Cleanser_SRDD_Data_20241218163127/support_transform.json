@@ -1,0 +1,40 @@
+{
+    "standardize_data_formats.py": [
+        "init_list"
+    ],
+    "log_operations.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "load_data.py": [
+        "init_list",
+        "list"
+    ],
+    "execute_option.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "remove_duplicates.py": [
+        "init_list",
+        "list"
+    ],
+    "get_user_input.py": [],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "display_menu.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "display_message.py": [
+        "print_flush",
+        "print_end"
+    ],
+    "fill_missing_values.py": [
+        "range_index"
+    ],
+    "validate_data.py": []
+}

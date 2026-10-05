@@ -1,0 +1,42 @@
+{
+    "addItem.cpp": [],
+    "saveRecipe.cpp": [],
+    "getSavedRecipes.cpp": [],
+    "getIngredients.cpp": [],
+    "support_transform.json": [],
+    "FamilyCookingFunApp.cpp": [],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "getName.cpp": [],
+    "getItems.cpp": [],
+    "startTimer.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "while_to_for",
+        "output"
+    ],
+    "stopTimer.cpp": [],
+    "run.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for",
+        "input"
+    ],
+    "removeItem.cpp": [],
+    "IngredientSubstitution.cpp": [],
+    "getSubstitution.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "handleUserInput.cpp": [
+        "output"
+    ],
+    "getInstructions.cpp": []
+}

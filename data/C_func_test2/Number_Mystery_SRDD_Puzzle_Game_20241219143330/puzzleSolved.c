@@ -1,0 +1,3 @@
+int puzzleSolved() {
+    return currentPuzzleSolved;
+}

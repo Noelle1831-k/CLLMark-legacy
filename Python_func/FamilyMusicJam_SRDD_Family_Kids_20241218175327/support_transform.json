@@ -1,0 +1,137 @@
+{
+    "stop_instrument.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "end_session.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "start.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "start_session.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "stop_note0.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "_tick.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "play_beat.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "get_lesson.py": [
+        "string_quota"
+    ],
+    "stop_chord.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "show_music_theory_lesson.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "stop_note_1.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "__init__.py": [],
+    "load_track.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "stop_track.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "play_track.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "stop_note.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "play_instrument.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "strum_chord.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "stop.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "play_chord.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "play_note.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "stop_beat.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

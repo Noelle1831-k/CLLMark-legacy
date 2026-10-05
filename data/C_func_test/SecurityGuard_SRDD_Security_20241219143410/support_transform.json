@@ -1,0 +1,55 @@
+{
+    "neutralize_threat.c": [],
+    "initialize_alerts_module.c": [],
+    "encrypt_data.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_access"
+    ],
+    "add_password.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "initialize_system.c": [],
+    "view_passwords.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "display_menu.c": [],
+    "manage_passwords.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "perform_scan.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "handle_user_choice.c": [],
+    "view_logs.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "initialize_scan_module.c": [],
+    "enable_secure_browsing.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "send_alert.c": [],
+    "initialize_password_manager.c": [],
+    "initialize_secure_browsing.c": [],
+    "log_message.c": [],
+    "initialize_utils.c": []
+}

@@ -1,0 +1,47 @@
+{
+    "setSavingsGoal.cpp": [],
+    "collectUserInput.cpp": [
+        "declare",
+        "output",
+        "input"
+    ],
+    "displaySummary.cpp": [],
+    "getExpenses.cpp": [],
+    "support_transform.json": [],
+    "setIncome.cpp": [],
+    "calculateSavingsPotential.cpp": [],
+    "calculateSavingsRecommendation.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ],
+    "showEducationalResources.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "main_style",
+        "output"
+    ],
+    "provideBudgetingTips.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare",
+        "output"
+    ],
+    "getIncome.cpp": [],
+    "FinanceAssistant.cpp": [],
+    "User.cpp": [],
+    "getSavingsGoal.cpp": [],
+    "generateRecommendations.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare",
+        "output"
+    ],
+    "collectFinancialData.cpp": [],
+    "setExpenses.cpp": [],
+    "isPositive.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ]
+}

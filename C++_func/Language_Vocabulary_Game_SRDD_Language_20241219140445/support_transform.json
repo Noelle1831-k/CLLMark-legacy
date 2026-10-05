@@ -1,0 +1,70 @@
+{
+    "setDifficulty.cpp": [],
+    "getVocabulary.cpp": [],
+    "VocabularyData.cpp": [],
+    "support_transform.json": [],
+    "wordMatching.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "setLanguage.cpp": [],
+    "validateInput.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "while_to_for"
+    ],
+    "main.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "output",
+        "input"
+    ],
+    "startGame.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "declare",
+        "output"
+    ],
+    "userSetup.cpp": [
+        "output",
+        "input"
+    ],
+    "wordAssociation.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "getLanguage.cpp": [],
+    "getDifficulty.cpp": [],
+    "addVocabulary.cpp": [],
+    "updateScore.cpp": [
+        "self_assignment"
+    ],
+    "showProgress.cpp": [],
+    "getScore.cpp": [],
+    "pictureLabeling.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output",
+        "input"
+    ]
+}

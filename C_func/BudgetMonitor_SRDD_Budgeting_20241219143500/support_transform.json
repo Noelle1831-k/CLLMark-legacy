@@ -1,0 +1,63 @@
+{
+    "getInput.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "addIncome.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse"
+    ],
+    "addCategory.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_access"
+    ],
+    "support_transform.json": [],
+    "calculateBalance.c": [],
+    "generateReport.c": [],
+    "addExpense.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse"
+    ],
+    "generateChart.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "validateInput.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "displayMenu.c": [],
+    "sendNotification.c": [],
+    "checkBudgetLimit.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "listCategories.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ]
+}

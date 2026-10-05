@@ -1,0 +1,2 @@
+void utility_function() {
+}

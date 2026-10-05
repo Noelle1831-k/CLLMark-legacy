@@ -1,0 +1,36 @@
+{
+    "preprocessLyrics.cpp": [],
+    "readFile.cpp": [],
+    "LyricAnalyzer.cpp": [],
+    "main.cpp": [
+        "main_style",
+        "declare",
+        "output",
+        "input"
+    ],
+    "printWordFrequency.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "analyzeSentiment.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "analyzeWordFrequency.cpp": [
+        "while_to_for"
+    ],
+    "analyzeRhymeScheme.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "declare",
+        "while_to_for"
+    ]
+}

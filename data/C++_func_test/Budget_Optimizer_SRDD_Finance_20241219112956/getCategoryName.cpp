@@ -1,0 +1,3 @@
+string getCategoryName() {
+        return categoryName;
+    }

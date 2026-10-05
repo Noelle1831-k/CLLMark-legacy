@@ -1,0 +1,1 @@
+string FinancialTransaction::getDate() const { return date; }

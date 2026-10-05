@@ -1,0 +1,45 @@
+{
+    "adjustDifficulty.cpp": [],
+    "startExercise.cpp": [
+        "output"
+    ],
+    "RhythmPattern.cpp": [],
+    "setTempo.cpp": [],
+    "displayPattern.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "startMetronome.cpp": [
+        "while_to_for",
+        "output"
+    ],
+    "main.cpp": [
+        "main_style",
+        "output",
+        "input"
+    ],
+    "generatePattern.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "analyzeAccuracy.cpp": [
+        "output"
+    ],
+    "stopMetronome.cpp": [
+        "output"
+    ],
+    "generateReport.cpp": [
+        "output"
+    ],
+    "evaluatePerformance.cpp": [
+        "output"
+    ]
+}

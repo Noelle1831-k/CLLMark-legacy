@@ -1,0 +1,3 @@
+int getWordCount() {
+    return wordCount;
+}

@@ -1,0 +1,64 @@
+{
+    "displayDetails.cpp": [],
+    "main.cpp": [
+        "main_style",
+        "output"
+    ],
+    "addTask.cpp": [
+        "output"
+    ],
+    "setTasks.cpp": [],
+    "inputDetails.cpp": [
+        "output"
+    ],
+    "getName.cpp": [],
+    "checkNotifications.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "output"
+    ],
+    "listTasks.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "output"
+    ],
+    "getTasks.cpp": [],
+    "updateTask.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "output"
+    ],
+    "showMenu.cpp": [
+        "output"
+    ],
+    "removeTask.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "output"
+    ],
+    "addReminder.cpp": [],
+    "handleInput.cpp": [
+        "output",
+        "input"
+    ],
+    "generateReport.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "output"
+    ],
+    "visualizeSchedule.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "output"
+    ]
+}

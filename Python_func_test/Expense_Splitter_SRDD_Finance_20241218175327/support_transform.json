@@ -1,0 +1,23 @@
+{
+    "calculate_splits.py": [],
+    "get_summary.py": [],
+    "add_expense.py": [
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "get_details.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "get_balance.py": []
+}

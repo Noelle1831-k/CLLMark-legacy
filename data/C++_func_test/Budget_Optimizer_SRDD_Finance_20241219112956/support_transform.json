@@ -1,0 +1,31 @@
+{
+    "loadUserData.cpp": [
+        "output"
+    ],
+    "getExpenses.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "analyzeIncomeExpenses.cpp": [
+        "output"
+    ],
+    "getCategoryName.cpp": [],
+    "getIncome.cpp": [],
+    "displayRecommendations.cpp": [
+        "output"
+    ],
+    "getTotalAmount.cpp": [],
+    "addExpense.cpp": [],
+    "generateRecommendations.cpp": [
+        "output"
+    ],
+    "suggestAllocations.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output"
+    ]
+}

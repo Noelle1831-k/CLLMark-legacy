@@ -1,0 +1,64 @@
+{
+    "receive_message.c": [],
+    "update_user_info.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "support_transform.json": [],
+    "search_articles.c": [],
+    "send_message.c": [],
+    "main_menu.c": [],
+    "connect_with_user.c": [],
+    "networking_management.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "delete_comment.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "user_management.c": [],
+    "create_user.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "post_comment.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "add_article.c": [],
+    "create_discussion.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "discussion_management.c": [],
+    "remove_article.c": [],
+    "knowledge_base_management.c": [],
+    "delete_user.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ]
+}

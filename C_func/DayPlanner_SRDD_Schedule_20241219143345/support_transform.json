@@ -1,0 +1,53 @@
+{
+    "addCategory.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access"
+    ],
+    "support_transform.json": [],
+    "initializeUI.c": [],
+    "showDayOverview.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "setReminder.c": [
+        "array_init",
+        "declare"
+    ],
+    "viewTasks.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "displayMenu.c": [],
+    "addTask.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access"
+    ],
+    "allocateTimeSlot.c": [
+        "array_init",
+        "declare"
+    ],
+    "getUserChoice.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "listCategories.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ]
+}

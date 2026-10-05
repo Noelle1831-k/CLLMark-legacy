@@ -1,0 +1,75 @@
+{
+    "update_score.py": [
+        "self_assignment"
+    ],
+    "drop_blocks.py": [
+        "list",
+        "range_index",
+        "string_quota",
+        "f_string"
+    ],
+    "has_possible_moves.py": [
+        "range_index"
+    ],
+    "make_move.py": [],
+    "get_move_input.py": [
+        "return"
+    ],
+    "use_move.py": [
+        "self_assignment"
+    ],
+    "next_level.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "get_color.py": [],
+    "display_board.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "is_cleared.py": [
+        "range_index"
+    ],
+    "clear_matches.py": [],
+    "can_swap.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "__init__.py": [],
+    "check_match.py": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "check_level_completion.py": [
+        "self_assignment"
+    ],
+    "find_matches.py": [
+        "init_list",
+        "list",
+        "range_index"
+    ],
+    "start_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [],
+    "check_game_over.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "swap_blocks.py": [],
+    "initialize_board.py": [
+        "list",
+        "range_index",
+        "string_quota",
+        "f_string"
+    ]
+}

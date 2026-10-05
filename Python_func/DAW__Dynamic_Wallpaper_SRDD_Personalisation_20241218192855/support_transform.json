@@ -1,0 +1,60 @@
+{
+    "schedule_wallpaper_change.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "load_wallpapers.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "check_events.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "get_current_time.py": [],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "set_wallpaper.py": [],
+    "remove_event.py": [],
+    "select_wallpaper_based_on_time.py": [],
+    "get_user_input.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "animate.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "display.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "add_event.py": [],
+    "is_time_for_change.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

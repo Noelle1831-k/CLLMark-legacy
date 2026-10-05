@@ -1,0 +1,10 @@
+def generate_histogram(self, data, bins=10):
+        values = list(data.values())
+        plt.figure(figsize=(10, 6))
+        plt.hist(values, bins=bins, color='purple', edgecolor='black')
+        plt.xlabel('Amount')
+        plt.ylabel('Frequency')
+        plt.title('Budget Breakdown - Histogram')
+        plt.grid(True)
+        plt.tight_layout()
+        plt.show()

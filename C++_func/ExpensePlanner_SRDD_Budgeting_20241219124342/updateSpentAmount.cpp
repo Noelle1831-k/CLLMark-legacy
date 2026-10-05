@@ -1,0 +1,1 @@
+void Budget::updateSpentAmount(double amount) { spentAmount += amount; }

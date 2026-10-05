@@ -1,0 +1,31 @@
+{
+    "apply_color_scheme.py": [],
+    "handle_event.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "render_waveform.py": [
+        "range_index"
+    ],
+    "transform_view.py": [
+        "self_assignment"
+    ],
+    "select_file.py": [],
+    "get_audio_data.py": [],
+    "__init__.py": [],
+    "main.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "load_audio.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "toggle_file_selection.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

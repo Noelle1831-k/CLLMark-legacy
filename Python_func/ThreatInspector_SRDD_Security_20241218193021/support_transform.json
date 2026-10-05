@@ -1,0 +1,59 @@
+{
+    "load_model.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "send_notification.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "apply_updates.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "schedule_scan.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "detect_threats.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "initialize_components.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "check_for_updates.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "scan_files.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_report.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "provide_recommendations.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "log_activity.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ]
+}

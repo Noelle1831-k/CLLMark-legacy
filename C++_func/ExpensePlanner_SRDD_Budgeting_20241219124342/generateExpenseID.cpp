@@ -1,0 +1,1 @@
+int ExpenseManager::generateExpenseID() { return nextID++; }

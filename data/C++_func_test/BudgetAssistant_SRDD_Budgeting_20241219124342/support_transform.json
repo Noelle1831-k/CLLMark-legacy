@@ -1,0 +1,18 @@
+{
+    "start.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "processInput.cpp": [
+        "output"
+    ],
+    "showMenu.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for",
+        "output",
+        "input"
+    ]
+}

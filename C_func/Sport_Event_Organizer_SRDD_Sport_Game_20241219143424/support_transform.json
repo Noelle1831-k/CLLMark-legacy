@@ -1,0 +1,25 @@
+{
+    "compileEventStatistics.c": [],
+    "support_transform.json": [],
+    "assignTeamsAndReferees.c": [],
+    "generateReport.c": [],
+    "registerParticipants.c": [],
+    "inputEventDetails.c": [],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "validateTime.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "array_access"
+    ],
+    "validateDate.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "array_access"
+    ],
+    "validateParticipantDetails.c": [],
+    "generateSchedule.c": []
+}

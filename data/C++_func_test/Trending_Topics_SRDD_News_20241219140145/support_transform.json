@@ -1,0 +1,64 @@
+{
+    "DataManager.cpp": [
+        "output"
+    ],
+    "TrendingTracker.cpp": [
+        "output"
+    ],
+    "DashboardRenderer.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "output"
+    ],
+    "fetchFromInstagram.cpp": [
+        "output"
+    ],
+    "getTrendingTopics.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "fetchFromTwitter.cpp": [
+        "output"
+    ],
+    "split.cpp": [
+        "while_to_for"
+    ],
+    "renderDashboard.cpp": [
+        "output"
+    ],
+    "fetchFromReddit.cpp": [
+        "output"
+    ],
+    "NewsFetcher.cpp": [
+        "output"
+    ],
+    "getData.cpp": [],
+    "fetchNews.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "toLowerCase.cpp": [],
+    "renderFilteredNews.cpp": [
+        "output"
+    ],
+    "storeData.cpp": [
+        "output"
+    ],
+    "fetchAdditionalNewsSources.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

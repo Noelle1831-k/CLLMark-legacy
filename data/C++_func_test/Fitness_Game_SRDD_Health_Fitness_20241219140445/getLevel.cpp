@@ -1,0 +1,3 @@
+int getLevel() {
+        return level;
+    }

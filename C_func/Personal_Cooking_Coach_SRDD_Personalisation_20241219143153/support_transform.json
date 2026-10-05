@@ -1,0 +1,42 @@
+{
+    "filterRecipes.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getGroceryList.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "calculateNutrition.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "support_transform.json": [],
+    "generateMealPlan.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getPreferences.c": [],
+    "setPreferences.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "loadRecipes.c": [],
+    "main.c": [
+        "main_style",
+        "array_init",
+        "array_access"
+    ],
+    "displayMenu.c": [],
+    "initializeUserPreferences.c": []
+}

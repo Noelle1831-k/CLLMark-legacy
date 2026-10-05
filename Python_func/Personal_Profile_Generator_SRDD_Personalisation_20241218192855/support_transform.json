@@ -1,0 +1,48 @@
+{
+    "validate_age.py": [],
+    "generate_profile.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "validate_inputs.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "sanitize_input.py": [],
+    "write_to_file.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_unique_id.py": [],
+    "read_from_file.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "validate_email.py": [
+        "string_quota"
+    ],
+    "__init__.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "validate_bio.py": [],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "validate_name.py": [
+        "string_quota"
+    ]
+}

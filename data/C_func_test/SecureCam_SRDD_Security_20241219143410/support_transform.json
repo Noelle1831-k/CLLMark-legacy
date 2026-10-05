@@ -1,0 +1,22 @@
+{
+    "initialize_alert_system.c": [],
+    "initialize_video_analysis.c": [],
+    "sleep.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "while_to_for"
+    ],
+    "initialize_cloud_storage.c": [],
+    "main.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style"
+    ],
+    "analyze_video_feed.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "store_footage.c": [],
+    "raise_alert.c": []
+}

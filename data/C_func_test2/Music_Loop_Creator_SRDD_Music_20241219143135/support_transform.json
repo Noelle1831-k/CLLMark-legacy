@@ -1,0 +1,52 @@
+{
+    "play_note.c": [],
+    "customize_loop_length.c": [],
+    "create_sequence.c": [],
+    "create_loop.c": [],
+    "set_pitch.c": [],
+    "remove_sequence_from_loop.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "load_sound.c": [],
+    "free_instrument.c": [],
+    "set_duration.c": [],
+    "play_sequence.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "remove_note_from_sequence.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "create_instrument.c": [],
+    "add_sequence_to_loop.c": [],
+    "main.c": [
+        "main_style",
+        "declare"
+    ],
+    "free_note.c": [],
+    "create_note.c": [],
+    "add_note_to_sequence.c": [],
+    "export_loop.c": [],
+    "play_loop.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "adjust_tempo.c": [],
+    "free_sequence.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "create_music_loop_creator.c": []
+}

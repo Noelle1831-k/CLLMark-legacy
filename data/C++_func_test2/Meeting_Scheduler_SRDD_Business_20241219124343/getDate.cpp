@@ -1,0 +1,1 @@
+string Meeting::getDate() const { return date; }

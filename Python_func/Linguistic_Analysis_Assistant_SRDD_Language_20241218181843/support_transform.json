@@ -1,0 +1,26 @@
+{
+    "analyze_tenses.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "analyze.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "_extract_tenses.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "analyze_structure.py": [
+        "init_list",
+        "list"
+    ],
+    "__init__.py": [],
+    "analyze_pos.py": [],
+    "_analyze_sentence_structure.py": []
+}

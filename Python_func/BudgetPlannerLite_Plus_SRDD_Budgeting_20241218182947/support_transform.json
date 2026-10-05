@@ -1,0 +1,103 @@
+{
+    "load_budget_data.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_pie_chart.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "load_data.py": [
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "add_savings.py": [
+        "self_assignment"
+    ],
+    "get_total_expenses.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_remaining_budget.py": [],
+    "add_expense.py": [
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "get_budget_summary.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "visualize_budget.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "add_income.py": [
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "get_expense_breakdown.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_bar_chart.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "calculate_percentage.py": [],
+    "get_total_income.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "format_currency.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "set_savings_goal.py": [],
+    "get_savings_progress.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "save_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "export_budget_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "set_budget_goal.py": [
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ]
+}

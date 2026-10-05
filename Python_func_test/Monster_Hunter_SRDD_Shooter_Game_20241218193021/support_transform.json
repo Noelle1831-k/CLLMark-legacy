@@ -1,0 +1,185 @@
+{
+    "game_loop.py": [],
+    "calculate_defense.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "update_abilities.py": [],
+    "deactivate.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "collect.py": [],
+    "take_damage.py": [
+        "self_assignment"
+    ],
+    "update.py": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "apply_ability_effect.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "range_index",
+        "string_quota",
+        "f_string",
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "use_random_ability.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "simulate_area_event.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "upgrade.py": [
+        "self_assignment"
+    ],
+    "simulate_weather_effects.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "apply_effect.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "display_world_map.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "activate.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "spawn.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "generate_abilities.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "update_game_state.py": [],
+    "equip.py": [],
+    "use_ability.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "__init__.py": [],
+    "update_status_effects.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "check_monster_status.py": [],
+    "add_item.py": [],
+    "start_game.py": [],
+    "die.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "add_monster_zone.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "craft_item.py": [],
+    "unlock_area.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "attack.py": [],
+    "drop_loot.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "equip_item.py": [],
+    "get_area_info.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "return_none"
+    ],
+    "attack_player.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "calculate_attack_power.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "apply_status_effect.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "move.py": [],
+    "remove_item.py": [],
+    "spawn_monsters.py": [
+        "range_index"
+    ],
+    "generate_landscape.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_health.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "is_alive.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "use.py": []
+}

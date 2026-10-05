@@ -1,0 +1,55 @@
+{
+    "getAgility.cpp": [],
+    "support_transform.json": [],
+    "generate.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "display.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "findAthlete.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getAccuracy.cpp": [],
+    "getName.cpp": [],
+    "setMetrics.cpp": [],
+    "getSpeed.cpp": [],
+    "updateMetrics.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare",
+        "while_to_for",
+        "output"
+    ],
+    "getMetrics.cpp": []
+}

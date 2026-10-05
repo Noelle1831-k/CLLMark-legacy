@@ -1,0 +1,40 @@
+{
+    "logMessage.c": [],
+    "analyzeTrends.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "cleanup.c": [],
+    "support_transform.json": [],
+    "releaseResources.c": [],
+    "initializeSystem.c": [],
+    "updateDashboard.c": [],
+    "displayTrends.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "parseNews.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "fetchNews.c": [
+        "array_access"
+    ],
+    "startDashboard.c": [],
+    "getCurrentTime.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "calculateTrendScore.c": [],
+    "loadConfiguration.c": [],
+    "setupNetwork.c": []
+}

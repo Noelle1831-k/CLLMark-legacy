@@ -1,0 +1,53 @@
+{
+    "get_category.c": [],
+    "add_investment.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "get_total_value.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "get_value.c": [],
+    "free_investment.c": [],
+    "create_portfolio.c": [],
+    "free_portfolio.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style",
+        "declare"
+    ],
+    "set_goal.c": [],
+    "remove_investment.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "compare_benchmarks.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare"
+    ],
+    "check_milestones.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "plot_performance.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "create_investment.c": []
+}

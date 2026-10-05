@@ -1,0 +1,73 @@
+{
+    "getSkills.cpp": [],
+    "matchUsers.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "startConversation.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare",
+        "output",
+        "input"
+    ],
+    "getInterests.cpp": [],
+    "support_transform.json": [],
+    "startChat.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "output"
+    ],
+    "main.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "output",
+        "input"
+    ],
+    "Conversation.cpp": [],
+    "viewChat.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getName.cpp": [],
+    "setProfile.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "registerUser.cpp": [
+        "output",
+        "input"
+    ],
+    "findMatches.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "getProfile.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "UserProfile.cpp": [],
+    "addMessage.cpp": []
+}

@@ -1,0 +1,52 @@
+{
+    "displayGameState.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "support_transform.json": [],
+    "renderBoard.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "suggestOptimalMove.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "initializeGameState.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "updateGameState.c": [],
+    "evaluateCounterMoves.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "trackResources.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "analyzeState.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "explainStrategy.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "allocateResources.c": [
+        "self_assignment"
+    ]
+}

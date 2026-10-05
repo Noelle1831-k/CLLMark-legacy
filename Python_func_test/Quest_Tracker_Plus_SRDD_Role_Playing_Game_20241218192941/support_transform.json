@@ -1,0 +1,88 @@
+{
+    "get_strategy.py": [
+        "print_flush",
+        "string_quota",
+        "f_string"
+    ],
+    "add_quest.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_hint.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "assign_tag.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "view_progress.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "update_status.py": [],
+    "__init__.py": [],
+    "send_reminder.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "set_reminder.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "show_quest_details.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "update_quest.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "complete_quest.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "add_category.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ]
+}

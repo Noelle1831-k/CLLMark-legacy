@@ -1,0 +1,71 @@
+{
+    "add_quest.py": [],
+    "send_notification.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "list_tags.py": [],
+    "_list_quests.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "_send_reminder.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_quest_by_id.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "__init__.py": [],
+    "_complete_quest.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "_add_quest.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [],
+    "list_categories.py": [],
+    "add_reminder.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "update_quest.py": [],
+    "complete_quest.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "add_tag.py": [],
+    "_add_reminder.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "list_quests.py": [],
+    "add_category.py": [],
+    "_schedule_reminder.py": [
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "_update_quest.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ]
+}

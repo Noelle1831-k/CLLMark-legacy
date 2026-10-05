@@ -1,0 +1,1 @@
+bool Participant::isAvailable() const { return availability; }

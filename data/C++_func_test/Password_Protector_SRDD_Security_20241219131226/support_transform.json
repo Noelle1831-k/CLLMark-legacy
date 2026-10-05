@@ -1,0 +1,57 @@
+{
+    "encrypt.cpp": [
+        "declare"
+    ],
+    "displayPasswordRemoved.cpp": [
+        "output"
+    ],
+    "getAccountName.cpp": [
+        "output",
+        "input"
+    ],
+    "displayPassword.cpp": [],
+    "decrypt.cpp": [
+        "declare"
+    ],
+    "getUserChoice.cpp": [
+        "output",
+        "input"
+    ],
+    "main.cpp": [
+        "main_style",
+        "declare"
+    ],
+    "displayInvalidChoice.cpp": [
+        "output"
+    ],
+    "addPassword.cpp": [],
+    "displayGoodbyeMessage.cpp": [
+        "output"
+    ],
+    "displaySyncComplete.cpp": [
+        "output"
+    ],
+    "retrievePassword.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "displayPasswordGenerated.cpp": [],
+    "removePassword.cpp": [],
+    "generatePassword.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "synchronize.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "displayWelcomeMessage.cpp": [
+        "output"
+    ]
+}

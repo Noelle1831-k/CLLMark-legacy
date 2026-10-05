@@ -1,0 +1,83 @@
+{
+    "accelerate.py": [
+        "self_assignment"
+    ],
+    "map_controls.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_obstacles.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "list_options.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "update.py": [],
+    "steer.py": [
+        "self_assignment"
+    ],
+    "calculate_collision.py": [],
+    "brake.py": [],
+    "apply_customization.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "generate_terrain.py": [
+        "range_index"
+    ],
+    "handle_input.py": [],
+    "process_input.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "render.py": [],
+    "apply_effects.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "update_position.py": [],
+    "check_collision.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "start_game.py": [],
+    "main.py": [],
+    "render_obstacle.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "draw_vehicle.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "apply_gravity.py": [
+        "self_assignment"
+    ],
+    "draw_terrain.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "customize.py": []
+}

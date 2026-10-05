@@ -1,0 +1,52 @@
+{
+    "updateQuestProgress.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "declare"
+    ],
+    "saveQuestsToFile.c": [],
+    "displayQuestList.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "handleMenuInput.c": [],
+    "drawProgressBar.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "displayGraphicalInterface.c": [],
+    "showRewardsVisualization.c": [],
+    "validateInputRange.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "displayQuestDetails.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_access"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "readString.c": [],
+    "initApplication.c": [],
+    "displayMenu.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "loadQuestsFromFile.c": [],
+    "addQuest.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "clearScreen.c": []
+}

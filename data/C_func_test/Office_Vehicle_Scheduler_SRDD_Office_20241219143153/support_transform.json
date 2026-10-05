@@ -1,0 +1,37 @@
+{
+    "schedule_vehicle_maintenance.c": [
+        "array_init"
+    ],
+    "view_maintenance_records.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "book_vehicle.c": [],
+    "view_all_vehicles.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "get_int_input.c": [
+        "array_init"
+    ],
+    "update_availability.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "display_main_menu.c": [],
+    "get_string_input.c": [
+        "array_access"
+    ],
+    "cancel_booking.c": [],
+    "save_maintenance_record.c": [],
+    "get_current_date.c": []
+}

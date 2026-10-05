@@ -1,0 +1,124 @@
+{
+    "restock.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "calculate_expenses.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "run_game_loop.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "launch_campaign.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "leave_feedback.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "display_final_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "set_price.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "make_purchase.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "simulate_customer_purchases.py": [
+        "list",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "display_store_status.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "end_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "analyze_results.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "optimize_layout.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "update_stock.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "start_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "remove_product.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "check_inventory.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "calculate_revenue.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "add_product.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ]
+}

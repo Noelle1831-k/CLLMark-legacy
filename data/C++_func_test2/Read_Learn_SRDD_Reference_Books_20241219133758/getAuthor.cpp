@@ -1,0 +1,1 @@
+string getAuthor() { return author; }

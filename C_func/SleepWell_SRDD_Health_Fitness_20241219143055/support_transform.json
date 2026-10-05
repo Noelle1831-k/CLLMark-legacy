@@ -1,0 +1,40 @@
+{
+    "setSleepGoals.c": [],
+    "provideRecommendations.c": [],
+    "support_transform.json": [],
+    "initializeReminders.c": [],
+    "getTimeInput.c": [
+        "declare"
+    ],
+    "showRelaxationTechniques.c": [],
+    "setReminder.c": [],
+    "trackSleep.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "declare"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "viewSleepStatistics.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init",
+        "while_to_for"
+    ],
+    "displayMenu.c": [],
+    "logSleepData.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "initializeRecommendations.c": [],
+    "initializeGoals.c": [],
+    "initializeRelaxationTechniques.c": [],
+    "initializeSleepTracker.c": [],
+    "checkGoalProgress.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ]
+}

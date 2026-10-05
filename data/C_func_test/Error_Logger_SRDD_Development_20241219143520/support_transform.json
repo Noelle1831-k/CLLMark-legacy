@@ -1,0 +1,52 @@
+{
+    "create_error.c": [],
+    "export_errors_to_file.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "add_error.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "add_error_ui.c": [
+        "array_init",
+        "array_access",
+        "declare"
+    ],
+    "display_menu.c": [],
+    "initialize_logger.c": [],
+    "filter_errors_ui.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style",
+        "array_init"
+    ],
+    "display_all_errors.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "search_error_ui.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "for_OOO"
+    ]
+}

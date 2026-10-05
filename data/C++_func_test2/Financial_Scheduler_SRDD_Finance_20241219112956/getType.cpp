@@ -1,0 +1,1 @@
+string FinancialTransaction::getType() const { return type; }

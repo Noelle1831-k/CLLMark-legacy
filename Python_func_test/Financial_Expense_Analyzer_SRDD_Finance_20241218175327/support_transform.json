@@ -1,0 +1,46 @@
+{
+    "get_budget_for_category.py": [],
+    "get_expenses_summary.py": [
+        "self_assignment"
+    ],
+    "compare_expenses_to_budget.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_pie_chart.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_total_expenses.py": [],
+    "add_expense.py": [],
+    "__repr__.py": [
+        "string_quota"
+    ],
+    "generate_bar_chart.py": [
+        "range_index",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "generate_tips.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "get_expenses_by_category.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

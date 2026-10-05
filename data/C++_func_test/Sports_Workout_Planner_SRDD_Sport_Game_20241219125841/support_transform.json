@@ -1,0 +1,44 @@
+{
+    "displayDetails.cpp": [
+        "output"
+    ],
+    "logProgress.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "getSport.cpp": [],
+    "getGoal.cpp": [],
+    "inputDetails.cpp": [
+        "output"
+    ],
+    "displayPlan.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "provideGuidance.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "generateReport.cpp": [
+        "while_to_for",
+        "output"
+    ],
+    "generatePlan.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "getExercises.cpp": []
+}

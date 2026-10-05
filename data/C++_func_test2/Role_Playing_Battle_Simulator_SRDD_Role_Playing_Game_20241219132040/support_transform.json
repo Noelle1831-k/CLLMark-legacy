@@ -1,0 +1,42 @@
+{
+    "attack.cpp": [],
+    "executeTurn.cpp": [
+        "declare"
+    ],
+    "hasLivingMembers.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "useAbility.cpp": [],
+    "getName.cpp": [],
+    "run.cpp": [
+        "declare"
+    ],
+    "takeDamage.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "addCharacter.cpp": [],
+    "setAbility.cpp": [],
+    "startBattle.cpp": [
+        "while_to_for",
+        "output"
+    ],
+    "removeCharacter.cpp": [],
+    "getNextAliveCharacter.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "isAlive.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ]
+}

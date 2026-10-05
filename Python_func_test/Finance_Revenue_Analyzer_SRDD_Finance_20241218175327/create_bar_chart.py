@@ -1,0 +1,13 @@
+def create_bar_chart(self, data):
+        sources = list(data.keys())
+        amounts = list(data.values())
+        y_pos = np.arange(len(sources))
+        plt.figure(figsize=(12, 7))
+        plt.bar(y_pos, amounts, align='center', alpha=0.7, color='skyblue')
+        plt.xticks(y_pos, sources, rotation=45, ha='right')
+        plt.xlabel('Revenue Sources')
+        plt.ylabel('Amount ($)')
+        plt.title('Revenue by Source')
+        plt.tight_layout()
+        plt.grid(axis='y', linestyle='--', alpha=0.7)
+        plt.show()

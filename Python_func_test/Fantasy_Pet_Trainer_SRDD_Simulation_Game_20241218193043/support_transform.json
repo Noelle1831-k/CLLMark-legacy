@@ -1,0 +1,76 @@
+{
+    "start.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "save_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "train_pet.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "compete_in_tournament.py": [],
+    "gain_experience.py": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "end_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "add_participant.py": [],
+    "add_pet.py": [],
+    "start_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [],
+    "load_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "use_skill.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "level_up.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "compete.py": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "train.py": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "declare_winner.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ]
+}

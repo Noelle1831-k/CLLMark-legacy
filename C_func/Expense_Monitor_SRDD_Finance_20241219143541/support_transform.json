@@ -1,0 +1,35 @@
+{
+    "getDoubleInput.c": [],
+    "listExpenses.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "support_transform.json": [
+        "array_access"
+    ],
+    "generateReport.c": [],
+    "addExpense.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "checkBudget.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "setBudget.c": [],
+    "getStringInput.c": [
+        "array_access"
+    ],
+    "getIntInput.c": [],
+    "main.c": [
+        "main_style"
+    ]
+}

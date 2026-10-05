@@ -1,0 +1,27 @@
+{
+    "load_data.c": [],
+    "reset_daily_steps.c": [],
+    "log_data_to_file.c": [],
+    "save_data.c": [],
+    "read_sensor_data.c": [],
+    "initialize_sensors.c": [],
+    "display_stats.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "process_step_count.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "update_daily_steps.c": []
+}

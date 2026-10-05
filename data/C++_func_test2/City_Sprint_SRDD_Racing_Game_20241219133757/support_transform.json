@@ -1,0 +1,38 @@
+{
+    "addObstacle.cpp": [],
+    "initialize.cpp": [],
+    "getPositionX.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "updatePosition.cpp": [],
+    "processInput.cpp": [],
+    "updateAI.cpp": [],
+    "updatePhysics.cpp": [],
+    "brake.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "update.cpp": [],
+    "renderScene.cpp": [],
+    "steer.cpp": [
+        "self_assignment"
+    ],
+    "getSpeed.cpp": [],
+    "run.cpp": [
+        "while_to_for"
+    ],
+    "toRadians.cpp": [],
+    "checkCollision.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getPositionY.cpp": [],
+    "accelerate.cpp": [
+        "self_assignment"
+    ],
+    "render.cpp": []
+}

@@ -1,0 +1,66 @@
+{
+    "update_score.py": [
+        "self_assignment"
+    ],
+    "is_full.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "rotate.py": [],
+    "print_block.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "random_block.py": [
+        "list"
+    ],
+    "start_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [],
+    "clear_lines.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "range_index",
+        "string_quota",
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "place_block.py": [
+        "print_flush",
+        "print_end",
+        "range_index",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "get_top_scores.py": [
+        "list_index"
+    ],
+    "calculate_score.py": [],
+    "get_player_input.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "return"
+    ],
+    "get_shape.py": [],
+    "update_leaderboard.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

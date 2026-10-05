@@ -1,0 +1,47 @@
+{
+    "getType.cpp": [],
+    "startRace.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "applyBoost.cpp": [
+        "self_assignment"
+    ],
+    "renderTrack.cpp": [],
+    "main.cpp": [
+        "main_style",
+        "output"
+    ],
+    "chooseVehicle.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "input"
+    ],
+    "startGame.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "getName.cpp": [],
+    "addPlayer.cpp": [],
+    "generateObstacles.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "updateScore.cpp": [
+        "self_assignment"
+    ],
+    "selectTrack.cpp": [
+        "output"
+    ],
+    "getMaxSpeed.cpp": []
+}

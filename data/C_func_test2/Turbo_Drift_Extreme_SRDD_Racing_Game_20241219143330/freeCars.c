@@ -1,0 +1,3 @@
+void freeCars() {
+    free(cars);
+}

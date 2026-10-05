@@ -1,0 +1,39 @@
+{
+    "updateStatus.cpp": [],
+    "displayDetails.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "manageProject.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ],
+    "main.cpp": [
+        "main_style",
+        "declare",
+        "output",
+        "input"
+    ],
+    "getName.cpp": [],
+    "displayProjectMenu.cpp": [
+        "output",
+        "input"
+    ],
+    "createProject.cpp": [
+        "output"
+    ],
+    "listProjects.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "addTeamMember.cpp": [
+        "output"
+    ]
+}

@@ -1,0 +1,73 @@
+{
+    "display_news.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "initialize_app.c": [],
+    "support_transform.json": [],
+    "write_file.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "load_news.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "declare"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "fetch_news_from_source.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "trim_whitespace.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "while_to_for"
+    ],
+    "connect_to_source.c": [],
+    "save_parsed_data.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "read_file.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_access"
+    ],
+    "paginate_news.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "handle_user_input.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init"
+    ],
+    "filter_articles.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "*.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

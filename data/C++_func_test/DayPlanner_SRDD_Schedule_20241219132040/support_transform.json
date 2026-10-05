@@ -1,0 +1,53 @@
+{
+    "setCompleted.cpp": [],
+    "setTitle.cpp": [],
+    "displayTasks.cpp": [],
+    "setReminder.cpp": [],
+    "getTitle.cpp": [],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "getId.cpp": [],
+    "title.cpp": [],
+    "getCategory.cpp": [],
+    "main.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "addTask.cpp": [],
+    "display.cpp": [],
+    "setCategory.cpp": [],
+    "deleteTask.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse"
+    ],
+    "markTaskCompleted.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "getTasks.cpp": [],
+    "updateTask.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "declare",
+        "output",
+        "input"
+    ],
+    "isCompleted.cpp": [],
+    "sortTasksByPriority.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "getPriority.cpp": [],
+    "visualize.cpp": [
+        "output"
+    ],
+    "setPriority.cpp": []
+}

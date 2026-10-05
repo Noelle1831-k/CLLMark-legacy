@@ -1,0 +1,82 @@
+{
+    "save_words.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "add_word.py": [
+        "init_list"
+    ],
+    "get_words.py": [
+        "init_list",
+        "list"
+    ],
+    "start_quiz.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "select_difficulty.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_quiz.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "load_words.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "check_answer.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "present_question.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "select_language.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "get_score_history.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "update_progress.py": [],
+    "remove_word.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "give_feedback.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

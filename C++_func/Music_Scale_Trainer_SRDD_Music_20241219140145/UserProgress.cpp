@@ -1,0 +1,3 @@
+UserProgress::UserProgress() {
+    loadProgress();
+}

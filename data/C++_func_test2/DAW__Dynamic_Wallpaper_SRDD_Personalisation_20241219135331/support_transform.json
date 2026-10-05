@@ -1,0 +1,41 @@
+{
+    "removeEvent.cpp": [],
+    "removeWallpaper.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "addEvent.cpp": [],
+    "animate.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "getCurrentTime.cpp": [],
+    "main.cpp": [
+        "main_style",
+        "declare",
+        "output",
+        "input"
+    ],
+    "display.cpp": [],
+    "scheduleTimeEvent.cpp": [],
+    "addWallpaper.cpp": [],
+    "scheduleWallpaperChange.cpp": [],
+    "getName.cpp": [],
+    "triggerEvent.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "displayCurrentWallpaper.cpp": [
+        "output"
+    ],
+    "changeWallpaper.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

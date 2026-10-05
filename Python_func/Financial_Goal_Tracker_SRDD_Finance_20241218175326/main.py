@@ -1,0 +1,28 @@
+def main():
+    tracker = GoalTracker()
+    notification_manager = NotificationManager()
+    visualization = Visualization()
+    # Example usage of multiple goals
+    goal1 = FinancialGoal("Vacation", 5000)
+    goal1.add_milestone(1000)
+    goal1.add_milestone(3000)
+    goal1.add_milestone(5000)
+    tracker.add_goal(goal1)
+    goal1.update_progress(1200)
+    notification_manager.send_notification(goal1)
+    visualization.display_progress_bar(goal1)
+    visualization.display_timeline(goal1)
+    # Example of adding another goal with milestones
+    goal2 = FinancialGoal("House", 200000)
+    goal2.add_milestone(50000)
+    goal2.add_milestone(100000)
+    goal2.add_milestone(150000)
+    goal2.add_milestone(200000)
+    tracker.add_goal(goal2)
+    goal2.update_progress(50000)
+    notification_manager.send_notification(goal2)
+    visualization.display_progress_bar(goal2)
+    visualization.display_timeline(goal2)
+    # Display all goals in tracker
+    print("\nAll Goals in Tracker:")
+    tracker.list_goals()

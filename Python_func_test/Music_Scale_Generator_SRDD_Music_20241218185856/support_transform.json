@@ -1,0 +1,55 @@
+{
+    "display_staff.py": [],
+    "select_scale_type.py": [
+        "print_flush",
+        "string_quota",
+        "f_string"
+    ],
+    "get_scale_notes.py": [],
+    "display_options.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "play_scale.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "select_root_note.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_scale.py": [
+        "list",
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "__init__.py": [],
+    "highlight_keys.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "stop_playback.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [],
+    "display_scale.py": [],
+    "draw_notes.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": []
+}

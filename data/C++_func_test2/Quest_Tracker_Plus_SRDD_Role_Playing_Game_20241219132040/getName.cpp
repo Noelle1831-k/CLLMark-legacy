@@ -1,0 +1,1 @@
+string Quest::getName() const { return name; }

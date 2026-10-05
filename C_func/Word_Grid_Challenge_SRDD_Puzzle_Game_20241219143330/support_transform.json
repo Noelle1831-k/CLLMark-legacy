@@ -1,0 +1,74 @@
+{
+    "stopTimer.c": [],
+    "initializeGame.c": [],
+    "endGame.c": [],
+    "support_transform.json": [],
+    "startGame.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_init",
+        "while_to_for"
+    ],
+    "createGrid.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "loadWordList.c": [
+        "array_access"
+    ],
+    "isValidWord.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "searchWord.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "updateLeaderboard.c": [],
+    "displayLeaderboard.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "calculateScore.c": [
+        "self_assignment"
+    ],
+    "getElapsedTime.c": [],
+    "startTimer.c": [],
+    "checkWord.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "displayGrid.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "isSafe.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ]
+}

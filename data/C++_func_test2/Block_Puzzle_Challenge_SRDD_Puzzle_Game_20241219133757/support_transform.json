@@ -1,0 +1,58 @@
+{
+    "placeBlock.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "isFull.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "increaseDifficulty.cpp": [
+        "update_reverse"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "startGame.cpp": [
+        "while_to_for",
+        "output"
+    ],
+    "displayGrid.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "clearRowsAndColumns.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "addScore.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "rotate.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getTopScores.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "generateBlocks.cpp": [],
+    "updateScore.cpp": [],
+    "getShape.cpp": []
+}

@@ -1,0 +1,63 @@
+{
+    "read_file.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "analyze.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "check_readability.py": [
+        "init_list",
+        "list",
+        "string_quota"
+    ],
+    "check_best_practices.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "__init__.py": [],
+    "_get_depth.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "write_file.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "check_maintainability.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "check_syntax.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "generate_report.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "check_optimization.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ]
+}

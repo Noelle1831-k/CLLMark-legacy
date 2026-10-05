@@ -1,0 +1,48 @@
+{
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "add_expense.py": [],
+    "compare_with_budget.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "generate_visualization.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "set_reminder.py": [],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "check_reminders.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "generate_report.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "get_expenses_by_category.py": [
+        "init_list",
+        "list"
+    ]
+}

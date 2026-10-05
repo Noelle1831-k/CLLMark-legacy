@@ -1,0 +1,30 @@
+{
+    "encryptData.cpp": [
+        "declare",
+        "output"
+    ],
+    "managePasswords.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "support_transform.json": [],
+    "generateKey.cpp": [],
+    "main.cpp": [
+        "main_style",
+        "output"
+    ],
+    "blockTrackers.cpp": [
+        "output"
+    ],
+    "cleanHistory.cpp": [
+        "output"
+    ],
+    "decryptData.cpp": [
+        "declare",
+        "output"
+    ]
+}

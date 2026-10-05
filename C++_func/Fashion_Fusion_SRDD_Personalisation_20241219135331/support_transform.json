@@ -1,0 +1,44 @@
+{
+    "listItems.cpp": [],
+    "addItem.cpp": [],
+    "displayOutfit.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "support_transform.json": [],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "setPreferences.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "setName.cpp": [],
+    "getName.cpp": [],
+    "run.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for",
+        "input"
+    ],
+    "removeItem.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getPreferences.cpp": [],
+    "createOutfit.cpp": [],
+    "handleUserInput.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ]
+}

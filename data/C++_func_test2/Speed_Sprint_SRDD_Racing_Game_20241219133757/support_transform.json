@@ -1,0 +1,36 @@
+{
+    "start.cpp": [],
+    "startRace.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "while_to_for"
+    ],
+    "Vehicle.cpp": [],
+    "checkWinner.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ],
+    "shiftGear.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.cpp": [
+        "main_style",
+        "declare"
+    ],
+    "updatePosition.cpp": [
+        "self_assignment"
+    ],
+    "getElapsedTime.cpp": [],
+    "getTrackLength.cpp": [],
+    "Timer.cpp": [],
+    "getSurfaceType.cpp": [],
+    "Track.cpp": [],
+    "stop.cpp": [],
+    "accelerate.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "getPosition.cpp": []
+}

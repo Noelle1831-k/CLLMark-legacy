@@ -1,0 +1,90 @@
+{
+    "place_powerup.py": [],
+    "act.py": [],
+    "deactivate.py": [
+        "print_flush",
+        "string_quota",
+        "f_string",
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "setup_players.py": [
+        "range_index",
+        "string_quota"
+    ],
+    "take_damage.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "update.py": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "place_random_powerups.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "update_powerups.py": [],
+    "calculate_distance.py": [],
+    "update_game_state.py": [
+        "list",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "start_game.py": [],
+    "check_game_over.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "apply_powerup.py": [],
+    "generate_layout.py": [
+        "range_index"
+    ],
+    "choose_weapon.py": [],
+    "attack.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "move.py": [
+        "print_flush",
+        "print_end",
+        "list",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "apply.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "is_alive.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ]
+}

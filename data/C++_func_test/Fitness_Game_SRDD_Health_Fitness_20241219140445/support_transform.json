@@ -1,0 +1,99 @@
+{
+    "startWorkout.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "Exercise.cpp": [],
+    "displayItems.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "purchaseItem.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ],
+    "increaseHealth.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "rewardPlayer.cpp": [],
+    "addItem.cpp": [],
+    "decreaseStamina.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "increaseStamina.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "canAfford.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.cpp": [
+        "main_style",
+        "declare",
+        "output",
+        "input"
+    ],
+    "initializeGame.cpp": [
+        "output"
+    ],
+    "decreaseHealth.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "getLevel.cpp": [],
+    "getName.cpp": [],
+    "displayInventory.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "getDifficulty.cpp": [],
+    "getDescription.cpp": [],
+    "deductCoins.cpp": [
+        "self_assignment"
+    ],
+    "Player.cpp": [],
+    "displayPlayerStatus.cpp": [],
+    "updateScore.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "calculateScore.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ],
+    "addExercise.cpp": [],
+    "addToInventory.cpp": [],
+    "levelUp.cpp": [
+        "update_reverse"
+    ],
+    "performExercise.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "completeWorkout.cpp": [
+        "output"
+    ],
+    "getScore.cpp": [],
+    "displayGameStatus.cpp": [
+        "output"
+    ]
+}

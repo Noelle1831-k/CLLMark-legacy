@@ -1,0 +1,71 @@
+{
+    "load_level.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "shoot.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "take_damage.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "update_game.py": [],
+    "next_level.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "display_health.py": [
+        "string_quota"
+    ],
+    "end_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "detect_collisions.py": [],
+    "__init__.py": [],
+    "check_collision.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "handle_events.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "start_game.py": [],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "render_game.py": [],
+    "attack.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "display_score.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "move.py": [
+        "list",
+        "self_assignment"
+    ]
+}

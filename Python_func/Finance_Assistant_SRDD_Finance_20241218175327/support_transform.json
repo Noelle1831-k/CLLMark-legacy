@@ -1,0 +1,81 @@
+{
+    "detailed_financial_report.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "update_profile.py": [],
+    "calculate_budget.py": [],
+    "display_profile.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "__init__.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "savings_tips.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "display_resources.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "provide_investment_advice.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "suggest_expense_cutting.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "get_resources.py": [],
+    "analyze_data.py": [
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "run.py": [],
+    "generate_suggestions.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "input_data.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "evaluate_investment_potential.py": [
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "provide_recommendations.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "investment_tips.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

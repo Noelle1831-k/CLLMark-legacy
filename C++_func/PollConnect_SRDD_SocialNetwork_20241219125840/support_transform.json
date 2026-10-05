@@ -1,0 +1,45 @@
+{
+    "generateId.cpp": [
+        "update_reverse"
+    ],
+    "findPollById.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "getTitle.cpp": [],
+    "support_transform.json": [],
+    "showResults.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getId.cpp": [],
+    "title.cpp": [],
+    "getCurrentTime.cpp": [],
+    "displayPolls.cpp": [
+        "output"
+    ],
+    "sharePoll.cpp": [],
+    "main.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "main_style",
+        "declare",
+        "output",
+        "input"
+    ],
+    "getUsername.cpp": [],
+    "viewProfile.cpp": [],
+    "engageDiscussion.cpp": [],
+    "vote.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ],
+    "createPoll.cpp": [],
+    "username.cpp": [],
+    "addPoll.cpp": []
+}

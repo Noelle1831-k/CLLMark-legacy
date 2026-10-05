@@ -1,0 +1,67 @@
+{
+    "displayQuestDetails.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "findQuestByID.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "addTag.cpp": [],
+    "support_transform.json": [],
+    "displayMenu.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "addObjective.cpp": [],
+    "getProgress.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "markObjectiveCompleted.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "filterQuestsByTag.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getID.cpp": [],
+    "handleUserInput.cpp": [
+        "declare",
+        "output",
+        "input"
+    ],
+    "addQuest.cpp": [],
+    "displayAllQuests.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "hasTag.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "removeQuest.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ]
+}

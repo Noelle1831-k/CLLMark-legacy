@@ -1,0 +1,28 @@
+{
+    "loadCharacterFromFile.c": [],
+    "support_transform.json": [],
+    "addSkills.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "customizeCharacter.c": [],
+    "createCharacter.c": [],
+    "saveCharacterToFile.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "displayMenu.c": [],
+    "getValidatedInput.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "displayCharacter.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "initializeCharacter.c": []
+}

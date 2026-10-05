@@ -1,0 +1,63 @@
+{
+    "distributeForms.c": [],
+    "initializeApplication.c": [],
+    "editForm.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "retrieveResponses.c": [],
+    "identifyTrends.c": [],
+    "support_transform.json": [],
+    "stringManipulation.c": [],
+    "viewForms.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "provideInsights.c": [],
+    "generateReport.c": [],
+    "sendEmail.c": [
+        "array_init"
+    ],
+    "fileHandling.c": [],
+    "createForm.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "storeResponse.c": [],
+    "postToSocialMedia.c": [
+        "array_init"
+    ],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "analyzeData.c": [],
+    "manageFeedbackForms.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "deleteForm.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "collectResponses.c": []
+}

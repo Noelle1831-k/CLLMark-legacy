@@ -1,0 +1,67 @@
+{
+    "get_book_details.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "return_none"
+    ],
+    "load_data.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "list_all_notes.py": [],
+    "add_note.py": [
+        "init_list"
+    ],
+    "remove_note.py": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "search_books.py": [],
+    "list_books.py": [],
+    "handle_input.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "add_book.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "__init__.py": [],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "remove_book.py": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "run.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "search_notes.py": [
+        "init_list",
+        "list"
+    ],
+    "get_notes.py": [
+        "init_list",
+        "list"
+    ],
+    "save_data.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

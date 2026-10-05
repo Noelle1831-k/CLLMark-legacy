@@ -1,0 +1,37 @@
+{
+    "_analyze_ast_for_space_complexity.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "detect_algorithmic_inefficiencies.py": [],
+    "_detect_inefficiencies_in_ast.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "analyze_time_complexity.py": [],
+    "_generate_optimization_suggestions.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "parse_code.py": [],
+    "complexity_metrics.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "analyze_space_complexity.py": [],
+    "_analyze_ast_for_time_complexity.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "suggest_optimizations.py": []
+}

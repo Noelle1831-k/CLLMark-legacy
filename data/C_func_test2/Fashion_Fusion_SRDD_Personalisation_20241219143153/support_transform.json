@@ -1,0 +1,46 @@
+{
+    "list_items.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "init_outfit.c": [],
+    "analyze_user.c": [],
+    "display_outfit.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "add_item.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "run.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "add_to_outfit.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "remove_from_outfit.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "remove_item.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "init_wardrobe.c": [],
+    "create_outfit.c": []
+}

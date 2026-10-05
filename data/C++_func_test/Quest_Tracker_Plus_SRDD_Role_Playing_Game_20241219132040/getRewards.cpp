@@ -1,0 +1,1 @@
+string Quest::getRewards() const { return reward; }

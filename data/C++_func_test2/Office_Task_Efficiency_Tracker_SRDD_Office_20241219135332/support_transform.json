@@ -1,0 +1,47 @@
+{
+    "findTaskById.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "addTimeSpent.cpp": [
+        "self_assignment"
+    ],
+    "displayTaskDetails.cpp": [],
+    "generateEfficiencyReport.cpp": [
+        "output"
+    ],
+    "displayAllTasks.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "generateTimeAllocationReport.cpp": [
+        "output"
+    ],
+    "getId.cpp": [],
+    "getCategory.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "addTask.cpp": [],
+    "getCompletionStatus.cpp": [],
+    "markCompleted.cpp": [],
+    "removeTask.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "displayProgressChart.cpp": [
+        "output"
+    ],
+    "getTaskList.cpp": [],
+    "displayEfficiencyChart.cpp": [
+        "output"
+    ],
+    "getTimeSpent.cpp": []
+}

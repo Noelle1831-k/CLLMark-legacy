@@ -1,0 +1,39 @@
+{
+    "assignTasks.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "updateStatus.cpp": [],
+    "getRequiredExpertise.cpp": [],
+    "getExpertise.cpp": [],
+    "getStatus.cpp": [],
+    "support_transform.json": [],
+    "getTaskId.cpp": [],
+    "getId.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "addTask.cpp": [],
+    "getAvailability.cpp": [],
+    "getName.cpp": [],
+    "getTaskName.cpp": [],
+    "updateWorkload.cpp": [
+        "self_assignment"
+    ],
+    "getCurrentWorkload.cpp": [],
+    "addEmployee.cpp": [],
+    "getEstimatedHours.cpp": [],
+    "generateReport.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ]
+}

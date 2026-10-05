@@ -1,0 +1,55 @@
+{
+    "rank_matches.py": [],
+    "create_profile.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "save_user.py": [],
+    "add_interest.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "update_profile.py": [],
+    "delete_profile.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "calculate_compatibility.py": [],
+    "calculate_similarity.py": [],
+    "__init__.py": [],
+    "delete_user.py": [],
+    "find_matches.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "return_none"
+    ],
+    "search_profiles.py": [],
+    "load_user.py": [],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "remove_user.py": [],
+    "load_all_users.py": []
+}

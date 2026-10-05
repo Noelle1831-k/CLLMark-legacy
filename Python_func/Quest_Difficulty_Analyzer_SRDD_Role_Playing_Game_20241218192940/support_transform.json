@@ -1,0 +1,29 @@
+{
+    "weighted_average.py": [],
+    "normalize_value.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "analyze_quest.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "__str__.py": [
+        "string_quota"
+    ],
+    "calculate_difficulty.py": [
+        "list"
+    ],
+    "validate_parameters.py": [
+        "list"
+    ]
+}

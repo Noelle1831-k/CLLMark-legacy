@@ -1,0 +1,1 @@
+vector<string> Quest::getTags() { return tags; }

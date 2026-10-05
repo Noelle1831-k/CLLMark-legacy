@@ -1,0 +1,32 @@
+{
+    "detectUnauthorizedAccess.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "performHealthCheck.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "detectMalware.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "initializeAlertSystem.c": [],
+    "support_transform.json": [],
+    "scanProcesses.c": [],
+    "loadMonitorConfig.c": [],
+    "raiseAlert.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "scanSystemLogs.c": [],
+    "removeThreat.c": [],
+    "scanFiles.c": [],
+    "initializeQuarantineModule.c": [],
+    "detectFileChanges.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "quarantineFile.c": [],
+    "initializeHealthCheckModule.c": []
+}

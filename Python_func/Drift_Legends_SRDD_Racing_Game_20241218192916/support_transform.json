@@ -1,0 +1,67 @@
+{
+    "update_score.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "apply_friction.py": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "get_user_action.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "accelerate.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "self_assignment"
+    ],
+    "apply_physics.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "update.py": [],
+    "brake.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "process_input.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "__init__.py": [],
+    "render.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "apply_air_resistance.py": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "run.py": [],
+    "apply_gravity.py": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "drift.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ]
+}

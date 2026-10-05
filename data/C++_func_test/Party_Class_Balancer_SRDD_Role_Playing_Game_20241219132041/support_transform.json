@@ -1,0 +1,14 @@
+{
+    "main.cpp": [
+        "main_style"
+    ],
+    "run.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "while_to_for",
+        "output"
+    ]
+}

@@ -1,0 +1,1 @@
+string getCondition() const { return condition; }

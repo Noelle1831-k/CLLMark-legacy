@@ -1,0 +1,38 @@
+{
+    "analyze_type.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "analyze_style.py": [
+        "init_list",
+        "list"
+    ],
+    "suggest_outfit.py": [],
+    "list_items.py": [],
+    "get_details.py": [
+        "string_quota"
+    ],
+    "__init__.py": [],
+    "get_user_input.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "analyze_color.py": [],
+    "add_item.py": [],
+    "main.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "remove_item.py": []
+}

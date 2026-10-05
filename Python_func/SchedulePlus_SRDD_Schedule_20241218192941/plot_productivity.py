@@ -1,0 +1,10 @@
+def plot_productivity(self, productivity_data):
+        metrics = list(productivity_data.keys())
+        values = list(productivity_data.values())
+        plt.figure(figsize=(10, 5))
+        plt.bar(metrics, values, color='lightgreen')
+        plt.title("Productivity Plot")
+        plt.xlabel("Metrics")
+        plt.ylabel("Values")
+        plt.tight_layout()
+        plt.show()

@@ -1,0 +1,3 @@
+UserInterface::UserInterface() {
+    savingsGoal = nullptr;
+}

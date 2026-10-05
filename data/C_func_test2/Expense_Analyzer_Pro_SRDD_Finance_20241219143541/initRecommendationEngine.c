@@ -1,0 +1,2 @@
+void initRecommendationEngine(RecommendationEngine *engine) {
+}

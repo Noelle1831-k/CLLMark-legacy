@@ -1,0 +1,82 @@
+{
+    "send_alert.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "encrypt_data.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "scan_logs.py": [
+        "print_flush",
+        "print_end",
+        "range_index",
+        "string_quota"
+    ],
+    "detect_threats.py": [
+        "range_index"
+    ],
+    "_is_suspicious.py": [
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "_send_email.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "_hash_password.py": [],
+    "__init__.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "_generate_random_log.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "analyze_traffic.py": [
+        "print_flush",
+        "print_end",
+        "range_index",
+        "string_quota"
+    ],
+    "store_password.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "_compose_alert_message.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "_simulate_ai_detection.py": [
+        "list",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp",
+        "return_none"
+    ],
+    "_generate_random_packet.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "run.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "decrypt_data.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ]
+}

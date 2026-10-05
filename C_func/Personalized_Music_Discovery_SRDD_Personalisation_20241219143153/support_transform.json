@@ -1,0 +1,40 @@
+{
+    "support_transform.json": [],
+    "swap.c": [],
+    "quicksort.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "calculateSimilarity.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "declare",
+        "while_to_for"
+    ],
+    "main.c": [
+        "main_style",
+        "array_init",
+        "array_access"
+    ],
+    "displayMenu.c": [],
+    "initializeDatabase.c": [],
+    "partition.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "discoverMusic.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "addPreferences.c": [],
+    "freeDatabase.c": []
+}

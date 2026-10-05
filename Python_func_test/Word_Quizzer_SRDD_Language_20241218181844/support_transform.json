@@ -1,0 +1,51 @@
+{
+    "update_score.py": [],
+    "get_synonym.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "get_words.py": [
+        "init_list"
+    ],
+    "start_quiz.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "select_difficulty.py": [],
+    "get_idiom.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "select_quiz_type.py": [],
+    "get_antonym.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "check_answer.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "__init__.py": [],
+    "select_language.py": [],
+    "get_score_history.py": [],
+    "get_feedback.py": [
+        "string_quota"
+    ],
+    "get_languages.py": [],
+    "generate_question.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "run.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

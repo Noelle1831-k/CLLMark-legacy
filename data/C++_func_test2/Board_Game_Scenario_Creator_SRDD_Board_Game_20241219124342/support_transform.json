@@ -1,0 +1,41 @@
+{
+    "addObstacle.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "setObjectives.cpp": [],
+    "getMissions.cpp": [],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "getVictoryCondition.cpp": [],
+    "displayBoard.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "main.cpp": [
+        "main_style",
+        "declare",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "setVictoryCondition.cpp": [],
+    "saveScenario.cpp": [],
+    "getObjectives.cpp": [],
+    "addMission.cpp": [],
+    "addBonus.cpp": [],
+    "checkBonus.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "loadScenario.cpp": [],
+    "initializeBoard.cpp": []
+}

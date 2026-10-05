@@ -1,0 +1,1 @@
+string getName() { return name; }

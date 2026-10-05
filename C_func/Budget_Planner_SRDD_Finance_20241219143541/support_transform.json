@@ -1,0 +1,44 @@
+{
+    "show_spending_log.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "clear_screen.c": [],
+    "update_spending.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access"
+    ],
+    "input_budget_details.c": [],
+    "validate_input.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse"
+    ],
+    "generate_budget_recommendations.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "support_transform.json": [],
+    "process_user_input.c": [],
+    "show_visualization.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style",
+        "while_to_for"
+    ],
+    "display_dashboard.c": [],
+    "error.c": []
+}

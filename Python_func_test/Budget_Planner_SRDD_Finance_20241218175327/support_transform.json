@@ -1,0 +1,37 @@
+{
+    "track_spending.py": [],
+    "plot_income_vs_expenses.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "add_expense.py": [
+        "self_assignment"
+    ],
+    "add_income.py": [],
+    "track_expenses.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "plot_savings_progress.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [],
+    "generate_recommendations.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "set_savings_goal.py": [],
+    "calculate_total_income.py": [],
+    "visualize_progress.py": [],
+    "set_goal.py": [],
+    "calculate_total_expenses.py": [],
+    "calculate_remaining_goal.py": []
+}

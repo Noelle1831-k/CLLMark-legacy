@@ -1,0 +1,41 @@
+{
+    "initializeCity.c": [],
+    "renderGraphics.c": [],
+    "updatePlayer.c": [
+        "self_assignment"
+    ],
+    "usePowerUp.c": [
+        "self_assignment"
+    ],
+    "accelerateVehicle.c": [
+        "self_assignment"
+    ],
+    "initializePlayer.c": [],
+    "handlePhysics.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "chooseVehicle.c": [],
+    "main.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "while_to_for"
+    ],
+    "initializePolice.c": [],
+    "updatePolice.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "steerVehicle.c": [
+        "self_assignment"
+    ]
+}

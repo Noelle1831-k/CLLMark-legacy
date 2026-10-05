@@ -1,0 +1,57 @@
+{
+    "addIncome.c": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse"
+    ],
+    "support_transform.json": [],
+    "calculateBalance.c": [],
+    "setGoal.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse"
+    ],
+    "addExpense.c": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse"
+    ],
+    "initializeBudgetManager.c": [],
+    "trackSavings.c": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse"
+    ],
+    "initializeSavingsTracker.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "showBudgetBreakdown.c": [],
+    "initializeGoalManager.c": [],
+    "trackGoalProgress.c": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse"
+    ],
+    "displayMenu.c": [],
+    "initializeUserInterface.c": [],
+    "getUserInput.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "setSavingsGoal.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse"
+    ]
+}

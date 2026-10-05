@@ -1,0 +1,61 @@
+{
+    "Run.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "while_to_for",
+        "output"
+    ],
+    "Initialize.cpp": [
+        "output"
+    ],
+    "LoadTextures.cpp": [
+        "output"
+    ],
+    "Update.cpp": [],
+    "Load.cpp": [],
+    "Attack.cpp": [
+        "output"
+    ],
+    "support_transform.json": [],
+    "GetHealth.cpp": [],
+    "Random.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "HandleCollisions.cpp": [
+        "output"
+    ],
+    "SpawnEnemies.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "Shoot.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "output"
+    ],
+    "Move.cpp": [
+        "output"
+    ],
+    "GetLevelNumber.cpp": [],
+    "Shutdown.cpp": [
+        "output"
+    ],
+    "TakeDamage.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ],
+    "RenderScene.cpp": [
+        "output"
+    ],
+    "Play.cpp": [
+        "output"
+    ]
+}

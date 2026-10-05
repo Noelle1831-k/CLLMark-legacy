@@ -1,0 +1,53 @@
+{
+    "parseCode.cpp": [
+        "declare",
+        "while_to_for"
+    ],
+    "support_transform.json": [],
+    "checkDocumentation.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "main.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "declare"
+    ],
+    "checkIndentation.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "getFunctions.cpp": [],
+    "getVariables.cpp": [],
+    "checkUnusedVariables.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "code.cpp": [],
+    "checkNamingConventions.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "getClasses.cpp": []
+}

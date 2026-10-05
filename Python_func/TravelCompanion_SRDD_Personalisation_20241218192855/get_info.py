@@ -1,0 +1,2 @@
+def get_info(self):
+        return f"{self.name}: Activities - {self.activities}, Cost - {self.cost}, Rating - {self.rating}, Accommodation Options - {self.accommodation_options}, Transportation Options - {self.transportation_options}"

@@ -1,0 +1,29 @@
+{
+    "support_transform.json": [],
+    "processAudioFile.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "extractHarmonicStructure.c": [],
+    "printInfo.c": [],
+    "extractKey.c": [],
+    "extractTempo.c": [],
+    "extractInstrumentation.c": [],
+    "main.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "array_access"
+    ],
+    "analyzeMood.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "generateVisualization.c": [],
+    "fileExists.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "moodToString.c": [],
+    "printError.c": []
+}

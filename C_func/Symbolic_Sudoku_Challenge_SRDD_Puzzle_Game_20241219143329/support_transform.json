@@ -1,0 +1,65 @@
+{
+    "updateGrid.c": [
+        "array_access",
+        "declare"
+    ],
+    "provideHint.c": [
+        "array_access"
+    ],
+    "destroyUserInterface.c": [],
+    "createUserInterface.c": [],
+    "isValidInput.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "support_transform.json": [],
+    "destroySolver.c": [],
+    "generatePuzzle.c": [
+        "array_access"
+    ],
+    "createGrid.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "isSolved.c": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style",
+        "array_init",
+        "while_to_for"
+    ],
+    "getUserInput.c": [],
+    "destroyPuzzleGenerator.c": [],
+    "createSolver.c": [],
+    "userWantsHint.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "array_access"
+    ],
+    "displayGrid.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "createPuzzleGenerator.c": [],
+    "destroyGrid.c": []
+}

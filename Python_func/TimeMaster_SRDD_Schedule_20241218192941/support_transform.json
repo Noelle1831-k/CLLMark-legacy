@@ -1,0 +1,67 @@
+{
+    "support_transform.json": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "set_priority.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "track_progress.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "display_schedule.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "organize_tasks.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "analyze_productivity.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "allocate_time_slot.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "main.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_schedule_view.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "create_task.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "generate_report.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ]
+}

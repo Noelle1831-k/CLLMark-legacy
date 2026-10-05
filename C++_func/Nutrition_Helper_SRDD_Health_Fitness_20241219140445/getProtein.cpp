@@ -1,0 +1,1 @@
+double FoodItem::getProtein() const { return protein; }

@@ -1,0 +1,38 @@
+{
+    "initializeChordKeyMap.cpp": [],
+    "ChordAnalyzer.cpp": [],
+    "analyzeProgression.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "showResults.cpp": [],
+    "enhanceProgression.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare"
+    ],
+    "main.cpp": [
+        "main_style",
+        "declare",
+        "output"
+    ],
+    "suggestExtensions.cpp": [],
+    "suggestSubstitutions.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "getUserInput.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "output",
+        "input"
+    ],
+    "generateProgression.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse"
+    ],
+    "suggestInversions.cpp": []
+}

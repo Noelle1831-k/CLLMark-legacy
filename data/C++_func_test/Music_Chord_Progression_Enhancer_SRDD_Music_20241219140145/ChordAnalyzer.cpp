@@ -1,0 +1,3 @@
+ChordAnalyzer::ChordAnalyzer() {
+    initializeChordKeyMap();
+}

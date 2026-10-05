@@ -1,0 +1,75 @@
+{
+    "accelerate.py": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "generate_track.py": [
+        "print_flush",
+        "print_end",
+        "range_index",
+        "string_quota"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "display_lap_time.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "deactivate_boost.py": [],
+    "display_welcome_message.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "brake.py": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "update_game_state.py": [],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "render.py": [],
+    "has_finished_race.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "activate_boost.py": [],
+    "check_collision.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "start_game.py": [],
+    "display_speed.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "display_boost_status.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "boost.py": [],
+    "display_track_info.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "display_finish_message.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ]
+}

@@ -1,0 +1,50 @@
+{
+    "getDate.cpp": [],
+    "displayTransaction.cpp": [],
+    "support_transform.json": [],
+    "addTransaction.cpp": [],
+    "getCategory.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "displayTransactionsByCategory.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "displayAllTransactions.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getDescription.cpp": [],
+    "showMenu.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "removeTransaction.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ],
+    "getAmount.cpp": [],
+    "calculateNetCashFlow.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "handleUserInput.cpp": [
+        "declare",
+        "output",
+        "input"
+    ]
+}

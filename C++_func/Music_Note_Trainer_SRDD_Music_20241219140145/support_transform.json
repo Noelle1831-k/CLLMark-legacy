@@ -1,0 +1,21 @@
+{
+    "support_transform.json": [],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "startApp.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "runExercise.cpp": [
+        "output",
+        "input"
+    ],
+    "MusicTrainerApp.cpp": []
+}

@@ -1,0 +1,69 @@
+{
+    "initialize_game.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "initialize_weapons.c": [],
+    "initialize_multiplayer.c": [],
+    "support_transform.json": [],
+    "render_game.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "check_game_over.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "spawn_zombies.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "game_loop.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "initialize_player.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "update_player_position.c": [
+        "self_assignment"
+    ],
+    "upgrade_weapon.c": [
+        "self_assignment"
+    ],
+    "update_zombie_positions.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "check_collision.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ]
+}

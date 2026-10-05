@@ -1,0 +1,9 @@
+card[2][9999],a,i,j,n,t;
+main(){
+	scanf("%d%*d",&a);
+	for(;i-a;scanf("%d",*card+i++));
+	for(;~scanf("%d",card[1]+j++););
+	for(;--j;n=n>t?n:t)
+		for(i=t=0;i<a;)i++[*card]-card[1][j+t]?:t++;
+	n=!printf("%d\n",n);
+}

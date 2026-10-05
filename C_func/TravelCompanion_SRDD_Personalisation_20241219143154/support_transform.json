@@ -1,0 +1,42 @@
+{
+    "get_user_preferences.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "read_input.c": [
+        "array_access"
+    ],
+    "validate_choice.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "support_transform.json": [],
+    "display_menu.c": [],
+    "display_itinerary.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "main.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "generate_itinerary.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "load_destinations.c": [],
+    "read_input_choice.c": [],
+    "get_destination_by_id.c": [
+        "reverse_compare",
+        "exp_cmp"
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "display_news.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "refresh_display.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "parse_news.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "fetch_news.py": [
+        "string_quota",
+        "return_none"
+    ],
+    "log_error.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "__init__.py": [],
+    "update_news.py": [],
+    "run.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "format_time.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

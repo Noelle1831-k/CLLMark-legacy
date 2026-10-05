@@ -1,0 +1,23 @@
+{
+    "support_transform.json": [],
+    "displayMenu.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "saveAudio.cpp": [],
+    "getFileNameInput.cpp": [],
+    "loadAudio.cpp": [
+        "while_to_for"
+    ],
+    "changeTempo.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "run.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "getTempoInput.cpp": []
+}

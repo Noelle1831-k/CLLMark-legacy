@@ -1,0 +1,46 @@
+{
+    "initialize.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "startRecording.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "displayFeedback.cpp": [],
+    "displayInstructions.cpp": [
+        "output"
+    ],
+    "stopRecording.cpp": [],
+    "run.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "analyzePronunciation.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "audioCallback.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getAudioData.cpp": [],
+    "terminate.cpp": [],
+    "~AudioRecorder.cpp": [],
+    "provideFeedback.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ]
+}

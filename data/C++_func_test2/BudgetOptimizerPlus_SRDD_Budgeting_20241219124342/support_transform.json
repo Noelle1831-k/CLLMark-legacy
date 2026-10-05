@@ -1,0 +1,65 @@
+{
+    "setSavingsGoal.cpp": [
+        "output"
+    ],
+    "trackSavingsProgress.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ],
+    "loadUserData.cpp": [
+        "output"
+    ],
+    "calculateTotalExpenses.cpp": [],
+    "analyzeSpendingPatterns.cpp": [
+        "output"
+    ],
+    "displayDashboard.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "trackExpenses.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "displayExitMessage.cpp": [
+        "output"
+    ],
+    "analyzeFinancialHabits.cpp": [
+        "output"
+    ],
+    "formatCurrency.cpp": [],
+    "main.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "calculatePercentage.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "saveUserData.cpp": [
+        "output"
+    ],
+    "displayWelcomeMessage.cpp": [
+        "output"
+    ],
+    "generateRecommendations.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ]
+}

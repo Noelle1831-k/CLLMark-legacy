@@ -1,0 +1,47 @@
+{
+    "parseData.cpp": [
+        "while_to_for",
+        "output"
+    ],
+    "readFile.cpp": [
+        "while_to_for"
+    ],
+    "support_transform.json": [],
+    "groupData.cpp": [
+        "output"
+    ],
+    "importData.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "visualizeData.cpp": [
+        "output"
+    ],
+    "createGraph.cpp": [
+        "output"
+    ],
+    "filterData.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "output"
+    ],
+    "loadData.cpp": [
+        "output"
+    ],
+    "createChart.cpp": [
+        "output"
+    ],
+    "sortData.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "output"
+    ],
+    "aggregateData.cpp": [
+        "output"
+    ],
+    "exploreData.cpp": [
+        "output"
+    ]
+}

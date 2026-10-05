@@ -1,0 +1,35 @@
+{
+    "addChapterToBook.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "getNotes.cpp": [],
+    "searchBooks.cpp": [],
+    "getAuthor.cpp": [],
+    "getTitle.cpp": [],
+    "addChapter.cpp": [],
+    "attachAudio.cpp": [],
+    "displayMenu.cpp": [
+        "output"
+    ],
+    "getChapters.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "getText.cpp": [],
+    "addBook.cpp": [],
+    "attachImage.cpp": [],
+    "addNoteToChapter.cpp": [],
+    "addHighlight.cpp": [],
+    "searchNotes.cpp": [],
+    "handleUserInput.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "addText.cpp": []
+}

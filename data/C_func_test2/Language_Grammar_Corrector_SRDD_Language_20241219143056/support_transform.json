@@ -1,0 +1,36 @@
+{
+    "check_verb_tenses.c": [],
+    "print_error_message.c": [],
+    "free_tokenized_text.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "while_to_for"
+    ],
+    "analyze_sentence.c": [],
+    "generate_feedback.c": [],
+    "main.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "main_style",
+        "array_init",
+        "array_access",
+        "declare"
+    ],
+    "strdup.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "check_subject_verb_agreement.c": [],
+    "_.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "declare",
+        "while_to_for"
+    ]
+}

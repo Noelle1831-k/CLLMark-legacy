@@ -1,0 +1,40 @@
+{
+    "initializeGame.c": [],
+    "endGame.c": [],
+    "setPrices.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "conductCampaign.c": [],
+    "attractCustomers.c": [],
+    "randomNumber.c": [],
+    "addProduct.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse"
+    ],
+    "manageInventory.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "displayMessage.c": [],
+    "processSales.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "createStore.c": [],
+    "displayMenu.c": [],
+    "optimizeLayout.c": [],
+    "analyzeMarket.c": [],
+    "gameLoop.c": [
+        "while_to_for"
+    ],
+    "viewInventory.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

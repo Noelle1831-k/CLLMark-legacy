@@ -1,0 +1,32 @@
+{
+    "saveFile.cpp": [
+        "output"
+    ],
+    "resolveConflicts.cpp": [
+        "output"
+    ],
+    "viewComments.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "main.cpp": [
+        "main_style"
+    ],
+    "assignTask.cpp": [],
+    "updateToLatest.cpp": [
+        "output"
+    ],
+    "editFile.cpp": [],
+    "addComment.cpp": [],
+    "commitChanges.cpp": [],
+    "openFile.cpp": [],
+    "trackProgress.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "output"
+    ]
+}

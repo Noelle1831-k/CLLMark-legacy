@@ -1,0 +1,35 @@
+{
+    "showTimer.cpp": [],
+    "getRemainingTime.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare"
+    ],
+    "showCurrentPlayer.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "initializeGame.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "while_to_for",
+        "output"
+    ],
+    "nextPlayer.cpp": [],
+    "getCurrentPlayer.cpp": [],
+    "runGameLoop.cpp": [
+        "output"
+    ],
+    "addPlayer.cpp": [],
+    "startTimer.cpp": [],
+    "stopTimer.cpp": [],
+    "isTimeUp.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare"
+    ],
+    "setTimeLimit.cpp": []
+}

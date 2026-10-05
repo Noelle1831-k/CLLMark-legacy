@@ -1,0 +1,85 @@
+{
+    "apply_physics.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "check_puzzle_trigger.py": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "play_music.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "add_bonus.py": [
+        "self_assignment"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "play_effect.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "solve_puzzle.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "move_vehicle.py": [
+        "string_quota",
+        "f_string",
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "check_obstacle.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "render_frame.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "end_game.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "update_frame.py": [
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "start_timer.py": [],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "load_track.py": [
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "total_score.py": [],
+    "start_game.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "check_time.py": [],
+    "get_input.py": [
+        "string_quota",
+        "f_string"
+    ]
+}

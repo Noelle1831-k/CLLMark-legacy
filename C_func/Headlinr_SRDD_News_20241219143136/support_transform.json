@@ -1,0 +1,69 @@
+{
+    "generateSummary.c": [],
+    "stringCompare.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "processUserInput.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "initializeApp.c": [],
+    "support_transform.json": [],
+    "createTree.c": [],
+    "rankArticles.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "fetchNewsArticles.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "savePreferences.c": [],
+    "main.c": [
+        "main_style"
+    ],
+    "addToList.c": [],
+    "displayMenu.c": [],
+    "tokenizeText.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "parseNewsArticle.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "loadPreferences.c": [],
+    "sortByRank.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "declare",
+        "for_OOO"
+    ],
+    "insertNode.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "fetchAndSummarizeNews.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ]
+}

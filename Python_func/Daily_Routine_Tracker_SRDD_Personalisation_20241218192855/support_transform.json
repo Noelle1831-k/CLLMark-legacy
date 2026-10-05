@@ -1,0 +1,70 @@
+{
+    "send_notification.py": [
+        "print_flush",
+        "print_end",
+        "string_quota"
+    ],
+    "update_routine.py": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "load_data.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "track_progress.py": [
+        "self_assignment"
+    ],
+    "to_dict.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "list_rules.py": [],
+    "__init__.py": [],
+    "add_custom_rule.py": [],
+    "set_reminder.py": [
+        "string_quota"
+    ],
+    "generate_recommendations.py": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "calculate_statistics.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "add_routine.py": [],
+    "remove_routine.py": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "remove_rule.py": [],
+    "save_data.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ]
+}

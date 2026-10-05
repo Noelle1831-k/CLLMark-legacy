@@ -1,0 +1,1 @@
+string Quest::getCategory() const { return category; }

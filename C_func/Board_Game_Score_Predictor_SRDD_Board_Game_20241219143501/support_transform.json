@@ -1,0 +1,38 @@
+{
+    "load_data.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "train_model.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "support_transform.json": [],
+    "free_game_data.c": [],
+    "log_error.c": [],
+    "free_features.c": [],
+    "main.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "array_access"
+    ],
+    "free_model.c": [],
+    "predict_score.c": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "extract_features.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ]
+}

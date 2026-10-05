@@ -1,0 +1,87 @@
+{
+    "optimize_party.py": [],
+    "brute_force_optimization.py": [
+        "init_list",
+        "list",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "genetic_algorithm_optimization.py": [
+        "range_index"
+    ],
+    "add_character.py": [],
+    "support_transform.json": [
+        "init_list",
+        "list",
+        "string_quota",
+        "f_string"
+    ],
+    "_select_parents.py": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "return"
+    ],
+    "_role_multiplier.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "display_party.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "_crossover.py": [
+        "list_index"
+    ],
+    "calculate_effectiveness.py": [
+        "self_assignment"
+    ],
+    "__init__.py": [
+        "init_list",
+        "list"
+    ],
+    "get_user_input.py": [],
+    "main.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "display_menu.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string",
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "__str__.py": [
+        "string_quota",
+        "f_string"
+    ],
+    "_mutate.py": [],
+    "show_optimized_party.py": [
+        "print_flush",
+        "print_end",
+        "string_quota",
+        "f_string"
+    ],
+    "remove_character.py": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "_calculate_combination_effectiveness.py": [],
+    "_evolve_population.py": [
+        "init_list",
+        "list",
+        "range_index",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "_initialize_population.py": [
+        "init_list",
+        "list",
+        "range_index"
+    ]
+}

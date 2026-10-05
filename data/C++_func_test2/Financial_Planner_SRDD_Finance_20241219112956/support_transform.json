@@ -1,0 +1,44 @@
+{
+    "getInvestments.cpp": [],
+    "checkBudget.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "generateIncomeChart.cpp": [
+        "output"
+    ],
+    "setGoal.cpp": [],
+    "getExpenses.cpp": [],
+    "calculateReturns.cpp": [],
+    "main.cpp": [
+        "main_style"
+    ],
+    "getResources.cpp": [
+        "output"
+    ],
+    "getTips.cpp": [
+        "output"
+    ],
+    "getIncome.cpp": [],
+    "getGoal.cpp": [],
+    "setBudget.cpp": [],
+    "addIncome.cpp": [],
+    "generateExpenseChart.cpp": [
+        "output"
+    ],
+    "addSavings.cpp": [],
+    "getBudget.cpp": [],
+    "addExpense.cpp": [],
+    "generateSavingsChart.cpp": [
+        "output"
+    ],
+    "checkGoal.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "generateReport.cpp": [
+        "output"
+    ],
+    "getSavings.cpp": [],
+    "addInvestment.cpp": []
+}

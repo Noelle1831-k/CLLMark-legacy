@@ -1,0 +1,12 @@
+def main():
+    manager = EventManager()
+    manager.create_event("Team Building", "2023-12-15", "Conference Hall")
+    manager.set_budget(5000)
+    manager.create_task_list(["Book Venue", "Arrange Catering", "Send Invitations"])
+    manager.manage_logistics()
+    manager.invite_attendees(["alice@example.com", "bob@example.com"])
+    manager.track_rsvps()
+    manager.send_reminders()
+    manager.integrate_calendar()
+    manager.manage_vendors(["Catering Co.", "AV Services"])
+    manager.collect_feedback()

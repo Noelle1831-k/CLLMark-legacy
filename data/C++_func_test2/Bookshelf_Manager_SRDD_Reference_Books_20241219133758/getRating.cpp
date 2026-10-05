@@ -1,0 +1,1 @@
+int Book::getRating() const { return rating; }

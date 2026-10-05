@@ -1,0 +1,5561 @@
+{
+    "snippet_262.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_832.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "while_to_for",
+        "output"
+    ],
+    "snippet_14.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "output"
+    ],
+    "snippet_331.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_462.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_801.cpp": [
+        "declare"
+    ],
+    "snippet_786.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_306.cpp": [],
+    "snippet_658.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_626.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse"
+    ],
+    "snippet_467.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "snippet_429.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_650.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_271.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_227.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_386.cpp": [
+        "main_style"
+    ],
+    "snippet_420.cpp": [
+        "main_style"
+    ],
+    "snippet_666.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_246.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "main_style",
+        "while_to_for"
+    ],
+    "snippet_457.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_705.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_354.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_413.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_710.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_546.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "output"
+    ],
+    "snippet_550.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_538.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "input"
+    ],
+    "snippet_551.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_153.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_293.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "while_to_for",
+        "output"
+    ],
+    "snippet_256.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_27.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_233.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_324.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "declare"
+    ],
+    "snippet_205.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_367.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_574.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_229.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_759.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare",
+        "input"
+    ],
+    "snippet_103.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_161.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_765.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_727.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for",
+        "output"
+    ],
+    "snippet_147.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_217.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_361.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_593.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_415.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_404.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_184.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "while_to_for"
+    ],
+    "snippet_17.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "input"
+    ],
+    "snippet_844.cpp": [
+        "main_style"
+    ],
+    "snippet_697.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_399.cpp": [],
+    "snippet_561.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "input"
+    ],
+    "snippet_728.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "input"
+    ],
+    "snippet_345.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_107.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_583.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_406.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_476.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_424.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_618.cpp": [
+        "self_assignment",
+        "while_to_for"
+    ],
+    "snippet_303.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_219.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "main_style",
+        "declare",
+        "input"
+    ],
+    "snippet_496.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "snippet_792.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_62.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_799.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "snippet_295.cpp": [
+        "while_to_for"
+    ],
+    "snippet_713.cpp": [
+        "declare"
+    ],
+    "snippet_211.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "declare"
+    ],
+    "snippet_275.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_388.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_505.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_478.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_212.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "snippet_230.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_87.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "snippet_83.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_278.cpp": [
+        "self_assignment",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_644.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "snippet_598.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_615.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "snippet_181.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "snippet_102.cpp": [
+        "declare"
+    ],
+    "snippet_818.cpp": [
+        "main_style",
+        "output"
+    ],
+    "snippet_35.cpp": [
+        "declare"
+    ],
+    "snippet_353.cpp": [
+        "declare"
+    ],
+    "snippet_669.cpp": [
+        "main_style"
+    ],
+    "snippet_670.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_307.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "snippet_529.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_823.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_448.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_494.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_299.cpp": [
+        "main_style",
+        "declare"
+    ],
+    "snippet_322.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_94.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_600.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "input"
+    ],
+    "snippet_418.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_207.cpp": [
+        "self_assignment",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "snippet_379.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_530.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_508.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_602.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_491.cpp": [
+        "main_style"
+    ],
+    "snippet_806.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_255.cpp": [
+        "declare"
+    ],
+    "snippet_763.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "snippet_119.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "snippet_753.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_129.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "snippet_734.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_52.cpp": [
+        "update_reverse",
+        "main_style",
+        "while_to_for"
+    ],
+    "snippet_525.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_241.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_264.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_109.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_664.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "input"
+    ],
+    "snippet_282.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_612.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_54.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_687.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_840.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_127.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "snippet_516.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_176.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "declare",
+        "output"
+    ],
+    "snippet_416.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare"
+    ],
+    "snippet_437.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_285.cpp": [
+        "main_style"
+    ],
+    "snippet_296.cpp": [
+        "update_reverse",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_809.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "snippet_352.cpp": [
+        "declare"
+    ],
+    "snippet_194.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "while_to_for"
+    ],
+    "snippet_746.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare"
+    ],
+    "snippet_758.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "snippet_613.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_579.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_383.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_225.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "input"
+    ],
+    "snippet_777.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_168.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_744.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare"
+    ],
+    "snippet_346.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_228.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "input"
+    ],
+    "snippet_58.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_57.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_442.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_171.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_544.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style"
+    ],
+    "snippet_195.cpp": [
+        "update_reverse",
+        "main_style",
+        "while_to_for",
+        "output"
+    ],
+    "snippet_553.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_348.cpp": [
+        "update_reverse",
+        "main_style",
+        "declare",
+        "while_to_for",
+        "output"
+    ],
+    "snippet_268.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_210.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "while_to_for",
+        "output"
+    ],
+    "snippet_488.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_202.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_115.cpp": [
+        "declare"
+    ],
+    "snippet_392.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_86.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "snippet_625.cpp": [
+        "declare"
+    ],
+    "snippet_335.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_378.cpp": [
+        "main_style",
+        "declare",
+        "input"
+    ],
+    "snippet_740.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "main_style",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_502.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_362.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_397.cpp": [
+        "declare"
+    ],
+    "snippet_776.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_780.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_154.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_316.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "snippet_218.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "while_to_for"
+    ],
+    "snippet_41.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_136.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_787.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_842.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_533.cpp": [
+        "main_style"
+    ],
+    "snippet_270.cpp": [
+        "update_reverse",
+        "while_to_for"
+    ],
+    "snippet_39.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_500.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_407.cpp": [
+        "self_assignment",
+        "while_to_for"
+    ],
+    "snippet_132.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_185.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_451.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_423.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_375.cpp": [
+        "main_style",
+        "declare"
+    ],
+    "snippet_341.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_93.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_528.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_374.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_766.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare"
+    ],
+    "snippet_447.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_634.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_251.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_114.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_189.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare"
+    ],
+    "snippet_473.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_364.cpp": [
+        "declare"
+    ],
+    "snippet_167.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_833.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for",
+        "output"
+    ],
+    "snippet_280.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_577.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_387.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_3.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "snippet_567.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_327.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "while_to_for"
+    ],
+    "snippet_594.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_104.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_15.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_804.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_66.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_515.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_123.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_632.cpp": [
+        "while_to_for"
+    ],
+    "snippet_549.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_283.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_59.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_260.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_536.cpp": [
+        "declare"
+    ],
+    "snippet_179.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_642.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_640.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_155.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "snippet_173.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "snippet_708.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_682.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_238.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style"
+    ],
+    "snippet_654.cpp": [],
+    "snippet_55.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "snippet_419.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "input"
+    ],
+    "snippet_539.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_513.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "input"
+    ],
+    "snippet_28.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_471.cpp": [],
+    "snippet_77.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_704.cpp": [
+        "main_style"
+    ],
+    "snippet_148.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_845.cpp": [
+        "self_assignment"
+    ],
+    "snippet_90.cpp": [
+        "self_assignment",
+        "main_style",
+        "declare",
+        "output"
+    ],
+    "snippet_643.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "input"
+    ],
+    "snippet_337.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "snippet_187.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_329.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_309.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_240.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "snippet_656.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "input"
+    ],
+    "snippet_372.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "snippet_162.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_37.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "while_to_for"
+    ],
+    "snippet_631.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "snippet_772.cpp": [
+        "declare"
+    ],
+    "snippet_661.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "snippet_191.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_427.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_469.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_371.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_82.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_846.cpp": [
+        "main_style",
+        "declare"
+    ],
+    "snippet_662.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_443.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_784.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "snippet_814.cpp": [
+        "main_style"
+    ],
+    "snippet_44.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_733.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_193.cpp": [
+        "main_style",
+        "declare"
+    ],
+    "snippet_633.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_535.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_139.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_470.cpp": [
+        "declare"
+    ],
+    "snippet_401.cpp": [
+        "declare"
+    ],
+    "snippet_499.cpp": [
+        "declare"
+    ],
+    "snippet_646.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_542.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_236.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_452.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_588.cpp": [
+        "main_style",
+        "declare",
+        "input"
+    ],
+    "snippet_204.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_200.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_782.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style"
+    ],
+    "snippet_250.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_475.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "while_to_for"
+    ],
+    "snippet_376.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_474.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_760.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style"
+    ],
+    "snippet_25.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_456.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare",
+        "input"
+    ],
+    "snippet_302.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_347.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "main_style",
+        "while_to_for"
+    ],
+    "snippet_26.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_149.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare",
+        "output"
+    ],
+    "snippet_816.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_435.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "snippet_584.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "snippet_188.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_377.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_6.cpp": [
+        "declare"
+    ],
+    "snippet_735.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "main_style",
+        "declare"
+    ],
+    "snippet_453.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_313.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_811.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_92.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_838.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_731.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "main_style",
+        "declare",
+        "output"
+    ],
+    "snippet_701.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_590.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_391.cpp": [
+        "main_style"
+    ],
+    "snippet_11.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_794.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_400.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_541.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_206.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_554.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "snippet_690.cpp": [
+        "declare"
+    ],
+    "snippet_781.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_679.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_702.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_405.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_485.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_479.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_72.cpp": [
+        "self_assignment",
+        "while_to_for"
+    ],
+    "snippet_145.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare"
+    ],
+    "snippet_807.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "declare"
+    ],
+    "snippet_95.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare"
+    ],
+    "snippet_718.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_764.cpp": [
+        "declare"
+    ],
+    "snippet_531.cpp": [
+        "main_style",
+        "output"
+    ],
+    "snippet_655.cpp": [
+        "main_style",
+        "declare",
+        "output"
+    ],
+    "snippet_730.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_582.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_175.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "while_to_for"
+    ],
+    "snippet_215.cpp": [
+        "main_style"
+    ],
+    "snippet_343.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_548.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_752.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "while_to_for"
+    ],
+    "snippet_610.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_751.cpp": [
+        "declare"
+    ],
+    "snippet_422.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare"
+    ],
+    "snippet_18.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_300.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "output"
+    ],
+    "snippet_564.cpp": [
+        "declare"
+    ],
+    "snippet_830.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_12.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style"
+    ],
+    "snippet_714.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_813.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_788.cpp": [],
+    "snippet_141.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "main_style",
+        "while_to_for"
+    ],
+    "snippet_484.cpp": [
+        "main_style"
+    ],
+    "snippet_699.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_837.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_843.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "declare"
+    ],
+    "snippet_432.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_209.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_585.cpp": [
+        "declare"
+    ],
+    "snippet_409.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_142.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_232.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_24.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_624.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_30.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "while_to_for"
+    ],
+    "snippet_490.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_208.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_821.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_332.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "declare"
+    ],
+    "snippet_815.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_526.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_736.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "while_to_for"
+    ],
+    "snippet_481.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_810.cpp": [
+        "declare"
+    ],
+    "snippet_33.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_445.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_178.cpp": [
+        "main_style"
+    ],
+    "snippet_47.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_8.cpp": [
+        "self_assignment",
+        "main_style"
+    ],
+    "snippet_628.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_20.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_131.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "snippet_592.cpp": [
+        "declare"
+    ],
+    "snippet_720.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "main_style",
+        "declare",
+        "output",
+        "input"
+    ],
+    "snippet_507.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_244.cpp": [
+        "main_style",
+        "output"
+    ],
+    "snippet_698.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_724.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "snippet_573.cpp": [
+        "declare"
+    ],
+    "snippet_607.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "output"
+    ],
+    "snippet_770.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_366.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_287.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_344.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "main_style",
+        "input"
+    ],
+    "snippet_1.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse"
+    ],
+    "snippet_254.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_703.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "input"
+    ],
+    "snippet_177.cpp": [
+        "declare"
+    ],
+    "snippet_581.cpp": [
+        "update_reverse",
+        "while_to_for"
+    ],
+    "snippet_261.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "for_OOO"
+    ],
+    "snippet_565.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "snippet_384.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_75.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_439.cpp": [],
+    "snippet_463.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_51.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_543.cpp": [
+        "main_style",
+        "declare",
+        "output"
+    ],
+    "snippet_310.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "snippet_464.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_521.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_497.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_382.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_458.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_108.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_150.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "while_to_for"
+    ],
+    "snippet_128.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_231.cpp": [
+        "main_style"
+    ],
+    "snippet_477.cpp": [
+        "self_assignment",
+        "declare"
+    ],
+    "snippet_627.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_140.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "main_style",
+        "declare",
+        "input"
+    ],
+    "snippet_84.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_568.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_652.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_157.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "declare",
+        "while_to_for",
+        "output"
+    ],
+    "snippet_160.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_281.cpp": [
+        "declare"
+    ],
+    "snippet_578.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "main_style",
+        "declare"
+    ],
+    "snippet_223.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_325.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_221.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_483.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_675.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_408.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_605.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_793.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_214.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_552.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_398.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse"
+    ],
+    "snippet_273.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "declare"
+    ],
+    "snippet_7.cpp": [
+        "main_style",
+        "while_to_for",
+        "output"
+    ],
+    "snippet_501.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "declare"
+    ],
+    "snippet_63.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_389.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_756.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_252.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "snippet_791.cpp": [
+        "declare"
+    ],
+    "snippet_611.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_203.cpp": [
+        "declare"
+    ],
+    "snippet_247.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "while_to_for",
+        "output"
+    ],
+    "snippet_540.cpp": [
+        "main_style"
+    ],
+    "snippet_620.cpp": [
+        "self_assignment",
+        "main_style"
+    ],
+    "snippet_597.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "snippet_560.cpp": [
+        "declare"
+    ],
+    "snippet_169.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_258.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "while_to_for"
+    ],
+    "snippet_608.cpp": [
+        "self_assignment",
+        "while_to_for"
+    ],
+    "snippet_315.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_274.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_393.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "declare"
+    ],
+    "snippet_198.cpp": [
+        "declare"
+    ],
+    "snippet_693.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_70.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "declare"
+    ],
+    "snippet_486.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_312.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_152.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare",
+        "output",
+        "input"
+    ],
+    "snippet_4.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_636.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_166.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "main_style",
+        "while_to_for"
+    ],
+    "snippet_80.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_101.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for",
+        "output"
+    ],
+    "snippet_338.cpp": [
+        "main_style"
+    ],
+    "snippet_676.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_532.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_527.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_42.cpp": [
+        "declare"
+    ],
+    "snippet_657.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "snippet_489.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_394.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_663.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_790.cpp": [
+        "main_style"
+    ],
+    "snippet_180.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_749.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare",
+        "output"
+    ],
+    "snippet_356.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_717.cpp": [
+        "self_assignment",
+        "output"
+    ],
+    "snippet_349.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_242.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_796.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "declare",
+        "input"
+    ],
+    "snippet_340.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_450.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_85.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_520.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_266.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_455.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_824.cpp": [
+        "declare"
+    ],
+    "snippet_350.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "snippet_557.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "snippet_680.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_688.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_288.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_67.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "snippet_368.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "input"
+    ],
+    "snippet_449.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "while_to_for"
+    ],
+    "snippet_317.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "main_style"
+    ],
+    "snippet_196.cpp": [
+        "main_style"
+    ],
+    "snippet_120.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_106.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_71.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_40.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_369.cpp": [
+        "declare"
+    ],
+    "snippet_754.cpp": [
+        "declare"
+    ],
+    "snippet_174.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_100.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_768.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_831.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_201.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_468.cpp": [
+        "main_style"
+    ],
+    "snippet_761.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_135.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_755.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_308.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_534.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_326.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_545.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "while_to_for"
+    ],
+    "snippet_524.cpp": [
+        "declare"
+    ],
+    "snippet_834.cpp": [
+        "update_reverse",
+        "main_style",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "snippet_291.cpp": [],
+    "snippet_36.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_671.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_622.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_798.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_314.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_660.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_741.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "declare",
+        "output",
+        "input"
+    ],
+    "snippet_172.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_742.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_146.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_747.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_819.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_2.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_235.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_722.cpp": [],
+    "snippet_444.cpp": [],
+    "snippet_750.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_575.cpp": [
+        "main_style",
+        "declare"
+    ],
+    "snippet_504.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_297.cpp": [],
+    "snippet_619.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_547.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_357.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_586.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "snippet_234.cpp": [
+        "declare"
+    ],
+    "snippet_81.cpp": [],
+    "snippet_395.cpp": [],
+    "snippet_165.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_580.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_190.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_323.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "declare"
+    ],
+    "snippet_248.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_659.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_537.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_617.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare"
+    ],
+    "snippet_683.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_511.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_134.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "input"
+    ],
+    "snippet_635.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for",
+        "output"
+    ],
+    "snippet_700.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_50.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "declare"
+    ],
+    "snippet_506.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "while_to_for"
+    ],
+    "snippet_745.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "snippet_301.cpp": [
+        "declare"
+    ],
+    "snippet_116.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_641.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_421.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse"
+    ],
+    "snippet_681.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_848.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_64.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_43.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_822.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "declare"
+    ],
+    "snippet_328.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_9.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_828.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "snippet_802.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_65.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_290.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_706.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "declare"
+    ],
+    "snippet_305.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "while_to_for"
+    ],
+    "snippet_412.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "snippet_164.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "snippet_461.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "output",
+        "input"
+    ],
+    "snippet_732.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "input"
+    ],
+    "snippet_112.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_5.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_805.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_46.cpp": [
+        "main_style",
+        "input"
+    ],
+    "snippet_576.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for",
+        "output",
+        "input"
+    ],
+    "snippet_591.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "snippet_630.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_10.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style"
+    ],
+    "snippet_213.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "input"
+    ],
+    "snippet_678.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_414.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_45.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "declare",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_125.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_192.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_493.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_333.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "while_to_for",
+        "output"
+    ],
+    "snippet_779.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_674.cpp": [
+        "declare"
+    ],
+    "snippet_23.cpp": [
+        "self_assignment",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_723.cpp": [
+        "declare"
+    ],
+    "snippet_472.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_358.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_222.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_812.cpp": [
+        "declare"
+    ],
+    "snippet_827.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_425.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "main_style"
+    ],
+    "snippet_321.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_689.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_639.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_29.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_69.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare",
+        "output"
+    ],
+    "snippet_555.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse"
+    ],
+    "snippet_795.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_32.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "while_to_for"
+    ],
+    "snippet_267.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_712.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_245.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_757.cpp": [
+        "declare"
+    ],
+    "snippet_599.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "snippet_743.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_558.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "snippet_336.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_138.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare"
+    ],
+    "snippet_762.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_685.cpp": [
+        "self_assignment"
+    ],
+    "snippet_396.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_380.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_259.cpp": [
+        "declare"
+    ],
+    "snippet_459.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "input"
+    ],
+    "snippet_53.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "declare"
+    ],
+    "snippet_800.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_495.cpp": [
+        "self_assignment"
+    ],
+    "snippet_311.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "snippet_789.cpp": [
+        "self_assignment",
+        "main_style",
+        "while_to_for"
+    ],
+    "snippet_88.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "snippet_19.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "declare"
+    ],
+    "snippet_629.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_351.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_78.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_797.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse"
+    ],
+    "snippet_649.cpp": [
+        "self_assignment",
+        "main_style",
+        "declare"
+    ],
+    "snippet_695.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "while_to_for",
+        "output"
+    ],
+    "snippet_519.cpp": [
+        "declare"
+    ],
+    "snippet_694.cpp": [
+        "self_assignment",
+        "main_style",
+        "declare",
+        "output"
+    ],
+    "snippet_603.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "snippet_137.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_289.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for",
+        "output"
+    ],
+    "snippet_715.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "snippet_226.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "main_style",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_645.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse"
+    ],
+    "snippet_651.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_224.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "output"
+    ],
+    "snippet_430.cpp": [],
+    "snippet_673.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "main_style",
+        "while_to_for",
+        "output"
+    ],
+    "snippet_785.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_403.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_56.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style"
+    ],
+    "snippet_835.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_841.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_284.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_68.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_277.cpp": [
+        "declare"
+    ],
+    "snippet_272.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "declare"
+    ],
+    "snippet_342.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "while_to_for"
+    ],
+    "snippet_186.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_121.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_559.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_113.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_48.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "main_style",
+        "declare",
+        "output",
+        "input"
+    ],
+    "snippet_522.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_31.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "while_to_for"
+    ],
+    "snippet_621.cpp": [
+        "main_style"
+    ],
+    "snippet_737.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_569.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_595.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_60.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_220.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_110.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "not_equal_hash_reverse"
+    ],
+    "snippet_111.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_79.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_771.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "snippet_286.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_825.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "declare"
+    ],
+    "snippet_431.cpp": [
+        "declare"
+    ],
+    "snippet_38.cpp": [
+        "self_assignment",
+        "main_style"
+    ],
+    "snippet_767.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse"
+    ],
+    "snippet_487.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "input"
+    ],
+    "snippet_725.cpp": [
+        "declare"
+    ],
+    "snippet_122.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "while_to_for",
+        "output"
+    ],
+    "snippet_365.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_716.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "snippet_847.cpp": [
+        "update_reverse",
+        "main_style",
+        "while_to_for"
+    ],
+    "snippet_514.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "while_to_for"
+    ],
+    "snippet_672.cpp": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_99.cpp": [
+        "self_assignment"
+    ],
+    "snippet_363.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_269.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style",
+        "input"
+    ],
+    "snippet_257.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_466.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_707.cpp": [
+        "declare"
+    ],
+    "snippet_21.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_390.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "output"
+    ],
+    "snippet_614.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_91.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_465.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_836.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO",
+        "input"
+    ],
+    "snippet_239.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_446.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_691.cpp": [
+        "self_assignment",
+        "main_style"
+    ],
+    "snippet_355.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_775.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_440.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "while_to_for"
+    ],
+    "snippet_604.cpp": [],
+    "snippet_182.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_133.cpp": [
+        "self_assignment",
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "snippet_820.cpp": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for"
+    ],
+    "snippet_143.cpp": [
+        "reverse_compare",
+        "exp_cmp"
+    ],
+    "snippet_684.cpp": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "while_to_for"
+    ],
+    "snippet_726.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "update_reverse"
+    ],
+    "snippet_606.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "for_OOO"
+    ],
+    "snippet_647.cpp": [
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_668.cpp": [
+        "self_assignment",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for",
+        "input"
+    ],
+    "snippet_638.cpp": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "snippet_433.cpp": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "main_style",
+        "declare",
+        "for_OOO",
+        "while_to_for",
+        "output"
+    ]
+}

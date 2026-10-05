@@ -1,0 +1,30 @@
+{
+    "addHabit.cpp": [
+        "output"
+    ],
+    "main.cpp": [
+        "main_style",
+        "output",
+        "input"
+    ],
+    "getTargetTime.cpp": [],
+    "addProgress.cpp": [
+        "self_assignment"
+    ],
+    "getName.cpp": [],
+    "recordProgress.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "output"
+    ],
+    "setTargetTime.cpp": [],
+    "viewHabits.cpp": [
+        "output"
+    ],
+    "editHabit.cpp": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "output"
+    ],
+    "getHabits.cpp": []
+}

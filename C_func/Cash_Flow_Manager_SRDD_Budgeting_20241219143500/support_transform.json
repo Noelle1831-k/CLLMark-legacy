@@ -1,0 +1,71 @@
+{
+    "addTransactionFromFile.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "cleanupTransactions.c": [],
+    "support_transform.json": [],
+    "saveData.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "initializeTransactions.c": [],
+    "generateReport.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "declare",
+        "for_OOO"
+    ],
+    "sortTransactions.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "viewTransactions.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "getTransactionCount.c": [],
+    "addTransaction.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "handleUserInput.c": [
+        "array_init"
+    ],
+    "displayMenu.c": [],
+    "validateDate.c": [
+        "equal_to_not_equal",
+        "not_equal_to_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "not_equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "loadData.c": [
+        "array_init",
+        "while_to_for"
+    ],
+    "getTransaction.c": [
+        "array_access"
+    ]
+}
