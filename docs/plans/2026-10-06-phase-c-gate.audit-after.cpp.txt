@@ -1,0 +1,37 @@
+{
+ "language": "cpp",
+ "files": 9026,
+ "pairs": {
+  "declare": {
+   "styles": [
+    "6.1",
+    "6.2"
+   ],
+   "applicable": 1107,
+   "form0": 592,
+   "form1": 426,
+   "idempotence_trials": 2214,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 2214,
+   "reversibility_failures": 1196,
+   "interference": {}
+  },
+  "while_to_for": {
+   "styles": [
+    "7.8",
+    "12"
+   ],
+   "interference": {}
+  }
+ },
+ "examples": {
+  "declare:reversibility_failures": [
+   "dataset/MBCPP_G/MBCPP_1.cpp",
+   "dataset/MBCPP_G/MBCPP_11.cpp",
+   "dataset/MBCPP_G/MBCPP_111.cpp",
+   "dataset/MBCPP_G/MBCPP_119.cpp",
+   "dataset/MBCPP_G/MBCPP_121.cpp"
+  ]
+ }
+}

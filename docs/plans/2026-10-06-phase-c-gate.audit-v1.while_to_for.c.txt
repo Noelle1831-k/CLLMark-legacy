@@ -1,0 +1,22 @@
+{
+ "language": "c",
+ "files": 8788,
+ "pair": "while_to_for (7.8 only)",
+ "applicable": 854,
+ "idempotence_failures": 0,
+ "syntax_regressions": 0,
+ "detected_by_12": 844,
+ "empty_update_clause": 726,
+ "interference": {
+  "else_after_return": 13
+ },
+ "examples": {
+  "interferes:else_after_return": [
+   "dataset/MBCP_G/MBCP_192.c",
+   "dataset/MBCP_G/MBCP_349.c",
+   "dataset/MBCP_G/MBCP_643.c",
+   "dataset/MBCP_G/MBCP_745.c",
+   "dataset/MBCP_G/MBCP_944.c"
+  ]
+ }
+}

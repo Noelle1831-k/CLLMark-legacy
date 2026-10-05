@@ -123,12 +123,54 @@ class GoldenRewriteTests(unittest.TestCase):
             ("4.1", "int main(){\n    f();\n}", "int main(void){\n    f();\n    return 0;\n}"),
             ("6.1", "void f(){\n    int a, b;\n}", "void f(){\n    int a;\n    int b;\n    \n}"),
             ("6.2", "void f(){\n    int a;\n    int b;\n}", "void f(){\n    int a, b;\n\n}"),
+            # Adjacent declarations merge whatever their initialisers; a later one hops over statements only if
+            # its initialiser is pure and the statements neither mention its names nor call or write through memory.
+            ("6.2", "void f(int n){\n    int a = n + 1;\n    int b = g(a);\n}",
+             "void f(int n){\n    int a = n + 1, b = g(a);\n\n}"),
+            ("6.2", "void f(int n){\n    int a = 0;\n    n = n + 1;\n    int b = n;\n}",
+             "void f(int n){\n    int a = 0;\n    n = n + 1;\n    int b = n;\n}"),
+            ("6.2", "void f(int n){\n    int a = 0;\n    g();\n    int b = n;\n}",
+             "void f(int n){\n    int a = 0;\n    g();\n    int b = n;\n}"),
+            ("6.2", "void f(int n){\n    int a = 0;\n    a = 1;\n    int b = n * 2;\n}",
+             "void f(int n){\n    int a = 0, b = n * 2;\n    a = 1;\n\n}"),
+            ("6.2", "void f(){\n    char a = 'x';\n    g();\n    char b = 'y';\n}",
+             "void f(){\n    char a = 'x', b = 'y';\n    g();\n\n}"),
+            ("6.2", "void f(int n){\n    int a = 0;\n    (*p)++;\n    int b = n;\n}",
+             "void f(int n){\n    int a = 0;\n    (*p)++;\n    int b = n;\n}"),
+            ("6.2", "void f(int n){\n    int a = 0;\n    g();\n    int b[n];\n}",
+             "void f(int n){\n    int a = 0;\n    g();\n    int b[n];\n}"),
+            ("6.2", "void f(int n){\n    int a = 0;\nL:\n    n++;\n    int b = 3;\n}",
+             "void f(int n){\n    int a = 0;\nL:\n    n++;\n    int b = 3;\n}"),
+            # v2: a first declaration in mid-line keeps what precedes it and adds no blanks (stable on repetition);
+            # a syntax error between the declarations, a mixed 1-D/multi-dimensional array group, and specifiers
+            # the merged kind would lose all keep the declarations apart.
+            ("6.2", "void f(){ int a;\n    int b;\n}", "void f(){ int a, b;\n\n}"),
+            ("6.2", "void f(int n){\n    int a = 0;\n    n = ;;\n    @@@ x y;\n    int b = 3;\n}",
+             "void f(int n){\n    int a = 0;\n    n = ;;\n    @@@ x y;\n    int b = 3;\n}"),
+            ("6.2", "void f(){\n    int a[3];\n    int b[2][2];\n}", "void f(){\n    int a[3];\n    int b[2][2];\n}"),
+            ("6.2", "void f(){\n    int a[3];\n    int b[4];\n}", "void f(){\n    int a[3], b[4];\n\n}"),
+            ("6.2", "void f(){\n    static const int a = 1;\n    static const int b = 2;\n}",
+             "void f(){\n    static const int a = 1;\n    static const int b = 2;\n}"),
+            ("6.1", "dump(int ssort[],char leader[])\n{\n  int i;\n}", "dump(int ssort[],char leader[])\n{\n  int i;\n}"),
+            # The counter update stays in the body (empty third clause) unless it is the last statement.
+            ("7.8", "void f(int n){\n    int i = 0;\n    while (i < n) {\n        i++;\n        g(i);\n    }\n}",
+             "void f(int n){\n    int i = 0;\n    for(int identifier = 1; i < n; ) {\n        i++;\n        g(i);\n    }\n}"),
         ],
         "cpp": [
             ("9.1", 'int main(){printf("hi\\n");}', 'int main(){cout << "hi\\n";}'),
             ("9.2", 'int main(){int x; cout << x << endl;}', 'int main(){int x; printf("%d\\n", x);}'),
             ("22.1", "double f(int a){return (double)a / 2;}", "double f(int a){return double(a) / 2;}"),
             ("21.1", "typedef long long ll;", "using ll = long long;"),
+            ("6.2", "void f(){\n    auto a = 1;\n    auto b = 2.0;\n}", "void f(){\n    auto a = 1;\n    auto b = 2.0;\n}"),
+            # A write to a C++ reference may change what the hoisted initialiser reads.
+            ("6.2", "void f(int n){\n    int &r = n;\n    int a = 0;\n    r = 5;\n    int b = n;\n}",
+             "void f(int n){\n    int &r = n, a = 0;\n\n    r = 5;\n    int b = n;\n}"),
+            ("6.2", "void f(int &n){\n    int a = 0;\n    n = 5;\n    int b = 1;\n}",
+             "void f(int &n){\n    int a = 0, b = 1;\n    n = 5;\n\n}"),
+            ("6.2", "void f(int &r, int n){\n    int a = 0;\n    r = 5;\n    int b = n;\n}",
+             "void f(int &r, int n){\n    int a = 0;\n    r = 5;\n    int b = n;\n}"),
+            ("6.2", "void f(){\n    volatile int a = 1;\n    volatile int b = 2;\n}",
+             "void f(){\n    volatile int a = 1;\n    volatile int b = 2;\n}"),
         ],
         "javascript": [
             ("2.3", "if (a === b) f();", "if (!(a !== b)) f();"),
@@ -138,6 +180,17 @@ class GoldenRewriteTests(unittest.TestCase):
             ("23.1", "g({a: a, b});", "g({a, b});"),
         ],
     }
+
+    def test_loop_with_update_kept_in_body_is_still_marked_and_stable(self):
+        """Style 12 has no rewrite: it detects the marker form, and the marked loop is not rewritten again."""
+        from change_program_style import SCTS
+        scts = SCTS("c")
+        before = "void f(int n){\n    int i = 0;\n    while (i < n) {\n        i++;\n        g(i);\n    }\n}"
+        after = scts.change_file_style("7.8", before)[0]
+        self.assertEqual(scts.get_file_popularity("7.8", before), 0)
+        self.assertEqual(scts.get_file_popularity("7.8", after), 1)
+        self.assertEqual(scts.change_file_style("7.8", after)[0], after)
+        self.assertTrue(scts.check_syntax(after))
 
     def test_golden_rewrites(self):
         from change_program_style import SCTS
