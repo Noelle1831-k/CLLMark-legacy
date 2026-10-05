@@ -10,6 +10,8 @@
 - [论文与实现对照](docs/PAPER_ALIGNMENT.md)：两版论文与现有代码的对应关系、已有能力和待补齐部分。
 - [机器可读代码索引](docs/code-index.json)：主要源码的符号、行号、导入、文件摘要和本地依赖。
 - [论文来源记录](docs/paper-sources.json)：本次对照使用的 PDF 文件名、标题、页数和 SHA-256。
+- [科研循环与全量 benchmark](docs/RESEARCH_LOOP.md)：固定环境、19 组全量重跑、功能检查、基线门禁、续跑和自动触发。
+- [实验记录模板](docs/EXPERIMENT_TEMPLATE.md)：记录假设、控制变量、结果和反例。
 
 建议阅读顺序：`folder_transform_check.py` → `watermark_bit.py` → `watermark_extract.py` → `change_program_style.py` → 各语言 `config.py` → `bch_utils.py`。
 
@@ -31,16 +33,32 @@
 ├── data/                       # 保留的实验快照，部分入口使用 C 参数
 ├── test/ test_1/ test.py        # 示例代码及混淆矩阵计算脚本
 ├── docs/                       # 代码地图及论文对照
-└── tools/build_code_index.py    # 使用标准库重新生成源码索引
+├── benchmarks/                 # 固定协议、真实旧算法适配、指标与基线
+├── tests/                      # 流程有效性、功能执行和断点恢复检查
+├── Makefile                    # 日常科研 loop 入口
+└── tools/                      # 环境初始化、科研 loop CLI、代码索引
 ```
+
+## 本地科研循环
+
+```bash
+make setup-benchmark  # 一次性安装 Python 3.11 独立环境并构建固定语法库
+make doctor
+make smoke           # 流程测试 + 每组 2 个实验单元
+make benchmark       # 代码改动完成后：更新索引、测试、全量运行、比较固定基线
+```
+
+默认全量为 19 组、9,566 个实验单元。`make baseline` 仅用于首次建立参考；已存在参考时拒绝覆盖。`make watch-benchmark` 在前台监控变更并自动触发完整 loop。详细配置、指标分母、结果位置及续跑命令见[科研循环文档](docs/RESEARCH_LOOP.md)。
+
+新入口在每次运行的副本中调用实际旧算法，保留容量不足和失败样本，校验源码及原始输入没有被更改。Python/C++ MBXP 使用本地真实功能测试；CodeNet 缺少 problem_id 映射，其他拆分项目缺少功能 oracle，结果明确记录为 N/A。不同语料组有重叠，汇总用于版本回归，论文分析应使用分组与明确的样本协议。
 
 ## 使用与验证边界
 
 现有代码主要是研究脚本，许多参数直接写在文件中。请从仓库根目录运行主版本脚本，并先检查输入输出路径。`data/` 是另一个实验快照，不是主版本的 Python 包入口。
 
-`folder_transform_check.py` 的主程序会删除不足 7 个可用规则的项目目录；`watermark_bit.py` 会覆盖输入代码。进行实验时应先复制语料到单独的工作目录，再修改脚本参数。
+`folder_transform_check.py` 的旧主程序会删除不足 7 个可用规则的项目目录；`watermark_bit.py` 会覆盖输入代码。日常实验使用上面的 `make benchmark`，该入口仅修改每次运行的工作副本。
 
-旧环境面向 Python 3.9，并固定使用 `tree-sitter==0.20.2`。`requirements.txt` 保留原始记录，其中 `python~=3.9.21` 是解释器版本记录，不能直接当作普通 pip 依赖安装；实际导入的 `matplotlib` 未列入其中。已有 `venv/` 包含 Windows 环境文件，不适用于本机 macOS。更完整的环境限制见[代码地图](docs/CODE_MAP.md#运行前需要确认的事项)。
+旧环境面向 Python 3.9，并固定使用 `tree-sitter==0.20.2`。`requirements.txt` 保留原始记录，其中 `python~=3.9.21` 是解释器版本记录，不能直接当作普通 pip 依赖安装；实际导入的 `matplotlib`、`networkx` 未列入其中。已有 `venv/` 包含 Windows 环境文件。新流程使用 `benchmarks/requirements.lock` 和 `benchmarks/toolchain.lock.json`，在 `.venv-benchmark` 中运行，避免使用旧二进制。更完整的旧环境限制见[代码地图](docs/CODE_MAP.md#运行前需要确认的事项)。
 
 生成代码的 `openai_ml.py` 从环境变量读取 `OPENAI_API_KEY`，可通过 `OPENAI_BASE_URL` 设置原有兼容 API 服务地址。`.env.example` 仅用于说明变量，本项目不会自动加载 `.env`。该脚本在执行及导入时会读取数据并调用外部 API，运行前需要检查数据文件和模型参数。
 
@@ -51,4 +69,4 @@ python3 tools/build_code_index.py
 python3 tools/build_code_index.py --check
 ```
 
-此次建库进行了源码静态解析、索引一致性检查和 BCH 编解码检查；未运行会改写数据的全量水印实验，也未重新验证论文中的实验指标。语料和结果文件保持原有组织方式，运行环境、缓存、二进制构建产物及本地凭据通过 `.gitignore` 排除。
+建库时完成源码静态解析、索引一致性及 BCH 编解码检查；后续本地实验以 `benchmark-results/` 下的独立运行记录和 `benchmarks/baselines/current.json` 为准。论文报告的实验指标不等同于本地回归结果。运行环境、完整实验输出、缓存、二进制构建产物及本地凭据通过 `.gitignore` 排除。

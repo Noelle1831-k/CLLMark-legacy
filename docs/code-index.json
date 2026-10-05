@@ -6,7 +6,9 @@
     "c",
     "cpp",
     "python",
-    "tools"
+    "tools",
+    "benchmarks",
+    "tests"
   ],
   "excluded_scope": [
     "data snapshot",
@@ -15,8 +17,8 @@
     "build products"
   ],
   "generation_command": "python3 tools/build_code_index.py",
-  "file_count": 58,
-  "symbol_count": 561,
+  "file_count": 68,
+  "symbol_count": 649,
   "files": [
     {
       "path": "bch_utils.py",
@@ -206,6 +208,831 @@
         "change_program_style.py",
         "folder_to_jsonl.py",
         "fortowhile.py"
+      ],
+      "has_main_guard": false
+    },
+    {
+      "path": "benchmarks/__init__.py",
+      "module": "benchmarks.__init__",
+      "sha256": "bc69a99027507c1317be922a90a6b7b363d2fdd7451998e4aea61cd2af74a7db",
+      "line_count": 1,
+      "symbols": [],
+      "imports": [],
+      "local_dependencies": [],
+      "has_main_guard": false
+    },
+    {
+      "path": "benchmarks/common.py",
+      "module": "benchmarks.common",
+      "sha256": "d02969c16457b59bd36fedcc408c739ec6d9e319e00839160c40421a18e70928",
+      "line_count": 209,
+      "symbols": [
+        {
+          "name": "digest",
+          "kind": "function",
+          "line": 21,
+          "end_line": 24
+        },
+        {
+          "name": "utc_now",
+          "kind": "function",
+          "line": 27,
+          "end_line": 28
+        },
+        {
+          "name": "write_json",
+          "kind": "function",
+          "line": 31,
+          "end_line": 40
+        },
+        {
+          "name": "lock_file",
+          "kind": "function",
+          "line": 44,
+          "end_line": 59
+        },
+        {
+          "name": "validate_config",
+          "kind": "function",
+          "line": 62,
+          "end_line": 83
+        },
+        {
+          "name": "source_paths",
+          "kind": "function",
+          "line": 86,
+          "end_line": 94
+        },
+        {
+          "name": "source_fingerprint",
+          "kind": "function",
+          "line": 97,
+          "end_line": 99
+        },
+        {
+          "name": "protocol_fingerprint",
+          "kind": "function",
+          "line": 102,
+          "end_line": 108
+        },
+        {
+          "name": "toolchain_environment",
+          "kind": "function",
+          "line": 111,
+          "end_line": 147
+        },
+        {
+          "name": "git_version",
+          "kind": "function",
+          "line": 150,
+          "end_line": 153
+        },
+        {
+          "name": "parser_smoke",
+          "kind": "function",
+          "line": 156,
+          "end_line": 179
+        },
+        {
+          "name": "discover_units",
+          "kind": "function",
+          "line": 182,
+          "end_line": 209
+        }
+      ],
+      "imports": [
+        {
+          "module": "contextlib",
+          "names": [
+            "contextmanager"
+          ],
+          "line": 3
+        },
+        {
+          "module": "datetime",
+          "names": [
+            "datetime",
+            "timezone"
+          ],
+          "line": 4
+        },
+        {
+          "module": "fcntl",
+          "names": [],
+          "line": 5
+        },
+        {
+          "module": "hashlib",
+          "names": [],
+          "line": 6
+        },
+        {
+          "module": "importlib.metadata",
+          "names": [],
+          "line": 7
+        },
+        {
+          "module": "json",
+          "names": [],
+          "line": 8
+        },
+        {
+          "module": "os",
+          "names": [],
+          "line": 9
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 10
+        },
+        {
+          "module": "platform",
+          "names": [],
+          "line": 11
+        },
+        {
+          "module": "shutil",
+          "names": [],
+          "line": 12
+        },
+        {
+          "module": "subprocess",
+          "names": [],
+          "line": 13
+        },
+        {
+          "module": "sys",
+          "names": [],
+          "line": 14
+        },
+        {
+          "module": "tempfile",
+          "names": [],
+          "line": 15
+        },
+        {
+          "module": "change_program_style",
+          "names": [
+            "SCTS"
+          ],
+          "line": 158
+        }
+      ],
+      "local_dependencies": [
+        "change_program_style.py"
+      ],
+      "has_main_guard": false
+    },
+    {
+      "path": "benchmarks/compare.py",
+      "module": "benchmarks.compare",
+      "sha256": "8b3468c3302475077b3799c81bc6710d1e53c0f5d1a6def992e414d8e8210c36",
+      "line_count": 100,
+      "symbols": [
+        {
+          "name": "compare",
+          "kind": "function",
+          "line": 8,
+          "end_line": 85
+        },
+        {
+          "name": "compare.scalar",
+          "kind": "function",
+          "line": 23,
+          "end_line": 31
+        },
+        {
+          "name": "promote_baseline",
+          "kind": "function",
+          "line": 88,
+          "end_line": 100
+        }
+      ],
+      "imports": [
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 3
+        },
+        {
+          "module": "benchmarks.common",
+          "names": [
+            "utc_now",
+            "write_json"
+          ],
+          "line": 5
+        },
+        {
+          "module": "json",
+          "names": [],
+          "line": 94
+        }
+      ],
+      "local_dependencies": [
+        "benchmarks/common.py"
+      ],
+      "has_main_guard": false
+    },
+    {
+      "path": "benchmarks/engine.py",
+      "module": "benchmarks.engine",
+      "sha256": "550bb2c2258aac2ee41862f2e7fee28283d5b8a8c77a859688ff4928454e313c",
+      "line_count": 252,
+      "symbols": [
+        {
+          "name": "UnitTimeout",
+          "kind": "class",
+          "line": 20,
+          "end_line": 21
+        },
+        {
+          "name": "BoundedLog",
+          "kind": "class",
+          "line": 24,
+          "end_line": 36
+        },
+        {
+          "name": "BoundedLog.__init__",
+          "kind": "function",
+          "line": 25,
+          "end_line": 26
+        },
+        {
+          "name": "BoundedLog.write",
+          "kind": "function",
+          "line": 28,
+          "end_line": 33
+        },
+        {
+          "name": "BoundedLog.getvalue",
+          "kind": "function",
+          "line": 35,
+          "end_line": 36
+        },
+        {
+          "name": "LegacyEngine",
+          "kind": "class",
+          "line": 39,
+          "end_line": 227
+        },
+        {
+          "name": "LegacyEngine.__init__",
+          "kind": "function",
+          "line": 40,
+          "end_line": 54
+        },
+        {
+          "name": "LegacyEngine.parser",
+          "kind": "function",
+          "line": 56,
+          "end_line": 59
+        },
+        {
+          "name": "LegacyEngine.extract",
+          "kind": "function",
+          "line": 61,
+          "end_line": 86
+        },
+        {
+          "name": "LegacyEngine.extract.decode",
+          "kind": "function",
+          "line": 64,
+          "end_line": 67
+        },
+        {
+          "name": "LegacyEngine.change",
+          "kind": "function",
+          "line": 88,
+          "end_line": 91
+        },
+        {
+          "name": "LegacyEngine.properties",
+          "kind": "function",
+          "line": 93,
+          "end_line": 133
+        },
+        {
+          "name": "LegacyEngine.properties.check",
+          "kind": "function",
+          "line": 97,
+          "end_line": 101
+        },
+        {
+          "name": "LegacyEngine.flip",
+          "kind": "function",
+          "line": 135,
+          "end_line": 154
+        },
+        {
+          "name": "LegacyEngine.evaluate",
+          "kind": "function",
+          "line": 156,
+          "end_line": 227
+        },
+        {
+          "name": "initialize_worker",
+          "kind": "function",
+          "line": 233,
+          "end_line": 236
+        },
+        {
+          "name": "evaluate_unit",
+          "kind": "function",
+          "line": 239,
+          "end_line": 252
+        },
+        {
+          "name": "evaluate_unit.timeout",
+          "kind": "function",
+          "line": 240,
+          "end_line": 241
+        }
+      ],
+      "imports": [
+        {
+          "module": "contextlib",
+          "names": [
+            "redirect_stderr",
+            "redirect_stdout"
+          ],
+          "line": 3
+        },
+        {
+          "module": "hashlib",
+          "names": [],
+          "line": 4
+        },
+        {
+          "module": "importlib",
+          "names": [],
+          "line": 5
+        },
+        {
+          "module": "io",
+          "names": [],
+          "line": 6
+        },
+        {
+          "module": "json",
+          "names": [],
+          "line": 7
+        },
+        {
+          "module": "os",
+          "names": [],
+          "line": 8
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 9
+        },
+        {
+          "module": "random",
+          "names": [],
+          "line": 10
+        },
+        {
+          "module": "shutil",
+          "names": [],
+          "line": 11
+        },
+        {
+          "module": "signal",
+          "names": [],
+          "line": 12
+        },
+        {
+          "module": "time",
+          "names": [],
+          "line": 13
+        },
+        {
+          "module": "traceback",
+          "names": [],
+          "line": 14
+        },
+        {
+          "module": "benchmarks.common",
+          "names": [
+            "digest",
+            "write_json"
+          ],
+          "line": 16
+        },
+        {
+          "module": "benchmarks.utility",
+          "names": [
+            "evaluate_utility",
+            "load_problems"
+          ],
+          "line": 17
+        }
+      ],
+      "local_dependencies": [
+        "benchmarks/common.py",
+        "benchmarks/utility.py"
+      ],
+      "has_main_guard": false
+    },
+    {
+      "path": "benchmarks/metrics.py",
+      "module": "benchmarks.metrics",
+      "sha256": "9a6f0a30fcd99d32e24032e4f9bb2bb7c00fe1e4e036f0e1c5c893b7e887cafc",
+      "line_count": 165,
+      "symbols": [
+        {
+          "name": "rate",
+          "kind": "function",
+          "line": 15,
+          "end_line": 16
+        },
+        {
+          "name": "timing",
+          "kind": "function",
+          "line": 19,
+          "end_line": 22
+        },
+        {
+          "name": "summarize_group",
+          "kind": "function",
+          "line": 25,
+          "end_line": 79
+        },
+        {
+          "name": "summarize",
+          "kind": "function",
+          "line": 82,
+          "end_line": 99
+        },
+        {
+          "name": "percent",
+          "kind": "function",
+          "line": 102,
+          "end_line": 103
+        },
+        {
+          "name": "save_reports",
+          "kind": "function",
+          "line": 106,
+          "end_line": 165
+        }
+      ],
+      "imports": [
+        {
+          "module": "collections",
+          "names": [
+            "Counter",
+            "defaultdict"
+          ],
+          "line": 3
+        },
+        {
+          "module": "csv",
+          "names": [],
+          "line": 4
+        },
+        {
+          "module": "json",
+          "names": [],
+          "line": 5
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 6
+        },
+        {
+          "module": "statistics",
+          "names": [],
+          "line": 7
+        },
+        {
+          "module": "benchmarks.common",
+          "names": [
+            "write_json"
+          ],
+          "line": 9
+        },
+        {
+          "module": "matplotlib",
+          "names": [],
+          "line": 149
+        },
+        {
+          "module": "matplotlib.pyplot",
+          "names": [],
+          "line": 151
+        }
+      ],
+      "local_dependencies": [
+        "benchmarks/common.py"
+      ],
+      "has_main_guard": false
+    },
+    {
+      "path": "benchmarks/runner.py",
+      "module": "benchmarks.runner",
+      "sha256": "7ab43aa0d241ac3569e73f32eafda67e63d19cde734386bb2ea692821d6be83b",
+      "line_count": 268,
+      "symbols": [
+        {
+          "name": "freeze_run",
+          "kind": "function",
+          "line": 21,
+          "end_line": 81
+        },
+        {
+          "name": "verify_frozen_run",
+          "kind": "function",
+          "line": 84,
+          "end_line": 96
+        },
+        {
+          "name": "load_rows",
+          "kind": "function",
+          "line": 99,
+          "end_line": 122
+        },
+        {
+          "name": "verified_summary",
+          "kind": "function",
+          "line": 125,
+          "end_line": 136
+        },
+        {
+          "name": "validate_workspace",
+          "kind": "function",
+          "line": 139,
+          "end_line": 151
+        },
+        {
+          "name": "execute_run",
+          "kind": "function",
+          "line": 154,
+          "end_line": 212
+        },
+        {
+          "name": "launch_frozen",
+          "kind": "function",
+          "line": 215,
+          "end_line": 224
+        },
+        {
+          "name": "run_experiment",
+          "kind": "function",
+          "line": 227,
+          "end_line": 268
+        }
+      ],
+      "imports": [
+        {
+          "module": "concurrent.futures",
+          "names": [
+            "ProcessPoolExecutor",
+            "wait",
+            "FIRST_COMPLETED"
+          ],
+          "line": 3
+        },
+        {
+          "module": "datetime",
+          "names": [
+            "datetime",
+            "timezone"
+          ],
+          "line": 4
+        },
+        {
+          "module": "json",
+          "names": [],
+          "line": 5
+        },
+        {
+          "module": "multiprocessing",
+          "names": [],
+          "line": 6
+        },
+        {
+          "module": "os",
+          "names": [],
+          "line": 7
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 8
+        },
+        {
+          "module": "shutil",
+          "names": [],
+          "line": 9
+        },
+        {
+          "module": "signal",
+          "names": [],
+          "line": 10
+        },
+        {
+          "module": "subprocess",
+          "names": [],
+          "line": 11
+        },
+        {
+          "module": "sys",
+          "names": [],
+          "line": 12
+        },
+        {
+          "module": "time",
+          "names": [],
+          "line": 13
+        },
+        {
+          "module": "benchmarks.common",
+          "names": [
+            "digest",
+            "discover_units",
+            "git_version",
+            "lock_file",
+            "protocol_fingerprint",
+            "source_fingerprint",
+            "source_paths",
+            "toolchain_environment",
+            "utc_now",
+            "write_json"
+          ],
+          "line": 15
+        },
+        {
+          "module": "benchmarks.compare",
+          "names": [
+            "compare",
+            "promote_baseline"
+          ],
+          "line": 17
+        },
+        {
+          "module": "benchmarks.metrics",
+          "names": [
+            "save_reports",
+            "summarize"
+          ],
+          "line": 18
+        },
+        {
+          "module": "benchmarks.engine",
+          "names": [
+            "evaluate_unit",
+            "initialize_worker"
+          ],
+          "line": 168
+        }
+      ],
+      "local_dependencies": [
+        "benchmarks/common.py",
+        "benchmarks/compare.py",
+        "benchmarks/engine.py",
+        "benchmarks/metrics.py"
+      ],
+      "has_main_guard": false
+    },
+    {
+      "path": "benchmarks/utility.py",
+      "module": "benchmarks.utility",
+      "sha256": "22286b90a2161196df537cf4b977477930e6cd902d7035ffec87f6963b388b9e",
+      "line_count": 158,
+      "symbols": [
+        {
+          "name": "load_problems",
+          "kind": "function",
+          "line": 19,
+          "end_line": 30
+        },
+        {
+          "name": "subprocess_limits",
+          "kind": "function",
+          "line": 33,
+          "end_line": 35
+        },
+        {
+          "name": "run_process",
+          "kind": "function",
+          "line": 38,
+          "end_line": 61
+        },
+        {
+          "name": "cache_lock",
+          "kind": "function",
+          "line": 65,
+          "end_line": 71
+        },
+        {
+          "name": "assemble_test",
+          "kind": "function",
+          "line": 74,
+          "end_line": 84
+        },
+        {
+          "name": "evaluate_utility",
+          "kind": "function",
+          "line": 87,
+          "end_line": 98
+        },
+        {
+          "name": "_evaluate_cached_utility",
+          "kind": "function",
+          "line": 101,
+          "end_line": 158
+        }
+      ],
+      "imports": [
+        {
+          "module": "contextlib",
+          "names": [
+            "contextmanager"
+          ],
+          "line": 3
+        },
+        {
+          "module": "fcntl",
+          "names": [],
+          "line": 4
+        },
+        {
+          "module": "json",
+          "names": [],
+          "line": 5
+        },
+        {
+          "module": "os",
+          "names": [],
+          "line": 6
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 7
+        },
+        {
+          "module": "re",
+          "names": [],
+          "line": 8
+        },
+        {
+          "module": "resource",
+          "names": [],
+          "line": 9
+        },
+        {
+          "module": "shutil",
+          "names": [],
+          "line": 10
+        },
+        {
+          "module": "signal",
+          "names": [],
+          "line": 11
+        },
+        {
+          "module": "subprocess",
+          "names": [],
+          "line": 12
+        },
+        {
+          "module": "sys",
+          "names": [],
+          "line": 13
+        },
+        {
+          "module": "time",
+          "names": [],
+          "line": 14
+        },
+        {
+          "module": "benchmarks.common",
+          "names": [
+            "digest",
+            "write_json"
+          ],
+          "line": 16
+        }
+      ],
+      "local_dependencies": [
+        "benchmarks/common.py"
       ],
       "has_main_guard": false
     },
@@ -4734,68 +5561,68 @@
     {
       "path": "python/transform6_string.py",
       "module": "python.transform6_string",
-      "sha256": "45068e7f03f6ae91f2d34fa54b790e0a50526cac9ea86949bcb12ae78b7326d6",
-      "line_count": 106,
+      "sha256": "266a4004aec7239a98615dc8fa876555c5bd7ec0c2eaa3f4ff6140cf1e9593ef",
+      "line_count": 104,
       "symbols": [
         {
           "name": "rec_string",
           "kind": "function",
-          "line": 10,
-          "end_line": 12
+          "line": 8,
+          "end_line": 10
         },
         {
           "name": "rec_not_format_string_with_f",
           "kind": "function",
-          "line": 14,
-          "end_line": 25
+          "line": 12,
+          "end_line": 23
         },
         {
           "name": "rec_not_format_string_without_f",
           "kind": "function",
-          "line": 27,
-          "end_line": 38
+          "line": 25,
+          "end_line": 36
         },
         {
           "name": "match_StringSingle",
           "kind": "function",
-          "line": 40,
-          "end_line": 45
+          "line": 38,
+          "end_line": 43
         },
         {
           "name": "match_StringDouble",
           "kind": "function",
-          "line": 47,
-          "end_line": 52
+          "line": 45,
+          "end_line": 50
         },
         {
           "name": "match_format_string",
           "kind": "function",
-          "line": 54,
-          "end_line": 57
+          "line": 52,
+          "end_line": 55
         },
         {
           "name": "cvt_single_quotation",
           "kind": "function",
-          "line": 60,
-          "end_line": 72
+          "line": 58,
+          "end_line": 70
         },
         {
           "name": "cvt_double_quotation",
           "kind": "function",
-          "line": 74,
-          "end_line": 87
+          "line": 72,
+          "end_line": 85
         },
         {
           "name": "cvt_add_f",
           "kind": "function",
-          "line": 89,
-          "end_line": 96
+          "line": 87,
+          "end_line": 94
         },
         {
           "name": "cvt_del_f",
           "kind": "function",
-          "line": 99,
-          "end_line": 106
+          "line": 97,
+          "end_line": 104
         }
       ],
       "imports": [
@@ -4816,25 +5643,11 @@
           "line": 3
         },
         {
-          "module": "dataset.MBPP_G.MBPP_195",
-          "names": [
-            "first"
-          ],
-          "line": 5
-        },
-        {
-          "module": "dataset.MBPP_G.MBPP_788",
-          "names": [
-            "new_tuple"
-          ],
-          "line": 6
-        },
-        {
           "module": "utils",
           "names": [
             "text"
           ],
-          "line": 7
+          "line": 5
         }
       ],
       "local_dependencies": [
@@ -5341,9 +6154,297 @@
       "has_main_guard": false
     },
     {
+      "path": "tests/test_research_loop.py",
+      "module": "tests.test_research_loop",
+      "sha256": "633794465c2102d88c64210584df478493c92e5e3b793af6754125232e3a2053",
+      "line_count": 263,
+      "symbols": [
+        {
+          "name": "measured_row",
+          "kind": "function",
+          "line": 20,
+          "end_line": 29
+        },
+        {
+          "name": "summary",
+          "kind": "function",
+          "line": 32,
+          "end_line": 37
+        },
+        {
+          "name": "MeasurementValidityTests",
+          "kind": "class",
+          "line": 40,
+          "end_line": 99
+        },
+        {
+          "name": "MeasurementValidityTests.test_missing_oracles_never_count_as_pass",
+          "kind": "function",
+          "line": 41,
+          "end_line": 44
+        },
+        {
+          "name": "MeasurementValidityTests.test_confusion_matrix_excludes_unknown_and_capacity_failures",
+          "kind": "function",
+          "line": 46,
+          "end_line": 51
+        },
+        {
+          "name": "MeasurementValidityTests.test_new_functional_failure_fails_gate",
+          "kind": "function",
+          "line": 53,
+          "end_line": 58
+        },
+        {
+          "name": "MeasurementValidityTests.test_existing_failures_are_preserved_without_becoming_new",
+          "kind": "function",
+          "line": 60,
+          "end_line": 62
+        },
+        {
+          "name": "MeasurementValidityTests.test_removing_functional_oracle_or_original_pass_fails_gate",
+          "kind": "function",
+          "line": 64,
+          "end_line": 68
+        },
+        {
+          "name": "MeasurementValidityTests.test_cohort_regression_is_not_hidden_by_aggregate_gain",
+          "kind": "function",
+          "line": 70,
+          "end_line": 74
+        },
+        {
+          "name": "MeasurementValidityTests.test_dataset_or_protocol_change_is_incomparable",
+          "kind": "function",
+          "line": 76,
+          "end_line": 83
+        },
+        {
+          "name": "MeasurementValidityTests.test_smoke_cannot_pass_full_gate_or_become_baseline",
+          "kind": "function",
+          "line": 85,
+          "end_line": 89
+        },
+        {
+          "name": "MeasurementValidityTests.test_lost_eligibility_cannot_inflate_recovery_silently",
+          "kind": "function",
+          "line": 91,
+          "end_line": 95
+        },
+        {
+          "name": "MeasurementValidityTests.test_duplicate_or_missing_rows_are_not_complete",
+          "kind": "function",
+          "line": 97,
+          "end_line": 99
+        },
+        {
+          "name": "ProvenanceAndResumeTests",
+          "kind": "class",
+          "line": 102,
+          "end_line": 212
+        },
+        {
+          "name": "ProvenanceAndResumeTests.test_full_comparison_cannot_silently_pass_without_a_reference",
+          "kind": "function",
+          "line": 103,
+          "end_line": 107
+        },
+        {
+          "name": "ProvenanceAndResumeTests.test_torn_last_row_is_recovered",
+          "kind": "function",
+          "line": 109,
+          "end_line": 114
+        },
+        {
+          "name": "ProvenanceAndResumeTests.test_complete_last_row_gets_missing_newline",
+          "kind": "function",
+          "line": 116,
+          "end_line": 121
+        },
+        {
+          "name": "ProvenanceAndResumeTests.test_middle_corruption_is_not_silently_discarded",
+          "kind": "function",
+          "line": 123,
+          "end_line": 128
+        },
+        {
+          "name": "ProvenanceAndResumeTests.test_frozen_source_or_manifest_tampering_is_detected",
+          "kind": "function",
+          "line": 130,
+          "end_line": 141
+        },
+        {
+          "name": "ProvenanceAndResumeTests.test_dirty_source_changes_fingerprint_without_commit",
+          "kind": "function",
+          "line": 143,
+          "end_line": 150
+        },
+        {
+          "name": "ProvenanceAndResumeTests.test_measurement_change_requires_new_protocol_reference",
+          "kind": "function",
+          "line": 152,
+          "end_line": 161
+        },
+        {
+          "name": "ProvenanceAndResumeTests.test_original_input_change_is_detected_after_run",
+          "kind": "function",
+          "line": 163,
+          "end_line": 174
+        },
+        {
+          "name": "ProvenanceAndResumeTests.test_summary_cannot_be_promoted_after_raw_results_are_altered",
+          "kind": "function",
+          "line": 176,
+          "end_line": 192
+        },
+        {
+          "name": "ProvenanceAndResumeTests.test_inventory_retains_small_projects_and_does_not_mutate",
+          "kind": "function",
+          "line": 194,
+          "end_line": 205
+        },
+        {
+          "name": "ProvenanceAndResumeTests.test_wrong_watermark_and_fractional_jobs_are_rejected",
+          "kind": "function",
+          "line": 207,
+          "end_line": 212
+        },
+        {
+          "name": "UtilityExecutionTests",
+          "kind": "class",
+          "line": 215,
+          "end_line": 259
+        },
+        {
+          "name": "UtilityExecutionTests.test_actual_language_registries_and_pinned_parsers_load",
+          "kind": "function",
+          "line": 216,
+          "end_line": 217
+        },
+        {
+          "name": "UtilityExecutionTests.test_cpp_body_reconstruction_uses_official_signature",
+          "kind": "function",
+          "line": 219,
+          "end_line": 223
+        },
+        {
+          "name": "UtilityExecutionTests.test_subprocess_timeout_is_enforced",
+          "kind": "function",
+          "line": 225,
+          "end_line": 230
+        },
+        {
+          "name": "UtilityExecutionTests.test_python_functional_failure_and_cache_invalidation",
+          "kind": "function",
+          "line": 232,
+          "end_line": 246
+        },
+        {
+          "name": "UtilityExecutionTests.test_cpp_compilation_and_real_assertion_failure",
+          "kind": "function",
+          "line": 248,
+          "end_line": 259
+        }
+      ],
+      "imports": [
+        {
+          "module": "copy",
+          "names": [],
+          "line": 3
+        },
+        {
+          "module": "json",
+          "names": [],
+          "line": 4
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 5
+        },
+        {
+          "module": "tempfile",
+          "names": [],
+          "line": 6
+        },
+        {
+          "module": "unittest",
+          "names": [],
+          "line": 7
+        },
+        {
+          "module": "benchmarks.common",
+          "names": [
+            "digest",
+            "discover_units",
+            "parser_smoke",
+            "protocol_fingerprint",
+            "source_fingerprint",
+            "validate_config"
+          ],
+          "line": 9
+        },
+        {
+          "module": "benchmarks.compare",
+          "names": [
+            "compare",
+            "promote_baseline"
+          ],
+          "line": 10
+        },
+        {
+          "module": "benchmarks.metrics",
+          "names": [
+            "summarize"
+          ],
+          "line": 11
+        },
+        {
+          "module": "benchmarks.runner",
+          "names": [
+            "load_rows",
+            "run_experiment",
+            "validate_workspace",
+            "verified_summary",
+            "verify_frozen_run"
+          ],
+          "line": 12
+        },
+        {
+          "module": "benchmarks.utility",
+          "names": [
+            "assemble_test",
+            "evaluate_utility",
+            "run_process"
+          ],
+          "line": 13
+        },
+        {
+          "module": "sys",
+          "names": [],
+          "line": 226
+        },
+        {
+          "module": "shutil",
+          "names": [],
+          "line": 249
+        }
+      ],
+      "local_dependencies": [
+        "benchmarks/common.py",
+        "benchmarks/compare.py",
+        "benchmarks/metrics.py",
+        "benchmarks/runner.py",
+        "benchmarks/utility.py"
+      ],
+      "has_main_guard": true
+    },
+    {
       "path": "tools/build_code_index.py",
       "module": "tools.build_code_index",
-      "sha256": "c57b9457bf4984e4006baf16d9a7c17455f56a5d3d71b0cb3859b8dfc208d546",
+      "sha256": "2c96c61bf556a0fbb64dd8b00814d88bcd187dacd71127159db41ba6a08d0f41",
       "line_count": 129,
       "symbols": [
         {
@@ -5410,6 +6511,195 @@
             "Path"
           ],
           "line": 8
+        }
+      ],
+      "local_dependencies": [],
+      "has_main_guard": true
+    },
+    {
+      "path": "tools/research_loop.py",
+      "module": "tools.research_loop",
+      "sha256": "b21a1f13f69a5a813359cc9a5df899abc237805a3c07371d596e63e5d462f862",
+      "line_count": 136,
+      "symbols": [
+        {
+          "name": "read_config",
+          "kind": "function",
+          "line": 20,
+          "end_line": 24
+        },
+        {
+          "name": "main",
+          "kind": "function",
+          "line": 27,
+          "end_line": 126
+        }
+      ],
+      "imports": [
+        {
+          "module": "argparse",
+          "names": [],
+          "line": 4
+        },
+        {
+          "module": "json",
+          "names": [],
+          "line": 5
+        },
+        {
+          "module": "os",
+          "names": [],
+          "line": 6
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 7
+        },
+        {
+          "module": "subprocess",
+          "names": [],
+          "line": 8
+        },
+        {
+          "module": "sys",
+          "names": [],
+          "line": 9
+        },
+        {
+          "module": "time",
+          "names": [],
+          "line": 10
+        },
+        {
+          "module": "benchmarks.common",
+          "names": [
+            "digest",
+            "discover_units",
+            "lock_file",
+            "parser_smoke",
+            "source_fingerprint",
+            "toolchain_environment",
+            "validate_config",
+            "write_json"
+          ],
+          "line": 14
+        },
+        {
+          "module": "benchmarks.compare",
+          "names": [
+            "compare",
+            "promote_baseline"
+          ],
+          "line": 16
+        },
+        {
+          "module": "benchmarks.runner",
+          "names": [
+            "execute_run",
+            "launch_frozen",
+            "run_experiment",
+            "validate_workspace",
+            "verified_summary"
+          ],
+          "line": 17
+        },
+        {
+          "module": "tree_sitter",
+          "names": [
+            "Language"
+          ],
+          "line": 77
+        }
+      ],
+      "local_dependencies": [
+        "benchmarks/common.py",
+        "benchmarks/compare.py",
+        "benchmarks/runner.py"
+      ],
+      "has_main_guard": true
+    },
+    {
+      "path": "tools/setup_benchmark.py",
+      "module": "tools.setup_benchmark",
+      "sha256": "a40e83b38ebdd5e4df49b450a87d02f354c8abe32fb826b597494fb72954e9b0",
+      "line_count": 74,
+      "symbols": [
+        {
+          "name": "main",
+          "kind": "function",
+          "line": 18,
+          "end_line": 70
+        }
+      ],
+      "imports": [
+        {
+          "module": "argparse",
+          "names": [],
+          "line": 4
+        },
+        {
+          "module": "hashlib",
+          "names": [],
+          "line": 5
+        },
+        {
+          "module": "json",
+          "names": [],
+          "line": 6
+        },
+        {
+          "module": "os",
+          "names": [],
+          "line": 7
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 8
+        },
+        {
+          "module": "shutil",
+          "names": [],
+          "line": 9
+        },
+        {
+          "module": "subprocess",
+          "names": [],
+          "line": 10
+        },
+        {
+          "module": "sys",
+          "names": [],
+          "line": 11
+        },
+        {
+          "module": "tarfile",
+          "names": [],
+          "line": 12
+        },
+        {
+          "module": "urllib.request",
+          "names": [],
+          "line": 13
+        },
+        {
+          "module": "tree_sitter",
+          "names": [
+            "Language"
+          ],
+          "line": 34
+        },
+        {
+          "module": "importlib.metadata",
+          "names": [
+            "version"
+          ],
+          "line": 35
         }
       ],
       "local_dependencies": [],

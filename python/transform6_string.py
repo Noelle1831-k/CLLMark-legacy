@@ -2,8 +2,6 @@ from typing import List, Tuple, Union
 
 from tree_sitter import Node
 
-from dataset.MBPP_G.MBPP_195 import first
-from dataset.MBPP_G.MBPP_788 import new_tuple
 from utils import text
 
 '''==========================匹配========================'''

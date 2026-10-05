@@ -10,13 +10,13 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DESTINATION = ROOT / "docs" / "code-index.json"
-SOURCE_DIRECTORIES = ("c", "cpp", "python", "tools")
+SOURCE_DIRECTORIES = ("c", "cpp", "python", "tools", "benchmarks", "tests")
 
 
 def source_paths():
     paths = list(ROOT.glob("*.py"))
     for directory in SOURCE_DIRECTORIES:
-        paths.extend((ROOT / directory).glob("*.py"))
+        paths.extend(p for p in (ROOT / directory).rglob("*.py") if "__pycache__" not in p.parts)
     return sorted(paths, key=lambda path: path.relative_to(ROOT).as_posix())
 
 

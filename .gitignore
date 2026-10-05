@@ -9,6 +9,9 @@
 # Python environments and caches (including historical data/ snapshot)
 venv/
 .venv/
+.venv-benchmark/
+.benchmark-cache/
+benchmark-results/
 env/
 __pycache__/
 *.py[cod]

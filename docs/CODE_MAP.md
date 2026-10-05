@@ -2,6 +2,8 @@
 
 本地图以仓库根目录的旧版实现为主。`data/` 保留另一份实验快照；两者不是经过抽象的统一实现。论文版本与方法差异见 [PAPER_ALIGNMENT.md](PAPER_ALIGNMENT.md)。
 
+日常实验使用新增的 [科研循环](RESEARCH_LOOP.md)，由冻结副本调用这些旧入口；不要运行其带有硬编码路径的批量主程序。
+
 ## 方法到代码的数据流
 
 ```mermaid
@@ -85,6 +87,22 @@ flowchart TD
 | [Python_func_test/](../Python_func_test/) | Python 水印实验语料。 | 根目录三个主要水印脚本的默认目标；包含 7465 个 `.py` 文件。 |
 | `output_json*`、`generations(2).json` | 已有生成及评估结果。 | 作为历史材料保存；未重新生成或确认与论文表格逐项对应。 |
 
+## 新增的科研循环模块
+
+| 模块 | 职责 |
+| --- | --- |
+| [Makefile](../Makefile)、[tools/research_loop.py](../tools/research_loop.py) | 测试、抽样、全量、基线、比较、续跑、前台监控入口 |
+| [tools/setup_benchmark.py](../tools/setup_benchmark.py) | 固定依赖与 Tree-sitter 语法提交，构建本机解析库 |
+| [benchmarks/common.py](../benchmarks/common.py) | 非破坏性语料清单、版本摘要、环境验证和原子文件写入 |
+| [benchmarks/runner.py](../benchmarks/runner.py) | 源码/输入冻结、并行执行、逐行续跑、运行后原始输入校验 |
+| [benchmarks/engine.py](../benchmarks/engine.py) | 调用真实旧入口，记录容量、码位、随机设置、结构性质及反向变换攻击 |
+| [benchmarks/utility.py](../benchmarks/utility.py) | Python/C++ MBXP 测试拼接、编译和执行、超时及内容摘要缓存 |
+| [benchmarks/metrics.py](../benchmarks/metrics.py) | 显式分母、失败 ID、分组指标、CSV/Markdown/图表 |
+| [benchmarks/compare.py](../benchmarks/compare.py) | 可比性校验、分组和汇总门禁、显式基线提升与历史归档 |
+| [tests/test_research_loop.py](../tests/test_research_loop.py) | oracle 缺失、隐藏回退、文件完整性、真实功能执行及超时等流程检查 |
+
+框架向分析/嵌入/提取模块注入每个 worker 内缓存的 `SCTS`，并设置旧模块依赖的 `lang` 全局变量；BCH 解码只做观测包装，不替换结果。每个单元复制到独立平面目录，再由实际旧脚本产生 `support_transform.json`。Python 字符串规则已删除两个未使用的语料函数导入，避免规则加载依赖特定样本；缺失的 networkx 依赖已固定。
+
 ## `data/` 实验快照
 
 根目录的 21 个 Python 脚本在 `data/` 下都有同名文件。建库前其中 17 个内容相同，4 个不同：
@@ -96,7 +114,7 @@ flowchart TD
 | `folder_transform_check.py` | 分析 Python 语料 | 分析 C 语料，并额外打印变换编号 |
 | `code_transform_provider.py` | C++ 风格 `9.1` | C 风格 `5.4`，开启差异显示 |
 
-`data/` 还保存 C/C++ 的 `*_func_test`、`*_func_test2` 等数据。此次保留这些材料，不将两个脚本版本合并。源码索引覆盖根目录主实现与工具目录，不对每份语料源码建立重复的调用图。
+`data/` 还保存 C/C++ 的 `*_func_test`、`*_func_test2` 等数据。此次保留这些材料，不将两个脚本版本合并。源码索引覆盖根目录主实现、工具、科研循环和流程测试，不对每份语料源码建立重复的调用图。
 
 ## 运行前需要确认的事项
 
