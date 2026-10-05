@@ -141,6 +141,17 @@ class GoldenRewriteTests(unittest.TestCase):
              "void f(int n){\n    int a = 0;\n    g();\n    int b[n];\n}"),
             ("6.2", "void f(int n){\n    int a = 0;\nL:\n    n++;\n    int b = 3;\n}",
              "void f(int n){\n    int a = 0;\nL:\n    n++;\n    int b = 3;\n}"),
+            # v2: a first declaration in mid-line keeps what precedes it and adds no blanks (stable on repetition);
+            # a syntax error between the declarations, a mixed 1-D/multi-dimensional array group, and specifiers
+            # the merged kind would lose all keep the declarations apart.
+            ("6.2", "void f(){ int a;\n    int b;\n}", "void f(){ int a, b;\n\n}"),
+            ("6.2", "void f(int n){\n    int a = 0;\n    n = ;;\n    @@@ x y;\n    int b = 3;\n}",
+             "void f(int n){\n    int a = 0;\n    n = ;;\n    @@@ x y;\n    int b = 3;\n}"),
+            ("6.2", "void f(){\n    int a[3];\n    int b[2][2];\n}", "void f(){\n    int a[3];\n    int b[2][2];\n}"),
+            ("6.2", "void f(){\n    int a[3];\n    int b[4];\n}", "void f(){\n    int a[3], b[4];\n\n}"),
+            ("6.2", "void f(){\n    static const int a = 1;\n    static const int b = 2;\n}",
+             "void f(){\n    static const int a = 1;\n    static const int b = 2;\n}"),
+            ("6.1", "dump(int ssort[],char leader[])\n{\n  int i;\n}", "dump(int ssort[],char leader[])\n{\n  int i;\n}"),
             # The counter update stays in the body (empty third clause) unless it is the last statement.
             ("7.8", "void f(int n){\n    int i = 0;\n    while (i < n) {\n        i++;\n        g(i);\n    }\n}",
              "void f(int n){\n    int i = 0;\n    for(int identifier = 1; i < n; ) {\n        i++;\n        g(i);\n    }\n}"),
@@ -151,6 +162,15 @@ class GoldenRewriteTests(unittest.TestCase):
             ("22.1", "double f(int a){return (double)a / 2;}", "double f(int a){return double(a) / 2;}"),
             ("21.1", "typedef long long ll;", "using ll = long long;"),
             ("6.2", "void f(){\n    auto a = 1;\n    auto b = 2.0;\n}", "void f(){\n    auto a = 1;\n    auto b = 2.0;\n}"),
+            # A write to a C++ reference may change what the hoisted initialiser reads.
+            ("6.2", "void f(int n){\n    int &r = n;\n    int a = 0;\n    r = 5;\n    int b = n;\n}",
+             "void f(int n){\n    int &r = n, a = 0;\n\n    r = 5;\n    int b = n;\n}"),
+            ("6.2", "void f(int &n){\n    int a = 0;\n    n = 5;\n    int b = 1;\n}",
+             "void f(int &n){\n    int a = 0, b = 1;\n    n = 5;\n\n}"),
+            ("6.2", "void f(int &r, int n){\n    int a = 0;\n    r = 5;\n    int b = n;\n}",
+             "void f(int &r, int n){\n    int a = 0;\n    r = 5;\n    int b = n;\n}"),
+            ("6.2", "void f(){\n    volatile int a = 1;\n    volatile int b = 2;\n}",
+             "void f(){\n    volatile int a = 1;\n    volatile int b = 2;\n}"),
         ],
         "javascript": [
             ("2.3", "if (a === b) f();", "if (!(a !== b)) f();"),

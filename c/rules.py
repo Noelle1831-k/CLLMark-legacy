@@ -519,6 +519,8 @@ def split_declaration(node, source):
     declarators = [child for child in node.children[1:-1] if child.type != ',']
     if len(declarators) < 2:
         raise Reject('single declarator')
+    if any(child.type == 'ERROR' for child in node.children):
+        raise Reject('misparsed declaration')
     kind = node.child_by_field_name('type')
     if kind.type in ['struct_specifier', 'union_specifier', 'enum_specifier', 'class_specifier'] and kind.child_by_field_name('body'):
         raise Reject('type definition')
@@ -598,6 +600,31 @@ def written_through_memory(node):
     return False
 
 
+def referenced_names(node):
+    """Identifiers declared as references (`T &x`, `T &&x`, `auto &[a, b]`, parameters, range-for variables) anywhere in the file."""
+    root = node
+    while root.parent is not None:
+        root = root.parent
+    return {text(current) for declarator in subtree(root) if declarator.type == 'reference_declarator'
+            for current in subtree(declarator) if current.type == 'identifier'}
+
+
+def written_names(node):
+    """Names assigned or incremented directly (`x = 1`, `x += 1`, `(x)++`)."""
+    names = set()
+    for current in subtree(node):
+        if current.type == 'assignment_expression':
+            target = current.child_by_field_name('left')
+        elif current.type == 'update_expression':
+            target = current.child_by_field_name('argument')
+        else:
+            continue
+        target = unparenthesized(target)
+        if target is not None and target.type == 'identifier':
+            names.add(text(target))
+    return names
+
+
 def array_sizes(declarator):
     return [current.child_by_field_name('size') for current in subtree(declarator)
             if current.type == 'array_declarator' and current.child_by_field_name('size') is not None]
@@ -611,8 +638,9 @@ def hoist_blocker(block, first, declaration, kept):
     nothing is reordered and any initialiser is fine: a declarator ends in a sequence point, so
     `int a = x, b = y;` initialises like two declarations. Otherwise the hop must be invisible: the
     initialisers and array sizes are side-effect-free expressions over identifiers that the crossed nodes
-    never mention, call nothing and write through no pointer, element or member; the declared names are
-    not mentioned either, and no label, case or goto is crossed (a jump would skip the hoisted initialisation).
+    never mention, call nothing and write through no pointer, element, member or C++ reference; the declared
+    names are not mentioned either; no label, case or goto is crossed (a jump would skip the hoisted
+    initialisation) and no syntax error (the tree there cannot be trusted).
     """
     joined = {item.id for item in kept}
     crossed = [child for child in block.children if child.start_byte >= first.end_byte and child.end_byte <= declaration.start_byte
@@ -621,6 +649,8 @@ def hoist_blocker(block, first, declaration, kept):
         return None
     if block.type != 'compound_statement':
         return 'a declaration after statements outside a compound statement'
+    if any(current.type == 'ERROR' for node in crossed for current in subtree(node)):
+        return 'a syntax error lies between the declarations'
     if any(current.type in JUMP_TARGETS for node in crossed for current in subtree(node)):
         return 'a label, case or goto lies between the declarations'
     mentioned = [text(node) for node in crossed]
@@ -649,6 +679,9 @@ def hoist_blocker(block, first, declaration, kept):
             return 'a call lies between the declarations and the initialiser reads variables'
         if any(written_through_memory(node) for node in crossed):
             return 'a write through a pointer, element or member lies between the declarations and the initialiser reads variables'
+        written = set().union(*(written_names(node) for node in crossed))
+        if written and written & referenced_names(block):
+            return 'a write to a reference lies between the declarations and the initialiser reads variables'
     return None
 
 
@@ -680,6 +713,26 @@ def untyped_kind(kind):
     return re.search(r'\b(auto|decltype)\b', kind) is not None
 
 
+def mergeable_specifiers(declaration):
+    """No syntax error, and at most one of `const` / `static` (the only specifiers `declaration_kinds` keeps):
+    `static const int a`, `volatile int a`, `constexpr int a` and `extern int a` would lose or change theirs."""
+    specifiers = [child for child in declaration.children if child.type in ['type_qualifier', 'storage_class_specifier']]
+    return not any(child.type == 'ERROR' for child in declaration.children) and len(specifiers) <= 1 \
+        and all(text(child) in ['const', 'static'] for child in specifiers)
+
+
+def array_ranks(group):
+    """Dimensions of every array declarator in the declarations (an initialised array counts too)."""
+    ranks = []
+    for declaration in group:
+        for declarator in declaration.children_by_field_name('declarator'):
+            if declarator.type == 'init_declarator':
+                declarator = declarator.child_by_field_name('declarator')
+            if declarator is not None and declarator.type == 'array_declarator':
+                ranks.append(array_dimension(declarator))
+    return ranks
+
+
 def merge_declarations(node, source):
     """int a; ... int b; -> int a, b; at the first declaration"""
     edits = []
@@ -687,11 +740,19 @@ def merge_declarations(node, source):
         if untyped_kind(kind):
             continue
         group = movable_group(node, declarations)
-        ids = [text(each) for declaration in group for each in declaration.children[1:-1] if each.type not in NEGLECTED]
+        ids = [text(each) for declaration in group for each in declaration.children_by_field_name('declarator')]
         if len(ids) < 2:
             continue
-        indent = source.indent(group[-1].start_byte)
+        if not kind.strip() or '' in ids or any(not mergeable_specifiers(declaration) for declaration in group):
+            continue  # misparsed, or specifiers the kind does not carry: merging would drop or fuse them
+        ranks = array_ranks(group)
+        if 1 in ranks and max(ranks) > 1:
+            continue  # array_init (5.1) rejects a whole declaration holding a multi-dimensional array, hiding its 1-D arrays
         starts = [blank_run_start(source, declaration.start_byte) for declaration in group]
+        if source.leading(group[0]) is None:
+            indent, starts[0] = 0, group[0].start_byte  # mid-line: keep what precedes it, add no blanks
+        else:
+            indent = source.indent(group[-1].start_byte)
         edits.append(Edit(starts[0], group[0].end_byte, f"{indent * ' '}{kind} {', '.join(ids)};"))
         edits += [Edit(start, declaration.end_byte) for start, declaration in zip(starts[1:], group[1:])]
     return edits

@@ -7,14 +7,14 @@
     "6.1",
     "6.2"
    ],
-   "applicable": 1119,
+   "applicable": 1107,
    "form0": 592,
-   "form1": 435,
-   "idempotence_trials": 2238,
-   "idempotence_failures": 13,
-   "syntax_regressions": 4,
-   "reversibility_trials": 2238,
-   "reversibility_failures": 1211,
+   "form1": 426,
+   "idempotence_trials": 2214,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 2214,
+   "reversibility_failures": 1196,
    "interference": {}
   },
   "while_to_for": {
@@ -32,18 +32,6 @@
    "dataset/MBCPP_G/MBCPP_111.cpp",
    "dataset/MBCPP_G/MBCPP_119.cpp",
    "dataset/MBCPP_G/MBCPP_121.cpp"
-  ],
-  "declare:idempotence_failures": [
-   "code_snippets/snippet_135.cpp",
-   "code_snippets/snippet_222.cpp",
-   "code_snippets/snippet_236.cpp",
-   "code_snippets/snippet_388.cpp",
-   "code_snippets/snippet_405.cpp"
-  ],
-  "declare:syntax_regressions": [
-   "code_snippets/snippet_490.cpp",
-   "C++_func/Word_Grid_Challenge_SRDD_Puzzle_Game_20241219133758/findWord.cpp",
-   "data/C++_func_test/Word_Grid_Challenge_SRDD_Puzzle_Game_20241219133758/findWord.cpp"
   ]
  }
 }
