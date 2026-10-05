@@ -6,7 +6,8 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from benchmarks.common import digest, discover_units, parser_smoke, protocol_fingerprint, source_fingerprint, validate_config
+from benchmarks.common import (digest, discover_units, javascript_environment, parser_smoke, protocol_fingerprint,
+                               source_fingerprint, validate_config)
 from benchmarks.compare import compare, promote_baseline
 from benchmarks.engine import reset_legacy_state
 from benchmarks.metrics import summarize
@@ -214,18 +215,40 @@ class ProvenanceAndResumeTests(unittest.TestCase):
 
 
 class UtilityExecutionTests(unittest.TestCase):
-    def test_legacy_rule_globals_do_not_leak_between_phases_or_units(self):
-        import python.transform8_for as rule
-        rule.last_code = "previous unit"
-        rule.last_identifiers = {"i", "j"}
-        rule.identifiers = {"x"}
+    def test_rule_modules_hold_no_state_to_reset(self):
+        import sys
         reset_legacy_state("python")
-        self.assertEqual(rule.last_code, "")
-        self.assertEqual(rule.last_identifiers, set())
-        self.assertEqual(rule.identifiers, set())
+        self.assertFalse([name for name in sys.modules if name.startswith(("python.transform", "c.transform", "cpp.transform"))])
 
     def test_actual_language_registries_and_pinned_parsers_load(self):
-        self.assertEqual(set(parser_smoke(ROOT)), {"python", "c", "cpp"})
+        self.assertEqual(set(parser_smoke(ROOT)), {"python", "c", "cpp", "javascript"})
+
+    def test_javascript_mbjsp_test_runs_on_node(self):
+        problem = json.loads((ROOT / "dataset" / "Jsonl" / "mbjsp_release_v1.2.jsonl").read_text().splitlines()[0])
+        environment = {"javascript": javascript_environment(ROOT)}
+        unit = {"oracle": "mbxp", "level": "function", "language": "javascript", "source_files": ["MBJSP_1.js"]}
+        config = {**CONFIG, "test_timeout_retries": 0}
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            body = "    return cost[m][n];\n}\n"
+            (directory / "MBJSP_1.js").write_text("function minCost(cost, m, n) {\n" + body)
+            problems = {"javascript": {"MBJSP/1": problem}}
+            result = evaluate_utility(unit, directory, problems, config, directory, environment, directory / "cache")
+            self.assertEqual(result["status"], "FAIL")
+            (directory / "MBJSP_1.js").write_text("function minCost(cost, m, n) {\n    return ;\n")
+            self.assertEqual(evaluate_utility(unit, directory, problems, config, directory, environment, directory / "cache")["status"], "COMPILE_ERROR")
+
+    def test_project_suite_runs_with_overlaid_sources(self):
+        environment = {"javascript": javascript_environment(ROOT)}
+        unit = {"oracle": "project_tests", "level": "project", "name": "bytes", "path": "dataset/JS_projects",
+                "source_files": ["dataset/JS_projects/bytes/index.js"]}
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            original = (ROOT / "dataset" / "JS_projects" / "bytes" / "index.js").read_text()
+            (directory / "index.js").write_text(original)
+            self.assertEqual(evaluate_utility(unit, directory, {}, CONFIG, directory, environment, directory / "cache")["status"], "PASS")
+            (directory / "index.js").write_text(original.replace("Math.floor", "Math.ceil"))
+            self.assertEqual(evaluate_utility(unit, directory, {}, CONFIG, directory, environment, directory / "cache")["status"], "FAIL")
 
     def test_cpp_body_reconstruction_uses_official_signature(self):
         problem = {"prompt": "#include <bits/stdc++.h>\nusing namespace std;\nint add(int a,int b){\n", "entry_point": "add", "test": "int main(){return add(2,3)==5?0:1;}"}

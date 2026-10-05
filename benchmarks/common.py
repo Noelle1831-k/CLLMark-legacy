@@ -15,7 +15,9 @@ import sys
 import tempfile
 
 
-EXTENSIONS = {"python": ".py", "c": ".c", "cpp": ".cpp"}
+EXTENSIONS = {"python": ".py", "c": ".c", "cpp": ".cpp", "javascript": ".js"}
+SMOKE_SOURCES = {"python": "def f(x):\n    return x + 1\n", "c": "int main(){return 0;}", "cpp": "int main(){return 0;}",
+                 "javascript": "function f(x) { return x + 1; }"}
 
 
 def digest(value):
@@ -83,13 +85,17 @@ def validate_config(config):
             raise ValueError("Invalid cohort language or level")
         if cohort["role"] not in ["generated", "human", "historical", "unknown"]:
             raise ValueError("Invalid cohort ground-truth role")
+        if cohort["oracle"] not in ["mbxp", "none", "unmapped_codenet", "project_tests"]:
+            raise ValueError("Invalid cohort oracle")
+        if cohort["oracle"] == "project_tests" and (cohort["level"] != "project" or config.get("project_test_timeout_seconds", 0) <= 0):
+            raise ValueError("Project test oracles need project-level cohorts and a positive project_test_timeout_seconds")
     return config
 
 
 def source_paths(root):
     root = Path(root)
     paths = list(root.glob("*.py"))
-    for folder in ["c", "cpp", "python", "tools", "benchmarks", "tests"]:
+    for folder in ["c", "cpp", "python", "javascript", "tools", "benchmarks", "tests"]:
         paths.extend((root / folder).rglob("*.py"))
     paths += list((root / "benchmarks" / "include").rglob("*.h"))
     paths += [root / "styleList.json", root / "Makefile", root / "AGENTS.md", root / "benchmarks" / "config.json",
@@ -138,6 +144,7 @@ def toolchain_environment(root):
         raise RuntimeError("C++ compiler is required for MBXP utility evaluation")
     compiler_version = subprocess.check_output([compiler, "--version"], text=True).splitlines()[0]
     return {
+        "javascript": javascript_environment(root),
         "python": sys.version,
         "python_executable": sys.executable,
         "platform": platform.platform(),
@@ -148,6 +155,26 @@ def toolchain_environment(root):
         "dependencies": packages,
         "parser_toolchain": stamp,
     }
+
+
+def javascript_environment(root):
+    """Node runtime, the lodash used by MBJSP tests and each pinned project checkout with its test dependencies."""
+    node = shutil.which("node")
+    if node is None:
+        raise RuntimeError("Node.js is required for the JavaScript cohorts")
+    modules = Path(root) / ".benchmark-cache" / "node" / "node_modules"
+    lodash = json.loads((modules / "lodash" / "package.json").read_text())["version"]
+    projects = {}
+    lock = json.loads((Path(root) / "benchmarks" / "javascript.lock.json").read_text())
+    for name, spec in lock["projects"].items():
+        checkout = Path(root) / ".benchmark-cache" / "js-projects" / name
+        commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=checkout, text=True).strip()
+        if commit != spec["commit"]:
+            raise RuntimeError(f"JavaScript project {name} is not at its pinned commit; rerun tools/setup_javascript.py")
+        installed = checkout / "node_modules" / ".package-lock.json"
+        projects[name] = {"checkout": str(checkout), "commit": commit, "node_modules_sha256": digest(installed.read_bytes())}
+    return {"node": node, "node_version": subprocess.check_output([node, "--version"], text=True).strip(),
+            "node_path": str(modules), "lodash": lodash, "projects": projects}
 
 
 def git_version(root):
@@ -173,8 +200,7 @@ def parser_smoke(root):
             os.chdir(directory)
             for language in EXTENSIONS:
                 parser = SCTS(language)
-                source = "def f(x):\n    return x + 1\n" if language == "python" else "int main(){return 0;}"
-                if not parser.check_syntax(source):
+                if not parser.check_syntax(SMOKE_SOURCES[language]):
                     raise RuntimeError("Parser smoke failed: " + language)
                 loaded.append(language)
         finally:

@@ -1,6 +1,6 @@
 # 本地科研循环与全量 benchmark
 
-本流程对**当前旧版算法**进行重复测量，直接调用真实的可用性分析、嵌入和提取入口。每次算法或规则改动完成后执行 `make benchmark`，结果与固定参考比较。它不是新版论文实现，也不声称重现论文表格。
+本流程对**当前实现的旧版论文方法**（规则层已重构并扩展，见 [RULES.md](RULES.md)）进行重复测量，直接调用真实的可用性分析、嵌入和提取入口。每次算法或规则改动完成后执行 `make benchmark`，结果与固定参考比较。它不是新版论文实现，也不声称重现论文表格。
 
 ```mermaid
 flowchart LR
@@ -16,10 +16,11 @@ flowchart LR
 
 ## 一次性准备与日常命令
 
-在仓库根目录执行。需要 Python 3.11、C++ 编译器；有 `uv` 时优先使用它，无 `uv` 时使用 venv/pip。
+在仓库根目录执行。需要 Python 3.11、C++ 编译器和 Node.js；有 `uv` 时优先使用它，无 `uv` 时使用 venv/pip。
 
 ```bash
-make setup-benchmark  # 安装独立环境，按固定提交构建本机 Tree-sitter 语法库
+make setup-benchmark  # 安装独立环境，按固定提交构建本机 Tree-sitter 语法库（含 JavaScript）
+make setup-javascript # lodash、JavaScript 项目的固定提交与测试依赖，复制项目源码到 dataset/JS_projects
 make doctor          # 检查所有固定依赖、解析库及三种语言的实际规则导入
 make inventory       # 查看全部 cohort 和实验单元数量
 make smoke           # 每组 2 个单元，包含流程测试；不能作为全量结论
@@ -57,7 +58,7 @@ make benchmark
 
 ## 全量的定义与语料范围
 
-默认配置 [config.json](../benchmarks/config.json) 包含 19 组、9,566 个本地实验单元。函数级单元是一份文件，项目级单元是一个非空项目目录内的全部拆分函数。空目录不构成可运行项目，清单会给出选中单元数。
+默认配置 [config.json](../benchmarks/config.json) 包含 22 组、10,612 个本地实验单元（git 工作树中的语料；主检出中另有 8 个未入库的历史项目单元）。函数级单元是一份文件，项目级单元是一个非空项目目录内的全部拆分函数。空目录不构成可运行项目，清单会给出选中单元数。
 
 | 组别 | 实验单元数 | 功能检查 |
 | --- | ---: | --- |
@@ -67,11 +68,13 @@ make benchmark
 | CodeNet：G / H | 490 / 433 | 缺少已核实的 CNxxx 到 problem_id 映射 |
 | C++ code_snippets | 729 | 缺少功能 oracle |
 | Python / C / C++ 项目 | 500 / 437 / 458 | 拆分函数缺少项目依赖和 oracle |
+| MBJSP：G / H | 112 / 938 | 本地 MBXP JavaScript 测试（Node，lodash） |
+| JavaScript 项目（bytes、cookie、js-yaml、minimist） | 4 | 各项目自带测试套件，水印后的库文件覆盖到固定检出中运行 |
 | Python 历史项目 | 497 | 同上 |
 | C 历史项目 test / test2 | 437 / 437 | 同上 |
 | C++ 历史项目 test / test2 | 458 / 458 | 同上 |
 
-G/H 标签按现有目录约定定义为 generated/human。W、`*_test*` 的历史变体标记为 historical，来源未确定的组标记为 unknown。historical 和 unknown 不进入检测混淆矩阵。语料组有重叠，尤其 G_L 与 G、历史变体之间；manifest 额外记录按文件名和内容摘要得到的去重单元数。**汇总值是本地回归套件指标，不是独立论文样本的统计估计。** 科研分析使用分组结果，并在新增来源证据时更新标签。
+G/H 标签按现有目录约定定义为 generated/human。MBJSP_G 来自已有的 `generated_javascript_ark.jsonl`（966 条中 112 条有可用补全，其余为限流或无法解析）；MBJSP_H 为 MBJSP 参考解，与 MBCPP_H 的约定相同；JavaScript 项目为人工编写的开源库（role human）。W、`*_test*` 的历史变体标记为 historical，来源未确定的组标记为 unknown。historical 和 unknown 不进入检测混淆矩阵。语料组有重叠，尤其 G_L 与 G、历史变体之间；manifest 额外记录按文件名和内容摘要得到的去重单元数。**汇总值是本地回归套件指标，不是独立论文样本的统计估计。** 科研分析使用分组结果，并在新增来源证据时更新标签。
 
 “全量”指所选配置中全部可运行单元，不包含再次调用模型生成、下载外部数据、重建原始完整项目，或覆盖未提供的论文攻击/对照方法。更换配置文件可以定义独立实验，但必须报告配置与语料版本。
 
@@ -94,7 +97,7 @@ G/H 标签按现有目录约定定义为 generated/human。W、`*_test*` 的历�
 | flip_1 / flip_2 | 成功应用 1/2 次相反规则变换后的消息匹配率；报告应用成功的覆盖数 |
 | 时间 | 重新执行分析、嵌入、提取的毫秒中位数和 P95；排除解析器首次创建与功能检查 |
 
-分母为零显示 `N/A`。`NO_TEST_ORACLE`、`NO_PROBLEM_MAPPING`、`NOT_EMBEDDED` 永远不算功能通过。C++ 语料中许多文件只含函数体：功能检查使用本地官方题目 prompt 还原签名并附加测试，提供 macOS 标准头文件兼容层；语法检查仍反映原始片段的 Tree-sitter 状态。
+分母为零显示 `N/A`。`NO_TEST_ORACLE`、`NO_PROBLEM_MAPPING`、`NOT_EMBEDDED` 永远不算功能通过。C++ 语料中许多文件只含函数体：功能检查使用本地官方题目 prompt 还原签名并附加测试，提供 macOS 标准头文件兼容层；语法检查仍反映原始片段的 Tree-sitter 状态。JavaScript 单元保存完整函数（prompt 末行的签名加补全），测试先经 `node --check`（失败记为编译错误）再执行；项目单元在固定检出的副本中运行该项目的测试命令（`config.json` 的 `projects`），超时为 `project_test_timeout_seconds`。
 
 旧提取依赖嵌入时的 `support_transform.json`，接收预期消息，冲突状态随机取位。流程固定总 seed、Python 哈希种子，并由单元 ID 和阶段派生提取种子；在各阶段开始前重置旧规则的模块全局状态，避免 worker 调度或性质探测影响后续嵌入。不把此结果称为独立提取或模型来源识别。结构性质探测不证明语义保持。11/12 特殊规则缺少通用转换实现，性质探测标记不支持；攻击仅统计实际成功的变换，不能假定一次变换恰好只改变一个码位。
 

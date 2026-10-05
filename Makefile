@@ -1,9 +1,12 @@
 BENCH_PYTHON ?= .venv-benchmark/bin/python
 
-.PHONY: setup-benchmark doctor inventory test smoke benchmark baseline watch-benchmark code-map
+.PHONY: setup-benchmark setup-javascript doctor inventory test smoke benchmark baseline watch-benchmark code-map
 
 setup-benchmark:
 	python3 tools/setup_benchmark.py
+
+setup-javascript:
+	$(BENCH_PYTHON) tools/setup_javascript.py
 
 doctor:
 	$(BENCH_PYTHON) tools/research_loop.py doctor

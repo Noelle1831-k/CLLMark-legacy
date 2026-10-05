@@ -1,6 +1,6 @@
 # CLLMark 代码地图
 
-本地图以仓库根目录的旧版实现为主。`data/` 保留另一份实验快照；两者不是经过抽象的统一实现。论文版本与方法差异见 [PAPER_ALIGNMENT.md](PAPER_ALIGNMENT.md)。
+本地图描述仓库根目录的实现（旧版论文方法，规则层已重构）。`data/` 保留另一份旧实验快照，不使用根目录的新模块。论文版本与方法差异见 [PAPER_ALIGNMENT.md](PAPER_ALIGNMENT.md)。
 
 日常实验使用新增的 [科研循环](RESEARCH_LOOP.md)，由冻结副本调用这些旧入口；不要运行其带有硬编码路径的批量主程序。
 
@@ -9,63 +9,55 @@
 ```mermaid
 flowchart TD
     Input[源代码或项目语料] --> Extract[extract_func.py：拆分函数]
-    Extract --> Corpus[Python_func / C_func / C++_func]
-    Corpus --> Analyze[folder_transform_check.py：探测规则对]
+    Extract --> Corpus[Python_func / C_func / C++_func / JS_projects]
+    Corpus --> IO[code_io：一次解码，旧版 chardet 语义]
+    IO --> Analyze[watermark_core.analyze：探测规则对]
     Analyze --> Support[support_transform.json：文件到可用规则列表]
-    Support --> Embed[watermark_bit.py：按列表顺序嵌入]
+    Support --> Embed[watermark_core.embed：按列表顺序嵌入]
     Bits[4 位预期水印] --> BCHEnc[bch_utils.encode_bch_7_4：7 位码字]
     BCHEnc --> Embed
-    Embed --> Marked[覆盖后的水印代码]
-    Marked --> Detect[watermark_extract.py：双向变换探测]
+    Embed --> Marked[每个改动文件写一次]
+    Marked --> Detect[watermark_core.extract：双向变换探测]
     Support --> Detect
     Bits --> Detect
     Detect --> BCHDec[bch_utils.decode：恢复 4 位消息]
-    BCHDec --> Compare[与预期水印比较并统计成功数]
+    BCHDec --> Compare[与预期水印比较]
     Analyze --> SCTS[change_program_style.SCTS]
     Embed --> SCTS
     Detect --> SCTS
-    SCTS --> Style[styleList.json：编号到算子分类]
-    SCTS --> Registry[python / c / cpp 的 config.py]
-    Registry --> Operators[transform*.py：识别、字节修改、匹配]
-    Operators --> Utils[utils.py：遍历 CST 与应用字节操作]
+    SCTS --> Grammar[rule_engine.Grammar：解析与全部规则的单次查询，按文本缓存]
+    Grammar --> Rules[python / c / cpp / javascript 的 rules.py：模式 + 守卫 + 锚定编辑]
 ```
 
-图中的“预期水印”和 `support_transform.json` 是当前代码的真实依赖。旧版论文的算法描述、新版论文的独立提取定义与此实现不能直接等同。
+`folder_transform_check.py`、`watermark_bit.py`、`watermark_extract.py` 保留原函数签名，作为文件目录与内存流程之间的薄适配层：读取目录一次、调用 `watermark_core`、写出结果一次。图中的“预期水印”和 `support_transform.json` 仍是当前提取协议的输入；它们与新版论文的独立提取定义不能等同。
 
 ## 核心模块导航
 
-| 模块 | 关键入口 | 职责与读写行为 |
+| 模块 | 关键入口 | 职责 |
 | --- | --- | --- |
-| [change_program_style.py](../change_program_style.py#L17) | `SCTS` | 初始化 Tree-sitter；根据语言导入规则；加载 `styleList.json`。缺少解析库时会克隆语法仓库并编译。 |
-| [change_program_style.py](../change_program_style.py#L88) | `SCTS.change_file_style` | 将风格编号映射到识别/转换函数，生成字节编辑操作，返回 `(code, succ, transform_num)`。 |
-| [change_program_style.py](../change_program_style.py#L51) | `SCTS.get_file_popularity` | 使用第三个匹配函数统计目标风格节点数量；特殊循环规则的检测依赖此接口。 |
-| [change_program_style.py](../change_program_style.py#L129) | `SCTS.get_func_block` | 使用风格 `13` 提取函数名与函数源码，对重名函数添加后缀。 |
-| [utils.py](../utils.py) | `traverse_rec_func`、`replace_from_blob` | 遍历树节点；将 `(位置, 插入文本或删除位置)` 操作作用于 UTF-8 字节串。 |
-| [folder_transform_check.py](../folder_transform_check.py#L95) | `check_support_transform` | 对每个文件探测规则对，写出该目录的 `support_transform.json`。 |
-| [folder_transform_check.py](../folder_transform_check.py#L45) | `get_sorted_files_by_sha256` | 按**文件名**的无盐 SHA-256 排序；不是按文件内容或加盐规则元数据排序。 |
-| [watermark_bit.py](../watermark_bit.py#L77) | `folder_bit_watermark` | BCH 编码后，按支持表中保存的文件/规则顺序消耗码位并覆盖源文件。 |
-| [watermark_extract.py](../watermark_extract.py#L76) | `folder_bit_extract` | 接收预期 `bit_list`；对相反子规则分别尝试转换，恢复位并与预期水印比较。冲突状态随机取位。 |
-| [bch_utils.py](../bch_utils.py) | `encode_bch_7_4`、`decode` | 生成多项式 `0b1011`；4 位消息编码为 7 位码字， syndrome 表支持单比特纠错。 |
-| [rule_dict.py](../rule_dict.py) | `rule_dict` | 可用性分析使用的规则对清单：Python 17 对，C/C++ 各 14 对。 |
-| [rule_dict_bit_acc.py](../rule_dict_bit_acc.py) | `rule_dict` | 嵌入/提取使用的 0/1 子规则编号顺序；部分规则与分析表顺序相反。 |
-| [styleList.json](../styleList.json) | 语言 → 编号 → `[类型, 子类型]` | Python 41、C 40、C++ 43 个编号。编号数不是水印规则对数。 |
-| [support_transform.json](../support_transform.json) | 文件名 → 规则名称数组 | 根目录已有实验支持表；实际流程按每个项目目录读取该文件。 |
-
-`get_trans_num(rule, bit, language)` 在嵌入和提取脚本中实际读取模块全局变量 `lang`，直接导入调用前需要注意这一依赖。
+| [rule_engine.py](../rule_engine.py) | `Rule`、`Matcher`、`Guard`、`Grammar`、`apply_edits` | 规则表示（tree-sitter 查询 + 具名守卫 + 锚定编辑）、按语言编译单个查询、原子编辑组与冲突处理、解析缓存。设计与规则目录见 [RULES.md](RULES.md)。 |
+| [change_program_style.py](../change_program_style.py) | `SCTS` | 样式编号到规则的前端：`change_file_style`（返回代码、是否非空白变化、候选数）、`get_file_popularity`（检测型子规则 11/12 使用的目标形式计数）、`get_func_block`、`check_syntax`。解析库取 `./build`（冻结运行）或 `.benchmark-cache/toolchain` 的固定构建。 |
+| [watermark_core.py](../watermark_core.py) | `analyze`、`embed`、`extract`、`probe`、`slots` | 内存中的分析、嵌入和提取：槽位顺序、比特到子规则映射、冲突随机取位与旧脚本一致；规则异常的探测结果为 `None`（该槽不产生码位）。 |
+| [code_io.py](../code_io.py) | `read_source`、`write_source`、`reload_written` | 与 `open(encoding=chardet.detect(...))` 相同的解码（纯 ASCII 快速路径），写入后再读取的语义在内存中复现。 |
+| [folder_transform_check.py](../folder_transform_check.py) | `check_support_transform` | 写出目录的 `support_transform.json` 并返回容量。 |
+| [watermark_bit.py](../watermark_bit.py) / [watermark_extract.py](../watermark_extract.py) | `folder_bit_watermark` / `folder_bit_extract` | 目录级嵌入与提取适配层（基准适配器调用这些入口）。 |
+| [bch_utils.py](../bch_utils.py) | `encode_bch_7_4`、`decode` | 固定 BCH(7,4,1)，`G=0b1011`。 |
+| [rule_dict_bit_acc.py](../rule_dict_bit_acc.py) | `rule_dict` | 每种语言的水印对 `[比特 0 样式, 比特 1 样式]`，字典顺序即槽位顺序；分析与嵌入共用（原 `rule_dict.py` 与其成员一致，已合并）。 |
+| [styleList.json](../styleList.json) | 语言 → 编号 → `[类别, 名称]` | 样式目录；测试检查它与规则模块一致。 |
+| [tools/rule_audit.py](../tools/rule_audit.py) | CLI | 全量语料上的适用数、自然形式、幂等、可逆、语法与规则间干扰审计。 |
 
 ## 语言规则与注册方式
 
-每个语言的 `config.py` 注册 `transformation_operators[类型][子类型] = (rec, cvt, match)`。`rec_*` 识别可转换节点，`cvt_*` 生成字节修改操作，`match_*` 或对应识别函数判断目标状态。风格编号通过 `styleList.json` 找到注册项，水印规则再通过两个 `rule_dict` 文件关联到成对子规则。
+每种语言一个模块，`RULES` 以样式编号为键：
 
-| 目录 | 规则实现分组 | 静态注册项 |
+| 模块 | 内容 | 水印对 |
 | --- | --- | --- |
-| [python/](../python/) | `transform0_var` 命名；`1_print` 打印；`2_list` 列表；`3_dict` 字典；`4_range` 范围/索引；`5_call` 调用；`6_string` 字符串；`7_op` 运算；`8_for` 循环；`9_declare` 赋值；`10_return` 返回；`13_fun` 函数提取。并非所有文件都被 `config.py` 导入。 | 44 |
-| [c/](../c/) | `transform0_var` 命名；`1_blank` 空白/括号；`2_op` 运算；`3_update` 自增；`4_main` 主函数；`5_array` 数组/指针；`6_declare` 声明；`7_loop` 循环；`8_if` 条件；`13_fun` 函数提取。 | 42 |
-| [cpp/](../cpp/) | 类似 C，并增加 `transform9_cpp` 的 C++ 输入输出、头文件及命名空间规则。 | 48 |
+| [python/rules.py](../python/rules.py) | 原有打印、列表/字典、range、切片、字符串、运算、返回规则；新增 14–21（成员/身份否定、分支与条件交换、sum/range 默认参数、while 退出形式、else-after-return） | 25（原 17） |
+| [c/rules.py](../c/rules.py) | C 家族共享规则（运算、自增、main、声明、循环、switch）及 C 的数组/指针规则；新增 14–20 | C 21（原 14） |
+| [cpp/rules.py](../cpp/rules.py) | 共享规则的 C++ 方言、stdio/iostream；新增 21（typedef/using）、22（转换形式） | 22（原 14） |
+| [javascript/rules.py](../javascript/rules.py) | 由 C/Python 规则改编并新增成员访问、属性简写等 | 15 |
 
-这些数字统计注册表中的子算子，包含非水印用途的算子；不能解释为经过语义等价验证的 RSPT 数量。
-
-扩展规则时需要同时核对：语言 `transform*.py` 的节点条件、该语言 `config.py` 的注册项、`styleList.json` 的编号、两份 `rule_dict` 的规则对及位映射。仅新增转换函数不会自动进入水印流程。旧稿附录 D 的 G/P/C 编号与代码风格编号是不同体系，需通过规则含义建立对应关系。
+扩展规则的步骤与检查见 [RULES.md](RULES.md#新增或修改规则的流程)。旧的 `transform*.py`、`config.py`、`utils.py`、`rule_dict.py` 已由上述模块取代；差分验证与基准结果见 [实验记录](experiments/2026-10-rule-engine.md)。
 
 ## 数据准备与实验入口
 
@@ -96,12 +88,15 @@ flowchart TD
 | [benchmarks/common.py](../benchmarks/common.py) | 非破坏性语料清单、版本摘要、环境验证和原子文件写入 |
 | [benchmarks/runner.py](../benchmarks/runner.py) | 源码/输入冻结、并行执行、逐行续跑、运行后原始输入校验 |
 | [benchmarks/engine.py](../benchmarks/engine.py) | 调用真实旧入口，记录容量、码位、随机设置、结构性质及反向变换攻击 |
-| [benchmarks/utility.py](../benchmarks/utility.py) | Python/C++ MBXP 测试拼接、编译和执行、超时及内容摘要缓存 |
+| [benchmarks/utility.py](../benchmarks/utility.py) | Python/C++/JavaScript MBXP 测试拼接、编译或语法检查和执行，JavaScript 项目自带测试套件（水印文件覆盖到固定检出），超时及内容摘要缓存 |
+| [tools/setup_javascript.py](../tools/setup_javascript.py)、[benchmarks/javascript.lock.json](../benchmarks/javascript.lock.json) | lodash、JavaScript 项目的固定提交与测试依赖，项目源码复制到 `dataset/JS_projects` |
+| [tools/import_mbjsp.py](../tools/import_mbjsp.py) | 由 MBJSP 题目与生成结果构建 `dataset/MBJSP_G`、`MBJSP_H` |
 | [benchmarks/metrics.py](../benchmarks/metrics.py) | 显式分母、失败 ID、分组指标、CSV/Markdown/图表 |
 | [benchmarks/compare.py](../benchmarks/compare.py) | 可比性校验、分组和汇总门禁、显式基线提升与历史归档 |
-| [tests/test_research_loop.py](../tests/test_research_loop.py) | oracle 缺失、隐藏回退、文件完整性、真实功能执行及超时等流程检查 |
+| [tests/test_research_loop.py](../tests/test_research_loop.py) | oracle 缺失、隐藏回退、文件完整性、真实功能执行（含 Node）及超时等流程检查 |
+| [tests/test_pipeline.py](../tests/test_pipeline.py)、[tests/test_rule_engine.py](../tests/test_rule_engine.py) | 解码与读写语义、内存流程、编辑冲突语义、规则目录一致性、扩展规则互逆和示例改写 |
 
-框架向分析/嵌入/提取模块注入每个 worker 内缓存的 `SCTS`，并设置旧模块依赖的 `lang` 全局变量；BCH 解码只做观测包装，不替换结果。每个单元复制到独立平面目录，再由实际旧脚本产生 `support_transform.json`。Python 字符串规则已删除两个未使用的语料函数导入，避免规则加载依赖特定样本；缺失的 networkx 依赖已固定。
+框架向分析/嵌入/提取模块注入每个 worker 内缓存的 `SCTS`；BCH 解码只做观测包装，不替换结果。每个单元复制到独立平面目录，再由适配层产生 `support_transform.json`。规则模块不保存模块级可变状态，`reset_legacy_state` 只对仍以 `transform*` 命名的旧模块生效（当前没有）。
 
 ## `data/` 实验快照
 
@@ -118,12 +113,10 @@ flowchart TD
 
 ## 运行前需要确认的事项
 
-1. 主流程依赖当前工作目录：`build/`、`styleList.json` 和语料路径均使用相对路径。
-2. `SCTS` 中存在自动克隆、构建语法库、调用系统安装命令和删除语法目录的逻辑；在 macOS 上需要先核对这些旧环境假设。
-3. 代码虽然声明 `java` 语言选项，但仓库缺少 `java/config.py`，不能视作已支持 Java。
-4. `watermark_bit.py` 不会因变换失败而把已消耗码位放回队列；不足 7 个可用规则时也没有完整的失败返回协议。冲突提取状态会随机选位。
-5. `SCTS.change_file_style` 传入多个风格时，每轮解析的是最初的 `format_code`，需要另行核对组合变换行为；现有水印脚本逐条调用单个规则。
-6. Tree-sitter 的语法正确不等于程序语义等价。规则可逆性、幂等性、互不干扰、代码效用及论文检测指标需要独立实验验证。
+1. 解析库：`SCTS` 依次使用 `./build/<语言>-languages.so` 与 `.benchmark-cache/toolchain` 中的固定构建；两者都没有时报错并提示运行 `tools/setup_benchmark.py`，不再在运行时克隆未固定版本的语法仓库或调用系统安装命令。
+2. `watermark_core.embed` 不会因变换失败把已消耗码位放回队列；不足 7 个可用规则时也没有完整的失败返回协议。冲突提取状态随机选位（固定种子下可复现）。
+3. `SCTS.change_file_style` 传入多个风格时按顺序组合应用（旧实现每轮都作用于原始代码，只返回最后一个风格的结果）；水印流程逐条调用单个规则。
+4. Tree-sitter 的语法正确不等于程序语义等价。`tools/rule_audit.py` 检查结构性质（幂等、可逆、互不干扰）；语义依据见 [RULES.md](RULES.md)，功能层面以 MBXP 与项目测试验证。
 
 ## 维护机器可读索引
 

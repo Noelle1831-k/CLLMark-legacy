@@ -17,6 +17,14 @@ rule_dict = {
          'not_equal_hash_reverse': ['7.14', '7.13'],
          'return': ['10.1', '10.2'],
          'return_none': ['10.4', '10.3'],
+         'membership_negation': ['14.1', '14.2'],
+         'identity_negation': ['15.1', '15.2'],
+         'branch_order': ['16.1', '16.2'],
+         'conditional_order': ['17.1', '17.2'],
+         'sum_start': ['18.1', '18.2'],
+         'range_step': ['19.1', '19.2'],
+         'loop_exit': ['20.1', '20.2'],
+         'else_after_return': ['21.2', '21.1']
          },
     'cpp':
         {'self_assignment': ['2.2', '2.1'],
@@ -32,7 +40,15 @@ rule_dict = {
          'for_OOO': ['7.7', '11'],
          'while_to_for': ['7.8', '12'],
          'output': ['9.1', '9.2'],
-         'input': ['9.3', '9.4']
+         'input': ['9.3', '9.4'],
+         'branch_order': ['14.1', '14.2'],
+         'conditional_order': ['15.1', '15.2'],
+         'nested_condition': ['16.1', '16.2'],
+         'array_parameter': ['17.2', '17.1'],
+         'void_return': ['18.1', '18.2'],
+         'else_after_return': ['20.2', '20.1'],
+         'type_alias': ['21.2', '21.1'],
+         'cast_style': ['22.2', '22.1']
          },
     'c':
         {'self_assignment': ['2.1', '2.2'],
@@ -48,6 +64,30 @@ rule_dict = {
          'array_access': ['5.3', '5.4'],
          'declare': ['6.2', '6.1'],
          'for_OOO': ['7.7', '11'],
-         'while_to_for': ['7.8', '12']
+         'while_to_for': ['7.8', '12'],
+         'branch_order': ['14.1', '14.2'],
+         'conditional_order': ['15.1', '15.2'],
+         'nested_condition': ['16.1', '16.2'],
+         'array_parameter': ['17.2', '17.1'],
+         'void_return': ['18.1', '18.2'],
+         'member_access': ['19.1', '19.2'],
+         'else_after_return': ['20.2', '20.1']
+         },
+    'javascript':
+        {'self_assignment': ['2.1', '2.2'],
+         'equal_to_not_equal': ['2.4', '2.3'],
+         'not_equal_to_equal': ['2.6', '2.5'],
+         'reverse_compare': ['2.7', '2.8'],
+         'equal_hash_reverse': ['2.12', '2.11'],
+         'not_equal_hash_reverse': ['2.13', '2.14'],
+         'update_reverse': ['3.2', '3.1'],
+         'declare': ['6.1', '6.2'],
+         'loop_form': ['7.1', '7.2'],
+         'branch_order': ['14.1', '14.2'],
+         'conditional_order': ['15.1', '15.2'],
+         'nested_condition': ['16.1', '16.2'],
+         'void_return': ['18.1', '18.2'],
+         'member_access': ['19.1', '19.2'],
+         'property_shorthand': ['23.1', '23.2']
          },
 }

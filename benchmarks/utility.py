@@ -95,13 +95,16 @@ def assemble_test(language, code, problem, seed):
     return source + "\n" + problem["test"] + "\n"
 
 
+PROGRAMS = {"python": "candidate.py", "cpp": "candidate.cpp", "javascript": "candidate.js"}
+
+
 def evaluate_utility(unit, directory, problems, config, run_dir, environment, cache_root):
     result = _evaluate_cached_utility(unit, directory, problems, config, run_dir, environment, cache_root)
     if result.get("artifacts"):
         target = Path(directory) / ".utility"
         target.mkdir(exist_ok=True)
         cached = Path(result["artifacts"])
-        files = [cached / name for name in ["candidate.py", "candidate.cpp"]]
+        files = [cached / name for name in PROGRAMS.values()]
         files += [p for pattern in ["compile*.stdout", "compile*.stderr", "test*.stdout", "test*.stderr"] for p in cached.glob(pattern)]
         for path in files:
             if path.exists():
@@ -114,6 +117,8 @@ def evaluate_utility(unit, directory, problems, config, run_dir, environment, ca
 def _evaluate_cached_utility(unit, directory, problems, config, run_dir, environment, cache_root):
     if unit["oracle"] == "unmapped_codenet":
         return {"status": "NO_PROBLEM_MAPPING", "reason": "CNxxx filenames lack a verified CodeNet problem-id map"}
+    if unit["oracle"] == "project_tests" and unit["level"] == "project":
+        return _evaluate_project_tests(unit, Path(directory), config, environment, Path(cache_root))
     if unit["oracle"] != "mbxp" or unit["level"] != "function":
         return {"status": "NO_TEST_ORACLE", "reason": "No runnable local functional test harness is supplied for this unit"}
     language = unit["language"]
@@ -141,7 +146,7 @@ def _evaluate_cached_utility(unit, directory, problems, config, run_dir, environ
             result = json.loads(result_path.read_text())
             return {**result, "cache_hit": True}
         cache.mkdir(exist_ok=True)
-        program = cache / ("candidate.py" if language == "python" else "candidate.cpp")
+        program = cache / PROGRAMS[language]
         program.write_text(assembled, encoding="utf-8")
         base = {"task_id": task_id, "oracle_sha256": digest(problem), "cache_key": key, "cache_hit": False,
                 "artifacts": str(cache), "test_kind": "supplied_MBXP_tests"}
@@ -153,6 +158,14 @@ def _evaluate_cached_utility(unit, directory, problems, config, run_dir, environ
                 write_json(result_path, result)
                 return result
             command = [sys.executable, str(program)]
+        elif language == "javascript":
+            checked = run_process([environment["javascript"]["node"], "--check", str(program)], cache, config["compile_timeout_seconds"], "compile")
+            if checked["timed_out"] or checked["returncode"] != 0:
+                result = {**base, "status": "COMPILE_TIMEOUT" if checked["timed_out"] else "COMPILE_ERROR", "compile": checked}
+                if not checked["timed_out"]:
+                    write_json(result_path, result)
+                return result
+            command = [environment["javascript"]["node"], str(program)]
         else:
             executable = cache / "candidate"
             command = [environment["compiler"], "-std=c++17", "-O0", "-I", str(includes), str(program), "-o", str(executable)]
@@ -164,7 +177,49 @@ def _evaluate_cached_utility(unit, directory, problems, config, run_dir, environ
                 return result
             command = [str(executable)]
         env = {**os.environ, "PYTHONHASHSEED": str(config["seed"])}
+        if language == "javascript":
+            env["NODE_PATH"] = environment["javascript"]["node_path"]
         tested = run_test(command, cache, config["test_timeout_seconds"], config.get("test_timeout_retries", 0), env)
+        status = "TIMEOUT" if tested["timed_out"] else "PASS" if tested["returncode"] == 0 else "FAIL"
+        result = {**base, "status": status, "test": tested}
+        if status != "TIMEOUT":
+            write_json(result_path, result)
+        return result
+
+
+def _evaluate_project_tests(unit, directory, config, environment, cache_root):
+    """Run a project's own test suite with the unit's (possibly watermarked) sources in place.
+
+    The pinned checkout (with its installed test dependencies) is copied without node_modules,
+    which is linked instead; every unit file replaces the checkout file at the same project path.
+    """
+    name = unit["name"]
+    project = config["projects"].get(name)
+    if project is None:
+        return {"status": "NO_TEST_ORACLE", "reason": "No pinned test suite configured for project " + name}
+    pinned = environment["javascript"]["projects"][name]
+    prefix = unit["path"].rstrip("/") + "/" + name + "/"
+    files = {relative[len(prefix):]: (directory / Path(relative).name).read_bytes() for relative in unit["source_files"]}
+    identity = {"project": name, "pinned": pinned, "files": {path: digest(blob) for path, blob in sorted(files.items())},
+                "command": project["test"], "timeout": config["project_test_timeout_seconds"],
+                "node": environment["javascript"]["node_version"], "harness_sha256": digest(Path(__file__).read_bytes())}
+    key = digest(identity)
+    cache_root.mkdir(parents=True, exist_ok=True)
+    with cache_lock(cache_root / (key + ".lock")):
+        cache = cache_root / key
+        result_path = cache / "result.json"
+        if result_path.exists():
+            return {**json.loads(result_path.read_text()), "cache_hit": True}
+        checkout = cache / "project"
+        if checkout.exists():
+            shutil.rmtree(checkout)
+        shutil.copytree(pinned["checkout"], checkout, ignore=shutil.ignore_patterns("node_modules", ".git"))
+        (checkout / "node_modules").symlink_to(Path(pinned["checkout"]) / "node_modules", target_is_directory=True)
+        for path, blob in files.items():
+            (checkout / path).write_bytes(blob)
+        base = {"project": name, "cache_key": key, "cache_hit": False, "artifacts": str(cache), "test_kind": "project_test_suite"}
+        tested = run_test(project["test"], checkout, config["project_test_timeout_seconds"], config.get("test_timeout_retries", 0),
+                          {**os.environ, "NODE_ENV": "test"})
         status = "TIMEOUT" if tested["timed_out"] else "PASS" if tested["returncode"] == 0 else "FAIL"
         result = {**base, "status": status, "test": tested}
         if status != "TIMEOUT":

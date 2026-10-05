@@ -17,8 +17,8 @@
     "build products"
   ],
   "generation_command": "python3 tools/build_code_index.py",
-  "file_count": 68,
-  "symbol_count": 655,
+  "file_count": 41,
+  "symbol_count": 513,
   "files": [
     {
       "path": "bch_utils.py",
@@ -224,80 +224,86 @@
     {
       "path": "benchmarks/common.py",
       "module": "benchmarks.common",
-      "sha256": "61d6c1f0dd1f2e5da22a983f0002bfb83d1c750cd5605190cc7c0745853101fa",
-      "line_count": 212,
+      "sha256": "44c50db704b7dabb1ad89ae1934c06cd27f0aed8a8e64287012c9fabf85e9ea7",
+      "line_count": 238,
       "symbols": [
         {
           "name": "digest",
           "kind": "function",
-          "line": 21,
-          "end_line": 24
+          "line": 23,
+          "end_line": 26
         },
         {
           "name": "utc_now",
           "kind": "function",
-          "line": 27,
-          "end_line": 28
+          "line": 29,
+          "end_line": 30
         },
         {
           "name": "write_json",
           "kind": "function",
-          "line": 31,
-          "end_line": 40
+          "line": 33,
+          "end_line": 42
         },
         {
           "name": "lock_file",
           "kind": "function",
-          "line": 44,
-          "end_line": 59
+          "line": 46,
+          "end_line": 61
         },
         {
           "name": "validate_config",
           "kind": "function",
-          "line": 62,
-          "end_line": 86
+          "line": 64,
+          "end_line": 92
         },
         {
           "name": "source_paths",
           "kind": "function",
-          "line": 89,
-          "end_line": 97
+          "line": 95,
+          "end_line": 103
         },
         {
           "name": "source_fingerprint",
           "kind": "function",
-          "line": 100,
-          "end_line": 102
+          "line": 106,
+          "end_line": 108
         },
         {
           "name": "protocol_fingerprint",
           "kind": "function",
-          "line": 105,
-          "end_line": 111
+          "line": 111,
+          "end_line": 117
         },
         {
           "name": "toolchain_environment",
           "kind": "function",
-          "line": 114,
-          "end_line": 150
+          "line": 120,
+          "end_line": 157
+        },
+        {
+          "name": "javascript_environment",
+          "kind": "function",
+          "line": 160,
+          "end_line": 177
         },
         {
           "name": "git_version",
           "kind": "function",
-          "line": 153,
-          "end_line": 156
+          "line": 180,
+          "end_line": 183
         },
         {
           "name": "parser_smoke",
           "kind": "function",
-          "line": 159,
-          "end_line": 182
+          "line": 186,
+          "end_line": 208
         },
         {
           "name": "discover_units",
           "kind": "function",
-          "line": 185,
-          "end_line": 212
+          "line": 211,
+          "end_line": 238
         }
       ],
       "imports": [
@@ -378,7 +384,7 @@
           "names": [
             "SCTS"
           ],
-          "line": 161
+          "line": 188
         }
       ],
       "local_dependencies": [
@@ -922,8 +928,8 @@
     {
       "path": "benchmarks/utility.py",
       "module": "benchmarks.utility",
-      "sha256": "5c0645e6dc44d581e10672a4f34a38f185094e18e66ba0026c0cffc4969d3f74",
-      "line_count": 172,
+      "sha256": "311991e7f248ac57dc4a8ed6ec3034969e115faba4062bc4e223825847dd2e8c",
+      "line_count": 227,
       "symbols": [
         {
           "name": "load_problems",
@@ -964,14 +970,20 @@
         {
           "name": "evaluate_utility",
           "kind": "function",
-          "line": 98,
-          "end_line": 111
+          "line": 101,
+          "end_line": 114
         },
         {
           "name": "_evaluate_cached_utility",
           "kind": "function",
-          "line": 114,
-          "end_line": 172
+          "line": 117,
+          "end_line": 187
+        },
+        {
+          "name": "_evaluate_project_tests",
+          "kind": "function",
+          "line": 190,
+          "end_line": 227
         }
       ],
       "imports": [
@@ -1072,1441 +1084,829 @@
       "has_main_guard": false
     },
     {
-      "path": "c/config.py",
-      "module": "c.config",
-      "sha256": "3876db089aaed082ee23f59e8fb087c46145a29e7d758f5d6d1122390ffdedef",
-      "line_count": 70,
-      "symbols": [],
-      "imports": [
-        {
-          "module": "c.transform13_fun",
-          "names": [
-            "rec_func",
-            "cvt_func"
-          ],
-          "line": 1
-        },
-        {
-          "module": "c.transform1_blank",
-          "names": [
-            "*"
-          ],
-          "line": 2
-        },
-        {
-          "module": "c.transform2_op",
-          "names": [
-            "*"
-          ],
-          "line": 3
-        },
-        {
-          "module": "c.transform3_update",
-          "names": [
-            "*"
-          ],
-          "line": 4
-        },
-        {
-          "module": "c.transform4_main",
-          "names": [
-            "*"
-          ],
-          "line": 5
-        },
-        {
-          "module": "c.transform5_array",
-          "names": [
-            "*"
-          ],
-          "line": 6
-        },
-        {
-          "module": "c.transform6_declare",
-          "names": [
-            "*"
-          ],
-          "line": 7
-        },
-        {
-          "module": "c.transform7_loop",
-          "names": [
-            "*"
-          ],
-          "line": 8
-        },
-        {
-          "module": "c.transform8_if",
-          "names": [
-            "*"
-          ],
-          "line": 9
-        }
-      ],
-      "local_dependencies": [
-        "c/transform13_fun.py",
-        "c/transform1_blank.py",
-        "c/transform2_op.py",
-        "c/transform3_update.py",
-        "c/transform4_main.py",
-        "c/transform5_array.py",
-        "c/transform6_declare.py",
-        "c/transform7_loop.py",
-        "c/transform8_if.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "c/transform0_var.py",
-      "module": "c.transform0_var",
-      "sha256": "de213eab4c08f510067d9050fb5bdc73fa92dac7dea8351f5bd36002dd7c6531",
-      "line_count": 220,
+      "path": "c/rules.py",
+      "module": "c.rules",
+      "sha256": "2af895e0889455e312528396216648020624177e552a989d47d0cc8777d066f2",
+      "line_count": 1383,
       "symbols": [
         {
-          "name": "is_all_lowercase",
+          "name": "nodes",
           "kind": "function",
           "line": 15,
-          "end_line": 19
+          "end_line": 16
         },
         {
-          "name": "is_all_uppercase",
+          "name": "child_count",
           "kind": "function",
-          "line": 21,
-          "end_line": 22
+          "line": 19,
+          "end_line": 20
         },
         {
-          "name": "is_camel_case",
+          "name": "contain_id",
           "kind": "function",
-          "line": 24,
-          "end_line": 27
+          "line": 23,
+          "end_line": 30
         },
         {
-          "name": "is_initcap",
+          "name": "blank_run_start",
           "kind": "function",
-          "line": 29,
-          "end_line": 32
-        },
-        {
-          "name": "is_underscore",
-          "kind": "function",
-          "line": 34,
-          "end_line": 35
-        },
-        {
-          "name": "is_init_underscore",
-          "kind": "function",
-          "line": 37,
+          "line": 33,
           "end_line": 38
         },
         {
-          "name": "is_init_dollar",
+          "name": "operator_in",
           "kind": "function",
-          "line": 40,
-          "end_line": 41
+          "line": 49,
+          "end_line": 50
         },
         {
-          "name": "sub_token",
+          "name": "operands",
           "kind": "function",
-          "line": 43,
-          "end_line": 71
+          "line": 53,
+          "end_line": 54
         },
         {
-          "name": "get_id",
+          "name": "negated",
           "kind": "function",
-          "line": 73,
-          "end_line": 81
+          "line": 58,
+          "end_line": 61
         },
         {
-          "name": "get_id.traverse",
+          "name": "in_expanded_comparison",
           "kind": "function",
-          "line": 75,
-          "end_line": 79
+          "line": 65,
+          "end_line": 76
         },
         {
-          "name": "get_id_type",
+          "name": "expanded_comparison",
           "kind": "function",
-          "line": 83,
-          "end_line": 99
+          "line": 80,
+          "end_line": 91
         },
         {
-          "name": "rec_identifier",
+          "name": "negate_equality",
           "kind": "function",
-          "line": 102,
+          "line": 94,
+          "end_line": 101
+        },
+        {
+          "name": "negate_equality.rewrite",
+          "kind": "function",
+          "line": 96,
+          "end_line": 100
+        },
+        {
+          "name": "negated_test",
+          "kind": "function",
+          "line": 104,
           "end_line": 114
         },
         {
-          "name": "match_camel",
+          "name": "negated_test.test",
           "kind": "function",
-          "line": 116,
-          "end_line": 119
+          "line": 106,
+          "end_line": 113
         },
         {
-          "name": "match_initcap",
+          "name": "remove_negation",
           "kind": "function",
-          "line": 121,
-          "end_line": 124
+          "line": 117,
+          "end_line": 121
         },
         {
-          "name": "match_underscore",
+          "name": "remove_negation.rewrite",
           "kind": "function",
-          "line": 126,
-          "end_line": 129
+          "line": 118,
+          "end_line": 120
         },
         {
-          "name": "match_init_underscore",
+          "name": "mirror",
           "kind": "function",
-          "line": 131,
-          "end_line": 134
+          "line": 124,
+          "end_line": 126
         },
         {
-          "name": "match_init_dollar",
+          "name": "expand_comparison",
           "kind": "function",
-          "line": 136,
-          "end_line": 139
-        },
-        {
-          "name": "match_upper",
-          "kind": "function",
-          "line": 141,
-          "end_line": 144
-        },
-        {
-          "name": "match_lower",
-          "kind": "function",
-          "line": 146,
-          "end_line": 149
-        },
-        {
-          "name": "match_hungarian",
-          "kind": "function",
-          "line": 151,
-          "end_line": 155
-        },
-        {
-          "name": "cvt_camel",
-          "kind": "function",
-          "line": 158,
-          "end_line": 169
-        },
-        {
-          "name": "cvt_initcap",
-          "kind": "function",
-          "line": 171,
-          "end_line": 180
-        },
-        {
-          "name": "cvt_underscore",
-          "kind": "function",
-          "line": 182,
-          "end_line": 188
-        },
-        {
-          "name": "cvt_init_underscore",
-          "kind": "function",
-          "line": 190,
-          "end_line": 194
-        },
-        {
-          "name": "cvt_init_dollar",
-          "kind": "function",
-          "line": 196,
-          "end_line": 200
-        },
-        {
-          "name": "cvt_upper",
-          "kind": "function",
-          "line": 202,
-          "end_line": 206
-        },
-        {
-          "name": "cvt_lower",
-          "kind": "function",
-          "line": 208,
-          "end_line": 212
-        },
-        {
-          "name": "cvt_hungarian",
-          "kind": "function",
-          "line": 214,
-          "end_line": 220
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "Dict",
-            "List",
-            "Tuple",
-            "Union"
-          ],
-          "line": 1
-        },
-        {
-          "module": "inflection",
-          "names": [],
-          "line": 3
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 4
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 6
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "c/transform13_fun.py",
-      "module": "c.transform13_fun",
-      "sha256": "3541fd02fd529ce1d868719b5015884f6f737789256352321b227eaabbd49461",
-      "line_count": 29,
-      "symbols": [
-        {
-          "name": "rec_func",
-          "kind": "function",
-          "line": 6,
-          "end_line": 19
-        },
-        {
-          "name": "cvt_func",
-          "kind": "function",
-          "line": 21,
-          "end_line": 29
-        }
-      ],
-      "imports": [
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 1
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 3
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "c/transform1_blank.py",
-      "module": "c.transform1_blank",
-      "sha256": "4dd1b7c4129d688197148491709c88e18f04081cc7400e3df60784be964ae2df",
-      "line_count": 139,
-      "symbols": [
-        {
-          "name": "get_indent",
-          "kind": "function",
-          "line": 8,
-          "end_line": 17
-        },
-        {
-          "name": "rec_BracketSameLine",
-          "kind": "function",
-          "line": 20,
-          "end_line": 26
-        },
-        {
-          "name": "rec_BracketNextLine",
-          "kind": "function",
-          "line": 28,
-          "end_line": 34
-        },
-        {
-          "name": "rec_OperatorOrSpliter",
-          "kind": "function",
-          "line": 36,
-          "end_line": 39
-        },
-        {
-          "name": "rec_IfForWhileNoBracket",
-          "kind": "function",
-          "line": 41,
-          "end_line": 47
-        },
-        {
-          "name": "rec_IfForWhileHasBracket",
-          "kind": "function",
-          "line": 49,
-          "end_line": 60
-        },
-        {
-          "name": "cvt_BracketSame2NextLine",
-          "kind": "function",
-          "line": 63,
-          "end_line": 66
-        },
-        {
-          "name": "cvt_BracketNext2SameLine",
-          "kind": "function",
-          "line": 68,
-          "end_line": 73
-        },
-        {
-          "name": "cvt_AddBlankSpace",
-          "kind": "function",
-          "line": 75,
-          "end_line": 93
-        },
-        {
-          "name": "cvt_AddIfForWhileBracket",
-          "kind": "function",
-          "line": 95,
-          "end_line": 130
-        },
-        {
-          "name": "cvt_DelIfForWhileBracket",
-          "kind": "function",
-          "line": 132,
-          "end_line": 139
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union"
-          ],
-          "line": 1
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 3
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 5
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "c/transform2_op.py",
-      "module": "c.transform2_op",
-      "sha256": "041ca91d05b71a2b061d82d7b7b259eac8b100bdaa619176d5688c2dfea5fd14",
-      "line_count": 348,
-      "symbols": [
-        {
-          "name": "judge_no",
-          "kind": "function",
-          "line": 9,
-          "end_line": 14
-        },
-        {
-          "name": "get_parent_first",
-          "kind": "function",
-          "line": 17,
-          "end_line": 31
-        },
-        {
-          "name": "compare_hash",
-          "kind": "function",
-          "line": 34,
-          "end_line": 39
-        },
-        {
-          "name": "compare_hash_sha224",
-          "kind": "function",
-          "line": 42,
-          "end_line": 47
-        },
-        {
-          "name": "rec_AugmentedAssignment",
-          "kind": "function",
-          "line": 53,
-          "end_line": 57
-        },
-        {
-          "name": "rec_Assignment",
-          "kind": "function",
-          "line": 60,
-          "end_line": 68
-        },
-        {
-          "name": "rec_Equal",
-          "kind": "function",
-          "line": 71,
-          "end_line": 79
-        },
-        {
-          "name": "rec_exp_cmp",
-          "kind": "function",
-          "line": 82,
-          "end_line": 96
-        },
-        {
-          "name": "rec_Equal_nolimit",
-          "kind": "function",
-          "line": 99,
-          "end_line": 105
-        },
-        {
-          "name": "rec_CmpOptBigger",
-          "kind": "function",
-          "line": 108,
-          "end_line": 112
-        },
-        {
-          "name": "rec_CmpOptSmaller",
-          "kind": "function",
-          "line": 115,
-          "end_line": 119
-        },
-        {
-          "name": "rec_Cmp",
-          "kind": "function",
-          "line": 122,
-          "end_line": 128
-        },
-        {
-          "name": "rec_not_equal_reverse",
-          "kind": "function",
-          "line": 131,
+          "line": 134,
           "end_line": 137
         },
         {
-          "name": "rec_equal_reverse",
+          "name": "contract_comparison",
           "kind": "function",
           "line": 140,
+          "end_line": 142
+        },
+        {
+          "name": "hash_at_least",
+          "kind": "function",
+          "line": 145,
           "end_line": 146
         },
         {
-          "name": "match_Equal",
+          "name": "hash_order",
           "kind": "function",
           "line": 149,
-          "end_line": 150
-        },
-        {
-          "name": "match_NotEqual",
-          "kind": "function",
-          "line": 153,
-          "end_line": 154
-        },
-        {
-          "name": "match_LeftConst",
-          "kind": "function",
-          "line": 157,
           "end_line": 158
         },
         {
-          "name": "cvt_EqualBiggerHashTrans",
+          "name": "hash_order.rewrite",
           "kind": "function",
-          "line": 164,
-          "end_line": 178
+          "line": 151,
+          "end_line": 157
         },
         {
-          "name": "cvt_EqualSmallHashTrans",
+          "name": "self_assignment",
           "kind": "function",
-          "line": 181,
-          "end_line": 195
+          "line": 166,
+          "end_line": 171
         },
         {
-          "name": "cvt_NotEqualBiggerHashTrans",
+          "name": "to_compound",
           "kind": "function",
-          "line": 198,
-          "end_line": 212
+          "line": 174,
+          "end_line": 177
         },
         {
-          "name": "cvt_NotEqualSmallHashTrans",
+          "name": "from_compound",
           "kind": "function",
-          "line": 215,
-          "end_line": 229
+          "line": 185,
+          "end_line": 193
         },
         {
-          "name": "cvt_Equal2NotEqual",
+          "name": "update_outside_index_call_assignment",
           "kind": "function",
-          "line": 232,
-          "end_line": 241
+          "line": 199,
+          "end_line": 207
         },
         {
-          "name": "cvt_NotEqual2Equal",
+          "name": "update_operand_at",
           "kind": "function",
-          "line": 244,
-          "end_line": 253
+          "line": 210,
+          "end_line": 211
         },
         {
-          "name": "cvt_NotEqual2Equal_reverse",
+          "name": "to_prefix",
           "kind": "function",
-          "line": 256,
-          "end_line": 262
+          "line": 214,
+          "end_line": 216
         },
         {
-          "name": "cvt_Equal2NotEqual_reverse",
+          "name": "to_postfix",
           "kind": "function",
-          "line": 265,
-          "end_line": 271
+          "line": 219,
+          "end_line": 221
         },
         {
-          "name": "cvt_AugmentedAssignment2Assignment",
+          "name": "main_signature",
           "kind": "function",
-          "line": 274,
-          "end_line": 281
+          "line": 235,
+          "end_line": 255
         },
         {
-          "name": "cvt_Assignment2AugmentedAssignment",
+          "name": "main_signature.rewrite",
           "kind": "function",
-          "line": 284,
-          "end_line": 293
+          "line": 239,
+          "end_line": 254
         },
         {
-          "name": "cvt_Bigger2Smaller",
+          "name": "array_dimension",
           "kind": "function",
-          "line": 296,
-          "end_line": 302
+          "line": 260,
+          "end_line": 265
         },
         {
-          "name": "cvt_Smaller2Bigger",
+          "name": "pointer_dimension",
           "kind": "function",
-          "line": 305,
-          "end_line": 311
+          "line": 268,
+          "end_line": 274
         },
         {
-          "name": "cvt_Equal",
+          "name": "nested_brackets",
           "kind": "function",
-          "line": 314,
-          "end_line": 331
+          "line": 277,
+          "end_line": 287
         },
         {
-          "name": "cvt_cmp",
+          "name": "malloc_declarator",
           "kind": "function",
-          "line": 334,
-          "end_line": 346
+          "line": 290,
+          "end_line": 297
+        },
+        {
+          "name": "split_top_level_stars",
+          "kind": "function",
+          "line": 300,
+          "end_line": 319
+        },
+        {
+          "name": "strip_outer_parentheses",
+          "kind": "function",
+          "line": 322,
+          "end_line": 333
+        },
+        {
+          "name": "element_count",
+          "kind": "function",
+          "line": 336,
+          "end_line": 345
+        },
+        {
+          "name": "static_array_declaration",
+          "kind": "function",
+          "line": 349,
+          "end_line": 351
+        },
+        {
+          "name": "static_to_dynamic",
+          "kind": "function",
+          "line": 354,
+          "end_line": 367
+        },
+        {
+          "name": "dynamic_to_static",
+          "kind": "function",
+          "line": 370,
+          "end_line": 387
+        },
+        {
+          "name": "plain_subscript",
+          "kind": "function",
+          "line": 391,
+          "end_line": 393
+        },
+        {
+          "name": "array_to_pointer",
+          "kind": "function",
+          "line": 399,
+          "end_line": 417
+        },
+        {
+          "name": "leftmost_identifier",
+          "kind": "function",
+          "line": 420,
+          "end_line": 427
+        },
+        {
+          "name": "after_operator",
+          "kind": "function",
+          "line": 430,
+          "end_line": 434
+        },
+        {
+          "name": "inner_index",
+          "kind": "function",
+          "line": 437,
+          "end_line": 452
+        },
+        {
+          "name": "pointer_to_array",
+          "kind": "function",
+          "line": 455,
+          "end_line": 477
+        },
+        {
+          "name": "outermost_pointer_arithmetic",
+          "kind": "function",
+          "line": 481,
+          "end_line": 492
+        },
+        {
+          "name": "declared_type",
+          "kind": "function",
+          "line": 501,
+          "end_line": 505
+        },
+        {
+          "name": "multi_name_declaration",
+          "kind": "function",
+          "line": 509,
+          "end_line": 514
+        },
+        {
+          "name": "split_declaration",
+          "kind": "function",
+          "line": 517,
+          "end_line": 527
+        },
+        {
+          "name": "repeated_declaration_type",
+          "kind": "function",
+          "line": 531,
+          "end_line": 539
+        },
+        {
+          "name": "movable_group",
+          "kind": "function",
+          "line": 545,
+          "end_line": 558
+        },
+        {
+          "name": "merge_declarations",
+          "kind": "function",
+          "line": 561,
+          "end_line": 583
+        },
+        {
+          "name": "for_parts",
+          "kind": "function",
+          "line": 588,
+          "end_line": 600
+        },
+        {
+          "name": "is_marker",
+          "kind": "function",
+          "line": 606,
+          "end_line": 607
+        },
+        {
+          "name": "not_equality_test",
+          "kind": "function",
+          "line": 610,
+          "end_line": 620
+        },
+        {
+          "name": "hoist_init",
+          "kind": "function",
+          "line": 626,
+          "end_line": 630
+        },
+        {
+          "name": "condition_to_break",
+          "kind": "function",
+          "line": 633,
+          "end_line": 640
+        },
+        {
+          "name": "update_to_end",
+          "kind": "function",
+          "line": 643,
+          "end_line": 648
+        },
+        {
+          "name": "loop_obc",
+          "kind": "function",
+          "line": 651,
+          "end_line": 656
+        },
+        {
+          "name": "loop_aoc",
+          "kind": "function",
+          "line": 659,
+          "end_line": 664
+        },
+        {
+          "name": "loop_abo",
+          "kind": "function",
+          "line": 667,
+          "end_line": 672
+        },
+        {
+          "name": "loop_aoo",
+          "kind": "function",
+          "line": 675,
+          "end_line": 685
+        },
+        {
+          "name": "loop_obo",
+          "kind": "function",
+          "line": 688,
+          "end_line": 700
+        },
+        {
+          "name": "loop_ooc",
+          "kind": "function",
+          "line": 703,
+          "end_line": 715
+        },
+        {
+          "name": "loop_ooo",
+          "kind": "function",
+          "line": 718,
+          "end_line": 738
+        },
+        {
+          "name": "loop_continues",
+          "kind": "function",
+          "line": 741,
+          "end_line": 750
+        },
+        {
+          "name": "bare_for",
+          "kind": "function",
+          "line": 754,
+          "end_line": 759
+        },
+        {
+          "name": "outermost_loop",
+          "kind": "function",
+          "line": 766,
+          "end_line": 772
+        },
+        {
+          "name": "loop_counter_update",
+          "kind": "function",
+          "line": 778,
+          "end_line": 787
+        },
+        {
+          "name": "while_to_for",
+          "kind": "function",
+          "line": 790,
+          "end_line": 819
+        },
+        {
+          "name": "while_to_for.rewrite",
+          "kind": "function",
+          "line": 798,
+          "end_line": 818
+        },
+        {
+          "name": "switch_to_if",
+          "kind": "function",
+          "line": 824,
+          "end_line": 845
+        },
+        {
+          "name": "flat_function",
+          "kind": "function",
+          "line": 851,
+          "end_line": 858
+        },
+        {
+          "name": "function_name",
+          "kind": "function",
+          "line": 864,
+          "end_line": 869
+        },
+        {
+          "name": "is_equality",
+          "kind": "function",
+          "line": 881,
+          "end_line": 882
+        },
+        {
+          "name": "expanded_junction",
+          "kind": "function",
+          "line": 885,
+          "end_line": 893
+        },
+        {
+          "name": "is_comparison",
+          "kind": "function",
+          "line": 896,
+          "end_line": 897
+        },
+        {
+          "name": "outside_text_sensitive_operands",
+          "kind": "function",
+          "line": 901,
+          "end_line": 909
+        },
+        {
+          "name": "contains",
+          "kind": "function",
+          "line": 912,
+          "end_line": 919
+        },
+        {
+          "name": "has_else",
+          "kind": "function",
+          "line": 922,
+          "end_line": 923
+        },
+        {
+          "name": "negated_group",
+          "kind": "function",
+          "line": 926,
+          "end_line": 929
+        },
+        {
+          "name": "negatable",
+          "kind": "function",
+          "line": 932,
+          "end_line": 935
+        },
+        {
+          "name": "condition_value",
+          "kind": "function",
+          "line": 938,
+          "end_line": 943
+        },
+        {
+          "name": "nested_branching",
+          "kind": "function",
+          "line": 946,
+          "end_line": 948
+        },
+        {
+          "name": "braced_if_else",
+          "kind": "function",
+          "line": 951,
+          "end_line": 966
+        },
+        {
+          "name": "braced_if_else.test",
+          "kind": "function",
+          "line": 953,
+          "end_line": 965
+        },
+        {
+          "name": "swap_branches",
+          "kind": "function",
+          "line": 969,
+          "end_line": 976
+        },
+        {
+          "name": "swap_branches.rewrite",
+          "kind": "function",
+          "line": 971,
+          "end_line": 975
+        },
+        {
+          "name": "movable_conditional",
+          "kind": "function",
+          "line": 979,
+          "end_line": 992
+        },
+        {
+          "name": "movable_conditional.test",
+          "kind": "function",
+          "line": 981,
+          "end_line": 991
+        },
+        {
+          "name": "swap_conditional",
+          "kind": "function",
+          "line": 995,
+          "end_line": 1001
+        },
+        {
+          "name": "swap_conditional.rewrite",
+          "kind": "function",
+          "line": 997,
+          "end_line": 1000
+        },
+        {
+          "name": "conjunct",
+          "kind": "function",
+          "line": 1008,
+          "end_line": 1012
+        },
+        {
+          "name": "no_else",
+          "kind": "function",
+          "line": 1015,
+          "end_line": 1016
+        },
+        {
+          "name": "conjunctive_if",
+          "kind": "function",
+          "line": 1020,
+          "end_line": 1027
+        },
+        {
+          "name": "nested_if",
+          "kind": "function",
+          "line": 1031,
+          "end_line": 1044
+        },
+        {
+          "name": "split_conjunction",
+          "kind": "function",
+          "line": 1047,
+          "end_line": 1050
+        },
+        {
+          "name": "join_conjunction",
+          "kind": "function",
+          "line": 1053,
+          "end_line": 1056
+        },
+        {
+          "name": "parameter_with",
+          "kind": "function",
+          "line": 1059,
+          "end_line": 1071
+        },
+        {
+          "name": "parameter_with.test",
+          "kind": "function",
+          "line": 1062,
+          "end_line": 1070
+        },
+        {
+          "name": "canonical",
+          "kind": "function",
+          "line": 1074,
+          "end_line": 1078
+        },
+        {
+          "name": "array_to_pointer_parameter",
+          "kind": "function",
+          "line": 1089,
+          "end_line": 1092
+        },
+        {
+          "name": "pointer_to_array_parameter",
+          "kind": "function",
+          "line": 1095,
+          "end_line": 1098
+        },
+        {
+          "name": "void_function",
+          "kind": "function",
+          "line": 1101,
+          "end_line": 1108
+        },
+        {
+          "name": "statements",
+          "kind": "function",
+          "line": 1111,
+          "end_line": 1112
+        },
+        {
+          "name": "ends_with_bare_return",
+          "kind": "function",
+          "line": 1116,
+          "end_line": 1120
+        },
+        {
+          "name": "ends_without_return",
+          "kind": "function",
+          "line": 1124,
+          "end_line": 1125
+        },
+        {
+          "name": "add_final_return",
+          "kind": "function",
+          "line": 1128,
+          "end_line": 1134
+        },
+        {
+          "name": "drop_final_return",
+          "kind": "function",
+          "line": 1137,
+          "end_line": 1140
+        },
+        {
+          "name": "void_function_body",
+          "kind": "function",
+          "line": 1143,
+          "end_line": 1145
+        },
+        {
+          "name": "in_main",
+          "kind": "function",
+          "line": 1148,
+          "end_line": 1155
+        },
+        {
+          "name": "raw_text_free",
+          "kind": "function",
+          "line": 1158,
+          "end_line": 1159
+        },
+        {
+          "name": "exits",
+          "kind": "function",
+          "line": 1162,
+          "end_line": 1176
+        },
+        {
+          "name": "exiting_if",
+          "kind": "function",
+          "line": 1179,
+          "end_line": 1181
+        },
+        {
+          "name": "bare_exiting_if",
+          "kind": "function",
+          "line": 1184,
+          "end_line": 1185
+        },
+        {
+          "name": "exiting_if_else",
+          "kind": "function",
+          "line": 1188,
+          "end_line": 1190
+        },
+        {
+          "name": "holds_exiting_if",
+          "kind": "function",
+          "line": 1193,
+          "end_line": 1194
+        },
+        {
+          "name": "exiting_braced_if_else",
+          "kind": "function",
+          "line": 1198,
+          "end_line": 1205
+        },
+        {
+          "name": "trailing_statements",
+          "kind": "function",
+          "line": 1208,
+          "end_line": 1213
+        },
+        {
+          "name": "exiting_braced_if_then_rest",
+          "kind": "function",
+          "line": 1217,
+          "end_line": 1222
+        },
+        {
+          "name": "reindent",
+          "kind": "function",
+          "line": 1225,
+          "end_line": 1227
+        },
+        {
+          "name": "drop_braced_else",
+          "kind": "function",
+          "line": 1230,
+          "end_line": 1242
+        },
+        {
+          "name": "add_braced_else",
+          "kind": "function",
+          "line": 1245,
+          "end_line": 1253
+        },
+        {
+          "name": "member_dereference",
+          "kind": "function",
+          "line": 1259,
+          "end_line": 1263
+        },
+        {
+          "name": "outside_pointer_arithmetic",
+          "kind": "function",
+          "line": 1267,
+          "end_line": 1274
+        },
+        {
+          "name": "arrow_access",
+          "kind": "function",
+          "line": 1278,
+          "end_line": 1279
+        },
+        {
+          "name": "dereferenced_access",
+          "kind": "function",
+          "line": 1283,
+          "end_line": 1288
+        },
+        {
+          "name": "arrow_to_dereference",
+          "kind": "function",
+          "line": 1291,
+          "end_line": 1293
+        },
+        {
+          "name": "dereference_to_arrow",
+          "kind": "function",
+          "line": 1296,
+          "end_line": 1301
+        },
+        {
+          "name": "c_family_rules",
+          "kind": "function",
+          "line": 1306,
+          "end_line": 1380
         }
       ],
       "imports": [
         {
           "module": "hashlib",
           "names": [],
-          "line": 1
+          "line": 9
         },
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union"
-          ],
-          "line": 2
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 4
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 6
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "c/transform3_update.py",
-      "module": "c.transform3_update",
-      "sha256": "0070a90ecee11c7bd4c1a819fdefd909598813f3c6636b75812eb65fc6bf027c",
-      "line_count": 45,
-      "symbols": [
-        {
-          "name": "rec_LeftUpdate",
-          "kind": "function",
-          "line": 8,
-          "end_line": 15
-        },
-        {
-          "name": "rec_RightUpdate",
-          "kind": "function",
-          "line": 17,
-          "end_line": 26
-        },
-        {
-          "name": "rec_ToLeft",
-          "kind": "function",
-          "line": 27,
-          "end_line": 28
-        },
-        {
-          "name": "rec_ToRight",
-          "kind": "function",
-          "line": 30,
-          "end_line": 31
-        },
-        {
-          "name": "cvt_ToRight",
-          "kind": "function",
-          "line": 35,
-          "end_line": 39
-        },
-        {
-          "name": "cvt_ToLeft",
-          "kind": "function",
-          "line": 41,
-          "end_line": 45
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union"
-          ],
-          "line": 1
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 3
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 5
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "c/transform4_main.py",
-      "module": "c.transform4_main",
-      "sha256": "27240d37d93ab6faf840f6c2521f2ede68e45856461c78190866fc5ee277957d",
-      "line_count": 220,
-      "symbols": [
-        {
-          "name": "getMainInfo",
-          "kind": "function",
-          "line": 8,
-          "end_line": 19
-        },
-        {
-          "name": "rec_Main",
-          "kind": "function",
-          "line": 22,
-          "end_line": 26
-        },
-        {
-          "name": "match_IntVoidReturn",
-          "kind": "function",
-          "line": 28,
-          "end_line": 37
-        },
-        {
-          "name": "match_IntVoid",
-          "kind": "function",
-          "line": 39,
-          "end_line": 46
-        },
-        {
-          "name": "match_IntReturn",
-          "kind": "function",
-          "line": 48,
-          "end_line": 57
-        },
-        {
-          "name": "match_Int",
-          "kind": "function",
-          "line": 59,
-          "end_line": 66
-        },
-        {
-          "name": "match_IntArgReturn",
-          "kind": "function",
-          "line": 68,
-          "end_line": 77
-        },
-        {
-          "name": "match_IntArg",
-          "kind": "function",
-          "line": 79,
-          "end_line": 86
-        },
-        {
-          "name": "match_VoidArg",
-          "kind": "function",
-          "line": 88,
-          "end_line": 95
-        },
-        {
-          "name": "match_Void",
-          "kind": "function",
-          "line": 97,
-          "end_line": 104
-        },
-        {
-          "name": "cvt_IntVoidReturn",
-          "kind": "function",
-          "line": 107,
-          "end_line": 120
-        },
-        {
-          "name": "cvt_IntVoid",
-          "kind": "function",
-          "line": 122,
-          "end_line": 134
-        },
-        {
-          "name": "cvt_IntReturn",
-          "kind": "function",
-          "line": 136,
-          "end_line": 149
-        },
-        {
-          "name": "cvt_Int",
-          "kind": "function",
-          "line": 151,
-          "end_line": 163
-        },
-        {
-          "name": "cvt_IntArgReturn",
-          "kind": "function",
-          "line": 165,
-          "end_line": 178
-        },
-        {
-          "name": "cvt_IntArg",
-          "kind": "function",
-          "line": 180,
-          "end_line": 192
-        },
-        {
-          "name": "cvt_VoidArg",
-          "kind": "function",
-          "line": 194,
-          "end_line": 206
-        },
-        {
-          "name": "cvt_Void",
-          "kind": "function",
-          "line": 208,
-          "end_line": 220
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union"
-          ],
-          "line": 1
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 3
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 5
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "c/transform5_array.py",
-      "module": "c.transform5_array",
-      "sha256": "a281fbb14efd1ecc51bb750379cda52eb8902759d3d1cff4f6f8a2b83a4c64b9",
-      "line_count": 379,
-      "symbols": [
-        {
-          "name": "remove_sizeof",
-          "kind": "function",
-          "line": 8,
-          "end_line": 22
-        },
-        {
-          "name": "remove_outer_parentheses",
-          "kind": "function",
-          "line": 23,
-          "end_line": 46
-        },
-        {
-          "name": "is_trans_nest_array",
-          "kind": "function",
-          "line": 49,
-          "end_line": 53
-        },
-        {
-          "name": "get_mem_array",
-          "kind": "function",
-          "line": 55,
-          "end_line": 65
-        },
-        {
-          "name": "get_indent",
-          "kind": "function",
-          "line": 67,
-          "end_line": 76
-        },
-        {
-          "name": "get_array_dim",
-          "kind": "function",
-          "line": 78,
-          "end_line": 87
-        },
-        {
-          "name": "get_pointer_dim",
-          "kind": "function",
-          "line": 89,
-          "end_line": 98
-        },
-        {
-          "name": "get_pointer_dim.traverse",
-          "kind": "function",
-          "line": 92,
-          "end_line": 96
-        },
-        {
-          "name": "get_size",
-          "kind": "function",
-          "line": 100,
-          "end_line": 112
-        },
-        {
-          "name": "split_string",
-          "kind": "function",
-          "line": 115,
-          "end_line": 144
-        },
-        {
-          "name": "is_nest_array",
-          "kind": "function",
-          "line": 147,
-          "end_line": 157
-        },
-        {
-          "name": "get_left_id",
-          "kind": "function",
-          "line": 159,
-          "end_line": 166
-        },
-        {
-          "name": "rec_StaticMem",
-          "kind": "function",
-          "line": 169,
-          "end_line": 180
-        },
-        {
-          "name": "rec_DynMemOneLine",
-          "kind": "function",
-          "line": 183,
-          "end_line": 188
-        },
-        {
-          "name": "rec_DynMemTwoLine",
-          "kind": "function",
-          "line": 191,
-          "end_line": 192
-        },
-        {
-          "name": "rec_DynMem",
-          "kind": "function",
-          "line": 194,
-          "end_line": 195
-        },
-        {
-          "name": "rec_Array",
-          "kind": "function",
-          "line": 197,
-          "end_line": 205
-        },
-        {
-          "name": "rec_Pointer",
-          "kind": "function",
-          "line": 207,
-          "end_line": 215
-        },
-        {
-          "name": "cvt_Static2Dyn",
-          "kind": "function",
-          "line": 218,
-          "end_line": 243
-        },
-        {
-          "name": "cvt_Dyn2Static",
-          "kind": "function",
-          "line": 245,
-          "end_line": 264
-        },
-        {
-          "name": "cvt_Array2Pointer",
-          "kind": "function",
-          "line": 269,
-          "end_line": 298
-        },
-        {
-          "name": "cvt_Pointer2Array",
-          "kind": "function",
-          "line": 300,
-          "end_line": 379
-        }
-      ],
-      "imports": [
         {
           "module": "re",
           "names": [],
-          "line": 1
+          "line": 10
         },
         {
-          "module": "typing",
+          "module": "rule_engine",
           "names": [
-            "List",
-            "Tuple",
-            "Union"
+            "Edit",
+            "Matcher",
+            "Reject",
+            "delete",
+            "delete_between",
+            "guard",
+            "insert_after",
+            "insert_before",
+            "replace",
+            "text",
+            "well_formed"
           ],
-          "line": 2
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 4
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 6
+          "line": 12
         }
       ],
       "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "c/transform6_declare.py",
-      "module": "c.transform6_declare",
-      "sha256": "5ff2d24212b5645f71d27b5c2c44a44c0eb81a7320264bc2cebaa92d4aa88107",
-      "line_count": 133,
-      "symbols": [
-        {
-          "name": "get_declare_info",
-          "kind": "function",
-          "line": 11,
-          "end_line": 28
-        },
-        {
-          "name": "contain_id",
-          "kind": "function",
-          "line": 31,
-          "end_line": 40
-        },
-        {
-          "name": "get_indent",
-          "kind": "function",
-          "line": 43,
-          "end_line": 52
-        },
-        {
-          "name": "get_type",
-          "kind": "function",
-          "line": 55,
-          "end_line": 63
-        },
-        {
-          "name": "rec_DeclareMerge",
-          "kind": "function",
-          "line": 69,
-          "end_line": 76
-        },
-        {
-          "name": "rec_DeclareSplit",
-          "kind": "function",
-          "line": 79,
-          "end_line": 87
-        },
-        {
-          "name": "cvt_DeclareMerge2Split",
-          "kind": "function",
-          "line": 95,
-          "end_line": 116
-        },
-        {
-          "name": "cvt_DeclareSplit2Merge",
-          "kind": "function",
-          "line": 119,
-          "end_line": 133
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union",
-            "Dict",
-            "Set"
-          ],
-          "line": 1
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 3
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 5
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "c/transform7_loop.py",
-      "module": "c.transform7_loop",
-      "sha256": "f6a5a37d2bd0806b9e6cce4d25d21ff52f4e35b758c89edc224d9f20bc95890b",
-      "line_count": 454,
-      "symbols": [
-        {
-          "name": "judge_equal",
-          "kind": "function",
-          "line": 9,
-          "end_line": 17
-        },
-        {
-          "name": "get_for_info",
-          "kind": "function",
-          "line": 19,
-          "end_line": 31
-        },
-        {
-          "name": "get_indent",
-          "kind": "function",
-          "line": 34,
-          "end_line": 43
-        },
-        {
-          "name": "contain_id",
-          "kind": "function",
-          "line": 46,
-          "end_line": 55
-        },
-        {
-          "name": "rec_For",
-          "kind": "function",
-          "line": 61,
-          "end_line": 63
-        },
-        {
-          "name": "match_For",
-          "kind": "function",
-          "line": 65,
-          "end_line": 69
-        },
-        {
-          "name": "rec_loop",
-          "kind": "function",
-          "line": 71,
-          "end_line": 78
-        },
-        {
-          "name": "match_While",
-          "kind": "function",
-          "line": 82,
-          "end_line": 85
-        },
-        {
-          "name": "match_DoWhile",
-          "kind": "function",
-          "line": 88,
-          "end_line": 91
-        },
-        {
-          "name": "match_ForOBC",
-          "kind": "function",
-          "line": 94,
-          "end_line": 98
-        },
-        {
-          "name": "match_ForAOC",
-          "kind": "function",
-          "line": 101,
-          "end_line": 105
-        },
-        {
-          "name": "match_ForABO",
-          "kind": "function",
-          "line": 108,
-          "end_line": 112
-        },
-        {
-          "name": "match_ForAOO",
-          "kind": "function",
-          "line": 115,
-          "end_line": 119
-        },
-        {
-          "name": "match_ForOBO",
-          "kind": "function",
-          "line": 122,
-          "end_line": 126
-        },
-        {
-          "name": "match_ForOOC",
-          "kind": "function",
-          "line": 129,
-          "end_line": 133
-        },
-        {
-          "name": "match_ForOOO",
-          "kind": "function",
-          "line": 136,
-          "end_line": 142
-        },
-        {
-          "name": "cvt_OBC",
-          "kind": "function",
-          "line": 149,
-          "end_line": 160
-        },
-        {
-          "name": "cvt_AOC",
-          "kind": "function",
-          "line": 163,
-          "end_line": 181
-        },
-        {
-          "name": "cvt_ABO",
-          "kind": "function",
-          "line": 184,
-          "end_line": 197
-        },
-        {
-          "name": "cvt_AOO",
-          "kind": "function",
-          "line": 200,
-          "end_line": 226
-        },
-        {
-          "name": "cvt_OBO",
-          "kind": "function",
-          "line": 229,
-          "end_line": 249
-        },
-        {
-          "name": "cvt_OOC",
-          "kind": "function",
-          "line": 252,
-          "end_line": 277
-        },
-        {
-          "name": "cvt_OOO",
-          "kind": "function",
-          "line": 280,
-          "end_line": 315
-        },
-        {
-          "name": "cvt_for",
-          "kind": "function",
-          "line": 318,
-          "end_line": 367
-        },
-        {
-          "name": "cvt_while",
-          "kind": "function",
-          "line": 370,
-          "end_line": 408
-        },
-        {
-          "name": "cvt_do_while",
-          "kind": "function",
-          "line": 411,
-          "end_line": 454
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union",
-            "Set"
-          ],
-          "line": 1
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 3
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 5
-        },
-        {
-          "module": "c.transform1_blank",
-          "names": [
-            "rec_IfForWhileNoBracket"
-          ],
-          "line": 6
-        }
-      ],
-      "local_dependencies": [
-        "c/transform1_blank.py",
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "c/transform8_if.py",
-      "module": "c.transform8_if",
-      "sha256": "7cb1b6f2334f2d657635d830442484902273bcbbf52cdc424f88dc3d38ca00fc",
-      "line_count": 164,
-      "symbols": [
-        {
-          "name": "get_indent",
-          "kind": "function",
-          "line": 8,
-          "end_line": 17
-        },
-        {
-          "name": "dfs",
-          "kind": "function",
-          "line": 19,
-          "end_line": 25
-        },
-        {
-          "name": "rec_IfMerge",
-          "kind": "function",
-          "line": 28,
-          "end_line": 39
-        },
-        {
-          "name": "rec_IfSplit",
-          "kind": "function",
-          "line": 41,
-          "end_line": 46
-        },
-        {
-          "name": "rec_If",
-          "kind": "function",
-          "line": 48,
-          "end_line": 73
-        },
-        {
-          "name": "rec_Switch",
-          "kind": "function",
-          "line": 75,
-          "end_line": 77
-        },
-        {
-          "name": "cvt_IfSplit",
-          "kind": "function",
-          "line": 80,
-          "end_line": 91
-        },
-        {
-          "name": "cvt_if2switch",
-          "kind": "function",
-          "line": 93,
-          "end_line": 135
-        },
-        {
-          "name": "cvt_switch2if",
-          "kind": "function",
-          "line": 138,
-          "end_line": 164
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union"
-          ],
-          "line": 1
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 3
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 5
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
+        "rule_engine.py"
       ],
       "has_main_guard": false
     },
@@ -2523,194 +1923,197 @@
     {
       "path": "change_program_style.py",
       "module": "change_program_style",
-      "sha256": "42ba297e25481fbd0e73ce09a5517c50d02ecac269a80908a77ea9cfbee5374f",
-      "line_count": 266,
+      "sha256": "dababfee3746c3c67e5b1e3db4e0a4878db032e7e99603648ca0f6129ca70123",
+      "line_count": 114,
       "symbols": [
+        {
+          "name": "library_path",
+          "kind": "function",
+          "line": 21,
+          "end_line": 27
+        },
+        {
+          "name": "load_rules",
+          "kind": "function",
+          "line": 31,
+          "end_line": 34
+        },
+        {
+          "name": "load_grammar",
+          "kind": "function",
+          "line": 38,
+          "end_line": 41
+        },
         {
           "name": "SCTS",
           "kind": "class",
-          "line": 17,
-          "end_line": 225
+          "line": 44,
+          "end_line": 114
         },
         {
           "name": "SCTS.__init__",
           "kind": "function",
-          "line": 18,
-          "end_line": 49
+          "line": 45,
+          "end_line": 50
         },
         {
-          "name": "SCTS.get_file_popularity",
+          "name": "SCTS.parse",
           "kind": "function",
-          "line": 51,
-          "end_line": 64
-        },
-        {
-          "name": "SCTS.get_dir_popularity",
-          "kind": "function",
-          "line": 66,
-          "end_line": 86
+          "line": 52,
+          "end_line": 53
         },
         {
           "name": "SCTS.change_file_style",
           "kind": "function",
-          "line": 88,
-          "end_line": 126
+          "line": 55,
+          "end_line": 63
+        },
+        {
+          "name": "SCTS.get_file_popularity",
+          "kind": "function",
+          "line": 65,
+          "end_line": 70
         },
         {
           "name": "SCTS.get_func_block",
           "kind": "function",
-          "line": 129,
-          "end_line": 158
+          "line": 72,
+          "end_line": 81
         },
         {
           "name": "SCTS.see_tree",
           "kind": "function",
-          "line": 162,
-          "end_line": 170
+          "line": 83,
+          "end_line": 97
         },
         {
           "name": "SCTS.tokenize",
           "kind": "function",
-          "line": 172,
-          "end_line": 178
+          "line": 99,
+          "end_line": 107
         },
         {
           "name": "SCTS.check_syntax",
           "kind": "function",
-          "line": 180,
-          "end_line": 183
+          "line": 109,
+          "end_line": 110
         },
         {
           "name": "SCTS.format",
           "kind": "function",
-          "line": 185,
-          "end_line": 225
-        },
-        {
-          "name": "timer",
-          "kind": "function",
-          "line": 229,
-          "end_line": 236
-        },
-        {
-          "name": "timer.wrapper",
-          "kind": "function",
-          "line": 230,
-          "end_line": 235
-        },
-        {
-          "name": "main",
-          "kind": "function",
-          "line": 239,
-          "end_line": 255
+          "line": 112,
+          "end_line": 114
         }
       ],
       "imports": [
         {
-          "module": "tqdm",
+          "module": "functools",
           "names": [
-            "tqdm"
+            "lru_cache"
           ],
-          "line": 1
+          "line": 9
         },
         {
-          "module": "os",
+          "module": "importlib",
           "names": [],
-          "line": 2
+          "line": 10
         },
         {
-          "module": "json",
-          "names": [],
-          "line": 3
-        },
-        {
-          "module": "tree_sitter",
+          "module": "pathlib",
           "names": [
-            "Parser",
-            "Language",
-            "Node"
-          ],
-          "line": 4
-        },
-        {
-          "module": "utils",
-          "names": [
-            "*"
-          ],
-          "line": 5
-        },
-        {
-          "module": "subprocess",
-          "names": [],
-          "line": 6
-        },
-        {
-          "module": "time",
-          "names": [],
-          "line": 7
-        },
-        {
-          "module": "typing",
-          "names": [
-            "Callable",
-            "Literal",
-            "Dict",
-            "Tuple",
-            "Union",
-            "List"
-          ],
-          "line": 8
-        },
-        {
-          "module": "graphviz",
-          "names": [
-            "Digraph"
+            "Path"
           ],
           "line": 11
         },
         {
-          "module": "graphviz",
+          "module": "subprocess",
+          "names": [],
+          "line": 12
+        },
+        {
+          "module": "typing",
           "names": [
-            "Digraph"
+            "Dict",
+            "List",
+            "Tuple",
+            "Union"
+          ],
+          "line": 13
+        },
+        {
+          "module": "rule_engine",
+          "names": [
+            "Grammar",
+            "text"
           ],
           "line": 15
         },
         {
-          "module": "java.config",
+          "module": "graphviz",
           "names": [
-            "transformation_operators"
+            "Digraph"
           ],
-          "line": 39
-        },
-        {
-          "module": "python.config",
-          "names": [
-            "transformation_operators"
-          ],
-          "line": 41
-        },
-        {
-          "module": "c.config",
-          "names": [
-            "transformation_operators"
-          ],
-          "line": 43
-        },
-        {
-          "module": "cpp.config",
-          "names": [
-            "transformation_operators"
-          ],
-          "line": 45
+          "line": 84
         }
       ],
       "local_dependencies": [
-        "c/config.py",
-        "cpp/config.py",
-        "python/config.py",
-        "utils.py"
+        "rule_engine.py"
       ],
-      "has_main_guard": true
+      "has_main_guard": false
+    },
+    {
+      "path": "code_io.py",
+      "module": "code_io",
+      "sha256": "2bafa0d3a72b55697c6a05cd2dcbc34871d513e9d8c17c0f2d161846cc88d559",
+      "line_count": 44,
+      "symbols": [
+        {
+          "name": "detect_encoding",
+          "kind": "function",
+          "line": 18,
+          "end_line": 24
+        },
+        {
+          "name": "decode_source",
+          "kind": "function",
+          "line": 27,
+          "end_line": 29
+        },
+        {
+          "name": "read_source",
+          "kind": "function",
+          "line": 32,
+          "end_line": 33
+        },
+        {
+          "name": "write_source",
+          "kind": "function",
+          "line": 36,
+          "end_line": 39
+        },
+        {
+          "name": "reload_written",
+          "kind": "function",
+          "line": 42,
+          "end_line": 44
+        }
+      ],
+      "imports": [
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 9
+        },
+        {
+          "module": "chardet",
+          "names": [],
+          "line": 11
+        }
+      ],
+      "local_dependencies": [],
+      "has_main_guard": false
     },
     {
       "path": "code_transform_provider.py",
@@ -2839,1607 +2242,172 @@
       "has_main_guard": true
     },
     {
-      "path": "cpp/config.py",
-      "module": "cpp.config",
-      "sha256": "6502a38b5d55e568cf307f3504da290096a874e37a9edfc6edbef8a348c8b38f",
-      "line_count": 76,
-      "symbols": [],
-      "imports": [
-        {
-          "module": "cpp.transform13_fun",
-          "names": [
-            "rec_func",
-            "cvt_func"
-          ],
-          "line": 1
-        },
-        {
-          "module": "cpp.transform1_blank",
-          "names": [
-            "*"
-          ],
-          "line": 2
-        },
-        {
-          "module": "cpp.transform2_op",
-          "names": [
-            "*"
-          ],
-          "line": 3
-        },
-        {
-          "module": "cpp.transform3_update",
-          "names": [
-            "*"
-          ],
-          "line": 4
-        },
-        {
-          "module": "cpp.transform4_main",
-          "names": [
-            "*"
-          ],
-          "line": 5
-        },
-        {
-          "module": "cpp.transform6_declare",
-          "names": [
-            "*"
-          ],
-          "line": 6
-        },
-        {
-          "module": "cpp.transform7_loop",
-          "names": [
-            "*"
-          ],
-          "line": 7
-        },
-        {
-          "module": "cpp.transform8_if",
-          "names": [
-            "*"
-          ],
-          "line": 8
-        },
-        {
-          "module": "cpp.transform9_cpp",
-          "names": [
-            "*"
-          ],
-          "line": 9
-        }
-      ],
-      "local_dependencies": [
-        "cpp/transform13_fun.py",
-        "cpp/transform1_blank.py",
-        "cpp/transform2_op.py",
-        "cpp/transform3_update.py",
-        "cpp/transform4_main.py",
-        "cpp/transform6_declare.py",
-        "cpp/transform7_loop.py",
-        "cpp/transform8_if.py",
-        "cpp/transform9_cpp.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "cpp/transform0_var.py",
-      "module": "cpp.transform0_var",
-      "sha256": "c59e1c9f6e3b51bb813411ca92a50231359495215cce65231220235353084898",
-      "line_count": 228,
+      "path": "cpp/rules.py",
+      "module": "cpp.rules",
+      "sha256": "1301ec4d1175fdeeb1b6d1c7e5b2496f22c31f251b073d564976f972a5b7c4fd",
+      "line_count": 277,
       "symbols": [
         {
-          "name": "is_all_lowercase",
+          "name": "function_name",
           "kind": "function",
-          "line": 23,
-          "end_line": 27
+          "line": 12,
+          "end_line": 13
         },
         {
-          "name": "is_all_uppercase",
+          "name": "declared_types",
           "kind": "function",
-          "line": 29,
-          "end_line": 30
-        },
-        {
-          "name": "is_camel_case",
-          "kind": "function",
-          "line": 32,
+          "line": 16,
           "end_line": 35
         },
         {
-          "name": "is_initcap",
+          "name": "format_of",
           "kind": "function",
-          "line": 37,
-          "end_line": 40
+          "line": 38,
+          "end_line": 51
         },
         {
-          "name": "is_underscore",
+          "name": "stream_to_format",
           "kind": "function",
-          "line": 42,
-          "end_line": 43
+          "line": 54,
+          "end_line": 115
         },
         {
-          "name": "is_init_underscore",
+          "name": "cout_statement",
           "kind": "function",
-          "line": 45,
-          "end_line": 46
-        },
-        {
-          "name": "is_init_dollar",
-          "kind": "function",
-          "line": 48,
-          "end_line": 49
-        },
-        {
-          "name": "sub_token",
-          "kind": "function",
-          "line": 51,
-          "end_line": 79
-        },
-        {
-          "name": "get_id",
-          "kind": "function",
-          "line": 81,
-          "end_line": 89
-        },
-        {
-          "name": "get_id.traverse",
-          "kind": "function",
-          "line": 83,
-          "end_line": 87
-        },
-        {
-          "name": "get_id_type",
-          "kind": "function",
-          "line": 91,
-          "end_line": 107
-        },
-        {
-          "name": "rec_identifier",
-          "kind": "function",
-          "line": 110,
-          "end_line": 122
-        },
-        {
-          "name": "match_camel",
-          "kind": "function",
-          "line": 124,
-          "end_line": 127
-        },
-        {
-          "name": "match_initcap",
-          "kind": "function",
-          "line": 129,
-          "end_line": 132
-        },
-        {
-          "name": "match_underscore",
-          "kind": "function",
-          "line": 134,
-          "end_line": 137
-        },
-        {
-          "name": "match_init_underscore",
-          "kind": "function",
-          "line": 139,
-          "end_line": 142
-        },
-        {
-          "name": "match_init_dollar",
-          "kind": "function",
-          "line": 144,
-          "end_line": 147
-        },
-        {
-          "name": "match_upper",
-          "kind": "function",
-          "line": 149,
-          "end_line": 152
-        },
-        {
-          "name": "match_lower",
-          "kind": "function",
-          "line": 154,
-          "end_line": 157
-        },
-        {
-          "name": "match_hungarian",
-          "kind": "function",
-          "line": 159,
-          "end_line": 163
-        },
-        {
-          "name": "cvt_camel",
-          "kind": "function",
-          "line": 166,
-          "end_line": 177
-        },
-        {
-          "name": "cvt_initcap",
-          "kind": "function",
-          "line": 179,
-          "end_line": 188
-        },
-        {
-          "name": "cvt_underscore",
-          "kind": "function",
-          "line": 190,
-          "end_line": 196
-        },
-        {
-          "name": "cvt_init_underscore",
-          "kind": "function",
-          "line": 198,
-          "end_line": 202
-        },
-        {
-          "name": "cvt_init_dollar",
-          "kind": "function",
-          "line": 204,
-          "end_line": 208
-        },
-        {
-          "name": "cvt_upper",
-          "kind": "function",
-          "line": 210,
-          "end_line": 214
-        },
-        {
-          "name": "cvt_lower",
-          "kind": "function",
-          "line": 216,
-          "end_line": 220
-        },
-        {
-          "name": "cvt_hungarian",
-          "kind": "function",
-          "line": 222,
-          "end_line": 228
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union",
-            "Dict"
-          ],
-          "line": 1
-        },
-        {
-          "module": "inflection",
-          "names": [],
-          "line": 3
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 4
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 6
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "cpp/transform13_fun.py",
-      "module": "cpp.transform13_fun",
-      "sha256": "e6a28dad1bfd721cc5a3495756d9f3652590a5ab0d1eac1c8d2d5aad80ada2f2",
-      "line_count": 29,
-      "symbols": [
-        {
-          "name": "rec_func",
-          "kind": "function",
-          "line": 6,
-          "end_line": 19
-        },
-        {
-          "name": "cvt_func",
-          "kind": "function",
-          "line": 21,
-          "end_line": 29
-        }
-      ],
-      "imports": [
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 1
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 3
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "cpp/transform1_blank.py",
-      "module": "cpp.transform1_blank",
-      "sha256": "4dd1b7c4129d688197148491709c88e18f04081cc7400e3df60784be964ae2df",
-      "line_count": 139,
-      "symbols": [
-        {
-          "name": "get_indent",
-          "kind": "function",
-          "line": 8,
-          "end_line": 17
-        },
-        {
-          "name": "rec_BracketSameLine",
-          "kind": "function",
-          "line": 20,
-          "end_line": 26
-        },
-        {
-          "name": "rec_BracketNextLine",
-          "kind": "function",
-          "line": 28,
-          "end_line": 34
-        },
-        {
-          "name": "rec_OperatorOrSpliter",
-          "kind": "function",
-          "line": 36,
-          "end_line": 39
-        },
-        {
-          "name": "rec_IfForWhileNoBracket",
-          "kind": "function",
-          "line": 41,
-          "end_line": 47
-        },
-        {
-          "name": "rec_IfForWhileHasBracket",
-          "kind": "function",
-          "line": 49,
-          "end_line": 60
-        },
-        {
-          "name": "cvt_BracketSame2NextLine",
-          "kind": "function",
-          "line": 63,
-          "end_line": 66
-        },
-        {
-          "name": "cvt_BracketNext2SameLine",
-          "kind": "function",
-          "line": 68,
-          "end_line": 73
-        },
-        {
-          "name": "cvt_AddBlankSpace",
-          "kind": "function",
-          "line": 75,
-          "end_line": 93
-        },
-        {
-          "name": "cvt_AddIfForWhileBracket",
-          "kind": "function",
-          "line": 95,
-          "end_line": 130
-        },
-        {
-          "name": "cvt_DelIfForWhileBracket",
-          "kind": "function",
-          "line": 132,
-          "end_line": 139
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union"
-          ],
-          "line": 1
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 3
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 5
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "cpp/transform2_op.py",
-      "module": "cpp.transform2_op",
-      "sha256": "73991e9e1d93e26f5b189e5b7804768aa8cc6d61e22d889f6d65bba2f8f876e6",
-      "line_count": 346,
-      "symbols": [
-        {
-          "name": "judge_no",
-          "kind": "function",
-          "line": 9,
-          "end_line": 14
-        },
-        {
-          "name": "get_parent_first",
-          "kind": "function",
-          "line": 17,
-          "end_line": 31
-        },
-        {
-          "name": "compare_hash",
-          "kind": "function",
-          "line": 34,
-          "end_line": 39
-        },
-        {
-          "name": "compare_hash_sha224",
-          "kind": "function",
-          "line": 42,
-          "end_line": 47
-        },
-        {
-          "name": "rec_AugmentedAssignment",
-          "kind": "function",
-          "line": 53,
-          "end_line": 58
-        },
-        {
-          "name": "rec_Assignment",
-          "kind": "function",
-          "line": 61,
-          "end_line": 69
-        },
-        {
-          "name": "rec_Equal",
-          "kind": "function",
-          "line": 72,
-          "end_line": 80
-        },
-        {
-          "name": "rec_Equal_nolimit",
-          "kind": "function",
-          "line": 83,
-          "end_line": 89
-        },
-        {
-          "name": "rec_CmpOptBigger",
-          "kind": "function",
-          "line": 92,
-          "end_line": 96
-        },
-        {
-          "name": "rec_CmpOptSmaller",
-          "kind": "function",
-          "line": 99,
-          "end_line": 103
-        },
-        {
-          "name": "rec_Cmp",
-          "kind": "function",
-          "line": 106,
-          "end_line": 112
-        },
-        {
-          "name": "rec_exp_cmp",
-          "kind": "function",
-          "line": 115,
-          "end_line": 129
-        },
-        {
-          "name": "rec_not_equal_reverse",
-          "kind": "function",
-          "line": 132,
-          "end_line": 138
-        },
-        {
-          "name": "rec_equal_reverse",
-          "kind": "function",
-          "line": 141,
-          "end_line": 147
-        },
-        {
-          "name": "match_Equal",
-          "kind": "function",
-          "line": 150,
-          "end_line": 151
-        },
-        {
-          "name": "match_NotEqual",
-          "kind": "function",
-          "line": 154,
-          "end_line": 155
-        },
-        {
-          "name": "match_LeftConst",
-          "kind": "function",
-          "line": 158,
-          "end_line": 159
-        },
-        {
-          "name": "cvt_EqualBiggerHashTrans",
-          "kind": "function",
-          "line": 165,
-          "end_line": 179
-        },
-        {
-          "name": "cvt_EqualSmallHashTrans",
-          "kind": "function",
-          "line": 182,
-          "end_line": 196
-        },
-        {
-          "name": "cvt_NotEqualBiggerHashTrans",
-          "kind": "function",
-          "line": 199,
-          "end_line": 213
-        },
-        {
-          "name": "cvt_NotEqualSmallHashTrans",
-          "kind": "function",
-          "line": 216,
-          "end_line": 230
-        },
-        {
-          "name": "cvt_Equal2NotEqual",
-          "kind": "function",
-          "line": 233,
-          "end_line": 242
-        },
-        {
-          "name": "cvt_NotEqual2Equal",
-          "kind": "function",
-          "line": 245,
-          "end_line": 254
-        },
-        {
-          "name": "cvt_NotEqual2Equal_reverse",
-          "kind": "function",
-          "line": 257,
-          "end_line": 263
-        },
-        {
-          "name": "cvt_Equal2NotEqual_reverse",
-          "kind": "function",
-          "line": 266,
-          "end_line": 272
-        },
-        {
-          "name": "cvt_AugmentedAssignment2Assignment",
-          "kind": "function",
-          "line": 275,
-          "end_line": 281
-        },
-        {
-          "name": "cvt_Assignment2AugmentedAssignment",
-          "kind": "function",
-          "line": 284,
-          "end_line": 293
-        },
-        {
-          "name": "cvt_Bigger2Smaller",
-          "kind": "function",
-          "line": 296,
-          "end_line": 302
-        },
-        {
-          "name": "cvt_Smaller2Bigger",
-          "kind": "function",
-          "line": 305,
-          "end_line": 311
-        },
-        {
-          "name": "cvt_Equal",
-          "kind": "function",
-          "line": 314,
-          "end_line": 331
-        },
-        {
-          "name": "cvt_cmp",
-          "kind": "function",
-          "line": 334,
-          "end_line": 346
-        }
-      ],
-      "imports": [
-        {
-          "module": "hashlib",
-          "names": [],
-          "line": 1
-        },
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union"
-          ],
-          "line": 2
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 4
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 6
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "cpp/transform3_update.py",
-      "module": "cpp.transform3_update",
-      "sha256": "d0c39f0ed3e2ec5ab31c24e9d898166df9106aac13b3e136cb84b141b012c45c",
-      "line_count": 44,
-      "symbols": [
-        {
-          "name": "rec_LeftUpdate",
-          "kind": "function",
-          "line": 8,
-          "end_line": 15
-        },
-        {
-          "name": "rec_RightUpdate",
-          "kind": "function",
-          "line": 17,
-          "end_line": 24
-        },
-        {
-          "name": "rec_ToLeft",
-          "kind": "function",
-          "line": 26,
-          "end_line": 27
-        },
-        {
-          "name": "rec_ToRight",
-          "kind": "function",
-          "line": 29,
-          "end_line": 30
-        },
-        {
-          "name": "cvt_ToRight",
-          "kind": "function",
-          "line": 34,
-          "end_line": 38
-        },
-        {
-          "name": "cvt_ToLeft",
-          "kind": "function",
-          "line": 40,
-          "end_line": 44
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union"
-          ],
-          "line": 1
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 3
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 5
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "cpp/transform4_main.py",
-      "module": "cpp.transform4_main",
-      "sha256": "9f54225cff27108e346db30efc8b6f672d82f1847faad722fc6755884810a36f",
-      "line_count": 220,
-      "symbols": [
-        {
-          "name": "getMainInfo",
-          "kind": "function",
-          "line": 8,
-          "end_line": 19
-        },
-        {
-          "name": "rec_Main",
-          "kind": "function",
-          "line": 22,
-          "end_line": 26
-        },
-        {
-          "name": "match_IntVoidReturn",
-          "kind": "function",
-          "line": 28,
-          "end_line": 37
-        },
-        {
-          "name": "match_IntVoid",
-          "kind": "function",
-          "line": 39,
-          "end_line": 46
-        },
-        {
-          "name": "match_IntReturn",
-          "kind": "function",
-          "line": 48,
-          "end_line": 57
-        },
-        {
-          "name": "match_Int",
-          "kind": "function",
-          "line": 59,
-          "end_line": 66
-        },
-        {
-          "name": "match_IntArgReturn",
-          "kind": "function",
-          "line": 68,
-          "end_line": 77
-        },
-        {
-          "name": "match_IntArg",
-          "kind": "function",
-          "line": 79,
-          "end_line": 86
-        },
-        {
-          "name": "match_VoidArg",
-          "kind": "function",
-          "line": 88,
-          "end_line": 95
-        },
-        {
-          "name": "match_Void",
-          "kind": "function",
-          "line": 97,
-          "end_line": 104
-        },
-        {
-          "name": "cvt_IntVoidReturn",
-          "kind": "function",
-          "line": 107,
+          "line": 119,
           "end_line": 120
         },
         {
-          "name": "cvt_IntVoid",
+          "name": "cin_statement",
           "kind": "function",
-          "line": 122,
-          "end_line": 134
+          "line": 124,
+          "end_line": 125
         },
         {
-          "name": "cvt_IntReturn",
+          "name": "stream_head",
           "kind": "function",
-          "line": 136,
-          "end_line": 149
+          "line": 128,
+          "end_line": 137
         },
         {
-          "name": "cvt_Int",
+          "name": "call_to",
           "kind": "function",
-          "line": 151,
-          "end_line": 163
+          "line": 140,
+          "end_line": 142
         },
         {
-          "name": "cvt_IntArgReturn",
+          "name": "printf_to_cout",
           "kind": "function",
-          "line": 165,
-          "end_line": 178
+          "line": 145,
+          "end_line": 166
         },
         {
-          "name": "cvt_IntArg",
+          "name": "cout_to_printf",
           "kind": "function",
-          "line": 180,
-          "end_line": 192
-        },
-        {
-          "name": "cvt_VoidArg",
-          "kind": "function",
-          "line": 194,
-          "end_line": 206
-        },
-        {
-          "name": "cvt_Void",
-          "kind": "function",
-          "line": 208,
-          "end_line": 220
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union"
-          ],
-          "line": 1
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 3
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 5
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "cpp/transform5_array.py",
-      "module": "cpp.transform5_array",
-      "sha256": "a6fd7658ddf83cabdbdf6b91eb30fafe46ee4eeaba137b362a0829c3260daf05",
-      "line_count": 320,
-      "symbols": [
-        {
-          "name": "get_indent",
-          "kind": "function",
-          "line": 8,
-          "end_line": 17
-        },
-        {
-          "name": "get_array_dim",
-          "kind": "function",
-          "line": 19,
-          "end_line": 28
-        },
-        {
-          "name": "get_pointer_dim",
-          "kind": "function",
-          "line": 30,
-          "end_line": 39
-        },
-        {
-          "name": "get_pointer_dim.traverse",
-          "kind": "function",
-          "line": 33,
-          "end_line": 37
-        },
-        {
-          "name": "get_size",
-          "kind": "function",
-          "line": 41,
-          "end_line": 53
-        },
-        {
-          "name": "is_nest_array",
-          "kind": "function",
-          "line": 55,
-          "end_line": 65
-        },
-        {
-          "name": "get_left_id",
-          "kind": "function",
-          "line": 67,
-          "end_line": 74
-        },
-        {
-          "name": "rec_StaticMem",
-          "kind": "function",
-          "line": 77,
-          "end_line": 84
-        },
-        {
-          "name": "rec_DynMemOneLine",
-          "kind": "function",
-          "line": 86,
-          "end_line": 96
-        },
-        {
-          "name": "rec_DynMemTwoLine",
-          "kind": "function",
-          "line": 98,
-          "end_line": 99
-        },
-        {
-          "name": "rec_DynMem",
-          "kind": "function",
-          "line": 101,
-          "end_line": 102
-        },
-        {
-          "name": "rec_Array",
-          "kind": "function",
-          "line": 104,
-          "end_line": 111
-        },
-        {
-          "name": "rec_Pointer",
-          "kind": "function",
-          "line": 113,
-          "end_line": 121
-        },
-        {
-          "name": "cvt_Static2Dyn",
-          "kind": "function",
-          "line": 126,
-          "end_line": 180
-        },
-        {
-          "name": "cvt_Dyn2Static",
-          "kind": "function",
-          "line": 182,
-          "end_line": 211
-        },
-        {
-          "name": "cvt_Array2Pointer",
-          "kind": "function",
-          "line": 213,
-          "end_line": 241
-        },
-        {
-          "name": "cvt_Pointer2Array",
-          "kind": "function",
-          "line": 243,
-          "end_line": 320
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union"
-          ],
-          "line": 1
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 3
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 5
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "cpp/transform6_declare.py",
-      "module": "cpp.transform6_declare",
-      "sha256": "cb6f469273383c3a42714e16045b09ff61423e457eb8e72364cf3b1be9be24ef",
-      "line_count": 148,
-      "symbols": [
-        {
-          "name": "get_declare_info",
-          "kind": "function",
-          "line": 11,
-          "end_line": 28
-        },
-        {
-          "name": "contain_id",
-          "kind": "function",
-          "line": 31,
-          "end_line": 40
-        },
-        {
-          "name": "get_id_first_line",
-          "kind": "function",
-          "line": 43,
-          "end_line": 60
-        },
-        {
-          "name": "get_indent",
-          "kind": "function",
-          "line": 63,
-          "end_line": 72
-        },
-        {
-          "name": "get_type",
-          "kind": "function",
-          "line": 75,
-          "end_line": 83
-        },
-        {
-          "name": "rec_DeclareMerge",
-          "kind": "function",
-          "line": 89,
-          "end_line": 96
-        },
-        {
-          "name": "rec_DeclareSplit",
-          "kind": "function",
-          "line": 99,
-          "end_line": 107
-        },
-        {
-          "name": "cvt_DeclareMerge2Split",
-          "kind": "function",
-          "line": 111,
-          "end_line": 131
-        },
-        {
-          "name": "cvt_DeclareSplit2Merge",
-          "kind": "function",
-          "line": 134,
-          "end_line": 148
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union",
-            "Dict",
-            "Set"
-          ],
-          "line": 1
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 3
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 5
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "cpp/transform7_loop.py",
-      "module": "cpp.transform7_loop",
-      "sha256": "d1d8be2fa5bf1750610ed9fe3acf3dd9ab05b09ff7be7916cc0e48abdf5fd84e",
-      "line_count": 347,
-      "symbols": [
-        {
-          "name": "get_for_info",
-          "kind": "function",
-          "line": 9,
-          "end_line": 21
-        },
-        {
-          "name": "get_indent",
-          "kind": "function",
-          "line": 24,
-          "end_line": 33
-        },
-        {
-          "name": "contain_id",
-          "kind": "function",
-          "line": 36,
-          "end_line": 45
-        },
-        {
-          "name": "rec_For",
-          "kind": "function",
-          "line": 51,
-          "end_line": 53
-        },
-        {
-          "name": "match_For",
-          "kind": "function",
-          "line": 55,
-          "end_line": 59
-        },
-        {
-          "name": "rec_loop",
-          "kind": "function",
-          "line": 61,
-          "end_line": 68
-        },
-        {
-          "name": "match_ForOBC",
-          "kind": "function",
-          "line": 71,
-          "end_line": 75
-        },
-        {
-          "name": "match_ForAOC",
-          "kind": "function",
-          "line": 78,
-          "end_line": 82
-        },
-        {
-          "name": "match_ForABO",
-          "kind": "function",
-          "line": 85,
-          "end_line": 89
-        },
-        {
-          "name": "match_ForAOO",
-          "kind": "function",
-          "line": 92,
-          "end_line": 96
-        },
-        {
-          "name": "match_ForOBO",
-          "kind": "function",
-          "line": 99,
-          "end_line": 103
-        },
-        {
-          "name": "match_ForOOC",
-          "kind": "function",
-          "line": 106,
-          "end_line": 110
-        },
-        {
-          "name": "match_ForOOO",
-          "kind": "function",
-          "line": 113,
-          "end_line": 119
-        },
-        {
-          "name": "cvt_OBC",
-          "kind": "function",
-          "line": 125,
-          "end_line": 136
-        },
-        {
-          "name": "cvt_AOC",
-          "kind": "function",
-          "line": 139,
-          "end_line": 157
-        },
-        {
-          "name": "cvt_ABO",
-          "kind": "function",
-          "line": 160,
+          "line": 169,
           "end_line": 173
         },
         {
-          "name": "cvt_AOO",
+          "name": "scanf_to_cin",
           "kind": "function",
           "line": 176,
-          "end_line": 204
+          "end_line": 183
         },
         {
-          "name": "cvt_OBO",
+          "name": "cin_to_scanf",
           "kind": "function",
-          "line": 207,
-          "end_line": 227
+          "line": 186,
+          "end_line": 190
         },
         {
-          "name": "cvt_OOC",
+          "name": "simple_typedef",
           "kind": "function",
-          "line": 230,
-          "end_line": 255
+          "line": 199,
+          "end_line": 201
         },
         {
-          "name": "cvt_OOO",
-          "kind": "function",
-          "line": 258,
-          "end_line": 293
-        },
-        {
-          "name": "cvt_for",
-          "kind": "function",
-          "line": 296,
-          "end_line": 347
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union",
-            "Set"
-          ],
-          "line": 1
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 3
-        },
-        {
-          "module": "c.transform7_loop",
-          "names": [
-            "judge_equal"
-          ],
-          "line": 5
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 6
-        }
-      ],
-      "local_dependencies": [
-        "c/transform7_loop.py",
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "cpp/transform8_if.py",
-      "module": "cpp.transform8_if",
-      "sha256": "7cb1b6f2334f2d657635d830442484902273bcbbf52cdc424f88dc3d38ca00fc",
-      "line_count": 164,
-      "symbols": [
-        {
-          "name": "get_indent",
-          "kind": "function",
-          "line": 8,
-          "end_line": 17
-        },
-        {
-          "name": "dfs",
-          "kind": "function",
-          "line": 19,
-          "end_line": 25
-        },
-        {
-          "name": "rec_IfMerge",
-          "kind": "function",
-          "line": 28,
-          "end_line": 39
-        },
-        {
-          "name": "rec_IfSplit",
-          "kind": "function",
-          "line": 41,
-          "end_line": 46
-        },
-        {
-          "name": "rec_If",
-          "kind": "function",
-          "line": 48,
-          "end_line": 73
-        },
-        {
-          "name": "rec_Switch",
-          "kind": "function",
-          "line": 75,
-          "end_line": 77
-        },
-        {
-          "name": "cvt_IfSplit",
-          "kind": "function",
-          "line": 80,
-          "end_line": 91
-        },
-        {
-          "name": "cvt_if2switch",
-          "kind": "function",
-          "line": 93,
-          "end_line": 135
-        },
-        {
-          "name": "cvt_switch2if",
-          "kind": "function",
-          "line": 138,
-          "end_line": 164
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union"
-          ],
-          "line": 1
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 3
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 5
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "cpp/transform9_cpp.py",
-      "module": "cpp.transform9_cpp",
-      "sha256": "92292ad7276a92467fd44b0e34e9b1f1c071de2e87c8c7c96f336dd7c46ec7ba",
-      "line_count": 406,
-      "symbols": [
-        {
-          "name": "get_array_dim",
-          "kind": "function",
-          "line": 9,
-          "end_line": 18
-        },
-        {
-          "name": "find_format_specifiers",
-          "kind": "function",
-          "line": 19,
-          "end_line": 24
-        },
-        {
-          "name": "get_ids_type",
-          "kind": "function",
-          "line": 26,
-          "end_line": 46
-        },
-        {
-          "name": "type2format",
-          "kind": "function",
-          "line": 48,
-          "end_line": 60
-        },
-        {
-          "name": "get_stream_info",
-          "kind": "function",
-          "line": 62,
-          "end_line": 143
-        },
-        {
-          "name": "rec_Include",
-          "kind": "function",
-          "line": 146,
-          "end_line": 153
-        },
-        {
-          "name": "match_Include",
-          "kind": "function",
-          "line": 155,
-          "end_line": 161
-        },
-        {
-          "name": "rec_NameSpaceStd",
-          "kind": "function",
-          "line": 163,
-          "end_line": 170
-        },
-        {
-          "name": "match_NameSpaceStd",
-          "kind": "function",
-          "line": 172,
-          "end_line": 178
-        },
-        {
-          "name": "rec_MainWithoutSync",
-          "kind": "function",
-          "line": 180,
-          "end_line": 191
-        },
-        {
-          "name": "match_MainWithSync",
-          "kind": "function",
-          "line": 193,
-          "end_line": 203
-        },
-        {
-          "name": "rec_StructDeclare",
+          "name": "simple_alias",
           "kind": "function",
           "line": 205,
-          "end_line": 209
+          "end_line": 210
         },
         {
-          "name": "match_StructDeclare",
+          "name": "typedef_to_using",
           "kind": "function",
-          "line": 211,
+          "line": 213,
           "end_line": 215
         },
         {
-          "name": "rec_Printf",
+          "name": "using_to_typedef",
           "kind": "function",
-          "line": 217,
-          "end_line": 222
+          "line": 218,
+          "end_line": 220
         },
         {
-          "name": "rec_Cout",
+          "name": "not_stream_operand",
           "kind": "function",
-          "line": 224,
-          "end_line": 234
+          "line": 227,
+          "end_line": 228
         },
         {
-          "name": "match_CoutEndl",
+          "name": "c_style_cast",
           "kind": "function",
-          "line": 236,
-          "end_line": 240
+          "line": 232,
+          "end_line": 241
         },
         {
-          "name": "match_CoutNoEndl",
+          "name": "functional_cast",
           "kind": "function",
-          "line": 242,
-          "end_line": 246
+          "line": 245,
+          "end_line": 250
         },
         {
-          "name": "rec_Scanf",
+          "name": "to_functional_cast",
           "kind": "function",
-          "line": 248,
-          "end_line": 253
+          "line": 253,
+          "end_line": 257
         },
         {
-          "name": "rec_Cin",
+          "name": "to_c_style_cast",
           "kind": "function",
-          "line": 255,
-          "end_line": 265
-        },
-        {
-          "name": "cvt_AddBitsStd",
-          "kind": "function",
-          "line": 268,
-          "end_line": 269
-        },
-        {
-          "name": "cvt_AddStd",
-          "kind": "function",
-          "line": 271,
-          "end_line": 279
-        },
-        {
-          "name": "cvt_AddSyncWithFalse",
-          "kind": "function",
-          "line": 281,
-          "end_line": 283
-        },
-        {
-          "name": "cvt_DelStruct",
-          "kind": "function",
-          "line": 285,
-          "end_line": 288
-        },
-        {
-          "name": "cvt_Printf2CoutEndl",
-          "kind": "function",
-          "line": 290,
-          "end_line": 325
-        },
-        {
-          "name": "cvt_Printf2Cout",
-          "kind": "function",
-          "line": 327,
-          "end_line": 352
-        },
-        {
-          "name": "cvt_DelEndl",
-          "kind": "function",
-          "line": 354,
-          "end_line": 371
-        },
-        {
-          "name": "cvt_Cout2Printf",
-          "kind": "function",
-          "line": 373,
-          "end_line": 380
-        },
-        {
-          "name": "cvt_Scanf2Cin",
-          "kind": "function",
-          "line": 382,
-          "end_line": 397
-        },
-        {
-          "name": "cvt_Cin2Scanf",
-          "kind": "function",
-          "line": 399,
-          "end_line": 406
+          "line": 260,
+          "end_line": 264
         }
       ],
       "imports": [
         {
           "module": "re",
           "names": [],
-          "line": 1
+          "line": 3
         },
         {
-          "module": "typing",
+          "module": "c.rules",
           "names": [
-            "List",
-            "Tuple",
-            "Union",
-            "Dict"
+            "FUNCTION",
+            "array_dimension",
+            "c_family_rules",
+            "contain_id",
+            "function_name",
+            "nodes",
+            "outside_text_sensitive_operands"
           ],
-          "line": 2
+          "line": 5
         },
         {
-          "module": "tree_sitter",
+          "module": "rule_engine",
           "names": [
-            "Node"
-          ],
-          "line": 4
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 6
-        },
-        {
-          "module": "cpp.transform6_declare",
-          "names": [
-            "contain_id"
+            "Reject",
+            "guard",
+            "replace",
+            "text",
+            "well_formed"
           ],
           "line": 7
         }
       ],
       "local_dependencies": [
-        "cpp/transform6_declare.py",
-        "utils.py"
+        "c/rules.py",
+        "rule_engine.py"
       ],
       "has_main_guard": false
     },
@@ -4600,44 +2568,38 @@
     {
       "path": "folder_transform_check.py",
       "module": "folder_transform_check",
-      "sha256": "85db15dc5f9a0d128538cedd3d7fa20c194bcbb607254faba870e1b1bd75fc15",
-      "line_count": 144,
+      "sha256": "c048cf0482ea5be59131fab8223bb26725d5814036db57601611abf8a9a6f863",
+      "line_count": 52,
       "symbols": [
         {
           "name": "display_diff_in_console",
           "kind": "function",
-          "line": 26,
-          "end_line": 41
-        },
-        {
-          "name": "get_sorted_files_by_sha256",
-          "kind": "function",
-          "line": 45,
-          "end_line": 50
+          "line": 13,
+          "end_line": 18
         },
         {
           "name": "read_file_with_auto_encoding",
           "kind": "function",
-          "line": 53,
-          "end_line": 64
+          "line": 21,
+          "end_line": 22
         },
         {
-          "name": "check_file_rule",
+          "name": "load_project",
           "kind": "function",
-          "line": 67,
-          "end_line": 92
+          "line": 25,
+          "end_line": 29
         },
         {
           "name": "check_support_transform",
           "kind": "function",
-          "line": 95,
-          "end_line": 119
+          "line": 32,
+          "end_line": 38
         },
         {
           "name": "get_subfolder",
           "kind": "function",
-          "line": 121,
-          "end_line": 122
+          "line": 41,
+          "end_line": 42
         }
       ],
       "imports": [
@@ -4647,19 +2609,19 @@
           "line": 1
         },
         {
-          "module": "shutil",
+          "module": "json",
           "names": [],
           "line": 2
         },
         {
-          "module": "chardet",
+          "module": "os",
           "names": [],
-          "line": 4
+          "line": 3
         },
         {
-          "module": "numpy",
+          "module": "shutil",
           "names": [],
-          "line": 5
+          "line": 4
         },
         {
           "module": "tqdm",
@@ -4676,45 +2638,22 @@
           "line": 8
         },
         {
-          "module": "fortowhile",
-          "names": [],
+          "module": "code_io",
+          "names": [
+            "read_source"
+          ],
           "line": 9
         },
         {
-          "module": "rule_dict",
+          "module": "watermark_core",
           "names": [],
           "line": 10
-        },
-        {
-          "module": "os",
-          "names": [],
-          "line": 11
-        },
-        {
-          "module": "hashlib",
-          "names": [],
-          "line": 12
-        },
-        {
-          "module": "matplotlib.pyplot",
-          "names": [],
-          "line": 13
-        },
-        {
-          "module": "subprocess",
-          "names": [],
-          "line": 22
-        },
-        {
-          "module": "json",
-          "names": [],
-          "line": 23
         }
       ],
       "local_dependencies": [
         "change_program_style.py",
-        "fortowhile.py",
-        "rule_dict.py"
+        "code_io.py",
+        "watermark_core.py"
       ],
       "has_main_guard": true
     },
@@ -4825,1267 +2764,918 @@
       "has_main_guard": false
     },
     {
-      "path": "python/config.py",
-      "module": "python.config",
-      "sha256": "da6cb43d27c5d37a130d66e50646bbeb737e132424a9cd0dc98f9c2dacf47281",
-      "line_count": 77,
-      "symbols": [],
-      "imports": [
-        {
-          "module": "python.transform10_return",
-          "names": [
-            "*"
-          ],
-          "line": 1
-        },
-        {
-          "module": "python.transform13_fun",
-          "names": [
-            "rec_func",
-            "cvt_func"
-          ],
-          "line": 2
-        },
-        {
-          "module": "python.transform2_list",
-          "names": [
-            "*"
-          ],
-          "line": 3
-        },
-        {
-          "module": "python.transform3_dict",
-          "names": [
-            "*"
-          ],
-          "line": 4
-        },
-        {
-          "module": "python.transform4_range",
-          "names": [
-            "*"
-          ],
-          "line": 5
-        },
-        {
-          "module": "python.transform5_call",
-          "names": [
-            "*"
-          ],
-          "line": 6
-        },
-        {
-          "module": "python.transform6_string",
-          "names": [
-            "*"
-          ],
-          "line": 7
-        },
-        {
-          "module": "python.transform7_op",
-          "names": [
-            "*"
-          ],
-          "line": 8
-        },
-        {
-          "module": "python.transform9_declare",
-          "names": [
-            "*"
-          ],
-          "line": 9
-        }
-      ],
-      "local_dependencies": [
-        "python/transform10_return.py",
-        "python/transform13_fun.py",
-        "python/transform2_list.py",
-        "python/transform3_dict.py",
-        "python/transform4_range.py",
-        "python/transform5_call.py",
-        "python/transform6_string.py",
-        "python/transform7_op.py",
-        "python/transform9_declare.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "python/transform0_var.py",
-      "module": "python.transform0_var",
-      "sha256": "7f9a0a1a70d66dfbfcb862d946e014ac5f7ce59aa0b4cc9c1984c45f08cce614",
-      "line_count": 179,
+      "path": "python/rules.py",
+      "module": "python.rules",
+      "sha256": "512e733d6b1c1377cb004c2f60fa2436bc53ef8d37273af0e1bef0a1f17aca21",
+      "line_count": 829,
       "symbols": [
         {
-          "name": "is_all_lowercase",
+          "name": "child_count",
           "kind": "function",
-          "line": 15,
-          "end_line": 19
-        },
-        {
-          "name": "is_all_uppercase",
-          "kind": "function",
-          "line": 21,
-          "end_line": 22
-        },
-        {
-          "name": "is_camel_case",
-          "kind": "function",
-          "line": 24,
-          "end_line": 27
-        },
-        {
-          "name": "is_initcap",
-          "kind": "function",
-          "line": 29,
-          "end_line": 32
-        },
-        {
-          "name": "is_underscore",
-          "kind": "function",
-          "line": 34,
-          "end_line": 35
-        },
-        {
-          "name": "is_init_underscore",
-          "kind": "function",
-          "line": 37,
-          "end_line": 38
-        },
-        {
-          "name": "is_init_dollar",
-          "kind": "function",
-          "line": 40,
-          "end_line": 41
-        },
-        {
-          "name": "sub_token",
-          "kind": "function",
-          "line": 43,
-          "end_line": 71
-        },
-        {
-          "name": "rec_identifier",
-          "kind": "function",
-          "line": 74,
-          "end_line": 86
-        },
-        {
-          "name": "cvt_camel",
-          "kind": "function",
-          "line": 88,
-          "end_line": 99
-        },
-        {
-          "name": "match_camel",
-          "kind": "function",
-          "line": 101,
-          "end_line": 104
-        },
-        {
-          "name": "match_initcap",
-          "kind": "function",
-          "line": 106,
-          "end_line": 109
-        },
-        {
-          "name": "match_underscore",
-          "kind": "function",
-          "line": 111,
-          "end_line": 114
-        },
-        {
-          "name": "match_init_underscore",
-          "kind": "function",
-          "line": 116,
-          "end_line": 119
-        },
-        {
-          "name": "match_init_dollar",
-          "kind": "function",
-          "line": 121,
-          "end_line": 124
-        },
-        {
-          "name": "match_upper",
-          "kind": "function",
-          "line": 126,
-          "end_line": 129
-        },
-        {
-          "name": "match_lower",
-          "kind": "function",
-          "line": 131,
-          "end_line": 134
-        },
-        {
-          "name": "cvt_initcap",
-          "kind": "function",
-          "line": 138,
-          "end_line": 147
-        },
-        {
-          "name": "cvt_underscore",
-          "kind": "function",
-          "line": 149,
-          "end_line": 155
-        },
-        {
-          "name": "cvt_init_underscore",
-          "kind": "function",
-          "line": 157,
-          "end_line": 161
-        },
-        {
-          "name": "cvt_init_dollar",
-          "kind": "function",
-          "line": 163,
-          "end_line": 167
-        },
-        {
-          "name": "cvt_upper",
-          "kind": "function",
-          "line": 169,
-          "end_line": 173
-        },
-        {
-          "name": "cvt_lower",
-          "kind": "function",
-          "line": 175,
-          "end_line": 179
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union"
-          ],
-          "line": 1
-        },
-        {
-          "module": "inflection",
-          "names": [],
-          "line": 3
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 4
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 6
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "python/transform10_return.py",
-      "module": "python.transform10_return",
-      "sha256": "9af52f5bd69a100e930c451fa6880ec94998dfe3c8209f5a684bbe11f8de0f71",
-      "line_count": 43,
-      "symbols": [
-        {
-          "name": "rec_MultiReturnNotTuple",
-          "kind": "function",
-          "line": 6,
-          "end_line": 9
-        },
-        {
-          "name": "rec_MultiReturnWithTuple",
-          "kind": "function",
-          "line": 11,
+          "line": 13,
           "end_line": 14
         },
         {
-          "name": "rec_MultiReturnWithoutNone",
+          "name": "nodes",
           "kind": "function",
-          "line": 16,
-          "end_line": 19
+          "line": 17,
+          "end_line": 18
         },
         {
-          "name": "rec_MultiReturnWithNone",
+          "name": "keyword_arguments",
           "kind": "function",
-          "line": 21,
-          "end_line": 24
+          "line": 26,
+          "end_line": 29
         },
         {
-          "name": "cvt_ReturnTuple",
-          "kind": "function",
-          "line": 27,
-          "end_line": 30
-        },
-        {
-          "name": "cvt_ReturnWithoutTuple",
+          "name": "passes",
           "kind": "function",
           "line": 32,
-          "end_line": 35
+          "end_line": 36
         },
         {
-          "name": "cvt_AddNone",
+          "name": "add_keyword",
           "kind": "function",
-          "line": 37,
-          "end_line": 39
+          "line": 39,
+          "end_line": 47
         },
         {
-          "name": "cvt_DelNone",
+          "name": "add_keyword.rewrite",
           "kind": "function",
           "line": 41,
-          "end_line": 43
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union"
-          ],
-          "line": 1
+          "end_line": 46
         },
         {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 3
-        }
-      ],
-      "local_dependencies": [],
-      "has_main_guard": false
-    },
-    {
-      "path": "python/transform13_fun.py",
-      "module": "python.transform13_fun",
-      "sha256": "562fe27797b79d1d3fa43e75555a7364f2fb7a6761244bf26da36e9fafbb9331",
-      "line_count": 21,
-      "symbols": [
-        {
-          "name": "rec_func",
+          "name": "drop_keyword",
           "kind": "function",
-          "line": 6,
-          "end_line": 17
+          "line": 50,
+          "end_line": 66
         },
         {
-          "name": "cvt_func",
+          "name": "drop_keyword.rewrite",
           "kind": "function",
-          "line": 18,
-          "end_line": 21
-        }
-      ],
-      "imports": [
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 1
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 3
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "python/transform1_print.py",
-      "module": "python.transform1_print",
-      "sha256": "a4de5aedddcba47454f2aa384cbf5336376ebb9b7aa9f1d57121ea8de97c68c9",
-      "line_count": 102,
-      "symbols": [
-        {
-          "name": "rec_CallPrintWithFlush",
-          "kind": "function",
-          "line": 6,
-          "end_line": 17
-        },
-        {
-          "name": "rec_CallPrintWithoutFlush",
-          "kind": "function",
-          "line": 19,
-          "end_line": 31
-        },
-        {
-          "name": "rec_CallPrintWithEndn",
-          "kind": "function",
-          "line": 33,
-          "end_line": 44
-        },
-        {
-          "name": "rec_CallPrintWithoutEnd",
-          "kind": "function",
-          "line": 46,
-          "end_line": 56
-        },
-        {
-          "name": "cvt_CallPrint2CallPrintWithFlush",
-          "kind": "function",
-          "line": 59,
+          "line": 52,
           "end_line": 65
         },
         {
-          "name": "cvt_CallPrintWithFlush2CallPrint",
+          "name": "call_to",
           "kind": "function",
-          "line": 67,
+          "line": 71,
+          "end_line": 75
+        },
+        {
+          "name": "first_argument",
+          "kind": "function",
+          "line": 78,
           "end_line": 79
         },
         {
-          "name": "cvt_CallPrint2CallPrintWithEnd",
+          "name": "first_argument_is",
           "kind": "function",
-          "line": 81,
-          "end_line": 87
-        },
-        {
-          "name": "cvt_CallPrintWithEndn2CallPrint",
-          "kind": "function",
-          "line": 90,
-          "end_line": 102
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union"
-          ],
-          "line": 1
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 3
-        }
-      ],
-      "local_dependencies": [],
-      "has_main_guard": false
-    },
-    {
-      "path": "python/transform2_list.py",
-      "module": "python.transform2_list",
-      "sha256": "f17558a97af897b0822aea487914e46bf33b8aba26d1b03e14234067e8528869",
-      "line_count": 53,
-      "symbols": [
-        {
-          "name": "rec_InitCallList",
-          "kind": "function",
-          "line": 6,
-          "end_line": 13
-        },
-        {
-          "name": "rec_InitList",
-          "kind": "function",
-          "line": 15,
-          "end_line": 18
-        },
-        {
-          "name": "rec_CallList",
-          "kind": "function",
-          "line": 20,
-          "end_line": 27
-        },
-        {
-          "name": "rec_List",
-          "kind": "function",
-          "line": 29,
-          "end_line": 33
-        },
-        {
-          "name": "cvt_InitList2InitCallList",
-          "kind": "function",
-          "line": 36,
-          "end_line": 39
-        },
-        {
-          "name": "cvt_InitCallList2InitList",
-          "kind": "function",
-          "line": 41,
-          "end_line": 43
-        },
-        {
-          "name": "cvt_List2CallList",
-          "kind": "function",
-          "line": 45,
-          "end_line": 47
-        },
-        {
-          "name": "cvt_CallList2List",
-          "kind": "function",
-          "line": 49,
-          "end_line": 53
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union"
-          ],
-          "line": 1
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 3
-        }
-      ],
-      "local_dependencies": [],
-      "has_main_guard": false
-    },
-    {
-      "path": "python/transform3_dict.py",
-      "module": "python.transform3_dict",
-      "sha256": "19397f523f86b038d814010176d8005a8f0ba32c497b9589927a2ac9e21105d5",
-      "line_count": 55,
-      "symbols": [
-        {
-          "name": "rec_InitCallDict",
-          "kind": "function",
-          "line": 6,
-          "end_line": 13
-        },
-        {
-          "name": "rec_InitDict",
-          "kind": "function",
-          "line": 15,
-          "end_line": 18
-        },
-        {
-          "name": "rec_CallDict",
-          "kind": "function",
-          "line": 20,
-          "end_line": 28
-        },
-        {
-          "name": "rec_Dict",
-          "kind": "function",
-          "line": 30,
-          "end_line": 35
-        },
-        {
-          "name": "cvt_InitDict2InitCallDict",
-          "kind": "function",
-          "line": 38,
-          "end_line": 41
-        },
-        {
-          "name": "cvt_InitCallDict2InitDict",
-          "kind": "function",
-          "line": 43,
-          "end_line": 45
-        },
-        {
-          "name": "cvt_Dict2CallDict",
-          "kind": "function",
-          "line": 47,
-          "end_line": 49
-        },
-        {
-          "name": "cvt_CallDict2Dict",
-          "kind": "function",
-          "line": 51,
-          "end_line": 55
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union"
-          ],
-          "line": 1
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 3
-        }
-      ],
-      "local_dependencies": [],
-      "has_main_guard": false
-    },
-    {
-      "path": "python/transform4_range.py",
-      "module": "python.transform4_range",
-      "sha256": "3e96ff68b295c3a7f6e079648708857426de43ab2afac79b4133e376436239c4",
-      "line_count": 89,
-      "symbols": [
-        {
-          "name": "rec_CallRange",
-          "kind": "function",
-          "line": 8,
-          "end_line": 15
-        },
-        {
-          "name": "rec_CallRangeWithZero",
-          "kind": "function",
-          "line": 17,
-          "end_line": 24
-        },
-        {
-          "name": "rec_SubscriptSlice",
-          "kind": "function",
-          "line": 26,
-          "end_line": 30
-        },
-        {
-          "name": "rec_ListIndex",
-          "kind": "function",
-          "line": 32,
-          "end_line": 36
-        },
-        {
-          "name": "match_TwoIndex",
-          "kind": "function",
-          "line": 38,
-          "end_line": 47
-        },
-        {
-          "name": "cvt_CallRange2CallRangeWithZero",
-          "kind": "function",
-          "line": 50,
-          "end_line": 53
-        },
-        {
-          "name": "cvt_CallRangeWithZero2CallRange",
-          "kind": "function",
-          "line": 55,
-          "end_line": 58
-        },
-        {
-          "name": "cvt_AddSliceIndex",
-          "kind": "function",
-          "line": 60,
-          "end_line": 71
-        },
-        {
-          "name": "cvt_DelSliceIndex",
-          "kind": "function",
-          "line": 73,
+          "line": 82,
           "end_line": 84
         },
         {
-          "name": "cvt_AddIndex",
-          "kind": "function",
-          "line": 88,
-          "end_line": 89
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union"
-          ],
-          "line": 1
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 3
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 5
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "python/transform5_call.py",
-      "module": "python.transform5_call",
-      "sha256": "0af207fac1db37fb44fb37ef66b0dbc80a30ddd264c9f603afa49303cca18fe6",
-      "line_count": 29,
-      "symbols": [
-        {
-          "name": "rec_MagicCall",
-          "kind": "function",
-          "line": 4,
-          "end_line": 10
-        },
-        {
-          "name": "rec_Call",
-          "kind": "function",
-          "line": 12,
-          "end_line": 17
-        },
-        {
-          "name": "cvt_Call2MagicCall",
-          "kind": "function",
-          "line": 20,
-          "end_line": 23
-        },
-        {
-          "name": "cvt_MagicCall2Call",
-          "kind": "function",
-          "line": 25,
-          "end_line": 29
-        }
-      ],
-      "imports": [
-        {
-          "module": "python.transform1_print",
-          "names": [
-            "*"
-          ],
-          "line": 1
-        }
-      ],
-      "local_dependencies": [
-        "python/transform1_print.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "python/transform6_string.py",
-      "module": "python.transform6_string",
-      "sha256": "266a4004aec7239a98615dc8fa876555c5bd7ec0c2eaa3f4ff6140cf1e9593ef",
-      "line_count": 104,
-      "symbols": [
-        {
-          "name": "rec_string",
-          "kind": "function",
-          "line": 8,
-          "end_line": 10
-        },
-        {
-          "name": "rec_not_format_string_with_f",
-          "kind": "function",
-          "line": 12,
-          "end_line": 23
-        },
-        {
-          "name": "rec_not_format_string_without_f",
-          "kind": "function",
-          "line": 25,
-          "end_line": 36
-        },
-        {
-          "name": "match_StringSingle",
-          "kind": "function",
-          "line": 38,
-          "end_line": 43
-        },
-        {
-          "name": "match_StringDouble",
-          "kind": "function",
-          "line": 45,
-          "end_line": 50
-        },
-        {
-          "name": "match_format_string",
-          "kind": "function",
-          "line": 52,
-          "end_line": 55
-        },
-        {
-          "name": "cvt_single_quotation",
-          "kind": "function",
-          "line": 58,
-          "end_line": 70
-        },
-        {
-          "name": "cvt_double_quotation",
-          "kind": "function",
-          "line": 72,
-          "end_line": 85
-        },
-        {
-          "name": "cvt_add_f",
+          "name": "not_argument_of",
           "kind": "function",
           "line": 87,
-          "end_line": 94
-        },
-        {
-          "name": "cvt_del_f",
-          "kind": "function",
-          "line": 97,
-          "end_line": 104
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union"
-          ],
-          "line": 1
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 3
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 5
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "python/transform7_op.py",
-      "module": "python.transform7_op",
-      "sha256": "4c9fb2707d8b51dc911de5b3ce0fee7755a7beec50283944b071f25b2752b6a4",
-      "line_count": 346,
-      "symbols": [
-        {
-          "name": "judge_no",
-          "kind": "function",
-          "line": 10,
-          "end_line": 14
-        },
-        {
-          "name": "get_parent_first",
-          "kind": "function",
-          "line": 17,
-          "end_line": 31
-        },
-        {
-          "name": "compare_hash",
-          "kind": "function",
-          "line": 34,
-          "end_line": 39
-        },
-        {
-          "name": "op_chain",
-          "kind": "function",
-          "line": 42,
-          "end_line": 60
-        },
-        {
-          "name": "rec_AugmentedAssignment",
-          "kind": "function",
-          "line": 66,
-          "end_line": 69
-        },
-        {
-          "name": "rec_Assignment",
-          "kind": "function",
-          "line": 72,
-          "end_line": 78
-        },
-        {
-          "name": "rec_Equal",
-          "kind": "function",
-          "line": 81,
           "end_line": 89
         },
         {
-          "name": "rec_Equal_nolimit",
+          "name": "wrap_in",
           "kind": "function",
           "line": 92,
-          "end_line": 98
+          "end_line": 93
         },
         {
-          "name": "rec_CmpOptBigger",
+          "name": "unwrap_call",
           "kind": "function",
-          "line": 101,
-          "end_line": 104
+          "line": 96,
+          "end_line": 99
         },
         {
-          "name": "rec_CmpOptSmaller",
+          "name": "add_range_start",
           "kind": "function",
-          "line": 107,
-          "end_line": 110
+          "line": 102,
+          "end_line": 107
         },
         {
-          "name": "rec_Cmp",
+          "name": "del_range_start",
           "kind": "function",
-          "line": 113,
-          "end_line": 117
+          "line": 110,
+          "end_line": 113
         },
         {
-          "name": "rec_exp_cmp",
+          "name": "slice_halves",
           "kind": "function",
-          "line": 120,
-          "end_line": 134
+          "line": 123,
+          "end_line": 130
         },
         {
-          "name": "rec_not_equal_reverse",
+          "name": "negative_count",
           "kind": "function",
-          "line": 137,
-          "end_line": 143
+          "line": 133,
+          "end_line": 135
         },
         {
-          "name": "rec_equal_reverse",
+          "name": "add_slice_index",
           "kind": "function",
-          "line": 146,
-          "end_line": 152
+          "line": 138,
+          "end_line": 144
         },
         {
-          "name": "match_Equal",
+          "name": "del_slice_index",
           "kind": "function",
-          "line": 154,
-          "end_line": 156
+          "line": 147,
+          "end_line": 153
         },
         {
-          "name": "match_LeftConst",
+          "name": "not_triple_quoted",
           "kind": "function",
-          "line": 159,
-          "end_line": 161
+          "line": 158,
+          "end_line": 160
         },
         {
-          "name": "cvt_EqualBiggerHashTrans",
+          "name": "requote",
           "kind": "function",
-          "line": 167,
-          "end_line": 181
+          "line": 163,
+          "end_line": 174
         },
         {
-          "name": "cvt_EqualSmallHashTrans",
+          "name": "requote.rewrite",
           "kind": "function",
-          "line": 184,
-          "end_line": 198
+          "line": 166,
+          "end_line": 173
         },
         {
-          "name": "cvt_NotEqualBiggerHashTrans",
+          "name": "literal_without_interpolation",
+          "kind": "function",
+          "line": 177,
+          "end_line": 183
+        },
+        {
+          "name": "literal_without_interpolation.test",
+          "kind": "function",
+          "line": 178,
+          "end_line": 182
+        },
+        {
+          "name": "set_prefix",
+          "kind": "function",
+          "line": 186,
+          "end_line": 190
+        },
+        {
+          "name": "set_prefix.rewrite",
+          "kind": "function",
+          "line": 187,
+          "end_line": 189
+        },
+        {
+          "name": "operator_in",
           "kind": "function",
           "line": 201,
-          "end_line": 215
+          "end_line": 203
         },
         {
-          "name": "cvt_NotEqualSmallHashTrans",
+          "name": "operands",
           "kind": "function",
-          "line": 218,
+          "line": 206,
+          "end_line": 207
+        },
+        {
+          "name": "negated",
+          "kind": "function",
+          "line": 211,
+          "end_line": 214
+        },
+        {
+          "name": "expanded_junction",
+          "kind": "function",
+          "line": 217,
+          "end_line": 225
+        },
+        {
+          "name": "in_expanded_comparison",
+          "kind": "function",
+          "line": 229,
           "end_line": 232
         },
         {
-          "name": "cvt_AugmentedAssignment2Assignment",
+          "name": "expanded_comparison",
           "kind": "function",
-          "line": 235,
-          "end_line": 242
+          "line": 236,
+          "end_line": 239
         },
         {
-          "name": "cvt_Assignment2AugmentedAssignment",
+          "name": "negate_equality",
           "kind": "function",
-          "line": 245,
-          "end_line": 254
+          "line": 242,
+          "end_line": 249
         },
         {
-          "name": "cvt_Equal2NotEqual",
+          "name": "negate_equality.rewrite",
           "kind": "function",
-          "line": 257,
-          "end_line": 266
+          "line": 244,
+          "end_line": 248
         },
         {
-          "name": "cvt_NotEqual2Equal",
+          "name": "negated_test",
           "kind": "function",
-          "line": 269,
-          "end_line": 278
+          "line": 252,
+          "end_line": 262
         },
         {
-          "name": "cvt_Bigger2Smaller",
+          "name": "negated_test.test",
           "kind": "function",
-          "line": 281,
-          "end_line": 287
+          "line": 254,
+          "end_line": 261
         },
         {
-          "name": "cvt_Smaller2Bigger",
+          "name": "remove_negation",
+          "kind": "function",
+          "line": 265,
+          "end_line": 270
+        },
+        {
+          "name": "remove_negation.rewrite",
+          "kind": "function",
+          "line": 267,
+          "end_line": 269
+        },
+        {
+          "name": "mirror",
+          "kind": "function",
+          "line": 273,
+          "end_line": 282
+        },
+        {
+          "name": "mirror.rewrite",
+          "kind": "function",
+          "line": 277,
+          "end_line": 281
+        },
+        {
+          "name": "expand_comparison",
           "kind": "function",
           "line": 290,
-          "end_line": 296
+          "end_line": 293
         },
         {
-          "name": "cvt_Equal",
+          "name": "contract_comparison",
           "kind": "function",
-          "line": 299,
-          "end_line": 313
+          "line": 296,
+          "end_line": 299
         },
         {
-          "name": "cvt_cmp",
+          "name": "hash_at_least",
           "kind": "function",
-          "line": 316,
-          "end_line": 328
+          "line": 302,
+          "end_line": 303
         },
         {
-          "name": "cvt_NotEqual2Equal_reverse",
+          "name": "hash_order",
           "kind": "function",
-          "line": 331,
-          "end_line": 337
+          "line": 306,
+          "end_line": 315
         },
         {
-          "name": "cvt_Equal2NotEqual_reverse",
+          "name": "hash_order.rewrite",
           "kind": "function",
-          "line": 340,
-          "end_line": 346
+          "line": 308,
+          "end_line": 314
+        },
+        {
+          "name": "to_augmented",
+          "kind": "function",
+          "line": 322,
+          "end_line": 325
+        },
+        {
+          "name": "from_augmented",
+          "kind": "function",
+          "line": 332,
+          "end_line": 339
+        },
+        {
+          "name": "tuple_assignment",
+          "kind": "function",
+          "line": 344,
+          "end_line": 350
+        },
+        {
+          "name": "tuple_assignment.test",
+          "kind": "function",
+          "line": 345,
+          "end_line": 349
+        },
+        {
+          "name": "unpacked",
+          "kind": "function",
+          "line": 353,
+          "end_line": 358
+        },
+        {
+          "name": "split_assignment",
+          "kind": "function",
+          "line": 361,
+          "end_line": 365
+        },
+        {
+          "name": "chain_assignment",
+          "kind": "function",
+          "line": 368,
+          "end_line": 371
+        },
+        {
+          "name": "returns",
+          "kind": "function",
+          "line": 379,
+          "end_line": 380
+        },
+        {
+          "name": "strip_parentheses",
+          "kind": "function",
+          "line": 383,
+          "end_line": 388
+        },
+        {
+          "name": "flat_function",
+          "kind": "function",
+          "line": 394,
+          "end_line": 399
+        },
+        {
+          "name": "function_name",
+          "kind": "function",
+          "line": 405,
+          "end_line": 406
+        },
+        {
+          "name": "outside_text_sensitive_operands",
+          "kind": "function",
+          "line": 422,
+          "end_line": 432
+        },
+        {
+          "name": "binds",
+          "kind": "function",
+          "line": 435,
+          "end_line": 452
+        },
+        {
+          "name": "builtin_call",
+          "kind": "function",
+          "line": 455,
+          "end_line": 469
+        },
+        {
+          "name": "builtin_call.test",
+          "kind": "function",
+          "line": 457,
+          "end_line": 467
+        },
+        {
+          "name": "last_argument",
+          "kind": "function",
+          "line": 472,
+          "end_line": 473
+        },
+        {
+          "name": "append_argument",
+          "kind": "function",
+          "line": 476,
+          "end_line": 478
+        },
+        {
+          "name": "drop_last_argument",
+          "kind": "function",
+          "line": 481,
+          "end_line": 484
+        },
+        {
+          "name": "argument_text",
+          "kind": "function",
+          "line": 487,
+          "end_line": 489
+        },
+        {
+          "name": "two_word_test",
+          "kind": "function",
+          "line": 492,
+          "end_line": 496
+        },
+        {
+          "name": "negated_comparison",
+          "kind": "function",
+          "line": 499,
+          "end_line": 503
+        },
+        {
+          "name": "lift_not",
+          "kind": "function",
+          "line": 506,
+          "end_line": 508
+        },
+        {
+          "name": "sink_not",
+          "kind": "function",
+          "line": 511,
+          "end_line": 516
+        },
+        {
+          "name": "sink_not.rewrite",
+          "kind": "function",
+          "line": 513,
+          "end_line": 515
+        },
+        {
+          "name": "plain_or_negated",
+          "kind": "function",
+          "line": 519,
+          "end_line": 522
+        },
+        {
+          "name": "contains",
+          "kind": "function",
+          "line": 525,
+          "end_line": 532
+        },
+        {
+          "name": "has_else",
+          "kind": "function",
+          "line": 535,
+          "end_line": 536
+        },
+        {
+          "name": "nested_branching",
+          "kind": "function",
+          "line": 539,
+          "end_line": 541
+        },
+        {
+          "name": "if_else",
+          "kind": "function",
+          "line": 544,
+          "end_line": 557
+        },
+        {
+          "name": "if_else.test",
+          "kind": "function",
+          "line": 549,
+          "end_line": 556
+        },
+        {
+          "name": "swap_branches",
+          "kind": "function",
+          "line": 560,
+          "end_line": 571
+        },
+        {
+          "name": "swap_branches.rewrite",
+          "kind": "function",
+          "line": 562,
+          "end_line": 570
+        },
+        {
+          "name": "conditional",
+          "kind": "function",
+          "line": 574,
+          "end_line": 579
+        },
+        {
+          "name": "swap_conditional",
+          "kind": "function",
+          "line": 582,
+          "end_line": 588
+        },
+        {
+          "name": "swap_conditional.rewrite",
+          "kind": "function",
+          "line": 584,
+          "end_line": 587
+        },
+        {
+          "name": "unwrap",
+          "kind": "function",
+          "line": 595,
+          "end_line": 598
+        },
+        {
+          "name": "equality_core",
+          "kind": "function",
+          "line": 601,
+          "end_line": 606
+        },
+        {
+          "name": "negatable_condition",
+          "kind": "function",
+          "line": 609,
+          "end_line": 616
+        },
+        {
+          "name": "plain_while",
+          "kind": "function",
+          "line": 619,
+          "end_line": 622
+        },
+        {
+          "name": "while_true_with_break",
+          "kind": "function",
+          "line": 625,
+          "end_line": 636
+        },
+        {
+          "name": "to_while_true",
+          "kind": "function",
+          "line": 639,
+          "end_line": 646
+        },
+        {
+          "name": "from_while_true",
+          "kind": "function",
+          "line": 649,
+          "end_line": 654
+        },
+        {
+          "name": "has_multiline_string",
+          "kind": "function",
+          "line": 657,
+          "end_line": 664
+        },
+        {
+          "name": "reindent",
+          "kind": "function",
+          "line": 667,
+          "end_line": 670
+        },
+        {
+          "name": "last_in_block",
+          "kind": "function",
+          "line": 673,
+          "end_line": 677
+        },
+        {
+          "name": "exits",
+          "kind": "function",
+          "line": 680,
+          "end_line": 696
+        },
+        {
+          "name": "exiting_if",
+          "kind": "function",
+          "line": 699,
+          "end_line": 700
+        },
+        {
+          "name": "bare_exiting_if",
+          "kind": "function",
+          "line": 703,
+          "end_line": 704
+        },
+        {
+          "name": "exiting_if_else",
+          "kind": "function",
+          "line": 707,
+          "end_line": 709
+        },
+        {
+          "name": "siblings",
+          "kind": "function",
+          "line": 712,
+          "end_line": 713
+        },
+        {
+          "name": "holds_exiting_if",
+          "kind": "function",
+          "line": 716,
+          "end_line": 717
+        },
+        {
+          "name": "single_exiting_if_else",
+          "kind": "function",
+          "line": 721,
+          "end_line": 728
+        },
+        {
+          "name": "single_exiting_if_then_rest",
+          "kind": "function",
+          "line": 732,
+          "end_line": 738
+        },
+        {
+          "name": "drop_else",
+          "kind": "function",
+          "line": 741,
+          "end_line": 748
+        },
+        {
+          "name": "add_else",
+          "kind": "function",
+          "line": 751,
+          "end_line": 759
         }
       ],
       "imports": [
         {
           "module": "hashlib",
           "names": [],
-          "line": 1
+          "line": 8
         },
         {
-          "module": "typing",
+          "module": "rule_engine",
           "names": [
-            "List",
-            "Tuple",
-            "Union"
+            "Edit",
+            "Matcher",
+            "Reject",
+            "delete",
+            "delete_between",
+            "guard",
+            "insert_after",
+            "insert_before",
+            "replace",
+            "text",
+            "well_formed"
           ],
-          "line": 2
-        },
-        {
-          "module": "networkx",
-          "names": [],
-          "line": 4
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 5
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 7
+          "line": 10
         }
       ],
       "local_dependencies": [
-        "utils.py"
+        "rule_engine.py"
       ],
       "has_main_guard": false
     },
     {
-      "path": "python/transform8_for.py",
-      "module": "python.transform8_for",
-      "sha256": "827149c4dc1b133e26b3e24c77e4434ca92fa0de05921ec593625aa808c86e3b",
-      "line_count": 136,
-      "symbols": [
-        {
-          "name": "get_indent",
-          "kind": "function",
-          "line": 12,
-          "end_line": 21
-        },
-        {
-          "name": "clear_identifier",
-          "kind": "function",
-          "line": 23,
-          "end_line": 28
-        },
-        {
-          "name": "rec_ForIter",
-          "kind": "function",
-          "line": 31,
-          "end_line": 35
-        },
-        {
-          "name": "rec_ForRange",
-          "kind": "function",
-          "line": 37,
-          "end_line": 42
-        },
-        {
-          "name": "rec_ListComprehension",
-          "kind": "function",
-          "line": 45,
-          "end_line": 50
-        },
-        {
-          "name": "match_ForEnumerate",
-          "kind": "function",
-          "line": 53,
-          "end_line": 59
-        },
-        {
-          "name": "match_While",
-          "kind": "function",
-          "line": 61,
-          "end_line": 63
-        },
-        {
-          "name": "cvt_AddEnumerate",
-          "kind": "function",
-          "line": 66,
-          "end_line": 79
-        },
-        {
-          "name": "cvt_ForRange2While",
-          "kind": "function",
-          "line": 81,
-          "end_line": 102
-        },
-        {
-          "name": "cvt_ListComprehension2For",
-          "kind": "function",
-          "line": 104,
-          "end_line": 136
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union"
-          ],
-          "line": 1
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 3
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 5
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "python/transform9_declare.py",
-      "module": "python.transform9_declare",
-      "sha256": "f44109cbae1aa62c5ec3976b0bf41de9cf58ff8be8c0bd63fd86e9902cd411d8",
-      "line_count": 75,
-      "symbols": [
-        {
-          "name": "get_indent",
-          "kind": "function",
-          "line": 8,
-          "end_line": 17
-        },
-        {
-          "name": "rec_AssignmentMerge",
-          "kind": "function",
-          "line": 20,
-          "end_line": 26
-        },
-        {
-          "name": "rec_AssignmentMergeSame",
-          "kind": "function",
-          "line": 28,
-          "end_line": 40
-        },
-        {
-          "name": "rec_MultiAssignment",
-          "kind": "function",
-          "line": 42,
-          "end_line": 50
-        },
-        {
-          "name": "cvt_Merge2Split",
-          "kind": "function",
-          "line": 53,
-          "end_line": 64
-        },
-        {
-          "name": "cvt_Merge2MergeSimple",
-          "kind": "function",
-          "line": 66,
-          "end_line": 75
-        }
-      ],
-      "imports": [
-        {
-          "module": "typing",
-          "names": [
-            "List",
-            "Tuple",
-            "Union"
-          ],
-          "line": 1
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Node"
-          ],
-          "line": 3
-        },
-        {
-          "module": "utils",
-          "names": [
-            "text"
-          ],
-          "line": 5
-        }
-      ],
-      "local_dependencies": [
-        "utils.py"
-      ],
-      "has_main_guard": false
-    },
-    {
-      "path": "rule_dict.py",
-      "module": "rule_dict",
-      "sha256": "b30a302859be549b0fee3e3017d4d684dc9d6d280fe259cb7726104b4be27a86",
-      "line_count": 53,
+      "path": "rule_dict_bit_acc.py",
+      "module": "rule_dict_bit_acc",
+      "sha256": "b5c8514ae7dfaf34273e06acaf73dcf9da3bc26729369a77ab1d7631237831f2",
+      "line_count": 93,
       "symbols": [],
       "imports": [],
       "local_dependencies": [],
       "has_main_guard": false
     },
     {
-      "path": "rule_dict_bit_acc.py",
-      "module": "rule_dict_bit_acc",
-      "sha256": "b500ec75ddac90a9d6a73a2610543cba6dbd6c2fa6c0f3dc6ea6e1a6a5e336a0",
-      "line_count": 53,
-      "symbols": [],
-      "imports": [],
+      "path": "rule_engine.py",
+      "module": "rule_engine",
+      "sha256": "397580195596adb55259432e1f5b1d1492afda13e26a788f2a788410baf47233",
+      "line_count": 244,
+      "symbols": [
+        {
+          "name": "text",
+          "kind": "function",
+          "line": 28,
+          "end_line": 29
+        },
+        {
+          "name": "Reject",
+          "kind": "class",
+          "line": 32,
+          "end_line": 33
+        },
+        {
+          "name": "Edit",
+          "kind": "class",
+          "line": 36,
+          "end_line": 39
+        },
+        {
+          "name": "replace",
+          "kind": "function",
+          "line": 42,
+          "end_line": 43
+        },
+        {
+          "name": "insert_before",
+          "kind": "function",
+          "line": 46,
+          "end_line": 47
+        },
+        {
+          "name": "insert_after",
+          "kind": "function",
+          "line": 50,
+          "end_line": 51
+        },
+        {
+          "name": "delete",
+          "kind": "function",
+          "line": 54,
+          "end_line": 55
+        },
+        {
+          "name": "delete_between",
+          "kind": "function",
+          "line": 58,
+          "end_line": 59
+        },
+        {
+          "name": "Source",
+          "kind": "class",
+          "line": 62,
+          "end_line": 82
+        },
+        {
+          "name": "Source.__init__",
+          "kind": "function",
+          "line": 67,
+          "end_line": 68
+        },
+        {
+          "name": "Source.indent",
+          "kind": "function",
+          "line": 70,
+          "end_line": 77
+        },
+        {
+          "name": "Source.leading",
+          "kind": "function",
+          "line": 79,
+          "end_line": 82
+        },
+        {
+          "name": "Guard",
+          "kind": "class",
+          "line": 85,
+          "end_line": 106
+        },
+        {
+          "name": "Guard.__init__",
+          "kind": "function",
+          "line": 90,
+          "end_line": 91
+        },
+        {
+          "name": "Guard.__call__",
+          "kind": "function",
+          "line": 93,
+          "end_line": 94
+        },
+        {
+          "name": "Guard.__and__",
+          "kind": "function",
+          "line": 96,
+          "end_line": 97
+        },
+        {
+          "name": "Guard.__or__",
+          "kind": "function",
+          "line": 99,
+          "end_line": 100
+        },
+        {
+          "name": "Guard.__invert__",
+          "kind": "function",
+          "line": 102,
+          "end_line": 103
+        },
+        {
+          "name": "Guard.__repr__",
+          "kind": "function",
+          "line": 105,
+          "end_line": 106
+        },
+        {
+          "name": "guard",
+          "kind": "function",
+          "line": 109,
+          "end_line": 110
+        },
+        {
+          "name": "Matcher",
+          "kind": "class",
+          "line": 117,
+          "end_line": 133
+        },
+        {
+          "name": "Matcher.accepts",
+          "kind": "function",
+          "line": 123,
+          "end_line": 124
+        },
+        {
+          "name": "Matcher.explain",
+          "kind": "function",
+          "line": 126,
+          "end_line": 127
+        },
+        {
+          "name": "Matcher.where",
+          "kind": "function",
+          "line": 129,
+          "end_line": 130
+        },
+        {
+          "name": "Matcher.rule",
+          "kind": "function",
+          "line": 132,
+          "end_line": 133
+        },
+        {
+          "name": "Rule",
+          "kind": "class",
+          "line": 137,
+          "end_line": 141
+        },
+        {
+          "name": "apply_edits",
+          "kind": "function",
+          "line": 144,
+          "end_line": 165
+        },
+        {
+          "name": "_conflicts",
+          "kind": "function",
+          "line": 168,
+          "end_line": 174
+        },
+        {
+          "name": "Grammar",
+          "kind": "class",
+          "line": 180,
+          "end_line": 209
+        },
+        {
+          "name": "Grammar.__init__",
+          "kind": "function",
+          "line": 183,
+          "end_line": 198
+        },
+        {
+          "name": "Grammar.parse",
+          "kind": "function",
+          "line": 200,
+          "end_line": 209
+        },
+        {
+          "name": "Parsed",
+          "kind": "class",
+          "line": 212,
+          "end_line": 244
+        },
+        {
+          "name": "Parsed.__init__",
+          "kind": "function",
+          "line": 215,
+          "end_line": 224
+        },
+        {
+          "name": "Parsed.candidates",
+          "kind": "function",
+          "line": 226,
+          "end_line": 228
+        },
+        {
+          "name": "Parsed.rewrite",
+          "kind": "function",
+          "line": 230,
+          "end_line": 244
+        }
+      ],
+      "imports": [
+        {
+          "module": "collections",
+          "names": [
+            "OrderedDict"
+          ],
+          "line": 20
+        },
+        {
+          "module": "dataclasses",
+          "names": [
+            "dataclass"
+          ],
+          "line": 21
+        },
+        {
+          "module": "re",
+          "names": [],
+          "line": 22
+        },
+        {
+          "module": "typing",
+          "names": [
+            "Callable",
+            "Dict",
+            "Iterable",
+            "List",
+            "NamedTuple",
+            "Optional",
+            "Sequence",
+            "Tuple"
+          ],
+          "line": 23
+        },
+        {
+          "module": "tree_sitter",
+          "names": [
+            "Language",
+            "Node",
+            "Parser"
+          ],
+          "line": 25
+        }
+      ],
       "local_dependencies": [],
       "has_main_guard": false
     },
@@ -6171,220 +3761,390 @@
       "has_main_guard": false
     },
     {
+      "path": "tests/test_pipeline.py",
+      "module": "tests.test_pipeline",
+      "sha256": "7e43f1605b76dd09d1c766a53a7913994f243b002f56492f13474809f8f616cc",
+      "line_count": 108,
+      "symbols": [
+        {
+          "name": "outcome",
+          "kind": "function",
+          "line": 24,
+          "end_line": 28
+        },
+        {
+          "name": "legacy_read",
+          "kind": "function",
+          "line": 31,
+          "end_line": 42
+        },
+        {
+          "name": "SourceDecodingTests",
+          "kind": "class",
+          "line": 45,
+          "end_line": 61
+        },
+        {
+          "name": "SourceDecodingTests.test_fast_path_matches_chardet_and_text_mode",
+          "kind": "function",
+          "line": 46,
+          "end_line": 50
+        },
+        {
+          "name": "SourceDecodingTests.test_empty_file_is_rejected_like_chardet",
+          "kind": "function",
+          "line": 52,
+          "end_line": 54
+        },
+        {
+          "name": "SourceDecodingTests.test_reload_matches_disk_round_trip",
+          "kind": "function",
+          "line": 56,
+          "end_line": 61
+        },
+        {
+          "name": "InMemoryPipelineTests",
+          "kind": "class",
+          "line": 65,
+          "end_line": 104
+        },
+        {
+          "name": "InMemoryPipelineTests.setUp",
+          "kind": "function",
+          "line": 66,
+          "end_line": 73
+        },
+        {
+          "name": "InMemoryPipelineTests.tearDown",
+          "kind": "function",
+          "line": 75,
+          "end_line": 77
+        },
+        {
+          "name": "InMemoryPipelineTests.test_embedding_round_trip",
+          "kind": "function",
+          "line": 79,
+          "end_line": 95
+        },
+        {
+          "name": "InMemoryPipelineTests.test_rule_probe_errors_yield_no_bit",
+          "kind": "function",
+          "line": 97,
+          "end_line": 104
+        },
+        {
+          "name": "InMemoryPipelineTests.test_rule_probe_errors_yield_no_bit.Failing",
+          "kind": "class",
+          "line": 100,
+          "end_line": 102
+        },
+        {
+          "name": "InMemoryPipelineTests.test_rule_probe_errors_yield_no_bit.Failing.change_file_style",
+          "kind": "function",
+          "line": 101,
+          "end_line": 102
+        }
+      ],
+      "imports": [
+        {
+          "module": "os",
+          "names": [],
+          "line": 3
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 4
+        },
+        {
+          "module": "random",
+          "names": [],
+          "line": 5
+        },
+        {
+          "module": "shutil",
+          "names": [],
+          "line": 6
+        },
+        {
+          "module": "tempfile",
+          "names": [],
+          "line": 7
+        },
+        {
+          "module": "unittest",
+          "names": [],
+          "line": 8
+        },
+        {
+          "module": "chardet",
+          "names": [],
+          "line": 10
+        },
+        {
+          "module": "code_io",
+          "names": [],
+          "line": 12
+        },
+        {
+          "module": "folder_transform_check",
+          "names": [],
+          "line": 80
+        },
+        {
+          "module": "watermark_bit",
+          "names": [],
+          "line": 80
+        },
+        {
+          "module": "watermark_extract",
+          "names": [],
+          "line": 80
+        },
+        {
+          "module": "watermark_core",
+          "names": [],
+          "line": 98
+        }
+      ],
+      "local_dependencies": [
+        "code_io.py",
+        "folder_transform_check.py",
+        "watermark_bit.py",
+        "watermark_core.py",
+        "watermark_extract.py"
+      ],
+      "has_main_guard": true
+    },
+    {
       "path": "tests/test_research_loop.py",
       "module": "tests.test_research_loop",
-      "sha256": "d0b31bdfab8e6f98a79d841d156ce29d5fdf51bce743b2839bbbe1b1eb706a2e",
-      "line_count": 300,
+      "sha256": "90e278d77d75b15617e8d8d6a05b2ba6c7714ebe2a6af0166faf631dc8e8e3f8",
+      "line_count": 323,
       "symbols": [
         {
           "name": "measured_row",
           "kind": "function",
-          "line": 21,
-          "end_line": 30
+          "line": 22,
+          "end_line": 31
         },
         {
           "name": "summary",
           "kind": "function",
-          "line": 33,
-          "end_line": 38
+          "line": 34,
+          "end_line": 39
         },
         {
           "name": "MeasurementValidityTests",
           "kind": "class",
-          "line": 41,
-          "end_line": 100
+          "line": 42,
+          "end_line": 101
         },
         {
           "name": "MeasurementValidityTests.test_missing_oracles_never_count_as_pass",
           "kind": "function",
-          "line": 42,
-          "end_line": 45
+          "line": 43,
+          "end_line": 46
         },
         {
           "name": "MeasurementValidityTests.test_confusion_matrix_excludes_unknown_and_capacity_failures",
           "kind": "function",
-          "line": 47,
-          "end_line": 52
+          "line": 48,
+          "end_line": 53
         },
         {
           "name": "MeasurementValidityTests.test_new_functional_failure_fails_gate",
           "kind": "function",
-          "line": 54,
-          "end_line": 59
+          "line": 55,
+          "end_line": 60
         },
         {
           "name": "MeasurementValidityTests.test_existing_failures_are_preserved_without_becoming_new",
           "kind": "function",
-          "line": 61,
-          "end_line": 63
+          "line": 62,
+          "end_line": 64
         },
         {
           "name": "MeasurementValidityTests.test_removing_functional_oracle_or_original_pass_fails_gate",
           "kind": "function",
-          "line": 65,
-          "end_line": 69
+          "line": 66,
+          "end_line": 70
         },
         {
           "name": "MeasurementValidityTests.test_cohort_regression_is_not_hidden_by_aggregate_gain",
           "kind": "function",
-          "line": 71,
-          "end_line": 75
+          "line": 72,
+          "end_line": 76
         },
         {
           "name": "MeasurementValidityTests.test_dataset_or_protocol_change_is_incomparable",
           "kind": "function",
-          "line": 77,
-          "end_line": 84
+          "line": 78,
+          "end_line": 85
         },
         {
           "name": "MeasurementValidityTests.test_smoke_cannot_pass_full_gate_or_become_baseline",
           "kind": "function",
-          "line": 86,
-          "end_line": 90
+          "line": 87,
+          "end_line": 91
         },
         {
           "name": "MeasurementValidityTests.test_lost_eligibility_cannot_inflate_recovery_silently",
           "kind": "function",
-          "line": 92,
-          "end_line": 96
+          "line": 93,
+          "end_line": 97
         },
         {
           "name": "MeasurementValidityTests.test_duplicate_or_missing_rows_are_not_complete",
           "kind": "function",
-          "line": 98,
-          "end_line": 100
+          "line": 99,
+          "end_line": 101
         },
         {
           "name": "ProvenanceAndResumeTests",
           "kind": "class",
-          "line": 103,
-          "end_line": 213
+          "line": 104,
+          "end_line": 214
         },
         {
           "name": "ProvenanceAndResumeTests.test_full_comparison_cannot_silently_pass_without_a_reference",
           "kind": "function",
-          "line": 104,
-          "end_line": 108
+          "line": 105,
+          "end_line": 109
         },
         {
           "name": "ProvenanceAndResumeTests.test_torn_last_row_is_recovered",
           "kind": "function",
-          "line": 110,
-          "end_line": 115
+          "line": 111,
+          "end_line": 116
         },
         {
           "name": "ProvenanceAndResumeTests.test_complete_last_row_gets_missing_newline",
           "kind": "function",
-          "line": 117,
-          "end_line": 122
+          "line": 118,
+          "end_line": 123
         },
         {
           "name": "ProvenanceAndResumeTests.test_middle_corruption_is_not_silently_discarded",
           "kind": "function",
-          "line": 124,
-          "end_line": 129
+          "line": 125,
+          "end_line": 130
         },
         {
           "name": "ProvenanceAndResumeTests.test_frozen_source_or_manifest_tampering_is_detected",
           "kind": "function",
-          "line": 131,
-          "end_line": 142
+          "line": 132,
+          "end_line": 143
         },
         {
           "name": "ProvenanceAndResumeTests.test_dirty_source_changes_fingerprint_without_commit",
           "kind": "function",
-          "line": 144,
-          "end_line": 151
+          "line": 145,
+          "end_line": 152
         },
         {
           "name": "ProvenanceAndResumeTests.test_measurement_change_requires_new_protocol_reference",
           "kind": "function",
-          "line": 153,
-          "end_line": 162
+          "line": 154,
+          "end_line": 163
         },
         {
           "name": "ProvenanceAndResumeTests.test_original_input_change_is_detected_after_run",
           "kind": "function",
-          "line": 164,
-          "end_line": 175
+          "line": 165,
+          "end_line": 176
         },
         {
           "name": "ProvenanceAndResumeTests.test_summary_cannot_be_promoted_after_raw_results_are_altered",
           "kind": "function",
-          "line": 177,
-          "end_line": 193
+          "line": 178,
+          "end_line": 194
         },
         {
           "name": "ProvenanceAndResumeTests.test_inventory_retains_small_projects_and_does_not_mutate",
           "kind": "function",
-          "line": 195,
-          "end_line": 206
+          "line": 196,
+          "end_line": 207
         },
         {
           "name": "ProvenanceAndResumeTests.test_wrong_watermark_and_fractional_jobs_are_rejected",
           "kind": "function",
-          "line": 208,
-          "end_line": 213
+          "line": 209,
+          "end_line": 214
         },
         {
           "name": "UtilityExecutionTests",
           "kind": "class",
-          "line": 216,
-          "end_line": 296
+          "line": 217,
+          "end_line": 319
         },
         {
-          "name": "UtilityExecutionTests.test_legacy_rule_globals_do_not_leak_between_phases_or_units",
+          "name": "UtilityExecutionTests.test_rule_modules_hold_no_state_to_reset",
           "kind": "function",
-          "line": 217,
-          "end_line": 225
+          "line": 218,
+          "end_line": 221
         },
         {
           "name": "UtilityExecutionTests.test_actual_language_registries_and_pinned_parsers_load",
           "kind": "function",
-          "line": 227,
-          "end_line": 228
+          "line": 223,
+          "end_line": 224
+        },
+        {
+          "name": "UtilityExecutionTests.test_javascript_mbjsp_test_runs_on_node",
+          "kind": "function",
+          "line": 226,
+          "end_line": 239
+        },
+        {
+          "name": "UtilityExecutionTests.test_project_suite_runs_with_overlaid_sources",
+          "kind": "function",
+          "line": 241,
+          "end_line": 251
         },
         {
           "name": "UtilityExecutionTests.test_cpp_body_reconstruction_uses_official_signature",
           "kind": "function",
-          "line": 230,
-          "end_line": 234
+          "line": 253,
+          "end_line": 257
         },
         {
           "name": "UtilityExecutionTests.test_subprocess_timeout_is_enforced",
           "kind": "function",
-          "line": 236,
-          "end_line": 241
+          "line": 259,
+          "end_line": 264
         },
         {
           "name": "UtilityExecutionTests.test_timeout_retry_preserves_first_attempt_and_recovery",
           "kind": "function",
-          "line": 243,
-          "end_line": 251
+          "line": 266,
+          "end_line": 274
         },
         {
           "name": "UtilityExecutionTests.test_persistent_timeout_remains_failure_after_bounded_retry",
           "kind": "function",
-          "line": 253,
-          "end_line": 259
+          "line": 276,
+          "end_line": 282
         },
         {
           "name": "UtilityExecutionTests.test_assertion_failure_is_not_retried",
           "kind": "function",
-          "line": 261,
-          "end_line": 267
+          "line": 284,
+          "end_line": 290
         },
         {
           "name": "UtilityExecutionTests.test_python_functional_failure_and_cache_invalidation",
           "kind": "function",
-          "line": 269,
-          "end_line": 283
+          "line": 292,
+          "end_line": 306
         },
         {
           "name": "UtilityExecutionTests.test_cpp_compilation_and_real_assertion_failure",
           "kind": "function",
-          "line": 285,
-          "end_line": 296
+          "line": 308,
+          "end_line": 319
         }
       ],
       "imports": [
@@ -6420,6 +4180,7 @@
           "names": [
             "digest",
             "discover_units",
+            "javascript_environment",
             "parser_smoke",
             "protocol_fingerprint",
             "source_fingerprint",
@@ -6433,21 +4194,21 @@
             "compare",
             "promote_baseline"
           ],
-          "line": 10
+          "line": 11
         },
         {
           "module": "benchmarks.engine",
           "names": [
             "reset_legacy_state"
           ],
-          "line": 11
+          "line": 12
         },
         {
           "module": "benchmarks.metrics",
           "names": [
             "summarize"
           ],
-          "line": 12
+          "line": 13
         },
         {
           "module": "benchmarks.runner",
@@ -6458,7 +4219,7 @@
             "verified_summary",
             "verify_frozen_run"
           ],
-          "line": 13
+          "line": 14
         },
         {
           "module": "benchmarks.utility",
@@ -6468,37 +4229,37 @@
             "run_process",
             "run_test"
           ],
-          "line": 14
-        },
-        {
-          "module": "python.transform8_for",
-          "names": [],
-          "line": 218
+          "line": 15
         },
         {
           "module": "sys",
           "names": [],
-          "line": 237
+          "line": 219
         },
         {
           "module": "sys",
           "names": [],
-          "line": 244
+          "line": 260
         },
         {
           "module": "sys",
           "names": [],
-          "line": 254
+          "line": 267
         },
         {
           "module": "sys",
           "names": [],
-          "line": 262
+          "line": 277
+        },
+        {
+          "module": "sys",
+          "names": [],
+          "line": 285
         },
         {
           "module": "shutil",
           "names": [],
-          "line": 286
+          "line": 309
         }
       ],
       "local_dependencies": [
@@ -6507,10 +4268,186 @@
         "benchmarks/engine.py",
         "benchmarks/metrics.py",
         "benchmarks/runner.py",
-        "benchmarks/utility.py",
-        "python/transform8_for.py"
+        "benchmarks/utility.py"
       ],
       "has_main_guard": true
+    },
+    {
+      "path": "tests/test_rule_engine.py",
+      "module": "tests.test_rule_engine",
+      "sha256": "35927bb76c26edb25e17fb429f6b1d373b3feb0ece47943df3bbc4474c4638a7",
+      "line_count": 148,
+      "symbols": [
+        {
+          "name": "EditApplicationTests",
+          "kind": "class",
+          "line": 14,
+          "end_line": 37
+        },
+        {
+          "name": "EditApplicationTests.test_groups_apply_atomically_and_nested_groups_are_skipped",
+          "kind": "function",
+          "line": 15,
+          "end_line": 19
+        },
+        {
+          "name": "EditApplicationTests.test_insertions_at_one_offset_keep_their_order",
+          "kind": "function",
+          "line": 21,
+          "end_line": 24
+        },
+        {
+          "name": "EditApplicationTests.test_insertion_next_to_a_replacement_is_not_a_conflict",
+          "kind": "function",
+          "line": 26,
+          "end_line": 28
+        },
+        {
+          "name": "EditApplicationTests.test_overlapping_edits_inside_one_rewrite_are_a_rule_bug",
+          "kind": "function",
+          "line": 30,
+          "end_line": 32
+        },
+        {
+          "name": "EditApplicationTests.test_multibyte_text_uses_byte_offsets",
+          "kind": "function",
+          "line": 34,
+          "end_line": 37
+        },
+        {
+          "name": "GuardTests",
+          "kind": "class",
+          "line": 40,
+          "end_line": 47
+        },
+        {
+          "name": "GuardTests.test_guards_compose_and_explain",
+          "kind": "function",
+          "line": 41,
+          "end_line": 47
+        },
+        {
+          "name": "CatalogTests",
+          "kind": "class",
+          "line": 51,
+          "end_line": 76
+        },
+        {
+          "name": "CatalogTests.test_unsupported_query_predicates_are_rejected",
+          "kind": "function",
+          "line": 52,
+          "end_line": 55
+        },
+        {
+          "name": "CatalogTests.test_style_catalog_rules_and_watermark_pairs_agree",
+          "kind": "function",
+          "line": 57,
+          "end_line": 68
+        },
+        {
+          "name": "CatalogTests.test_rules_have_no_state_between_files",
+          "kind": "function",
+          "line": 70,
+          "end_line": 76
+        },
+        {
+          "name": "ExtensionRuleTests",
+          "kind": "class",
+          "line": 80,
+          "end_line": 107
+        },
+        {
+          "name": "ExtensionRuleTests.test_both_directions_round_trip",
+          "kind": "function",
+          "line": 94,
+          "end_line": 107
+        },
+        {
+          "name": "GoldenRewriteTests",
+          "kind": "class",
+          "line": 110,
+          "end_line": 148
+        },
+        {
+          "name": "GoldenRewriteTests.test_golden_rewrites",
+          "kind": "function",
+          "line": 142,
+          "end_line": 148
+        }
+      ],
+      "imports": [
+        {
+          "module": "json",
+          "names": [],
+          "line": 3
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 4
+        },
+        {
+          "module": "unittest",
+          "names": [],
+          "line": 5
+        },
+        {
+          "module": "rule_engine",
+          "names": [
+            "Edit",
+            "Grammar",
+            "Matcher",
+            "apply_edits",
+            "guard"
+          ],
+          "line": 7
+        },
+        {
+          "module": "change_program_style",
+          "names": [],
+          "line": 58
+        },
+        {
+          "module": "rule_dict_bit_acc",
+          "names": [],
+          "line": 59
+        },
+        {
+          "module": "watermark_core",
+          "names": [],
+          "line": 60
+        },
+        {
+          "module": "change_program_style",
+          "names": [
+            "SCTS"
+          ],
+          "line": 71
+        },
+        {
+          "module": "change_program_style",
+          "names": [
+            "SCTS"
+          ],
+          "line": 95
+        },
+        {
+          "module": "change_program_style",
+          "names": [
+            "SCTS"
+          ],
+          "line": 143
+        }
+      ],
+      "local_dependencies": [
+        "change_program_style.py",
+        "rule_dict_bit_acc.py",
+        "rule_engine.py",
+        "watermark_core.py"
+      ],
+      "has_main_guard": false
     },
     {
       "path": "tools/build_code_index.py",
@@ -6582,6 +4519,63 @@
             "Path"
           ],
           "line": 8
+        }
+      ],
+      "local_dependencies": [],
+      "has_main_guard": true
+    },
+    {
+      "path": "tools/import_mbjsp.py",
+      "module": "tools.import_mbjsp",
+      "sha256": "49e4bb7976c05346aa7d4149ae1b870100d7a2730a917995b0e29bc86a757783",
+      "line_count": 59,
+      "symbols": [
+        {
+          "name": "signature",
+          "kind": "function",
+          "line": 21,
+          "end_line": 23
+        },
+        {
+          "name": "write_units",
+          "kind": "function",
+          "line": 26,
+          "end_line": 37
+        },
+        {
+          "name": "main",
+          "kind": "function",
+          "line": 40,
+          "end_line": 55
+        }
+      ],
+      "imports": [
+        {
+          "module": "argparse",
+          "names": [],
+          "line": 12
+        },
+        {
+          "module": "hashlib",
+          "names": [],
+          "line": 13
+        },
+        {
+          "module": "json",
+          "names": [],
+          "line": 14
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 15
+        },
+        {
+          "module": "shutil",
+          "names": [],
+          "line": 16
         }
       ],
       "local_dependencies": [],
@@ -6693,6 +4687,151 @@
       "has_main_guard": true
     },
     {
+      "path": "tools/rule_audit.py",
+      "module": "tools.rule_audit",
+      "sha256": "fe8b7650ec88eafa34d343170448ea978bad06bab19985c66bca45840745cb4b",
+      "line_count": 157,
+      "symbols": [
+        {
+          "name": "corpus",
+          "kind": "function",
+          "line": 34,
+          "end_line": 47
+        },
+        {
+          "name": "initialize",
+          "kind": "function",
+          "line": 50,
+          "end_line": 54
+        },
+        {
+          "name": "probe",
+          "kind": "function",
+          "line": 57,
+          "end_line": 59
+        },
+        {
+          "name": "change",
+          "kind": "function",
+          "line": 62,
+          "end_line": 63
+        },
+        {
+          "name": "errors",
+          "kind": "function",
+          "line": 66,
+          "end_line": 72
+        },
+        {
+          "name": "audit_file",
+          "kind": "function",
+          "line": 75,
+          "end_line": 110
+        },
+        {
+          "name": "main",
+          "kind": "function",
+          "line": 113,
+          "end_line": 153
+        }
+      ],
+      "imports": [
+        {
+          "module": "argparse",
+          "names": [],
+          "line": 19
+        },
+        {
+          "module": "collections",
+          "names": [],
+          "line": 20
+        },
+        {
+          "module": "hashlib",
+          "names": [],
+          "line": 21
+        },
+        {
+          "module": "json",
+          "names": [],
+          "line": 22
+        },
+        {
+          "module": "os",
+          "names": [],
+          "line": 23
+        },
+        {
+          "module": "concurrent.futures",
+          "names": [
+            "ProcessPoolExecutor"
+          ],
+          "line": 24
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 25
+        },
+        {
+          "module": "sys",
+          "names": [],
+          "line": 26
+        },
+        {
+          "module": "benchmarks.common",
+          "names": [
+            "discover_units"
+          ],
+          "line": 35
+        },
+        {
+          "module": "change_program_style",
+          "names": [
+            "SCTS"
+          ],
+          "line": 52
+        },
+        {
+          "module": "rule_dict_bit_acc",
+          "names": [],
+          "line": 53
+        },
+        {
+          "module": "watermark_core",
+          "names": [],
+          "line": 58
+        },
+        {
+          "module": "code_io",
+          "names": [
+            "read_source"
+          ],
+          "line": 76
+        },
+        {
+          "module": "watermark_core",
+          "names": [],
+          "line": 77
+        },
+        {
+          "module": "rule_dict_bit_acc",
+          "names": [],
+          "line": 122
+        }
+      ],
+      "local_dependencies": [
+        "benchmarks/common.py",
+        "change_program_style.py",
+        "code_io.py",
+        "rule_dict_bit_acc.py",
+        "watermark_core.py"
+      ],
+      "has_main_guard": true
+    },
+    {
       "path": "tools/setup_benchmark.py",
       "module": "tools.setup_benchmark",
       "sha256": "a40e83b38ebdd5e4df49b450a87d02f354c8abe32fb826b597494fb72954e9b0",
@@ -6777,6 +4916,46 @@
       "has_main_guard": true
     },
     {
+      "path": "tools/setup_javascript.py",
+      "module": "tools.setup_javascript",
+      "sha256": "648a08c75704cbd72cd4e01b50a36685270fe26c18f7ca64265ff2e92e2520f5",
+      "line_count": 49,
+      "symbols": [
+        {
+          "name": "main",
+          "kind": "function",
+          "line": 21,
+          "end_line": 45
+        }
+      ],
+      "imports": [
+        {
+          "module": "json",
+          "names": [],
+          "line": 12
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 13
+        },
+        {
+          "module": "shutil",
+          "names": [],
+          "line": 14
+        },
+        {
+          "module": "subprocess",
+          "names": [],
+          "line": 15
+        }
+      ],
+      "local_dependencies": [],
+      "has_main_guard": true
+    },
+    {
       "path": "transform_list_comprehensions.py",
       "module": "transform_list_comprehensions",
       "sha256": "6c01cc05cde186c5c1790e10c97826adab267c3a9ccddd0f5dd0130683c1a5ad",
@@ -6844,125 +5023,22 @@
       "has_main_guard": true
     },
     {
-      "path": "utils.py",
-      "module": "utils",
-      "sha256": "fd4310b618a774bb95e507da1d1713a5b11d6340f836c33e5ba41abdb831a76a",
-      "line_count": 73,
-      "symbols": [
-        {
-          "name": "get_parameter_count",
-          "kind": "function",
-          "line": 8,
-          "end_line": 11
-        },
-        {
-          "name": "replace_from_blob",
-          "kind": "function",
-          "line": 13,
-          "end_line": 28
-        },
-        {
-          "name": "traverse_rec_func",
-          "kind": "function",
-          "line": 30,
-          "end_line": 41
-        },
-        {
-          "name": "tokenize_help",
-          "kind": "function",
-          "line": 43,
-          "end_line": 49
-        },
-        {
-          "name": "get_node_info_ast",
-          "kind": "function",
-          "line": 51,
-          "end_line": 58
-        },
-        {
-          "name": "create_ast_tree",
-          "kind": "function",
-          "line": 60,
-          "end_line": 73
-        }
-      ],
-      "imports": [
-        {
-          "module": "re",
-          "names": [],
-          "line": 1
-        },
-        {
-          "module": "tree_sitter",
-          "names": [
-            "Parser",
-            "Language"
-          ],
-          "line": 2
-        },
-        {
-          "module": "inspect",
-          "names": [],
-          "line": 3
-        },
-        {
-          "module": "typing",
-          "names": [
-            "TypeVar"
-          ],
-          "line": 4
-        }
-      ],
-      "local_dependencies": [],
-      "has_main_guard": false
-    },
-    {
       "path": "watermark_bit.py",
       "module": "watermark_bit",
-      "sha256": "fccc28b845bdb24d24c4240d50c7abcb99e50969f52a51e5278b817296e45138",
-      "line_count": 99,
+      "sha256": "0371ba045c34b959cce9690bdd3b14e34d1ed7a8a91f4f7d42471fadf6632406",
+      "line_count": 34,
       "symbols": [
-        {
-          "name": "read_file_with_auto_encoding",
-          "kind": "function",
-          "line": 21,
-          "end_line": 31
-        },
-        {
-          "name": "write_to_new_file",
-          "kind": "function",
-          "line": 34,
-          "end_line": 37
-        },
-        {
-          "name": "transform_on_file",
-          "kind": "function",
-          "line": 40,
-          "end_line": 59
-        },
         {
           "name": "read_json",
           "kind": "function",
-          "line": 62,
-          "end_line": 65
-        },
-        {
-          "name": "get_trans_num",
-          "kind": "function",
-          "line": 68,
-          "end_line": 70
-        },
-        {
-          "name": "get_subfolder",
-          "kind": "function",
-          "line": 73,
-          "end_line": 74
+          "line": 12,
+          "end_line": 14
         },
         {
           "name": "folder_bit_watermark",
           "kind": "function",
-          "line": 77,
-          "end_line": 90
+          "line": 17,
+          "end_line": 26
         }
       ],
       "imports": [
@@ -6972,170 +5048,204 @@
           "line": 1
         },
         {
-          "module": "collections",
-          "names": [
-            "deque"
-          ],
-          "line": 2
-        },
-        {
-          "module": "chardet",
+          "module": "os",
           "names": [],
-          "line": 4
+          "line": 2
         },
         {
           "module": "tqdm",
           "names": [
             "tqdm"
+          ],
+          "line": 4
+        },
+        {
+          "module": "change_program_style",
+          "names": [
+            "SCTS"
           ],
           "line": 6
         },
         {
-          "module": "change_program_style",
+          "module": "code_io",
           "names": [
-            "SCTS"
+            "write_source"
           ],
-          "line": 8
-        },
-        {
-          "module": "rule_dict_bit_acc",
-          "names": [],
-          "line": 9
-        },
-        {
-          "module": "os",
-          "names": [],
-          "line": 10
-        },
-        {
-          "module": "bch_utils",
-          "names": [],
-          "line": 11
+          "line": 7
         },
         {
           "module": "folder_transform_check",
           "names": [
-            "display_diff_in_console"
+            "get_subfolder",
+            "load_project"
           ],
-          "line": 12
+          "line": 8
+        },
+        {
+          "module": "watermark_core",
+          "names": [],
+          "line": 9
         }
       ],
       "local_dependencies": [
-        "bch_utils.py",
         "change_program_style.py",
+        "code_io.py",
         "folder_transform_check.py",
-        "rule_dict_bit_acc.py"
+        "watermark_core.py"
       ],
       "has_main_guard": true
     },
     {
-      "path": "watermark_extract.py",
-      "module": "watermark_extract",
-      "sha256": "ba240486843ad7a45076f65522b393bc198fdd47964f6f92d70df9bb7a33c7a7",
-      "line_count": 128,
+      "path": "watermark_core.py",
+      "module": "watermark_core",
+      "sha256": "4988182a543d1aae094bf75de679de965c6f7b0e5555030ecdab0b0ab4505ba5",
+      "line_count": 96,
       "symbols": [
         {
-          "name": "read_file_with_auto_encoding",
+          "name": "project_order",
           "kind": "function",
-          "line": 21,
-          "end_line": 32
+          "line": 23,
+          "end_line": 26
         },
         {
-          "name": "transform_on_file",
+          "name": "probe",
           "kind": "function",
-          "line": 36,
-          "end_line": 60
+          "line": 29,
+          "end_line": 37
         },
         {
-          "name": "read_json",
+          "name": "analyze",
           "kind": "function",
-          "line": 62,
-          "end_line": 65
+          "line": 40,
+          "end_line": 44
         },
         {
-          "name": "get_trans_num",
+          "name": "slots",
           "kind": "function",
-          "line": 67,
-          "end_line": 69
+          "line": 47,
+          "end_line": 54
         },
         {
-          "name": "get_subfolder",
+          "name": "slot_files",
           "kind": "function",
-          "line": 72,
-          "end_line": 73
+          "line": 57,
+          "end_line": 58
         },
         {
-          "name": "folder_bit_extract",
+          "name": "embed",
           "kind": "function",
-          "line": 76,
-          "end_line": 101
+          "line": 61,
+          "end_line": 75
+        },
+        {
+          "name": "extract",
+          "kind": "function",
+          "line": 78,
+          "end_line": 96
         }
       ],
       "imports": [
-        {
-          "module": "json",
-          "names": [],
-          "line": 1
-        },
-        {
-          "module": "random",
-          "names": [],
-          "line": 2
-        },
         {
           "module": "collections",
           "names": [
             "deque"
           ],
-          "line": 3
+          "line": 10
         },
         {
-          "module": "chardet",
+          "module": "hashlib",
           "names": [],
-          "line": 5
+          "line": 11
+        },
+        {
+          "module": "random",
+          "names": [],
+          "line": 12
+        },
+        {
+          "module": "bch_utils",
+          "names": [],
+          "line": 14
+        },
+        {
+          "module": "rule_dict_bit_acc",
+          "names": [],
+          "line": 15
+        },
+        {
+          "module": "code_io",
+          "names": [
+            "reload_written"
+          ],
+          "line": 16
+        }
+      ],
+      "local_dependencies": [
+        "bch_utils.py",
+        "code_io.py",
+        "rule_dict_bit_acc.py"
+      ],
+      "has_main_guard": false
+    },
+    {
+      "path": "watermark_extract.py",
+      "module": "watermark_extract",
+      "sha256": "c824bab113269a9fd13a3a828837741e21b9955b76327ea93ad8c3d9e5edce7c",
+      "line_count": 33,
+      "symbols": [
+        {
+          "name": "folder_bit_extract",
+          "kind": "function",
+          "line": 11,
+          "end_line": 19
+        }
+      ],
+      "imports": [
+        {
+          "module": "os",
+          "names": [],
+          "line": 1
         },
         {
           "module": "tqdm",
           "names": [
             "tqdm"
           ],
-          "line": 7
+          "line": 3
         },
         {
           "module": "change_program_style",
           "names": [
             "SCTS"
           ],
-          "line": 9
-        },
-        {
-          "module": "rule_dict_bit_acc",
-          "names": [],
-          "line": 10
-        },
-        {
-          "module": "os",
-          "names": [],
-          "line": 11
-        },
-        {
-          "module": "bch_utils",
-          "names": [],
-          "line": 12
+          "line": 5
         },
         {
           "module": "folder_transform_check",
           "names": [
-            "display_diff_in_console"
+            "get_subfolder",
+            "load_project"
           ],
-          "line": 13
+          "line": 6
+        },
+        {
+          "module": "watermark_bit",
+          "names": [
+            "read_json"
+          ],
+          "line": 7
+        },
+        {
+          "module": "watermark_core",
+          "names": [],
+          "line": 8
         }
       ],
       "local_dependencies": [
-        "bch_utils.py",
         "change_program_style.py",
         "folder_transform_check.py",
-        "rule_dict_bit_acc.py"
+        "watermark_bit.py",
+        "watermark_core.py"
       ],
       "has_main_guard": true
     }
