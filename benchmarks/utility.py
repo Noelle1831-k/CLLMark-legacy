@@ -61,6 +61,17 @@ def run_process(command, directory, timeout, stem, env=None):
             "stdout": str(stdout_path), "stderr": str(stderr_path)}
 
 
+def run_test(command, directory, timeout, retries, env):
+    attempts = []
+    for index in range(retries + 1):
+        result = run_process(command, directory, timeout, f"test-attempt-{index + 1}", env)
+        attempts.append(result)
+        if not result["timed_out"]:
+            break
+    return {**attempts[-1], "attempts": attempts,
+            "recovered_after_timeout": len(attempts) > 1 and not attempts[-1]["timed_out"] and attempts[-1]["returncode"] == 0}
+
+
 @contextmanager
 def cache_lock(path):
     with path.open("a+") as handle:
@@ -90,9 +101,11 @@ def evaluate_utility(unit, directory, problems, config, run_dir, environment, ca
         target = Path(directory) / ".utility"
         target.mkdir(exist_ok=True)
         cached = Path(result["artifacts"])
-        for name in ["candidate.py", "candidate.cpp", "compile.stdout", "compile.stderr", "test.stdout", "test.stderr"]:
-            if (cached / name).exists():
-                shutil.copyfile(cached / name, target / name)
+        files = [cached / name for name in ["candidate.py", "candidate.cpp"]]
+        files += [p for pattern in ["compile*.stdout", "compile*.stderr", "test*.stdout", "test*.stderr"] for p in cached.glob(pattern)]
+        for path in files:
+            if path.exists():
+                shutil.copyfile(path, target / path.name)
         result = {**result, "local_artifacts": str(target)}
         write_json(target / "result.json", result)
     return result
@@ -115,6 +128,7 @@ def _evaluate_cached_utility(unit, directory, problems, config, run_dir, environ
     compatibility_header = includes / "bits" / "stdc++.h"
     identity = {"language": language, "assembled": assembled, "environment": environment,
                 "compile_timeout": config["compile_timeout_seconds"], "test_timeout": config["test_timeout_seconds"],
+                "test_timeout_retries": config.get("test_timeout_retries", 0),
                 "cpp_header": digest(compatibility_header.read_bytes()), "compiler_flags": ["-std=c++17", "-O0"],
                 "python_hash_seed": str(config["seed"]), "harness_sha256": digest(Path(__file__).read_bytes())}
     key = digest(identity)
@@ -150,7 +164,7 @@ def _evaluate_cached_utility(unit, directory, problems, config, run_dir, environ
                 return result
             command = [str(executable)]
         env = {**os.environ, "PYTHONHASHSEED": str(config["seed"])}
-        tested = run_process(command, cache, config["test_timeout_seconds"], "test", env)
+        tested = run_test(command, cache, config["test_timeout_seconds"], config.get("test_timeout_retries", 0), env)
         status = "TIMEOUT" if tested["timed_out"] else "PASS" if tested["returncode"] == 0 else "FAIL"
         result = {**base, "status": status, "test": tested}
         if status != "TIMEOUT":

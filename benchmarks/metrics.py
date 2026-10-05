@@ -68,6 +68,9 @@ def summarize_group(rows):
                     "after_pass_rate": rate(sum(r["utility_after"]["status"] == "PASS" for r in utility_pairs), len(utility_pairs)),
                     "retention_denominator": len(before_pass), "retention": rate(len(before_pass) - len(regressions), len(before_pass)),
                     "regression_ids": regressions, "before_status_counts": dict(utility_statuses)},
+        "timeout_observations": {
+            "retried_tests": sum(len(r.get(stage, {}).get("test", {}).get("attempts", [])) > 1 for r in ok for stage in ["utility_before", "utility_after"]),
+            "recovered_tests": sum(r.get(stage, {}).get("test", {}).get("recovered_after_timeout", False) for r in ok for stage in ["utility_before", "utility_after"])},
         "syntax_retention": {"retained": syntax_retained, "trials": syntax_trials, "rate": rate(syntax_retained, syntax_trials)},
         "properties": properties,
         "property_errors": sum((r.get("properties") or {}).get("errors", 0) for r in ok),
@@ -131,6 +134,7 @@ def save_reports(run_dir, summary, manifest, comparison=None):
               "- Extraction invokes the legacy expected-message API, with per-unit/stage deterministic random seeds. Recovery is expected-message matching, not independent source-model identification.",
               "- Rule reversibility compares canonical endpoints; independence probes same-file pairs used by the seven selected embedding slots. These structural probes do not prove semantic equivalence.",
               "- Utility uses supplied MBXP tests on reconstructed full functions. Missing oracles, unmapped CodeNet IDs and split project functions are N/A; they are never counted as passing.",
+              "- Functional timeouts are retried only as configured; every attempt is preserved. A passing retry is labeled recovered_after_timeout and does not erase the first timeout.",
               "- Syntax metrics use the stored snippets as parsed by Tree-sitter; incomplete C++ function bodies may already have parse errors before watermarking.",
               "- Rule-flip attacks report actual successful transformations. Recovery after one/two transforms is not assumed to correspond to exactly one/two changed codeword bits.",
               "- Parser initialization is excluded from phase timing. Functional-test cache hits are recorded and excluded from watermark timing measurements.",
@@ -139,6 +143,7 @@ def save_reports(run_dir, summary, manifest, comparison=None):
               f"Detection TPR: {percent(m['detection']['tpr'])}; FPR: {percent(m['detection']['fpr'])}; accuracy: {percent(m['detection']['accuracy'])}.",
               f"Functional oracle coverage: {percent(m['utility']['oracle_coverage'])}; paired utility retention: {percent(m['utility']['retention'])}.",
               f"Functional regressions: {len(m['utility']['regression_ids'])}; harness errors: {m['harness_errors']}; property probe errors: {m['property_errors']}."]
+    lines.append(f"Functional test records with retries (including cache reuse): {m['timeout_observations']['retried_tests']}; recovered passing records: {m['timeout_observations']['recovered_tests']}.")
     for name, attack in m["attacks"].items():
         lines.append(f"{name}: applied {attack['fully_applied']}/{attack['attempted']}; recovery {percent(attack['recovery_rate'])}.")
     if comparison:

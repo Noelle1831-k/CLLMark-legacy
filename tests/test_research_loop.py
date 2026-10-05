@@ -11,7 +11,7 @@ from benchmarks.compare import compare, promote_baseline
 from benchmarks.engine import reset_legacy_state
 from benchmarks.metrics import summarize
 from benchmarks.runner import load_rows, run_experiment, validate_workspace, verified_summary, verify_frozen_run
-from benchmarks.utility import assemble_test, evaluate_utility, run_process
+from benchmarks.utility import assemble_test, evaluate_utility, run_process, run_test
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -239,6 +239,32 @@ class UtilityExecutionTests(unittest.TestCase):
             result = run_process([sys.executable, "-c", "while True: pass"], temporary, 0.2, "timeout")
             self.assertTrue(result["timed_out"])
             self.assertLess(result["elapsed_ms"], 2000)
+
+    def test_timeout_retry_preserves_first_attempt_and_recovery(self):
+        import sys
+        with tempfile.TemporaryDirectory() as temporary:
+            command = [sys.executable, "-c", "from pathlib import Path\nimport time\np=Path('first-launch')\nif not p.exists():\n p.touch()\n time.sleep(3)\n"]
+            result = run_test(command, temporary, 0.2, 1, None)
+            self.assertTrue(result["attempts"][0]["timed_out"])
+            self.assertEqual(result["returncode"], 0)
+            self.assertTrue(result["recovered_after_timeout"])
+            self.assertEqual(len(result["attempts"]), 2)
+
+    def test_persistent_timeout_remains_failure_after_bounded_retry(self):
+        import sys
+        with tempfile.TemporaryDirectory() as temporary:
+            result = run_test([sys.executable, "-c", "while True: pass"], temporary, 0.2, 1, None)
+            self.assertTrue(result["timed_out"])
+            self.assertFalse(result["recovered_after_timeout"])
+            self.assertEqual(len(result["attempts"]), 2)
+
+    def test_assertion_failure_is_not_retried(self):
+        import sys
+        with tempfile.TemporaryDirectory() as temporary:
+            result = run_test([sys.executable, "-c", "assert False"], temporary, 1, 1, None)
+            self.assertFalse(result["timed_out"])
+            self.assertNotEqual(result["returncode"], 0)
+            self.assertEqual(len(result["attempts"]), 1)
 
     def test_python_functional_failure_and_cache_invalidation(self):
         with tempfile.TemporaryDirectory() as temporary:

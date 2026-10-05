@@ -69,6 +69,9 @@ def validate_config(config):
             raise ValueError(field + " must be positive")
     if not isinstance(config["jobs"], int):
         raise ValueError("jobs must be an integer")
+    retries = config.get("test_timeout_retries", 0)
+    if not isinstance(retries, int) or not 0 <= retries <= 3:
+        raise ValueError("test_timeout_retries must be an integer between zero and three")
     if any(not isinstance(n, int) or n <= 0 for n in config.get("attacks", [])):
         raise ValueError("Attack counts must be positive integers")
     seen = set()

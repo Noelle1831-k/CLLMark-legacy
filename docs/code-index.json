@@ -18,7 +18,7 @@
   ],
   "generation_command": "python3 tools/build_code_index.py",
   "file_count": 68,
-  "symbol_count": 651,
+  "symbol_count": 655,
   "files": [
     {
       "path": "bch_utils.py",
@@ -224,8 +224,8 @@
     {
       "path": "benchmarks/common.py",
       "module": "benchmarks.common",
-      "sha256": "d02969c16457b59bd36fedcc408c739ec6d9e319e00839160c40421a18e70928",
-      "line_count": 209,
+      "sha256": "61d6c1f0dd1f2e5da22a983f0002bfb83d1c750cd5605190cc7c0745853101fa",
+      "line_count": 212,
       "symbols": [
         {
           "name": "digest",
@@ -255,49 +255,49 @@
           "name": "validate_config",
           "kind": "function",
           "line": 62,
-          "end_line": 83
+          "end_line": 86
         },
         {
           "name": "source_paths",
           "kind": "function",
-          "line": 86,
-          "end_line": 94
+          "line": 89,
+          "end_line": 97
         },
         {
           "name": "source_fingerprint",
           "kind": "function",
-          "line": 97,
-          "end_line": 99
+          "line": 100,
+          "end_line": 102
         },
         {
           "name": "protocol_fingerprint",
           "kind": "function",
-          "line": 102,
-          "end_line": 108
+          "line": 105,
+          "end_line": 111
         },
         {
           "name": "toolchain_environment",
           "kind": "function",
-          "line": 111,
-          "end_line": 147
+          "line": 114,
+          "end_line": 150
         },
         {
           "name": "git_version",
           "kind": "function",
-          "line": 150,
-          "end_line": 153
+          "line": 153,
+          "end_line": 156
         },
         {
           "name": "parser_smoke",
           "kind": "function",
-          "line": 156,
-          "end_line": 179
+          "line": 159,
+          "end_line": 182
         },
         {
           "name": "discover_units",
           "kind": "function",
-          "line": 182,
-          "end_line": 209
+          "line": 185,
+          "end_line": 212
         }
       ],
       "imports": [
@@ -378,7 +378,7 @@
           "names": [
             "SCTS"
           ],
-          "line": 158
+          "line": 161
         }
       ],
       "local_dependencies": [
@@ -656,8 +656,8 @@
     {
       "path": "benchmarks/metrics.py",
       "module": "benchmarks.metrics",
-      "sha256": "9a6f0a30fcd99d32e24032e4f9bb2bb7c00fe1e4e036f0e1c5c893b7e887cafc",
-      "line_count": 165,
+      "sha256": "382c2deb0d8cbdaab21bdbf46586fcbb47ce46aeedc84f9c951b062660bbf4bb",
+      "line_count": 170,
       "symbols": [
         {
           "name": "rate",
@@ -675,25 +675,25 @@
           "name": "summarize_group",
           "kind": "function",
           "line": 25,
-          "end_line": 79
+          "end_line": 82
         },
         {
           "name": "summarize",
           "kind": "function",
-          "line": 82,
-          "end_line": 99
+          "line": 85,
+          "end_line": 102
         },
         {
           "name": "percent",
           "kind": "function",
-          "line": 102,
-          "end_line": 103
+          "line": 105,
+          "end_line": 106
         },
         {
           "name": "save_reports",
           "kind": "function",
-          "line": 106,
-          "end_line": 165
+          "line": 109,
+          "end_line": 170
         }
       ],
       "imports": [
@@ -737,12 +737,12 @@
         {
           "module": "matplotlib",
           "names": [],
-          "line": 149
+          "line": 154
         },
         {
           "module": "matplotlib.pyplot",
           "names": [],
-          "line": 151
+          "line": 156
         }
       ],
       "local_dependencies": [
@@ -922,8 +922,8 @@
     {
       "path": "benchmarks/utility.py",
       "module": "benchmarks.utility",
-      "sha256": "22286b90a2161196df537cf4b977477930e6cd902d7035ffec87f6963b388b9e",
-      "line_count": 158,
+      "sha256": "5c0645e6dc44d581e10672a4f34a38f185094e18e66ba0026c0cffc4969d3f74",
+      "line_count": 172,
       "symbols": [
         {
           "name": "load_problems",
@@ -944,28 +944,34 @@
           "end_line": 61
         },
         {
+          "name": "run_test",
+          "kind": "function",
+          "line": 64,
+          "end_line": 72
+        },
+        {
           "name": "cache_lock",
           "kind": "function",
-          "line": 65,
-          "end_line": 71
+          "line": 76,
+          "end_line": 82
         },
         {
           "name": "assemble_test",
           "kind": "function",
-          "line": 74,
-          "end_line": 84
+          "line": 85,
+          "end_line": 95
         },
         {
           "name": "evaluate_utility",
           "kind": "function",
-          "line": 87,
-          "end_line": 98
+          "line": 98,
+          "end_line": 111
         },
         {
           "name": "_evaluate_cached_utility",
           "kind": "function",
-          "line": 101,
-          "end_line": 158
+          "line": 114,
+          "end_line": 172
         }
       ],
       "imports": [
@@ -6167,8 +6173,8 @@
     {
       "path": "tests/test_research_loop.py",
       "module": "tests.test_research_loop",
-      "sha256": "3d9dadcf21e2c012afe98a19c56c90941a8080b678f84769699f6bac33330aaa",
-      "line_count": 274,
+      "sha256": "d0b31bdfab8e6f98a79d841d156ce29d5fdf51bce743b2839bbbe1b1eb706a2e",
+      "line_count": 300,
       "symbols": [
         {
           "name": "measured_row",
@@ -6324,7 +6330,7 @@
           "name": "UtilityExecutionTests",
           "kind": "class",
           "line": 216,
-          "end_line": 270
+          "end_line": 296
         },
         {
           "name": "UtilityExecutionTests.test_legacy_rule_globals_do_not_leak_between_phases_or_units",
@@ -6351,16 +6357,34 @@
           "end_line": 241
         },
         {
-          "name": "UtilityExecutionTests.test_python_functional_failure_and_cache_invalidation",
+          "name": "UtilityExecutionTests.test_timeout_retry_preserves_first_attempt_and_recovery",
           "kind": "function",
           "line": 243,
-          "end_line": 257
+          "end_line": 251
+        },
+        {
+          "name": "UtilityExecutionTests.test_persistent_timeout_remains_failure_after_bounded_retry",
+          "kind": "function",
+          "line": 253,
+          "end_line": 259
+        },
+        {
+          "name": "UtilityExecutionTests.test_assertion_failure_is_not_retried",
+          "kind": "function",
+          "line": 261,
+          "end_line": 267
+        },
+        {
+          "name": "UtilityExecutionTests.test_python_functional_failure_and_cache_invalidation",
+          "kind": "function",
+          "line": 269,
+          "end_line": 283
         },
         {
           "name": "UtilityExecutionTests.test_cpp_compilation_and_real_assertion_failure",
           "kind": "function",
-          "line": 259,
-          "end_line": 270
+          "line": 285,
+          "end_line": 296
         }
       ],
       "imports": [
@@ -6441,7 +6465,8 @@
           "names": [
             "assemble_test",
             "evaluate_utility",
-            "run_process"
+            "run_process",
+            "run_test"
           ],
           "line": 14
         },
@@ -6456,9 +6481,24 @@
           "line": 237
         },
         {
+          "module": "sys",
+          "names": [],
+          "line": 244
+        },
+        {
+          "module": "sys",
+          "names": [],
+          "line": 254
+        },
+        {
+          "module": "sys",
+          "names": [],
+          "line": 262
+        },
+        {
           "module": "shutil",
           "names": [],
-          "line": 260
+          "line": 286
         }
       ],
       "local_dependencies": [
