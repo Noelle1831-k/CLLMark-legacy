@@ -10,6 +10,7 @@ from pathlib import Path
 import random
 import shutil
 import signal
+import sys
 import time
 import traceback
 
@@ -36,6 +37,13 @@ class BoundedLog(io.TextIOBase):
         return "".join(self.parts) + (f"\n[truncated {self.discarded} characters]\n" if self.discarded else "")
 
 
+def reset_legacy_state(language):
+    """Reset rule globals in place; existing registry functions keep module globals."""
+    for name in sorted(sys.modules):
+        if name.startswith(language + ".transform"):
+            importlib.reload(sys.modules[name])
+
+
 class LegacyEngine:
     def __init__(self, run_dir, manifest):
         self.run_dir, self.manifest = Path(run_dir), manifest
@@ -59,6 +67,7 @@ class LegacyEngine:
         return self.parsers[language]
 
     def extract(self, directory, language, unit_id, stage):
+        reset_legacy_state(language)
         captured = {}
 
         def decode(bits):
@@ -91,6 +100,7 @@ class LegacyEngine:
         return self.parser(language).change_file_style(style, code)[0]
 
     def properties(self, clean, language, support, slots):
+        reset_legacy_state(language)
         result = {"idempotence": {"passed": 0, "trials": 0}, "reversibility": {"passed": 0, "trials": 0},
                   "independence": {"passed": 0, "trials": 0}, "unsupported_pairs": 0, "errors": 0, "examples": []}
 
@@ -133,6 +143,7 @@ class LegacyEngine:
         return result
 
     def flip(self, source, target, language, slots, count):
+        reset_legacy_state(language)
         shutil.copytree(source, target)
         applied, unavailable = [], []
         for slot in slots:
@@ -159,6 +170,7 @@ class LegacyEngine:
         for module in [self.embedder, self.extractor]:
             module.lang = language
         self.parser(language)  # Exclude one-time parser creation from phase timings.
+        reset_legacy_state(language)
         work = self.run_dir / "work" / digest(unit["id"].encode())[:20]
         if work.exists():
             shutil.rmtree(work)
@@ -200,6 +212,7 @@ class LegacyEngine:
                 result["original_extraction"] = self.extract(clean, language, unit["id"], "original")
                 marked = work / "marked"
                 shutil.copytree(clean, marked)
+                reset_legacy_state(language)
                 phase = time.perf_counter()
                 self.embedder.folder_bit_watermark(self.config["watermark"], str(marked), language, 0)
                 result["embedding_ms"] = (time.perf_counter() - phase) * 1000

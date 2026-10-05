@@ -30,6 +30,7 @@ def freeze_run(root, config, output_root, limit=0, cohorts=None, baseline=None, 
     run_id = stamp + "_" + git["commit"][:8] + "_" + fingerprint[:8]
     run_dir = output_root / run_id
     run_dir.mkdir(parents=True, exist_ok=False)
+    write_json(run_dir / "state.json", {"status": "freezing", "expected_units": len(units), "copied_inputs": 0, "updated_at": utc_now()})
     source = run_dir / "source"
     inputs = run_dir / "inputs"
     for relative, expected in source_files.items():
@@ -50,7 +51,7 @@ def freeze_run(root, config, output_root, limit=0, cohorts=None, baseline=None, 
         (libraries / f"{language}-languages.so").write_bytes(blob)
     relative_paths = {path for unit in units for path in unit["source_files"]} | set(config["problem_files"].values())
     input_files = {}
-    for relative in sorted(relative_paths):
+    for index, relative in enumerate(sorted(relative_paths), 1):
         path = (root / relative).resolve()
         if not path.is_relative_to(root) or not path.is_file() or (root / relative).is_symlink():
             raise ValueError("Unsafe or missing experiment input: " + relative)
@@ -59,6 +60,11 @@ def freeze_run(root, config, output_root, limit=0, cohorts=None, baseline=None, 
         target = inputs / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(blob)
+        if index % 2000 == 0:
+            write_json(run_dir / "state.json", {"status": "freezing", "expected_units": len(units), "copied_inputs": index,
+                                               "expected_inputs": len(relative_paths), "updated_at": utc_now()})
+        if index % 10000 == 0:
+            print(f"Snapshot inputs {index}/{len(relative_paths)}", flush=True)
     signatures = {digest([(Path(p).name, input_files[p]["sha256"]) for p in unit["source_files"]]) for unit in units}
     dataset_fingerprint = digest({"units": units, "input_files": input_files})
     manifest = {"schema_version": 1, "run_id": run_id, "created_at": utc_now(), "workspace_root": str(root),
@@ -214,7 +220,9 @@ def execute_run(run_dir):
 
 def launch_frozen(run_dir):
     command = [sys.executable, str(run_dir / "source" / "tools" / "research_loop.py"), "_execute", str(run_dir)]
-    process = subprocess.Popen(command, start_new_session=True, env={**os.environ, "MPLBACKEND": "Agg"})
+    manifest = json.loads((run_dir / "manifest.json").read_text())
+    process = subprocess.Popen(command, start_new_session=True,
+                               env={**os.environ, "MPLBACKEND": "Agg", "PYTHONHASHSEED": str(manifest["config"]["seed"])})
     try:
         return process.wait()
     except KeyboardInterrupt:

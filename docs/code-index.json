@@ -18,7 +18,7 @@
   ],
   "generation_command": "python3 tools/build_code_index.py",
   "file_count": 68,
-  "symbol_count": 649,
+  "symbol_count": 651,
   "files": [
     {
       "path": "bch_utils.py",
@@ -441,116 +441,122 @@
     {
       "path": "benchmarks/engine.py",
       "module": "benchmarks.engine",
-      "sha256": "550bb2c2258aac2ee41862f2e7fee28283d5b8a8c77a859688ff4928454e313c",
-      "line_count": 252,
+      "sha256": "e7210723ecc5bfca50b7d824c2dfb124d6ab2676f2a7c320372a7e185a1e13af",
+      "line_count": 265,
       "symbols": [
         {
           "name": "UnitTimeout",
           "kind": "class",
-          "line": 20,
-          "end_line": 21
+          "line": 21,
+          "end_line": 22
         },
         {
           "name": "BoundedLog",
           "kind": "class",
-          "line": 24,
-          "end_line": 36
+          "line": 25,
+          "end_line": 37
         },
         {
           "name": "BoundedLog.__init__",
           "kind": "function",
-          "line": 25,
-          "end_line": 26
+          "line": 26,
+          "end_line": 27
         },
         {
           "name": "BoundedLog.write",
           "kind": "function",
-          "line": 28,
-          "end_line": 33
+          "line": 29,
+          "end_line": 34
         },
         {
           "name": "BoundedLog.getvalue",
           "kind": "function",
-          "line": 35,
-          "end_line": 36
+          "line": 36,
+          "end_line": 37
+        },
+        {
+          "name": "reset_legacy_state",
+          "kind": "function",
+          "line": 40,
+          "end_line": 44
         },
         {
           "name": "LegacyEngine",
           "kind": "class",
-          "line": 39,
-          "end_line": 227
+          "line": 47,
+          "end_line": 240
         },
         {
           "name": "LegacyEngine.__init__",
           "kind": "function",
-          "line": 40,
-          "end_line": 54
+          "line": 48,
+          "end_line": 62
         },
         {
           "name": "LegacyEngine.parser",
-          "kind": "function",
-          "line": 56,
-          "end_line": 59
-        },
-        {
-          "name": "LegacyEngine.extract",
-          "kind": "function",
-          "line": 61,
-          "end_line": 86
-        },
-        {
-          "name": "LegacyEngine.extract.decode",
           "kind": "function",
           "line": 64,
           "end_line": 67
         },
         {
+          "name": "LegacyEngine.extract",
+          "kind": "function",
+          "line": 69,
+          "end_line": 95
+        },
+        {
+          "name": "LegacyEngine.extract.decode",
+          "kind": "function",
+          "line": 73,
+          "end_line": 76
+        },
+        {
           "name": "LegacyEngine.change",
           "kind": "function",
-          "line": 88,
-          "end_line": 91
+          "line": 97,
+          "end_line": 100
         },
         {
           "name": "LegacyEngine.properties",
           "kind": "function",
-          "line": 93,
-          "end_line": 133
+          "line": 102,
+          "end_line": 143
         },
         {
           "name": "LegacyEngine.properties.check",
           "kind": "function",
-          "line": 97,
-          "end_line": 101
+          "line": 107,
+          "end_line": 111
         },
         {
           "name": "LegacyEngine.flip",
           "kind": "function",
-          "line": 135,
-          "end_line": 154
+          "line": 145,
+          "end_line": 165
         },
         {
           "name": "LegacyEngine.evaluate",
           "kind": "function",
-          "line": 156,
-          "end_line": 227
+          "line": 167,
+          "end_line": 240
         },
         {
           "name": "initialize_worker",
           "kind": "function",
-          "line": 233,
-          "end_line": 236
+          "line": 246,
+          "end_line": 249
         },
         {
           "name": "evaluate_unit",
           "kind": "function",
-          "line": 239,
-          "end_line": 252
+          "line": 252,
+          "end_line": 265
         },
         {
           "name": "evaluate_unit.timeout",
           "kind": "function",
-          "line": 240,
-          "end_line": 241
+          "line": 253,
+          "end_line": 254
         }
       ],
       "imports": [
@@ -610,14 +616,19 @@
           "line": 12
         },
         {
-          "module": "time",
+          "module": "sys",
           "names": [],
           "line": 13
         },
         {
-          "module": "traceback",
+          "module": "time",
           "names": [],
           "line": 14
+        },
+        {
+          "module": "traceback",
+          "names": [],
+          "line": 15
         },
         {
           "module": "benchmarks.common",
@@ -625,7 +636,7 @@
             "digest",
             "write_json"
           ],
-          "line": 16
+          "line": 17
         },
         {
           "module": "benchmarks.utility",
@@ -633,7 +644,7 @@
             "evaluate_utility",
             "load_problems"
           ],
-          "line": 17
+          "line": 18
         }
       ],
       "local_dependencies": [
@@ -742,56 +753,56 @@
     {
       "path": "benchmarks/runner.py",
       "module": "benchmarks.runner",
-      "sha256": "7ab43aa0d241ac3569e73f32eafda67e63d19cde734386bb2ea692821d6be83b",
-      "line_count": 268,
+      "sha256": "67438221ba1229c3756c500f0dbea12fed5a0a3ae082d83033e5b06f10ca2f1a",
+      "line_count": 276,
       "symbols": [
         {
           "name": "freeze_run",
           "kind": "function",
           "line": 21,
-          "end_line": 81
+          "end_line": 87
         },
         {
           "name": "verify_frozen_run",
           "kind": "function",
-          "line": 84,
-          "end_line": 96
+          "line": 90,
+          "end_line": 102
         },
         {
           "name": "load_rows",
           "kind": "function",
-          "line": 99,
-          "end_line": 122
+          "line": 105,
+          "end_line": 128
         },
         {
           "name": "verified_summary",
           "kind": "function",
-          "line": 125,
-          "end_line": 136
+          "line": 131,
+          "end_line": 142
         },
         {
           "name": "validate_workspace",
           "kind": "function",
-          "line": 139,
-          "end_line": 151
+          "line": 145,
+          "end_line": 157
         },
         {
           "name": "execute_run",
           "kind": "function",
-          "line": 154,
-          "end_line": 212
+          "line": 160,
+          "end_line": 218
         },
         {
           "name": "launch_frozen",
           "kind": "function",
-          "line": 215,
-          "end_line": 224
+          "line": 221,
+          "end_line": 232
         },
         {
           "name": "run_experiment",
           "kind": "function",
-          "line": 227,
-          "end_line": 268
+          "line": 235,
+          "end_line": 276
         }
       ],
       "imports": [
@@ -897,7 +908,7 @@
             "evaluate_unit",
             "initialize_worker"
           ],
-          "line": 168
+          "line": 174
         }
       ],
       "local_dependencies": [
@@ -6156,194 +6167,200 @@
     {
       "path": "tests/test_research_loop.py",
       "module": "tests.test_research_loop",
-      "sha256": "633794465c2102d88c64210584df478493c92e5e3b793af6754125232e3a2053",
-      "line_count": 263,
+      "sha256": "3d9dadcf21e2c012afe98a19c56c90941a8080b678f84769699f6bac33330aaa",
+      "line_count": 274,
       "symbols": [
         {
           "name": "measured_row",
           "kind": "function",
-          "line": 20,
-          "end_line": 29
+          "line": 21,
+          "end_line": 30
         },
         {
           "name": "summary",
           "kind": "function",
-          "line": 32,
-          "end_line": 37
+          "line": 33,
+          "end_line": 38
         },
         {
           "name": "MeasurementValidityTests",
           "kind": "class",
-          "line": 40,
-          "end_line": 99
+          "line": 41,
+          "end_line": 100
         },
         {
           "name": "MeasurementValidityTests.test_missing_oracles_never_count_as_pass",
           "kind": "function",
-          "line": 41,
-          "end_line": 44
+          "line": 42,
+          "end_line": 45
         },
         {
           "name": "MeasurementValidityTests.test_confusion_matrix_excludes_unknown_and_capacity_failures",
           "kind": "function",
-          "line": 46,
-          "end_line": 51
+          "line": 47,
+          "end_line": 52
         },
         {
           "name": "MeasurementValidityTests.test_new_functional_failure_fails_gate",
           "kind": "function",
-          "line": 53,
-          "end_line": 58
+          "line": 54,
+          "end_line": 59
         },
         {
           "name": "MeasurementValidityTests.test_existing_failures_are_preserved_without_becoming_new",
           "kind": "function",
-          "line": 60,
-          "end_line": 62
+          "line": 61,
+          "end_line": 63
         },
         {
           "name": "MeasurementValidityTests.test_removing_functional_oracle_or_original_pass_fails_gate",
           "kind": "function",
-          "line": 64,
-          "end_line": 68
+          "line": 65,
+          "end_line": 69
         },
         {
           "name": "MeasurementValidityTests.test_cohort_regression_is_not_hidden_by_aggregate_gain",
           "kind": "function",
-          "line": 70,
-          "end_line": 74
+          "line": 71,
+          "end_line": 75
         },
         {
           "name": "MeasurementValidityTests.test_dataset_or_protocol_change_is_incomparable",
           "kind": "function",
-          "line": 76,
-          "end_line": 83
+          "line": 77,
+          "end_line": 84
         },
         {
           "name": "MeasurementValidityTests.test_smoke_cannot_pass_full_gate_or_become_baseline",
           "kind": "function",
-          "line": 85,
-          "end_line": 89
+          "line": 86,
+          "end_line": 90
         },
         {
           "name": "MeasurementValidityTests.test_lost_eligibility_cannot_inflate_recovery_silently",
           "kind": "function",
-          "line": 91,
-          "end_line": 95
+          "line": 92,
+          "end_line": 96
         },
         {
           "name": "MeasurementValidityTests.test_duplicate_or_missing_rows_are_not_complete",
           "kind": "function",
-          "line": 97,
-          "end_line": 99
+          "line": 98,
+          "end_line": 100
         },
         {
           "name": "ProvenanceAndResumeTests",
           "kind": "class",
-          "line": 102,
-          "end_line": 212
+          "line": 103,
+          "end_line": 213
         },
         {
           "name": "ProvenanceAndResumeTests.test_full_comparison_cannot_silently_pass_without_a_reference",
           "kind": "function",
-          "line": 103,
-          "end_line": 107
+          "line": 104,
+          "end_line": 108
         },
         {
           "name": "ProvenanceAndResumeTests.test_torn_last_row_is_recovered",
           "kind": "function",
-          "line": 109,
-          "end_line": 114
+          "line": 110,
+          "end_line": 115
         },
         {
           "name": "ProvenanceAndResumeTests.test_complete_last_row_gets_missing_newline",
           "kind": "function",
-          "line": 116,
-          "end_line": 121
+          "line": 117,
+          "end_line": 122
         },
         {
           "name": "ProvenanceAndResumeTests.test_middle_corruption_is_not_silently_discarded",
           "kind": "function",
-          "line": 123,
-          "end_line": 128
+          "line": 124,
+          "end_line": 129
         },
         {
           "name": "ProvenanceAndResumeTests.test_frozen_source_or_manifest_tampering_is_detected",
           "kind": "function",
-          "line": 130,
-          "end_line": 141
+          "line": 131,
+          "end_line": 142
         },
         {
           "name": "ProvenanceAndResumeTests.test_dirty_source_changes_fingerprint_without_commit",
           "kind": "function",
-          "line": 143,
-          "end_line": 150
+          "line": 144,
+          "end_line": 151
         },
         {
           "name": "ProvenanceAndResumeTests.test_measurement_change_requires_new_protocol_reference",
           "kind": "function",
-          "line": 152,
-          "end_line": 161
+          "line": 153,
+          "end_line": 162
         },
         {
           "name": "ProvenanceAndResumeTests.test_original_input_change_is_detected_after_run",
           "kind": "function",
-          "line": 163,
-          "end_line": 174
+          "line": 164,
+          "end_line": 175
         },
         {
           "name": "ProvenanceAndResumeTests.test_summary_cannot_be_promoted_after_raw_results_are_altered",
           "kind": "function",
-          "line": 176,
-          "end_line": 192
+          "line": 177,
+          "end_line": 193
         },
         {
           "name": "ProvenanceAndResumeTests.test_inventory_retains_small_projects_and_does_not_mutate",
           "kind": "function",
-          "line": 194,
-          "end_line": 205
+          "line": 195,
+          "end_line": 206
         },
         {
           "name": "ProvenanceAndResumeTests.test_wrong_watermark_and_fractional_jobs_are_rejected",
           "kind": "function",
-          "line": 207,
-          "end_line": 212
+          "line": 208,
+          "end_line": 213
         },
         {
           "name": "UtilityExecutionTests",
           "kind": "class",
-          "line": 215,
-          "end_line": 259
+          "line": 216,
+          "end_line": 270
+        },
+        {
+          "name": "UtilityExecutionTests.test_legacy_rule_globals_do_not_leak_between_phases_or_units",
+          "kind": "function",
+          "line": 217,
+          "end_line": 225
         },
         {
           "name": "UtilityExecutionTests.test_actual_language_registries_and_pinned_parsers_load",
           "kind": "function",
-          "line": 216,
-          "end_line": 217
+          "line": 227,
+          "end_line": 228
         },
         {
           "name": "UtilityExecutionTests.test_cpp_body_reconstruction_uses_official_signature",
           "kind": "function",
-          "line": 219,
-          "end_line": 223
+          "line": 230,
+          "end_line": 234
         },
         {
           "name": "UtilityExecutionTests.test_subprocess_timeout_is_enforced",
           "kind": "function",
-          "line": 225,
-          "end_line": 230
+          "line": 236,
+          "end_line": 241
         },
         {
           "name": "UtilityExecutionTests.test_python_functional_failure_and_cache_invalidation",
           "kind": "function",
-          "line": 232,
-          "end_line": 246
+          "line": 243,
+          "end_line": 257
         },
         {
           "name": "UtilityExecutionTests.test_cpp_compilation_and_real_assertion_failure",
           "kind": "function",
-          "line": 248,
-          "end_line": 259
+          "line": 259,
+          "end_line": 270
         }
       ],
       "imports": [
@@ -6395,11 +6412,18 @@
           "line": 10
         },
         {
+          "module": "benchmarks.engine",
+          "names": [
+            "reset_legacy_state"
+          ],
+          "line": 11
+        },
+        {
           "module": "benchmarks.metrics",
           "names": [
             "summarize"
           ],
-          "line": 11
+          "line": 12
         },
         {
           "module": "benchmarks.runner",
@@ -6410,7 +6434,7 @@
             "verified_summary",
             "verify_frozen_run"
           ],
-          "line": 12
+          "line": 13
         },
         {
           "module": "benchmarks.utility",
@@ -6419,25 +6443,32 @@
             "evaluate_utility",
             "run_process"
           ],
-          "line": 13
+          "line": 14
+        },
+        {
+          "module": "python.transform8_for",
+          "names": [],
+          "line": 218
         },
         {
           "module": "sys",
           "names": [],
-          "line": 226
+          "line": 237
         },
         {
           "module": "shutil",
           "names": [],
-          "line": 249
+          "line": 260
         }
       ],
       "local_dependencies": [
         "benchmarks/common.py",
         "benchmarks/compare.py",
+        "benchmarks/engine.py",
         "benchmarks/metrics.py",
         "benchmarks/runner.py",
-        "benchmarks/utility.py"
+        "benchmarks/utility.py",
+        "python/transform8_for.py"
       ],
       "has_main_guard": true
     },

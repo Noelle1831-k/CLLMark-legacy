@@ -8,6 +8,7 @@ import unittest
 
 from benchmarks.common import digest, discover_units, parser_smoke, protocol_fingerprint, source_fingerprint, validate_config
 from benchmarks.compare import compare, promote_baseline
+from benchmarks.engine import reset_legacy_state
 from benchmarks.metrics import summarize
 from benchmarks.runner import load_rows, run_experiment, validate_workspace, verified_summary, verify_frozen_run
 from benchmarks.utility import assemble_test, evaluate_utility, run_process
@@ -213,6 +214,16 @@ class ProvenanceAndResumeTests(unittest.TestCase):
 
 
 class UtilityExecutionTests(unittest.TestCase):
+    def test_legacy_rule_globals_do_not_leak_between_phases_or_units(self):
+        import python.transform8_for as rule
+        rule.last_code = "previous unit"
+        rule.last_identifiers = {"i", "j"}
+        rule.identifiers = {"x"}
+        reset_legacy_state("python")
+        self.assertEqual(rule.last_code, "")
+        self.assertEqual(rule.last_identifiers, set())
+        self.assertEqual(rule.identifiers, set())
+
     def test_actual_language_registries_and_pinned_parsers_load(self):
         self.assertEqual(set(parser_smoke(ROOT)), {"python", "c", "cpp"})
 
