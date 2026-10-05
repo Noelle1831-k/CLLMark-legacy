@@ -10,6 +10,7 @@
 - [论文与实现对照](docs/PAPER_ALIGNMENT.md)：两版论文与现有代码的对应关系、已有能力和待补齐部分。
 - [机器可读代码索引](docs/code-index.json)：主要源码的符号、行号、导入、文件摘要和本地依赖。
 - [论文来源记录](docs/paper-sources.json)：本次对照使用的 PDF 文件名、标题、页数和 SHA-256。
+- [Claude Code 多 agent 团队](docs/MULTI_AGENT_TEAM.md)：Opus 分析出方案、Sonnet 实现与重复性工作的协作配置（`/team`、`/analyze`）。
 
 建议阅读顺序：`folder_transform_check.py` → `watermark_bit.py` → `watermark_extract.py` → `change_program_style.py` → 各语言 `config.py` → `bch_utils.py`。
 
