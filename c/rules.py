@@ -541,26 +541,129 @@ def repeated_declaration_type(node):
 
 CONSTANT = ['number_literal', 'char_literal', 'string_literal', 'true', 'false', 'null', 'nullptr']
 
+# Initialiser syntax with no side effects and no dependence on anything but the values of its identifiers;
+# a later declaration made of these (and nothing else) can be hoisted over statements that leave those values alone.
+HOISTABLE = CONSTANT + ['identifier', 'character', 'string_content', 'escape_sequence', 'parenthesized_expression',
+                        'unary_expression', 'binary_expression', 'cast_expression', 'type_descriptor', 'primitive_type',
+                        'sized_type_specifier', 'sizeof_expression', 'concatenated_string']
+HOISTABLE_UNARY = ['-', '+', '!', '~']
+HOISTABLE_BINARY = ['+', '-', '*', '<', '>', '<=', '>=', '==', '!=', '&&', '||', '&', '|', '^']  # not / % << >> (UB, traps)
+DECLARATOR_SYNTAX = ['pointer_declarator', 'array_declarator', 'parenthesized_declarator', 'reference_declarator', 'type_qualifier']
+JUMP_TARGETS = ['labeled_statement', 'case_statement', 'goto_statement']
+WRITE_TARGETS = ['pointer_expression', 'subscript_expression', 'field_expression']
+
+
+def subtree(node):
+    """The node and all its descendants."""
+    stack = [node]
+    while stack:
+        current = stack.pop()
+        yield current
+        stack.extend(current.children)
+
+
+def unparenthesized(node):
+    while node is not None and node.type == 'parenthesized_expression' and len(node.children) == 3:
+        node = node.children[1]
+    return node
+
+
+def impure_syntax(node, allowed):
+    """Why `node` is not a side-effect-free expression made of `allowed` syntax (None when it is)."""
+    for current in subtree(node):
+        if not current.is_named or current.type == 'comment':
+            continue
+        if current.type not in allowed:
+            return f'{current.type} in an initialiser or declarator'
+        operator = current.child_by_field_name('operator')
+        if current.type == 'unary_expression' and (operator is None or text(operator) not in HOISTABLE_UNARY):
+            return 'unary operator ' + (text(operator) if operator is not None else '?')
+        if current.type == 'binary_expression' and (operator is None or text(operator) not in HOISTABLE_BINARY):
+            return 'binary operator ' + (text(operator) if operator is not None else '?')
+    return None
+
+
+def written_through_memory(node):
+    """An assignment or increment whose target is a dereference, element or member (it may alias anything)."""
+    for current in subtree(node):
+        if current.type == 'assignment_expression':
+            target = current.child_by_field_name('left')
+        elif current.type == 'update_expression':
+            target = current.child_by_field_name('argument')
+        else:
+            continue
+        target = unparenthesized(target)
+        if target is not None and target.type in WRITE_TARGETS:
+            return True
+    return False
+
+
+def array_sizes(declarator):
+    return [current.child_by_field_name('size') for current in subtree(declarator)
+            if current.type == 'array_declarator' and current.child_by_field_name('size') is not None]
+
+
+def hoist_blocker(block, first, declaration, kept):
+    """Why `declaration` may not join `first` (None when it may).
+
+    Joining moves the declaration up to `first`, so it hops over the nodes of `block` in between
+    (comments and declarations already joined do not count). Without such nodes (`int n = v.size(); int i = 0;`)
+    nothing is reordered and any initialiser is fine: a declarator ends in a sequence point, so
+    `int a = x, b = y;` initialises like two declarations. Otherwise the hop must be invisible: the
+    initialisers and array sizes are side-effect-free expressions over identifiers that the crossed nodes
+    never mention, call nothing and write through no pointer, element or member; the declared names are
+    not mentioned either, and no label, case or goto is crossed (a jump would skip the hoisted initialisation).
+    """
+    joined = {item.id for item in kept}
+    crossed = [child for child in block.children if child.start_byte >= first.end_byte and child.end_byte <= declaration.start_byte
+               and child.type != 'comment' and child.id not in joined]
+    if not crossed:
+        return None
+    if block.type != 'compound_statement':
+        return 'a declaration after statements outside a compound statement'
+    if any(current.type in JUMP_TARGETS for node in crossed for current in subtree(node)):
+        return 'a label, case or goto lies between the declarations'
+    mentioned = [text(node) for node in crossed]
+    names, reads = set(), set()
+    for declarator in declaration.children_by_field_name('declarator'):
+        value = None
+        if declarator.type == 'init_declarator':
+            value, declarator = declarator.child_by_field_name('value'), declarator.child_by_field_name('declarator')
+            if value is None:
+                return 'initialiser without a value'
+            reason = impure_syntax(value, HOISTABLE)
+            if reason:
+                return reason
+            reads.update(text(current) for current in subtree(value) if current.type == 'identifier')
+        reason = impure_syntax(declarator, HOISTABLE + DECLARATOR_SYNTAX)
+        if reason:
+            return reason
+        for size in array_sizes(declarator):
+            reads.update(text(current) for current in subtree(size) if current.type == 'identifier')
+        contain_id(declarator, names)
+    for name in sorted(names | reads):
+        if any(re.search(r'\b' + re.escape(name) + r'\b', code) for code in mentioned):
+            return f'{name} is mentioned between the declarations'
+    if reads:
+        if any(current.type == 'call_expression' for node in crossed for current in subtree(node)):
+            return 'a call lies between the declarations and the initialiser reads variables'
+        if any(written_through_memory(node) for node in crossed):
+            return 'a write through a pointer, element or member lies between the declarations and the initialiser reads variables'
+    return None
+
 
 def movable_group(block, group):
-    """The declarations that may join the first one: each later declaration is hoisted over the
-    statements in between, so its initialisers must be constants and its names unused in between."""
-    first, kept = group[0], [group[0]]
+    """The declarations that may join the first one (see hoist_blocker)."""
+    kept = [group[0]]
     for declaration in group[1:]:
-        values = [child.child_by_field_name('value') for child in declaration.children if child.type == 'init_declarator']
-        names = set()
-        for child in declaration.children[1:-1]:
-            contain_id(child.child_by_field_name('declarator') if child.type == 'init_declarator' else child, names)
-        between = block.text[first.end_byte - block.start_byte:declaration.start_byte - block.start_byte].decode('utf-8')
-        if all(value is not None and value.type in CONSTANT for value in values) \
-                and not any(re.search(r'\b' + re.escape(name) + r'\b', between) for name in names):
+        if hoist_blocker(block, group[0], declaration, kept) is None:
             kept.append(declaration)
     return kept
 
 
-def merge_declarations(node, source):
-    """int a; ... int b; -> int a, b; at the first declaration"""
-    names, declarations = {}, {}
+def declaration_kinds(node):
+    """The declarations directly inside `node`, grouped by type text (as merge_declarations merges them)."""
+    kinds = {}
     for child in node.children:
         if child.type == 'declaration':
             kind = text(child.child_by_field_name('type'))
@@ -568,11 +671,22 @@ def merge_declarations(node, source):
                 kind = 'static ' + kind
             if child.children[0].type == 'type_qualifier':
                 kind = 'const ' + kind
-            declarations.setdefault(kind, []).append(child)
-            names.setdefault(kind, []).extend(text(each) for each in child.children[1:-1] if each.type not in NEGLECTED)
+            kinds.setdefault(kind, []).append(child)
+    return kinds
+
+
+def untyped_kind(kind):
+    """One `auto` declaration may not mix initialisers of different types, so such kinds are not merged."""
+    return re.search(r'\b(auto|decltype)\b', kind) is not None
+
+
+def merge_declarations(node, source):
+    """int a; ... int b; -> int a, b; at the first declaration"""
     edits = []
-    for kind in list(names):
-        group = movable_group(node, declarations[kind])
+    for kind, declarations in declaration_kinds(node).items():
+        if untyped_kind(kind):
+            continue
+        group = movable_group(node, declarations)
         ids = [text(each) for declaration in group for each in declaration.children[1:-1] if each.type not in NEGLECTED]
         if len(ids) < 2:
             continue
@@ -793,7 +907,8 @@ def while_to_for():
     The counter is an arbitrary identifier of b (list(set)[0], hash-seed dependent as in the
     original). The marker declaration lets the detector recognize rewritten loops. The update
     moves into the header only when it is the body's last statement and no continue skips it;
-    do-while loops are left alone (their body runs before the first test).
+    otherwise it stays in the body and the header's third clause is empty. do-while loops are
+    left alone (their body runs before the first test).
     """
     def rewrite(node, source):
         if node.type == 'while_statement':
@@ -812,7 +927,7 @@ def while_to_for():
             raise Reject('the marker name is already used')
         update = loop_counter_update(body_statements, list(names)[0])
         if update is not None and (update != [item for item in body_statements if item.type != 'comment'][-1] or loop_continues(node.children[2])):
-            raise Reject('moving the update would reorder it (statements follow it, or continue skips it)')
+            update = None  # moving it into the header would reorder it (statements follow it, or continue skips it)
         edits = header + ([delete_between(update.prev_sibling.end_byte, update.end_byte)] if update else [])
         clause = text(update).replace(';', '') if update else ''
         return edits + [insert_before(node, f'for({MARKER}; {text(condition)}; {clause})')]
