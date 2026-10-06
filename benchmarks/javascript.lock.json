@@ -1,13 +1,401 @@
 {
   "lodash": "4.17.21",
   "projects": {
-    "bytes": {"repository": "https://github.com/visionmedia/bytes.js", "tag": "3.1.2",
-              "commit": "9ddc13b6c66e0cb293616fba246e05db4b6cef4d", "test_dependencies": ["mocha@9.2.0"], "sources": ["index.js"]},
-    "cookie": {"repository": "https://github.com/jshttp/cookie", "tag": "v0.6.0",
-               "commit": "38323bad3aa04bce840103ff6075bc05cc0bf884", "test_dependencies": ["mocha@10.2.0", "safe-buffer@5.2.1"], "sources": ["index.js"]},
-    "js-yaml": {"repository": "https://github.com/nodeca/js-yaml", "tag": "4.1.0",
-                "commit": "2cef47bebf60da141b78b085f3dea3b5733dcc12", "test_dependencies": ["mocha@8.4.0", "fast-check@2.17.0"], "sources": ["index.js", "lib"]},
-    "minimist": {"repository": "https://github.com/minimistjs/minimist", "tag": "v1.2.8",
-                 "commit": "6901ee286bc4c16da6830b48b46ce1574703cea1", "test_dependencies": ["tape@5.6.3"], "sources": ["index.js"]}
+    "bytes": {
+      "repository": "https://github.com/visionmedia/bytes.js",
+      "tag": "3.1.2",
+      "commit": "9ddc13b6c66e0cb293616fba246e05db4b6cef4d",
+      "test_dependencies": [
+        "mocha@9.2.0"
+      ],
+      "sources": [
+        "index.js"
+      ]
+    },
+    "cookie": {
+      "repository": "https://github.com/jshttp/cookie",
+      "tag": "v0.6.0",
+      "commit": "38323bad3aa04bce840103ff6075bc05cc0bf884",
+      "test_dependencies": [
+        "mocha@10.2.0",
+        "safe-buffer@5.2.1"
+      ],
+      "sources": [
+        "index.js"
+      ]
+    },
+    "js-yaml": {
+      "repository": "https://github.com/nodeca/js-yaml",
+      "tag": "4.1.0",
+      "commit": "2cef47bebf60da141b78b085f3dea3b5733dcc12",
+      "test_dependencies": [
+        "mocha@8.4.0",
+        "fast-check@2.17.0"
+      ],
+      "sources": [
+        "index.js",
+        "lib"
+      ]
+    },
+    "minimist": {
+      "repository": "https://github.com/minimistjs/minimist",
+      "tag": "v1.2.8",
+      "commit": "6901ee286bc4c16da6830b48b46ce1574703cea1",
+      "test_dependencies": [
+        "tape@5.6.3"
+      ],
+      "sources": [
+        "index.js"
+      ]
+    }
+  },
+  "repositories": {
+    "express": {
+      "repository": "https://github.com/expressjs/express",
+      "tag": "v4.22.3",
+      "commit": "899b52494e74327905c16164decdc6e51f803af8",
+      "tarball_sha256": "9b66a62729dfcf5745eec09d6b6e23ca711c9e5aaab8806ce4cae379e78e48d2",
+      "license": "MIT",
+      "sources": [
+        "index.js",
+        "lib/**/*.js"
+      ],
+      "exclude": [],
+      "extensions": [
+        ".js"
+      ],
+      "install": {
+        "mode": "npm-ci",
+        "lockfile": "benchmarks/js-locks/express.package-lock.json",
+        "lockfile_sha256": "ccff3be97224fb9a6babc186dc68e73179828ef834b995befd6593ab2962ee7c"
+      }
+    },
+    "ws": {
+      "repository": "https://github.com/websockets/ws",
+      "tag": "8.22.0",
+      "commit": "297202cdae9b0590629821373b3b679c407f3431",
+      "tarball_sha256": "8bda25e52652be91be9f50a25b18cf02955b646b5d95f600a292a00a2f88e884",
+      "license": "MIT",
+      "sources": [
+        "index.js",
+        "lib/**/*.js"
+      ],
+      "exclude": [],
+      "extensions": [
+        ".js"
+      ],
+      "install": {
+        "mode": "npm-ci",
+        "lockfile": "benchmarks/js-locks/ws.package-lock.json",
+        "lockfile_sha256": "8dc4142e5b0014e6f70a10311c9a598bc194a19bdbe6020ccd122c3db777c7f5"
+      }
+    },
+    "semver": {
+      "repository": "https://github.com/npm/node-semver",
+      "tag": "v7.8.5",
+      "commit": "6e05b7637396ac66522cff8731f07cfe0ef49a29",
+      "tarball_sha256": "30a5a1afb0719b6cc044ce5e161fb68abf19b8c5a049dcb9eedce0c358814e2b",
+      "license": "ISC",
+      "sources": [
+        "index.js",
+        "preload.js",
+        "bin/*.js",
+        "classes/**/*.js",
+        "functions/**/*.js",
+        "internal/**/*.js",
+        "ranges/**/*.js"
+      ],
+      "exclude": [],
+      "extensions": [
+        ".js"
+      ],
+      "install": {
+        "mode": "npm-ci",
+        "lockfile": "benchmarks/js-locks/semver.package-lock.json",
+        "lockfile_sha256": "444717c7377509d713dc6ad50e2a1940699d84f84e7e133d81c611f6ac7f1ba4"
+      }
+    },
+    "qs": {
+      "repository": "https://github.com/ljharb/qs",
+      "tag": "v6.16.0",
+      "commit": "bb9379e01fad04c601478acd6152143cb20c984b",
+      "tarball_sha256": "e5e957b7a2f3df6f759073452acf2a52b8108b23bff089e00d10340b8f81a79b",
+      "license": "BSD-3-Clause",
+      "sources": [
+        "lib/**/*.js"
+      ],
+      "exclude": [],
+      "extensions": [
+        ".js"
+      ],
+      "install": {
+        "mode": "npm-ci",
+        "lockfile": "benchmarks/js-locks/qs.package-lock.json",
+        "lockfile_sha256": "47ec9400fa918c2aa1f195e6224812ca7986095ace409655fd51737b3011cdcd"
+      }
+    },
+    "commander": {
+      "repository": "https://github.com/tj/commander.js",
+      "tag": "v12.1.0",
+      "commit": "970ecae402b253de691e6a9066fea22f38fe7431",
+      "tarball_sha256": "12c8c6e3f36127e3ca439cf75e9067fc1935a806481eb140ff4a8b9fcd61322b",
+      "license": "MIT",
+      "sources": [
+        "index.js",
+        "lib/**/*.js"
+      ],
+      "exclude": [],
+      "extensions": [
+        ".js"
+      ],
+      "install": {
+        "mode": "npm-ci",
+        "lockfile": "repository",
+        "lockfile_sha256": "59bdd785d95f78a74af99cd46cd759737281b215db7365147fa0e406893db758"
+      }
+    },
+    "body-parser": {
+      "repository": "https://github.com/expressjs/body-parser",
+      "tag": "1.20.8",
+      "commit": "5c08c2008eac79abddb8abfa5095491d02958d56",
+      "tarball_sha256": "4d005d743c07654969decda238244830f57dd9b294a5f62354d12eff616782d8",
+      "license": "MIT",
+      "sources": [
+        "index.js",
+        "lib/**/*.js"
+      ],
+      "exclude": [],
+      "extensions": [
+        ".js"
+      ],
+      "install": {
+        "mode": "npm-ci",
+        "lockfile": "benchmarks/js-locks/body-parser.package-lock.json",
+        "lockfile_sha256": "dedb8ae03a051008cd2bcdbdff880aa6c39f53f312309e70f8764366bc224a5d"
+      }
+    },
+    "markdown-it": {
+      "repository": "https://github.com/markdown-it/markdown-it",
+      "tag": "14.3.2",
+      "commit": "efb9993124c3eb229eea24dd659c91dcee7f6d60",
+      "tarball_sha256": "2a6debe094062a22fe715e6386abe6becee9dba51e447566725d084ba10fe0b3",
+      "license": "MIT",
+      "sources": [
+        "index.mjs",
+        "lib/**/*.mjs"
+      ],
+      "exclude": [],
+      "extensions": [
+        ".mjs"
+      ],
+      "install": {
+        "mode": "npm-ci",
+        "lockfile": "repository",
+        "lockfile_sha256": "703bb477cbf74ef2e1878eab2175d0fb9a87fff9180ef21b029462d1ad1ec997"
+      }
+    },
+    "fast-xml-parser": {
+      "repository": "https://github.com/NaturalIntelligence/fast-xml-parser",
+      "tag": "v4.5.7",
+      "commit": "49a12f10e9a44da765f045ca0c60e8d9e5be5aa0",
+      "tarball_sha256": "1f5d6babaae1dc20c37afee24447e162fd7913b443fcbcfcf431256d87ea9b64",
+      "license": "MIT",
+      "sources": [
+        "src/**/*.js"
+      ],
+      "exclude": [
+        "src/cli/**",
+        "src/v5/**"
+      ],
+      "extensions": [
+        ".js"
+      ],
+      "install": {
+        "mode": "npm-ci",
+        "lockfile": "repository",
+        "lockfile_sha256": "190ba44966df68d5d98c06967eab4660aa5a903fa862114a4303c1d321d69b33"
+      }
+    },
+    "decimal.js": {
+      "repository": "https://github.com/MikeMcl/decimal.js",
+      "tag": "v10.6.0",
+      "commit": "1a6e845004b29a3b7dcef78fe92b8d786634f4e2",
+      "tarball_sha256": "18b35352efe1480318317231935f2d3620b0d41c3ce315dad324bd02847b41d1",
+      "license": "MIT",
+      "sources": [
+        "decimal.js"
+      ],
+      "exclude": [],
+      "extensions": [
+        ".js"
+      ],
+      "install": {
+        "mode": "none"
+      }
+    },
+    "bignumber.js": {
+      "repository": "https://github.com/MikeMcl/bignumber.js",
+      "tag": "v9.3.1",
+      "commit": "a7bc1f175c1e40db1abe8cebd52b60fc5381f487",
+      "tarball_sha256": "4f4fa394ad375fbe26f0c33712fb146ffbb021d877fccc840bd6f288b98c3747",
+      "license": "MIT",
+      "sources": [
+        "bignumber.js"
+      ],
+      "exclude": [],
+      "extensions": [
+        ".js"
+      ],
+      "install": {
+        "mode": "none"
+      }
+    },
+    "escodegen": {
+      "repository": "https://github.com/estools/escodegen",
+      "tag": "v2.1.0",
+      "commit": "899cfdf5dc99de324fb6f1087aa9bab4d4bc2f00",
+      "tarball_sha256": "1862b9a11c3599d4c124faea7c72c52e3db58ee7d2101ab903b0509d84a1d0ca",
+      "license": "BSD-2-Clause",
+      "sources": [
+        "escodegen.js"
+      ],
+      "exclude": [],
+      "extensions": [
+        ".js"
+      ],
+      "install": {
+        "mode": "npm-ci",
+        "lockfile": "benchmarks/js-locks/escodegen.package-lock.json",
+        "lockfile_sha256": "7a1fd1e751fba5152085b6161742b38c155b0c73b51e2b68bf46cfbc927aae5b"
+      }
+    },
+    "ejs": {
+      "repository": "https://github.com/mde/ejs",
+      "tag": "v3.1.10",
+      "commit": "d3f807dea9ce904e20a47a661f2310ce9134dc2a",
+      "tarball_sha256": "e2d20172645e7761d68ec3700830827ac6b3ea763e897d17034ca84b3f7923d7",
+      "license": "Apache-2.0",
+      "sources": [
+        "lib/**/*.js"
+      ],
+      "exclude": [],
+      "extensions": [
+        ".js"
+      ],
+      "install": {
+        "mode": "npm-ci",
+        "lockfile": "repository",
+        "lockfile_sha256": "b14c282aebf0196be6daf86abc815b63b7a3bbf03b878f0e8c64c69edd8bd683"
+      }
+    },
+    "bn.js": {
+      "repository": "https://github.com/indutny/bn.js",
+      "tag": "v5.2.5",
+      "commit": "eb2e57c4e50a9b9a1f277a59ef446c13f564dddc",
+      "tarball_sha256": "a26cc3874239f7929b9050e81584caaf88af3992d525bc8c649ecb60cbc084b6",
+      "license": "MIT",
+      "sources": [
+        "lib/**/*.js"
+      ],
+      "exclude": [],
+      "extensions": [
+        ".js"
+      ],
+      "install": {
+        "mode": "npm-ci",
+        "lockfile": "benchmarks/js-locks/bn.js.package-lock.json",
+        "lockfile_sha256": "973dc95cc2249e36ed40f32ad6112fe53a9d537fc05c027301c184e1c74f61e2"
+      }
+    },
+    "lodash": {
+      "repository": "https://github.com/lodash/lodash",
+      "tag": "4.17.21",
+      "commit": "f299b52f39486275a9e6483b60a410e06520c538",
+      "tarball_sha256": "22c45204816b9d7172f5adf6773598403300d5f62f962c9fc751e868d98c4f75",
+      "license": "MIT",
+      "sources": [
+        "lodash.js"
+      ],
+      "exclude": [],
+      "extensions": [
+        ".js"
+      ],
+      "install": {
+        "mode": "npm-ci",
+        "lockfile": "repository",
+        "lockfile_sha256": "fe32c4d381deb5850d15f95923641f97647e49ae41520eae190bcd1726dd7484"
+      }
+    }
+  },
+  "exercism": {
+    "repository": "https://github.com/exercism/javascript",
+    "tag": null,
+    "branch": "main",
+    "commit": "65a60cac2145e8c6549de39e807753e577a02f8d",
+    "tarball_sha256": "91c8c42a9e5c5c18005bc873acbaf4935f67d1656160c0e6d90f1742ee52f3c0",
+    "license": "MIT",
+    "install": {
+      "mode": "pnpm-frozen",
+      "lockfile": "repository",
+      "lockfile_sha256": "af20719e05e572b2bc60764bb38b1c20c21da4aa5761b14f352d134afa2a3382"
+    },
+    "exercises": "exercises/practice",
+    "min_solution_lines": 20,
+    "aider_polyglot": {
+      "repository": "https://github.com/Aider-AI/polyglot-benchmark",
+      "commit": "7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f",
+      "path": "javascript/exercises/practice",
+      "exercises": [
+        "affine-cipher",
+        "alphametics",
+        "beer-song",
+        "binary",
+        "book-store",
+        "bottle-song",
+        "bowling",
+        "complex-numbers",
+        "connect",
+        "food-chain",
+        "forth",
+        "go-counting",
+        "grade-school",
+        "grep",
+        "house",
+        "killer-sudoku-helper",
+        "ledger",
+        "list-ops",
+        "meetup",
+        "ocr-numbers",
+        "palindrome-products",
+        "parallel-letter-frequency",
+        "phone-number",
+        "pig-latin",
+        "poker",
+        "promises",
+        "queen-attack",
+        "rational-numbers",
+        "react",
+        "rectangles",
+        "resistor-color-trio",
+        "rest-api",
+        "robot-name",
+        "say",
+        "scale-generator",
+        "simple-linked-list",
+        "space-age",
+        "state-of-tic-tac-toe",
+        "sum-of-multiples",
+        "tournament",
+        "transpose",
+        "triangle",
+        "twelve-days",
+        "two-bucket",
+        "variable-length-quantity",
+        "word-search",
+        "wordy",
+        "zebra-puzzle",
+        "zipper"
+      ]
+    }
   }
 }

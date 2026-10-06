@@ -13,7 +13,7 @@ import subprocess
 import sys
 import time
 
-from .common import digest, write_json
+from .common import digest, project_paths, unit_file_names, write_json
 
 
 def load_problems(inputs, config):
@@ -35,9 +35,11 @@ def subprocess_limits():
     resource.setrlimit(resource.RLIMIT_FSIZE, (16 * 1024 * 1024, 16 * 1024 * 1024))
 
 
-def run_process(command, directory, timeout, stem, env=None):
+def run_process(command, directory, timeout, stem, env=None, log_directory=None):
+    """Run `command` in `directory`; stdout/stderr go to `log_directory` (default: `directory`)."""
     directory = Path(directory)
-    stdout_path, stderr_path = directory / (stem + ".stdout"), directory / (stem + ".stderr")
+    logs = Path(log_directory) if log_directory is not None else directory
+    stdout_path, stderr_path = logs / (stem + ".stdout"), logs / (stem + ".stderr")
     started = time.perf_counter()
     timed_out = False
     with stdout_path.open("wb") as stdout, stderr_path.open("wb") as stderr:
@@ -61,10 +63,10 @@ def run_process(command, directory, timeout, stem, env=None):
             "stdout": str(stdout_path), "stderr": str(stderr_path)}
 
 
-def run_test(command, directory, timeout, retries, env):
+def run_test(command, directory, timeout, retries, env, log_directory=None):
     attempts = []
     for index in range(retries + 1):
-        result = run_process(command, directory, timeout, f"test-attempt-{index + 1}", env)
+        result = run_process(command, directory, timeout, f"test-attempt-{index + 1}", env, log_directory)
         attempts.append(result)
         if not result["timed_out"]:
             break
@@ -117,8 +119,10 @@ def evaluate_utility(unit, directory, problems, config, run_dir, environment, ca
 def _evaluate_cached_utility(unit, directory, problems, config, run_dir, environment, cache_root):
     if unit["oracle"] == "unmapped_codenet":
         return {"status": "NO_PROBLEM_MAPPING", "reason": "CNxxx filenames lack a verified CodeNet problem-id map"}
-    if unit["oracle"] == "project_tests" and unit["level"] == "project":
+    if unit["oracle"] == "project_tests" and unit["level"] in ["project", "project_file"]:
         return _evaluate_project_tests(unit, Path(directory), config, environment, Path(cache_root))
+    if unit["oracle"] == "exercism" and unit["level"] == "function":
+        return _evaluate_exercism(unit, Path(directory), problems, config, environment, Path(cache_root))
     if unit["oracle"] != "mbxp" or unit["level"] != "function":
         return {"status": "NO_TEST_ORACLE", "reason": "No runnable local functional test harness is supplied for this unit"}
     language = unit["language"]
@@ -187,21 +191,46 @@ def _evaluate_cached_utility(unit, directory, problems, config, run_dir, environ
         return result
 
 
+@contextmanager
+def exclusive_tests(cache_root, enabled):
+    """Serialize suites that bind sockets: concurrent copies of the same suite collide on fixed ports and
+    sometimes on ephemeral ones, which would turn unrelated parallel units into spurious FAIL results."""
+    if not enabled:
+        yield
+        return
+    with cache_lock(cache_root / "exclusive-tests.lock"):
+        yield
+
+
+def _overlay(checkout, path, blob):
+    target = checkout / path
+    if target.is_symlink():
+        target.unlink()  # never write through a link into the pinned checkout
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_bytes(blob)
+
+
 def _evaluate_project_tests(unit, directory, config, environment, cache_root):
     """Run a project's own test suite with the unit's (possibly watermarked) sources in place.
 
     The pinned checkout (with its installed test dependencies) is copied without node_modules,
     which is linked instead; every unit file replaces the checkout file at the same project path.
+    A project unit holds every source file of the project, a project_file unit one file of it. Files that equal the
+    pinned checkout do not enter the cache key, so all clean runs of a project share one entry.
     """
-    name = unit["name"]
+    name = unit.get("project", unit["name"])
     project = config["projects"].get(name)
     if project is None:
         return {"status": "NO_TEST_ORACLE", "reason": "No pinned test suite configured for project " + name}
     pinned = environment["javascript"]["projects"][name]
-    prefix = unit["path"].rstrip("/") + "/" + name + "/"
-    files = {relative[len(prefix):]: (directory / Path(relative).name).read_bytes() for relative in unit["source_files"]}
-    identity = {"project": name, "pinned": pinned, "files": {path: digest(blob) for path, blob in sorted(files.items())},
-                "command": project["test"], "timeout": config["project_test_timeout_seconds"],
+    names = unit_file_names(unit)
+    files = {path: (directory / names[relative]).read_bytes() for relative, path in project_paths(unit).items()}
+    original = Path(pinned["checkout"])
+    changed = {path: blob for path, blob in files.items()
+               if not (original / path).is_file() or (original / path).read_bytes() != blob}
+    identity = {"project": name, "pinned": pinned, "files": {path: digest(blob) for path, blob in sorted(changed.items())},
+                "command": project["test"], "exclusive": bool(project.get("exclusive")),
+                "timeout": config["project_test_timeout_seconds"], "retries": config.get("test_timeout_retries", 0),
                 "node": environment["javascript"]["node_version"], "harness_sha256": digest(Path(__file__).read_bytes())}
     key = digest(identity)
     cache_root.mkdir(parents=True, exist_ok=True)
@@ -213,13 +242,86 @@ def _evaluate_project_tests(unit, directory, config, environment, cache_root):
         checkout = cache / "project"
         if checkout.exists():
             shutil.rmtree(checkout)
-        shutil.copytree(pinned["checkout"], checkout, ignore=shutil.ignore_patterns("node_modules", ".git"))
-        (checkout / "node_modules").symlink_to(Path(pinned["checkout"]) / "node_modules", target_is_directory=True)
-        for path, blob in files.items():
-            (checkout / path).write_bytes(blob)
-        base = {"project": name, "cache_key": key, "cache_hit": False, "artifacts": str(cache), "test_kind": "project_test_suite"}
-        tested = run_test(project["test"], checkout, config["project_test_timeout_seconds"], config.get("test_timeout_retries", 0),
-                          {**os.environ, "NODE_ENV": "test"})
+        shutil.copytree(original, checkout, ignore=shutil.ignore_patterns("node_modules", ".git"), symlinks=True)
+        if (original / "node_modules").exists():
+            (checkout / "node_modules").symlink_to(original / "node_modules", target_is_directory=True)
+        for path, blob in changed.items():
+            _overlay(checkout, path, blob)
+        base = {"project": name, "cache_key": key, "cache_hit": False, "artifacts": str(cache), "test_kind": "project_test_suite",
+                "changed_files": sorted(changed)}
+        # The suite runs inside the project copy, but its logs belong in the cache entry itself, where
+        # evaluate_utility collects test*.stdout/stderr into the unit's .utility directory.
+        with exclusive_tests(cache_root, project.get("exclusive")):
+            tested = run_test(project["test"], checkout, config["project_test_timeout_seconds"], config.get("test_timeout_retries", 0),
+                              {**os.environ, "NODE_ENV": "test"}, log_directory=cache)
+        status = "TIMEOUT" if tested["timed_out"] else "PASS" if tested["returncode"] == 0 else "FAIL"
+        result = {**base, "status": status, "test": tested}
+        if status != "TIMEOUT":
+            write_json(result_path, result)
+        return result
+
+
+EXERCISM_SKIP_MARKERS = [(re.compile(r"x(test|it)\("), "test("), (re.compile(r"xdescribe\("), "describe(")]
+
+
+def enable_exercism_tests(text):
+    """Exercism's CI (scripts/helpers.mjs `prepare`) turns xtest/xit/xdescribe into test/describe, line by line and
+    first match per line. `.skip` calls stay skipped on purpose (platform-dependent or always-failing cases)."""
+    lines = text.split("\n")
+    for pattern, replacement in EXERCISM_SKIP_MARKERS:
+        lines = [pattern.sub(replacement, line, count=1) for line in lines]
+    return "\n".join(lines)
+
+
+def exercism_solution(text):
+    """The CI also rewrites imports of the .meta directory (`from '../x'` to `from './x'`) in the reference solution."""
+    return "\n".join(re.sub(r"from '../", "from './", line, count=1) for line in text.split("\n"))
+
+
+def _evaluate_exercism(unit, directory, problems, config, environment, cache_root):
+    """Run the Exercism exercise's Jest spec against the unit code, in the pinned checkout's Jest/Babel setup.
+
+    The spec, support files (editor/lib/data) and metadata come from the frozen problem file; the pinned
+    checkout supplies jest.config.js, babel.config.js and the installed test dependencies.
+    """
+    source = directory / Path(unit["source_files"][0]).name
+    slug = source.stem
+    problem = problems.get("exercism", {}).get("Exercism/" + slug)
+    pinned = environment["javascript"].get("exercism")
+    if not problem or not problem.get("spec") or pinned is None:
+        return {"status": "NO_TEST_ORACLE", "task_id": "Exercism/" + slug}
+    code = source.read_text(encoding="utf-8", errors="strict")
+    spec = enable_exercism_tests(problem["spec"])
+    solution = exercism_solution(code)
+    command = list(config["exercism"]["test"])
+    identity = {"slug": slug, "solution": digest(solution.encode()), "spec": digest(spec.encode()), "support": digest(problem.get("support_files", {})),
+                "pinned": pinned, "command": command, "timeout": config["project_test_timeout_seconds"],
+                "retries": config.get("test_timeout_retries", 0), "node": environment["javascript"]["node_version"],
+                "harness_sha256": digest(Path(__file__).read_bytes())}
+    key = digest(identity)
+    cache_root.mkdir(parents=True, exist_ok=True)
+    with cache_lock(cache_root / (key + ".lock")):
+        cache = cache_root / key
+        result_path = cache / "result.json"
+        if result_path.exists():
+            return {**json.loads(result_path.read_text()), "cache_hit": True}
+        workspace = cache / "workspace"
+        if workspace.exists():
+            shutil.rmtree(workspace)
+        exercise = workspace / "exercise"
+        exercise.mkdir(parents=True)
+        original = Path(pinned["checkout"])
+        for name in ["jest.config.js", "babel.config.js"]:
+            shutil.copyfile(original / name, workspace / name)
+        (workspace / "node_modules").symlink_to(original / "node_modules", target_is_directory=True)
+        for path, text in problem.get("support_files", {}).items():
+            _overlay(exercise, path, text.encode("utf-8"))
+        (exercise / problem["spec_file"]).write_text(spec, encoding="utf-8")
+        (exercise / (slug + ".js")).write_text(solution, encoding="utf-8")
+        base = {"task_id": "Exercism/" + slug, "cache_key": key, "cache_hit": False, "artifacts": str(cache), "test_kind": "exercism_jest_spec",
+                "oracle_sha256": digest(problem)}
+        tested = run_test(command, workspace, config["project_test_timeout_seconds"], config.get("test_timeout_retries", 0),
+                          {**os.environ, "NODE_ENV": "test", "CI": "true"}, log_directory=cache)
         status = "TIMEOUT" if tested["timed_out"] else "PASS" if tested["returncode"] == 0 else "FAIL"
         result = {**base, "status": status, "test": tested}
         if status != "TIMEOUT":

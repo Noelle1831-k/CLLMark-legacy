@@ -1,0 +1,22 @@
+{
+ "language": "cpp",
+ "files": 9026,
+ "pair": "while_to_for (7.8 only)",
+ "applicable": 585,
+ "idempotence_failures": 0,
+ "syntax_regressions": 0,
+ "detected_by_12": 585,
+ "empty_update_clause": 534,
+ "interference": {
+  "else_after_return": 6
+ },
+ "examples": {
+  "interferes:else_after_return": [
+   "dataset/MBCPP_H/MBCPP_605.cpp",
+   "code_snippets/snippet_148.cpp",
+   "code_snippets/snippet_505.cpp",
+   "code_snippets/snippet_586.cpp",
+   "code_snippets/snippet_702.cpp"
+  ]
+ }
+}

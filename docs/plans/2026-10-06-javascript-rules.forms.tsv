@@ -1,0 +1,26 @@
+pair	style0	style1	MBJSP_H_sites0	MBJSP_H_sites1	MBJSP_H_files0	MBJSP_H_files1	MBJSP_G_sites0	MBJSP_G_sites1	MBJSP_G_files0	MBJSP_G_files1	JS_projects_sites0	JS_projects_sites1	JS_projects_files0	JS_projects_files1	total_sites0	total_sites1	total_files0	total_files1	bit0_form_is_more_common	note
+self_assignment	2.1	2.2	105	8	79	8	9	2	8	1	105	0	12	0	219	10	99	9	True	
+equal_to_not_equal	2.4	2.3	769	0	368	0	57	0	41	0	324	0	26	0	1150	0	435	0	True	
+not_equal_to_equal	2.6	2.5	80	0	68	0	23	0	17	0	171	0	22	0	274	0	107	0	True	
+reverse_compare	2.7	2.8	137	1	98	1	27	0	21	0	58	14	11	4	222	15	130	5	True	
+equal_hash_reverse	2.12	2.11	464	464	170	170	30	30	22	22	287	287	23	23	781	781	215	215	True	
+not_equal_hash_reverse	2.13	2.14	464	464	170	170	30	30	22	22	287	287	23	23	781	781	215	215	True	
+update_reverse	3.2	3.1	487	3	310	1	69	0	35	0	39	0	9	0	595	3	354	1	True	
+declare	6.1	6.2	127	4	122	4	28	6	22	6	42	26	20	13	197	36	164	23	True	
+loop_form	7.1	7.2	40	0	36	0	22	0	12	0	32	0	7	0	94	0	55	0	True	
+branch_order	14.1	14.2	28	0	26	0	8	0	8	0	39	0	10	0	75	0	44	0	True	
+conditional_order	15.1	15.2	59	0	59	0	7	0	7	0	37	0	7	0	103	0	73	0	True	
+nested_condition	16.1	16.2	14	0	14	0	1	0	1	0	19	0	8	0	34	0	23	0	True	
+void_return	18.1	18.2	125	0	121	0	11	0	4	0	86	0	17	0	222	0	142	0	True	
+member_access	19.1	19.2	1461	0	598	0	286	0	79	0	1644	0	47	0	3391	0	724	0	True	
+property_shorthand	23.2	23.1	0	0	0	0	0	0	0	0	7	2	2	1	7	2	2	1	True	
+else_after_return	20.2	20.1	5	2	5	2	2	0	2	0	8	0	4	0	15	2	11	2	True	
+arrow_body	24.1	24.2	132	2	107	1	35	0	23	0	0	0	0	0	167	2	130	1	True	
+const_let	25.1	25.2	72	109	62	103	58	5	42	5	1	0	1	0	131	114	105	108	True	
+logical_assignment	26.1	26.2	0	0	0	0	0	0	0	0	3	0	1	0	3	0	1	0	True	fewer than 5 sites in the whole corpus
+power	27.1	27.2	10	3	8	3	0	2	0	2	2	0	1	0	12	5	9	5	True	
+global_alias	28.1	28.2	19	0	17	0	2	0	2	0	10	0	5	0	31	0	24	0	True	
+undefined_literal	29.1	29.2	0	0	0	0	1	0	1	0	1	0	1	0	2	0	2	0	True	fewer than 5 sites in the whole corpus
+function_arrow	30.2	30.1	95	7	86	6	0	0	0	0	0	34	0	8	95	41	86	14	True	
+empty_array	31.1	31.2	147	1	128	1	21	0	13	0	39	0	15	0	207	1	156	1	True	
+empty_object	32.1	32.2	29	0	29	0	16	0	14	0	33	0	12	0	78	0	55	0	True	

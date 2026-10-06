@@ -1,0 +1,58 @@
+{
+ "language": "c",
+ "files": 8788,
+ "pairs": {
+  "declare": {
+   "styles": [
+    "6.2",
+    "6.1"
+   ],
+   "applicable": 1410,
+   "form0": 531,
+   "form1": 434,
+   "idempotence_trials": 2820,
+   "idempotence_failures": 44,
+   "syntax_regressions": 5,
+   "reversibility_trials": 2820,
+   "reversibility_failures": 1852,
+   "interference": {
+    "array_init": 25
+   }
+  },
+  "while_to_for": {
+   "styles": [
+    "7.8",
+    "12"
+   ],
+   "interference": {}
+  }
+ },
+ "examples": {
+  "declare:reversibility_failures": [
+   "dataset/MBCP_G/MBCP_1.c",
+   "dataset/MBCP_G/MBCP_100.c",
+   "dataset/MBCP_G/MBCP_102.c",
+   "dataset/MBCP_G/MBCP_106.c",
+   "dataset/MBCP_G/MBCP_108.c"
+  ],
+  "declare:idempotence_failures": [
+   "dataset/MBCP_G/MBCP_219.c",
+   "dataset/CodeNet_G/CN117.c",
+   "dataset/CodeNet_G/CN119.c",
+   "dataset/CodeNet_G/CN172.c",
+   "dataset/CodeNet_G/CN192.c"
+  ],
+  "declare:interferes:array_init": [
+   "dataset/CodeNet_G/CN086.c",
+   "dataset/CodeNet_G/CN189.c",
+   "dataset/CodeNet_G/CN431.c",
+   "dataset/CodeNet_G/CN465.c",
+   "dataset/CodeNet_G/CN473.c"
+  ],
+  "declare:syntax_regressions": [
+   "dataset/CodeNet_H/CN121.c",
+   "dataset/CodeNet_H/CN187.c",
+   "dataset/CodeNet_H/CN278.c"
+  ]
+ }
+}

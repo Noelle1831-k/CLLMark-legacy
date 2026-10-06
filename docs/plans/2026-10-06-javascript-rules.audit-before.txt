@@ -1,0 +1,291 @@
+{
+ "language": "javascript",
+ "files": 1097,
+ "pairs": {
+  "self_assignment": {
+   "styles": [
+    "2.1",
+    "2.2"
+   ],
+   "applicable": 106,
+   "form0": 97,
+   "form1": 7,
+   "idempotence_trials": 212,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 212,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "equal_to_not_equal": {
+   "styles": [
+    "2.4",
+    "2.3"
+   ],
+   "applicable": 435,
+   "form0": 435,
+   "form1": 0,
+   "idempotence_trials": 870,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 870,
+   "reversibility_failures": 2,
+   "interference": {}
+  },
+  "not_equal_to_equal": {
+   "styles": [
+    "2.6",
+    "2.5"
+   ],
+   "applicable": 107,
+   "form0": 107,
+   "form1": 0,
+   "idempotence_trials": 214,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 214,
+   "reversibility_failures": 1,
+   "interference": {}
+  },
+  "reverse_compare": {
+   "styles": [
+    "2.7",
+    "2.8"
+   ],
+   "applicable": 130,
+   "form0": 125,
+   "form1": 0,
+   "idempotence_trials": 260,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 260,
+   "reversibility_failures": 3,
+   "interference": {}
+  },
+  "equal_hash_reverse": {
+   "styles": [
+    "2.12",
+    "2.11"
+   ],
+   "applicable": 189,
+   "form0": 32,
+   "form1": 96,
+   "idempotence_trials": 378,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 378,
+   "reversibility_failures": 1,
+   "interference": {}
+  },
+  "not_equal_hash_reverse": {
+   "styles": [
+    "2.13",
+    "2.14"
+   ],
+   "applicable": 36,
+   "form0": 21,
+   "form1": 11,
+   "idempotence_trials": 72,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 72,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "update_reverse": {
+   "styles": [
+    "3.2",
+    "3.1"
+   ],
+   "applicable": 355,
+   "form0": 354,
+   "form1": 1,
+   "idempotence_trials": 710,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 710,
+   "reversibility_failures": 3,
+   "interference": {}
+  },
+  "declare": {
+   "styles": [
+    "6.1",
+    "6.2"
+   ],
+   "applicable": 186,
+   "form0": 152,
+   "form1": 21,
+   "idempotence_trials": 372,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 372,
+   "reversibility_failures": 17,
+   "interference": {}
+  },
+  "loop_form": {
+   "styles": [
+    "7.1",
+    "7.2"
+   ],
+   "applicable": 57,
+   "form0": 57,
+   "form1": 0,
+   "idempotence_trials": 114,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 114,
+   "reversibility_failures": 2,
+   "interference": {}
+  },
+  "branch_order": {
+   "styles": [
+    "14.1",
+    "14.2"
+   ],
+   "applicable": 65,
+   "form0": 65,
+   "form1": 0,
+   "idempotence_trials": 130,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 130,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "conditional_order": {
+   "styles": [
+    "15.1",
+    "15.2"
+   ],
+   "applicable": 73,
+   "form0": 73,
+   "form1": 0,
+   "idempotence_trials": 146,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 146,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "nested_condition": {
+   "styles": [
+    "16.1",
+    "16.2"
+   ],
+   "applicable": 39,
+   "form0": 39,
+   "form1": 0,
+   "idempotence_trials": 78,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 78,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "void_return": {
+   "styles": [
+    "18.1",
+    "18.2"
+   ],
+   "applicable": 141,
+   "form0": 141,
+   "form1": 0,
+   "idempotence_trials": 282,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 282,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "member_access": {
+   "styles": [
+    "19.1",
+    "19.2"
+   ],
+   "applicable": 734,
+   "form0": 734,
+   "form1": 0,
+   "idempotence_trials": 1468,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 1468,
+   "reversibility_failures": 13,
+   "interference": {}
+  },
+  "property_shorthand": {
+   "styles": [
+    "23.1",
+    "23.2"
+   ],
+   "applicable": 3,
+   "form0": 1,
+   "form1": 2,
+   "idempotence_trials": 6,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 6,
+   "reversibility_failures": 0,
+   "interference": {}
+  }
+ },
+ "examples": {
+  "declare:reversibility_failures": [
+   "dataset/MBJSP_G/MBJSP_834.js",
+   "dataset/MBJSP_H/MBJSP_174.js",
+   "dataset/MBJSP_H/MBJSP_485.js",
+   "dataset/MBJSP_H/MBJSP_588.js",
+   "dataset/MBJSP_H/MBJSP_595.js",
+   "dataset/MBJSP_H/MBJSP_834.js",
+   "dataset/JS_projects/js-yaml/lib/dumper.js",
+   "dataset/JS_projects/js-yaml/lib/loader.js",
+   "dataset/JS_projects/js-yaml/lib/snippet.js",
+   "dataset/JS_projects/js-yaml/lib/type/binary.js",
+   "dataset/JS_projects/js-yaml/lib/type/int.js",
+   "dataset/JS_projects/js-yaml/lib/type/omap.js",
+   "dataset/JS_projects/js-yaml/lib/type/pairs.js",
+   "dataset/JS_projects/js-yaml/lib/type/timestamp.js",
+   ".benchmark-cache/js-projects/js-yaml/benchmark/benchmark.js",
+   ".benchmark-cache/js-projects/js-yaml/examples/sample_document.js",
+   ".benchmark-cache/js-projects/js-yaml/support/demo_template/base64.js"
+  ],
+  "member_access:reversibility_failures": [
+   "dataset/MBJSP_G/MBJSP_862.js",
+   "dataset/MBJSP_H/MBJSP_102.js",
+   "dataset/MBJSP_H/MBJSP_18.js",
+   "dataset/MBJSP_H/MBJSP_239.js",
+   "dataset/MBJSP_H/MBJSP_308.js",
+   "dataset/MBJSP_H/MBJSP_475.js",
+   "dataset/MBJSP_H/MBJSP_495.js",
+   "dataset/MBJSP_H/MBJSP_584.js",
+   "dataset/MBJSP_H/MBJSP_631.js",
+   "dataset/MBJSP_H/MBJSP_678.js",
+   "dataset/MBJSP_H/MBJSP_749.js",
+   "dataset/MBJSP_H/MBJSP_965.js",
+   ".benchmark-cache/js-projects/cookie/scripts/update-benchmark.js"
+  ],
+  "update_reverse:reversibility_failures": [
+   "dataset/MBJSP_H/MBJSP_23.js",
+   "dataset/MBJSP_H/MBJSP_714.js",
+   "dataset/MBJSP_H/MBJSP_736.js"
+  ],
+  "reverse_compare:reversibility_failures": [
+   "dataset/MBJSP_H/MBJSP_671.js",
+   "dataset/JS_projects/js-yaml/lib/loader.js",
+   "dataset/JS_projects/js-yaml/lib/type/int.js"
+  ],
+  "loop_form:reversibility_failures": [
+   "dataset/MBJSP_H/MBJSP_671.js",
+   "dataset/MBJSP_H/MBJSP_834.js"
+  ],
+  "equal_to_not_equal:reversibility_failures": [
+   "dataset/JS_projects/js-yaml/lib/loader.js",
+   "dataset/JS_projects/js-yaml/lib/type/binary.js"
+  ],
+  "equal_hash_reverse:reversibility_failures": [
+   "dataset/JS_projects/js-yaml/lib/loader.js"
+  ],
+  "not_equal_to_equal:reversibility_failures": [
+   "dataset/JS_projects/js-yaml/lib/snippet.js"
+  ]
+ }
+}

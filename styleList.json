@@ -39,7 +39,18 @@
         "6.1": ["declare", "split"], "6.2": ["declare", "merge"],
         "7.1": ["loop", "while"], "7.2": ["loop", "for"],
         "14.1": ["branch", "plain"], "14.2": ["branch", "negated"], "15.1": ["conditional", "plain"], "15.2": ["conditional", "negated"], "16.1": ["conjunction", "and"], "16.2": ["conjunction", "nested_if"],
-        "18.1": ["return", "implicit"], "18.2": ["return", "explicit"], "19.1": ["member", "dot"], "19.2": ["member", "bracket"], "23.1": ["property", "shorthand"], "23.2": ["property", "explicit"],
+        "18.1": ["return", "implicit"], "18.2": ["return", "explicit"], "19.1": ["member", "dot"], "19.2": ["member", "bracket"],
+        "20.1": ["exit", "else"], "20.2": ["exit", "fallthrough"],
+        "23.1": ["property", "shorthand"], "23.2": ["property", "explicit"],
+        "24.1": ["arrow", "expression_body"], "24.2": ["arrow", "block_body"],
+        "25.1": ["binding", "const"], "25.2": ["binding", "let"],
+        "26.1": ["logical", "repeated"], "26.2": ["logical", "assignment_operator"],
+        "27.1": ["power", "math_pow"], "27.2": ["power", "operator"],
+        "28.1": ["alias", "global"], "28.2": ["alias", "number_member"],
+        "29.1": ["undefined", "identifier"], "29.2": ["undefined", "void_zero"],
+        "30.1": ["callback", "function"], "30.2": ["callback", "arrow"],
+        "31.1": ["empty_array", "literal"], "31.2": ["empty_array", "constructor"],
+        "32.1": ["empty_object", "literal"], "32.2": ["empty_object", "constructor"],
         "13": ["func","get_func"]
     }
 }
