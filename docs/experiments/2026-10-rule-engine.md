@@ -70,7 +70,9 @@
 
 ## 语料迁出到子模块（工程改动，路径变化）
 
-`eb347552` 把 `dataset/`、`data/`、`Python_func/`、`Python_func_test/`、`C_func/`、`C++_func/`、`code_snippets/` 移到私有仓库 `Noelle1831-k/CLLMark-legacy-data`（提交 `f91c92f9`，逐字节相同），在 `corpus/` 以子模块引用，`benchmarks/config.json` 的路径加 `corpus/` 前缀；`make corpus` 拉取。单元数（10,612）与输入字节不变，但路径进入数据集与协议摘要，此后的运行与 R1 及上面的修复运行不可比，需要在新布局上重新建立参考。
+`eb347552` 把 `dataset/`、`data/`、`Python_func/`、`Python_func_test/`、`C_func/`、`C++_func/`、`code_snippets/` 移到私有仓库 `Noelle1831-k/CLLMark-legacy-data`（提交 `f91c92f9`，逐字节相同），在 `corpus/` 以子模块引用，`benchmarks/config.json` 的路径加 `corpus/` 前缀；`make corpus` 拉取。单元数（10,612）与输入字节不变，但路径进入数据集与协议摘要，此后的运行与 R1 及上面的修复运行不可比，因此在新布局上重新建立参考 R2。
+
+R2：`20261006T091719298915Z_bcac6af4_bd9639cf`，源码 `bd9639cf…`，10,612 单元，0 框架错误（本地参考文件，未入库）。与修复运行逐单元对照：除路径与时间外的所有结果字段完全相同；22 个单元只有功能测试缓存命中标志不同，与结果无关。结论：迁移未改变任何实验结果。
 
 ## 阶段 D：JavaScript
 
