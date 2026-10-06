@@ -2,7 +2,7 @@
 
 本仓库保存 CLLMark 的旧版研究代码：通过可逆语义保持变换（RSPT）对 Python、C、C++ 和 JavaScript 代码进行后处理，嵌入和检测多比特水印，并使用 BCH(7,4,1) 进行编码与纠错。
 
-规则层已重构为声明式引擎：每条规则由 tree-sitter 查询模式、具名守卫和锚定到节点的原子编辑组成，水印流程在内存中完成（每个文件读一次、写一次）。在原有规则对之外新增了语义保持规则（Python 25 对、C 21 对、C++ 22 对、JavaScript 15 对），并修正了原有规则中会改变程序行为的情形。详见 [规则引擎与规则目录](docs/RULES.md) 与 [实验记录](docs/experiments/2026-10-rule-engine.md)。
+规则层已重构为声明式引擎：每条规则由 tree-sitter 查询模式、具名守卫和锚定到节点的原子编辑组成，水印流程在内存中完成（每个文件读一次、写一次）。在原有规则对之外新增了语义保持规则（Python 25 对、C 21 对、C++ 22 对、JavaScript 25 对），并修正了原有规则中会改变程序行为的情形。详见 [规则引擎与规则目录](docs/RULES.md) 与 [实验记录](docs/experiments/2026-10-rule-engine.md)。
 
 **版本定位：当前代码对应旧版论文《Detecting and Tracing LLM Code via Reversible Watermarking》。新版 TOSEM 草稿《CLLMark: Traceability-Enabled Watermarking for LLM-Generated Code》作为后续对照，尚不能据此认定本仓库已完整实现新版方法。** 代码与旧版论文之间也存在需要核对的实现差异，详见论文对照。
 

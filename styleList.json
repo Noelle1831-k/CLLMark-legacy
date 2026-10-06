@@ -48,6 +48,9 @@
         "27.1": ["power", "math_pow"], "27.2": ["power", "operator"],
         "28.1": ["alias", "global"], "28.2": ["alias", "number_member"],
         "29.1": ["undefined", "identifier"], "29.2": ["undefined", "void_zero"],
+        "30.1": ["callback", "function"], "30.2": ["callback", "arrow"],
+        "31.1": ["empty_array", "literal"], "31.2": ["empty_array", "constructor"],
+        "32.1": ["empty_object", "literal"], "32.2": ["empty_object", "constructor"],
         "13": ["func","get_func"]
     }
 }

@@ -1179,6 +1179,139 @@ def void_zero(node):
         and outside_equality_operands(node) and undefined_file(node)
 
 
+# ---------------------------------------------------------------- 30 callback function / arrow
+
+CALLBACK_METHODS = ['map', 'filter', 'forEach', 'reduce', 'reduceRight', 'some', 'every', 'find', 'findIndex', 'findLast',
+                    'findLastIndex', 'flatMap', 'sort']
+# Nodes after which `this`, `arguments`, `super` and `new.target` belong to another function.
+OWN_THIS = ['function', 'function_declaration', 'generator_function', 'generator_function_declaration', 'method_definition',
+            'class', 'class_declaration']
+
+
+def callback_position(node):
+    """An argument of recv.m(...) for an array method m that calls its callback as a plain function: never with
+    `new`, never reading `prototype` (a thisArg is only seen by code that uses `this`, which is excluded)."""
+    arguments = node.parent
+    if arguments.type != 'arguments' or arguments.parent.type != 'call_expression':
+        return False
+    function = arguments.parent.child_by_field_name('function')
+    if function.type == 'member_expression':  # recv.m(...)
+        field = function.child_by_field_name('property')
+        return field is not None and field.type == 'property_identifier' and text(field) in CALLBACK_METHODS
+    if function.type == 'subscript_expression':  # recv["m"](...), which the member-access rule (19) writes
+        index = function.child_by_field_name('index')
+        return index is not None and index.type == 'string' and b'\\' not in index.text and text(index)[1:-1] in CALLBACK_METHODS
+    return False
+
+
+def function_bound(node):
+    """Whether the parameters or body use what a `function` and an arrow bind differently (this, arguments, super,
+    new.target), or `yield` / `await` words whose meaning depends on the kind of the enclosing function."""
+    stack = list(node.children)
+    while stack:
+        current = stack.pop()
+        kind = current.type
+        if kind in ['this', 'super', 'yield_expression'] or (kind == 'meta_property' and current.text == b'new.target') \
+                or (kind == 'identifier' and current.text in [b'arguments', b'yield', b'await']):
+            return True
+        if kind not in OWN_THIS:
+            stack.extend(current.children)
+    return False
+
+
+def plain_parameters(parameters):
+    """Parameters an arrow accepts as they are: no duplicate names (allowed only for sloppy-mode functions)."""
+    names = [text(child) for child in descendants(parameters) if child.type in ['identifier', 'shorthand_property_identifier_pattern']]
+    return len(names) == len(set(names))
+
+
+def callback_head(node, arrow):
+    """`function (a, b) ` / `(a, b) => ` (with `async ` in front for async callbacks): the only spellings either
+    direction writes, so the other direction takes exactly these."""
+    parameters, body = node.child_by_field_name('parameters'), node.child_by_field_name('body')
+    if parameters is None or body is None or body.type != 'statement_block':
+        return None
+    prefix = b'async ' if node.children[0].type == 'async' else b''
+    expected = prefix + (parameters.text + b' => ' if arrow else b'function ' + parameters.text + b' ')
+    return expected if node.text[:body.start_byte - node.start_byte] == expected else None
+
+
+def callback(arrow):
+    def test(node):
+        if not arrow and node.child_by_field_name('name') is not None:
+            return False
+        body = node.child_by_field_name('body')
+        return callback_head(node, arrow) is not None and returned(body) is None and callback_position(node) \
+            and plain_parameters(node.child_by_field_name('parameters')) and not function_bound(node)
+    return guard('callback ' + ('(a) => { ... }' if arrow else 'function (a) { ... }') + ' of an array method, free of this/arguments/super/new.target')(test)
+
+
+def to_callback_head(arrow):
+    """function (a) { ... } <-> (a) => { ... }   (the body is kept as written)"""
+    def rewrite(node, source):
+        prefix = 'async ' if node.children[0].type == 'async' else ''
+        parameters = text(node.child_by_field_name('parameters'))
+        head = f'{prefix}{parameters} => ' if arrow else f'{prefix}function {parameters} '
+        return [Edit(node.start_byte, node.child_by_field_name('body').start_byte, head)]
+    return rewrite
+
+
+# ---------------------------------------------------------------- 31 / 32 [] and {} / new Array() and new Object()
+
+def opens_statement_or_body(node, arrow_body):
+    """The node is the first token of an expression statement (where `{` would start a block and `[` would continue
+    the previous line) or, when `arrow_body`, of an arrow's expression body (where `{` would start a block body)."""
+    current = node
+    while current.parent is not None and current.parent.start_byte == node.start_byte:
+        if current.parent.type == 'expression_statement':
+            return True
+        current = current.parent
+    return arrow_body and current.parent is not None and current.parent.type == 'arrow_function' \
+        and current.parent.child_by_field_name('body') == current
+
+
+def arrow_result(node):
+    """The value an arrow function returns directly: its expression body (through parentheses) or the `e` of a
+    `{ return e; }` body. The arrow-body rule (24) reads whether that value starts with `{`."""
+    current = node
+    while current.parent.type == 'parenthesized_expression':
+        current = current.parent
+    parent = current.parent
+    if parent.type == 'arrow_function' and parent.child_by_field_name('body') == current:
+        return True
+    return parent.type == 'return_statement' and parent.parent.type == 'statement_block' and parent.parent.parent is not None \
+        and parent.parent.parent.type == 'arrow_function'
+
+
+def empty_value_site(node, global_name):
+    parent = node.parent
+    if parent.type in ['member_expression', 'subscript_expression'] and parent.child_by_field_name('object') == node:
+        return False
+    if parent.type in ['call_expression', 'new_expression'] and node in [parent.child_by_field_name('function'), parent.child_by_field_name('constructor')]:
+        return False
+    if opens_statement_or_body(node, arrow_body=global_name == 'Object') or (global_name == 'Object' and arrow_result(node)):
+        return False
+    facts = file_facts(node)
+    return not facts.opaque and global_name not in facts.bound and global_name not in facts.base_writes
+
+
+def empty_literal(kind, global_name):
+    spelled = b'[]' if kind == 'array' else b'{}'
+
+    def test(node):
+        if node.text != spelled or not empty_value_site(node, global_name):
+            return False
+        facts = file_facts(node)  # minified `return[]` must not become `returnnew Array()`
+        return not fuses(facts.bytes(node.start_byte - 1, node.start_byte), b'', b'new')
+    return guard(f'{spelled.decode()} in an expression position, {global_name} not rebound')(test)
+
+
+def empty_construction(global_name):
+    spelled = f'new {global_name}()'.encode()
+    return guard(f'new {global_name}() in an expression position, {global_name} not rebound')(
+        lambda node: node.text == spelled and empty_value_site(node, global_name))
+
+
 # ---------------------------------------------------------------- registry
 
 EQUALITY_TEST = BINARY.where(operator_in(*EQUALITY), outside_equality_operands)
@@ -1229,6 +1362,12 @@ RULES = {
     '28.2': global_alias_call(member_form=False).where(well_formed).rule(to_member_call),
     '29.1': nodes('unary_expression').where(void_zero).where(well_formed).rule(lambda node, source: [replace(node, 'undefined')]),
     '29.2': nodes('undefined').where(undefined_value).where(well_formed).rule(lambda node, source: [replace(node, 'void 0')]),
+    '30.1': nodes('arrow_function').where(callback(arrow=True)).where(well_formed).rule(to_callback_head(arrow=False)),
+    '30.2': nodes('function').where(callback(arrow=False)).where(well_formed).rule(to_callback_head(arrow=True)),
+    '31.1': nodes('new_expression').where(empty_construction('Array')).where(well_formed).rule(lambda node, source: [replace(node, '[]')]),
+    '31.2': nodes('array').where(empty_literal('array', 'Array')).where(well_formed).rule(lambda node, source: [replace(node, 'new Array()')]),
+    '32.1': nodes('new_expression').where(empty_construction('Object')).where(well_formed).rule(lambda node, source: [replace(node, '{}')]),
+    '32.2': nodes('object').where(empty_literal('object', 'Object')).where(well_formed).rule(lambda node, source: [replace(node, 'new Object()')]),
     '23.1': nodes('pair').where(explicit_property, outside_equality_operands).where(well_formed).rule(lambda node, source: [replace(node, text(node.child_by_field_name('key')))]),
     '23.2': nodes('shorthand_property_identifier').where(shorthand_property, outside_equality_operands).where(well_formed).rule(
         lambda node, source: [replace(node, f'{text(node)}: {text(node)}')]),
