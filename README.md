@@ -16,7 +16,7 @@
 │   ├── directories.py          #   目录级分析/嵌入/提取（support_transform.json）
 │   ├── cli.py                  #   python -m cllmark {analyze,embed,extract}
 │   ├── bch.py                  #   BCH(7,4,1) 编码与单比特纠错
-│   ├── source_io.py            #   与原实现一致的解码（chardet 语义），一次读一次写
+│   ├── source_io.py            #   UTF-8 读写（universal newlines），每个文件读一次、写一次
 │   └── rules/
 │       ├── engine.py           #   规则表示、单次查询匹配、原子编辑与冲突处理、解析缓存
 │       ├── python.py c.py cpp.py javascript.py   # 各语言规则（RULES：样式编号 → Rule）

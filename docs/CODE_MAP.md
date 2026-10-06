@@ -6,7 +6,7 @@
 
 ```mermaid
 flowchart TD
-    Corpus[项目或函数级源码] --> IO[source_io：一次解码，原实现的 chardet 语义]
+    Corpus[项目或函数级源码] --> IO[source_io：严格 UTF-8 一次解码]
     IO --> Analyze[watermark.analyze：探测规则对]
     Analyze --> Support[support_transform.json：文件 → 可用规则对]
     Support --> Embed[watermark.embed：按槽位顺序嵌入]
@@ -36,7 +36,7 @@ flowchart TD
 | [directories.py](../cllmark/directories.py) | `analyze_directory`、`embed_directory`、`extract_directory`、`load_project` | 目录级流程；分析写出 `support_transform.json` 并返回容量，可传入共享的 `StyleTransformer`。 |
 | [cli.py](../cllmark/cli.py) | `main` | `python -m cllmark analyze/embed/extract`；输入目录只读，`embed` 写到新的输出目录。 |
 | [bch.py](../cllmark/bch.py) | `encode`、`decode`、`remainder` | 系统 BCH(7,4,1)（汉明码），生成多项式 `x^3 + x + 1`，单比特纠错。 |
-| [source_io.py](../cllmark/source_io.py) | `read_source`、`write_source`、`reload_written` | 与 `open(encoding=chardet.detect(...))` 相同的解码（纯 ASCII 快速路径），写后再读的语义在内存中复现。 |
+| [source_io.py](../cllmark/source_io.py) | `read_source`、`write_source`、`reload_written` | 严格 UTF-8 + universal newlines（与文本模式 `open` 一致），写后再读的语义在内存中复现；非 UTF-8 文件报错并给出路径。语料已统一为 UTF-8/LF（数据仓库 `provenance/normalize_sources.py`）。 |
 | [rules/engine.py](../cllmark/rules/engine.py) | `Rule`、`Matcher`、`Guard`、`Grammar`、`apply_edits` | 规则表示（tree-sitter 查询 + 具名守卫 + 锚定编辑）、按语言编译单个查询、原子编辑组与冲突处理、解析缓存。设计见 [RULES.md](RULES.md)。 |
 | [rules/pairs.py](../cllmark/rules/pairs.py) | `WATERMARK_PAIRS` | 每种语言的水印对 `(比特 0 样式, 比特 1 样式)`，顺序即槽位顺序。 |
 | [rules/styles.json](../cllmark/rules/styles.json) | 语言 → 编号 → `[类别, 名称]` | 样式目录；测试检查它与规则模块、水印对一致。 |

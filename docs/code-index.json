@@ -4208,38 +4208,38 @@
     {
       "path": "cllmark/source_io.py",
       "module": "cllmark.source_io",
-      "sha256": "ff29cb2eba0f718258711fe9c6ce9caa39ca49efd6a02fdcc5d4a7af7ac2e19a",
-      "line_count": 48,
+      "sha256": "96ccac1514de1123a24a6aea16a368ff9c68c74d828926141755a4dad0abf4f7",
+      "line_count": 41,
       "symbols": [
         {
-          "name": "detect_encoding",
+          "name": "translate_newlines",
           "kind": "function",
-          "line": 19,
-          "end_line": 26
+          "line": 14,
+          "end_line": 16
         },
         {
           "name": "decode_source",
           "kind": "function",
-          "line": 29,
-          "end_line": 31
+          "line": 19,
+          "end_line": 21
         },
         {
           "name": "read_source",
           "kind": "function",
-          "line": 34,
-          "end_line": 36
+          "line": 24,
+          "end_line": 29
         },
         {
           "name": "write_source",
           "kind": "function",
-          "line": 39,
-          "end_line": 43
+          "line": 32,
+          "end_line": 36
         },
         {
           "name": "reload_written",
           "kind": "function",
-          "line": 46,
-          "end_line": 48
+          "line": 39,
+          "end_line": 41
         }
       ],
       "imports": [
@@ -4248,24 +4248,19 @@
           "names": [
             "annotations"
           ],
-          "line": 7
+          "line": 8
         },
         {
           "module": "os",
           "names": [],
-          "line": 9
+          "line": 10
         },
         {
           "module": "pathlib",
           "names": [
             "Path"
           ],
-          "line": 10
-        },
-        {
-          "module": "chardet",
-          "names": [],
-          "line": 12
+          "line": 11
         }
       ],
       "local_dependencies": [],
@@ -4504,116 +4499,116 @@
     {
       "path": "tests/test_pipeline.py",
       "module": "tests.test_pipeline",
-      "sha256": "32d11f22dcc06bde09811c356ada1523b9a5f55431b3aa3bb1afd6d3c97ca5e6",
-      "line_count": 161,
+      "sha256": "ee989520c28a6cc7b4e690dad77def3d846bb5ee3ecaadd6b69305785a528ad1",
+      "line_count": 163,
       "symbols": [
-        {
-          "name": "outcome",
-          "kind": "function",
-          "line": 30,
-          "end_line": 34
-        },
-        {
-          "name": "original_read",
-          "kind": "function",
-          "line": 37,
-          "end_line": 48
-        },
         {
           "name": "SourceDecodingTests",
           "kind": "class",
-          "line": 51,
-          "end_line": 74
+          "line": 28,
+          "end_line": 57
         },
         {
-          "name": "SourceDecodingTests.test_fast_path_matches_chardet_and_text_mode",
+          "name": "SourceDecodingTests.test_utf8_with_universal_newlines_like_text_mode_open",
           "kind": "function",
-          "line": 52,
-          "end_line": 63
+          "line": 29,
+          "end_line": 43
         },
         {
-          "name": "SourceDecodingTests.test_empty_file_is_rejected_like_chardet",
+          "name": "SourceDecodingTests.test_non_utf8_files_are_reported_with_their_path",
           "kind": "function",
-          "line": 65,
-          "end_line": 67
+          "line": 45,
+          "end_line": 50
         },
         {
           "name": "SourceDecodingTests.test_reload_matches_disk_round_trip",
           "kind": "function",
-          "line": 69,
-          "end_line": 74
+          "line": 52,
+          "end_line": 57
+        },
+        {
+          "name": "CorpusNormalizationTests",
+          "kind": "class",
+          "line": 61,
+          "end_line": 76
+        },
+        {
+          "name": "CorpusNormalizationTests.test_benchmark_sources_are_utf8_with_lf_line_endings",
+          "kind": "function",
+          "line": 64,
+          "end_line": 76
         },
         {
           "name": "BchTests",
           "kind": "class",
-          "line": 77,
-          "end_line": 94
+          "line": 79,
+          "end_line": 96
         },
         {
           "name": "BchTests.test_codewords_are_systematic_and_distinct",
           "kind": "function",
-          "line": 80,
-          "end_line": 85
+          "line": 82,
+          "end_line": 87
         },
         {
           "name": "BchTests.test_single_bit_errors_are_corrected",
           "kind": "function",
-          "line": 87,
-          "end_line": 94
+          "line": 89,
+          "end_line": 96
         },
         {
           "name": "FailingTransformer",
           "kind": "class",
-          "line": 97,
-          "end_line": 99
+          "line": 99,
+          "end_line": 101
         },
         {
           "name": "FailingTransformer.apply",
           "kind": "function",
-          "line": 98,
-          "end_line": 99
+          "line": 100,
+          "end_line": 101
         },
         {
           "name": "ProbeTests",
           "kind": "class",
-          "line": 102,
-          "end_line": 106
+          "line": 104,
+          "end_line": 108
         },
         {
           "name": "ProbeTests.test_rule_probe_errors_yield_no_bit",
           "kind": "function",
-          "line": 103,
-          "end_line": 106
+          "line": 105,
+          "end_line": 108
         },
         {
           "name": "DirectoryPipelineTests",
           "kind": "class",
-          "line": 110,
-          "end_line": 157
+          "line": 112,
+          "end_line": 159
         },
         {
           "name": "DirectoryPipelineTests.setUp",
           "kind": "function",
-          "line": 111,
-          "end_line": 120
+          "line": 113,
+          "end_line": 122
         },
         {
           "name": "DirectoryPipelineTests.tearDown",
           "kind": "function",
-          "line": 122,
-          "end_line": 124
+          "line": 124,
+          "end_line": 126
         },
         {
           "name": "DirectoryPipelineTests.test_embedding_round_trip",
           "kind": "function",
-          "line": 126,
-          "end_line": 138
+          "line": 128,
+          "end_line": 140
         },
         {
           "name": "DirectoryPipelineTests.test_command_line_never_modifies_its_input",
           "kind": "function",
-          "line": 140,
-          "end_line": 157
+          "line": 142,
+          "end_line": 159
         }
       ],
       "imports": [
@@ -4677,31 +4672,33 @@
           "line": 13
         },
         {
-          "module": "chardet",
-          "names": [],
-          "line": 15
-        },
-        {
           "module": "cllmark",
           "names": [
             "bch",
             "source_io"
           ],
-          "line": 17
+          "line": 15
+        },
+        {
+          "module": "benchmarks.common",
+          "names": [
+            "discover_units"
+          ],
+          "line": 66
         },
         {
           "module": "cllmark",
           "names": [
             "watermark"
           ],
-          "line": 104
+          "line": 106
         },
         {
           "module": "cllmark",
           "names": [
             "directories"
           ],
-          "line": 127
+          "line": 129
         },
         {
           "module": "cllmark.cli",
@@ -4709,10 +4706,11 @@
             "EXIT_MATCH",
             "main"
           ],
-          "line": 141
+          "line": 143
         }
       ],
       "local_dependencies": [
+        "benchmarks/common.py",
         "cllmark/__init__.py",
         "cllmark/bch.py",
         "cllmark/cli.py",

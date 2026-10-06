@@ -12,8 +12,6 @@ import unittest
 from pathlib import Path
 from typing import ClassVar
 
-import chardet
-
 from cllmark import bch, source_io
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,51 +25,55 @@ PYTHON_PROJECT = {
 }
 
 
-def outcome(read, *arguments):
-    try:
-        return read(*arguments)
-    except ValueError as error:
-        return type(error)
-
-
-def original_read(raw):
-    """What the original reader (chardet + text-mode open) returned for these bytes."""
-    encoding = chardet.detect(raw)["encoding"]
-    if encoding is None:
-        raise ValueError("cannot detect the file encoding")
-    with tempfile.NamedTemporaryFile(delete=False) as handle:
-        handle.write(raw)
-    try:
-        with open(handle.name, encoding=encoding) as file:
-            return file.read()
-    finally:
-        os.unlink(handle.name)
-
-
 class SourceDecodingTests(unittest.TestCase):
-    def test_fast_path_matches_chardet_and_text_mode(self):
+    def test_utf8_with_universal_newlines_like_text_mode_open(self):
         samples = [
             b"int main(){\r\n return 0;\r\n}\r",
             b"x = 1\n",
             "s = '中文'\n".encode(),
-            "s = 'café'\n".encode("latin-1"),
+            b"",
             b"a ~{ b\n",
             b"esc \x1b[0m\n",
-            b"\xef\xbb\xbfx = 1\n",
         ]
         for raw in samples:
-            self.assertEqual(outcome(source_io.decode_source, raw), outcome(original_read, raw), raw)
+            with tempfile.TemporaryDirectory() as directory:
+                path = Path(directory) / "f.py"
+                path.write_bytes(raw)
+                with open(path, encoding="utf-8") as stream:
+                    self.assertEqual(source_io.read_source(path), stream.read(), raw)
 
-    def test_empty_file_is_rejected_like_chardet(self):
-        with self.assertRaises(ValueError):
-            source_io.decode_source(b"")
+    def test_non_utf8_files_are_reported_with_their_path(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "latin.py"
+            path.write_bytes("s = 'café'\n".encode("latin-1"))
+            with self.assertRaisesRegex(ValueError, "latin.py is not UTF-8"):
+                source_io.read_source(path)
 
     def test_reload_matches_disk_round_trip(self):
-        for value in ["x = 1\n", "s = '中文'\n", "a ~{ b\n"]:
+        for value in ["x = 1\n", "s = '中文'\n", "a\r\nb\rc\n"]:
             with tempfile.TemporaryDirectory() as directory:
                 path = Path(directory) / "f.py"
                 source_io.write_source(path, value)
-                self.assertEqual(outcome(source_io.reload_written, value), outcome(source_io.read_source, path))
+                self.assertEqual(source_io.reload_written(value), source_io.read_source(path))
+
+
+@unittest.skipUnless((ROOT / "corpus" / "dataset").is_dir(), "needs the corpus submodule")
+class CorpusNormalizationTests(unittest.TestCase):
+    PINNED_UPSTREAM = ("corpus/dataset/JS_projects/", "corpus/dataset/JS_repos/")
+
+    def test_benchmark_sources_are_utf8_with_lf_line_endings(self):
+        """Pinned upstream copies keep their bytes (verified by tools/setup_javascript.py); everything else is LF."""
+        from benchmarks.common import discover_units
+
+        config = json.loads((ROOT / "benchmarks" / "config.json").read_text())
+        units, _ = discover_units(ROOT, config)
+        offending = []
+        for relative in sorted({path for unit in units for path in unit["source_files"]}):
+            raw = (ROOT / relative).read_bytes()
+            raw.decode("utf-8")
+            if b"\r" in raw and not relative.startswith(self.PINNED_UPSTREAM):
+                offending.append(relative)
+        self.assertEqual(offending, [])
 
 
 class BchTests(unittest.TestCase):
