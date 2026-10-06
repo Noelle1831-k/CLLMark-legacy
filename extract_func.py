@@ -81,7 +81,7 @@ def process_directory(input_dir, output_dir, transform_sequence, lang, see_tree)
 see_tree = 0
 lang = 'cpp'
 input_directory = "WareHouse_C++"
-output_directory = "C++_func"
+output_directory = "corpus/C++_func"
 
 transform_sequence_list = ['13']
 

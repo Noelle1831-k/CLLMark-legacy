@@ -1,3 +1,0 @@
-NewsManager::NewsManager() {
-    fetchFromSources();
-}

@@ -1,3 +1,0 @@
-void GameManager::nextLevel() {
-    ++currentLevel;
-}

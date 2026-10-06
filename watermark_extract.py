@@ -22,7 +22,7 @@ def folder_bit_extract(bit_list, directory, lang, see_tree=False):
 if __name__ == '__main__':
     lang = 'python'
     bit_list = [1, 0, 1, 0]
-    directory = 'Python_func_test'
+    directory = 'corpus/Python_func_test'
     succ = ori_succ = fail = ori_fail = 0
     for folder in tqdm(get_subfolder(directory), desc=f"Extracting bits:{bit_list} in subfolder", unit="item"):
         result, ori_result = folder_bit_extract(bit_list, os.path.join(directory, folder), lang)

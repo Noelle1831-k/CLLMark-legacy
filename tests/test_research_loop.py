@@ -224,7 +224,7 @@ class UtilityExecutionTests(unittest.TestCase):
         self.assertEqual(set(parser_smoke(ROOT)), {"python", "c", "cpp", "javascript"})
 
     def test_javascript_mbjsp_test_runs_on_node(self):
-        problem = json.loads((ROOT / "dataset" / "Jsonl" / "mbjsp_release_v1.2.jsonl").read_text().splitlines()[0])
+        problem = json.loads((ROOT / "corpus" / "dataset" / "Jsonl" / "mbjsp_release_v1.2.jsonl").read_text().splitlines()[0])
         environment = {"javascript": javascript_environment(ROOT)}
         unit = {"oracle": "mbxp", "level": "function", "language": "javascript", "source_files": ["MBJSP_1.js"]}
         config = {**CONFIG, "test_timeout_retries": 0}
@@ -240,11 +240,11 @@ class UtilityExecutionTests(unittest.TestCase):
 
     def test_project_suite_runs_with_overlaid_sources(self):
         environment = {"javascript": javascript_environment(ROOT)}
-        unit = {"oracle": "project_tests", "level": "project", "name": "bytes", "path": "dataset/JS_projects",
-                "source_files": ["dataset/JS_projects/bytes/index.js"]}
+        unit = {"oracle": "project_tests", "level": "project", "name": "bytes", "path": "corpus/dataset/JS_projects",
+                "source_files": ["corpus/dataset/JS_projects/bytes/index.js"]}
         with tempfile.TemporaryDirectory() as temporary:
             directory = Path(temporary)
-            original = (ROOT / "dataset" / "JS_projects" / "bytes" / "index.js").read_text()
+            original = (ROOT / "corpus" / "dataset" / "JS_projects" / "bytes" / "index.js").read_text()
             (directory / "index.js").write_text(original)
             self.assertEqual(evaluate_utility(unit, directory, {}, CONFIG, directory, environment, directory / "cache")["status"], "PASS")
             (directory / "index.js").write_text(original.replace("Math.floor", "Math.ceil"))

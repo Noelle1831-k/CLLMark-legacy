@@ -82,7 +82,7 @@
     {
       "path": "benchmark_passrate.py",
       "module": "benchmark_passrate",
-      "sha256": "b784706779c03a2e20e6cbe3fb88010bfab5cf788c3371f353ac197ab880cc4a",
+      "sha256": "c63d72b7811f1d0534d73640e4482f3d22d36e3b3d97f8d7cb8c1be735d70f8d",
       "line_count": 134,
       "symbols": [
         {
@@ -2473,7 +2473,7 @@
     {
       "path": "extract.py",
       "module": "extract",
-      "sha256": "83746eba71d8ab8622eacfbdc5436b33fc87afabacf6c66a3b9a3ea92ce2c283",
+      "sha256": "19222718b3636d9a432c5adbc81c978dbe92cec2398da17f448598c19d31c333",
       "line_count": 30,
       "symbols": [],
       "imports": [
@@ -2494,7 +2494,7 @@
     {
       "path": "extract_func.py",
       "module": "extract_func",
-      "sha256": "d9fcaef7449bdb955847d4e2e83d502aba1d41d05d26532b76007d8fff32a565",
+      "sha256": "d4397a9687438bf570655e75c1e5c692c0ed2b65e34af2dd8df1ec7a74f7d0c4",
       "line_count": 91,
       "symbols": [
         {
@@ -2604,7 +2604,7 @@
     {
       "path": "folder_transform_check.py",
       "module": "folder_transform_check",
-      "sha256": "c048cf0482ea5be59131fab8223bb26725d5814036db57601611abf8a9a6f863",
+      "sha256": "306341500024c96b29ba5c6038385213b076208e09dd04949b96e669505bd75a",
       "line_count": 52,
       "symbols": [
         {
@@ -3957,7 +3957,7 @@
     {
       "path": "tests/test_research_loop.py",
       "module": "tests.test_research_loop",
-      "sha256": "90e278d77d75b15617e8d8d6a05b2ba6c7714ebe2a6af0166faf631dc8e8e3f8",
+      "sha256": "6fc3da7cbb0ffcfd9b686360a26b6ec7139454259a3dd4c9fc33076f6d6a5ca9",
       "line_count": 323,
       "symbols": [
         {
@@ -4624,7 +4624,7 @@
     {
       "path": "tools/import_mbjsp.py",
       "module": "tools.import_mbjsp",
-      "sha256": "49e4bb7976c05346aa7d4149ae1b870100d7a2730a917995b0e29bc86a757783",
+      "sha256": "a0391fa471f8aaf9c358fe2b5d9c9e8e59962ac6b6d7a348d5e23df9b33686e6",
       "line_count": 59,
       "symbols": [
         {
@@ -5015,7 +5015,7 @@
     {
       "path": "tools/setup_javascript.py",
       "module": "tools.setup_javascript",
-      "sha256": "648a08c75704cbd72cd4e01b50a36685270fe26c18f7ca64265ff2e92e2520f5",
+      "sha256": "fe9c87a0ac5eeb0e66d38d08147d5bcbedc49be585427a9f569eb8ba0db5dbc6",
       "line_count": 49,
       "symbols": [
         {
@@ -5122,7 +5122,7 @@
     {
       "path": "watermark_bit.py",
       "module": "watermark_bit",
-      "sha256": "0371ba045c34b959cce9690bdd3b14e34d1ed7a8a91f4f7d42471fadf6632406",
+      "sha256": "087aab8f1679775a2707d0d85d40faa2adb693339d31735e81ab7b2cc6a963c0",
       "line_count": 34,
       "symbols": [
         {
@@ -5287,7 +5287,7 @@
     {
       "path": "watermark_extract.py",
       "module": "watermark_extract",
-      "sha256": "c824bab113269a9fd13a3a828837741e21b9955b76327ea93ad8c3d9e5edce7c",
+      "sha256": "fb1257038aff432c21ad23bb8f71f47ff99c1b673e649512202b24800f3cda17",
       "line_count": 33,
       "symbols": [
         {

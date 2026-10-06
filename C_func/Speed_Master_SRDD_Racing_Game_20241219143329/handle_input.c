@@ -1,2 +1,0 @@
-void handle_input() {
-}

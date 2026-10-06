@@ -43,7 +43,7 @@ def get_subfolder(directory):
 
 
 if __name__ == "__main__":
-    directory = 'Python_func_test'
+    directory = 'corpus/Python_func_test'
     lang = 'python'
     for folder in tqdm(get_subfolder(directory), desc="Extracting support transform in subfolder", unit="item"):
         trans_num = check_support_transform(lang, os.path.join(directory, folder))

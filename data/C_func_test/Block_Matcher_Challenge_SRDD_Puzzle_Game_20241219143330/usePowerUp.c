@@ -1,2 +1,0 @@
-void usePowerUp(Player *player) {
-}

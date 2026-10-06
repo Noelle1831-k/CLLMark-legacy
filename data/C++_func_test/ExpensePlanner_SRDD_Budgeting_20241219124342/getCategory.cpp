@@ -1,1 +1,0 @@
-string Expense::getCategory() const { return category; }

@@ -1,3 +1,0 @@
-int isGameOver() {
-    return gameOver;
-}

@@ -1,1 +1,0 @@
-string Book::getNotes() const { return notes; }

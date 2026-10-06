@@ -1,1 +1,0 @@
-vector<string> Quest::getCategories() { return categories; }

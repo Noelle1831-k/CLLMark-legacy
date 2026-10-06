@@ -108,7 +108,7 @@ def process_directory(input_dir, output_dir, transform_sequence,lang,see_tree):
     return total_time,succ_num,transform_num_total
 see_tree = 0
 lang = 'python'
-input_directory = "dataset/MBPP_G"
+input_directory = "corpus/dataset/MBPP_G"
 output_directory = "test_1"
 json_dir = "Z:/output_c.jsonl"
 transform_sequence_list_py = ['11','7.8','7.3','7.4','7.1','7.6','7.9','1.1','1.3','7.5','7.10','7.11','4.1','4.3','3.3','6.2','6.3','10.2','10.4']

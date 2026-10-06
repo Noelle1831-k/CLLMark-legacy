@@ -1,1 +1,0 @@
-vector<NewsArticle> getArticles() { return articles; }

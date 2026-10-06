@@ -1,3 +1,0 @@
-int getWordCount() {
-    return wordCount;
-}

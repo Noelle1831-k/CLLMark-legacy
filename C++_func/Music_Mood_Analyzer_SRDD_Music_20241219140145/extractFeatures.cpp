@@ -1,3 +1,0 @@
-void AudioProcessor::extractFeatures() {
-    simulateFeatureExtraction();
-}

@@ -33,10 +33,12 @@
 ├── rule_dict_bit_acc.py         # 水印规则对及 0/1 到样式的映射（槽位顺序）
 ├── styleList.json               # 样式编号目录
 ├── python/ c/ cpp/ javascript/  # 各语言 rules.py
-├── dataset/                    # MBXP/CodeNet 相关代码、JSONL 及实验材料
-├── Python_func/ C_func/ C++_func/ # 项目代码拆分后的函数级语料
-├── Python_func_test/            # Python 水印实验语料
-├── data/                       # 保留的实验快照，部分入口使用 C 参数
+├── corpus/                     # 语料子模块（私有仓库 Noelle1831-k/CLLMark-legacy-data，`make corpus` 拉取）
+│   ├── dataset/                # MBXP/CodeNet 相关代码、JSONL 及实验材料
+│   ├── Python_func/ C_func/ C++_func/ # 项目代码拆分后的函数级语料
+│   ├── Python_func_test/       # Python 水印实验语料
+│   ├── data/                   # 保留的实验快照，部分入口使用 C 参数
+│   └── code_snippets/          # C++ 片段
 ├── test/ test_1/ test.py        # 示例代码及混淆矩阵计算脚本
 ├── docs/                       # 代码地图及论文对照
 ├── benchmarks/                 # 固定协议、真实旧算法适配、指标与基线

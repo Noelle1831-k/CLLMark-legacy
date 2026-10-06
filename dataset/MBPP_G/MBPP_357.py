@@ -1,2 +1,0 @@
-def find_max(test_list):
-    return max((max(t) for t in test_list))

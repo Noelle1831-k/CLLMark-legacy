@@ -1,1 +1,0 @@
-string Quest::getStatus() { return status; }

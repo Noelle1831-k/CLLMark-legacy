@@ -1,1 +1,0 @@
-bool Budget::checkLimitExceeded() const { return spentAmount > totalBudget; }

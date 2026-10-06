@@ -1,2 +1,0 @@
-void activatePowerUp(PowerUp *powerUp) {
-}

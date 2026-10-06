@@ -1,3 +1,0 @@
-RaceTrack::~RaceTrack() {
-    delete[] obstacles;
-}

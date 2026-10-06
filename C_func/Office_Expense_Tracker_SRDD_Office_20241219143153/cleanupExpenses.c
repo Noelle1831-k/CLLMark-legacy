@@ -1,3 +1,0 @@
-void cleanupExpenses() {
-    free(expenses);
-}

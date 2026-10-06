@@ -1,3 +1,0 @@
-FileScanner::FileScanner() {
-    loadFiles();
-}

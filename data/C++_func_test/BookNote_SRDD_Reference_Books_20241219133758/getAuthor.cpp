@@ -1,3 +1,0 @@
-string Book::getAuthor() const {
-    return author;
-}

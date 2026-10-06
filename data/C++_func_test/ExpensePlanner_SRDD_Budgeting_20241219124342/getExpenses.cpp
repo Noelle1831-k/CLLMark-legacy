@@ -1,1 +1,0 @@
-vector<Expense> ExpenseManager::getExpenses() const { return expenses; }

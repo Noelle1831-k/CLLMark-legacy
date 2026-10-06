@@ -1,2 +1,0 @@
-void rotateCar(float angle) {
-}

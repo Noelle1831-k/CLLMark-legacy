@@ -1,1 +1,0 @@
-string getTitle() { return title; }

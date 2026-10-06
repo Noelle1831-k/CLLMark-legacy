@@ -1,1 +1,0 @@
-string Quest::getTitle() { return title; }

@@ -4,7 +4,7 @@
 * lodash (required by the MBJSP tests) in .benchmark-cache/node;
 * each project checkout at its pinned commit in .benchmark-cache/js-projects, with only the
   packages its test suite needs (installed with --ignore-scripts);
-* the project library sources copied to dataset/JS_projects/<name> (the watermarked corpus).
+* the project library sources copied to corpus/dataset/JS_projects/<name> (the watermarked corpus).
 
 Network access: npm registry and GitHub. Existing checkouts are verified, not re-downloaded.
 """
@@ -34,7 +34,7 @@ def main():
             raise SystemExit(f'{name}: checkout is at {commit}, expected {spec["commit"]}')
         if not (checkout / 'node_modules').exists():
             subprocess.run(NPM + spec['test_dependencies'], cwd=checkout, check=True)
-        target = ROOT / 'dataset' / 'JS_projects' / name
+        target = ROOT / 'corpus' / 'dataset' / 'JS_projects' / name
         for source in spec['sources']:
             origin = checkout / source
             files = sorted(origin.rglob('*.js')) if origin.is_dir() else [origin]

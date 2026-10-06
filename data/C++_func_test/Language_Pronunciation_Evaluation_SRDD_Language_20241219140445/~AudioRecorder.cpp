@@ -1,3 +1,0 @@
-AudioRecorder::~AudioRecorder() {
-    terminate();
-}

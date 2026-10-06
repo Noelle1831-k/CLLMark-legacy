@@ -1,3 +1,0 @@
-void ScoreTracker::incrementScore() {
-    score++;
-}

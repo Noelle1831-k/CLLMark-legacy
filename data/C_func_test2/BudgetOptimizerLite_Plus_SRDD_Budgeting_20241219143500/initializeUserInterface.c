@@ -1,2 +1,0 @@
-void initializeUserInterface(UserInterface *ui) {
-}

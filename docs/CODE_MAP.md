@@ -74,9 +74,9 @@ flowchart TD
 | [calu.py](../calu.py)、[test.py](../test.py) | 从预设数字计算 TPR/FPR/ACC 或混淆矩阵。 | 是实验计算脚本，不是自动化测试套件。 |
 | [fortowhile.py](../fortowhile.py)、[transform_list_comprehensions.py](../transform_list_comprehensions.py) | Python AST 变换辅助工具。 | 属于辅助实现，不能与 Tree-sitter CST 核心流程直接等同。 |
 | [build_so.py](../build_so.py) | 手动编译 Tree-sitter 库的历史脚本。 | 使用旧绝对路径；常规解析库构建也存在于 `SCTS.__init__`。 |
-| [dataset/](../dataset/) | MBPP/MBCPP/CodeNet 代码与生成/评估 JSONL。 | 目录标签保留原样；`G/H/G_L/W` 等后缀的全部来源不能仅由名称确认。 |
-| [Python_func/](../Python_func/)、[C_func/](../C_func/)、[C++_func/](../C++_func/) | 项目拆分后的函数级代码及支持表。 | 分别包含 7506 个 `.py`、5478 个 `.c`、6269 个 `.cpp` 文件；这是本地快照数量，不等同于论文样本数。 |
-| [Python_func_test/](../Python_func_test/) | Python 水印实验语料。 | 根目录三个主要水印脚本的默认目标；包含 7465 个 `.py` 文件。 |
+| [corpus/dataset/](../corpus/dataset/) | MBPP/MBCPP/CodeNet 代码与生成/评估 JSONL。 | 目录标签保留原样；`G/H/G_L/W` 等后缀的全部来源不能仅由名称确认。 |
+| [corpus/Python_func/](../corpus/Python_func/)、[C_func/](../corpus/C_func/)、[C++_func/](../corpus/C++_func/) | 项目拆分后的函数级代码及支持表。 | 分别包含 7506 个 `.py`、5478 个 `.c`、6269 个 `.cpp` 文件；这是本地快照数量，不等同于论文样本数。 |
+| [corpus/Python_func_test/](../corpus/Python_func_test/) | Python 水印实验语料。 | 根目录三个主要水印脚本的默认目标；包含 7465 个 `.py` 文件。 |
 | `output_json*`、`generations(2).json` | 已有生成及评估结果。 | 作为历史材料保存；未重新生成或确认与论文表格逐项对应。 |
 
 ## 新增的科研循环模块
@@ -90,7 +90,7 @@ flowchart TD
 | [benchmarks/engine.py](../benchmarks/engine.py) | 调用真实旧入口，记录容量、码位、随机设置、结构性质及反向变换攻击 |
 | [benchmarks/utility.py](../benchmarks/utility.py) | Python/C++/JavaScript MBXP 测试拼接、编译或语法检查和执行，JavaScript 项目自带测试套件（水印文件覆盖到固定检出），超时及内容摘要缓存 |
 | [tools/setup_javascript.py](../tools/setup_javascript.py)、[benchmarks/javascript.lock.json](../benchmarks/javascript.lock.json) | lodash、JavaScript 项目的固定提交与测试依赖，项目源码复制到 `dataset/JS_projects` |
-| [tools/import_mbjsp.py](../tools/import_mbjsp.py) | 由 MBJSP 题目与生成结果构建 `dataset/MBJSP_G`、`MBJSP_H` |
+| [tools/import_mbjsp.py](../tools/import_mbjsp.py) | 由 MBJSP 题目与生成结果构建 `corpus/dataset/MBJSP_G`、`MBJSP_H` |
 | [benchmarks/metrics.py](../benchmarks/metrics.py) | 显式分母、失败 ID、分组指标、CSV/Markdown/图表 |
 | [benchmarks/compare.py](../benchmarks/compare.py) | 可比性校验、分组和汇总门禁、显式基线提升与历史归档 |
 | [tests/test_research_loop.py](../tests/test_research_loop.py) | oracle 缺失、隐藏回退、文件完整性、真实功能执行（含 Node）及超时等流程检查 |

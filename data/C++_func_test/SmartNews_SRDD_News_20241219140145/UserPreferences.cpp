@@ -1,3 +1,0 @@
-UserPreferences::UserPreferences() {
-    preferences.clear();
-}

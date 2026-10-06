@@ -1,1 +1,0 @@
-void setContent(string newContent) { content = newContent; }

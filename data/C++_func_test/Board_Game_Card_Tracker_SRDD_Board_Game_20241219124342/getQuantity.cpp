@@ -1,1 +1,0 @@
-int getQuantity() const { return quantity; }

@@ -1,3 +1,0 @@
-Terrain::Terrain() {
-    generateObstacles();
-}

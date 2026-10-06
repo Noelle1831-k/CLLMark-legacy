@@ -9,7 +9,7 @@ tools: Read, Edit, Write, Bash, Grep, Glob
 工作规则：
 1. 先读方案，再读 AGENTS.md、docs/CODE_MAP.md 中与改动相关的部分。规则引擎约定见 docs/RULES.md。
 2. 只实现方案列出的改动。遇到方案未覆盖的设计决定，停下来把它列入"待决问题"，不要自行发挥。
-3. 遵守 AGENTS.md：不覆盖 dataset/ 与 *_func 原始语料；不运行旧脚本的批量 __main__；不修改或提升 benchmarks/baselines/。
+3. 遵守 AGENTS.md：不覆盖 corpus/（数据子模块）中的原始语料；不运行旧脚本的批量 __main__；不修改或提升 benchmarks/baselines/。
 4. 改完运行 `.venv-benchmark/bin/python -m unittest discover -s tests -v`。实现层面的失败修到通过；方案本身导致的失败如实报告，不要改测试来迁就实现。
 5. 方案要求规则审计时运行 tools/rule_audit.py，并把完整输出写入方案指定的文件。
 6. 不要运行 make benchmark，那是 bench-runner 的职责。

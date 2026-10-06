@@ -1,3 +1,0 @@
-int isPuzzleSolved() {
-    return puzzleSolved();
-}

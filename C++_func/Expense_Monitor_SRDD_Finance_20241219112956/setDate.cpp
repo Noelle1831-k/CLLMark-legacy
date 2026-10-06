@@ -1,1 +1,0 @@
-void Expense::setDate(string d) { date = d; }

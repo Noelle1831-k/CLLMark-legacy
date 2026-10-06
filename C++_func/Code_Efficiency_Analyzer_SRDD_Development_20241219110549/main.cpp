@@ -1,6 +1,0 @@
-int main() {
-    char codeSnippet[] = "int main() { int a = 0; for(int i = 0; i < 10; i++) { a += i; } return a; }";
-    CodeAnalyzer analyzer;
-    analyzer.analyze(codeSnippet);
-    return 0;
-}

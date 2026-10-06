@@ -1,6 +1,9 @@
 BENCH_PYTHON ?= .venv-benchmark/bin/python
 
-.PHONY: setup-benchmark setup-javascript doctor inventory test smoke benchmark baseline watch-benchmark code-map
+.PHONY: corpus setup-benchmark setup-javascript doctor inventory test smoke benchmark baseline watch-benchmark code-map
+
+corpus:
+	git submodule update --init corpus
 
 setup-benchmark:
 	python3 tools/setup_benchmark.py

@@ -1,3 +1,0 @@
-void showProgress() {
-        progressTracker.displayProgress();
-    }

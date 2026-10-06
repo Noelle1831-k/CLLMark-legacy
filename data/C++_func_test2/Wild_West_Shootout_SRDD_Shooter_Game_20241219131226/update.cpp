@@ -1,2 +1,0 @@
-void Environment::update() {
-}

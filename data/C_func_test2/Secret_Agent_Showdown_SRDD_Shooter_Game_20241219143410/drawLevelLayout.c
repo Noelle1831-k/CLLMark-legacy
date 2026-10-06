@@ -1,2 +1,0 @@
-void drawLevelLayout(int levelNumber) {
-}

@@ -2,7 +2,7 @@ import os
 import json
 
 # 指定 JSONL 文件路径和保存文件夹路径
-jsonl_file = 'dataset/Jsonl/mbcpp_release_v1.2.jsonl'  # 替换为 JSONL 文件路径
+jsonl_file = 'corpus/dataset/Jsonl/mbcpp_release_v1.2.jsonl'  # 替换为 JSONL 文件路径
 output_folder = 'MBCPP_H'  # 代码保存的文件夹
 
 # 确保输出文件夹存在

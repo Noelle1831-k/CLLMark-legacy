@@ -2,8 +2,8 @@
 """Build the JavaScript MBXP cohorts from MBJSP problems and LLM completions.
 
 Each unit is a complete function: the signature line that ends the MBJSP prompt followed
-by the completion (canonical solution -> dataset/MBJSP_H, generated completion ->
-dataset/MBJSP_G). The problem file is copied to dataset/Jsonl for the functional oracle.
+by the completion (canonical solution -> corpus/dataset/MBJSP_H, generated completion ->
+corpus/dataset/MBJSP_G). The problem file is copied to corpus/dataset/Jsonl for the functional oracle.
 Running it twice produces identical files.
 
 Usage: tools/import_mbjsp.py PROBLEMS.jsonl GENERATED.jsonl
@@ -44,13 +44,13 @@ def main():
     args = parser.parse_args()
     problems = {row['task_id']: row for row in map(json.loads, args.problems.read_text(encoding='utf-8').splitlines()) if row}
     generated = [json.loads(line) for line in args.generated.read_text(encoding='utf-8').splitlines() if line.strip()]
-    target = ROOT / 'dataset' / 'Jsonl'
+    target = ROOT / 'corpus' / 'dataset' / 'Jsonl'
     shutil.copyfile(args.problems, target / args.problems.name)
     shutil.copyfile(args.generated, target / args.generated.name)
     human = write_units(sorted(problems.values(), key=lambda row: int(row['task_id'].split('/')[1])), problems,
-                        ROOT / 'dataset' / 'MBJSP_H', 'canonical_solution')
+                        ROOT / 'corpus' / 'dataset' / 'MBJSP_H', 'canonical_solution')
     machine = write_units(sorted(generated, key=lambda row: int(row['task_id'].split('/')[1])), problems,
-                          ROOT / 'dataset' / 'MBJSP_G', 'completion')
+                          ROOT / 'corpus' / 'dataset' / 'MBJSP_G', 'completion')
     provenance = {name: hashlib.sha256((target / name).read_bytes()).hexdigest() for name in [args.problems.name, args.generated.name]}
     print(json.dumps({'human_units': human, 'generated_units': machine, 'sources_sha256': provenance}, indent=2))
 

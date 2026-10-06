@@ -19,8 +19,9 @@ flowchart LR
 在仓库根目录执行。需要 Python 3.11、C++ 编译器和 Node.js；有 `uv` 时优先使用它，无 `uv` 时使用 venv/pip。
 
 ```bash
+make corpus           # 拉取固定提交的语料子模块 corpus/（私有仓库 CLLMark-legacy-data）
 make setup-benchmark  # 安装独立环境，按固定提交构建本机 Tree-sitter 语法库（含 JavaScript）
-make setup-javascript # lodash、JavaScript 项目的固定提交与测试依赖，复制项目源码到 dataset/JS_projects
+make setup-javascript # lodash、JavaScript 项目的固定提交与测试依赖，复制项目源码到 corpus/dataset/JS_projects
 make doctor          # 检查所有固定依赖、解析库及三种语言的实际规则导入
 make inventory       # 查看全部 cohort 和实验单元数量
 make smoke           # 每组 2 个单元，包含流程测试；不能作为全量结论

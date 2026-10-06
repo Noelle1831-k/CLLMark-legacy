@@ -1,3 +1,0 @@
-void viewGroceryList() {
-        groceryList.displayList();
-    }
