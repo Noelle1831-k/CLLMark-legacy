@@ -1,0 +1,65 @@
+{
+    "get_integer_input.c": [
+        "not_equal_to_equal",
+        "not_equal_hash_reverse",
+        "while_to_for"
+    ],
+    "delete_test_suite.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "for_OOO"
+    ],
+    "generate_test_report.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "display_menu.c": [],
+    "handle_menu_option.c": [],
+    "main.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse",
+        "main_style"
+    ],
+    "create_test_suite.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_init",
+        "array_access"
+    ],
+    "cleanup_resources.c": [],
+    "get_string_input.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "array_access"
+    ],
+    "initialize_test_suites.c": [],
+    "add_test_case.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "for_OOO"
+    ],
+    "execute_test_suite.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "for_OOO"
+    ]
+}

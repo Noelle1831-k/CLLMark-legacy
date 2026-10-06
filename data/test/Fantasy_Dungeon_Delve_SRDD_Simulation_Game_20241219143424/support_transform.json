@@ -1,0 +1,41 @@
+{
+    "initializeGame.c": [],
+    "calculateBalance.c": [],
+    "initializePlayer.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "for_OOO"
+    ],
+    "getRandomNumber.c": [],
+    "handleEncounter.c": [
+        "self_assignment"
+    ],
+    "displayDungeon.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "initializeDungeon.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "startGameLoop.c": [
+        "equal_to_not_equal",
+        "equal_hash_reverse"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "playerMove.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "declare"
+    ]
+}

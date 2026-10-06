@@ -1,0 +1,58 @@
+{
+    "analyzeTrends.c": [
+        "self_assignment",
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "listExpenses.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "support_transform.json": [],
+    "generateReport.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "addExpense.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "array_access"
+    ],
+    "filterExpensesByCategory.c": [
+        "equal_to_not_equal",
+        "reverse_compare",
+        "exp_cmp",
+        "equal_hash_reverse",
+        "update_reverse",
+        "array_init",
+        "array_access",
+        "for_OOO"
+    ],
+    "main.c": [
+        "main_style"
+    ],
+    "exitProgram.c": [],
+    "deleteExpense.c": [
+        "reverse_compare",
+        "exp_cmp",
+        "update_reverse",
+        "array_access",
+        "for_OOO"
+    ],
+    "displayMainMenu.c": []
+}
