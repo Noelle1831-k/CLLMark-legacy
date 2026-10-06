@@ -1,17 +1,18 @@
 section	cohort	key	before	after
 summary	MBJSP_H	units	938	938
-summary	MBJSP_H	units_with_capacity>=7	5	7
-units_by_capacity	MBJSP_H	0	43	35
-units_by_capacity	MBJSP_H	1	271	208
-units_by_capacity	MBJSP_H	2	256	268
-units_by_capacity	MBJSP_H	3	214	215
-units_by_capacity	MBJSP_H	4	91	108
-units_by_capacity	MBJSP_H	5	43	70
-units_by_capacity	MBJSP_H	6	15	27
-units_by_capacity	MBJSP_H	7	3	4
-units_by_capacity	MBJSP_H	8	1	2
-units_by_capacity	MBJSP_H	9	0	0
-units_by_capacity	MBJSP_H	10	1	1
+summary	MBJSP_H	units_with_capacity>=7	5	22
+units_by_capacity	MBJSP_H	0	43	33
+units_by_capacity	MBJSP_H	1	271	173
+units_by_capacity	MBJSP_H	2	256	255
+units_by_capacity	MBJSP_H	3	214	214
+units_by_capacity	MBJSP_H	4	91	105
+units_by_capacity	MBJSP_H	5	43	89
+units_by_capacity	MBJSP_H	6	15	47
+units_by_capacity	MBJSP_H	7	3	16
+units_by_capacity	MBJSP_H	8	1	4
+units_by_capacity	MBJSP_H	9	0	1
+units_by_capacity	MBJSP_H	10	1	0
+units_by_capacity	MBJSP_H	11	0	1
 units_where_pair_applies	MBJSP_H	self_assignment	86	86
 units_where_pair_applies	MBJSP_H	equal_to_not_equal	368	368
 units_where_pair_applies	MBJSP_H	not_equal_to_equal	68	68
@@ -34,62 +35,72 @@ units_where_pair_applies	MBJSP_H	logical_assignment	0	0
 units_where_pair_applies	MBJSP_H	power	0	11
 units_where_pair_applies	MBJSP_H	global_alias	0	17
 units_where_pair_applies	MBJSP_H	undefined_literal	0	0
-pair_in_eligible_units	MBJSP_H	self_assignment		3
-pair_in_newly_eligible_units	MBJSP_H	self_assignment		2
-pair_in_eligible_units	MBJSP_H	equal_to_not_equal		7
-pair_in_newly_eligible_units	MBJSP_H	equal_to_not_equal		3
-pair_in_eligible_units	MBJSP_H	not_equal_to_equal		4
-pair_in_newly_eligible_units	MBJSP_H	not_equal_to_equal		1
-pair_in_eligible_units	MBJSP_H	reverse_compare		3
-pair_in_newly_eligible_units	MBJSP_H	reverse_compare		0
-pair_in_eligible_units	MBJSP_H	equal_hash_reverse		4
-pair_in_newly_eligible_units	MBJSP_H	equal_hash_reverse		1
-pair_in_eligible_units	MBJSP_H	not_equal_hash_reverse		1
-pair_in_newly_eligible_units	MBJSP_H	not_equal_hash_reverse		0
-pair_in_eligible_units	MBJSP_H	update_reverse		4
-pair_in_newly_eligible_units	MBJSP_H	update_reverse		1
-pair_in_eligible_units	MBJSP_H	declare		3
-pair_in_newly_eligible_units	MBJSP_H	declare		0
-pair_in_eligible_units	MBJSP_H	loop_form		3
-pair_in_newly_eligible_units	MBJSP_H	loop_form		0
-pair_in_eligible_units	MBJSP_H	branch_order		2
-pair_in_newly_eligible_units	MBJSP_H	branch_order		2
-pair_in_eligible_units	MBJSP_H	conditional_order		3
-pair_in_newly_eligible_units	MBJSP_H	conditional_order		2
-pair_in_eligible_units	MBJSP_H	nested_condition		0
-pair_in_newly_eligible_units	MBJSP_H	nested_condition		0
-pair_in_eligible_units	MBJSP_H	void_return		4
-pair_in_newly_eligible_units	MBJSP_H	void_return		2
-pair_in_eligible_units	MBJSP_H	member_access		7
-pair_in_newly_eligible_units	MBJSP_H	member_access		3
+units_where_pair_applies	MBJSP_H	function_arrow	0	92
+units_where_pair_applies	MBJSP_H	empty_array	0	128
+units_where_pair_applies	MBJSP_H	empty_object	0	29
+pair_in_eligible_units	MBJSP_H	self_assignment		4
+pair_in_newly_eligible_units	MBJSP_H	self_assignment		3
+pair_in_eligible_units	MBJSP_H	equal_to_not_equal		15
+pair_in_newly_eligible_units	MBJSP_H	equal_to_not_equal		11
+pair_in_eligible_units	MBJSP_H	not_equal_to_equal		6
+pair_in_newly_eligible_units	MBJSP_H	not_equal_to_equal		3
+pair_in_eligible_units	MBJSP_H	reverse_compare		9
+pair_in_newly_eligible_units	MBJSP_H	reverse_compare		6
+pair_in_eligible_units	MBJSP_H	equal_hash_reverse		5
+pair_in_newly_eligible_units	MBJSP_H	equal_hash_reverse		2
+pair_in_eligible_units	MBJSP_H	not_equal_hash_reverse		3
+pair_in_newly_eligible_units	MBJSP_H	not_equal_hash_reverse		2
+pair_in_eligible_units	MBJSP_H	update_reverse		17
+pair_in_newly_eligible_units	MBJSP_H	update_reverse		14
+pair_in_eligible_units	MBJSP_H	declare		17
+pair_in_newly_eligible_units	MBJSP_H	declare		14
+pair_in_eligible_units	MBJSP_H	loop_form		6
+pair_in_newly_eligible_units	MBJSP_H	loop_form		3
+pair_in_eligible_units	MBJSP_H	branch_order		5
+pair_in_newly_eligible_units	MBJSP_H	branch_order		5
+pair_in_eligible_units	MBJSP_H	conditional_order		5
+pair_in_newly_eligible_units	MBJSP_H	conditional_order		4
+pair_in_eligible_units	MBJSP_H	nested_condition		1
+pair_in_newly_eligible_units	MBJSP_H	nested_condition		1
+pair_in_eligible_units	MBJSP_H	void_return		9
+pair_in_newly_eligible_units	MBJSP_H	void_return		7
+pair_in_eligible_units	MBJSP_H	member_access		22
+pair_in_newly_eligible_units	MBJSP_H	member_access		18
 pair_in_eligible_units	MBJSP_H	property_shorthand		0
 pair_in_newly_eligible_units	MBJSP_H	property_shorthand		0
 pair_in_eligible_units	MBJSP_H	else_after_return		1
 pair_in_newly_eligible_units	MBJSP_H	else_after_return		0
-pair_in_eligible_units	MBJSP_H	arrow_body		1
-pair_in_newly_eligible_units	MBJSP_H	arrow_body		0
-pair_in_eligible_units	MBJSP_H	const_let		3
-pair_in_newly_eligible_units	MBJSP_H	const_let		3
+pair_in_eligible_units	MBJSP_H	arrow_body		3
+pair_in_newly_eligible_units	MBJSP_H	arrow_body		2
+pair_in_eligible_units	MBJSP_H	const_let		10
+pair_in_newly_eligible_units	MBJSP_H	const_let		10
 pair_in_eligible_units	MBJSP_H	logical_assignment		0
 pair_in_newly_eligible_units	MBJSP_H	logical_assignment		0
 pair_in_eligible_units	MBJSP_H	power		0
 pair_in_newly_eligible_units	MBJSP_H	power		0
-pair_in_eligible_units	MBJSP_H	global_alias		1
-pair_in_newly_eligible_units	MBJSP_H	global_alias		1
+pair_in_eligible_units	MBJSP_H	global_alias		2
+pair_in_newly_eligible_units	MBJSP_H	global_alias		2
 pair_in_eligible_units	MBJSP_H	undefined_literal		0
 pair_in_newly_eligible_units	MBJSP_H	undefined_literal		0
+pair_in_eligible_units	MBJSP_H	function_arrow		5
+pair_in_newly_eligible_units	MBJSP_H	function_arrow		4
+pair_in_eligible_units	MBJSP_H	empty_array		15
+pair_in_newly_eligible_units	MBJSP_H	empty_array		15
+pair_in_eligible_units	MBJSP_H	empty_object		4
+pair_in_newly_eligible_units	MBJSP_H	empty_object		4
 summary	MBJSP_G	units	112	112
-summary	MBJSP_G	units_with_capacity>=7	3	5
+summary	MBJSP_G	units_with_capacity>=7	3	7
 units_by_capacity	MBJSP_G	0	6	1
-units_by_capacity	MBJSP_G	1	28	15
-units_by_capacity	MBJSP_G	2	29	28
-units_by_capacity	MBJSP_G	3	21	27
-units_by_capacity	MBJSP_G	4	14	19
-units_by_capacity	MBJSP_G	5	8	11
-units_by_capacity	MBJSP_G	6	3	6
-units_by_capacity	MBJSP_G	7	2	2
-units_by_capacity	MBJSP_G	8	1	2
-units_by_capacity	MBJSP_G	9	0	1
+units_by_capacity	MBJSP_G	1	28	14
+units_by_capacity	MBJSP_G	2	29	25
+units_by_capacity	MBJSP_G	3	21	22
+units_by_capacity	MBJSP_G	4	14	22
+units_by_capacity	MBJSP_G	5	8	16
+units_by_capacity	MBJSP_G	6	3	5
+units_by_capacity	MBJSP_G	7	2	3
+units_by_capacity	MBJSP_G	8	1	1
+units_by_capacity	MBJSP_G	9	0	2
+units_by_capacity	MBJSP_G	10	0	1
 units_where_pair_applies	MBJSP_G	self_assignment	8	8
 units_where_pair_applies	MBJSP_G	equal_to_not_equal	41	41
 units_where_pair_applies	MBJSP_G	not_equal_to_equal	17	17
@@ -112,42 +123,45 @@ units_where_pair_applies	MBJSP_G	logical_assignment	0	0
 units_where_pair_applies	MBJSP_G	power	0	2
 units_where_pair_applies	MBJSP_G	global_alias	0	2
 units_where_pair_applies	MBJSP_G	undefined_literal	0	1
+units_where_pair_applies	MBJSP_G	function_arrow	0	0
+units_where_pair_applies	MBJSP_G	empty_array	0	13
+units_where_pair_applies	MBJSP_G	empty_object	0	14
 pair_in_eligible_units	MBJSP_G	self_assignment		0
 pair_in_newly_eligible_units	MBJSP_G	self_assignment		0
-pair_in_eligible_units	MBJSP_G	equal_to_not_equal		3
-pair_in_newly_eligible_units	MBJSP_G	equal_to_not_equal		2
+pair_in_eligible_units	MBJSP_G	equal_to_not_equal		4
+pair_in_newly_eligible_units	MBJSP_G	equal_to_not_equal		3
 pair_in_eligible_units	MBJSP_G	not_equal_to_equal		5
 pair_in_newly_eligible_units	MBJSP_G	not_equal_to_equal		2
-pair_in_eligible_units	MBJSP_G	reverse_compare		3
-pair_in_newly_eligible_units	MBJSP_G	reverse_compare		0
+pair_in_eligible_units	MBJSP_G	reverse_compare		4
+pair_in_newly_eligible_units	MBJSP_G	reverse_compare		1
 pair_in_eligible_units	MBJSP_G	equal_hash_reverse		0
 pair_in_newly_eligible_units	MBJSP_G	equal_hash_reverse		0
 pair_in_eligible_units	MBJSP_G	not_equal_hash_reverse		5
 pair_in_newly_eligible_units	MBJSP_G	not_equal_hash_reverse		2
-pair_in_eligible_units	MBJSP_G	update_reverse		2
-pair_in_newly_eligible_units	MBJSP_G	update_reverse		2
-pair_in_eligible_units	MBJSP_G	declare		3
-pair_in_newly_eligible_units	MBJSP_G	declare		0
-pair_in_eligible_units	MBJSP_G	loop_form		3
-pair_in_newly_eligible_units	MBJSP_G	loop_form		0
-pair_in_eligible_units	MBJSP_G	branch_order		3
-pair_in_newly_eligible_units	MBJSP_G	branch_order		1
+pair_in_eligible_units	MBJSP_G	update_reverse		4
+pair_in_newly_eligible_units	MBJSP_G	update_reverse		4
+pair_in_eligible_units	MBJSP_G	declare		5
+pair_in_newly_eligible_units	MBJSP_G	declare		2
+pair_in_eligible_units	MBJSP_G	loop_form		4
+pair_in_newly_eligible_units	MBJSP_G	loop_form		1
+pair_in_eligible_units	MBJSP_G	branch_order		4
+pair_in_newly_eligible_units	MBJSP_G	branch_order		2
 pair_in_eligible_units	MBJSP_G	conditional_order		0
 pair_in_newly_eligible_units	MBJSP_G	conditional_order		0
 pair_in_eligible_units	MBJSP_G	nested_condition		0
 pair_in_newly_eligible_units	MBJSP_G	nested_condition		0
-pair_in_eligible_units	MBJSP_G	void_return		1
-pair_in_newly_eligible_units	MBJSP_G	void_return		0
-pair_in_eligible_units	MBJSP_G	member_access		5
-pair_in_newly_eligible_units	MBJSP_G	member_access		2
+pair_in_eligible_units	MBJSP_G	void_return		2
+pair_in_newly_eligible_units	MBJSP_G	void_return		1
+pair_in_eligible_units	MBJSP_G	member_access		7
+pair_in_newly_eligible_units	MBJSP_G	member_access		4
 pair_in_eligible_units	MBJSP_G	property_shorthand		0
 pair_in_newly_eligible_units	MBJSP_G	property_shorthand		0
 pair_in_eligible_units	MBJSP_G	else_after_return		0
 pair_in_newly_eligible_units	MBJSP_G	else_after_return		0
 pair_in_eligible_units	MBJSP_G	arrow_body		2
 pair_in_newly_eligible_units	MBJSP_G	arrow_body		2
-pair_in_eligible_units	MBJSP_G	const_let		4
-pair_in_newly_eligible_units	MBJSP_G	const_let		1
+pair_in_eligible_units	MBJSP_G	const_let		5
+pair_in_newly_eligible_units	MBJSP_G	const_let		2
 pair_in_eligible_units	MBJSP_G	logical_assignment		0
 pair_in_newly_eligible_units	MBJSP_G	logical_assignment		0
 pair_in_eligible_units	MBJSP_G	power		0
@@ -156,3 +170,9 @@ pair_in_eligible_units	MBJSP_G	global_alias		0
 pair_in_newly_eligible_units	MBJSP_G	global_alias		0
 pair_in_eligible_units	MBJSP_G	undefined_literal		0
 pair_in_newly_eligible_units	MBJSP_G	undefined_literal		0
+pair_in_eligible_units	MBJSP_G	function_arrow		0
+pair_in_newly_eligible_units	MBJSP_G	function_arrow		0
+pair_in_eligible_units	MBJSP_G	empty_array		6
+pair_in_newly_eligible_units	MBJSP_G	empty_array		3
+pair_in_eligible_units	MBJSP_G	empty_object		0
+pair_in_newly_eligible_units	MBJSP_G	empty_object		0

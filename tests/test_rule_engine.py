@@ -217,6 +217,18 @@ class GoldenRewriteTests(unittest.TestCase):
             # a comment that follows a block's closing brace is parsed as part of the block; it must stay where it is
             ("24.2", "const f = () => true // note\ng();\n", "const f = () => { return true; } // note\ng();\n"),
             ("24.1", "const f = () => { return true; } // note\ng();\n", "const f = () => true // note\ng();\n"),
+            # 30.x: callback function / arrow
+            ("30.2", "const r = xs.map(function (x) {\n    const y = x + 1;\n    return y;\n});",
+             "const r = xs.map((x) => {\n    const y = x + 1;\n    return y;\n});"),
+            ("30.1", "const r = xs.map((x) => {\n    const y = x + 1;\n    return y;\n});",
+             "const r = xs.map(function (x) {\n    const y = x + 1;\n    return y;\n});"),
+            ("30.2", "xs.forEach(async function (x) {\n    await g(x);\n    h();\n});", "xs.forEach(async (x) => {\n    await g(x);\n    h();\n});"),
+            # 31.x / 32.x: empty literals
+            ("31.2", "let a = [];", "let a = new Array();"),
+            ("31.1", "let a = new Array();", "let a = [];"),
+            ("32.2", "let o = {};", "let o = new Object();"),
+            ("32.1", "let o = new Object();", "let o = {};"),
+            ("23.2", "g({a});", "g({a: a});"),
         ],
     }
 
@@ -274,6 +286,20 @@ class GoldenRewriteTests(unittest.TestCase):
             ("27.1", "function f(a, b) {\n    return a ** b ** 2;\n}"),
             # 28.2: shadowed parseInt
             ("28.2", "function f(s) {\n    function parseInt() { return 1; }\n    return parseInt(s, 10);\n}"),
+            # 30.2: this / arguments mean something else in an arrow; not an array-method callback; { return e; } is 24's
+            ("30.2", "const r = xs.map(function (x) {\n    return this.k + x;\n});"),
+            ("30.2", "const r = xs.map(function (x) {\n    return () => arguments[0];\n});"),
+            ("30.2", "const r = p.then(function (x) {\n    g(x);\n});"),
+            ("30.2", "const r = xs.map(function (x) { return x; });"),
+            # 31.x / 32.x: arguments, member access, missing parentheses, rebound constructors, statement or arrow-body start
+            ("31.1", "let a = new Array(3);"),
+            ("31.1", "let a = new Array;"),
+            ("31.2", "let n = [].length;"),
+            ("31.2", "let Array = 1;\nlet a = [];"),
+            ("32.2", "const f = () => ({});"),
+            ("32.2", "const f = () => { return {}; };"),
+            ("32.1", "new Object();"),
+            ("32.2", "let Object = 1;\nlet o = {};"),
             # a binding named undefined shadows the value
             ("29.2", "function f(undefined) { return undefined; }"),
             # 29.2: inside a comparison, or as the object of a member access
@@ -316,7 +342,7 @@ class GoldenRewriteTests(unittest.TestCase):
         pair_of = {style: styles for pairs in rule_dict_bit_acc.rule_dict["javascript"].values() for styles in [pairs] for style in styles}
         scts = SCTS("javascript")
         for style, before, after in self.CASES["javascript"]:
-            if style in pair_of and style.split(".")[0] in {"20", "24", "25", "26", "27", "28", "29"}:
+            if style in pair_of and style.split(".")[0] in {"20", "24", "25", "26", "27", "28", "29", "30", "31", "32"}:
                 other = [candidate for candidate in pair_of[style] if candidate != style][0]
                 with self.subTest(style=style):
                     self.assertEqual(scts.change_file_style(other, after)[0], before)
@@ -392,6 +418,20 @@ function pick(a) {
     return a ? a : undefined;
 }
 console.log(pairs, pick(0), typeof undefined, [undefined].length);
+"""),
+        (["30.2", "31.2", "32.2"], """
+const xs = [3, 1, 2];
+const seen = [];
+const counts = {};
+xs.forEach(function (x, i) {
+    seen.push(x * i);
+    counts[x] = (counts[x] || 0) + 1;
+});
+const sorted = xs.slice().sort(function (a, b) {
+    const d = a - b;
+    return d;
+});
+console.log(seen, counts, sorted, Array.isArray([]), Object.keys({}).length);
 """),
         (["2.3", "2.5", "2.7", "2.12", "3.1", "6.1", "7.2", "19.2"], """
 let i = 0, total = 0;

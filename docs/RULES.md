@@ -81,14 +81,23 @@
 | JavaScript | `reverse_compare` 2.7/2.8 | `x > 0` / `0 < x` | 一侧为字面量时 ToPrimitive 只作用于另一侧，求值次序不可观察 |
 | JavaScript | `equal_hash_reverse`、`not_equal_hash_reverse` 2.11–2.14 | 按 SHA-256 排列相等比较操作数 | 相等比较对称；操作数为名字或字面量 |
 | JavaScript | `update_reverse` 3.2/3.1 | `i++` / `++i` | 只在值未使用处（语句、for 更新子句） |
-| JavaScript | `declare` 6.1/6.2 | 每个声明一条 / 连续同类声明合并 | 声明按原顺序求值，TDZ 不变；只合并相邻行的单名声明 |
-| JavaScript | `loop_form` 7.1/7.2 | `while (c) S` / `for (; c; ) S` | 无初始化与更新的 for 与 while 等价 |
+| JavaScript | `declare` 6.1/6.2 | 每个声明一条 / 连续同类声明合并 | 声明按原顺序求值，TDZ 不变；按“簇”（相邻行、同缩进、同关键字、单行规范版式的声明）整体拆分或合并 |
+| JavaScript | `loop_form` 7.1/7.2 | `while (c) S` / `for (; c; ) S` | 无初始化与更新的 for 与 while 等价；只取规范版式 |
 | JavaScript | `branch_order`、`conditional_order`、`nested_condition` 14–16 | 同 C | `!( )` 即 if/?: 使用的 ToBoolean 取反 |
 | JavaScript | `void_return` 18.1/18.2 | 函数体末尾无 / 有 `return;` | 两者都返回 undefined |
 | JavaScript | `member_access` 19.1/19.2 | `o.p` / `o["p"]` | 属性键相同；排除可选链、私有名；只替换访问记号 |
-| JavaScript | `property_shorthand` 23.1/23.2 | `{a}` / `{a: a}` | 对象字面量简写定义；排除 `__proto__`（简写不设置原型） |
+| JavaScript | `property_shorthand` 23.2/23.1 | `{a: a}` / `{a}` | 对象字面量简写定义；排除 `__proto__`（简写不设置原型）与 `undefined`；只取 `a: a` 版式 |
+| JavaScript | `else_after_return` 20.2/20.1 | `if {…return}` + 余下语句 / `if {…} else {余下语句}` | 同 C；余下语句顶层无 `let`/`const`/`class`/函数声明（块作用域）；排除函数体顶层块（与 void_return 互斥） |
+| JavaScript | `arrow_body` 24.1/24.2 | `x => e` / `x => { return e; }` | 箭头函数简洁体定义为返回该表达式；只取单行 `{ return e; }`；e 不以 `{` 开头、不是逗号表达式；下一记号不会被简洁体吞并 |
+| JavaScript | `const_let` 25.1/25.2 | `const x = e;` / `let x = e;` | 绑定在其作用域内从未被写（按名字，保守）；单个声明符且前后无相邻声明（与 declare 互斥）；文件无 `with`/`eval` |
+| JavaScript | `logical_assignment` 26.1/26.2 | `a = a \|\| b` / `a \|\|= b`（`&&`、`??` 同） | 对普通变量两者等价；a 由 let/var/形参声明且无同名 const；b 为初等表达式且不是匿名函数（`\|\|=` 会给函数命名） |
+| JavaScript | `power` 27.1/27.2 | `Math.pow(a, b)` / `a ** b` | 数值上同为 Number::exponentiate；Math 未被重新绑定、文件无 BigInt；操作数初等；外层上下文白名单 |
+| JavaScript | `global_alias` 28.1/28.2 | `parseInt(…)` / `Number.parseInt(…)` | 规范规定 `Number.parseInt === parseInt`（parseFloat 同）；名字未被重新绑定 |
+| JavaScript | `undefined_literal` 29.1/29.2 | `undefined` / `void 0` | `void` 总得 undefined；`undefined` 未被重新绑定；不在比较操作数与成员访问对象位置 |
+| JavaScript | `function_arrow` 30.2/30.1 | `m((a) => {…})` / `m(function (a) {…})` | 数组方法（map、filter、forEach、reduce、sort 等）以普通调用方式调用回调；体与默认值中无 `this`/`arguments`/`super`/`new.target`；形参无重名；只换函数头 |
+| JavaScript | `empty_array` 31.1/31.2、`empty_object` 32.1/32.2 | `[]` / `new Array()`，`{}` / `new Object()` | 无参构造与空字面量都得到新的空数组/对象；`Array`/`Object` 未被重新绑定；不作成员访问或调用的对象，不在语句开头；`{}` 不在箭头函数的返回值位置 |
 
-每种语言的水印对数：Python 25、C 21、C++ 22、JavaScript 15。
+每种语言的水印对数：Python 25、C 21、C++ 22、JavaScript 25。
 
 ## 新增或修改规则的流程
 
