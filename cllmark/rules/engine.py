@@ -123,7 +123,11 @@ class Matcher:
     guards: tuple[Guard, ...] = ()
 
     def accepts(self, node: Node) -> bool:
-        return all(check(node) for check in self.guards)
+        # Hot path (every candidate of every rule): a plain loop over the tests avoids a generator and a call layer.
+        for check in self.guards:  # noqa: SIM110
+            if not check.test(node):
+                return False
+        return True
 
     def explain(self, node: Node) -> list[str]:
         return [check.name for check in self.guards if not check(node)]
@@ -139,7 +143,7 @@ class Matcher:
 class Rule(Matcher):
     """A rewrite applied to every accepted candidate; `target` recognizes the rewritten form."""
 
-    rewrite: Callable[[Node, Source], Sequence[Edit]] = None
+    rewrite: Callable[[Node, Source], Sequence[Edit]] | None = None  # always set by Matcher.rule
     target: Matcher | None = None
 
 
@@ -259,6 +263,10 @@ class Grammar:
         return parsed
 
 
+def _pre_order(node: Node) -> tuple[int, int]:
+    return node.start_byte, -node.end_byte
+
+
 class Parsed:
     """One parsed code version with its candidates per matcher (pre-order, deduplicated)."""
 
@@ -266,25 +274,44 @@ class Parsed:
         self.grammar = grammar
         self.source = Source(code, code.encode("utf-8"))
         self.tree = grammar.parser.parse(self.source.data)
-        captured: dict[str, dict[int, Node]] = {}
+        groups: dict[str, dict[int, Node]] = {}
         for node, name in grammar.query.captures(self.tree.root_node):
             if name[0] == "m":
-                captured.setdefault(name, {}).setdefault(node.id, node)
-        self._captured = {
-            name: sorted(nodes.values(), key=lambda n: (n.start_byte, -n.end_byte)) for name, nodes in captured.items()
-        }
+                group = groups.get(name)
+                if group is None:
+                    group = groups[name] = {}
+                key = node.id
+                if key not in group:
+                    group[key] = node
+        self._groups = groups
+        self._sorted: dict[str, list[Node]] = {}
+
+    def captured(self, matcher: Matcher) -> list[Node]:
+        """Nodes the matcher's pattern captures, in pre-order (outer before inner), before its guards.
+
+        Sorted on first use: most parsed versions are only queried for one or two matchers.
+        """
+        name = f"m{self.grammar.matchers[matcher]}"
+        nodes = self._sorted.get(name)
+        if nodes is None:
+            group = self._groups.get(name)
+            nodes = self._sorted[name] = sorted(group.values(), key=_pre_order) if group else []
+        return nodes
 
     def candidates(self, matcher: Matcher) -> list[Node]:
-        nodes = self._captured.get(f"m{self.grammar.matchers[matcher]}", [])
-        return [node for node in nodes if matcher.accepts(node)]
+        accepts = matcher.accepts
+        return [node for node in self.captured(matcher) if accepts(node)]
 
     def rewrite(self, rule: Rule) -> tuple[str, int]:
         """Rewritten code and the number of candidates."""
+        rewrite = rule.rewrite
+        if rewrite is None:
+            raise ValueError(f"Rule without a rewrite: {rule.pattern}")
         nodes = self.candidates(rule)
         groups = []
         for node in nodes:
             try:
-                edits = rule.rewrite(node, self.source)
+                edits = rewrite(node, self.source)
             except Reject:
                 continue
             if edits:

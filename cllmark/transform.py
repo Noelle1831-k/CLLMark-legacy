@@ -9,6 +9,7 @@ on the same file parses and matches it once.
 from __future__ import annotations
 
 import importlib
+from collections import OrderedDict
 from functools import cache
 from pathlib import Path
 from types import ModuleType
@@ -48,10 +49,14 @@ def load_grammar(library: str, language: str) -> Grammar:
 class StyleTransformer:
     """Applies the style rules of one language to source text."""
 
-    def __init__(self, language: str):
+    def __init__(self, language: str, cache_size: int = 1024):
         self.language = language
         self.rules = load_rules(language).RULES
         self.grammar = load_grammar(library_path(language), language)
+        # (style, code) -> (rewritten code, candidates). Rewrites are deterministic, and the pipeline repeats them:
+        # analysis probes both styles of every pair, then property checks and extraction apply the same ones again.
+        self._rewrites: OrderedDict[tuple[str, str], tuple[str, int]] = OrderedDict()
+        self._cache_size = cache_size
 
     def parse(self, code: str):
         """The (cached) tree-sitter tree of `code`."""
@@ -64,12 +69,23 @@ class StyleTransformer:
         """
         new_code, candidates = code, 0
         for style in [styles] if isinstance(styles, str) else styles:
-            new_code, count = self.grammar.parse(new_code).rewrite(self.rules[style])
+            new_code, count = self._rewrite(style, new_code)
             candidates += count
         changed = new_code != code and code.replace(" ", "").replace("\n", "") != new_code.replace(" ", "").replace(
             "\n", ""
         )
         return new_code, changed, candidates
+
+    def _rewrite(self, style: str, code: str) -> tuple[str, int]:
+        key = (style, code)
+        result = self._rewrites.get(key)
+        if result is None:
+            result = self._rewrites[key] = self.grammar.parse(code).rewrite(self.rules[style])
+            if len(self._rewrites) > self._cache_size:
+                self._rewrites.popitem(last=False)
+        else:
+            self._rewrites.move_to_end(key)
+        return result
 
     def count_target_form(self, style: str, code: str) -> int:
         """Number of nodes already in the form that `style` produces (detect-only loop styles 7.7/7.8 of C and C++)."""

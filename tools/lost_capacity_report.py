@@ -128,7 +128,7 @@ class Explainer:
             return [
                 (f"detect-only style {style}: no loop in the form {self.watermark.DETECT_ONLY[style]} produces", None)
             ]
-        raw = parsed._captured.get(f"m{transformer.grammar.matchers[rule]}", [])
+        raw = parsed.captured(rule)
         if not raw:
             return [("no syntactic candidate", None)]
         reasons = []
