@@ -153,9 +153,14 @@ def apply_edits(data: bytes, groups: Iterable[Sequence[Edit]]) -> tuple[bytes, i
     A group is skipped when one of its edits overlaps text replaced by an accepted group
     or inserts strictly inside it. Insertions at the same offset keep group order.
     """
-    groups = list(groups)
-    data, accepted = apply_groups(data, groups)
-    return data, len(groups) - len(accepted)
+    index = _AcceptedEdits()
+    skipped = 0
+    for group in groups:
+        if any(index.conflicts(edit) for edit in group):
+            skipped += 1
+            continue
+        index.accept(group)
+    return _join(data, index), skipped
 
 
 def apply_groups(data: bytes, groups: Sequence[Sequence[Edit]]) -> tuple[bytes, list[int]]:
@@ -167,6 +172,10 @@ def apply_groups(data: bytes, groups: Sequence[Sequence[Edit]]) -> tuple[bytes, 
             continue
         index.accept(group)
         taken.append(position)
+    return _join(data, index), taken
+
+
+def _join(data: bytes, index: "_AcceptedEdits") -> bytes:
     accepted = sorted(index.edits)
     parts, position = [], 0
     for start, end, _, new_text in accepted:
@@ -175,7 +184,7 @@ def apply_groups(data: bytes, groups: Sequence[Sequence[Edit]]) -> tuple[bytes, 
         parts += [data[position:start], new_text.encode("utf-8")]
         position = end
     parts.append(data[position:])
-    return b"".join(parts), taken
+    return b"".join(parts)
 
 
 class _AcceptedEdits:
@@ -246,8 +255,11 @@ class Grammar:
         self.parser = Parser()
         self.parser.set_language(self.language)
         self.matchers: dict[Matcher, int] = {}
-        for matcher in matchers:
+        self._given = list(matchers)  # kept alive, so their ids in `_names` stay theirs
+        for matcher in self._given:
             self.matchers.setdefault(matcher, len(self.matchers))
+        # Capture name of each given matcher by identity: looking a frozen dataclass up rehashes all its fields.
+        self._names = {id(matcher): f"m{self.matchers[matcher]}" for matcher in self._given}
         patterns = []
         for matcher, index in self.matchers.items():
             unsupported = set(re.findall(r"#[\w-]+\?", matcher.pattern)) - _PREDICATES
@@ -294,16 +306,18 @@ class Parsed:
                     group[key] = node
         self._groups = groups
         self._sorted: dict[str, list[Node]] = {}
-        # Guards and rewrites are functions of the tree, so their results hold for the life of this parse.
-        self._accepted: dict[Matcher, list[Node]] = {}
-        self._edits: dict[Rule, list[tuple[Node, Sequence[Edit]]]] = {}
+        # Guards and rewrites are functions of the tree, so their results hold for the life of this parse. Keyed by
+        # identity, because hashing a frozen dataclass rehashes all its fields on every lookup; each entry keeps its
+        # matcher, so an id cannot be reused by another object while the entry exists.
+        self._accepted: dict[int, tuple[Matcher, list[Node]]] = {}
+        self._edits: dict[int, tuple[Rule, list[tuple[Node, Sequence[Edit]]]]] = {}
 
     def captured(self, matcher: Matcher) -> list[Node]:
         """Nodes the matcher's pattern captures, in pre-order (outer before inner), before its guards.
 
         Sorted on first use: most parsed versions are only queried for one or two matchers.
         """
-        name = f"m{self.grammar.matchers[matcher]}"
+        name = self.grammar._names.get(id(matcher)) or f"m{self.grammar.matchers[matcher]}"
         nodes = self._sorted.get(name)
         if nodes is None:
             group = self._groups.get(name)
@@ -312,17 +326,17 @@ class Parsed:
 
     def candidates(self, matcher: Matcher) -> list[Node]:
         """Captured nodes that satisfy every guard, in pre-order (computed once per matcher)."""
-        nodes = self._accepted.get(matcher)
-        if nodes is None:
+        entry = self._accepted.get(id(matcher))
+        if entry is None:
             accepts = matcher.accepts
-            nodes = self._accepted[matcher] = [node for node in self.captured(matcher) if accepts(node)]
-        return nodes
+            entry = self._accepted[id(matcher)] = (matcher, [node for node in self.captured(matcher) if accepts(node)])
+        return entry[1]
 
     def edits(self, rule: Rule) -> list[tuple[Node, Sequence[Edit]]]:
         """Each candidate of `rule` with its edit group, in pre-order; the group is empty when the rewrite rejects
         the candidate or has nothing to change."""
-        result = self._edits.get(rule)
-        if result is None:
+        entry = self._edits.get(id(rule))
+        if entry is None:
             rewrite = rule.rewrite
             if rewrite is None:
                 raise ValueError(f"Rule without a rewrite: {rule.pattern}")
@@ -333,18 +347,36 @@ class Parsed:
                 except Reject:
                     group = ()
                 result.append((node, group))
-            self._edits[rule] = result
-        return result
+            entry = self._edits[id(rule)] = (rule, result)
+        return entry[1]
 
     def rewrite(self, rule: Rule) -> tuple[str, int, bool]:
-        """Rewritten code, the number of candidates, and whether the code changed beyond spaces and line breaks."""
-        candidates = self.edits(rule)
-        groups = [group for _, group in candidates if group]
+        """Rewritten code, the number of candidates, and whether the code changed beyond spaces and line breaks.
+
+        Reuses the edit groups of `edits` when they were collected (node slots read every candidate's group); file
+        granularity asks once per rule and parse, so it rewrites directly instead of building them.
+        """
+        entry = self._edits.get(id(rule))
+        if entry is not None:
+            count, groups = len(entry[1]), [group for _, group in entry[1] if group]
+        else:
+            rewrite = rule.rewrite
+            if rewrite is None:
+                raise ValueError(f"Rule without a rewrite: {rule.pattern}")
+            nodes = self.candidates(rule)
+            count, groups = len(nodes), []
+            for node in nodes:
+                try:
+                    edits = rewrite(node, self.source)
+                except Reject:
+                    continue
+                if edits:
+                    groups.append(edits)
         if not groups:
-            return self.source.code, len(candidates), False
+            return self.source.code, count, False
         old = self.source.data
         data, _ = apply_edits(old, groups)
-        return data.decode("utf-8"), len(candidates), data != old and _beyond_whitespace(old, data, groups)
+        return data.decode("utf-8"), count, data != old and _beyond_whitespace(old, data, groups)
 
     def apply(self, groups: Sequence[Sequence[Edit]]) -> str:
         """The code with the given edit groups applied (later groups that conflict with earlier ones are skipped)."""
