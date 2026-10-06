@@ -59,7 +59,7 @@ make benchmark
 
 ## 全量的定义与语料范围
 
-默认配置 [config.json](../benchmarks/config.json) 包含 22 组、10,612 个本地实验单元（git 工作树中的语料；主检出中另有 8 个未入库的历史项目单元）。函数级单元是一份文件，项目级单元是一个非空项目目录内的全部拆分函数。空目录不构成可运行项目，清单会给出选中单元数。
+默认配置 [config.json](../benchmarks/config.json) 包含 22 组、10,612 个本地实验单元（`corpus/` 子模块中的语料，见 [Noelle1831-k/CLLMark-legacy-data](https://github.com/Noelle1831-k/CLLMark-legacy-data)；桌面主检出另有 8 个从未入库的历史项目单元，不在其中）。函数级单元是一份文件，项目级单元是一个非空项目目录内的全部拆分函数。空目录不构成可运行项目，清单会给出选中单元数。
 
 | 组别 | 实验单元数 | 功能检查 |
 | --- | ---: | --- |

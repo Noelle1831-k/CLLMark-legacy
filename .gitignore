@@ -1,3 +1,6 @@
+# Agent worktrees (isolated copies created by subagents)
+.claude/worktrees/
+
 # Local credentials and preserved originals
 .env
 .env.*

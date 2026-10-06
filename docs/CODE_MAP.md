@@ -1,6 +1,6 @@
 # CLLMark 代码地图
 
-本地图描述仓库根目录的实现（旧版论文方法，规则层已重构）。`data/` 保留另一份旧实验快照，不使用根目录的新模块。论文版本与方法差异见 [PAPER_ALIGNMENT.md](PAPER_ALIGNMENT.md)。
+本地图描述仓库根目录的实现（旧版论文方法，规则层已重构）。`corpus/data/` 保留另一份旧实验快照，不使用根目录的新模块。论文版本与方法差异见 [PAPER_ALIGNMENT.md](PAPER_ALIGNMENT.md)。
 
 日常实验使用新增的 [科研循环](RESEARCH_LOOP.md)，由冻结副本调用这些旧入口；不要运行其带有硬编码路径的批量主程序。
 
@@ -98,18 +98,18 @@ flowchart TD
 
 框架向分析/嵌入/提取模块注入每个 worker 内缓存的 `SCTS`；BCH 解码只做观测包装，不替换结果。每个单元复制到独立平面目录，再由适配层产生 `support_transform.json`。规则模块不保存模块级可变状态，`reset_legacy_state` 只对仍以 `transform*` 命名的旧模块生效（当前没有）。
 
-## `data/` 实验快照
+## `corpus/data/` 实验快照
 
-根目录的 21 个 Python 脚本在 `data/` 下都有同名文件。建库前其中 17 个内容相同，4 个不同：
+根目录的 21 个 Python 脚本在 `corpus/data/` 下都有同名文件。建库前其中 17 个内容相同，4 个不同：
 
-| 文件 | 根目录版本 | `data/` 版本 |
+| 文件 | 根目录版本 | `corpus/data/` 版本 |
 | --- | --- | --- |
-| `watermark_bit.py` | `lang='python'`，`Python_func_test` | `lang='c'`，`C_func_test2` |
-| `watermark_extract.py` | `lang='python'`，`Python_func_test` | `lang='c'`，`C_func_test2` |
+| `watermark_bit.py` | `lang='python'`，`corpus/Python_func_test` | `lang='c'`，`C_func_test2` |
+| `watermark_extract.py` | `lang='python'`，`corpus/Python_func_test` | `lang='c'`，`C_func_test2` |
 | `folder_transform_check.py` | 分析 Python 语料 | 分析 C 语料，并额外打印变换编号 |
 | `code_transform_provider.py` | C++ 风格 `9.1` | C 风格 `5.4`，开启差异显示 |
 
-`data/` 还保存 C/C++ 的 `*_func_test`、`*_func_test2` 等数据。此次保留这些材料，不将两个脚本版本合并。源码索引覆盖根目录主实现、工具、科研循环和流程测试，不对每份语料源码建立重复的调用图。
+`corpus/data/` 还保存 C/C++ 的 `*_func_test`、`*_func_test2` 等数据。此次保留这些材料，不将两个脚本版本合并。源码索引覆盖根目录主实现、工具、科研循环和流程测试，不对每份语料源码建立重复的调用图。
 
 ## 运行前需要确认的事项
 

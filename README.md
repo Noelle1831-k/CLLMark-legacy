@@ -13,7 +13,7 @@
 - [论文与实现对照](docs/PAPER_ALIGNMENT.md)：两版论文与现有代码的对应关系、已有能力和待补齐部分。
 - [机器可读代码索引](docs/code-index.json)：主要源码的符号、行号、导入、文件摘要和本地依赖。
 - [论文来源记录](docs/paper-sources.json)：本次对照使用的 PDF 文件名、标题、页数和 SHA-256。
-- [科研循环与全量 benchmark](docs/RESEARCH_LOOP.md)：固定环境、19 组全量重跑、功能检查、基线门禁、续跑和自动触发。
+- [科研循环与全量 benchmark](docs/RESEARCH_LOOP.md)：固定环境、22 组全量重跑、功能检查、基线门禁、续跑和自动触发。
 - [实验记录模板](docs/EXPERIMENT_TEMPLATE.md)：记录假设、控制变量、结果和反例。
 
 建议阅读顺序：`watermark_core.py` → `change_program_style.py` → `rule_engine.py` → 各语言 `rules.py` → `bch_utils.py`；目录级入口 `folder_transform_check.py`、`watermark_bit.py`、`watermark_extract.py` 是薄适配层。
@@ -50,6 +50,7 @@
 ## 本地科研循环
 
 ```bash
+make corpus           # 拉取语料子模块 corpus/（私有仓库，需要读取权限）
 make setup-benchmark  # 一次性安装 Python 3.11 独立环境并构建固定语法库
 make setup-javascript # 一次性准备 lodash 与 JavaScript 项目测试（需要 Node.js）
 make doctor
@@ -57,15 +58,15 @@ make smoke           # 流程测试 + 每组 2 个实验单元
 make benchmark       # 代码改动完成后：更新索引、测试、全量运行、比较固定基线
 ```
 
-默认全量为 22 组、10,612 个实验单元（git 工作树中的语料；含 JavaScript 3 组）。`make baseline` 仅用于首次建立参考；已存在参考时拒绝覆盖。`make watch-benchmark` 在前台监控变更并自动触发完整 loop。详细配置、指标分母、结果位置及续跑命令见[科研循环文档](docs/RESEARCH_LOOP.md)。
+默认全量为 22 组、10,612 个实验单元（corpus/ 子模块中的语料；含 JavaScript 3 组）。`make baseline` 仅用于首次建立参考；已存在参考时拒绝覆盖。`make watch-benchmark` 在前台监控变更并自动触发完整 loop。详细配置、指标分母、结果位置及续跑命令见[科研循环文档](docs/RESEARCH_LOOP.md)。
 
 新入口在每次运行的副本中调用实际旧算法，保留容量不足和失败样本，校验源码及原始输入没有被更改。Python/C++ MBXP 使用本地真实功能测试；CodeNet 缺少 problem_id 映射，其他拆分项目缺少功能 oracle，结果明确记录为 N/A。不同语料组有重叠，汇总用于版本回归，论文分析应使用分组与明确的样本协议。
 
 ## 使用与验证边界
 
-现有代码主要是研究脚本，许多参数直接写在文件中。请从仓库根目录运行主版本脚本，并先检查输入输出路径。`data/` 是另一个实验快照，不是主版本的 Python 包入口。
+现有代码主要是研究脚本，许多参数直接写在文件中。请从仓库根目录运行主版本脚本，并先检查输入输出路径。`corpus/data/` 是另一个实验快照，不是主版本的 Python 包入口。
 
-`folder_transform_check.py` 的旧主程序会删除不足 7 个可用规则的项目目录；`watermark_bit.py` 会覆盖输入代码。日常实验使用上面的 `make benchmark`，该入口仅修改每次运行的工作副本。
+`folder_transform_check.py` 的旧主程序会删除不足 7 个可用规则的项目目录；`watermark_bit.py` 会覆盖输入代码；两者的默认目标都在 `corpus/` 子模块内。日常实验使用上面的 `make benchmark`，该入口仅修改每次运行的工作副本。
 
 旧环境面向 Python 3.9，并固定使用 `tree-sitter==0.20.2`。`requirements.txt` 保留原始记录，其中 `python~=3.9.21` 是解释器版本记录，不能直接当作普通 pip 依赖安装；实际导入的 `matplotlib`、`networkx` 未列入其中。已有 `venv/` 包含 Windows 环境文件。新流程使用 `benchmarks/requirements.lock` 和 `benchmarks/toolchain.lock.json`，在 `.venv-benchmark` 中运行，避免使用旧二进制。更完整的旧环境限制见[代码地图](docs/CODE_MAP.md#运行前需要确认的事项)。
 

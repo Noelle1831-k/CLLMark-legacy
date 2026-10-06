@@ -13,6 +13,7 @@ tools: Read, Edit, Write, Bash, Grep, Glob
 4. 改完运行 `.venv-benchmark/bin/python -m unittest discover -s tests -v`。实现层面的失败修到通过；方案本身导致的失败如实报告，不要改测试来迁就实现。
 5. 方案要求规则审计时运行 tools/rule_audit.py，并把完整输出写入方案指定的文件。
 6. 不要运行 make benchmark，那是 bench-runner 的职责。
+7. 在隔离 worktree 中工作时，被忽略的环境不在其中：把主检出的 `.venv-benchmark`、`.benchmark-cache` 软链接到 worktree 根目录，并用 `git submodule update --init --reference <主检出>/corpus corpus` 检出语料（不要软链接 corpus，实验清单拒绝指向根目录之外的输入）。
 
 最终回复不超过 25 行，不贴大段代码或日志，格式：
 - 改动：path:line 一句话（每个文件一行）
