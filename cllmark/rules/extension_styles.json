@@ -1,0 +1,146 @@
+{
+  "python": {
+    "40.1": [
+      "return",
+      "del_paren"
+    ],
+    "40.2": [
+      "return",
+      "add_paren"
+    ],
+    "41.1": [
+      "commute",
+      "literal_right"
+    ],
+    "41.2": [
+      "commute",
+      "literal_left"
+    ],
+    "42.1": [
+      "condition",
+      "del_paren"
+    ],
+    "42.2": [
+      "condition",
+      "add_paren"
+    ],
+    "43.1": [
+      "literal",
+      "del_trailing_comma"
+    ],
+    "43.2": [
+      "literal",
+      "add_trailing_comma"
+    ],
+    "45.1": [
+      "assignment",
+      "del_paren"
+    ],
+    "45.2": [
+      "assignment",
+      "add_paren"
+    ]
+  },
+  "c": {
+    "40.1": [
+      "return",
+      "del_paren"
+    ],
+    "40.2": [
+      "return",
+      "add_paren"
+    ],
+    "41.1": [
+      "commute",
+      "literal_right"
+    ],
+    "41.2": [
+      "commute",
+      "literal_left"
+    ],
+    "45.1": [
+      "assignment",
+      "del_paren"
+    ],
+    "45.2": [
+      "assignment",
+      "add_paren"
+    ]
+  },
+  "cpp": {
+    "40.1": [
+      "return",
+      "del_paren"
+    ],
+    "40.2": [
+      "return",
+      "add_paren"
+    ],
+    "41.1": [
+      "commute",
+      "literal_right"
+    ],
+    "41.2": [
+      "commute",
+      "literal_left"
+    ],
+    "45.1": [
+      "assignment",
+      "del_paren"
+    ],
+    "45.2": [
+      "assignment",
+      "add_paren"
+    ],
+    "46.1": [
+      "loop_body",
+      "bare"
+    ],
+    "46.2": [
+      "loop_body",
+      "braced"
+    ]
+  },
+  "javascript": {
+    "40.1": [
+      "return",
+      "del_paren"
+    ],
+    "40.2": [
+      "return",
+      "add_paren"
+    ],
+    "41.1": [
+      "commute",
+      "literal_right"
+    ],
+    "41.2": [
+      "commute",
+      "literal_left"
+    ],
+    "44.1": [
+      "string",
+      "single"
+    ],
+    "44.2": [
+      "string",
+      "double"
+    ],
+    "45.1": [
+      "assignment",
+      "del_paren"
+    ],
+    "45.2": [
+      "assignment",
+      "add_paren"
+    ],
+    "46.1": [
+      "loop_body",
+      "bare"
+    ],
+    "46.2": [
+      "loop_body",
+      "braced"
+    ]
+  }
+}

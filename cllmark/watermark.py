@@ -13,7 +13,6 @@ from collections import deque
 from collections.abc import Iterable, Iterator, Mapping, Sequence
 
 from . import bch
-from .rules.pairs import WATERMARK_PAIRS
 from .source_io import reload_written
 from .transform import StyleTransformer
 
@@ -46,7 +45,7 @@ def probe(transformer: StyleTransformer, style: str, code: str) -> bool | None:
 
 def analyze(transformer: StyleTransformer, language: str, files: Mapping[str, str]) -> Support:
     """Rule pairs usable in each file, in slot order: a pair counts when either of its styles applies."""
-    pairs = WATERMARK_PAIRS[language]
+    pairs = transformer.pairs
     return {
         name: [
             pair for pair, styles in pairs.items() if any(probe(transformer, style, files[name]) for style in styles)
@@ -76,7 +75,7 @@ def embed(
     """Apply the style selected by each codeword bit; returns {file: text to write} for the files that changed."""
     written: dict[str, str] = {}
     for name, pair, bit in slots(support, bch.encode(bits)):
-        style = WATERMARK_PAIRS[language][pair][bit]
+        style = transformer.pairs[pair][bit]
         if style in DETECT_ONLY:
             continue
         code = reload_written(written[name]) if name in written else files[name]
@@ -100,7 +99,7 @@ def extract(
     codeword = bch.encode(bits)
     extracted = []
     for name, pair, bit in slots(support, codeword):
-        styles = WATERMARK_PAIRS[language][pair]
+        styles = transformer.pairs[pair]
         marked = probe(transformer, styles[bit], files[name])
         unmarked = probe(transformer, styles[1 - bit], files[name])
         if marked is None or unmarked is None:

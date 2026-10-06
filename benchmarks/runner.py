@@ -24,9 +24,9 @@ from .common import (
 )
 from .compare import compare, promote_baseline
 from .metrics import save_reports, summarize
-from .node_engine import annotate_report
 from .parallel import worker_count
 from .progress import LOG_NAME, LiveLog, ProgressTracker, render_bar
+from .rule_sets import annotate_report
 
 FUNCTIONAL_ROWS = "functional.jsonl"
 

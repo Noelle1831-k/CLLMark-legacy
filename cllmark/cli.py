@@ -14,6 +14,7 @@ from collections.abc import Sequence
 from pathlib import Path
 
 from . import bch, directories, nodes, watermark
+from .rules.pairs import RULE_SETS
 from .transform import LANGUAGES, StyleTransformer
 
 EXIT_MATCH, EXIT_NO_MATCH, EXIT_INSUFFICIENT_CAPACITY = 0, 1, 2
@@ -50,12 +51,23 @@ def parser() -> argparse.ArgumentParser:
             default="file",
             help="one slot per (file, rule pair), or per rewritable syntax node (default: file)",
         )
-    command("extract", "Check a watermarked copy (made by embed) for the message.", bits=True)
+        sub.add_argument(
+            "-r",
+            "--rule-set",
+            choices=RULE_SETS,
+            default="legacy",
+            help="the paper's rule pairs, or those plus the extension pairs of docs/EXTENDED_RULES.md (default: legacy)",
+        )
+    command(
+        "extract",
+        "Check a watermarked copy (made by embed) for the message; its rule set is read from the copy.",
+        bits=True,
+    )
     return root
 
 
 def analyze(arguments: argparse.Namespace) -> int:
-    transformer = StyleTransformer(arguments.language)
+    transformer = StyleTransformer(arguments.language, rule_set=arguments.rule_set)
     project = directories.load_project(arguments.directory)
     if arguments.granularity == "node":
         support = {"granularity": "node", "slots": nodes.analyze(transformer, arguments.language, project)}
@@ -75,7 +87,7 @@ def embed(arguments: argparse.Namespace) -> int:
     if arguments.output.exists():
         raise SystemExit(f"cllmark embed: {arguments.output} already exists")
     shutil.copytree(arguments.directory, arguments.output)
-    transformer = StyleTransformer(arguments.language)
+    transformer = StyleTransformer(arguments.language, rule_set=arguments.rule_set)
     analyze_directory = nodes.analyze_directory if arguments.granularity == "node" else directories.analyze_directory
     capacity = analyze_directory(arguments.output, arguments.language, transformer)
     if capacity < bch.CODE_LENGTH:

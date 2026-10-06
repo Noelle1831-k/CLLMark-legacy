@@ -5,6 +5,8 @@ bits pair by pair, so reordering pairs changes every watermark. Bit 0 is the usu
 unmarked code from matching a codeword. Styles "11" and "12" (C/C++) are detect-only loop forms without a rewrite.
 """
 
+from collections.abc import Iterable
+
 WATERMARK_PAIRS: dict[str, dict[str, tuple[str, str]]] = {
     "python": {
         "print_flush": ("1.2", "1.1"),
@@ -108,3 +110,50 @@ WATERMARK_PAIRS: dict[str, dict[str, tuple[str, str]]] = {
         "empty_object": ("32.1", "32.2"),
     },
 }
+
+# Rule set "extended": these pairs follow the legacy ones (so a file's legacy slots keep their order) when a
+# transformer is made with rule_set="extended"; the default rule set is the legacy table above, unchanged. Their
+# styles are in `extension_styles.json` and the languages' `EXTENSION_RULES`; see docs/EXTENDED_RULES.md.
+EXTENSION_PAIRS: dict[str, dict[str, tuple[str, str]]] = {
+    "python": {
+        "return_paren": ("40.1", "40.2"),
+        "literal_order": ("41.1", "41.2"),
+        "condition_paren": ("42.1", "42.2"),
+        "trailing_comma": ("43.1", "43.2"),
+        "assignment_paren": ("45.1", "45.2"),
+    },
+    "cpp": {
+        "return_paren": ("40.1", "40.2"),
+        "literal_order": ("41.1", "41.2"),
+        "assignment_paren": ("45.1", "45.2"),
+        "loop_braces": ("46.2", "46.1"),
+    },
+    "c": {
+        "return_paren": ("40.1", "40.2"),
+        "literal_order": ("41.1", "41.2"),
+        "assignment_paren": ("45.1", "45.2"),
+    },
+    "javascript": {
+        "return_paren": ("40.1", "40.2"),
+        "literal_order": ("41.1", "41.2"),
+        "quote_style": ("44.1", "44.2"),
+        "assignment_paren": ("45.1", "45.2"),
+        "loop_braces": ("46.2", "46.1"),
+    },
+}
+
+RULE_SETS = ("legacy", "extended")
+
+
+def watermark_pairs(language: str, rule_set: str = "legacy") -> dict[str, tuple[str, str]]:
+    """The pair table of a rule set: the legacy pairs, followed by the extension pairs for "extended"."""
+    if rule_set not in RULE_SETS:
+        raise ValueError(f"rule_set must be one of {RULE_SETS}: {rule_set!r}")
+    if rule_set == "legacy":
+        return WATERMARK_PAIRS[language]
+    return {**WATERMARK_PAIRS[language], **EXTENSION_PAIRS[language]}
+
+
+def rule_set_of(language: str, pairs: Iterable[str]) -> str:
+    """The smallest rule set that has every pair named in a support file (both read legacy pairs the same way)."""
+    return "legacy" if set(pairs) <= WATERMARK_PAIRS[language].keys() else "extended"

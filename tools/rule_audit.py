@@ -14,7 +14,7 @@ files of the configured cohorts:
                 extraction assumes pairs do not affect each other).
 
 Usage: tools/rule_audit.py --language python [--pairs name ...] [--against all|audited] [--limit N]
-                           [--extra-root DIR ...] [--examples N]
+                           [--extra-root DIR ...] [--examples N] [--rule-set legacy|extended]
 
 For JavaScript the pinned project checkouts of the benchmark cache (.benchmark-cache/js-projects, without
 node_modules, test and dist directories) are audited in addition to the configured cohorts; their files
@@ -72,14 +72,12 @@ def corpus(language, limit, extra_roots=()):
     return files[:: max(1, len(files) // limit)] if limit else files
 
 
-def initialize(language, audited, against):
+def initialize(language, audited, against, rule_set="legacy"):
     os.chdir(ROOT)
-    from cllmark.rules.pairs import WATERMARK_PAIRS
     from cllmark.transform import StyleTransformer
 
-    STATE.update(
-        transformer=StyleTransformer(language), pairs=WATERMARK_PAIRS[language], audited=audited, against=against
-    )
+    transformer = StyleTransformer(language, rule_set=rule_set)
+    STATE.update(transformer=transformer, pairs=transformer.pairs, audited=audited, against=against)
 
 
 def probe(style, code):
@@ -155,11 +153,15 @@ def main():
         help="additional source tree (relative to the repository); default for javascript: .benchmark-cache/js-projects",
     )
     parser.add_argument("--examples", type=int, default=5, help="files listed per failure kind in the report")
+    parser.add_argument(
+        "--rule-set", choices=["legacy", "extended"], default="legacy", help="audit the pairs of this rule set"
+    )
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
-    from cllmark.rules.pairs import WATERMARK_PAIRS
+    from cllmark.rules.pairs import watermark_pairs
 
-    names = list(WATERMARK_PAIRS[args.language])
+    pairs = watermark_pairs(args.language, args.rule_set)
+    names = list(pairs)
     audited = args.pairs or names
     against = names if args.against == "all" else audited
     extra = DEFAULT_EXTRA_ROOTS.get(args.language, []) if args.extra_root is None else args.extra_root
@@ -167,7 +169,9 @@ def main():
     totals = {name: collections.Counter() for name in audited}
     interference = {name: collections.Counter() for name in audited}
     examples = collections.defaultdict(list)
-    with ProcessPoolExecutor(args.jobs, initializer=initialize, initargs=(args.language, audited, against)) as pool:
+    with ProcessPoolExecutor(
+        args.jobs, initializer=initialize, initargs=(args.language, audited, against, args.rule_set)
+    ) as pool:
         for result in pool.map(audit_file, files, chunksize=20):
             for name, value in result.items():
                 totals[name].update(value["counts"])
@@ -178,7 +182,7 @@ def main():
                 for other in value["interference"]:
                     if len(examples[name + ":interferes:" + other]) < args.examples:
                         examples[name + ":interferes:" + other].append(value["file"])
-    report = {"language": args.language, "files": len(files), "pairs": {}}
+    report = {"language": args.language, "rule_set": args.rule_set, "files": len(files), "pairs": {}}
     print(f"{args.language}: {len(files)} unique files")
     print(
         f"{'pair':28} {'applic.':>7} {'form0':>6} {'form1':>6} {'idem.fail':>9} {'rev.fail':>8} {'syntax':>6}  interference"
@@ -186,7 +190,7 @@ def main():
     for name in audited:
         c = totals[name]
         report["pairs"][name] = {
-            "styles": list(WATERMARK_PAIRS[args.language][name]),
+            "styles": list(pairs[name]),
             **c,
             "interference": dict(interference[name]),
         }

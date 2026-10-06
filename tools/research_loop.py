@@ -21,9 +21,9 @@ from benchmarks.common import (
     write_json,
 )
 from benchmarks.compare import compare, promote_baseline
-from benchmarks.node_engine import protocol_config
 from benchmarks.parallel import worker_count
 from benchmarks.progress import describe, follow, latest_run
+from benchmarks.rule_sets import protocol_config
 from benchmarks.runner import execute_run, launch_frozen, run_experiment, validate_workspace, verified_summary
 
 

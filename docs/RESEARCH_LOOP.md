@@ -211,3 +211,18 @@ make watch-benchmark
 
 节点运行的协议指纹包含 `benchmarks/node_engine.py` 的摘要，只能与节点运行比较。
 
+
+## 扩展规则集
+
+默认运行使用论文的规则对（legacy）。扩展规则对（设计、约束与结果见 `docs/EXTENDED_RULES.md`）同样是独立的配置，文件粒度与节点粒度各一份：
+
+```bash
+.venv-benchmark/bin/python tools/research_loop.py loop --config benchmarks/config-extended.json
+.venv-benchmark/bin/python tools/research_loop.py loop --config benchmarks/config-node-extended.json
+```
+
+配置里多出的 `"rule_set": "extended"` 进入协议指纹，扩展运行只能与扩展运行比较；未写或写 `"legacy"` 的配置与原来完全相同。报告标题下注明规则集。
+
+## 真实仓库功能保持检查
+
+修改规则或嵌入/提取算法后，除 `make smoke` / `make benchmark` 外再运行 `make repo-check`：在固定提交的 10 万行级真实仓库（networkx、zstd、cppcheck、mathjs）上嵌入水印、逐条样式全仓改写，构建并运行各仓库自带测试，失败变体二分到文件。详见 `docs/REAL_REPOS.md`。

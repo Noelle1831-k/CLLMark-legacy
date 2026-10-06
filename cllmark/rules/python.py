@@ -204,6 +204,12 @@ def requote(quote, other):
 
     def rewrite(node, source):
         not_triple_quoted(node)
+        ancestor = node.parent
+        while ancestor is not None:
+            if ancestor.type == "interpolation":
+                # f"{','.join(x)}" -> f"{",".join(x)}" reuses the enclosing quote: a syntax error before Python 3.12.
+                raise Reject("inside an f-string replacement field")
+            ancestor = ancestor.parent
         start, end = node.children[0], node.children[-1]
         if quote in source.data[start.end_byte : end.start_byte].decode("utf-8"):
             raise Reject("content holds the target quote")
@@ -266,6 +272,98 @@ def negated(node):
         and parent.parent is not None
         and parent.parent.type == "not_operator"
     )
+
+
+# ---------------------------------------------------------------- functional safety of the comparison rules
+#
+# Real code compares numpy arrays and other element-wise types: `A[A != 0] = 1` is a mask, `not (A == 0)` and
+# `(a < b or a == b)` raise on arrays, and the expansion evaluates its operands twice. So negation (7.3-7.6) and
+# expcmp (7.9/7.10) only rewrite comparisons whose value is used as a truth value anyway (where an array would
+# already raise in the original code), and expcmp only with operands free of side effects. Both forms of a pair sit
+# in the same place, so these guards keep each pair's candidates the same in either direction.
+
+
+def truth_tested(node):
+    """The value of `node` (through parentheses) is only used as a truth value: a condition of if/elif/while/assert,
+    a comprehension filter or a conditional expression, or an operand of not/and/or."""
+    current = node
+    while current.parent is not None and current.parent.type == "parenthesized_expression":
+        current = current.parent
+    parent = current.parent
+    if parent is None:
+        return False
+    if parent.type in ["if_statement", "elif_clause", "while_statement"]:
+        return parent.child_by_field_name("condition") == current
+    if parent.type == "assert_statement":
+        return parent.named_children[0] == current
+    if parent.type == "conditional_expression":
+        return len(parent.children) == 5 and parent.children[2] == current
+    return parent.type in ["not_operator", "boolean_operator", "if_clause"]
+
+
+boolean_context = guard("value used only as a truth value")(truth_tested)
+
+PURE_CALLS = {b"len", b"abs", b"ord", b"chr", b"int", b"float", b"str", b"round", b"min", b"max"}
+IMPURE = ["await", "yield", "named_expression", "lambda", "list_comprehension", "generator_expression"]
+
+
+def side_effect_free(node):
+    stack = [node]
+    while stack:
+        current = stack.pop()
+        if current.type in IMPURE:
+            return False
+        if current.type == "call" and current.child_by_field_name("function").text not in PURE_CALLS:
+            return False
+        stack.extend(current.children)
+    return True
+
+
+def numeric_operand(node):
+    """A number literal (possibly negated) or len(...): a comparison with one is a comparison of numbers."""
+    if node.type == "unary_operator" and len(node.children) == 2:
+        node = node.children[1]
+    if node.type in ["integer", "float"]:
+        return True
+    return node.type == "call" and node.child_by_field_name("function").text == b"len"
+
+
+@guard("numbers compared with operands free of side effects: expcmp evaluates them twice, and `a < b or a == b`")
+def pure_comparison(node):
+    """... equals `a <= b` only for a total order consistent with ==, which objects need not have (a heap entry's
+    `<` compares priorities, its `==` identity)."""
+    if node.type == "parenthesized_expression":  # (a < b or a == b)
+        node = node.children[1].children[0]
+    left, right = node.children[0], node.children[2]
+    return (numeric_operand(left) or numeric_operand(right)) and side_effect_free(left) and side_effect_free(right)
+
+
+def numeric_assignments(scope, name):
+    """Whether `scope` (a function body or module, not nested functions) assigns a number literal to `name`."""
+    stack = list(scope.children)
+    while stack:
+        current = stack.pop()
+        if current.type in ["function_definition", "class_definition", "lambda"]:
+            continue
+        if current.type == "assignment" and len(current.children) == 3 and text(current.children[0]) == name:
+            value = current.children[2]
+            if value.type == "unary_operator" and len(value.children) == 2:
+                value = value.children[1]
+            if value.type in ["integer", "float"]:
+                return True
+        stack.extend(current.children)
+    return False
+
+
+@guard("a variable that its function also sets to a number: `a = a - b` -> `a -= b` would mutate a list, set or array")
+def numeric_variable(node):
+    target = node.children[0]
+    if target.type != "identifier":
+        return False
+    scope = node.parent
+    while scope is not None and scope.type not in ["function_definition", "module"]:
+        scope = scope.parent
+    return scope is not None and numeric_assignments(scope, text(target))
 
 
 def expanded_junction(junction):
@@ -487,10 +585,13 @@ def returns(node_type):
 
 
 def strip_parentheses(node, source):
-    """return (a, b) -> return a, b   (not `return ()`, which would return None)"""
+    """return (a, b) -> return a, b   (not `return ()`, which would return None, and not a tuple over several
+    lines: without its parentheses `return` would end at the first line break)"""
     value = node.children[1]
     if not any(child.is_named for child in value.children):
         raise Reject("empty tuple")
+    if b"\n" in value.text:
+        raise Reject("tuple over several lines")
     return [Edit(value.start_byte, value.start_byte + 1), Edit(value.end_byte - 1, value.end_byte)]
 
 
@@ -994,16 +1095,21 @@ RULES = {
     "6.4": nodes("string")
     .where(literal_without_interpolation(True))
     .rule(set_prefix(lambda start: start.replace("f", ""))),
-    "7.1": SELF_ASSIGNMENT.rule(to_augmented),
-    "7.2": nodes("augmented_assignment").where(binary).rule(from_augmented),
-    "7.3": EQUALITY_TEST.where(~negated).rule(negate_equality("==", "!=")),
-    "7.4": negated_test("!=").rule(remove_negation("==")),
-    "7.5": EQUALITY_TEST.where(~negated).rule(negate_equality("!=", "==")),
-    "7.6": negated_test("==").rule(remove_negation("!=")),
+    "7.1": SELF_ASSIGNMENT.where(numeric_variable).rule(to_augmented),
+    "7.2": nodes("augmented_assignment").where(binary, numeric_variable).rule(from_augmented),
+    "7.3": EQUALITY_TEST.where(~negated, boolean_context).rule(negate_equality("==", "!=")),
+    "7.4": negated_test("!=").where(boolean_context).rule(remove_negation("==")),
+    "7.5": EQUALITY_TEST.where(~negated, boolean_context).rule(negate_equality("!=", "==")),
+    "7.6": negated_test("==").where(boolean_context).rule(remove_negation("!=")),
     "7.7": COMPARISON.where(operator_in(*RELATIONAL), binary).rule(mirror([">", ">="])),
     "7.8": COMPARISON.where(operator_in(*RELATIONAL), binary).rule(mirror(["<", "<="])),
-    "7.9": COMPARISON.where(operator_in(*RELATIONAL), ~in_expanded_comparison, binary).rule(expand_comparison),
-    "7.10": nodes("parenthesized_expression").where(expanded_comparison).rule(contract_comparison),
+    "7.9": COMPARISON.where(operator_in(*RELATIONAL), ~in_expanded_comparison, binary)
+    .where(boolean_context, pure_comparison)
+    .rule(expand_comparison),
+    "7.10": nodes("parenthesized_expression")
+    .where(expanded_comparison)
+    .where(boolean_context, pure_comparison)
+    .rule(contract_comparison),
     "7.11": EQUALITY_TEST.rule(hash_order("==", "!=", True)),
     "7.12": EQUALITY_TEST.rule(hash_order("==", "!=", False)),
     "7.13": EQUALITY_TEST.rule(hash_order("!=", "==", True)),
@@ -1040,4 +1146,250 @@ RULES = {
     .rule(to_while_true),
     "21.1": nodes("if_statement").where(single_exiting_if_then_rest).where(well_formed).rule(add_else),
     "21.2": nodes("if_statement").where(single_exiting_if_else).where(well_formed).rule(drop_else),
+}
+
+
+# ---------------------------------------------------------------- extension rules (rule set "extended")
+#
+# Exact inverses that create or remove no candidate of a legacy pair: comparison operands (equality negation, hash
+# order, expcmp, membership/identity), `a = a <op> b` (7.x), tuple and None returns (10.x), negated and compound
+# conditions (16.x, expcmp) and while loops (20.x) are left alone. All forms stay on one line.
+
+
+@guard("outside comparison operands")
+def outside_comparisons(node):
+    parent = node.parent
+    while parent is not None and not parent.type.endswith(("statement", "block", "clause")):
+        if parent.type == "comparison_operator":
+            return False
+        parent = parent.parent
+    return True
+
+
+def single_line(node):
+    return b"\n" not in node.text
+
+
+def keyword_value(node, field=None):
+    """The value after the statement keyword when separated from it by exactly one space, else None."""
+    if field is not None:
+        value = node.child_by_field_name(field)
+    else:
+        values = [child for child in node.named_children if child.type != "comment"]
+        value = values[0] if len(values) == 1 and len(values) == len(node.named_children) else None
+    if value is None:
+        return None
+    keyword = node.children[0]
+    gap = node.text[keyword.end_byte - node.start_byte : value.start_byte - node.start_byte]
+    return value if gap == b" " and single_line(value) else None
+
+
+# and/or values too: expcmp (7.10) reads `(a < b or a == b)` with its parentheses.
+NOT_PARENTHESIZED_RETURN = [
+    "parenthesized_expression",
+    "tuple",
+    "expression_list",
+    "none",
+    "yield",
+    "named_expression",
+    "boolean_operator",
+]
+
+
+@guard("return E on one line, E not parenthesized, a tuple, None or yield")
+def plain_return(node):
+    value = keyword_value(node)
+    return value is not None and value.type not in NOT_PARENTHESIZED_RETURN
+
+
+def directly_parenthesized(value, excluded):
+    if value is None or value.type != "parenthesized_expression" or len(value.children) != 3:
+        return False
+    inner = value.children[1]
+    return inner.type not in excluded and value.text == b"(" + inner.text + b")"
+
+
+@guard("return (E) with the parentheses directly around E, E not a tuple, None or yield")
+def parenthesized_return(node):
+    return directly_parenthesized(keyword_value(node), NOT_PARENTHESIZED_RETURN)
+
+
+def add_parentheses_to(field=None):
+    def rewrite(node, source):
+        value = keyword_value(node, field)
+        return [insert_before(value, "("), insert_after(value, ")")]
+
+    return rewrite
+
+
+def drop_parentheses_of(field=None):
+    def rewrite(node, source):
+        value = keyword_value(node, field)
+        return [delete(value.children[0]), delete(value.children[2])]
+
+    return rewrite
+
+
+LITERAL_OPERANDS = ["integer", "float"]
+
+
+def holds_operation(node):
+    """An operation inside the operand, which could be a candidate of its own: one rewrite pass would then edit
+    nested text twice (`dp[i + 1] + 2`), so neither is taken."""
+    stack = list(node.children)
+    while stack:
+        current = stack.pop()
+        if current.type == "binary_operator":
+            return True
+        stack.extend(current.children)
+    return False
+
+
+PLAIN_OPERANDS = ["identifier", "call", "subscript", "attribute", "parenthesized_expression"]
+
+
+def literal_operation(literal_left):
+    def test(node):
+        if len(node.children) != 3 or text(node.children[1]) not in ["+", "*"]:
+            return False
+        literal, other = (node.children[0], node.children[2]) if literal_left else (node.children[2], node.children[0])
+        if literal.type not in LITERAL_OPERANDS or other.type not in PLAIN_OPERANDS or holds_operation(other):
+            return False
+        parent = node.parent
+        return not (
+            parent is not None
+            and parent.type == "assignment"
+            and parent.child_by_field_name("left") is not None
+            and text(parent.child_by_field_name("left")).strip() == text(other).strip()
+        )
+
+    side = "literal first" if literal_left else "literal last"
+    return guard(f"{side} in + or * with a plain other operand (not a self-assignment)")(test)
+
+
+def swap_operands(node, source):
+    """x + 1 -> 1 + x (and back): the operands trade places, the operator and spacing stay."""
+    left, right = node.children[0], node.children[2]
+    return [replace(left, text(right)), replace(right, text(left))]
+
+
+NOT_PARENTHESIZED_CONDITION = [
+    "parenthesized_expression",
+    "not_operator",
+    "boolean_operator",
+    "tuple",
+    "generator_expression",
+    "yield",
+]
+CONDITIONS = Matcher("[(if_statement) (elif_clause)] @node")
+
+
+def without_else(node):
+    """Not an if/else: branch order (16.x) takes `if <primary>: A else: B` only without parentheses."""
+    return node.type != "if_statement" or not any(child.type == "else_clause" for child in node.children)
+
+
+@guard("if/elif C on one line, C not parenthesized, negated or compound, no if/else")
+def plain_condition(node):
+    value = keyword_value(node, "condition")
+    return without_else(node) and value is not None and value.type not in NOT_PARENTHESIZED_CONDITION
+
+
+@guard("if/elif (C) with the parentheses directly around C, C not negated or compound, no if/else")
+def parenthesized_condition(node):
+    return without_else(node) and directly_parenthesized(keyword_value(node, "condition"), NOT_PARENTHESIZED_CONDITION)
+
+
+COLLECTIONS = Matcher("[(list) (dictionary) (set)] @node")
+
+
+def collection_elements(node):
+    return [child for child in node.children[1:-1] if child.type != ","]
+
+
+@guard("non-empty one-line literal without trailing comma or comments")
+def without_trailing_comma(node):
+    elements = collection_elements(node)
+    return (
+        single_line(node)
+        and bool(elements)
+        and all(element.type != "comment" for element in elements)
+        and node.children[-2].type != ","
+    )
+
+
+@guard("one-line literal ending with a comma directly after the last element and before the bracket")
+def with_trailing_comma(node):
+    elements = collection_elements(node)
+    comma = node.children[-2]
+    return (
+        single_line(node)
+        and bool(elements)
+        and all(element.type != "comment" for element in elements)
+        and comma.type == ","
+        and len(node.children) >= 4
+        and node.children[-3].end_byte == comma.start_byte
+        and comma.end_byte == node.children[-1].start_byte
+    )
+
+
+ASSIGNED_OPERATIONS = ["binary_operator"]
+
+
+def assigned_value(node):
+    """The value of `target = value` (one space after `=`, value on one line), else None."""
+    value = node.child_by_field_name("right")
+    if value is None or len(node.children) != 3 or node.children[1].type != "=":
+        return None
+    gap = node.text[node.children[1].end_byte - node.start_byte : value.start_byte - node.start_byte]
+    return value if gap == b" " and single_line(value) else None
+
+
+def assigned_operation(node, value):
+    """`value` (or the expression inside it) when it is an operation that neither operand of repeats the target."""
+    if value is None or value.type not in ASSIGNED_OPERATIONS:
+        return None
+    target = text(node.child_by_field_name("left")).strip()
+    operands = [value.child_by_field_name("left"), value.child_by_field_name("right")]
+    return None if any(operand is None or text(operand).strip() == target for operand in operands) else value
+
+
+@guard("x = a <op> b on one line, an arithmetic or bitwise operation not repeating x (7.x reads a = a <op> b)")
+def plain_assigned_operation(node):
+    return assigned_operation(node, assigned_value(node)) is not None
+
+
+@guard("x = (a <op> b) with the parentheses directly around the operation")
+def parenthesized_assigned_operation(node):
+    value = assigned_value(node)
+    return directly_parenthesized(value, []) and assigned_operation(node, value.children[1]) is not None
+
+
+EXTENSION_RULES = {
+    "40.1": RETURN.where(parenthesized_return).where(well_formed).rule(drop_parentheses_of()),
+    "40.2": RETURN.where(plain_return).where(well_formed).rule(add_parentheses_to()),
+    "41.1": nodes("binary_operator")
+    .where(literal_operation(True), outside_comparisons)
+    .where(well_formed)
+    .rule(swap_operands),
+    "41.2": nodes("binary_operator")
+    .where(literal_operation(False), outside_comparisons)
+    .where(well_formed)
+    .rule(swap_operands),
+    "42.1": CONDITIONS.where(parenthesized_condition).where(well_formed).rule(drop_parentheses_of("condition")),
+    "42.2": CONDITIONS.where(plain_condition).where(well_formed).rule(add_parentheses_to("condition")),
+    "43.1": COLLECTIONS.where(with_trailing_comma)
+    .where(well_formed)
+    .rule(lambda node, source: [delete(node.children[-2])]),
+    "43.2": COLLECTIONS.where(without_trailing_comma)
+    .where(well_formed)
+    .rule(lambda node, source: [insert_after(collection_elements(node)[-1], ",")]),
+    "45.1": nodes("assignment")
+    .where(parenthesized_assigned_operation)
+    .where(well_formed)
+    .rule(lambda node, source: [delete(assigned_value(node).children[0]), delete(assigned_value(node).children[2])]),
+    "45.2": nodes("assignment")
+    .where(plain_assigned_operation)
+    .where(well_formed)
+    .rule(lambda node, source: [insert_before(assigned_value(node), "("), insert_after(assigned_value(node), ")")]),
 }

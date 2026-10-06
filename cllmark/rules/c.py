@@ -9,6 +9,7 @@ indentation width the original rules computed (spaces, tab = 4 columns).
 import hashlib
 import re
 
+from .braces import add_braces, bare_layout, braced_layout, drop_braces
 from .engine import (
     Edit,
     Matcher,
@@ -322,6 +323,16 @@ PARAMETERS = {
 }
 
 
+def identifier_names(node):
+    names, stack = set(), [node]
+    while stack:
+        current = stack.pop()
+        if current.type == "identifier":
+            names.add(text(current))
+        stack.extend(current.children)
+    return names
+
+
 def main_signature(return_type, parameters, with_return):
     """Normalise main's return type and parameters; add `return 0;` or remove the final return."""
     new_parameters, accepted = PARAMETERS[parameters]
@@ -336,6 +347,12 @@ def main_signature(return_type, parameters, with_return):
         if text(returned) != return_type:
             edits.append(replace(returned, return_type))
         if not accepted(params):
+            # The parameters a new signature drops must be unused, and the names it adds unused too (main's
+            # parameters share the scope of its outermost block): `main(int argc, char *argv[])` -> `main(void)` with
+            # argv read in the body does not compile.
+            old, new = identifier_names(params), {"argc", "argv"} if parameters == "args" else set()
+            if (old ^ new) & identifier_names(body):
+                raise Reject("main's body uses a parameter name the new signature drops or adds")
             edits.append(replace(params, new_parameters))
         if with_return and last_return is None and len(body.children) > 1:
             edits.append(insert_after(body.children[-2], "\n    return 0;"))
@@ -440,6 +457,72 @@ def element_count(size_expression):
             else:
                 parts[-1] = parts[-2] = ""
     return strip_outer_parentheses("".join(parts).strip())
+
+
+def enclosing_function_body(node):
+    current = node.parent
+    while current is not None and current.type != "function_definition":
+        current = current.parent
+    return None if current is None else current.child_by_field_name("body")
+
+
+def name_uses(scope, name):
+    """The identifier nodes spelling `name` inside `scope`."""
+    found, stack = [], [scope]
+    while stack:
+        current = stack.pop()
+        if current.type == "identifier" and current.text == name:
+            found.append(current)
+        stack.extend(current.children)
+    return found
+
+
+def lifetime_bound(use):
+    """A use that depends on the object outliving its block or being heap memory: freed, reallocated, returned or
+    assigned a new address."""
+    parent = use.parent
+    if parent.type == "argument_list":
+        call = parent.parent
+        return call.type == "call_expression" and text(call.children[0]) in ["free", "realloc"]
+    if parent.type == "return_statement":
+        return True
+    return parent.type == "assignment_expression" and parent.children[0] == use
+
+
+def size_bound(use):
+    """A use whose meaning depends on the object being an array: sizeof a, &a."""
+    parent = use.parent
+    while parent is not None and parent.type == "parenthesized_expression":
+        parent = parent.parent
+    return parent is not None and (
+        parent.type == "sizeof_expression" or (parent.type == "pointer_expression" and text(parent.children[0]) == "&")
+    )
+
+
+@guard("a local array used neither in sizeof nor with &, not static or extern (malloc would change its meaning)")
+def movable_array(node):
+    body = enclosing_function_body(node)
+    if body is None or any(child.type == "storage_class_specifier" for child in node.children):
+        return False
+    for child in node.children:
+        if child.type == "array_declarator" and any(size_bound(use) for use in name_uses(body, child.children[0].text)):
+            return False
+    return True
+
+
+@guard("a local malloc'd pointer that is never freed, reallocated, returned or reassigned (an array would not be)")
+def movable_allocation(node):
+    body = enclosing_function_body(node)
+    if body is None:
+        return False
+    for child in node.children:
+        if malloc_declarator(child):
+            pointer = child.children[0]
+            if len(pointer.children) != 2 or pointer.children[1].type != "identifier":
+                return False  # `T *const p`: qualified pointers keep no array spelling
+            if any(lifetime_bound(use) for use in name_uses(body, pointer.children[1].text)):
+                return False
+    return True
 
 
 @guard("declares an array of at most two dimensions")
@@ -637,7 +720,8 @@ def multi_name_declaration(node):
 
 def split_declaration(node, source):
     """int a, b; -> int a; / int b; (one line each; a struct/union/enum definition is never duplicated)"""
-    declarators = [child for child in node.children[1:-1] if child.type != ","]
+    # The declarator field, not every child after the first: `size_t const a = 1;` has a qualifier after its type.
+    declarators = node.children_by_field_name("declarator")
     if len(declarators) < 2:
         raise Reject("single declarator")
     if any(child.type == "ERROR" for child in node.children):
@@ -1252,6 +1336,46 @@ def expanded_junction(node):
     )
 
 
+@guard("not a template declaration misparsed as a comparison")
+def real_comparison(node):
+    """`std::set<std::string> names;` can parse as `std::set < std::string > names`: a comparison standing alone as
+    a statement, or a chained relational test, is such a misparse (rewriting it breaks the declaration)."""
+    if node.parent is not None and node.parent.type == "expression_statement":
+        return False
+    related = [node.children[0], node.children[-1], node.parent]
+    return not any(
+        other is not None
+        and other.type == "binary_expression"
+        and len(other.children) == 3
+        and text(other.children[1]) in RELATIONAL
+        for other in related
+    )
+
+
+IMPURE_EXPRESSIONS = ["call_expression", "assignment_expression", "update_expression", "comma_expression"]
+
+
+def expansion_safe(dialect):
+    """expcmp writes `a <= b` as `(a < b || a == b)`: both operands are evaluated twice, so they must be free of side
+    effects, and in C++ (overloaded operators need not form a total order consistent with ==) one of them must be a
+    number literal."""
+
+    def test(node):
+        if node.type == "parenthesized_expression":  # (a < b || a == b)
+            node = node.children[1].children[0]
+        operands = [node.children[0], node.children[2]]
+        for operand in operands:
+            stack = [operand]
+            while stack:
+                current = stack.pop()
+                if current.type in IMPURE_EXPRESSIONS:
+                    return False
+                stack.extend(current.children)
+        return dialect == "c" or any(operand.type == "number_literal" for operand in operands)
+
+    return guard("operands free of side effects" + ("" if dialect == "c" else ", one a number literal"))(test)
+
+
 def is_comparison(node):
     return (
         node.type == "binary_expression" and len(node.children) == 3 and text(node.children[1]) in EQUALITY + RELATIONAL
@@ -1823,18 +1947,22 @@ def c_family_rules(dialect):
     rules = {
         "2.1": nodes("assignment_expression").where(self_assignment).rule(to_compound),
         "2.2": compound.rule(from_compound),
-        "2.3": equality.where(~negated, binary).rule(negate_equality("==", "!=")),
+        "2.3": equality.where(~negated, binary, real_comparison).rule(negate_equality("==", "!=")),
         "2.4": negated_test("!=").rule(remove_negation("==")),
-        "2.5": equality.where(~negated, binary).rule(negate_equality("!=", "==")),
+        "2.5": equality.where(~negated, binary, real_comparison).rule(negate_equality("!=", "==")),
         "2.6": negated_test("==").rule(remove_negation("!=")),
-        "2.7": BINARY.where(operator_in(">", ">="), binary).rule(mirror({">": "<", ">=": "<="})),
-        "2.8": BINARY.where(operator_in("<", "<="), binary).rule(mirror({"<": ">", "<=": ">="})),
-        "2.9": BINARY.where(operator_in(*RELATIONAL), ~in_expanded_comparison, binary).rule(expand_comparison),
-        "2.10": nodes("parenthesized_expression").where(expanded_comparison).rule(contract_comparison),
-        "2.11": equality_any.where(binary).rule(hash_order("==", "!=", True)),
-        "2.12": equality_any.where(binary).rule(hash_order("==", "!=", False)),
-        "2.13": equality_any.where(binary).rule(hash_order("!=", "==", True)),
-        "2.14": equality_any.where(binary).rule(hash_order("!=", "==", False)),
+        "2.7": BINARY.where(operator_in(">", ">="), binary, real_comparison).rule(mirror({">": "<", ">=": "<="})),
+        "2.8": BINARY.where(operator_in("<", "<="), binary, real_comparison).rule(mirror({"<": ">", "<=": ">="})),
+        "2.9": BINARY.where(operator_in(*RELATIONAL), ~in_expanded_comparison, binary, real_comparison)
+        .where(expansion_safe(dialect))
+        .rule(expand_comparison),
+        "2.10": nodes("parenthesized_expression")
+        .where(expanded_comparison, expansion_safe(dialect))
+        .rule(contract_comparison),
+        "2.11": equality_any.where(binary, real_comparison).rule(hash_order("==", "!=", True)),
+        "2.12": equality_any.where(binary, real_comparison).rule(hash_order("==", "!=", False)),
+        "2.13": equality_any.where(binary, real_comparison).rule(hash_order("!=", "==", True)),
+        "2.14": equality_any.where(binary, real_comparison).rule(hash_order("!=", "==", False)),
         "3.1": nodes("update_expression")
         .where(update_outside_index_call_assignment, update_operand_at(0))
         .rule(to_prefix),
@@ -1886,12 +2014,13 @@ def c_family_rules(dialect):
                 .where(arrow_access, outside_pointer_arithmetic, outside_text_sensitive_operands)
                 .where(well_formed)
                 .rule(arrow_to_dereference),
-                "5.1": nodes("declaration").where(static_array_declaration).rule(static_to_dynamic),
+                "5.1": nodes("declaration").where(static_array_declaration, movable_array).rule(static_to_dynamic),
                 "5.2": nodes("declaration")
                 .where(
                     guard("malloc-initialised pointer")(
                         lambda node: any(malloc_declarator(child) for child in node.children)
-                    )
+                    ),
+                    movable_allocation,
                 )
                 .rule(dynamic_to_static),
                 "5.3": nodes("subscript_expression")
@@ -1909,3 +2038,241 @@ def c_family_rules(dialect):
 
 
 RULES = c_family_rules("c")
+
+
+# ---------------------------------------------------------------- extension rules (rule set "extended")
+#
+# Each pair is an exact inverse on the forms it accepts, and neither direction creates or removes a candidate of a
+# legacy pair: comparisons (equality, hash order, expcmp) and `a = a <op> b` are left alone, and in C the operands
+# of array subscripts and dereferences belong to the array/pointer rules (5.3/5.4).
+
+
+def return_value(node):
+    """The value of `return <value>;` when `return` and the value are separated by exactly one space, else None."""
+    values = [child for child in node.named_children if child.type != "comment"]
+    if len(values) != 1 or len(values) != len(node.named_children):
+        return None
+    value, keyword = values[0], node.children[0]
+    return value if node.text[keyword.end_byte - node.start_byte : value.start_byte - node.start_byte] == b" " else None
+
+
+def returns_decltype(node):
+    """Inside a function or lambda whose declared return type uses decltype (`return (x);` would return a reference)."""
+    parent = node.parent
+    while parent is not None and parent.type not in ["function_definition", "lambda_expression"]:
+        parent = parent.parent
+    if parent is None:
+        return False
+    body = parent.child_by_field_name("body")
+    return b"decltype" in parent.text[: (body.start_byte if body is not None else parent.end_byte) - parent.start_byte]
+
+
+UNPARENTHESIZABLE = ["parenthesized_expression", "initializer_list"]
+
+
+@guard("inside no comparison, also through enclosing lambdas")
+def outside_all_comparisons(node):
+    """The hash-order and expcmp rules read the whole text of comparison operands, which can hold lambdas with
+    statements of their own, so every ancestor counts (not only those up to the enclosing statement)."""
+    parent = node.parent
+    while parent is not None:
+        if is_comparison(parent) or expanded_junction(parent):
+            return False
+        parent = parent.parent
+    return True
+
+
+def logical(node):
+    """`a && b` / `a || b`: expcmp (2.10) reads `(a < b || a == b)` with its parentheses."""
+    return node.type == "binary_expression" and len(node.children) == 3 and text(node.children[1]) in ["&&", "||"]
+
+
+def holds_operation(node):
+    """A binary operation inside the operand, which could be a candidate of its own: one rewrite pass would then edit
+    nested text twice (`a[i + 1] + 2`), so neither is taken."""
+    stack = list(node.children)
+    while stack:
+        current = stack.pop()
+        if current.type == "binary_expression":
+            return True
+        stack.extend(current.children)
+    return False
+
+
+@guard("return E; with E not parenthesized, a braced list or && / ||")
+def plain_return(node):
+    value = return_value(node)
+    return (
+        value is not None and value.type not in UNPARENTHESIZABLE and not logical(value) and not returns_decltype(node)
+    )
+
+
+@guard("return (E); with the parentheses directly around E, not && / ||")
+def parenthesized_return(node):
+    value = return_value(node)
+    if value is None or value.type != "parenthesized_expression" or len(value.children) != 3:
+        return False
+    inner = value.children[1]
+    return (
+        inner.type not in UNPARENTHESIZABLE
+        and not logical(inner)
+        and value.text == b"(" + inner.text + b")"
+        and not returns_decltype(node)
+    )
+
+
+def add_return_parentheses(node, source):
+    """return E; -> return (E);"""
+    value = return_value(node)
+    return [insert_before(value, "("), insert_after(value, ")")]
+
+
+def drop_return_parentheses(node, source):
+    """return (E); -> return E;"""
+    value = return_value(node)
+    return [delete(value.children[0]), delete(value.children[2])]
+
+
+LITERAL_OPERATORS = ["+", "*"]
+
+
+def literal_operation(dialect, literal_left):
+    """`x <op> LITERAL` (literal_left=False) or `LITERAL <op> x` for + and *, with x a plain operand."""
+    atomic = ["identifier", "call_expression", "field_expression", "parenthesized_expression"]
+    if dialect != "c":
+        atomic.append("subscript_expression")
+
+    def test(node):
+        if len(node.children) != 3 or text(node.children[1]) not in LITERAL_OPERATORS:
+            return False
+        left, right = node.children[0], node.children[2]
+        literal, other = (left, right) if literal_left else (right, left)
+        if literal.type != "number_literal" or other.type not in atomic or holds_operation(other):
+            return False
+        parent = node.parent
+        if (
+            parent is not None
+            and parent.type == "assignment_expression"
+            and len(parent.children) == 3
+            and text(parent.children[1]) == "="
+            and text(parent.children[0]).strip() == text(other).strip()
+        ):
+            return False  # a = a + 1 / a = 1 + a: the compound-assignment rules read the operand order
+        if dialect == "c":
+            ancestor = parent
+            while ancestor is not None and not ancestor.type.endswith("statement"):
+                if ancestor.type in ["subscript_expression", "pointer_expression"]:
+                    return False
+                ancestor = ancestor.parent
+        return True
+
+    side = "literal first" if literal_left else "literal last"
+    return guard(f"{side} in + or * with a plain other operand (not a self-assignment)")(test)
+
+
+def swap_operands(node, source):
+    """x + 1 -> 1 + x (and back): the operands trade places, the operator and spacing stay."""
+    left, right = node.children[0], node.children[2]
+    return [replace(left, text(right)), replace(right, text(left))]
+
+
+COMPARING_OPERATORS = EQUALITY + RELATIONAL + ["&&", "||"]
+
+
+def assigned_value(node):
+    """The value of `x = value` / `T x = value` with one space after `=` and the value on one line, else None."""
+    if len(node.children) != 3 or node.children[1].type != "=":
+        return None
+    value = node.children[2]
+    gap = node.text[node.children[1].end_byte - node.start_byte : value.start_byte - node.start_byte]
+    return value if gap == b" " and b"\n" not in value.text else None
+
+
+def assigned_operation(dialect):
+    """`value` when it is an arithmetic or bitwise operation (no comparison or logic, and in C++ no << / >> that
+    stream rules read) neither of whose operands repeats the target (2.x reads `a = a <op> b`), else None."""
+    excluded = COMPARING_OPERATORS + (["<<", ">>"] if dialect != "c" else [])
+
+    def test(node, value):
+        if value is None or value.type != "binary_expression" or len(value.children) != 3:
+            return None
+        if text(value.children[1]) in excluded:
+            return None
+        target = text(node.children[0]).strip()
+        return None if target in [text(value.children[0]).strip(), text(value.children[2]).strip()] else value
+
+    return test
+
+
+def assignment_parentheses(dialect, parenthesized):
+    operation = assigned_operation(dialect)
+
+    def test(node):
+        value = assigned_value(node)
+        if not parenthesized:
+            return operation(node, value) is not None
+        if value is None or value.type != "parenthesized_expression" or len(value.children) != 3:
+            return False
+        return value.text == b"(" + value.children[1].text + b")" and operation(node, value.children[1]) is not None
+
+    form = "x = (a <op> b)" if parenthesized else "x = a <op> b"
+    return guard(f"{form}: an arithmetic or bitwise operation not repeating x")(test)
+
+
+def drop_assigned_parentheses(node, source):
+    value = assigned_value(node)
+    return [delete(value.children[0]), delete(value.children[2])]
+
+
+def add_assigned_parentheses(node, source):
+    value = assigned_value(node)
+    return [insert_before(value, "("), insert_after(value, ")")]
+
+
+ASSIGNMENTS = Matcher("[(assignment_expression) (init_declarator)] @node")
+
+
+def c_extension_rules(dialect, operand_guards=()):
+    rules = {
+        "40.1": nodes("return_statement")
+        .where(parenthesized_return, outside_all_comparisons)
+        .where(well_formed)
+        .rule(drop_return_parentheses),
+        "40.2": nodes("return_statement")
+        .where(plain_return, outside_all_comparisons)
+        .where(well_formed)
+        .rule(add_return_parentheses),
+        "41.1": BINARY.where(literal_operation(dialect, True), outside_all_comparisons, *operand_guards)
+        .where(well_formed)
+        .rule(swap_operands),
+        "41.2": BINARY.where(literal_operation(dialect, False), outside_all_comparisons, *operand_guards)
+        .where(well_formed)
+        .rule(swap_operands),
+        "45.1": ASSIGNMENTS.where(assignment_parentheses(dialect, True), outside_all_comparisons)
+        .where(well_formed)
+        .rule(drop_assigned_parentheses),
+        "45.2": ASSIGNMENTS.where(assignment_parentheses(dialect, False), outside_all_comparisons)
+        .where(well_formed)
+        .rule(add_assigned_parentheses),
+    }
+    if dialect != "c":
+        # Range-for bodies only: the C loop rules (7.x) read the bodies of for, while and do loops.
+        rules["46.1"] = (
+            nodes("for_range_loop")
+            .where(
+                guard("braced simple body")(lambda node: braced_layout(node, "compound_statement") is not None),
+                outside_all_comparisons,
+            )
+            .where(well_formed)
+            .rule(drop_braces("compound_statement"))
+        )
+        rules["46.2"] = (
+            nodes("for_range_loop")
+            .where(guard("brace-less simple body")(lambda node: bare_layout(node) is not None), outside_all_comparisons)
+            .where(well_formed)
+            .rule(add_braces)
+        )
+    return rules
+
+
+EXTENSION_RULES = c_extension_rules("c")

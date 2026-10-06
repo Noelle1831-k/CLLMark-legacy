@@ -46,9 +46,8 @@ from pathlib import Path
 from typing import NamedTuple
 
 from . import bch
-from .directories import SUPPORT_FILE, load_project, read_support
+from .directories import SUPPORT_FILE, load_project, read_support, support_transformer
 from .rules.engine import Edit, Grammar, apply_groups, changes_beyond_whitespace, edited_tree
-from .rules.pairs import WATERMARK_PAIRS
 from .source_io import reload_written, write_source
 from .transform import StyleTransformer
 from .watermark import DETECT_ONLY, project_order
@@ -198,7 +197,7 @@ def analyze(transformer: StyleTransformer, language: str, files: Mapping[str, st
     """
     groups = []
     for name in project_order(files):
-        for pair, styles in WATERMARK_PAIRS[language].items():
+        for pair, styles in transformer.pairs.items():
             try:
                 found = sites(transformer, styles, files[name])
             except Exception:  # a rule that raises makes the pair unusable, as a raising probe does per file
@@ -238,7 +237,7 @@ def analyze(transformer: StyleTransformer, language: str, files: Mapping[str, st
 def read(transformer: StyleTransformer, language: str, files: Mapping[str, str], slot: Slot) -> int | None:
     """The bit a slot holds, or None when its site is missing or reads nothing."""
     name, pair, index = slot
-    found = sites(transformer, WATERMARK_PAIRS[language][pair], files[name])
+    found = sites(transformer, transformer.pairs[pair], files[name])
     return found[index].reading if index < len(found) else None
 
 
@@ -323,7 +322,7 @@ def place(
     Returns {file: text to write} for the changed files and, for every assigned slot, the slot of the same node in
     the marked code (None when the node was lost or does not read its bit).
     """
-    pairs = WATERMARK_PAIRS[language]
+    pairs = transformer.pairs
     by_file: dict[str, list[tuple[Slot, int]]] = {}
     for slot, bit in assignments:
         by_file.setdefault(slot[0], []).append((slot, bit))
@@ -433,7 +432,7 @@ def extract(
 
 def flip(transformer: StyleTransformer, language: str, code: str, pair: str, index: int) -> str | None:
     """`code` with the one site rewritten to its other reading, or None when that site cannot be rewritten."""
-    found = sites(transformer, WATERMARK_PAIRS[language][pair], code)
+    found = sites(transformer, transformer.pairs[pair], code)
     if index >= len(found) or not found[index].usable:
         return None
     return apply_groups(code.encode("utf-8"), [found[index].group])[0].decode("utf-8")
@@ -477,7 +476,7 @@ def embed_directory(
 ) -> list[str]:
     """Embed into the analyzed directory in place; its support then holds the slots that carry the codeword, indexed
     in the marked code, and the number of analysis slots repair dropped. Returns the names of the files rewritten."""
-    transformer = transformer or StyleTransformer(language)
+    transformer = transformer or support_transformer(language, read_support(directory))
     slots = _read_slots(directory)
     files = load_project(directory, {name for name, _, _ in slots})
     written, carried, dropped = embed(transformer, language, files, slots, bits)
@@ -491,6 +490,6 @@ def extract_directory(
     directory, language: str, bits: Sequence[int], transformer: StyleTransformer | None = None
 ) -> tuple[bool, bool]:
     """Check the embedded directory for the codeword of `bits`: (message matches, raw codeword matches)."""
-    transformer = transformer or StyleTransformer(language)
+    transformer = transformer or support_transformer(language, read_support(directory))
     slots = _read_slots(directory)[: bch.CODE_LENGTH]
     return extract(transformer, language, load_project(directory, {name for name, _, _ in slots}), slots, bits)

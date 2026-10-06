@@ -26,10 +26,14 @@ def initialize_worker(run_dir, manifest):
     """Worker of both stages: the engine measures watermarks with functional tests deferred; `functional_unit` runs them.
 
     Runs with "slot_granularity": "node" use the standalone node engine (`node_engine`); others the legacy engine.
+    Runs with "rule_set": "extended" use the same engine on the extended rule set (`rule_sets`).
     """
-    from . import node_engine
+    from . import node_engine, rule_sets
 
-    if node_engine.granularity(manifest.get("config", {})) == "node":
+    config = manifest.get("config", {})
+    if rule_sets.rule_set(config) != "legacy":
+        rule_sets.initialize_worker(run_dir, manifest)
+    elif node_engine.granularity(config) == "node":
         node_engine.initialize_worker(run_dir, manifest)
     else:
         engine.initialize_worker(run_dir, manifest)

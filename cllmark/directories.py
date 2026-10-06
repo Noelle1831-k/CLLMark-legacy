@@ -12,6 +12,7 @@ from collections.abc import Iterable, Sequence
 from pathlib import Path
 
 from . import watermark
+from .rules.pairs import rule_set_of
 from .source_io import read_source, write_source
 from .transform import StyleTransformer
 
@@ -33,6 +34,15 @@ def read_support(directory: PathLike) -> watermark.Support:
     return json.loads((Path(directory) / SUPPORT_FILE).read_text(encoding="utf-8"))
 
 
+def support_transformer(language: str, support) -> StyleTransformer:
+    """A transformer of the rule set that a stored analysis (file or node granularity) names its pairs from."""
+    if isinstance(support, dict) and support.get("granularity") == "node":
+        pairs = [pair for _, pair, _ in support["slots"]]
+    else:
+        pairs = [pair for names in support.values() for pair in names]
+    return StyleTransformer(language, rule_set=rule_set_of(language, pairs))
+
+
 def analyze_directory(directory: PathLike, language: str, transformer: StyleTransformer | None = None) -> int:
     """Analyze the project, store the result in its support file and return its capacity (number of usable slots)."""
     transformer = transformer or StyleTransformer(language)
@@ -46,8 +56,8 @@ def embed_directory(
     directory: PathLike, language: str, bits: Sequence[int], transformer: StyleTransformer | None = None
 ) -> list[str]:
     """Embed the codeword of `bits` into the analyzed project in place; returns the names of the files rewritten."""
-    transformer = transformer or StyleTransformer(language)
     support = read_support(directory)
+    transformer = transformer or support_transformer(language, support)
     files = load_project(directory, watermark.slot_files(support, bits))
     written = watermark.embed(transformer, language, files, support, bits)
     for name, code in written.items():
@@ -59,7 +69,7 @@ def extract_directory(
     directory: PathLike, language: str, bits: Sequence[int], transformer: StyleTransformer | None = None
 ) -> tuple[bool, bool]:
     """Check the analyzed project for the codeword of `bits`: (message matches, raw codeword matches)."""
-    transformer = transformer or StyleTransformer(language)
     support = read_support(directory)
+    transformer = transformer or support_transformer(language, support)
     files = load_project(directory, watermark.slot_files(support, bits))
     return watermark.extract(transformer, language, files, support, bits)

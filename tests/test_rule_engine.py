@@ -215,8 +215,9 @@ class GoldenRewriteTests(unittest.TestCase):
         "python": [
             ("1.1", "print(x)\n", "print(x, flush=True)\n"),
             ("1.2", "print(flush=True, end='')\n", "print(end='')\n"),
-            ("7.3", "y = a == b\n", "y = not (a != b)\n"),
-            ("7.4", "y = not (a != b)\n", "y = a == b\n"),
+            # Truth-tested comparisons only: `y = a == b` may be an element-wise array mask.
+            ("7.3", "if a == b: pass\n", "if not (a != b): pass\n"),
+            ("7.4", "if not (a != b): pass\n", "if a == b: pass\n"),
             ("7.10", "if (x < 3 or x == 3): pass\n", "if x <= 3: pass\n"),
             ("10.2", "def f():\n    return (a, b)\n", "def f():\n    return a, b\n"),
         ],

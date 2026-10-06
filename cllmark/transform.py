@@ -15,6 +15,7 @@ from pathlib import Path
 from types import ModuleType
 
 from .rules.engine import Grammar
+from .rules.pairs import RULE_SETS, watermark_pairs
 
 LANGUAGES = ("python", "c", "cpp", "javascript")
 REPOSITORY = Path(__file__).resolve().parents[1]
@@ -40,19 +41,29 @@ def load_rules(language: str) -> ModuleType:
 
 
 @cache
-def load_grammar(library: str, language: str) -> Grammar:
-    """Parser and compiled query for every rule (and target-form matcher) of `language`."""
-    rules = load_rules(language).RULES.values()
+def rule_table(language: str, rule_set: str = "legacy") -> dict:
+    """Style id -> rule of a rule set: the language's RULES, plus its EXTENSION_RULES for "extended"."""
+    module = load_rules(language)
+    if rule_set not in RULE_SETS:
+        raise ValueError(f"rule_set must be one of {RULE_SETS}: {rule_set!r}")
+    return module.RULES if rule_set == "legacy" else {**module.RULES, **module.EXTENSION_RULES}
+
+
+@cache
+def load_grammar(library: str, language: str, rule_set: str = "legacy") -> Grammar:
+    """Parser and compiled query for every rule (and target-form matcher) of `language` in a rule set."""
+    rules = rule_table(language, rule_set).values()
     return Grammar(library, language, [matcher for rule in rules for matcher in (rule, rule.target) if matcher])
 
 
 class StyleTransformer:
     """Applies the style rules of one language to source text."""
 
-    def __init__(self, language: str, cache_size: int = 1024):
-        self.language = language
-        self.rules = load_rules(language).RULES
-        self.grammar = load_grammar(library_path(language), language)
+    def __init__(self, language: str, cache_size: int = 1024, rule_set: str = "legacy"):
+        self.language, self.rule_set = language, rule_set
+        self.rules = rule_table(language, rule_set)
+        self.grammar = load_grammar(library_path(language), language, rule_set)
+        self.pairs = watermark_pairs(language, rule_set)  # watermark rule pairs of the rule set, in slot order
         # (style, code) -> (rewritten code, candidates, changed beyond whitespace). Rewrites are deterministic, and the
         # pipeline repeats them: analysis probes both styles of every pair, then property checks and extraction apply
         # the same ones again.

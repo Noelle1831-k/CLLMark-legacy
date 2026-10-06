@@ -21,10 +21,12 @@ import hashlib
 import re
 from collections import OrderedDict
 
+from .braces import add_braces, bare_layout, braced_layout, drop_braces
 from .engine import (
     Edit,
     Matcher,
     Reject,
+    delete,
     delete_between,
     guard,
     insert_after,
@@ -1883,4 +1885,220 @@ RULES = {
     .where(shorthand_property, outside_equality_operands)
     .where(well_formed)
     .rule(lambda node, source: [replace(node, f"{text(node)}: {text(node)}")]),
+}
+
+
+# ---------------------------------------------------------------- extension rules (rule set "extended")
+#
+# Exact inverses that create or remove no candidate of a legacy pair: comparison operands (hash order, literal
+# mirroring), bracket-access strings (19.x reads double quotes) and the sole return of an arrow body (24.x) are left
+# alone. Commutation is only for *, which converts both operands to numbers; + may concatenate strings.
+
+
+@guard("inside no comparison, also through enclosing functions")
+def outside_comparison_operands(node):
+    """The hash-order and literal-mirroring rules read the whole text of comparison operands, which can hold
+    functions with statements of their own, so every ancestor counts."""
+    parent = node.parent
+    while parent is not None:
+        if parent.type == "binary_expression" and operator(parent) in EQUALITY + RELATIONAL:
+            return False
+        parent = parent.parent
+    return True
+
+
+def return_value(node):
+    """The value of `return <value>` when `return` and the value are separated by exactly one space, else None."""
+    values = [child for child in node.named_children if child.type != "comment"]
+    if len(values) != 1 or len(values) != len(node.named_children):
+        return None
+    value, keyword = values[0], node.children[0]
+    return value if node.text[keyword.end_byte - node.start_byte : value.start_byte - node.start_byte] == b" " else None
+
+
+def sole_arrow_return(node):
+    block = node.parent
+    return (
+        block is not None
+        and block.type == "statement_block"
+        and block.parent is not None
+        and block.parent.type == "arrow_function"
+        and len(block.named_children) == 1
+    )
+
+
+@guard("return E with E not parenthesized, not the sole return of an arrow body")
+def plain_return(node):
+    value = return_value(node)
+    return value is not None and value.type != "parenthesized_expression" and not sole_arrow_return(node)
+
+
+@guard("return (E) with the parentheses directly around E, not the sole return of an arrow body")
+def parenthesized_return(node):
+    value = return_value(node)
+    if value is None or value.type != "parenthesized_expression" or len(value.children) != 3:
+        return False
+    inner = value.children[1]
+    return (
+        inner.type != "parenthesized_expression"
+        and value.text == b"(" + inner.text + b")"
+        and not sole_arrow_return(node)
+    )
+
+
+def add_return_parentheses(node, source):
+    """return E -> return (E)   (E starts on the line of `return`, so no semicolon is inserted after it)"""
+    value = return_value(node)
+    return [insert_before(value, "("), insert_after(value, ")")]
+
+
+def drop_return_parentheses(node, source):
+    """return (E) -> return E"""
+    value = return_value(node)
+    return [delete(value.children[0]), delete(value.children[2])]
+
+
+PLAIN_OPERANDS = [
+    "identifier",
+    "call_expression",
+    "subscript_expression",
+    "member_expression",
+    "parenthesized_expression",
+]
+
+
+def holds_operation(node):
+    """A binary operation inside the operand, which could be a candidate of its own: one rewrite pass would then edit
+    nested text twice (`a[i * 2] * 3`), so neither is taken."""
+    stack = list(node.children)
+    while stack:
+        current = stack.pop()
+        if current.type == "binary_expression":
+            return True
+        stack.extend(current.children)
+    return False
+
+
+def literal_product(literal_left):
+    def test(node):
+        if operator(node) != "*" or len(node.children) != 3:
+            return False
+        literal, other = (node.children[0], node.children[2]) if literal_left else (node.children[2], node.children[0])
+        if literal.type != "number" or other.type not in PLAIN_OPERANDS or holds_operation(other):
+            return False
+        parent = node.parent  # a = a * 2: the compound-assignment rule (2.1) reads the operand order
+        return not (
+            parent is not None
+            and parent.type == "assignment_expression"
+            and text(parent.child_by_field_name("left")).strip() == text(other).strip()
+        )
+
+    return guard(
+        ("literal first" if literal_left else "literal last") + " in a product with a plain operand (not a = a * 2)"
+    )(test)
+
+
+def commute(node, source):
+    """x * 2 -> 2 * x (and back): the operands trade places, the operator and spacing stay (`swap_operands` rejects a
+    swap whose text would fuse with its surroundings)."""
+    return swap_operands(source, node.child_by_field_name("left"), node.child_by_field_name("right"))
+
+
+def quoted_with(quote):
+    """A plain string literal in `quote` quotes: no quotes, backslashes or line breaks inside, not a bracket index."""
+
+    def test(node):
+        value = node.text
+        if len(value) < 2 or value[:1] != quote or value[-1:] != quote:
+            return False
+        if any(character in value[1:-1] for character in (b"'", b'"', b"\\", b"\n", b"\r")):
+            return False
+        parent = node.parent
+        if parent is not None and parent.type in ["import_statement", "export_statement"]:
+            return False  # module specifiers: build tools and test harnesses match their text
+        if parent is not None and parent.type == "arguments" and parent.parent.type == "call_expression":
+            callee = parent.parent.child_by_field_name("function")
+            if callee is not None and callee.text in [b"require", b"import"]:
+                return False
+        return not (parent is not None and parent.type == "subscript_expression")
+
+    return guard(f"plain {quote.decode()}-quoted string, not a bracket index or module specifier")(test)
+
+
+def requote(quote):
+    return lambda node, source: [replace(node, quote + text(node)[1:-1] + quote)]
+
+
+UNPARENTHESIZED_OPERATORS = EQUALITY + RELATIONAL + list(LOGICAL) + ["**", "in", "instanceof"]
+
+
+def assigned_value(node):
+    """The value of `x = value` / `let x = value` with one space after `=` and the value on one line, else None."""
+    if len(node.children) != 3 or node.children[1].type != "=":
+        return None
+    value = node.children[2]
+    gap = node.text[node.children[1].end_byte - node.start_byte : value.start_byte - node.start_byte]
+    return value if gap == b" " and b"\n" not in value.text else None
+
+
+def assigned_operation(node, value):
+    """`value` when it is an arithmetic or bitwise operation neither of whose operands repeats the target, else None:
+    comparisons and logic belong to the comparison and logical-assignment rules, ** to the power rule (27.x)."""
+    if value is None or value.type != "binary_expression" or operator(value) in UNPARENTHESIZED_OPERATORS:
+        return None
+    if b"**" in value.text:  # the power rule (27.x) reads where a ** operation stands
+        return None
+    target = text(node.children[0]).strip()
+    operands = [value.child_by_field_name("left"), value.child_by_field_name("right")]
+    return None if any(operand is None or text(operand).strip() == target for operand in operands) else value
+
+
+def assignment_parentheses(parenthesized):
+    def test(node):
+        value = assigned_value(node)
+        if not parenthesized:
+            return assigned_operation(node, value) is not None
+        if value is None or value.type != "parenthesized_expression" or len(value.children) != 3:
+            return False
+        return value.text == b"(" + value.children[1].text + b")" and assigned_operation(node, value.children[1])
+
+    form = "x = (a <op> b)" if parenthesized else "x = a <op> b"
+    return guard(f"{form}: an arithmetic or bitwise operation not repeating x")(test)
+
+
+ASSIGNMENTS = Matcher("[(assignment_expression) (variable_declarator)] @node")
+LOOPS = Matcher("[(for_statement) (for_in_statement) (while_statement)] @node")
+SAME_LINE_ONLY = ["for_statement", "while_statement"]  # loop_form (7.x) reads `while (c) S` with one space
+
+EXTENSION_RULES = {
+    "40.1": nodes("return_statement")
+    .where(parenthesized_return, outside_comparison_operands)
+    .where(well_formed)
+    .rule(drop_return_parentheses),
+    "40.2": nodes("return_statement")
+    .where(plain_return, outside_comparison_operands)
+    .where(well_formed)
+    .rule(add_return_parentheses),
+    "41.1": BINARY.where(literal_product(True), outside_comparison_operands).where(well_formed).rule(commute),
+    "41.2": BINARY.where(literal_product(False), outside_comparison_operands).where(well_formed).rule(commute),
+    "44.1": nodes("string").where(quoted_with(b'"'), outside_comparison_operands).where(well_formed).rule(requote("'")),
+    "44.2": nodes("string").where(quoted_with(b"'"), outside_comparison_operands).where(well_formed).rule(requote('"')),
+    "45.1": ASSIGNMENTS.where(assignment_parentheses(True), outside_comparison_operands)
+    .where(well_formed)
+    .rule(lambda node, source: [delete(assigned_value(node).children[0]), delete(assigned_value(node).children[2])]),
+    "45.2": ASSIGNMENTS.where(assignment_parentheses(False), outside_comparison_operands)
+    .where(well_formed)
+    .rule(lambda node, source: [insert_before(assigned_value(node), "("), insert_after(assigned_value(node), ")")]),
+    "46.1": LOOPS.where(
+        guard("braced simple body")(lambda node: braced_layout(node, "statement_block", SAME_LINE_ONLY) is not None),
+        outside_comparison_operands,
+    )
+    .where(well_formed)
+    .rule(drop_braces("statement_block")),
+    "46.2": LOOPS.where(
+        guard("brace-less simple body")(lambda node: bare_layout(node, SAME_LINE_ONLY) is not None),
+        outside_comparison_operands,
+    )
+    .where(well_formed)
+    .rule(add_braces),
 }

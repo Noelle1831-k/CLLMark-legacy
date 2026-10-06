@@ -2,7 +2,7 @@
 
 import re
 
-from .c import array_dimension, c_family_rules, contain_id, nodes, outside_text_sensitive_operands
+from .c import array_dimension, c_extension_rules, c_family_rules, contain_id, nodes, outside_text_sensitive_operands
 from .engine import Reject, guard, replace, text, well_formed
 
 FORMAT_SPECIFIER = re.compile(r"%[-+]?\d*\.*\d*[cCdiouxXeEfgGsSpn]")
@@ -287,3 +287,7 @@ RULES = {
     "9.3": call_to("scanf").where(well_formed).rule(scanf_to_cin),
     "9.4": nodes("expression_statement").where(cin_statement).where(well_formed).rule(cin_to_scanf),
 }
+
+
+# Rule set "extended" (see c.c_extension_rules); operands of stream insertions belong to the iostream rules.
+EXTENSION_RULES = c_extension_rules("cpp", (not_stream_operand,))

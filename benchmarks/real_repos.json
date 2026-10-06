@@ -1,0 +1,275 @@
+{
+  "description": "Real ~100k-line repositories for tools/repo_check.py: pinned commits, the sources a watermark may rewrite, and the build and test commands of each variant. {env} is the repository's environment directory in the cache, {threads} the threads of one variant, {python} the interpreter running the check. critical_styles: the styles the default quick mode stresses (every extension style, and legacy styles that broke these repositories before their fixes). smoke_test: the few-second subset `tools/repo_check.py instant` runs. syntax_check: the compiler command (reading the file from stdin, {dir} its directory) that confirms a C/C++ syntax regression the tree-sitter check reports.",
+  "repositories": [
+    {
+      "name": "networkx",
+      "language": "python",
+      "url": "https://github.com/networkx/networkx",
+      "tag": "networkx-3.4.2",
+      "commit": "2acf1590f82757c01a57b81b8c5dfb79e60aa416",
+      "sources": {
+        "include": [
+          "networkx/*.py"
+        ],
+        "exclude": [
+          "*/tests/*",
+          "networkx/conftest.py"
+        ]
+      },
+      "setup": [
+        [
+          "{python}",
+          "-m",
+          "venv",
+          "{env}/venv"
+        ],
+        [
+          "{env}/venv/bin/pip",
+          "install",
+          "-q",
+          "pytest==9.1.1",
+          "pytest-xdist==3.8.0",
+          "execnet==2.1.2",
+          "iniconfig==2.3.0",
+          "packaging==26.2",
+          "pluggy==1.6.0",
+          "numpy==2.2.6",
+          "scipy==1.15.3",
+          "pandas==2.2.3",
+          "python-dateutil==2.9.0.post0",
+          "pytz==2026.2",
+          "six==1.17.0",
+          "tzdata==2025.2"
+        ]
+      ],
+      "build": [],
+      "test": [
+        "{env}/venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-x",
+        "-n",
+        "{threads}",
+        "-p",
+        "no:cacheprovider",
+        "networkx"
+      ],
+      "timeout_seconds": 900,
+      "smoke_test": [
+        "{env}/venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-x",
+        "-n",
+        "{threads}",
+        "-p",
+        "no:cacheprovider",
+        "networkx/classes",
+        "networkx/algorithms/shortest_paths",
+        "networkx/algorithms/centrality"
+      ]
+    },
+    {
+      "name": "zstd",
+      "language": "c",
+      "url": "https://github.com/facebook/zstd",
+      "tag": "v1.5.6",
+      "commit": "794ea1b0afca0f020f4e57b6732332231fb23c70",
+      "sources": {
+        "include": [
+          "lib/*.c",
+          "lib/*.h",
+          "programs/*.c",
+          "programs/*.h"
+        ],
+        "exclude": []
+      },
+      "setup": [],
+      "build": [
+        [
+          "make",
+          "-s",
+          "-j{threads}",
+          "-C",
+          "programs",
+          "zstd"
+        ]
+      ],
+      "test": [
+        "make",
+        "-s",
+        "check"
+      ],
+      "timeout_seconds": 900,
+      "smoke_test": [
+        "sh",
+        "-c",
+        "programs/zstd -qf -19 lib/zstd.h -o $TMPDIR/a.zst && programs/zstd -qdf $TMPDIR/a.zst -o $TMPDIR/a && cmp lib/zstd.h $TMPDIR/a && programs/zstd -q -b1e3 -i0 lib/zstd.h"
+      ],
+      "syntax_check": [
+        "gcc",
+        "-fsyntax-only",
+        "-Ilib",
+        "-Ilib/common",
+        "-x",
+        "c",
+        "-iquote",
+        "{dir}",
+        "-"
+      ]
+    },
+    {
+      "name": "cppcheck",
+      "language": "cpp",
+      "url": "https://github.com/danmar/cppcheck",
+      "tag": "2.16.0",
+      "commit": "02be7e6e0c35a8b2e46df30b0387beff5c58acb0",
+      "sources": {
+        "include": [
+          "lib/*.cpp",
+          "cli/*.cpp"
+        ],
+        "exclude": []
+      },
+      "setup": [],
+      "build": [
+        [
+          "make",
+          "-s",
+          "-j{threads}",
+          "testrunner"
+        ]
+      ],
+      "test": [
+        "./testrunner",
+        "-q"
+      ],
+      "timeout_seconds": 1200,
+      "smoke_test": [
+        "./testrunner",
+        "-q",
+        "TestTokenizer",
+        "TestSymbolDatabase"
+      ],
+      "syntax_check": [
+        "g++",
+        "-fsyntax-only",
+        "-std=c++11",
+        "-Ilib",
+        "-isystem",
+        "externals",
+        "-isystem",
+        "externals/picojson",
+        "-isystem",
+        "externals/simplecpp",
+        "-isystem",
+        "externals/tinyxml2",
+        "-x",
+        "c++",
+        "-iquote",
+        "{dir}",
+        "-"
+      ]
+    },
+    {
+      "name": "mathjs",
+      "language": "javascript",
+      "url": "https://github.com/josdejong/mathjs",
+      "tag": "v13.2.0",
+      "commit": "0c9c4971ae9a7618f42710ad0534a813d92592ce",
+      "sources": {
+        "include": [
+          "src/*.js"
+        ],
+        "exclude": []
+      },
+      "setup": [
+        [
+          "npm",
+          "ci",
+          "--ignore-scripts",
+          "--no-audit",
+          "--no-fund"
+        ],
+        [
+          "sh",
+          "-c",
+          "mkdir -p {env} && rm -rf {env}/node_modules && mv node_modules {env}/node_modules && ln -s {env}/node_modules node_modules"
+        ]
+      ],
+      "build": [],
+      "test": [
+        "node_modules/.bin/mocha",
+        "test/unit-tests"
+      ],
+      "timeout_seconds": 900,
+      "smoke_test": [
+        "node_modules/.bin/mocha",
+        "test/unit-tests/expression",
+        "test/unit-tests/function/arithmetic"
+      ]
+    }
+  ],
+  "critical_styles": {
+    "python": [
+      "6.1",
+      "6.2",
+      "7.1",
+      "7.2",
+      "7.3",
+      "7.5",
+      "7.9",
+      "10.2",
+      "40.1",
+      "40.2",
+      "41.1",
+      "41.2",
+      "42.1",
+      "42.2",
+      "43.1",
+      "43.2",
+      "45.1",
+      "45.2"
+    ],
+    "c": [
+      "4.1",
+      "5.1",
+      "5.2",
+      "6.1",
+      "40.1",
+      "40.2",
+      "41.1",
+      "41.2",
+      "45.1",
+      "45.2"
+    ],
+    "cpp": [
+      "2.7",
+      "2.9",
+      "4.1",
+      "6.1",
+      "40.1",
+      "40.2",
+      "41.1",
+      "41.2",
+      "45.1",
+      "45.2",
+      "46.1",
+      "46.2"
+    ],
+    "javascript": [
+      "40.1",
+      "40.2",
+      "41.1",
+      "41.2",
+      "44.1",
+      "44.2",
+      "45.1",
+      "45.2",
+      "46.1",
+      "46.2"
+    ]
+  }
+}

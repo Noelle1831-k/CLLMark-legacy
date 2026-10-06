@@ -1,7 +1,7 @@
 BENCH_PYTHON ?= .venv-benchmark/bin/python
 RUFF ?= .venv-benchmark/bin/ruff
 
-.PHONY: benchmark-ram corpus setup-benchmark setup-javascript setup-dev doctor inventory test lint format perf smoke benchmark baseline watch-benchmark progress code-map
+.PHONY: repo-setup repo-instant repo-check benchmark-ram corpus setup-benchmark setup-javascript setup-dev doctor inventory test lint format perf smoke benchmark baseline watch-benchmark progress code-map
 
 corpus:
 	git submodule update --init corpus
@@ -35,6 +35,15 @@ format:
 
 perf:
 	$(BENCH_PYTHON) tools/perf_benchmark.py
+
+repo-setup:
+	$(BENCH_PYTHON) tools/repo_check.py setup
+
+repo-instant:
+	$(BENCH_PYTHON) tools/repo_check.py instant
+
+repo-check:
+	$(BENCH_PYTHON) tools/repo_check.py run
 
 smoke: code-map
 	$(BENCH_PYTHON) tools/research_loop.py loop --limit 2

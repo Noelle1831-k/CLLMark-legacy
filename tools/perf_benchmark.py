@@ -6,8 +6,8 @@ The workload mirrors the per-unit work of the evaluation loop without functional
 flip attacks), on a fixed random sample of every cohort of benchmarks/config.json.
 
 Usage:
-    tools/perf_benchmark.py [--per-cohort 12] [--repeat 3] [--granularity file|node] [--json results.json]
-        [--profile profile.txt]
+    tools/perf_benchmark.py [--per-cohort 12] [--repeat 3] [--granularity file|node] [--rule-set legacy|extended]
+        [--json results.json] [--profile profile.txt]
 
 Run it with the interpreter under test (for example .venv-benchmark/bin/python). Results report the interpreter, the
 wall time per phase (best of --repeat), process startup (fresh interpreter: import and one transformer per language)
@@ -51,13 +51,15 @@ def sample_units(per_cohort, seed):
 
 
 class Workload:
-    def __init__(self, units, granularity="file"):
+    def __init__(self, units, granularity="file", rule_set="legacy"):
         from benchmarks.common import unit_file_names
         from cllmark import source_io
         from cllmark.transform import StyleTransformer
 
         self.units, self.granularity = units, granularity
-        self.transformers = {language: StyleTransformer(language) for language in {unit["language"] for unit in units}}
+        self.transformers = {
+            language: StyleTransformer(language, rule_set=rule_set) for language in {unit["language"] for unit in units}
+        }
         self.files = []
         for unit in units:
             names = unit_file_names(unit)
@@ -126,10 +128,9 @@ class Workload:
 
     def evaluate(self, language, files):
         from cllmark import bch, source_io, watermark
-        from cllmark.rules.pairs import WATERMARK_PAIRS
 
         transformer, bits = self.transformers[language], [1, 0, 1, 0]
-        pairs = WATERMARK_PAIRS[language]
+        pairs = transformer.pairs
         support = self.timed("analysis", watermark.analyze, transformer, language, files)
         slots = [(name, pair, bit, pairs[pair][bit]) for name, pair, bit in watermark.slots(support, bch.encode(bits))]
         self.timed("properties", self.properties, transformer, pairs, files, support, slots)
@@ -195,6 +196,7 @@ def main():
     parser.add_argument("--seed", type=int, default=7, help="sampling seed")
     parser.add_argument("--repeat", type=int, default=3, help="workload repetitions (best is reported)")
     parser.add_argument("--granularity", choices=["file", "node"], default="file", help="watermark slot granularity")
+    parser.add_argument("--rule-set", choices=["legacy", "extended"], default="legacy", help="rule pairs to use")
     parser.add_argument("--json", type=Path, help="write the results as JSON")
     parser.add_argument("--profile", type=Path, help="write a cProfile report of one repetition")
     args = parser.parse_args()
@@ -207,7 +209,7 @@ def main():
     units = sample_units(args.per_cohort, args.seed)
     best = None
     for repetition in range(args.repeat):
-        workload = Workload(units, args.granularity)
+        workload = Workload(units, args.granularity, args.rule_set)
         started = time.perf_counter()
         if args.profile and repetition == 0:
             import cProfile
@@ -228,6 +230,7 @@ def main():
     result = {
         "python": f"{platform.python_implementation()} {platform.python_version()}",
         "granularity": args.granularity,
+        "rule_set": args.rule_set,
         "units": len(units),
         "seconds": round(best[0], 2) if best else None,
         "phases": {

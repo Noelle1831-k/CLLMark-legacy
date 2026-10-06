@@ -6,6 +6,7 @@
 
 - 修改核心算法、规则、BCH、实验脚本、评估协议或依赖后，使用 `.venv-benchmark` 执行 `make smoke`，修复运行框架问题，再执行一次 `make benchmark`。最终代码版本必须有对应的全量结果，抽样不能替代全量。
 - `make benchmark` 会更新代码索引、运行流程测试、冻结源码和输入、执行配置中的全部实验单元并对照固定基线。报告 run_id、源码摘要、样本数量、门禁结论及覆盖缺口；算法失败应保留并解释，不能以删除样本来处理。
+- 水印方法复杂，语料单元之外还要在真实的 10 万行级代码仓库上验证功能保持：修改规则、嵌入/提取算法或规则集后，执行 `make repo-setup`（首次）、`make repo-instant`（约 11 秒）与 `make repo-check`（约 7 分钟）；新增规则时再运行一次 `tools/repo_check.py run --mode all --bisect`。它对 `benchmarks/real_repos.json` 中固定提交的仓库分别嵌入水印并逐条规则全仓改写，构建并运行各仓库自带的测试（见 `docs/REAL_REPOS.md`）。任何失败变体都要定位到规则并修复或说明原因，不能删除仓库、测试或改写样本来通过。
 - 仅文档排版或说明文字变化，不需要重复运行全量实验。影响执行的 `AGENTS.md`、Makefile、`pyproject.toml` 和配置已纳入源码版本摘要。
 - 首次建立参考使用 `make baseline`。后续基线仅在明确选定实验结果后通过 `tools/research_loop.py baseline RUN_DIRECTORY` 提升；禁止自动把失败的新结果覆盖到基线。
 - 不覆盖 `corpus/`（数据子模块，含 `dataset/`、`*_func` 等原始语料）。实验使用评估循环的每次运行工作副本；目录级操作使用 `python -m cllmark`（输入目录只读，`embed` 写到新目录）。
