@@ -1,0 +1,219 @@
+scope	name	units	files	lines_total	lines_min	lines_median	lines_p90	lines_max	capacity_median	capacity_p90	eligible_units	eligible_fraction	clean_test_seconds	tested_fraction_median	extra
+cohort	mbjsp_generated	112	112	1110	3	8.0	16	110	3.0	5	5	0.045			
+cohort	mbjsp_human	938	938	7846	3	8.0	15	30	2.0	5	7	0.007			
+cohort	js_projects	4	28	4615	170	268.5	3908	3908	10.5	140	4	1.0			
+cohort	js_repos	14	165	59025	1141	3243.0	6224	17209	55.5	201	14	1.0		0.982	
+cohort	js_repo_files	84	84	56761	80	221.5	952	17209	11.0	15	73	0.869		0.996	
+cohort	exercism_js	100	100	5989	20	49.0	113	194	6.0	10	41	0.41			
+repository	express	9	12	4152	116	304	1179	1179	10	15	8	0.889	2.21	1.0	v4.22.3 899b52494e74 MIT; project capacity 101; file units 9
+repository	ws	10	14	4960	131	411.0	1421	1421	13.5	15	10	1.0	2.11	1.0	8.22.0 297202cdae9b MIT; project capacity 143; file units 10
+repository	semver	8	49	2648	82	209.0	577	577	10.0	14	5	0.625	5.34	1.0	v7.8.5 6e05b7637396 ISC; project capacity 201; file units 8
+repository	qs	3	5	1213	378	388	413	413	17	17	3	1.0	0.66	1.0	v6.16.0 bb9379e01fad BSD-3-Clause; project capacity 55; file units 3
+repository	commander	5	7	3672	101	330	2509	2509	13	20	5	1.0	4.99	0.969	v12.1.0 970ecae402b2 MIT; project capacity 69; file units 5
+repository	body-parser	6	6	1141	105	180.5	303	303	9.5	13	5	0.833	1.2	1.0	1.20.8 5c08c2008eac MIT; project capacity 56; file units 6
+repository	markdown-it	28	53	6224	80	146.5	331	565	9.0	13	22	0.786	2.11	1.0	14.3.2 efb9993124c3 MIT; project capacity 366; file units 28
+repository	fast-xml-parser	8	12	2500	89	221.5	761	761	14.0	19	8	1.0	3.27	0.924	v4.5.7 49a12f10e9a4 MIT; project capacity 124; file units 8
+repository	decimal.js	1	1	4951	4951	4951	4951	4951	15	15	1	1.0	1.16	0.97	v10.6.0 1a6e845004b2 MIT; project capacity 15; file units 1
+repository	bignumber.js	1	1	2922	2922	2922	2922	2922	15	15	1	1.0	0.84	0.941	v9.3.1 a7bc1f175c1e MIT; project capacity 15; file units 1
+repository	escodegen	1	1	2667	2667	2667	2667	2667	15	15	1	1.0	1.46	0.968	v2.1.0 899cfdf5dc99 BSD-2-Clause; project capacity 15; file units 1
+repository	ejs	2	2	1202	250	601.0	952	952	12.5	16	2	1.0	1.16	0.936	v3.1.10 d3f807dea9ce Apache-2.0; project capacity 25; file units 2
+repository	bn.js	1	1	3564	3564	3564	3564	3564	16	16	1	1.0	0.67	0.917	v5.2.5 eb2e57c4e50a MIT; project capacity 16; file units 1
+repository	lodash	1	1	17209	17209	17209	17209	17209	15	15	1	1.0	9.66	0.995	4.17.21 f299b52f3948 MIT; project capacity 15; file units 1
+unit	js_repos/bignumber.js	1	1	2922	2922	2922	2922	2922	15	15	1	1.0		0.941	
+unit	js_repos/bn.js	1	1	3564	3564	3564	3564	3564	16	16	1	1.0		0.917	
+unit	js_repos/body-parser	1	6	1141	1141	1141	1141	1141	56	56	1	1.0		1.0	
+unit	js_repos/commander	1	7	3672	3672	3672	3672	3672	69	69	1	1.0		0.969	
+unit	js_repos/decimal.js	1	1	4951	4951	4951	4951	4951	15	15	1	1.0		0.97	
+unit	js_repos/ejs	1	2	1202	1202	1202	1202	1202	25	25	1	1.0		0.936	
+unit	js_repos/escodegen	1	1	2667	2667	2667	2667	2667	15	15	1	1.0		0.968	
+unit	js_repos/express	1	12	4152	4152	4152	4152	4152	101	101	1	1.0		1.0	
+unit	js_repos/fast-xml-parser	1	12	2500	2500	2500	2500	2500	124	124	1	1.0		0.924	
+unit	js_repos/lodash	1	1	17209	17209	17209	17209	17209	15	15	1	1.0		0.995	
+unit	js_repos/markdown-it	1	53	6224	6224	6224	6224	6224	366	366	1	1.0		1.0	
+unit	js_repos/qs	1	5	1213	1213	1213	1213	1213	55	55	1	1.0		1.0	
+unit	js_repos/semver	1	49	2648	2648	2648	2648	2648	201	201	1	1.0		1.0	
+unit	js_repos/ws	1	14	4960	4960	4960	4960	4960	143	143	1	1.0		1.0	
+unit	js_repo_files/bignumber.js/bignumber.js	1	1	2922	2922	2922	2922	2922	15	15	1	1.0		0.941	
+unit	js_repo_files/bn.js/lib/bn.js	1	1	3564	3564	3564	3564	3564	16	16	1	1.0		0.917	
+unit	js_repo_files/body-parser/index.js	1	1	156	156	156	156	156	5	5	0	0.0		1.0	
+unit	js_repo_files/body-parser/lib/read.js	1	1	205	205	205	205	205	10	10	1	1.0		1.0	
+unit	js_repo_files/body-parser/lib/types/json.js	1	1	247	247	247	247	247	11	11	1	1.0		0.994	
+unit	js_repo_files/body-parser/lib/types/raw.js	1	1	105	105	105	105	105	8	8	1	1.0		1.0	
+unit	js_repo_files/body-parser/lib/types/text.js	1	1	125	125	125	125	125	9	9	1	1.0		1.0	
+unit	js_repo_files/body-parser/lib/types/urlencoded.js	1	1	303	303	303	303	303	13	13	1	1.0		0.995	
+unit	js_repo_files/commander/lib/argument.js	1	1	149	149	149	149	149	8	8	1	1.0		0.938	
+unit	js_repo_files/commander/lib/command.js	1	1	2509	2509	2509	2509	2509	20	20	1	1.0		0.923	
+unit	js_repo_files/commander/lib/help.js	1	1	520	520	520	520	520	13	13	1	1.0		0.969	
+unit	js_repo_files/commander/lib/option.js	1	1	330	330	330	330	330	13	13	1	1.0		0.946	
+unit	js_repo_files/commander/lib/suggestSimilar.js	1	1	101	101	101	101	101	9	9	1	1.0		1.0	
+unit	js_repo_files/decimal.js/decimal.js	1	1	4951	4951	4951	4951	4951	15	15	1	1.0		0.97	
+unit	js_repo_files/ejs/lib/ejs.js	1	1	952	952	952	952	952	16	16	1	1.0		0.966	
+unit	js_repo_files/ejs/lib/utils.js	1	1	250	250	250	250	250	9	9	1	1.0		0.907	
+unit	js_repo_files/escodegen/escodegen.js	1	1	2667	2667	2667	2667	2667	15	15	1	1.0		0.968	
+unit	js_repo_files/express/lib/application.js	1	1	661	661	661	661	661	12	12	1	1.0		0.997	
+unit	js_repo_files/express/lib/express.js	1	1	116	116	116	116	116	3	3	0	0.0		1.0	
+unit	js_repo_files/express/lib/request.js	1	1	525	525	525	525	525	10	10	1	1.0		0.999	
+unit	js_repo_files/express/lib/response.js	1	1	1179	1179	1179	1179	1179	15	15	1	1.0		0.996	
+unit	js_repo_files/express/lib/router/index.js	1	1	673	673	673	673	673	15	15	1	1.0		0.997	
+unit	js_repo_files/express/lib/router/layer.js	1	1	181	181	181	181	181	10	10	1	1.0		0.998	
+unit	js_repo_files/express/lib/router/route.js	1	1	230	230	230	230	230	11	11	1	1.0		1.0	
+unit	js_repo_files/express/lib/utils.js	1	1	304	304	304	304	304	7	7	1	1.0		1.0	
+unit	js_repo_files/express/lib/view.js	1	1	182	182	182	182	182	7	7	1	1.0		0.998	
+unit	js_repo_files/fast-xml-parser/src/util.js	1	1	89	89	89	89	89	9	9	1	1.0		0.788	
+unit	js_repo_files/fast-xml-parser/src/validator.js	1	1	425	425	425	425	425	14	14	1	1.0		0.986	
+unit	js_repo_files/fast-xml-parser/src/xmlbuilder/json2xml.js	1	1	293	293	293	293	293	14	14	1	1.0		0.884	
+unit	js_repo_files/fast-xml-parser/src/xmlbuilder/orderedJs2Xml.js	1	1	150	150	150	150	150	14	14	1	1.0		0.942	
+unit	js_repo_files/fast-xml-parser/src/xmlparser/DocTypeReader.js	1	1	409	409	409	409	409	14	14	1	1.0		0.587	
+unit	js_repo_files/fast-xml-parser/src/xmlparser/OptionsBuilder.js	1	1	146	146	146	146	146	7	7	1	1.0		0.738	
+unit	js_repo_files/fast-xml-parser/src/xmlparser/OrderedObjParser.js	1	1	761	761	761	761	761	19	19	1	1.0		0.912	
+unit	js_repo_files/fast-xml-parser/src/xmlparser/node2json.js	1	1	113	113	113	113	113	11	11	1	1.0		0.992	
+unit	js_repo_files/lodash/lodash.js	1	1	17209	17209	17209	17209	17209	15	15	1	1.0		0.995	
+unit	js_repo_files/markdown-it/lib/common/utils.mjs	1	1	324	324	324	324	324	12	12	1	1.0		0.921	
+unit	js_repo_files/markdown-it/lib/index.mjs	1	1	565	565	565	565	565	6	6	0	0.0		0.956	
+unit	js_repo_files/markdown-it/lib/parser_block.mjs	1	1	134	134	134	134	134	7	7	1	1.0		0.989	
+unit	js_repo_files/markdown-it/lib/parser_inline.mjs	1	1	197	197	197	197	197	6	6	0	0.0		1.0	
+unit	js_repo_files/markdown-it/lib/presets/commonmark.mjs	1	1	88	88	88	88	88	0	0	0	0.0		1.0	
+unit	js_repo_files/markdown-it/lib/renderer.mjs	1	1	322	322	322	322	322	12	12	1	1.0		0.949	
+unit	js_repo_files/markdown-it/lib/ruler.mjs	1	1	340	340	340	340	340	7	7	1	1.0		0.999	
+unit	js_repo_files/markdown-it/lib/rules_block/blockquote.mjs	1	1	209	209	209	209	209	9	9	1	1.0		0.999	
+unit	js_repo_files/markdown-it/lib/rules_block/fence.mjs	1	1	94	94	94	94	94	10	10	1	1.0		1.0	
+unit	js_repo_files/markdown-it/lib/rules_block/html_block.mjs	1	1	80	80	80	80	80	5	5	0	0.0		0.991	
+unit	js_repo_files/markdown-it/lib/rules_block/lheading.mjs	1	1	85	85	85	85	85	6	6	0	0.0		0.994	
+unit	js_repo_files/markdown-it/lib/rules_block/list.mjs	1	1	331	331	331	331	331	13	13	1	1.0		0.999	
+unit	js_repo_files/markdown-it/lib/rules_block/reference.mjs	1	1	212	212	212	212	212	13	13	1	1.0		0.956	
+unit	js_repo_files/markdown-it/lib/rules_block/state_block.mjs	1	1	220	220	220	220	220	11	11	1	1.0		0.996	
+unit	js_repo_files/markdown-it/lib/rules_block/table.mjs	1	1	228	228	228	228	228	12	12	1	1.0		0.996	
+unit	js_repo_files/markdown-it/lib/rules_core/linkify.mjs	1	1	160	160	160	160	160	11	11	1	1.0		0.995	
+unit	js_repo_files/markdown-it/lib/rules_core/replacements.mjs	1	1	101	101	101	101	101	8	8	1	1.0		0.996	
+unit	js_repo_files/markdown-it/lib/rules_core/smartquotes.mjs	1	1	230	230	230	230	230	14	14	1	1.0		0.997	
+unit	js_repo_files/markdown-it/lib/rules_inline/balance_pairs.mjs	1	1	124	124	124	124	124	9	9	1	1.0		1.0	
+unit	js_repo_files/markdown-it/lib/rules_inline/emphasis.mjs	1	1	123	123	123	123	123	12	12	1	1.0		1.0	
+unit	js_repo_files/markdown-it/lib/rules_inline/escape.mjs	1	1	83	83	83	83	83	11	11	1	1.0		0.898	
+unit	js_repo_files/markdown-it/lib/rules_inline/image.mjs	1	1	138	138	138	138	138	9	9	1	1.0		0.943	
+unit	js_repo_files/markdown-it/lib/rules_inline/link.mjs	1	1	139	139	139	139	139	8	8	1	1.0		1.0	
+unit	js_repo_files/markdown-it/lib/rules_inline/linkify.mjs	1	1	81	81	81	81	81	8	8	1	1.0		0.981	
+unit	js_repo_files/markdown-it/lib/rules_inline/state_inline.mjs	1	1	154	154	154	154	154	10	10	1	1.0		0.979	
+unit	js_repo_files/markdown-it/lib/rules_inline/strikethrough.mjs	1	1	127	127	127	127	127	12	12	1	1.0		1.0	
+unit	js_repo_files/markdown-it/lib/rules_inline/text.mjs	1	1	86	86	86	86	86	5	5	0	0.0		1.0	
+unit	js_repo_files/markdown-it/lib/token.mjs	1	1	191	191	191	191	191	7	7	1	1.0		0.987	
+unit	js_repo_files/qs/lib/parse.js	1	1	413	413	413	413	413	17	17	1	1.0		1.0	
+unit	js_repo_files/qs/lib/stringify.js	1	1	378	378	378	378	378	16	16	1	1.0		1.0	
+unit	js_repo_files/qs/lib/utils.js	1	1	388	388	388	388	388	17	17	1	1.0		1.0	
+unit	js_repo_files/semver/bin/semver.js	1	1	195	195	195	195	195	12	12	1	1.0		0.508	
+unit	js_repo_files/semver/classes/comparator.js	1	1	143	143	143	143	143	9	9	1	1.0		1.0	
+unit	js_repo_files/semver/classes/range.js	1	1	577	577	577	577	577	14	14	1	1.0		1.0	
+unit	js_repo_files/semver/classes/semver.js	1	1	350	350	350	350	350	12	12	1	1.0		1.0	
+unit	js_repo_files/semver/index.js	1	1	93	93	93	93	93	2	2	0	0.0		1.0	
+unit	js_repo_files/semver/internal/re.js	1	1	223	223	223	223	223	4	4	0	0.0		1.0	
+unit	js_repo_files/semver/ranges/outside.js	1	1	82	82	82	82	82	5	5	0	0.0		1.0	
+unit	js_repo_files/semver/ranges/subset.js	1	1	249	249	249	249	249	11	11	1	1.0		1.0	
+unit	js_repo_files/ws/lib/buffer-util.js	1	1	131	131	131	131	131	9	9	1	1.0		0.982	
+unit	js_repo_files/ws/lib/event-target.js	1	1	292	292	292	292	292	10	10	1	1.0		1.0	
+unit	js_repo_files/ws/lib/extension.js	1	1	203	203	203	203	203	14	14	1	1.0		1.0	
+unit	js_repo_files/ws/lib/permessage-deflate.js	1	1	530	530	530	530	530	14	14	1	1.0		0.998	
+unit	js_repo_files/ws/lib/receiver.js	1	1	743	743	743	743	743	13	13	1	1.0		1.0	
+unit	js_repo_files/ws/lib/sender.js	1	1	607	607	607	607	607	15	15	1	1.0		1.0	
+unit	js_repo_files/ws/lib/stream.js	1	1	161	161	161	161	161	8	8	1	1.0		1.0	
+unit	js_repo_files/ws/lib/validation.js	1	1	152	152	152	152	152	11	11	1	1.0		0.906	
+unit	js_repo_files/ws/lib/websocket-server.js	1	1	562	562	562	562	562	14	14	1	1.0		0.997	
+unit	js_repo_files/ws/lib/websocket.js	1	1	1421	1421	1421	1421	1421	14	14	1	1.0		0.996	
+unit	exercism_js/affine-cipher	1	1	100	100	100	100	100	13	13	1	1.0			
+unit	exercism_js/all-your-base	1	1	50	50	50	50	50	10	10	1	1.0			
+unit	exercism_js/allergies	1	1	26	26	26	26	26	7	7	1	1.0			
+unit	exercism_js/alphametics	1	1	71	71	71	71	71	10	10	1	1.0			
+unit	exercism_js/bank-account	1	1	55	55	55	55	55	3	3	0	0.0			
+unit	exercism_js/beer-song	1	1	51	51	51	51	51	6	6	0	0.0			
+unit	exercism_js/binary-search-tree	1	1	47	47	47	47	47	4	4	0	0.0			
+unit	exercism_js/bob	1	1	20	20	20	20	20	4	4	0	0.0			
+unit	exercism_js/book-store	1	1	62	62	62	62	62	10	10	1	1.0			
+unit	exercism_js/bottle-song	1	1	38	38	38	38	38	8	8	1	1.0			
+unit	exercism_js/bowling	1	1	158	158	158	158	158	6	6	0	0.0			
+unit	exercism_js/camicia	1	1	73	73	73	73	73	10	10	1	1.0			
+unit	exercism_js/change	1	1	128	128	128	128	128	9	9	1	1.0			
+unit	exercism_js/circular-buffer	1	1	45	45	45	45	45	4	4	0	0.0			
+unit	exercism_js/clock	1	1	42	42	42	42	42	7	7	1	1.0			
+unit	exercism_js/complex-numbers	1	1	45	45	45	45	45	3	3	0	0.0			
+unit	exercism_js/connect	1	1	74	74	74	74	74	9	9	1	1.0			
+unit	exercism_js/crypto-square	1	1	64	64	64	64	64	8	8	1	1.0			
+unit	exercism_js/custom-set	1	1	60	60	60	60	60	5	5	0	0.0			
+unit	exercism_js/diamond	1	1	35	35	35	35	35	7	7	1	1.0			
+unit	exercism_js/difference-of-squares	1	1	25	25	25	25	25	3	3	0	0.0			
+unit	exercism_js/diffie-hellman	1	1	120	120	120	120	120	5	5	0	0.0			
+unit	exercism_js/dnd-character	1	1	36	36	36	36	36	6	6	0	0.0			
+unit	exercism_js/dominoes	1	1	58	58	58	58	58	9	9	1	1.0			
+unit	exercism_js/error-handling	1	1	26	26	26	26	26	6	6	0	0.0			
+unit	exercism_js/flower-field	1	1	56	56	56	56	56	5	5	0	0.0			
+unit	exercism_js/food-chain	1	1	99	99	99	99	99	4	4	0	0.0			
+unit	exercism_js/forth	1	1	106	106	106	106	106	10	10	1	1.0			
+unit	exercism_js/game-of-life	1	1	52	52	52	52	52	9	9	1	1.0			
+unit	exercism_js/go-counting	1	1	144	144	144	144	144	12	12	1	1.0			
+unit	exercism_js/grade-school	1	1	35	35	35	35	35	4	4	0	0.0			
+unit	exercism_js/grains	1	1	28	28	28	28	28	3	3	0	0.0			
+unit	exercism_js/grep	1	1	125	125	125	125	125	11	11	1	1.0			
+unit	exercism_js/high-scores	1	1	20	20	20	20	20	3	3	0	0.0			
+unit	exercism_js/house	1	1	60	60	60	60	60	6	6	0	0.0			
+unit	exercism_js/killer-sudoku-helper	1	1	28	28	28	28	28	8	8	1	1.0			
+unit	exercism_js/kindergarten-garden	1	1	54	54	54	54	54	4	4	0	0.0			
+unit	exercism_js/knapsack	1	1	21	21	21	21	21	5	5	0	0.0			
+unit	exercism_js/largest-series-product	1	1	29	29	29	29	29	7	7	1	1.0			
+unit	exercism_js/ledger	1	1	99	99	99	99	99	9	9	1	1.0			
+unit	exercism_js/lens-person	1	1	39	39	39	39	39	2	2	0	0.0			
+unit	exercism_js/line-up	1	1	25	25	25	25	25	6	6	0	0.0			
+unit	exercism_js/linked-list	1	1	113	113	113	113	113	9	9	1	1.0			
+unit	exercism_js/list-ops	1	1	118	118	118	118	118	7	7	1	1.0			
+unit	exercism_js/luhn	1	1	26	26	26	26	26	6	6	0	0.0			
+unit	exercism_js/markdown	1	1	55	55	55	55	55	4	4	0	0.0			
+unit	exercism_js/matching-brackets	1	1	22	22	22	22	22	7	7	1	1.0			
+unit	exercism_js/matrix	1	1	25	25	25	25	25	4	4	0	0.0			
+unit	exercism_js/meetup	1	1	60	60	60	60	60	6	6	0	0.0			
+unit	exercism_js/minesweeper	1	1	56	56	56	56	56	5	5	0	0.0			
+unit	exercism_js/nth-prime	1	1	32	32	32	32	32	8	8	1	1.0			
+unit	exercism_js/ocr-numbers	1	1	52	52	52	52	52	7	7	1	1.0			
+unit	exercism_js/palindrome-products	1	1	38	38	38	38	38	8	8	1	1.0			
+unit	exercism_js/parallel-letter-frequency	1	1	48	48	48	48	48	5	5	0	0.0			
+unit	exercism_js/pascals-triangle	1	1	25	25	25	25	25	7	7	1	1.0			
+unit	exercism_js/perfect-numbers	1	1	49	49	49	49	49	7	7	1	1.0			
+unit	exercism_js/phone-number	1	1	40	40	40	40	40	6	6	0	0.0			
+unit	exercism_js/point-mutations	1	1	24	24	24	24	24	6	6	0	0.0			
+unit	exercism_js/poker	1	1	194	194	194	194	194	9	9	1	1.0			
+unit	exercism_js/prism	1	1	41	41	41	41	41	4	4	0	0.0			
+unit	exercism_js/promises	1	1	46	46	46	46	46	5	5	0	0.0			
+unit	exercism_js/protein-translation	1	1	45	45	45	45	45	6	6	0	0.0			
+unit	exercism_js/proverb	1	1	30	30	30	30	30	5	5	0	0.0			
+unit	exercism_js/pythagorean-triplet	1	1	49	49	49	49	49	6	6	0	0.0			
+unit	exercism_js/queen-attack	1	1	72	72	72	72	72	6	6	0	0.0			
+unit	exercism_js/rail-fence-cipher	1	1	52	52	52	52	52	11	11	1	1.0			
+unit	exercism_js/rational-numbers	1	1	88	88	88	88	88	11	11	1	1.0			
+unit	exercism_js/react	1	1	113	113	113	113	113	8	8	1	1.0			
+unit	exercism_js/rectangles	1	1	44	44	44	44	44	5	5	0	0.0			
+unit	exercism_js/relative-distance	1	1	52	52	52	52	52	9	9	1	1.0			
+unit	exercism_js/resistor-color-trio	1	1	83	83	83	83	83	5	5	0	0.0			
+unit	exercism_js/rest-api	1	1	101	101	101	101	101	8	8	1	1.0			
+unit	exercism_js/robot-name	1	1	68	68	68	68	68	5	5	0	0.0			
+unit	exercism_js/robot-simulator	1	1	86	86	86	86	86	4	4	0	0.0			
+unit	exercism_js/roman-numerals	1	1	28	28	28	28	28	5	5	0	0.0			
+unit	exercism_js/saddle-points	1	1	28	28	28	28	28	5	5	0	0.0			
+unit	exercism_js/satellite	1	1	32	32	32	32	32	5	5	0	0.0			
+unit	exercism_js/say	1	1	82	82	82	82	82	6	6	0	0.0			
+unit	exercism_js/scale-generator	1	1	49	49	49	49	49	4	4	0	0.0			
+unit	exercism_js/scrabble-score	1	1	36	36	36	36	36	2	2	0	0.0			
+unit	exercism_js/series	1	1	41	41	41	41	41	8	8	1	1.0			
+unit	exercism_js/sieve	1	1	33	33	33	33	33	6	6	0	0.0			
+unit	exercism_js/simple-cipher	1	1	36	36	36	36	36	5	5	0	0.0			
+unit	exercism_js/simple-linked-list	1	1	47	47	47	47	47	4	4	0	0.0			
+unit	exercism_js/space-age	1	1	21	21	21	21	21	3	3	0	0.0			
+unit	exercism_js/spiral-matrix	1	1	37	37	37	37	37	6	6	0	0.0			
+unit	exercism_js/split-second-stopwatch	1	1	77	77	77	77	77	6	6	0	0.0			
+unit	exercism_js/square-root	1	1	20	20	20	20	20	6	6	0	0.0			
+unit	exercism_js/state-of-tic-tac-toe	1	1	42	42	42	42	42	8	8	1	1.0			
+unit	exercism_js/tournament	1	1	80	80	80	80	80	5	5	0	0.0			
+unit	exercism_js/triangle	1	1	36	36	36	36	36	7	7	1	1.0			
+unit	exercism_js/trinary	1	1	24	24	24	24	24	7	7	1	1.0			
+unit	exercism_js/twelve-days	1	1	46	46	46	46	46	2	2	0	0.0			
+unit	exercism_js/two-bucket	1	1	110	110	110	110	110	11	11	1	1.0			
+unit	exercism_js/variable-length-quantity	1	1	50	50	50	50	50	6	6	0	0.0			
+unit	exercism_js/word-search	1	1	145	145	145	145	145	15	15	1	1.0			
+unit	exercism_js/wordy	1	1	42	42	42	42	42	6	6	0	0.0			
+unit	exercism_js/yacht	1	1	106	106	106	106	106	10	10	1	1.0			
+unit	exercism_js/zebra-puzzle	1	1	179	179	179	179	179	6	6	0	0.0			
+unit	exercism_js/zipper	1	1	86	86	86	86	86	5	5	0	0.0			
