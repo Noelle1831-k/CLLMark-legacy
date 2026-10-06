@@ -121,3 +121,34 @@ js-yaml 的性质探测中可逆失败 14/272：declare 8、reverse_compare 2、
 ### S3. 项目测试日志位置（工程改动，允许修改 `benchmarks/utility.py`）
 
 `benchmarks/utility.py` 约 221 行项目测试以 `cwd=cache/project` 运行，`test-attempt-*.stdout/stderr` 写在 `cache/project/` 下，而约 108 行 `evaluate_utility` 只收集缓存根目录的日志，导致 js_projects 单元 `.utility/` 中只有 result.json。修正为把日志写到缓存根目录（或收集时包含 project 子目录），使每单元目录中保留失败证据；增加/调整对应测试。该改动改变 utility.py 摘要（缓存键与协议指纹），由于 cllmark-3 尚无参考运行，可以接受。
+
+## v2（主会话审查 `3311ba7f` 后）
+
+v1 已合并进 `claude/admiring-merkle-4012a5`（`8246e38d`）。MBJSP 可嵌入仍为 1.1%。采纳待决问题中的 2 与 3，拒绝 1（单语句体加/去花括号只改变语法外形，不涉及语义变换，属于目标明确禁止的格式类改写）。
+
+### V1. `function_arrow`（30.1 / 30.2）
+
+`recv.m(function (p) { … })` ↔ `recv.m((p) => { … })`。
+
+- 只匹配作为 `call_expression` 实参、且被调方是 `member_expression`、属性名属于 `map filter forEach reduce reduceRight some every find findIndex findLast findLastIndex flatMap sort` 的回调（这些方法以普通调用方式调用回调，从不 `new`，也不读取 `prototype`）。
+- function 方向：匿名 `function`（不是 `generator_function`，没有名字），`async` 保留为 `async (p) => {…}`。
+- 函数体（包括嵌套的箭头函数，不包括嵌套的普通函数、方法、类）中不出现 `this`、`arguments`、`super`、`new.target`；形参默认值中同样不出现。
+- 与 24.x 区域互斥：两种形式的函数体都不能是单行 `{ return e; }`（否则箭头形式会成为 24.1 候选）。与 18.x：FUNCTIONS 同时匹配两种形式，候选性不变，审计复核。
+- 输出格式固定：`function (a, b) {` ↔ `(a, b) => {`（单个形参也加括号），函数体文本原样保留，保证可逆。只接受与对方写法一致的布局。
+
+### V2. `empty_array`（31.1 / 31.2）与 `empty_object`（32.1 / 32.2）
+
+`[]` ↔ `new Array()`；`{}` ↔ `new Object()`。
+
+- 文件中没有名为 `Array` / `Object` 的绑定。
+- 只匹配表达式位置、无元素的 `array` / 无属性且无注释的 `object`，以及无实参的 `new_expression`（`new Array()`，括号必须存在；`new Array` 无括号不匹配）。
+- 不匹配：作为 `member_expression`/`subscript_expression`/`call_expression` 的对象或函数的（`[].concat`、`new Array().fill` 的优先级不同）；箭头函数简洁体 `() => ({})` 内的；解构模式中的。
+- 与 23.x、19.x、6.x 等审计复核干扰为 0。
+
+### V3. 其他
+
+- `property_shorthand` 的比特顺序改为常见形式为比特 0（`forms.tsv` 中 2 vs 7）。
+- 更新 `docs/RULES.md` 的 JavaScript 部分（规则数、每个新规则一行，按现有体例）。
+- 比特顺序按 3.8 的原则统计；重跑全部 JavaScript 审计（含 js-projects 与扩展审计）、功能抽检与容量统计（S2 表，给出 v1 → v2 的可嵌入单元数）。
+
+验收同 v1：所有规则对幂等/可逆/语法/干扰为 0，功能抽检 0 回退，测试全部通过。每个新规则至少一个正例与一个反例（含 `this` 的回调、`new Array(3)`、`[].length`、`() => ({})`、`let Array = …`）。在同一分支追加提交。
