@@ -248,7 +248,13 @@ class UtilityExecutionTests(unittest.TestCase):
             (directory / "index.js").write_text(original)
             self.assertEqual(evaluate_utility(unit, directory, {}, CONFIG, directory, environment, directory / "cache")["status"], "PASS")
             (directory / "index.js").write_text(original.replace("Math.floor", "Math.ceil"))
-            self.assertEqual(evaluate_utility(unit, directory, {}, CONFIG, directory, environment, directory / "cache")["status"], "FAIL")
+            failed = evaluate_utility(unit, directory, {}, CONFIG, directory, environment, directory / "cache")
+            self.assertEqual(failed["status"], "FAIL")
+            # The failing suite's output is kept with the unit and in the cache entry, not inside the project copy.
+            evidence = directory / ".utility"
+            self.assertIn("failing", (evidence / "test-attempt-1.stdout").read_text() + (evidence / "test-attempt-1.stderr").read_text())
+            self.assertEqual(list((Path(failed["artifacts"]) / "project").glob("test-attempt-*")), [])
+            self.assertTrue((Path(failed["artifacts"]) / "test-attempt-1.stdout").exists())
 
     def test_cpp_body_reconstruction_uses_official_signature(self):
         problem = {"prompt": "#include <bits/stdc++.h>\nusing namespace std;\nint add(int a,int b){\n", "entry_point": "add", "test": "int main(){return add(2,3)==5?0:1;}"}

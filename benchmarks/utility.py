@@ -35,9 +35,11 @@ def subprocess_limits():
     resource.setrlimit(resource.RLIMIT_FSIZE, (16 * 1024 * 1024, 16 * 1024 * 1024))
 
 
-def run_process(command, directory, timeout, stem, env=None):
+def run_process(command, directory, timeout, stem, env=None, log_directory=None):
+    """Run `command` in `directory`; stdout/stderr go to `log_directory` (default: `directory`)."""
     directory = Path(directory)
-    stdout_path, stderr_path = directory / (stem + ".stdout"), directory / (stem + ".stderr")
+    logs = Path(log_directory) if log_directory is not None else directory
+    stdout_path, stderr_path = logs / (stem + ".stdout"), logs / (stem + ".stderr")
     started = time.perf_counter()
     timed_out = False
     with stdout_path.open("wb") as stdout, stderr_path.open("wb") as stderr:
@@ -61,10 +63,10 @@ def run_process(command, directory, timeout, stem, env=None):
             "stdout": str(stdout_path), "stderr": str(stderr_path)}
 
 
-def run_test(command, directory, timeout, retries, env):
+def run_test(command, directory, timeout, retries, env, log_directory=None):
     attempts = []
     for index in range(retries + 1):
-        result = run_process(command, directory, timeout, f"test-attempt-{index + 1}", env)
+        result = run_process(command, directory, timeout, f"test-attempt-{index + 1}", env, log_directory)
         attempts.append(result)
         if not result["timed_out"]:
             break
@@ -218,8 +220,10 @@ def _evaluate_project_tests(unit, directory, config, environment, cache_root):
         for path, blob in files.items():
             (checkout / path).write_bytes(blob)
         base = {"project": name, "cache_key": key, "cache_hit": False, "artifacts": str(cache), "test_kind": "project_test_suite"}
+        # The suite runs inside the project copy, but its logs belong in the cache entry itself, where
+        # evaluate_utility collects test*.stdout/stderr into the unit's .utility directory.
         tested = run_test(project["test"], checkout, config["project_test_timeout_seconds"], config.get("test_timeout_retries", 0),
-                          {**os.environ, "NODE_ENV": "test"})
+                          {**os.environ, "NODE_ENV": "test"}, log_directory=cache)
         status = "TIMEOUT" if tested["timed_out"] else "PASS" if tested["returncode"] == 0 else "FAIL"
         result = {**base, "status": status, "test": tested}
         if status != "TIMEOUT":

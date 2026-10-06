@@ -14,6 +14,11 @@ files of the configured cohorts:
                 extraction assumes pairs do not affect each other).
 
 Usage: tools/rule_audit.py --language python [--pairs name ...] [--against all|audited] [--limit N]
+                           [--extra-root DIR ...] [--examples N]
+
+For JavaScript the pinned project checkouts of the benchmark cache (.benchmark-cache/js-projects, without
+node_modules, test and dist directories) are audited in addition to the configured cohorts; their files
+that equal a cohort file are counted once. --extra-root adds more source trees for any language.
 """
 
 import argparse
@@ -31,19 +36,33 @@ sys.path.insert(0, str(ROOT))
 STATE = {}
 
 
-def corpus(language, limit):
+EXCLUDED_DIRECTORIES = {'node_modules', 'test', 'tests', 'dist', '.git'}
+DEFAULT_EXTRA_ROOTS = {'javascript': ['.benchmark-cache/js-projects']}
+
+
+def extra_sources(language, roots):
+    """Source files below `roots` (relative to the repository), skipping dependency, test and build output."""
+    from benchmarks.common import EXTENSIONS
+    found = []
+    for root in roots:
+        for directory, names, filenames in os.walk(ROOT / root):
+            names[:] = sorted(name for name in names if name not in EXCLUDED_DIRECTORIES)
+            found += [os.path.relpath(os.path.join(directory, name), ROOT) for name in sorted(filenames) if name.endswith(EXTENSIONS[language])]
+    return found
+
+
+def corpus(language, limit, extra_roots=()):
     from benchmarks.common import discover_units
     config = json.loads((ROOT / 'benchmarks' / 'config.json').read_text())
     units, _ = discover_units(ROOT, config)
     seen, files = set(), []
-    for unit in units:
-        if unit['language'] != language:
-            continue
-        for relative in unit['source_files']:
-            key = hashlib.sha256((ROOT / relative).read_bytes()).hexdigest()
-            if key not in seen:
-                seen.add(key)
-                files.append(relative)
+    candidates = [relative for unit in units if unit['language'] == language for relative in unit['source_files']]
+    candidates += extra_sources(language, extra_roots)
+    for relative in candidates:
+        key = hashlib.sha256((ROOT / relative).read_bytes()).hexdigest()
+        if key not in seen:
+            seen.add(key)
+            files.append(relative)
     return files[::max(1, len(files) // limit)] if limit else files
 
 
@@ -117,13 +136,17 @@ def main():
     parser.add_argument('--against', choices=['all', 'audited'], default='all', help='pairs checked for interference')
     parser.add_argument('--limit', type=int, default=0, help='audit about this many files (default: all)')
     parser.add_argument('--jobs', type=int, default=8)
+    parser.add_argument('--extra-root', action='append', default=None, metavar='DIR',
+                        help='additional source tree (relative to the repository); default for javascript: .benchmark-cache/js-projects')
+    parser.add_argument('--examples', type=int, default=5, help='files listed per failure kind in the report')
     parser.add_argument('--output', type=Path)
     args = parser.parse_args()
     import rule_dict_bit_acc
     names = list(rule_dict_bit_acc.rule_dict[args.language])
     audited = args.pairs or names
     against = names if args.against == 'all' else audited
-    files = corpus(args.language, args.limit)
+    extra = DEFAULT_EXTRA_ROOTS.get(args.language, []) if args.extra_root is None else args.extra_root
+    files = corpus(args.language, args.limit, [root for root in extra if (ROOT / root).is_dir()])
     totals = {name: collections.Counter() for name in audited}
     interference = {name: collections.Counter() for name in audited}
     examples = collections.defaultdict(list)
@@ -133,10 +156,10 @@ def main():
                 totals[name].update(value['counts'])
                 interference[name].update(value['interference'])
                 for key in ['idempotence_failures', 'reversibility_failures', 'syntax_regressions']:
-                    if value['counts'][key] and len(examples[name + ':' + key]) < 5:
+                    if value['counts'][key] and len(examples[name + ':' + key]) < args.examples:
                         examples[name + ':' + key].append(value['file'])
                 for other in value['interference']:
-                    if len(examples[name + ':interferes:' + other]) < 5:
+                    if len(examples[name + ':interferes:' + other]) < args.examples:
                         examples[name + ':interferes:' + other].append(value['file'])
     report = {'language': args.language, 'files': len(files), 'pairs': {}}
     print(f"{args.language}: {len(files)} unique files")
