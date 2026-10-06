@@ -15,8 +15,8 @@
     "build products"
   ],
   "generation_command": "python3 tools/build_code_index.py",
-  "file_count": 34,
-  "symbol_count": 731,
+  "file_count": 35,
+  "symbol_count": 744,
   "files": [
     {
       "path": "benchmarks/__init__.py",
@@ -2303,8 +2303,8 @@
     {
       "path": "cllmark/rules/engine.py",
       "module": "cllmark.rules.engine",
-      "sha256": "d1c7afe3509eddb8fe091cb25f0a7a2337f34313e07d4592cd9dd83f372a64cb",
-      "line_count": 295,
+      "sha256": "4c28be4b3da029d9a717a690eb5e3b5aaca502e9f6d0a2fd74ba197e4eeb0ebc",
+      "line_count": 322,
       "symbols": [
         {
           "name": "text",
@@ -2430,121 +2430,133 @@
           "name": "Matcher",
           "kind": "class",
           "line": 119,
-          "end_line": 135
+          "end_line": 139
         },
         {
           "name": "Matcher.accepts",
           "kind": "function",
           "line": 125,
-          "end_line": 126
+          "end_line": 130
         },
         {
           "name": "Matcher.explain",
           "kind": "function",
-          "line": 128,
-          "end_line": 129
+          "line": 132,
+          "end_line": 133
         },
         {
           "name": "Matcher.where",
           "kind": "function",
-          "line": 131,
-          "end_line": 132
+          "line": 135,
+          "end_line": 136
         },
         {
           "name": "Matcher.rule",
           "kind": "function",
-          "line": 134,
-          "end_line": 135
+          "line": 138,
+          "end_line": 139
         },
         {
           "name": "Rule",
           "kind": "class",
-          "line": 139,
-          "end_line": 143
+          "line": 143,
+          "end_line": 147
         },
         {
           "name": "apply_edits",
           "kind": "function",
-          "line": 146,
-          "end_line": 167
+          "line": 150,
+          "end_line": 171
         },
         {
           "name": "_AcceptedEdits",
           "kind": "class",
-          "line": 170,
-          "end_line": 215
+          "line": 174,
+          "end_line": 219
         },
         {
           "name": "_AcceptedEdits.__init__",
           "kind": "function",
-          "line": 178,
-          "end_line": 183
+          "line": 182,
+          "end_line": 187
         },
         {
           "name": "_AcceptedEdits._replacement_overlaps",
           "kind": "function",
-          "line": 185,
-          "end_line": 188
+          "line": 189,
+          "end_line": 192
         },
         {
           "name": "_AcceptedEdits.conflicts",
           "kind": "function",
-          "line": 190,
-          "end_line": 198
+          "line": 194,
+          "end_line": 202
         },
         {
           "name": "_AcceptedEdits.accept",
           "kind": "function",
-          "line": 200,
-          "end_line": 215
+          "line": 204,
+          "end_line": 219
         },
         {
           "name": "_conflicts",
           "kind": "function",
-          "line": 218,
-          "end_line": 224
+          "line": 222,
+          "end_line": 228
         },
         {
           "name": "Grammar",
           "kind": "class",
-          "line": 230,
-          "end_line": 259
+          "line": 234,
+          "end_line": 263
         },
         {
           "name": "Grammar.__init__",
           "kind": "function",
-          "line": 233,
-          "end_line": 248
+          "line": 237,
+          "end_line": 252
         },
         {
           "name": "Grammar.parse",
           "kind": "function",
-          "line": 250,
-          "end_line": 259
+          "line": 254,
+          "end_line": 263
+        },
+        {
+          "name": "_pre_order",
+          "kind": "function",
+          "line": 266,
+          "end_line": 267
         },
         {
           "name": "Parsed",
           "kind": "class",
-          "line": 262,
-          "end_line": 295
+          "line": 270,
+          "end_line": 322
         },
         {
           "name": "Parsed.__init__",
           "kind": "function",
-          "line": 265,
-          "end_line": 275
+          "line": 273,
+          "end_line": 287
+        },
+        {
+          "name": "Parsed.captured",
+          "kind": "function",
+          "line": 289,
+          "end_line": 299
         },
         {
           "name": "Parsed.candidates",
           "kind": "function",
-          "line": 277,
-          "end_line": 279
+          "line": 301,
+          "end_line": 303
         },
         {
           "name": "Parsed.rewrite",
           "kind": "function",
-          "line": 281,
-          "end_line": 295
+          "line": 305,
+          "end_line": 322
         }
       ],
       "imports": [
@@ -4269,62 +4281,68 @@
     {
       "path": "cllmark/transform.py",
       "module": "cllmark.transform",
-      "sha256": "c2aa01378f1b658d28313433e7443d6002d924f30f5fb4d17ea061aec2f8ca97",
-      "line_count": 83,
+      "sha256": "3bea99f361a41f57f12726b7e5bc2f5e52c1676f96c61ef2fe0870bef017f34c",
+      "line_count": 99,
       "symbols": [
         {
           "name": "library_path",
           "kind": "function",
-          "line": 22,
-          "end_line": 30
+          "line": 23,
+          "end_line": 31
         },
         {
           "name": "load_rules",
           "kind": "function",
-          "line": 34,
-          "end_line": 38
+          "line": 35,
+          "end_line": 39
         },
         {
           "name": "load_grammar",
           "kind": "function",
-          "line": 42,
-          "end_line": 45
+          "line": 43,
+          "end_line": 46
         },
         {
           "name": "StyleTransformer",
           "kind": "class",
-          "line": 48,
-          "end_line": 83
+          "line": 49,
+          "end_line": 99
         },
         {
           "name": "StyleTransformer.__init__",
           "kind": "function",
-          "line": 51,
-          "end_line": 54
+          "line": 52,
+          "end_line": 59
         },
         {
           "name": "StyleTransformer.parse",
           "kind": "function",
-          "line": 56,
-          "end_line": 58
+          "line": 61,
+          "end_line": 63
         },
         {
           "name": "StyleTransformer.apply",
           "kind": "function",
-          "line": 60,
-          "end_line": 72
+          "line": 65,
+          "end_line": 77
+        },
+        {
+          "name": "StyleTransformer._rewrite",
+          "kind": "function",
+          "line": 79,
+          "end_line": 88
         },
         {
           "name": "StyleTransformer.count_target_form",
           "kind": "function",
-          "line": 74,
-          "end_line": 79
+          "line": 90,
+          "end_line": 95
         },
         {
           "name": "StyleTransformer.check_syntax",
           "kind": "function",
-          "line": 81,
-          "end_line": 83
+          "line": 97,
+          "end_line": 99
         }
       ],
       "imports": [
@@ -4341,32 +4359,39 @@
           "line": 11
         },
         {
+          "module": "collections",
+          "names": [
+            "OrderedDict"
+          ],
+          "line": 12
+        },
+        {
           "module": "functools",
           "names": [
             "cache"
           ],
-          "line": 12
+          "line": 13
         },
         {
           "module": "pathlib",
           "names": [
             "Path"
           ],
-          "line": 13
+          "line": 14
         },
         {
           "module": "types",
           "names": [
             "ModuleType"
           ],
-          "line": 14
+          "line": 15
         },
         {
           "module": "cllmark.rules.engine",
           "names": [
             "Grammar"
           ],
-          "line": 16
+          "line": 17
         }
       ],
       "local_dependencies": [
@@ -5971,7 +5996,7 @@
     {
       "path": "tools/lost_capacity_report.py",
       "module": "tools.lost_capacity_report",
-      "sha256": "ac3262257c6f9783db9d41b7a493fcccee96e8cdf6b3f8bd21c58a1282b82cb4",
+      "sha256": "b08435bd4bccc1aca4ee80980f60d0e7a8bc2e739728adc3d94db79f28855072",
       "line_count": 250,
       "symbols": [
         {
@@ -6131,6 +6156,209 @@
       "local_dependencies": [
         "cllmark/__init__.py",
         "cllmark/rules/engine.py",
+        "cllmark/rules/pairs.py",
+        "cllmark/source_io.py",
+        "cllmark/transform.py",
+        "cllmark/watermark.py"
+      ],
+      "has_main_guard": true
+    },
+    {
+      "path": "tools/perf_benchmark.py",
+      "module": "tools.perf_benchmark",
+      "sha256": "a83e231d991c84c7fea56862d32d471eb546c3e3928d082bcf6553733311a9ad",
+      "line_count": 193,
+      "symbols": [
+        {
+          "name": "sample_units",
+          "kind": "function",
+          "line": 40,
+          "end_line": 49
+        },
+        {
+          "name": "Workload",
+          "kind": "class",
+          "line": 52,
+          "end_line": 129
+        },
+        {
+          "name": "Workload.__init__",
+          "kind": "function",
+          "line": 53,
+          "end_line": 64
+        },
+        {
+          "name": "Workload.timed",
+          "kind": "function",
+          "line": 66,
+          "end_line": 70
+        },
+        {
+          "name": "Workload.run",
+          "kind": "function",
+          "line": 72,
+          "end_line": 74
+        },
+        {
+          "name": "Workload.evaluate",
+          "kind": "function",
+          "line": 76,
+          "end_line": 107
+        },
+        {
+          "name": "Workload.properties",
+          "kind": "function",
+          "line": 110,
+          "end_line": 129
+        },
+        {
+          "name": "Workload.properties.change",
+          "kind": "function",
+          "line": 111,
+          "end_line": 112
+        },
+        {
+          "name": "startup",
+          "kind": "function",
+          "line": 132,
+          "end_line": 138
+        },
+        {
+          "name": "main",
+          "kind": "function",
+          "line": 141,
+          "end_line": 189
+        }
+      ],
+      "imports": [
+        {
+          "module": "argparse",
+          "names": [],
+          "line": 16
+        },
+        {
+          "module": "contextlib",
+          "names": [],
+          "line": 17
+        },
+        {
+          "module": "json",
+          "names": [],
+          "line": 18
+        },
+        {
+          "module": "os",
+          "names": [],
+          "line": 19
+        },
+        {
+          "module": "platform",
+          "names": [],
+          "line": 20
+        },
+        {
+          "module": "random",
+          "names": [],
+          "line": 21
+        },
+        {
+          "module": "subprocess",
+          "names": [],
+          "line": 22
+        },
+        {
+          "module": "sys",
+          "names": [],
+          "line": 23
+        },
+        {
+          "module": "time",
+          "names": [],
+          "line": 24
+        },
+        {
+          "module": "collections",
+          "names": [
+            "Counter"
+          ],
+          "line": 25
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 26
+        },
+        {
+          "module": "benchmarks.common",
+          "names": [
+            "discover_units"
+          ],
+          "line": 41
+        },
+        {
+          "module": "benchmarks.common",
+          "names": [
+            "unit_file_names"
+          ],
+          "line": 54
+        },
+        {
+          "module": "cllmark",
+          "names": [
+            "source_io"
+          ],
+          "line": 55
+        },
+        {
+          "module": "cllmark.transform",
+          "names": [
+            "StyleTransformer"
+          ],
+          "line": 56
+        },
+        {
+          "module": "cllmark",
+          "names": [
+            "bch",
+            "source_io",
+            "watermark"
+          ],
+          "line": 77
+        },
+        {
+          "module": "cllmark.rules.pairs",
+          "names": [
+            "WATERMARK_PAIRS"
+          ],
+          "line": 78
+        },
+        {
+          "module": "resource",
+          "names": [],
+          "line": 152
+        },
+        {
+          "module": "cProfile",
+          "names": [],
+          "line": 161
+        },
+        {
+          "module": "io",
+          "names": [],
+          "line": 162
+        },
+        {
+          "module": "pstats",
+          "names": [],
+          "line": 163
+        }
+      ],
+      "local_dependencies": [
+        "benchmarks/common.py",
+        "cllmark/__init__.py",
+        "cllmark/bch.py",
         "cllmark/rules/pairs.py",
         "cllmark/source_io.py",
         "cllmark/transform.py",

@@ -81,6 +81,7 @@ make setup-dev   # 安装固定版本的 ruff
 make lint        # ruff check + format --check
 make format      # 自动修复与格式化
 make test        # 单元与流程测试（缺少语料或 JavaScript 环境的测试自动跳过）
+make perf        # 性能基准：启动、各阶段耗时与峰值内存（见 docs/PERFORMANCE.md）
 make code-map    # 重建 docs/code-index.json
 ```
 
@@ -91,6 +92,7 @@ CI（`.github/workflows/ci.yml`）在每次推送和 PR 上运行 lint 与测试
 - [代码地图](docs/CODE_MAP.md)：模块职责、调用关系与数据流。
 - [规则引擎与规则目录](docs/RULES.md)：规则表示、约束执行、各语言规则及其等价性依据。
 - [科研循环与全量 benchmark](docs/RESEARCH_LOOP.md)：固定环境、全量重跑、功能检查、基线门禁与续跑。
+- [性能](docs/PERFORMANCE.md)：剖析结论、采用与放弃的优化、实测数据与修改指南。
 - [论文与实现对照](docs/PAPER_ALIGNMENT.md)：两版论文与现有代码的对应关系。
 - [实验记录](docs/experiments/) 与 [方案](docs/plans/)；[实验记录模板](docs/EXPERIMENT_TEMPLATE.md)。
 - [机器可读代码索引](docs/code-index.json) 与 [论文来源记录](docs/paper-sources.json)。

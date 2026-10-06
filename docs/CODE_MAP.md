@@ -72,6 +72,7 @@ flowchart TD
 | [tools/js_rule_check.py](../tools/js_rule_check.py)、[tools/js_corpus_inventory.py](../tools/js_corpus_inventory.py) | JavaScript 规则在真实语料上的位序、容量与功能检查；各组单元与容量分布 |
 | [tools/import_mbjsp.py](../tools/import_mbjsp.py) | 由 MBJSP 题目与生成结果构建 `corpus/dataset/MBJSP_G`、`MBJSP_H` |
 | [tools/build_code_index.py](../tools/build_code_index.py) | 生成 [code-index.json](code-index.json) |
+| [tools/perf_benchmark.py](../tools/perf_benchmark.py) | 性能基准（启动、各阶段耗时、峰值内存），见 [PERFORMANCE.md](PERFORMANCE.md) |
 | [tests/](../tests) | 解码与读写语义、BCH、目录与命令行流程、编辑冲突语义、规则目录一致性、扩展规则互逆与示例改写、评估循环的有效性与完整性检查 |
 
 评估循环为每个 worker 缓存一个 `StyleTransformer` 并传给 `directories` 的各函数；BCH 解码只做观测包装，不替换结果。每个单元复制到独立平面目录，再由 `analyze_directory` 产生 `support_transform.json`。规则模块不保存模块级可变状态（`test_rules_have_no_state_between_files`）。
