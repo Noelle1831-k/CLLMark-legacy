@@ -83,3 +83,18 @@ SCALAR_TYPES = ['primitive_type', 'sized_type_specifier']
 - 不放宽条件 A；不允许跨越含控制流或写操作的语句上移非常量初始值。
 - 不删除或跳过任何测试。
 - 不提交（commit 由主会话执行）。
+
+## v2
+
+v1 实现评审结论：
+
+- **接受偏离**：已保留（kept）的声明与 D 一起按原顺序上移，不计入 B1–B5 的跨越区域 R；B3 的名字检查只在剩余 R 节点的文本上进行。理由：相对顺序不变，不构成跨越；字面 v1 使幂等失败从 C 44→167、C++ 23→48。
+- **可逆性验收改为比率**：`rev.fail` 绝对数随可适用位置增加而增加，不再要求“不多于修改前”；由全量的可逆率判断（不得低于修复前参考 1 个百分点以上）。
+
+v2 修改（只改 `c/rules.py` 与 `tests/test_rule_engine.py`）：
+
+1. `referenced_ids` 不再调用 `contain_id`（它跳过父节点为 `subscript_expression`/`call_expression` 的标识符，会漏掉 `a[i]` 中的 `a`）。改为遍历子树收集所有 `identifier` 节点文本（不含 `field_identifier`）。`declarator_parts` 的 names 仍用 `contain_id`，保持条件 A 现状。
+2. 新增测试 `test_rejects_reading_array_declared_between`（C 与 C++）：`int i = 0;\n int a[3] = {1, 2, 3};\n int b = a[i];`（注意 a 与 i/b 同为 int，会与 i 同组——改用 `long a[3] = {1, 2, 3};` 使其成为 R 中异类型声明），期望 6.2 合并时 b 不被上移。
+3. 新增测试 `test_rejects_reordering_effect_past_global_read`（C 与 C++）：`int a = 0;\n long t = g;\n int b = f();`，R 中无调用，由 B5 拒绝，期望不变。
+
+验收：`make test` 全部通过；重跑 `declare_audit.json` 与 rule_audit 的 C/C++ 数字并回报。
