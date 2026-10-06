@@ -1,3 +1,0 @@
-AudioManager::AudioManager() {
-    loadAudioFiles();
-}

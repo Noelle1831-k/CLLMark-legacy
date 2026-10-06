@@ -1,2 +1,0 @@
-void utility_function() {
-}

@@ -1,3 +1,0 @@
-GameManager::GameManager() {
-    isRunning = false;
-}

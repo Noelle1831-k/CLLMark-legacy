@@ -1,3 +1,0 @@
-int getLevel() {
-        return level;
-    }

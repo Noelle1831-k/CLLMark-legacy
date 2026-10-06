@@ -1,1 +1,0 @@
-string Participant::getEmail() const { return email; }

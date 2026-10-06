@@ -1,1 +1,0 @@
-string getCategoryName() { return categoryName; }

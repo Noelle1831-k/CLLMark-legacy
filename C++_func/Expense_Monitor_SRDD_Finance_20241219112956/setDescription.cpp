@@ -1,1 +1,0 @@
-void Expense::setDescription(string desc) { description = desc; }

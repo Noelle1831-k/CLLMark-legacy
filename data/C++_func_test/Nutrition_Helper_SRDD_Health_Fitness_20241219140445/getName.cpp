@@ -1,1 +1,0 @@
-string FoodItem::getName() const { return name; }

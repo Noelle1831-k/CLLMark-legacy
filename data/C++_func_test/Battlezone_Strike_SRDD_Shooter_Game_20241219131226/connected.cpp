@@ -1,2 +1,0 @@
-Multiplayer::Multiplayer() : connected(false) {
-}

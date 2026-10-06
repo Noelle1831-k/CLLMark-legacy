@@ -1,2 +1,0 @@
-return x > y ? x : y;
-}

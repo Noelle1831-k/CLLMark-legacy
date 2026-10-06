@@ -1,3 +1,0 @@
-string getWord() {
-        return word;
-    }

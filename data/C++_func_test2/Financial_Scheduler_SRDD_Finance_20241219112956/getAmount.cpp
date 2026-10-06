@@ -1,1 +1,0 @@
-double FinancialTransaction::getAmount() const { return amount; }

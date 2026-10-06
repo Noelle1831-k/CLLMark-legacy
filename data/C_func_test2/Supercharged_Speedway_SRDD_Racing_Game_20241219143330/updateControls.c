@@ -1,2 +1,0 @@
-void updateControls(Game *game) {
-}

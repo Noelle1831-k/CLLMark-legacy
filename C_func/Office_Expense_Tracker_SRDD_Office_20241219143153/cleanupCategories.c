@@ -1,3 +1,0 @@
-void cleanupCategories() {
-    free(categories);
-}

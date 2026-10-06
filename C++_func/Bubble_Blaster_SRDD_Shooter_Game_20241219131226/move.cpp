@@ -1,3 +1,0 @@
-void Bubble::move() {
-    y++;
-}

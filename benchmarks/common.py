@@ -1,23 +1,26 @@
 """Shared provenance, configuration and atomic-output helpers."""
 
-from contextlib import contextmanager
-from datetime import datetime, timezone
 import fcntl
 import hashlib
 import importlib.metadata
 import json
 import os
-from pathlib import Path
 import platform
 import shutil
 import subprocess
 import sys
 import tempfile
-
+from contextlib import contextmanager
+from datetime import UTC, datetime
+from pathlib import Path
 
 EXTENSIONS = {"python": ".py", "c": ".c", "cpp": ".cpp", "javascript": ".js"}
-SMOKE_SOURCES = {"python": "def f(x):\n    return x + 1\n", "c": "int main(){return 0;}", "cpp": "int main(){return 0;}",
-                 "javascript": "function f(x) { return x + 1; }"}
+SMOKE_SOURCES = {
+    "python": "def f(x):\n    return x + 1\n",
+    "c": "int main(){return 0;}",
+    "cpp": "int main(){return 0;}",
+    "javascript": "function f(x) { return x + 1; }",
+}
 
 
 def digest(value):
@@ -27,7 +30,7 @@ def digest(value):
 
 
 def utc_now():
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 def write_json(path, value):
@@ -86,35 +89,57 @@ def validate_config(config):
         extensions = cohort.get("extensions", [])
         if not isinstance(extensions, list) or any(not isinstance(e, str) or not e.startswith(".") for e in extensions):
             raise ValueError("Cohort extensions must be a list of dotted suffixes")
-        if cohort.get("layout", "flat") not in ["flat", "tree"] or (cohort.get("layout") == "tree" and cohort["level"] != "project"):
+        if cohort.get("layout", "flat") not in ["flat", "tree"] or (
+            cohort.get("layout") == "tree" and cohort["level"] != "project"
+        ):
             raise ValueError("Only project-level cohorts may use the tree layout")
-        if "min_lines" in cohort and (cohort["level"] != "project_file" or not isinstance(cohort["min_lines"], int) or cohort["min_lines"] < 1):
+        if "min_lines" in cohort and (
+            cohort["level"] != "project_file" or not isinstance(cohort["min_lines"], int) or cohort["min_lines"] < 1
+        ):
             raise ValueError("min_lines is a positive integer for project_file cohorts")
         if cohort["role"] not in ["generated", "human", "historical", "unknown"]:
             raise ValueError("Invalid cohort ground-truth role")
         if cohort["oracle"] not in ["mbxp", "none", "unmapped_codenet", "project_tests", "exercism"]:
             raise ValueError("Invalid cohort oracle")
-        if cohort["oracle"] == "project_tests" and (cohort["level"] not in ["project", "project_file"] or config.get("project_test_timeout_seconds", 0) <= 0):
-            raise ValueError("Project test oracles need project-level cohorts and a positive project_test_timeout_seconds")
+        if cohort["oracle"] == "project_tests" and (
+            cohort["level"] not in ["project", "project_file"] or config.get("project_test_timeout_seconds", 0) <= 0
+        ):
+            raise ValueError(
+                "Project test oracles need project-level cohorts and a positive project_test_timeout_seconds"
+            )
         if cohort["level"] == "project_file" and cohort["oracle"] not in ["project_tests", "none"]:
             raise ValueError("project_file cohorts use the project test oracle")
-        if cohort["oracle"] == "exercism" and (cohort["level"] != "function" or cohort["language"] != "javascript"
-                                               or "exercism" not in config.get("problem_files", {})
-                                               or not config.get("exercism", {}).get("test")
-                                               or config.get("project_test_timeout_seconds", 0) <= 0):
-            raise ValueError("The exercism oracle needs function-level JavaScript cohorts, problem_files.exercism, an exercism test command and project_test_timeout_seconds")
+        if cohort["oracle"] == "exercism" and (
+            cohort["level"] != "function"
+            or cohort["language"] != "javascript"
+            or "exercism" not in config.get("problem_files", {})
+            or not config.get("exercism", {}).get("test")
+            or config.get("project_test_timeout_seconds", 0) <= 0
+        ):
+            raise ValueError(
+                "The exercism oracle needs function-level JavaScript cohorts, problem_files.exercism, an exercism test command and project_test_timeout_seconds"
+            )
     return config
 
 
 def source_paths(root):
     root = Path(root)
-    paths = list(root.glob("*.py"))
-    for folder in ["c", "cpp", "python", "javascript", "tools", "benchmarks", "tests"]:
+    paths = []
+    for folder in ["cllmark", "tools", "benchmarks", "tests"]:
         paths.extend((root / folder).rglob("*.py"))
     paths += list((root / "benchmarks" / "include").rglob("*.h"))
-    paths += [root / "styleList.json", root / "Makefile", root / "AGENTS.md", root / "benchmarks" / "config.json",
-              root / "benchmarks" / "requirements.lock", root / "benchmarks" / "toolchain.lock.json"]
-    return sorted({p for p in paths if p.is_file() and "__pycache__" not in p.parts}, key=lambda p: p.relative_to(root).as_posix())
+    paths += [
+        root / "cllmark" / "rules" / "styles.json",
+        root / "pyproject.toml",
+        root / "Makefile",
+        root / "AGENTS.md",
+        root / "benchmarks" / "config.json",
+        root / "benchmarks" / "requirements.lock",
+        root / "benchmarks" / "toolchain.lock.json",
+    ]
+    return sorted(
+        {p for p in paths if p.is_file() and "__pycache__" not in p.parts}, key=lambda p: p.relative_to(root).as_posix()
+    )
 
 
 def source_fingerprint(root):
@@ -199,50 +224,80 @@ def javascript_environment(root):
         checkout = base / name
         commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=checkout, text=True).strip()
         if commit != spec["commit"]:
-            raise RuntimeError(f"JavaScript project {name} is not at its pinned commit; rerun tools/setup_javascript.py")
+            raise RuntimeError(
+                f"JavaScript project {name} is not at its pinned commit; rerun tools/setup_javascript.py"
+            )
         installed = checkout / "node_modules" / ".package-lock.json"
-        projects[name] = {"checkout": str(checkout), "commit": commit, "node_modules_sha256": digest(installed.read_bytes())}
-    downloads = {**{name: spec for name, spec in lock.get("repositories", {}).items()},
-                 **({"exercism": lock["exercism"]} if "exercism" in lock else {})}
+        projects[name] = {
+            "checkout": str(checkout),
+            "commit": commit,
+            "node_modules_sha256": digest(installed.read_bytes()),
+        }
+    downloads = {
+        **dict(lock.get("repositories", {}).items()),
+        **({"exercism": lock["exercism"]} if "exercism" in lock else {}),
+    }
     pinned = {}
     for name, spec in downloads.items():
         checkout = base / name
         pin_path = base / (name + ".pin.json")
         pin = json.loads(pin_path.read_text()) if pin_path.is_file() else {}
-        if pin.get("commit") != spec["commit"] or pin.get("tarball_sha256") != spec["tarball_sha256"] or not checkout.is_dir():
-            raise RuntimeError(f"JavaScript repository {name} is not at its pinned commit/tarball; rerun tools/setup_javascript.py")
+        if (
+            pin.get("commit") != spec["commit"]
+            or pin.get("tarball_sha256") != spec["tarball_sha256"]
+            or not checkout.is_dir()
+        ):
+            raise RuntimeError(
+                f"JavaScript repository {name} is not at its pinned commit/tarball; rerun tools/setup_javascript.py"
+            )
         if pin.get("install", {}).get("lockfile_sha256") != spec["install"].get("lockfile_sha256"):
-            raise RuntimeError(f"JavaScript repository {name} was installed from a different lockfile; rerun tools/setup_javascript.py")
-        pinned[name] = {"checkout": str(checkout), "commit": spec["commit"], "tarball_sha256": spec["tarball_sha256"],
-                        "node_modules_sha256": install_digest(checkout, spec["install"]["mode"])}
+            raise RuntimeError(
+                f"JavaScript repository {name} was installed from a different lockfile; rerun tools/setup_javascript.py"
+            )
+        pinned[name] = {
+            "checkout": str(checkout),
+            "commit": spec["commit"],
+            "tarball_sha256": spec["tarball_sha256"],
+            "node_modules_sha256": install_digest(checkout, spec["install"]["mode"]),
+        }
     exercism = pinned.pop("exercism", None)
-    return {"node": node, "node_version": subprocess.check_output([node, "--version"], text=True).strip(),
-            "node_path": str(modules), "lodash": lodash, "projects": {**projects, **pinned}, "exercism": exercism}
+    return {
+        "node": node,
+        "node_version": subprocess.check_output([node, "--version"], text=True).strip(),
+        "node_path": str(modules),
+        "lodash": lodash,
+        "projects": {**projects, **pinned},
+        "exercism": exercism,
+    }
 
 
 def git_version(root):
     revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()
-    status = subprocess.check_output(["git", "status", "--porcelain=v1", "--untracked-files=normal"], cwd=root, text=True)
+    status = subprocess.check_output(
+        ["git", "status", "--porcelain=v1", "--untracked-files=normal"], cwd=root, text=True
+    )
     return {"commit": revision, "dirty": bool(status), "status": status.splitlines()}
 
 
 def parser_smoke(root):
     """Load actual language registries using pinned libraries, without rebuilding."""
-    from change_program_style import SCTS
+    from cllmark.transform import StyleTransformer
+
     root = Path(root).resolve()
     previous = Path.cwd()
     loaded = []
     with tempfile.TemporaryDirectory(prefix="cllmark-parser-") as temporary:
         directory = Path(temporary)
         (directory / "build").mkdir()
-        shutil.copyfile(root / "styleList.json", directory / "styleList.json")
         for language in EXTENSIONS:
-            shutil.copyfile(root / ".benchmark-cache" / "toolchain" / f"{language}-languages.so",
-                            directory / "build" / f"{language}-languages.so")
+            shutil.copyfile(
+                root / ".benchmark-cache" / "toolchain" / f"{language}-languages.so",
+                directory / "build" / f"{language}-languages.so",
+            )
         try:
             os.chdir(directory)
             for language in EXTENSIONS:
-                parser = SCTS(language)
+                parser = StyleTransformer(language)
                 if not parser.check_syntax(SMOKE_SOURCES[language]):
                     raise RuntimeError("Parser smoke failed: " + language)
                 loaded.append(language)
@@ -262,7 +317,7 @@ def unit_file_names(unit):
     (`lib/a.js` becomes `lib__a.js`) so that repositories with repeated basenames such as index.js can be processed."""
     if unit.get("layout") == "tree" and unit["level"] == "project":
         prefix = unit["path"].rstrip("/") + "/" + unit["name"] + "/"
-        names = {p: p[len(prefix):].replace("/", "__") for p in unit["source_files"]}
+        names = {p: p[len(prefix) :].replace("/", "__") for p in unit["source_files"]}
     else:
         names = {p: Path(p).name for p in unit["source_files"]}
     if len(set(names.values())) != len(names):
@@ -271,9 +326,9 @@ def unit_file_names(unit):
 
 
 def project_paths(unit):
-    """Path of each unit input inside the pinned project checkout: the corpus path below dataset/<cohort>/<project>/."""
+    """Path of each unit input inside the pinned project checkout: the corpus path below <cohort path>/<project>/."""
     prefix = unit["path"].rstrip("/") + "/" + unit.get("project", unit["name"]) + "/"
-    return {p: p[len(prefix):] for p in unit["source_files"]}
+    return {p: p[len(prefix) :] for p in unit["source_files"]}
 
 
 def cohort_files(directory, cohort):
@@ -315,6 +370,13 @@ def discover_units(root, config, limit=0, cohorts=None):
         for name, files in chosen:
             if any(p.is_symlink() or not p.resolve().is_relative_to(root) for p in files):
                 raise ValueError("Dataset source symlinks are not supported")
-            units.append({**cohort, **extra.get(name, {}), "id": cohort["name"] + "/" + name, "name": name,
-                          "source_files": [p.relative_to(root).as_posix() for p in files]})
+            units.append(
+                {
+                    **cohort,
+                    **extra.get(name, {}),
+                    "id": cohort["name"] + "/" + name,
+                    "name": name,
+                    "source_files": [p.relative_to(root).as_posix() for p in files],
+                }
+            )
     return units, inventory

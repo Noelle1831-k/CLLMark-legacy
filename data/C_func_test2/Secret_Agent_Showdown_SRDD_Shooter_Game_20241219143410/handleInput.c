@@ -1,2 +1,0 @@
-void handleInput(Player *player) {
-}

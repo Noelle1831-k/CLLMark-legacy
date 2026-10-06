@@ -1,3 +1,0 @@
-void printSeparator() {
-    printf("------------------------------\n");
-}

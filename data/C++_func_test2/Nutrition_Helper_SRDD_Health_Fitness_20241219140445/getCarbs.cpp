@@ -1,1 +1,0 @@
-double FoodItem::getCarbs() const { return carbs; }

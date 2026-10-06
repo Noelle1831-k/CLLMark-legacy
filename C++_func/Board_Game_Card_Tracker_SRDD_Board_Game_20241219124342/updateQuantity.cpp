@@ -1,1 +1,0 @@
-void updateQuantity(int newQuantity) { quantity = newQuantity; }

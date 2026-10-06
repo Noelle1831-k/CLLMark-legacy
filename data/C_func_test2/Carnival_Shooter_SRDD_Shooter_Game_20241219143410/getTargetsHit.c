@@ -1,3 +1,0 @@
-int getTargetsHit() {
-    return targetsHit;
-}

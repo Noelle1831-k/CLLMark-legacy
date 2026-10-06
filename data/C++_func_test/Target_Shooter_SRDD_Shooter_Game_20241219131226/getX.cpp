@@ -1,1 +1,0 @@
-int Target::getX() const { return x; }

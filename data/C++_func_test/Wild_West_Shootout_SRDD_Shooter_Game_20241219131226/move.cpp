@@ -1,2 +1,0 @@
-void Player::move() {
-}

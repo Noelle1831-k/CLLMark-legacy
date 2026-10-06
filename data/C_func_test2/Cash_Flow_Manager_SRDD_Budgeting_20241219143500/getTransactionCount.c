@@ -1,3 +1,0 @@
-int getTransactionCount() {
-    return transactionCount;
-}

@@ -1,3 +1,0 @@
-double getBudgetGoal() {
-    return budgetGoal;  
-}

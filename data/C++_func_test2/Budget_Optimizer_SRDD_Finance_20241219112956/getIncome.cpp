@@ -1,3 +1,0 @@
-double getIncome() {
-        return income;
-    }

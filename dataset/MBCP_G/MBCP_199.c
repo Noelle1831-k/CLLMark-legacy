@@ -1,7 +1,0 @@
-int highestPowerOf2(int n) {
-    int res = 1;
-    while (res <= n) {
-        res <<= 1;
-    }
-    return res >> 1;
-}

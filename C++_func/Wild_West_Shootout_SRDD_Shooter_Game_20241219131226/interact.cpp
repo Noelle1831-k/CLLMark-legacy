@@ -1,2 +1,0 @@
-void NPC::interact() {
-}

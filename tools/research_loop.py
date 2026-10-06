@@ -3,16 +3,23 @@
 
 import argparse
 import json
-import os
-from pathlib import Path
 import subprocess
 import sys
 import time
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from benchmarks.common import (digest, discover_units, lock_file, parser_smoke, source_fingerprint,
-                               toolchain_environment, validate_config, write_json)
+from benchmarks.common import (
+    digest,
+    discover_units,
+    lock_file,
+    parser_smoke,
+    source_fingerprint,
+    toolchain_environment,
+    validate_config,
+    write_json,
+)
 from benchmarks.compare import compare, promote_baseline
 from benchmarks.runner import execute_run, launch_frozen, run_experiment, validate_workspace, verified_summary
 
@@ -38,7 +45,9 @@ def main(argv=None):
             child.add_argument("--limit", type=int, default=0, help="Smoke limit per cohort; zero means all units")
             child.add_argument("--cohort", action="append")
             child.add_argument("--initialize-baseline", action="store_true")
-            child.add_argument("--hypothesis", default="", help="Research hypothesis recorded in the immutable manifest")
+            child.add_argument(
+                "--hypothesis", default="", help="Research hypothesis recorded in the immutable manifest"
+            )
         if command == "watch":
             child.add_argument("--debounce", type=float, default=15)
             child.add_argument("--poll", type=float, default=2)
@@ -75,6 +84,7 @@ def main(argv=None):
     if args.command == "doctor":
         environment = toolchain_environment(ROOT)
         from tree_sitter import Language
+
         for language in ["c", "cpp", "python"]:
             Language(str(ROOT / ".benchmark-cache" / "toolchain" / f"{language}-languages.so"), language)
         loaded = parser_smoke(ROOT)
@@ -91,21 +101,37 @@ def main(argv=None):
             parser.error("Smoke/subset runs cannot initialize a full baseline")
         if args.initialize_baseline and args.baseline.exists():
             parser.error("Baseline already exists; use baseline RUN only when intentionally promoting a new reference")
-        code, run_dir = run_experiment(ROOT, config, args.output_root, args.limit, args.cohort, args.baseline,
-                                      args.initialize_baseline, tests=args.command == "loop", hypothesis=args.hypothesis)
+        code, run_dir = run_experiment(
+            ROOT,
+            config,
+            args.output_root,
+            args.limit,
+            args.cohort,
+            args.baseline,
+            args.initialize_baseline,
+            tests=args.command == "loop",
+            hypothesis=args.hypothesis,
+        )
         print("Result directory: " + str(run_dir))
         return code
     if args.command == "watch":
         if args.debounce <= 0 or args.poll <= 0:
             parser.error("Watch intervals must be positive")
-        print("Watching source, benchmark config and commits; each stable change triggers a full loop. Ctrl-C stops.", flush=True)
+        print(
+            "Watching source, benchmark config and commits; each stable change triggers a full loop. Ctrl-C stops.",
+            flush=True,
+        )
         last_finished, pending, changed_at = None, None, time.monotonic()
         latest = args.output_root / "latest.json"
         if latest.exists():
             value = json.loads(latest.read_text())
             if value.get("full"):
                 manifest = json.loads((Path(value["directory"]) / "manifest.json").read_text())
-                last_finished = (manifest["source_fingerprint"], manifest["config_fingerprint"], manifest["git"]["commit"])
+                last_finished = (
+                    manifest["source_fingerprint"],
+                    manifest["config_fingerprint"],
+                    manifest["git"]["commit"],
+                )
         while True:
             try:
                 config = read_config(args.config, args.jobs)
@@ -130,7 +156,7 @@ if __name__ == "__main__":
     try:
         raise SystemExit(main())
     except KeyboardInterrupt:
-        raise SystemExit(130)
+        raise SystemExit(130) from None
     except Exception as error:
         print("Research loop failed: " + repr(error), file=sys.stderr)
-        raise SystemExit(2)
+        raise SystemExit(2) from error

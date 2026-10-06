@@ -1,3 +1,0 @@
-int getScore() {
-        return score;
-    }

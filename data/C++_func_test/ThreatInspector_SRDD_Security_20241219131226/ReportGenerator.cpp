@@ -1,2 +1,0 @@
-ReportGenerator::ReportGenerator() {
-}

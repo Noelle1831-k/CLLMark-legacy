@@ -1,1 +1,0 @@
-const vector<Budget>& User::getBudgets() const { return budgets; }

@@ -1,2 +1,0 @@
-void movePlayer(Player *player) {
-}

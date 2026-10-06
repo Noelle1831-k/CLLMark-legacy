@@ -1,5 +1,0 @@
-void pauseExecution() {
-    printf("Press Enter to continue...");
-    clearBuffer();
-    getchar();
-}

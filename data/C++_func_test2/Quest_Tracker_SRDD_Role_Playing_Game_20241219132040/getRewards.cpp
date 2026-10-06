@@ -1,1 +1,0 @@
-string Quest::getRewards() { return rewards; }

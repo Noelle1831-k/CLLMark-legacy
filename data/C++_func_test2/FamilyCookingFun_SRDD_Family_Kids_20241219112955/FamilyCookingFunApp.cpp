@@ -1,2 +1,0 @@
-FamilyCookingFunApp::FamilyCookingFunApp() {
-}

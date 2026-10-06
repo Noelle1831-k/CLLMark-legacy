@@ -1,1 +1,0 @@
-string Shelf::getShelfName() const { return shelfName; }

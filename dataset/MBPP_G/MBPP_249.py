@@ -1,2 +1,0 @@
-def intersection_array(array_nums1, array_nums2):
-    return list(filter(lambda x: x in array_nums2, array_nums1))

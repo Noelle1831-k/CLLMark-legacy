@@ -1,3 +1,0 @@
-void freeTracks() {
-    free(tracks);
-}

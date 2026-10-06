@@ -1,3 +1,0 @@
-MainWindow::~MainWindow() {
-    delete monitoringTimer;
-}

@@ -1,2 +1,0 @@
-void initReportGenerator(ReportGenerator *generator) {
-}

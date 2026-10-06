@@ -1,1 +1,0 @@
-void Task::setPriority(int priority) { this->priority = priority; }

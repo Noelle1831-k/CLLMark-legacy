@@ -1,1 +1,0 @@
-string FinancialTransaction::getDescription() const { return description; }

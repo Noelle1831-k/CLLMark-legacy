@@ -1,3 +1,0 @@
-string Expense::getDescription() const {
-    return description;
-}

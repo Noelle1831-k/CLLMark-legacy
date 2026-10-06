@@ -1,3 +1,0 @@
-int getExpenseCount() {
-    return expenseCount;
-}

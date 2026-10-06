@@ -1,1 +1,0 @@
-double FoodItem::getFats() const { return fats; }

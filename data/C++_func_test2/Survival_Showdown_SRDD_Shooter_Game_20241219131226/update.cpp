@@ -1,3 +1,0 @@
-void Score::update() {
-    currentScore++;
-}

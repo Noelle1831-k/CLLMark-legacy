@@ -1,3 +1,6 @@
+# Agent worktrees (isolated copies created by subagents)
+.claude/worktrees/
+
 # Local credentials and preserved originals
 .env
 .env.*
@@ -9,8 +12,8 @@
 # Python environments and caches (including historical data/ snapshot)
 venv/
 .venv/
-.venv-benchmark/
-.benchmark-cache/
+.venv-benchmark
+.benchmark-cache
 benchmark-results/
 env/
 __pycache__/
@@ -28,17 +31,7 @@ tree-sitter-*/
 *.lib
 *.exp
 
-# Editors, OS files and generated AST diagrams
+# Editors and OS files
 .idea/
 .vscode/
 .DS_Store
-ast_tree
-ast_tree.*
-
-# Historical temporary files
-change/
-Temp/
-*bak
-process.txt
-dos2unix.py
-code_snippets.rar

@@ -1,3 +1,0 @@
-int getDifficulty() {
-        return difficulty;
-    }

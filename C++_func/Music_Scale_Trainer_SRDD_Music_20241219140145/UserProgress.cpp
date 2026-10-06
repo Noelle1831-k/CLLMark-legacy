@@ -1,3 +1,0 @@
-UserProgress::UserProgress() {
-    loadProgress();
-}

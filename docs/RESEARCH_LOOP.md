@@ -19,6 +19,7 @@ flowchart LR
 在仓库根目录执行。需要 Python 3.11、C++ 编译器和 Node.js；有 `uv` 时优先使用它，无 `uv` 时使用 venv/pip。
 
 ```bash
+make corpus           # 拉取固定提交的语料子模块 corpus/（私有仓库 CLLMark-legacy-data）
 make setup-benchmark  # 安装独立环境，按固定提交构建本机 Tree-sitter 语法库（含 JavaScript）
 make setup-javascript # lodash、JavaScript 小项目与 14 个中型仓库（按提交下载并校验 tarball，--ignore-scripts 安装依赖，跑一次干净测试）、Exercism 题库；幂等
 make doctor          # 检查所有固定依赖、解析库及三种语言的实际规则导入
@@ -58,7 +59,7 @@ make benchmark
 
 ## 全量的定义与语料范围
 
-默认配置 [config.json](../benchmarks/config.json) 包含 25 组、10,810 个本地实验单元（git 工作树中的语料；主检出中另有 8 个未入库的历史项目单元）。函数级单元是一份文件，项目级单元是一个非空项目目录内的全部拆分函数（`js_repos` 为仓库内全部源文件），`project_file` 级单元是仓库中的一个源文件（见下）。空目录不构成可运行项目，清单会给出选中单元数。
+默认配置 [config.json](../benchmarks/config.json) 包含 25 组、10,810 个本地实验单元（`corpus/` 子模块中的语料，见 [Noelle1831-k/CLLMark-legacy-data](https://github.com/Noelle1831-k/CLLMark-legacy-data)；桌面主检出另有 8 个从未入库的历史项目单元，不在其中）。函数级单元是一份文件，项目级单元是一个非空项目目录内的全部拆分函数（`js_repos` 为仓库内全部源文件），`project_file` 级单元是仓库中的一个源文件（见下）。空目录不构成可运行项目，清单会给出选中单元数。
 
 | 组别 | 实验单元数 | 功能检查 |
 | --- | ---: | --- |
@@ -80,7 +81,7 @@ make benchmark
 **JavaScript 中型仓库与 Exercism 语料**（方案见 [2026-10-06-javascript-corpus.md](plans/2026-10-06-javascript-corpus.md)，入选/淘汰记录见 [selection](plans/2026-10-06-javascript-corpus.selection.md)，规模与容量分布见 [inventory.tsv](plans/2026-10-06-javascript-corpus.inventory.tsv)）：
 
 - `benchmarks/javascript.lock.json` 的 `repositories` 固定每个仓库的 tag、commit、GitHub tarball SHA-256、许可证、源码 glob/排除、扩展名与依赖安装方式（仓库自带 `package-lock.json`，或 `benchmarks/js-locks/` 中固定的锁文件；无依赖的仓库不安装）；`exercism` 固定题库提交及 pnpm 锁文件，并记录 Aider Polyglot 子集（`Aider-AI/polyglot-benchmark` 固定提交）。测试命令与是否 `exclusive` 在 `config.json` 的 `projects`。
-- `tools/setup_javascript.py` 只下载这些固定来源及其 npm/pnpm 依赖，一律 `--ignore-scripts`；干净测试必须通过，耗时与 V8 覆盖写入 `.benchmark-cache/js-projects/<name>.pin.json`；选中的源文件复制到 `dataset/JS_repos/<name>/`（附 LICENSE），Exercism 参考解写入 `dataset/Exercism_JS/`，题目元数据、spec 与支持文件写入 `dataset/Jsonl/exercism_javascript.jsonl`（被排除的题及原因在 `exercism_javascript_excluded.jsonl`）。第二次运行不下载、不改动。
+- `tools/setup_javascript.py` 只下载这些固定来源及其 npm/pnpm 依赖，一律 `--ignore-scripts`；干净测试必须通过，耗时与 V8 覆盖写入 `.benchmark-cache/js-projects/<name>.pin.json`；选中的源文件复制到 `corpus/dataset/JS_repos/<name>/`（附 LICENSE），Exercism 参考解写入 `corpus/dataset/Exercism_JS/`，题目元数据、spec 与支持文件写入 `corpus/dataset/Jsonl/exercism_javascript.jsonl`（被排除的题及原因在 `exercism_javascript_excluded.jsonl`）。第二次运行不下载、不改动。
 - 项目级单元 `layout: tree`：legacy 流程在平面目录上工作，重复的基名（多个 `index.js`）按相对路径展平（`lib/a.js` 变为 `lib__a.js`），测试时还原为原路径。`project_file` 单元在 `min_lines`（80）行以上的文件上嵌入，其余文件保持仓库原样；干净文件不进入缓存键，同一仓库的干净运行共享一条缓存。
 - 覆盖写入前若源文件是符号链接则先移除，绝不写穿到固定检出；复制检出时保留符号链接。绑定套接字的套件（express、ws、body-parser）标记 `exclusive`：并发副本会冲突固定端口，甚至偶发冲突临时端口，故用全局文件锁串行化，否则干净代码会出现伪 FAIL。
 - `decimal.js`、`bignumber.js` 的测试脚本打印汇总后总是以 0 退出，命令用 `node -e` 包装器只在“`In total, N of N tests passed`”时返回 0。

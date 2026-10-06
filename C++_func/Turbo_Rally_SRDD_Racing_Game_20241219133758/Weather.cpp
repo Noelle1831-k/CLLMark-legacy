@@ -1,3 +1,0 @@
-Weather::Weather() {
-    condition = "Clear";
-}

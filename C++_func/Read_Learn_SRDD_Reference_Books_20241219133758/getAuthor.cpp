@@ -1,1 +1,0 @@
-string getAuthor() { return author; }

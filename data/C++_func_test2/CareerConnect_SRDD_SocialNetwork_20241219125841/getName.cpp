@@ -1,1 +1,0 @@
-string getName() { return name; }

@@ -1,3 +1,0 @@
-void initializeInput() {
-    initializeKeyboard();
-}

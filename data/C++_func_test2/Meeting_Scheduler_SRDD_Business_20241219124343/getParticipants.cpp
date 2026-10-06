@@ -1,1 +1,0 @@
-const vector<Participant>& Meeting::getParticipants() const { return participants; }

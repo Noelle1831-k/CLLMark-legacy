@@ -1,3 +1,0 @@
-double getTotalAmount() {
-        return totalAmount;
-    }
