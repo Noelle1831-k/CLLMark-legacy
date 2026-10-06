@@ -16,7 +16,7 @@
   ],
   "generation_command": "python3 tools/build_code_index.py",
   "file_count": 34,
-  "symbol_count": 723,
+  "symbol_count": 731,
   "files": [
     {
       "path": "benchmarks/__init__.py",
@@ -2303,218 +2303,248 @@
     {
       "path": "cllmark/rules/engine.py",
       "module": "cllmark.rules.engine",
-      "sha256": "ba0330dee678feae0baae486ebd8c6a91cc271646a5e914e32ad7870070a290f",
-      "line_count": 246,
+      "sha256": "d1c7afe3509eddb8fe091cb25f0a7a2337f34313e07d4592cd9dd83f372a64cb",
+      "line_count": 295,
       "symbols": [
         {
           "name": "text",
           "kind": "function",
-          "line": 29,
-          "end_line": 30
+          "line": 30,
+          "end_line": 31
         },
         {
           "name": "Reject",
           "kind": "class",
-          "line": 33,
-          "end_line": 34
+          "line": 34,
+          "end_line": 35
         },
         {
           "name": "Edit",
           "kind": "class",
-          "line": 37,
-          "end_line": 40
+          "line": 38,
+          "end_line": 41
         },
         {
           "name": "replace",
           "kind": "function",
-          "line": 43,
-          "end_line": 44
+          "line": 44,
+          "end_line": 45
         },
         {
           "name": "insert_before",
           "kind": "function",
-          "line": 47,
-          "end_line": 48
+          "line": 48,
+          "end_line": 49
         },
         {
           "name": "insert_after",
           "kind": "function",
-          "line": 51,
-          "end_line": 52
+          "line": 52,
+          "end_line": 53
         },
         {
           "name": "delete",
           "kind": "function",
-          "line": 55,
-          "end_line": 56
+          "line": 56,
+          "end_line": 57
         },
         {
           "name": "delete_between",
           "kind": "function",
-          "line": 59,
-          "end_line": 60
+          "line": 60,
+          "end_line": 61
         },
         {
           "name": "Source",
           "kind": "class",
-          "line": 63,
-          "end_line": 83
+          "line": 64,
+          "end_line": 84
         },
         {
           "name": "Source.__init__",
           "kind": "function",
-          "line": 68,
-          "end_line": 69
+          "line": 69,
+          "end_line": 70
         },
         {
           "name": "Source.indent",
           "kind": "function",
-          "line": 71,
-          "end_line": 78
+          "line": 72,
+          "end_line": 79
         },
         {
           "name": "Source.leading",
           "kind": "function",
-          "line": 80,
-          "end_line": 83
+          "line": 81,
+          "end_line": 84
         },
         {
           "name": "Guard",
           "kind": "class",
-          "line": 86,
-          "end_line": 107
+          "line": 87,
+          "end_line": 108
         },
         {
           "name": "Guard.__init__",
           "kind": "function",
-          "line": 91,
-          "end_line": 92
+          "line": 92,
+          "end_line": 93
         },
         {
           "name": "Guard.__call__",
           "kind": "function",
-          "line": 94,
-          "end_line": 95
+          "line": 95,
+          "end_line": 96
         },
         {
           "name": "Guard.__and__",
           "kind": "function",
-          "line": 97,
-          "end_line": 98
+          "line": 98,
+          "end_line": 99
         },
         {
           "name": "Guard.__or__",
           "kind": "function",
-          "line": 100,
-          "end_line": 101
+          "line": 101,
+          "end_line": 102
         },
         {
           "name": "Guard.__invert__",
           "kind": "function",
-          "line": 103,
-          "end_line": 104
+          "line": 104,
+          "end_line": 105
         },
         {
           "name": "Guard.__repr__",
           "kind": "function",
-          "line": 106,
-          "end_line": 107
+          "line": 107,
+          "end_line": 108
         },
         {
           "name": "guard",
           "kind": "function",
-          "line": 110,
-          "end_line": 111
+          "line": 111,
+          "end_line": 112
         },
         {
           "name": "Matcher",
           "kind": "class",
-          "line": 118,
-          "end_line": 134
+          "line": 119,
+          "end_line": 135
         },
         {
           "name": "Matcher.accepts",
           "kind": "function",
-          "line": 124,
-          "end_line": 125
+          "line": 125,
+          "end_line": 126
         },
         {
           "name": "Matcher.explain",
           "kind": "function",
-          "line": 127,
-          "end_line": 128
+          "line": 128,
+          "end_line": 129
         },
         {
           "name": "Matcher.where",
           "kind": "function",
-          "line": 130,
-          "end_line": 131
+          "line": 131,
+          "end_line": 132
         },
         {
           "name": "Matcher.rule",
           "kind": "function",
-          "line": 133,
-          "end_line": 134
+          "line": 134,
+          "end_line": 135
         },
         {
           "name": "Rule",
           "kind": "class",
-          "line": 138,
-          "end_line": 142
+          "line": 139,
+          "end_line": 143
         },
         {
           "name": "apply_edits",
           "kind": "function",
-          "line": 145,
-          "end_line": 166
+          "line": 146,
+          "end_line": 167
+        },
+        {
+          "name": "_AcceptedEdits",
+          "kind": "class",
+          "line": 170,
+          "end_line": 215
+        },
+        {
+          "name": "_AcceptedEdits.__init__",
+          "kind": "function",
+          "line": 178,
+          "end_line": 183
+        },
+        {
+          "name": "_AcceptedEdits._replacement_overlaps",
+          "kind": "function",
+          "line": 185,
+          "end_line": 188
+        },
+        {
+          "name": "_AcceptedEdits.conflicts",
+          "kind": "function",
+          "line": 190,
+          "end_line": 198
+        },
+        {
+          "name": "_AcceptedEdits.accept",
+          "kind": "function",
+          "line": 200,
+          "end_line": 215
         },
         {
           "name": "_conflicts",
           "kind": "function",
-          "line": 169,
-          "end_line": 175
+          "line": 218,
+          "end_line": 224
         },
         {
           "name": "Grammar",
           "kind": "class",
-          "line": 181,
-          "end_line": 210
+          "line": 230,
+          "end_line": 259
         },
         {
           "name": "Grammar.__init__",
           "kind": "function",
-          "line": 184,
-          "end_line": 199
+          "line": 233,
+          "end_line": 248
         },
         {
           "name": "Grammar.parse",
           "kind": "function",
-          "line": 201,
-          "end_line": 210
+          "line": 250,
+          "end_line": 259
         },
         {
           "name": "Parsed",
           "kind": "class",
-          "line": 213,
-          "end_line": 246
+          "line": 262,
+          "end_line": 295
         },
         {
           "name": "Parsed.__init__",
           "kind": "function",
-          "line": 216,
-          "end_line": 226
+          "line": 265,
+          "end_line": 275
         },
         {
           "name": "Parsed.candidates",
           "kind": "function",
-          "line": 228,
-          "end_line": 230
+          "line": 277,
+          "end_line": 279
         },
         {
           "name": "Parsed.rewrite",
           "kind": "function",
-          "line": 232,
-          "end_line": 246
+          "line": 281,
+          "end_line": 295
         }
       ],
       "imports": [
@@ -2524,11 +2554,20 @@
           "line": 20
         },
         {
+          "module": "bisect",
+          "names": [
+            "bisect_left",
+            "bisect_right",
+            "insort"
+          ],
+          "line": 21
+        },
+        {
           "module": "collections",
           "names": [
             "OrderedDict"
           ],
-          "line": 21
+          "line": 22
         },
         {
           "module": "collections.abc",
@@ -2537,14 +2576,14 @@
             "Iterable",
             "Sequence"
           ],
-          "line": 22
+          "line": 23
         },
         {
           "module": "dataclasses",
           "names": [
             "dataclass"
           ],
-          "line": 23
+          "line": 24
         },
         {
           "module": "typing",
@@ -2552,7 +2591,7 @@
             "NamedTuple",
             "Optional"
           ],
-          "line": 24
+          "line": 25
         },
         {
           "module": "tree_sitter",
@@ -2561,7 +2600,7 @@
             "Node",
             "Parser"
           ],
-          "line": 26
+          "line": 27
         }
       ],
       "local_dependencies": [],
@@ -4235,8 +4274,8 @@
     {
       "path": "cllmark/transform.py",
       "module": "cllmark.transform",
-      "sha256": "2294a3081a0cf4735e58dcd45009cc4f1eab3c692c61e27af306cb3ebdfd4967",
-      "line_count": 81,
+      "sha256": "c2aa01378f1b658d28313433e7443d6002d924f30f5fb4d17ea061aec2f8ca97",
+      "line_count": 83,
       "symbols": [
         {
           "name": "library_path",
@@ -4260,7 +4299,7 @@
           "name": "StyleTransformer",
           "kind": "class",
           "line": 48,
-          "end_line": 81
+          "end_line": 83
         },
         {
           "name": "StyleTransformer.__init__",
@@ -4278,19 +4317,19 @@
           "name": "StyleTransformer.apply",
           "kind": "function",
           "line": 60,
-          "end_line": 70
+          "end_line": 72
         },
         {
           "name": "StyleTransformer.count_target_form",
           "kind": "function",
-          "line": 72,
-          "end_line": 77
+          "line": 74,
+          "end_line": 79
         },
         {
           "name": "StyleTransformer.check_syntax",
           "kind": "function",
-          "line": 79,
-          "end_line": 81
+          "line": 81,
+          "end_line": 83
         }
       ],
       "imports": [
@@ -5152,140 +5191,158 @@
     {
       "path": "tests/test_rule_engine.py",
       "module": "tests.test_rule_engine",
-      "sha256": "75cf10d20cd4cfbe0453fffc8e73160e3b5a9d46dda4d92b38150fe265213847",
-      "line_count": 651,
+      "sha256": "dd0f2090a08c474dc40b3c24674df7bcd6b4d217b04d22fa357fc53437b90e77",
+      "line_count": 689,
       "symbols": [
         {
           "name": "EditApplicationTests",
           "kind": "class",
-          "line": 17,
-          "end_line": 40
+          "line": 18,
+          "end_line": 78
         },
         {
           "name": "EditApplicationTests.test_groups_apply_atomically_and_nested_groups_are_skipped",
           "kind": "function",
-          "line": 18,
-          "end_line": 22
+          "line": 19,
+          "end_line": 23
         },
         {
           "name": "EditApplicationTests.test_insertions_at_one_offset_keep_their_order",
           "kind": "function",
-          "line": 24,
-          "end_line": 27
+          "line": 25,
+          "end_line": 28
         },
         {
           "name": "EditApplicationTests.test_insertion_next_to_a_replacement_is_not_a_conflict",
           "kind": "function",
-          "line": 29,
-          "end_line": 31
+          "line": 30,
+          "end_line": 32
         },
         {
           "name": "EditApplicationTests.test_overlapping_edits_inside_one_rewrite_are_a_rule_bug",
           "kind": "function",
-          "line": 33,
-          "end_line": 35
+          "line": 34,
+          "end_line": 36
         },
         {
           "name": "EditApplicationTests.test_multibyte_text_uses_byte_offsets",
           "kind": "function",
-          "line": 37,
-          "end_line": 40
+          "line": 38,
+          "end_line": 41
+        },
+        {
+          "name": "EditApplicationTests.test_indexed_conflict_detection_matches_the_pairwise_definition",
+          "kind": "function",
+          "line": 43,
+          "end_line": 78
+        },
+        {
+          "name": "EditApplicationTests.test_indexed_conflict_detection_matches_the_pairwise_definition.pairwise",
+          "kind": "function",
+          "line": 44,
+          "end_line": 59
+        },
+        {
+          "name": "EditApplicationTests.test_indexed_conflict_detection_matches_the_pairwise_definition.outcome",
+          "kind": "function",
+          "line": 61,
+          "end_line": 65
         },
         {
           "name": "GuardTests",
           "kind": "class",
-          "line": 43,
-          "end_line": 50
+          "line": 81,
+          "end_line": 88
         },
         {
           "name": "GuardTests.test_guards_compose_and_explain",
           "kind": "function",
-          "line": 44,
-          "end_line": 50
+          "line": 82,
+          "end_line": 88
         },
         {
           "name": "CatalogTests",
           "kind": "class",
-          "line": 54,
-          "end_line": 85
+          "line": 92,
+          "end_line": 123
         },
         {
           "name": "CatalogTests.test_unsupported_query_predicates_are_rejected",
           "kind": "function",
-          "line": 55,
-          "end_line": 61
+          "line": 93,
+          "end_line": 99
         },
         {
           "name": "CatalogTests.test_style_catalog_rules_and_watermark_pairs_agree",
           "kind": "function",
-          "line": 63,
-          "end_line": 76
+          "line": 101,
+          "end_line": 114
         },
         {
           "name": "CatalogTests.test_rules_have_no_state_between_files",
           "kind": "function",
-          "line": 78,
-          "end_line": 85
+          "line": 116,
+          "end_line": 123
         },
         {
           "name": "ExtensionRuleTests",
           "kind": "class",
-          "line": 89,
-          "end_line": 125
+          "line": 127,
+          "end_line": 163
         },
         {
           "name": "ExtensionRuleTests.test_both_directions_round_trip",
           "kind": "function",
-          "line": 111,
-          "end_line": 125
+          "line": 149,
+          "end_line": 163
         },
         {
           "name": "GoldenRewriteTests",
           "kind": "class",
-          "line": 128,
-          "end_line": 493
+          "line": 166,
+          "end_line": 531
         },
         {
           "name": "GoldenRewriteTests.test_loop_with_update_kept_in_body_is_still_marked_and_stable",
           "kind": "function",
-          "line": 450,
-          "end_line": 460
+          "line": 488,
+          "end_line": 498
         },
         {
           "name": "GoldenRewriteTests.test_golden_rewrites",
           "kind": "function",
-          "line": 462,
-          "end_line": 469
+          "line": 500,
+          "end_line": 507
         },
         {
           "name": "GoldenRewriteTests.test_guarded_sites_are_left_alone",
           "kind": "function",
-          "line": 471,
-          "end_line": 478
+          "line": 509,
+          "end_line": 516
         },
         {
           "name": "GoldenRewriteTests.test_golden_pairs_are_exact_inverses",
           "kind": "function",
-          "line": 480,
-          "end_line": 493
+          "line": 518,
+          "end_line": 531
         },
         {
           "name": "JavaScriptExecutionTests",
           "kind": "class",
-          "line": 502,
-          "end_line": 651
+          "line": 540,
+          "end_line": 689
         },
         {
           "name": "JavaScriptExecutionTests.execute",
           "kind": "function",
-          "line": 625,
-          "end_line": 631
+          "line": 663,
+          "end_line": 669
         },
         {
           "name": "JavaScriptExecutionTests.test_rewrites_keep_program_output",
           "kind": "function",
-          "line": 633,
-          "end_line": 651
+          "line": 671,
+          "end_line": 689
         }
       ],
       "imports": [
@@ -5295,23 +5352,28 @@
           "line": 3
         },
         {
-          "module": "unittest",
+          "module": "random",
           "names": [],
           "line": 4
+        },
+        {
+          "module": "unittest",
+          "names": [],
+          "line": 5
         },
         {
           "module": "pathlib",
           "names": [
             "Path"
           ],
-          "line": 5
+          "line": 6
         },
         {
           "module": "typing",
           "names": [
             "ClassVar"
           ],
-          "line": 6
+          "line": 7
         },
         {
           "module": "cllmark.rules.engine",
@@ -5319,116 +5381,117 @@
             "Edit",
             "Grammar",
             "Matcher",
+            "_conflicts",
             "apply_edits",
             "guard"
           ],
-          "line": 8
+          "line": 9
         },
         {
           "module": "cllmark.rules",
           "names": [
             "STYLES_PATH"
           ],
-          "line": 64
+          "line": 102
         },
         {
           "module": "cllmark.rules.pairs",
           "names": [
             "WATERMARK_PAIRS"
           ],
-          "line": 65
+          "line": 103
         },
         {
           "module": "cllmark.transform",
           "names": [
             "load_rules"
           ],
-          "line": 66
+          "line": 104
         },
         {
           "module": "cllmark.watermark",
           "names": [
             "DETECT_ONLY"
           ],
-          "line": 67
+          "line": 105
         },
         {
           "module": "cllmark.transform",
           "names": [
             "StyleTransformer"
           ],
-          "line": 79
+          "line": 117
         },
         {
           "module": "cllmark.transform",
           "names": [
             "StyleTransformer"
           ],
-          "line": 112
+          "line": 150
         },
         {
           "module": "cllmark.transform",
           "names": [
             "StyleTransformer"
           ],
-          "line": 452
+          "line": 490
         },
         {
           "module": "cllmark.transform",
           "names": [
             "StyleTransformer"
           ],
-          "line": 463
+          "line": 501
         },
         {
           "module": "cllmark.transform",
           "names": [
             "StyleTransformer"
           ],
-          "line": 472
+          "line": 510
         },
         {
           "module": "cllmark.rules.pairs",
           "names": [
             "WATERMARK_PAIRS"
           ],
-          "line": 482
+          "line": 520
         },
         {
           "module": "cllmark.transform",
           "names": [
             "StyleTransformer"
           ],
-          "line": 483
+          "line": 521
         },
         {
           "module": "shutil",
           "names": [],
-          "line": 496
+          "line": 534
         },
         {
           "module": "subprocess",
           "names": [],
-          "line": 497
+          "line": 535
         },
         {
           "module": "tempfile",
           "names": [],
-          "line": 498
+          "line": 536
         },
         {
           "module": "cllmark.rules.pairs",
           "names": [
             "WATERMARK_PAIRS"
           ],
-          "line": 634
+          "line": 672
         },
         {
           "module": "cllmark.transform",
           "names": [
             "StyleTransformer"
           ],
-          "line": 635
+          "line": 673
         }
       ],
       "local_dependencies": [

@@ -1,11 +1,12 @@
 """Rule engine semantics, rule catalog consistency and golden rewrites per language."""
 
 import json
+import random
 import unittest
 from pathlib import Path
 from typing import ClassVar
 
-from cllmark.rules.engine import Edit, Grammar, Matcher, apply_edits, guard
+from cllmark.rules.engine import Edit, Grammar, Matcher, _conflicts, apply_edits, guard
 
 ROOT = Path(__file__).resolve().parents[1]
 TOOLCHAIN = ROOT / ".benchmark-cache" / "toolchain"
@@ -38,6 +39,43 @@ class EditApplicationTests(unittest.TestCase):
         data = "s = '中' == t".encode()
         start = data.index(b"'")
         self.assertEqual(apply_edits(data, [[Edit(start, len(data), "t == '中'")]])[0].decode(), "s = t == '中'")
+
+    def test_indexed_conflict_detection_matches_the_pairwise_definition(self):
+        def pairwise(data, groups):
+            """The definition: a group is skipped when any of its edits conflicts with any accepted edit."""
+            accepted, skipped = [], 0
+            for group in groups:
+                if any(_conflicts(edit, other) for edit in group for other in accepted):
+                    skipped += 1
+                    continue
+                accepted.extend((edit.start, edit.end, len(accepted) + i, edit.text) for i, edit in enumerate(group))
+            accepted.sort()
+            parts, position = [], 0
+            for start, end, _, text in accepted:
+                if start < position:
+                    raise ValueError(f"Overlapping edits inside one rewrite at byte {start}")
+                parts += [data[position:start], text.encode()]
+                position = end
+            return b"".join([*parts, data[position:]]), skipped
+
+        def outcome(function, data, groups):
+            try:
+                return function(data, groups)
+            except ValueError as error:
+                return str(error)
+
+        rng = random.Random(20261006)
+        data = bytes(range(97, 123)) * 2
+        for _ in range(3000):
+            groups = []
+            for _ in range(rng.randint(1, 8)):
+                group = []
+                for _ in range(rng.randint(1, 3)):
+                    start = rng.randint(0, len(data))
+                    end = start if rng.random() < 0.3 else min(len(data), start + rng.randint(1, 8))
+                    group.append(Edit(start, end, rng.choice(["", "x", "yz"])))
+                groups.append(group)
+            self.assertEqual(outcome(apply_edits, data, groups), outcome(pairwise, data, groups), groups)
 
 
 class GuardTests(unittest.TestCase):

@@ -66,7 +66,9 @@ class StyleTransformer:
         for style in [styles] if isinstance(styles, str) else styles:
             new_code, count = self.grammar.parse(new_code).rewrite(self.rules[style])
             candidates += count
-        changed = code.replace(" ", "").replace("\n", "") != new_code.replace(" ", "").replace("\n", "")
+        changed = new_code != code and code.replace(" ", "").replace("\n", "") != new_code.replace(" ", "").replace(
+            "\n", ""
+        )
         return new_code, changed, candidates
 
     def count_target_form(self, style: str, code: str) -> int:

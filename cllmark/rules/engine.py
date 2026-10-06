@@ -18,6 +18,7 @@ matches never corrupt each other. Offsets are UTF-8 byte offsets of the parsed s
 """
 
 import re
+from bisect import bisect_left, bisect_right, insort
 from collections import OrderedDict
 from collections.abc import Callable, Iterable, Sequence
 from dataclasses import dataclass
@@ -148,14 +149,14 @@ def apply_edits(data: bytes, groups: Iterable[Sequence[Edit]]) -> tuple[bytes, i
     A group is skipped when one of its edits overlaps text replaced by an accepted group
     or inserts strictly inside it. Insertions at the same offset keep group order.
     """
-    accepted: list[tuple[int, int, int, str]] = []
+    index = _AcceptedEdits()
     skipped = 0
     for group in groups:
-        if any(_conflicts(edit, other) for edit in group for other in accepted):
+        if any(index.conflicts(edit) for edit in group):
             skipped += 1
             continue
-        accepted.extend((edit.start, edit.end, len(accepted) + index, edit.text) for index, edit in enumerate(group))
-    accepted.sort()
+        index.accept(group)
+    accepted = sorted(index.edits)
     parts, position = [], 0
     for start, end, _, new_text in accepted:
         if start < position:
@@ -164,6 +165,54 @@ def apply_edits(data: bytes, groups: Iterable[Sequence[Edit]]) -> tuple[bytes, i
         position = end
     parts.append(data[position:])
     return b"".join(parts), skipped
+
+
+class _AcceptedEdits:
+    """The edits accepted so far in one rewrite, with conflict queries in logarithmic time.
+
+    Accepted replacements are normally disjoint, and then their ends are sorted like their starts: the only
+    replacement that can overlap a query is the one starting closest before the query's end. Overlapping replacements
+    (a rule bug, reported when the edits are applied) switch to comparing every pair, so outcomes never change.
+    """
+
+    def __init__(self) -> None:
+        self.edits: list[tuple[int, int, int, str]] = []
+        self.starts: list[int] = []
+        self.ends: list[int] = []
+        self.insertions: list[int] = []
+        self.disjoint = True
+
+    def _replacement_overlaps(self, start: int, end: int) -> bool:
+        """Whether an accepted replacement [a, b) has a < end and b > start."""
+        position = bisect_left(self.starts, end) - 1
+        return position >= 0 and self.ends[position] > start
+
+    def conflicts(self, edit: Edit) -> bool:
+        if not self.disjoint:
+            return any(_conflicts(edit, other) for other in self.edits)
+        if edit.start == edit.end:
+            return self._replacement_overlaps(edit.start, edit.start)
+        position = bisect_right(self.insertions, edit.start)
+        if position < len(self.insertions) and self.insertions[position] < edit.end:
+            return True
+        return self._replacement_overlaps(edit.start, edit.end)
+
+    def accept(self, group: Sequence[Edit]) -> None:
+        # Tie-break order of edits at the same span. The original read len(accepted) while extending the list with
+        # this group, so the i-th edit got offset + 2*i; keeping that keeps same-offset insertions of different
+        # groups in their established order.
+        offset = len(self.edits)
+        self.edits.extend((edit.start, edit.end, offset + 2 * order, edit.text) for order, edit in enumerate(group))
+        for edit in group:
+            if edit.start == edit.end:
+                insort(self.insertions, edit.start)
+            elif self.disjoint:
+                if self._replacement_overlaps(edit.start, edit.end):
+                    self.disjoint = False
+                else:
+                    position = bisect_left(self.starts, edit.start)
+                    self.starts.insert(position, edit.start)
+                    self.ends.insert(position, edit.end)
 
 
 def _conflicts(edit: Edit, other: tuple[int, int, int, str]) -> bool:
