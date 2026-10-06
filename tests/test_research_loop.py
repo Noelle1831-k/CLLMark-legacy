@@ -6,13 +6,14 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from benchmarks.common import (digest, discover_units, javascript_environment, parser_smoke, protocol_fingerprint,
-                               source_fingerprint, validate_config)
+from benchmarks.common import (digest, discover_units, javascript_environment, parser_smoke, project_paths, protocol_fingerprint,
+                               source_fingerprint, unit_file_names, validate_config)
 from benchmarks.compare import compare, promote_baseline
 from benchmarks.engine import reset_legacy_state
 from benchmarks.metrics import summarize
 from benchmarks.runner import load_rows, run_experiment, validate_workspace, verified_summary, verify_frozen_run
-from benchmarks.utility import assemble_test, evaluate_utility, run_process, run_test
+from benchmarks.utility import (assemble_test, enable_exercism_tests, evaluate_utility, exercism_solution, load_problems,
+                                run_process, run_test)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -248,7 +249,13 @@ class UtilityExecutionTests(unittest.TestCase):
             (directory / "index.js").write_text(original)
             self.assertEqual(evaluate_utility(unit, directory, {}, CONFIG, directory, environment, directory / "cache")["status"], "PASS")
             (directory / "index.js").write_text(original.replace("Math.floor", "Math.ceil"))
-            self.assertEqual(evaluate_utility(unit, directory, {}, CONFIG, directory, environment, directory / "cache")["status"], "FAIL")
+            failed = evaluate_utility(unit, directory, {}, CONFIG, directory, environment, directory / "cache")
+            self.assertEqual(failed["status"], "FAIL")
+            # The failing suite's output is kept with the unit and in the cache entry, not inside the project copy.
+            evidence = directory / ".utility"
+            self.assertIn("failing", (evidence / "test-attempt-1.stdout").read_text() + (evidence / "test-attempt-1.stderr").read_text())
+            self.assertEqual(list((Path(failed["artifacts"]) / "project").glob("test-attempt-*")), [])
+            self.assertTrue((Path(failed["artifacts"]) / "test-attempt-1.stdout").exists())
 
     def test_cpp_body_reconstruction_uses_official_signature(self):
         problem = {"prompt": "#include <bits/stdc++.h>\nusing namespace std;\nint add(int a,int b){\n", "entry_point": "add", "test": "int main(){return add(2,3)==5?0:1;}"}
@@ -317,6 +324,233 @@ class UtilityExecutionTests(unittest.TestCase):
             self.assertEqual(evaluate_utility(*kwargs)["status"], "PASS")
             path.write_text("return a-b;\n}\n")
             self.assertEqual(evaluate_utility(*kwargs)["status"], "FAIL")
+
+
+def fixture_project(root, files):
+    """A tiny pinned 'checkout' (no node_modules) and the environment/config that describe it."""
+    checkout = Path(root) / "checkout"
+    for path, text in files.items():
+        (checkout / path).parent.mkdir(parents=True, exist_ok=True)
+        (checkout / path).write_text(text)
+    pinned = {"checkout": str(checkout), "commit": "fixture", "node_modules_sha256": "none"}
+    environment = {"javascript": {"node": "node", "node_version": "v-test", "projects": {"fake": pinned}}}
+    return checkout, environment
+
+
+def project_unit(level, name, sources, **extra):
+    return {"oracle": "project_tests", "level": level, "name": name, "path": "corpus", "language": "javascript",
+            "source_files": ["corpus/" + path for path in sources], **extra}
+
+
+class ProjectFileCorpusTests(unittest.TestCase):
+    """Per-file units, tree layout and the project-test oracle on a local fixture (no network)."""
+
+    def corpus(self, root):
+        for path, lines in {"repoA/lib/a.js": 90, "repoA/lib/short.js": 10, "repoA/index.js": 80, "repoB/main.mjs": 120, "repoB/notes.txt": 500}.items():
+            target = Path(root) / "corpus" / path
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text("// line\n" * lines)
+        return {"cohorts": [
+            {"name": "files", "path": "corpus", "language": "javascript", "level": "project_file", "role": "human", "oracle": "project_tests",
+             "extensions": [".js", ".mjs"], "min_lines": 80},
+            {"name": "repos", "path": "corpus", "language": "javascript", "level": "project", "role": "human", "oracle": "project_tests",
+             "layout": "tree", "extensions": [".js", ".mjs"]}]}
+
+    def test_files_at_least_min_lines_become_units_with_their_project(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            units, inventory = discover_units(temporary, self.corpus(temporary))
+        files = [u for u in units if u["level"] == "project_file"]
+        self.assertEqual([u["id"] for u in files], ["files/repoA/index.js", "files/repoA/lib/a.js", "files/repoB/main.mjs"])
+        self.assertEqual([u["project"] for u in files], ["repoA", "repoA", "repoB"])
+        self.assertEqual(inventory[0]["available_units"], 3)
+        self.assertEqual(project_paths(files[1]), {"corpus/repoA/lib/a.js": "lib/a.js"})
+        repos = [u for u in units if u["level"] == "project"]
+        self.assertEqual([len(u["source_files"]) for u in repos], [3, 1])  # short.js stays in the project; txt is no source
+
+    def test_tree_layout_separates_repeated_basenames_but_flat_layout_rejects_them(self):
+        sources = ["fake/index.js", "fake/lib/index.js"]
+        tree = project_unit("project", "fake", sources, layout="tree")
+        self.assertEqual(list(unit_file_names(tree).values()), ["index.js", "lib__index.js"])
+        with self.assertRaises(ValueError):
+            unit_file_names(project_unit("project", "fake", sources))
+
+    def test_invalid_corpus_options_are_rejected(self):
+        for change in [{"layout": "tree", "level": "project_file", "min_lines": 1}, {"min_lines": 5}, {"extensions": ["js"]}, {"layout": "deep"}]:
+            config = copy.deepcopy(CONFIG)
+            config["cohorts"] = [{"name": "x", "path": "p", "language": "javascript", "level": "project", "role": "human", "oracle": "project_tests", **change}]
+            with self.assertRaises(ValueError):
+                validate_config(config)
+        config = copy.deepcopy(CONFIG)
+        del config["exercism"]
+        with self.assertRaises(ValueError):
+            validate_config(config)
+
+    def test_shipped_configuration_is_valid_and_lists_the_new_cohorts(self):
+        validate_config(copy.deepcopy(CONFIG))
+        levels = {c["name"]: c["level"] for c in CONFIG["cohorts"]}
+        self.assertEqual((levels["js_repos"], levels["js_repo_files"], levels["exercism_js"]), ("project", "project_file", "function"))
+
+    def test_single_file_overlay_runs_the_project_suite_and_clean_runs_share_a_cache_entry(self):
+        files = {"lib/a.js": "exports.value = 1;\n", "lib/b.js": "exports.value = 2;\n",
+                 "test.js": "const assert = require('assert');\nassert.strictEqual(require('./lib/a').value + require('./lib/b').value, 3);\n"}
+        config = {**CONFIG, "projects": {"fake": {"test": ["node", "test.js"], "exclusive": True}}, "test_timeout_retries": 0}
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            checkout, environment = fixture_project(root / "pinned", files)
+            cache = root / "cache"
+            one = project_unit("project_file", "fake/lib/a.js", ["fake/lib/a.js"], project="fake")
+            both = project_unit("project", "fake", ["fake/lib/a.js", "fake/lib/b.js"], layout="tree")
+            for unit, names in [(one, ["a.js"]), (both, ["lib__a.js", "lib__b.js"])]:
+                directory = root / ("dir-" + unit["level"])
+                directory.mkdir()
+                for relative, name in zip(unit["source_files"], names):
+                    (directory / name).write_text(files[relative[len("corpus/fake/"):]])
+                result = evaluate_utility(unit, directory, {}, config, directory, environment, cache)
+                self.assertEqual(result["status"], "PASS")
+                self.assertEqual(result["changed_files"], [])
+            self.assertEqual(evaluate_utility(one, root / "dir-project_file", {}, config, root, environment, cache)["cache_hit"], True)
+            keys = {evaluate_utility(u, root / ("dir-" + u["level"]), {}, config, root, environment, cache)["cache_key"] for u in [one, both]}
+            self.assertEqual(len(keys), 1, "clean runs of a project share one cache entry")
+            (root / "dir-project_file" / "a.js").write_text("exports.value = 5;\n")
+            failed = evaluate_utility(one, root / "dir-project_file", {}, config, root, environment, cache)
+            self.assertEqual((failed["status"], failed["changed_files"]), ("FAIL", ["lib/a.js"]))
+            self.assertTrue((root / "cache" / "exclusive-tests.lock").exists())
+            self.assertEqual((checkout / "lib" / "a.js").read_text(), "exports.value = 1;\n")
+            # Tree layout: the flat name lib__a.js maps back to lib/a.js
+            (root / "dir-project" / "lib__a.js").write_text("exports.value = 5;\n")
+            tree_failed = evaluate_utility(both, root / "dir-project", {}, config, root, environment, cache)
+            self.assertEqual((tree_failed["status"], tree_failed["changed_files"]), ("FAIL", ["lib/a.js"]))
+            self.assertIn("AssertionError", (root / "dir-project" / ".utility" / "test-attempt-1.stderr").read_text())
+
+    def test_overlay_never_writes_through_a_symlink_into_the_pinned_checkout(self):
+        files = {"real.js": "exports.value = 1;\n", "test.js": "process.exit(require('./lib/a').value === 1 ? 0 : 1);\n"}
+        config = {**CONFIG, "projects": {"fake": {"test": ["node", "test.js"]}}, "test_timeout_retries": 0}
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            checkout, environment = fixture_project(root / "pinned", files)
+            (checkout / "lib").mkdir()
+            (checkout / "lib" / "a.js").symlink_to("../real.js")
+            unit = project_unit("project_file", "fake/lib/a.js", ["fake/lib/a.js"], project="fake")
+            directory = root / "dir"
+            directory.mkdir()
+            (directory / "a.js").write_text("exports.value = 2;\n")
+            self.assertEqual(evaluate_utility(unit, directory, {}, config, root, environment, root / "cache")["status"], "FAIL")
+            self.assertEqual((checkout / "real.js").read_text(), "exports.value = 1;\n")
+
+    def test_totals_wrapper_fails_when_a_suite_reports_failures_but_exits_zero(self):
+        wrapper = CONFIG["projects"]["bignumber.js"]["test"]
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            (directory / "test").mkdir()
+            for report, expected in [("In total, 7 of 7 tests passed in 3 ms", 0), ("In total, 6 of 7 tests passed in 3 ms", 1), ("no totals printed", 1), ("In total, 0 of 0 tests passed", 1)]:
+                (directory / "test" / "test.js").write_text(f"console.log({json.dumps(report)});\n")
+                command = [wrapper[0], wrapper[1], wrapper[2], "test/test.js"]
+                self.assertEqual(run_process(command, directory, 20, "wrapper")["returncode"], expected, report)
+
+
+class ExercismOracleTests(unittest.TestCase):
+    def test_skip_markers_follow_the_exercism_ci_preparation(self):
+        text = "describe('x', () => {\n  xtest('a', f); xtest('b', g);\n  xit('c', h);\n  test.skip('d', i);\n});\nxdescribe('y', j);\n"
+        enabled = enable_exercism_tests(text)
+        self.assertIn("  test('a', f); xtest('b', g);", enabled)  # first marker per line, as shelljs sed does
+        self.assertIn("  test('c', h);", enabled)
+        self.assertIn("test.skip('d', i)", enabled)
+        self.assertIn("\ndescribe('y', j);", enabled)
+        self.assertEqual(exercism_solution("import { a } from '../lib/a';\nconst s = 'from ../ is text';"), "import { a } from './lib/a';\nconst s = 'from ../ is text';")
+
+    def test_oracle_runs_the_spec_against_the_unit_code_with_support_files(self):
+        runner = ("const fs = require('fs'), path = require('path');\n"
+                  "for (const f of fs.readdirSync(process.argv[2])) if (f.endsWith('.spec.js')) require(path.resolve(process.argv[2], f));\n")
+        problem = {"task_id": "Exercism/adder", "slug": "adder", "spec_file": "adder.spec.js", "support_files": {"data/offset.txt": "10\n"},
+                   "spec": ("const assert = require('assert'), fs = require('fs');\nconst { add } = require('./adder');\n"
+                            "const offset = Number(fs.readFileSync(__dirname + '/data/offset.txt', 'utf8'));\nassert.strictEqual(add(1, 2) + offset, 13);\n")}
+        config = {**CONFIG, "exercism": {"test": ["node", "node_modules/runner.js", "exercise"]}, "test_timeout_retries": 0}
+        unit = {"oracle": "exercism", "level": "function", "language": "javascript", "source_files": ["Exercism_JS/adder.js"]}
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            checkout = root / "pinned"
+            (checkout / "node_modules").mkdir(parents=True)
+            (checkout / "node_modules" / "runner.js").write_text(runner)
+            for name in ["jest.config.js", "babel.config.js"]:
+                (checkout / name).write_text("module.exports = {};\n")
+            environment = {"javascript": {"node_version": "v-test", "exercism": {"checkout": str(checkout), "commit": "fixture", "node_modules_sha256": "none"}}}
+            directory = root / "unit"
+            directory.mkdir()
+            kwargs = (unit, directory, {"exercism": {"Exercism/adder": problem}}, config, root, environment, root / "cache")
+            (directory / "adder.js").write_text("exports.add = (a, b) => a + b;\n")
+            first = evaluate_utility(*kwargs)
+            self.assertEqual(first["status"], "PASS")
+            self.assertTrue(evaluate_utility(*kwargs)["cache_hit"])
+            (directory / "adder.js").write_text("exports.add = (a, b) => a - b;\n")
+            second = evaluate_utility(*kwargs)
+            self.assertEqual(second["status"], "FAIL")
+            self.assertNotEqual(first["cache_key"], second["cache_key"])
+            self.assertIn("AssertionError", (directory / ".utility" / "test-attempt-1.stderr").read_text())
+            self.assertEqual(evaluate_utility(unit, directory, {}, config, root, environment, root / "cache")["status"], "NO_TEST_ORACLE")
+
+
+class PinnedJavaScriptCorpusTests(unittest.TestCase):
+    """The corpus on disk, the lock file and the configuration agree; real suites run on clean and broken sources."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lock = json.loads((ROOT / "benchmarks" / "javascript.lock.json").read_text())
+        cls.units, cls.inventory = discover_units(ROOT, CONFIG, cohorts=["js_repos", "js_repo_files", "exercism_js"])
+
+    def test_every_locked_repository_has_a_test_command_corpus_and_license(self):
+        repositories = self.lock["repositories"]
+        self.assertGreaterEqual(len(repositories), 12)
+        self.assertEqual({p.name for p in (ROOT / "corpus" / "dataset" / "JS_repos").iterdir() if p.is_dir()}, set(repositories))
+        for name, spec in repositories.items():
+            self.assertIn(spec["license"], ["MIT", "ISC", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause"], name)
+            self.assertRegex(spec["commit"], r"^[0-9a-f]{40}$")
+            self.assertRegex(spec["tarball_sha256"], r"^[0-9a-f]{64}$")
+            self.assertTrue(CONFIG["projects"][name]["test"], name)
+            self.assertTrue(any((ROOT / "corpus" / "dataset" / "JS_repos" / name).glob("LICEN*")), name)
+            install = spec["install"]
+            if install["mode"] == "npm-ci" and install["lockfile"] != "repository":
+                self.assertEqual(digest((ROOT / install["lockfile"]).read_bytes()), install["lockfile_sha256"], name)
+
+    def test_inventory_units_follow_the_configured_filters(self):
+        by_cohort = {}
+        for unit in self.units:
+            by_cohort.setdefault(unit["cohort"] if "cohort" in unit else unit["id"].split("/")[0], []).append(unit)
+        self.assertEqual(len(by_cohort["js_repos"]), len(self.lock["repositories"]))
+        files = by_cohort["js_repo_files"]
+        self.assertEqual(len({u["id"] for u in files}), len(files))
+        for unit in files:
+            self.assertGreaterEqual(len((ROOT / unit["source_files"][0]).read_bytes().splitlines()), 80)
+            self.assertIn(unit["project"], self.lock["repositories"])
+        rows = [json.loads(line) for line in (ROOT / "corpus" / "dataset" / "Jsonl" / "exercism_javascript.jsonl").read_text().splitlines()]
+        self.assertEqual(sorted(r["slug"] for r in rows), sorted(Path(u["source_files"][0]).stem for u in by_cohort["exercism_js"]))
+        self.assertTrue(all(r["proof_lines"] >= self.lock["exercism"]["min_solution_lines"] and r["spec"] for r in rows))
+        polyglot = set(self.lock["exercism"]["aider_polyglot"]["exercises"])
+        self.assertEqual({r["slug"] for r in rows if r["aider_polyglot"]}, {r["slug"] for r in rows} & polyglot)
+
+    def test_real_repository_file_unit_passes_clean_and_fails_when_broken(self):
+        environment = {"javascript": javascript_environment(ROOT)}
+        unit = next(u for u in self.units if u["id"] == "js_repo_files/qs/lib/utils.js")
+        original = (ROOT / unit["source_files"][0]).read_text()
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            (directory / "utils.js").write_text(original)
+            self.assertEqual(evaluate_utility(unit, directory, {}, CONFIG, directory, environment, directory / "cache")["status"], "PASS")
+            (directory / "utils.js").write_text(original.replace("var has = Object.prototype.hasOwnProperty;", "var has = function () { return false; };", 1))
+            result = evaluate_utility(unit, directory, {}, CONFIG, directory, environment, directory / "cache")
+            self.assertEqual((result["status"], result["changed_files"]), ("FAIL", ["lib/utils.js"]))
+
+    def test_real_exercism_exercise_passes_clean_and_fails_when_broken(self):
+        environment = {"javascript": javascript_environment(ROOT)}
+        unit = next(u for u in self.units if u["id"] == "exercism_js/affine-cipher")
+        problems = load_problems(ROOT, CONFIG)
+        original = (ROOT / unit["source_files"][0]).read_text()
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            (directory / "affine-cipher.js").write_text(original)
+            args = (unit, directory, problems, CONFIG, directory, environment, directory / "cache")
+            self.assertEqual(evaluate_utility(*args)["status"], "PASS")
+            (directory / "affine-cipher.js").write_text(original.replace("'abcdefghijklmnopqrstuvwxyz'", "'bacdefghijklmnopqrstuvwxyz'", 1))
+            self.assertEqual(evaluate_utility(*args)["status"], "FAIL")
 
 
 if __name__ == "__main__":

@@ -88,6 +88,16 @@ rule_dict = {
          'nested_condition': ['16.1', '16.2'],
          'void_return': ['18.1', '18.2'],
          'member_access': ['19.1', '19.2'],
-         'property_shorthand': ['23.1', '23.2']
+         'property_shorthand': ['23.2', '23.1'],
+         'else_after_return': ['20.2', '20.1'],
+         'arrow_body': ['24.1', '24.2'],
+         'const_let': ['25.1', '25.2'],
+         'logical_assignment': ['26.1', '26.2'],
+         'power': ['27.1', '27.2'],
+         'global_alias': ['28.1', '28.2'],
+         'undefined_literal': ['29.1', '29.2'],
+         'function_arrow': ['30.2', '30.1'],
+         'empty_array': ['31.1', '31.2'],
+         'empty_object': ['32.1', '32.2']
          },
 }

@@ -88,8 +88,9 @@ flowchart TD
 | [benchmarks/common.py](../benchmarks/common.py) | 非破坏性语料清单、版本摘要、环境验证和原子文件写入 |
 | [benchmarks/runner.py](../benchmarks/runner.py) | 源码/输入冻结、并行执行、逐行续跑、运行后原始输入校验 |
 | [benchmarks/engine.py](../benchmarks/engine.py) | 调用真实旧入口，记录容量、码位、随机设置、结构性质及反向变换攻击 |
-| [benchmarks/utility.py](../benchmarks/utility.py) | Python/C++/JavaScript MBXP 测试拼接、编译或语法检查和执行，JavaScript 项目自带测试套件（水印文件覆盖到固定检出），超时及内容摘要缓存 |
-| [tools/setup_javascript.py](../tools/setup_javascript.py)、[benchmarks/javascript.lock.json](../benchmarks/javascript.lock.json) | lodash、JavaScript 项目的固定提交与测试依赖，项目源码复制到 `dataset/JS_projects` |
+| [benchmarks/utility.py](../benchmarks/utility.py) | Python/C++/JavaScript MBXP 测试拼接、编译或语法检查和执行，JavaScript 项目/仓库文件自带测试套件（水印文件覆盖到固定检出）、Exercism Jest spec，超时及内容摘要缓存 |
+| [tools/setup_javascript.py](../tools/setup_javascript.py)、[benchmarks/javascript.lock.json](../benchmarks/javascript.lock.json)、[benchmarks/js-locks/](../benchmarks/js-locks) | lodash、JavaScript 小项目（git 提交）、中型仓库与 Exercism（tarball SHA-256 + 锁文件，`--ignore-scripts`）的固定来源与依赖；源码复制到 `corpus/dataset/JS_projects`、`corpus/dataset/JS_repos`、`corpus/dataset/Exercism_JS` |
+| [tools/js_corpus_inventory.py](../tools/js_corpus_inventory.py) | JavaScript 各组与各仓库的单元数、行数分布及容量分布（TSV） |
 | [tools/import_mbjsp.py](../tools/import_mbjsp.py) | 由 MBJSP 题目与生成结果构建 `corpus/dataset/MBJSP_G`、`MBJSP_H` |
 | [benchmarks/metrics.py](../benchmarks/metrics.py) | 显式分母、失败 ID、分组指标、CSV/Markdown/图表 |
 | [benchmarks/compare.py](../benchmarks/compare.py) | 可比性校验、分组和汇总门禁、显式基线提升与历史归档 |

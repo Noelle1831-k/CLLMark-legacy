@@ -1,0 +1,46 @@
+{
+ "language": "c",
+ "files": 8788,
+ "pairs": {
+  "declare": {
+   "styles": [
+    "6.2",
+    "6.1"
+   ],
+   "applicable": 1662,
+   "form0": 508,
+   "form1": 687,
+   "idempotence_trials": 3324,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 3324,
+   "reversibility_failures": 2127,
+   "interference": {
+    "array_init": 12
+   }
+  },
+  "while_to_for": {
+   "styles": [
+    "7.8",
+    "12"
+   ],
+   "interference": {}
+  }
+ },
+ "examples": {
+  "declare:reversibility_failures": [
+   "dataset/MBCP_G/MBCP_1.c",
+   "dataset/MBCP_G/MBCP_100.c",
+   "dataset/MBCP_G/MBCP_102.c",
+   "dataset/MBCP_G/MBCP_104.c",
+   "dataset/MBCP_G/MBCP_106.c"
+  ],
+  "declare:interferes:array_init": [
+   "dataset/CodeNet_H/CN072.c",
+   "dataset/CodeNet_H/CN119.c",
+   "dataset/CodeNet_H/CN126.c",
+   "dataset/CodeNet_H/CN132.c",
+   "dataset/CodeNet_H/CN144.c"
+  ]
+ }
+}

@@ -81,14 +81,28 @@ def validate_config(config):
         if cohort["name"] in seen or "/" in cohort["name"] or cohort["name"] in ["", ".", ".."]:
             raise ValueError("Cohort names must be unique safe names")
         seen.add(cohort["name"])
-        if cohort["language"] not in EXTENSIONS or cohort["level"] not in ["function", "project"]:
+        if cohort["language"] not in EXTENSIONS or cohort["level"] not in ["function", "project", "project_file"]:
             raise ValueError("Invalid cohort language or level")
+        extensions = cohort.get("extensions", [])
+        if not isinstance(extensions, list) or any(not isinstance(e, str) or not e.startswith(".") for e in extensions):
+            raise ValueError("Cohort extensions must be a list of dotted suffixes")
+        if cohort.get("layout", "flat") not in ["flat", "tree"] or (cohort.get("layout") == "tree" and cohort["level"] != "project"):
+            raise ValueError("Only project-level cohorts may use the tree layout")
+        if "min_lines" in cohort and (cohort["level"] != "project_file" or not isinstance(cohort["min_lines"], int) or cohort["min_lines"] < 1):
+            raise ValueError("min_lines is a positive integer for project_file cohorts")
         if cohort["role"] not in ["generated", "human", "historical", "unknown"]:
             raise ValueError("Invalid cohort ground-truth role")
-        if cohort["oracle"] not in ["mbxp", "none", "unmapped_codenet", "project_tests"]:
+        if cohort["oracle"] not in ["mbxp", "none", "unmapped_codenet", "project_tests", "exercism"]:
             raise ValueError("Invalid cohort oracle")
-        if cohort["oracle"] == "project_tests" and (cohort["level"] != "project" or config.get("project_test_timeout_seconds", 0) <= 0):
+        if cohort["oracle"] == "project_tests" and (cohort["level"] not in ["project", "project_file"] or config.get("project_test_timeout_seconds", 0) <= 0):
             raise ValueError("Project test oracles need project-level cohorts and a positive project_test_timeout_seconds")
+        if cohort["level"] == "project_file" and cohort["oracle"] not in ["project_tests", "none"]:
+            raise ValueError("project_file cohorts use the project test oracle")
+        if cohort["oracle"] == "exercism" and (cohort["level"] != "function" or cohort["language"] != "javascript"
+                                               or "exercism" not in config.get("problem_files", {})
+                                               or not config.get("exercism", {}).get("test")
+                                               or config.get("project_test_timeout_seconds", 0) <= 0):
+            raise ValueError("The exercism oracle needs function-level JavaScript cohorts, problem_files.exercism, an exercism test command and project_test_timeout_seconds")
     return config
 
 
@@ -157,24 +171,53 @@ def toolchain_environment(root):
     }
 
 
+INSTALLED_LOCKFILES = {"npm-ci": "node_modules/.package-lock.json", "pnpm-frozen": "node_modules/.pnpm/lock.yaml"}
+
+
+def install_digest(checkout, mode):
+    """Digest of what the package manager recorded as installed (the effective, fully resolved dependency tree)."""
+    if mode == "none":
+        return digest(b"none")
+    recorded = Path(checkout) / INSTALLED_LOCKFILES[mode]
+    if not recorded.is_file():
+        raise RuntimeError(f"Dependencies of {Path(checkout).name} are not installed; rerun tools/setup_javascript.py")
+    return digest(recorded.read_bytes())
+
+
 def javascript_environment(root):
-    """Node runtime, the lodash used by MBJSP tests and each pinned project checkout with its test dependencies."""
+    """Node runtime, the lodash used by MBJSP tests, each pinned project/repository checkout with its test dependencies,
+    and the pinned Exercism checkout."""
     node = shutil.which("node")
     if node is None:
         raise RuntimeError("Node.js is required for the JavaScript cohorts")
     modules = Path(root) / ".benchmark-cache" / "node" / "node_modules"
     lodash = json.loads((modules / "lodash" / "package.json").read_text())["version"]
     projects = {}
+    base = Path(root) / ".benchmark-cache" / "js-projects"
     lock = json.loads((Path(root) / "benchmarks" / "javascript.lock.json").read_text())
     for name, spec in lock["projects"].items():
-        checkout = Path(root) / ".benchmark-cache" / "js-projects" / name
+        checkout = base / name
         commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=checkout, text=True).strip()
         if commit != spec["commit"]:
             raise RuntimeError(f"JavaScript project {name} is not at its pinned commit; rerun tools/setup_javascript.py")
         installed = checkout / "node_modules" / ".package-lock.json"
         projects[name] = {"checkout": str(checkout), "commit": commit, "node_modules_sha256": digest(installed.read_bytes())}
+    downloads = {**{name: spec for name, spec in lock.get("repositories", {}).items()},
+                 **({"exercism": lock["exercism"]} if "exercism" in lock else {})}
+    pinned = {}
+    for name, spec in downloads.items():
+        checkout = base / name
+        pin_path = base / (name + ".pin.json")
+        pin = json.loads(pin_path.read_text()) if pin_path.is_file() else {}
+        if pin.get("commit") != spec["commit"] or pin.get("tarball_sha256") != spec["tarball_sha256"] or not checkout.is_dir():
+            raise RuntimeError(f"JavaScript repository {name} is not at its pinned commit/tarball; rerun tools/setup_javascript.py")
+        if pin.get("install", {}).get("lockfile_sha256") != spec["install"].get("lockfile_sha256"):
+            raise RuntimeError(f"JavaScript repository {name} was installed from a different lockfile; rerun tools/setup_javascript.py")
+        pinned[name] = {"checkout": str(checkout), "commit": spec["commit"], "tarball_sha256": spec["tarball_sha256"],
+                        "node_modules_sha256": install_digest(checkout, spec["install"]["mode"])}
+    exercism = pinned.pop("exercism", None)
     return {"node": node, "node_version": subprocess.check_output([node, "--version"], text=True).strip(),
-            "node_path": str(modules), "lodash": lodash, "projects": projects}
+            "node_path": str(modules), "lodash": lodash, "projects": {**projects, **pinned}, "exercism": exercism}
 
 
 def git_version(root):
@@ -208,6 +251,36 @@ def parser_smoke(root):
     return loaded
 
 
+def line_count(path):
+    return len(Path(path).read_bytes().splitlines())
+
+
+def unit_file_names(unit):
+    """Name of each unit input in the flat directory the legacy pipeline works on.
+
+    Legacy cohorts keep basenames. Project cohorts with `layout: tree` keep their directory structure
+    (`lib/a.js` becomes `lib__a.js`) so that repositories with repeated basenames such as index.js can be processed."""
+    if unit.get("layout") == "tree" and unit["level"] == "project":
+        prefix = unit["path"].rstrip("/") + "/" + unit["name"] + "/"
+        names = {p: p[len(prefix):].replace("/", "__") for p in unit["source_files"]}
+    else:
+        names = {p: Path(p).name for p in unit["source_files"]}
+    if len(set(names.values())) != len(names):
+        raise ValueError("Legacy flat-directory adapter cannot handle duplicate file names")
+    return names
+
+
+def project_paths(unit):
+    """Path of each unit input inside the pinned project checkout: the corpus path below <cohort path>/<project>/."""
+    prefix = unit["path"].rstrip("/") + "/" + unit.get("project", unit["name"]) + "/"
+    return {p: p[len(prefix):] for p in unit["source_files"]}
+
+
+def cohort_files(directory, cohort):
+    suffixes = cohort.get("extensions") or [EXTENSIONS[cohort["language"]]]
+    return sorted({p for suffix in suffixes for p in directory.rglob("*" + suffix) if p.is_file()})
+
+
 def discover_units(root, config, limit=0, cohorts=None):
     root = Path(root).resolve()
     selected = set(cohorts) if cohorts else None
@@ -219,11 +292,20 @@ def discover_units(root, config, limit=0, cohorts=None):
         if not directory.is_relative_to(root) or not directory.is_dir():
             raise ValueError("Missing or unsafe dataset path: " + cohort["path"])
         extension = EXTENSIONS[cohort["language"]]
+        extra = {}
         if cohort["level"] == "function":
             groups = [(p.stem, [p]) for p in sorted(directory.glob("*" + extension))]
-        else:
-            groups = [(p.name, sorted(p.rglob("*" + extension))) for p in sorted(directory.iterdir()) if p.is_dir()]
+        elif cohort["level"] == "project":
+            groups = [(p.name, cohort_files(p, cohort)) for p in sorted(directory.iterdir()) if p.is_dir()]
             groups = [(name, files) for name, files in groups if files]
+        else:
+            # One unit per sufficiently long source file; the project (checkout) is the first directory.
+            groups = []
+            for project in sorted(p for p in directory.iterdir() if p.is_dir()):
+                for path in cohort_files(project, cohort):
+                    if line_count(path) >= cohort.get("min_lines", 1):
+                        groups.append((project.name + "/" + path.relative_to(project).as_posix(), [path]))
+                        extra[project.name + "/" + path.relative_to(project).as_posix()] = {"project": project.name}
         if not groups:
             raise ValueError("Dataset is empty: " + cohort["path"])
         chosen = groups[:limit] if limit else groups
@@ -233,6 +315,6 @@ def discover_units(root, config, limit=0, cohorts=None):
         for name, files in chosen:
             if any(p.is_symlink() or not p.resolve().is_relative_to(root) for p in files):
                 raise ValueError("Dataset source symlinks are not supported")
-            units.append({**cohort, "id": cohort["name"] + "/" + name, "name": name,
+            units.append({**cohort, **extra.get(name, {}), "id": cohort["name"] + "/" + name, "name": name,
                           "source_files": [p.relative_to(root).as_posix() for p in files]})
     return units, inventory

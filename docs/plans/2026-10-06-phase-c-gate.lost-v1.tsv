@@ -1,0 +1,62 @@
+unit_id	cohort	rule	style	outcome	reason	first_line_of_matched_node
+mbcpp_generated/MBCPP_100	mbcpp_generated	declare	6.2	rejected	6.1: rejected: single declarator || 6.2: a declaration after statements outside a compound statement	1:string numStr = to_string(num);
+mbcpp_generated/MBCPP_179	mbcpp_generated	declare	6.2	rejected	6.1: rejected: single declarator || 6.2: a declaration after statements outside a compound statement	2:int num = x;
+mbcpp_generated/MBCPP_302	mbcpp_generated	while_to_for	7.8	recovered		3:while (n != 0) {
+mbcpp_generated/MBCPP_331	mbcpp_generated	declare	6.2	recovered		1:int unsetBits = 0;
+mbcpp_generated/MBCPP_463	mbcpp_generated	declare	6.2	rejected	6.1: rejected: single declarator || 6.2: a declaration after statements outside a compound statement	3:int maxProduct = arr[0];
+mbcpp_generated/MBCPP_636	mbcpp_generated	declare	6.2	rejected	6.1: rejected: single declarator || 6.2: a declaration after statements outside a compound statement	1:float discriminant = b * b - 4 * a * c;
+mbcpp_generated/MBCPP_684	mbcpp_generated	for_OOO	11	rejected	7.7: rejected: break test or update would leave the loop body (brace-less body or continue)	7:for (int i = 0; i < remainder; i++) if (str[i] == x[0]) result++;
+mbcpp_generated/MBCPP_689	mbcpp_generated	declare	6.2	recovered		1:if (n <= 1) return 0;
+mbcpp_generated/MBCPP_940	mbcpp_generated	declare	6.2	recovered		3:{
+mbcpp_generated_subset/MBCPP_100	mbcpp_generated_subset	declare	6.2	rejected	6.1: rejected: single declarator || 6.2: a declaration after statements outside a compound statement	1:string numStr = to_string(num);
+mbcpp_generated_subset/MBCPP_179	mbcpp_generated_subset	declare	6.2	rejected	6.1: rejected: single declarator || 6.2: a declaration after statements outside a compound statement	2:int num = x;
+mbcpp_generated_subset/MBCPP_302	mbcpp_generated_subset	while_to_for	7.8	recovered		3:while (n != 0) {
+mbcpp_generated_subset/MBCPP_331	mbcpp_generated_subset	declare	6.2	recovered		1:int unsetBits = 0;
+mbcpp_generated_subset/MBCPP_463	mbcpp_generated_subset	declare	6.2	rejected	6.1: rejected: single declarator || 6.2: a declaration after statements outside a compound statement	3:int maxProduct = arr[0];
+mbcpp_generated_subset/MBCPP_636	mbcpp_generated_subset	declare	6.2	rejected	6.1: rejected: single declarator || 6.2: a declaration after statements outside a compound statement	1:float discriminant = b * b - 4 * a * c;
+mbcpp_generated_subset/MBCPP_684	mbcpp_generated_subset	for_OOO	11	rejected	7.7: rejected: break test or update would leave the loop body (brace-less body or continue)	7:for (int i = 0; i < remainder; i++) if (str[i] == x[0]) result++;
+mbcpp_generated_subset/MBCPP_689	mbcpp_generated_subset	declare	6.2	recovered		1:if (n <= 1) return 0;
+mbcpp_generated_subset/MBCPP_940	mbcpp_generated_subset	declare	6.2	recovered		3:{
+mbcpp_human/MBCPP_384	mbcpp_human	declare	6.2	recovered		1:int count = 0;
+mbcpp_human/MBCPP_815	mbcpp_human	declare	6.2	recovered		2:{
+mbcpp_human/MBCPP_914	mbcpp_human	declare	6.2	recovered		1:if (s == "") return false;
+mbcpp_human/MBCPP_914	mbcpp_human	while_to_for	7.8	recovered		4:while (i < j) {
+mbcpp_human/MBCPP_921	mbcpp_human	for_OOO	11	rejected	7.7: rejected: break test or update would leave the loop body (brace-less body or continue)	13:for(j = 0; j < count; j ++)
+c_generated/MBCP_218	c_generated	self_assignment	2.2	rejected	2.1: guard failed: a = a <op> b || 2.2: rejected: right side binds more loosely than the operator	5:operations += b - a
+c_generated/MBCP_291	c_generated	declare	6.2	recovered		1:{
+c_generated/MBCP_302	c_generated	while_to_for	7.8	recovered		5:while (n > 0) {
+c_generated/MBCP_365	c_generated	while_to_for	7.8	recovered		4:while (n != 0) {
+c_generated/MBCP_725	c_generated	declare	6.1	rejected	6.2: a call lies between the declarations and the initialiser reads variables || 6.1: rejected: single declarator	12:int length = pmatch[1].rm_eo - pmatch[1].rm_so;
+c_generated/MBCP_845	c_generated	for_OOO	11	rejected	7.7: rejected: break test or update would leave the loop body (brace-less body or continue)	7:for (int i = 2; i <= n; i++)
+c_generated/MBCP_885	c_generated	declare	6.2	recovered		1:{
+c_generated/MBCP_891	c_generated	while_to_for	7.8	recovered		4:while (n != 0) {
+c_historical_marked/MBCP_725	c_historical_marked	declare	6.1	rejected	6.2: a call lies between the declarations and the initialiser reads variables || 6.1: rejected: single declarator	4:regmatch_t *pmatch = (regmatch_t *)malloc(sizeof(regmatch_t) * 2);
+codenet_generated/CN098	codenet_generated	declare	6.2	recovered		5:{
+codenet_generated/CN175	codenet_generated	while_to_for	7.8	recovered		5:while (n > 0) {
+codenet_generated/CN258	codenet_generated	declare	6.2	recovered		1:{
+codenet_generated/CN298	codenet_generated	declare	6.2	recovered		1:{
+codenet_generated/CN298	codenet_generated	for_OOO	11	rejected	7.7: rejected: break test or update would leave the loop body (brace-less body or continue)	4:for (int i = N - 1; i >= 0; --i) {
+codenet_generated/CN377	codenet_generated	declare	6.1	rejected	6.2: binary operator % || 6.1: rejected: single declarator	6:int remainder = totalCakes % (N + 1);
+codenet_generated/CN438	codenet_generated	declare	6.2	recovered		1:{
+codenet_human/CN054	codenet_human	update_reverse	3.2	rejected	3.2: guard failed: statement-level ++/--, operand is child 1 || 3.1: guard failed: statement-level ++/--	7:n--
+codenet_human/CN115	codenet_human	for_OOO	11	rejected	7.7: rejected: break test or update would leave the loop body (brace-less body or continue)	4:for(i = 0; i < 5; ++ i) for(j = 0; j < 3; ++ j) scanf("%d", &x[i][j]);
+codenet_human/CN437	codenet_human	self_assignment	2.2	rejected	2.1: guard failed: a = a <op> b || 2.2: rejected: right side binds more loosely than the operator	3:*a+=*b+*c
+codenet_human/CN437	codenet_human	update_reverse	3.2	rejected	3.2: guard failed: statement-level ++/--, operand is child 1 || 3.1: guard failed: statement-level ++/--	4:i++
+cpp_snippets/snippet_200	cpp_snippets	declare	6.2	recovered		13:{
+cpp_snippets/snippet_225	cpp_snippets	declare	6.2	recovered		1:int dp[n] = {0};
+cpp_snippets/snippet_274	cpp_snippets	declare	6.2	recovered		11:{
+cpp_snippets/snippet_343	cpp_snippets	declare	6.2	recovered		1:std::sort(arr.begin(), arr.end());
+cpp_snippets/snippet_362	cpp_snippets	declare	6.2	recovered		16:{
+cpp_snippets/snippet_368	cpp_snippets	declare	6.2	recovered		7:{
+cpp_snippets/snippet_382	cpp_snippets	declare	6.2	recovered		9:{
+cpp_snippets/snippet_4	cpp_snippets	declare	6.1	rejected	6.1: rejected: single declarator || 6.2: call_expression in an initialiser or declarator	15:vector<int> res = heapQueueLargest(nums, n);
+cpp_snippets/snippet_409	cpp_snippets	declare	6.2	recovered		1:int profit = 0;
+cpp_snippets/snippet_451	cpp_snippets	declare	6.2	recovered		1:int size = nums.size();
+cpp_snippets/snippet_474	cpp_snippets	declare	6.2	rejected	6.1: rejected: single declarator || 6.2: a declaration after statements outside a compound statement	2:string::iterator iter = text.begin();
+cpp_snippets/snippet_522	cpp_snippets	declare	6.2	recovered		1:string original = to_string(number);
+cpp_snippets/snippet_629	cpp_snippets	declare	6.2	recovered		1:vector<vector<float>> dp(n, vector<float>(n, 0));
+cpp_snippets/snippet_656	cpp_snippets	declare	6.2	recovered		1:if (i >= arr.size()) {
+cpp_snippets/snippet_69	cpp_snippets	declare	6.2	recovered		14:{
+cpp_snippets/snippet_731	cpp_snippets	declare	6.2	recovered		8:{
+cpp_snippets/snippet_743	cpp_snippets	while_to_for	7.8	recovered		2:while(n % 2 == 0) {
+cpp_snippets/snippet_848	cpp_snippets	declare	6.2	recovered		1:int row=a.size();

@@ -1,0 +1,51 @@
+{
+ "language": "cpp",
+ "files": 9026,
+ "pairs": {
+  "declare": {
+   "styles": [
+    "6.1",
+    "6.2"
+   ],
+   "applicable": 880,
+   "form0": 353,
+   "form1": 453,
+   "idempotence_trials": 1760,
+   "idempotence_failures": 23,
+   "syntax_regressions": 7,
+   "reversibility_trials": 1760,
+   "reversibility_failures": 954,
+   "interference": {}
+  },
+  "while_to_for": {
+   "styles": [
+    "7.8",
+    "12"
+   ],
+   "interference": {}
+  }
+ },
+ "examples": {
+  "declare:reversibility_failures": [
+   "dataset/MBCPP_G/MBCPP_1.cpp",
+   "dataset/MBCPP_G/MBCPP_111.cpp",
+   "dataset/MBCPP_G/MBCPP_119.cpp",
+   "dataset/MBCPP_G/MBCPP_121.cpp",
+   "dataset/MBCPP_G/MBCPP_122.cpp"
+  ],
+  "declare:idempotence_failures": [
+   "code_snippets/snippet_135.cpp",
+   "code_snippets/snippet_148.cpp",
+   "code_snippets/snippet_222.cpp",
+   "code_snippets/snippet_236.cpp",
+   "code_snippets/snippet_273.cpp"
+  ],
+  "declare:syntax_regressions": [
+   "code_snippets/snippet_169.cpp",
+   "code_snippets/snippet_363.cpp",
+   "code_snippets/snippet_490.cpp",
+   "code_snippets/snippet_633.cpp",
+   "C++_func/Word_Grid_Challenge_SRDD_Puzzle_Game_20241219133758/findWord.cpp"
+  ]
+ }
+}

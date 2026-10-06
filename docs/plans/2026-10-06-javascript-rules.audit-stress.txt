@@ -1,0 +1,393 @@
+{
+ "language": "javascript",
+ "files": 5430,
+ "pairs": {
+  "self_assignment": {
+   "styles": [
+    "2.1",
+    "2.2"
+   ],
+   "applicable": 468,
+   "form0": 430,
+   "form1": 21,
+   "idempotence_trials": 936,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 936,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "equal_to_not_equal": {
+   "styles": [
+    "2.4",
+    "2.3"
+   ],
+   "applicable": 2182,
+   "form0": 2182,
+   "form1": 0,
+   "idempotence_trials": 4364,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 4364,
+   "reversibility_failures": 0,
+   "interference": {
+    "equal_hash_reverse": 1
+   }
+  },
+  "not_equal_to_equal": {
+   "styles": [
+    "2.6",
+    "2.5"
+   ],
+   "applicable": 1321,
+   "form0": 1318,
+   "form1": 0,
+   "idempotence_trials": 2642,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 2642,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "reverse_compare": {
+   "styles": [
+    "2.7",
+    "2.8"
+   ],
+   "applicable": 866,
+   "form0": 841,
+   "form1": 3,
+   "idempotence_trials": 1732,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 1732,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "equal_hash_reverse": {
+   "styles": [
+    "2.12",
+    "2.11"
+   ],
+   "applicable": 1250,
+   "form0": 300,
+   "form1": 439,
+   "idempotence_trials": 2500,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 2500,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "not_equal_hash_reverse": {
+   "styles": [
+    "2.13",
+    "2.14"
+   ],
+   "applicable": 659,
+   "form0": 289,
+   "form1": 211,
+   "idempotence_trials": 1318,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 1318,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "update_reverse": {
+   "styles": [
+    "3.2",
+    "3.1"
+   ],
+   "applicable": 1023,
+   "form0": 732,
+   "form1": 198,
+   "idempotence_trials": 2046,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 2046,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "declare": {
+   "styles": [
+    "6.1",
+    "6.2"
+   ],
+   "applicable": 1451,
+   "form0": 1193,
+   "form1": 74,
+   "idempotence_trials": 2902,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 2902,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "loop_form": {
+   "styles": [
+    "7.1",
+    "7.2"
+   ],
+   "applicable": 533,
+   "form0": 533,
+   "form1": 0,
+   "idempotence_trials": 1066,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 1066,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "branch_order": {
+   "styles": [
+    "14.1",
+    "14.2"
+   ],
+   "applicable": 654,
+   "form0": 652,
+   "form1": 1,
+   "idempotence_trials": 1308,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 1308,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "conditional_order": {
+   "styles": [
+    "15.1",
+    "15.2"
+   ],
+   "applicable": 1228,
+   "form0": 1225,
+   "form1": 1,
+   "idempotence_trials": 2456,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 2456,
+   "reversibility_failures": 0,
+   "interference": {
+    "equal_hash_reverse": 1
+   }
+  },
+  "nested_condition": {
+   "styles": [
+    "16.1",
+    "16.2"
+   ],
+   "applicable": 624,
+   "form0": 624,
+   "form1": 0,
+   "idempotence_trials": 1248,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 1248,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "void_return": {
+   "styles": [
+    "18.1",
+    "18.2"
+   ],
+   "applicable": 1771,
+   "form0": 1768,
+   "form1": 1,
+   "idempotence_trials": 3542,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 3542,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "member_access": {
+   "styles": [
+    "19.1",
+    "19.2"
+   ],
+   "applicable": 4999,
+   "form0": 4957,
+   "form1": 2,
+   "idempotence_trials": 9998,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 9998,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "property_shorthand": {
+   "styles": [
+    "23.2",
+    "23.1"
+   ],
+   "applicable": 714,
+   "form0": 183,
+   "form1": 506,
+   "idempotence_trials": 1428,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 1428,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "else_after_return": {
+   "styles": [
+    "20.2",
+    "20.1"
+   ],
+   "applicable": 279,
+   "form0": 203,
+   "form1": 44,
+   "idempotence_trials": 558,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 558,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "arrow_body": {
+   "styles": [
+    "24.1",
+    "24.2"
+   ],
+   "applicable": 707,
+   "form0": 705,
+   "form1": 0,
+   "idempotence_trials": 1414,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 1414,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "const_let": {
+   "styles": [
+    "25.1",
+    "25.2"
+   ],
+   "applicable": 1286,
+   "form0": 1073,
+   "form1": 182,
+   "idempotence_trials": 2572,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 2572,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "logical_assignment": {
+   "styles": [
+    "26.1",
+    "26.2"
+   ],
+   "applicable": 76,
+   "form0": 76,
+   "form1": 0,
+   "idempotence_trials": 152,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 152,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "power": {
+   "styles": [
+    "27.1",
+    "27.2"
+   ],
+   "applicable": 33,
+   "form0": 23,
+   "form1": 10,
+   "idempotence_trials": 66,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 66,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "global_alias": {
+   "styles": [
+    "28.1",
+    "28.2"
+   ],
+   "applicable": 91,
+   "form0": 83,
+   "form1": 8,
+   "idempotence_trials": 182,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 182,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "undefined_literal": {
+   "styles": [
+    "29.1",
+    "29.2"
+   ],
+   "applicable": 598,
+   "form0": 271,
+   "form1": 261,
+   "idempotence_trials": 1196,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 1196,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "function_arrow": {
+   "styles": [
+    "30.2",
+    "30.1"
+   ],
+   "applicable": 329,
+   "form0": 220,
+   "form1": 108,
+   "idempotence_trials": 658,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 658,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "empty_array": {
+   "styles": [
+    "31.1",
+    "31.2"
+   ],
+   "applicable": 1024,
+   "form0": 1023,
+   "form1": 0,
+   "idempotence_trials": 2048,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 2048,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "empty_object": {
+   "styles": [
+    "32.1",
+    "32.2"
+   ],
+   "applicable": 763,
+   "form0": 763,
+   "form1": 0,
+   "idempotence_trials": 1526,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 1526,
+   "reversibility_failures": 0,
+   "interference": {}
+  }
+ },
+ "examples": {
+  "equal_to_not_equal:interferes:equal_hash_reverse": [
+   ".benchmark-cache/js-projects/js-yaml/node_modules/flatted/min.js"
+  ],
+  "conditional_order:interferes:equal_hash_reverse": [
+   ".benchmark-cache/js-projects/js-yaml/node_modules/flatted/min.js"
+  ]
+ }
+}

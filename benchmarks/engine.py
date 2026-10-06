@@ -14,7 +14,7 @@ import sys
 import time
 import traceback
 
-from .common import digest, write_json
+from .common import digest, unit_file_names, write_json
 from .utility import evaluate_utility, load_problems
 
 
@@ -177,14 +177,11 @@ class LegacyEngine:
         clean = work / "clean"
         clean.mkdir(parents=True)
         filenames = []
-        for relative in unit["source_files"]:
+        for relative, name in unit_file_names(unit).items():
             source = self.run_dir / "inputs" / relative
             blob = source.read_bytes()
             if digest(blob) != self.manifest["input_files"][relative]["sha256"]:
                 raise ValueError("Frozen input hash mismatch: " + relative)
-            name = Path(relative).name
-            if name in filenames:
-                raise ValueError("Legacy flat-directory adapter cannot handle duplicate basenames")
             filenames.append(name)
             (clean / name).write_bytes(blob)
         log = BoundedLog()
