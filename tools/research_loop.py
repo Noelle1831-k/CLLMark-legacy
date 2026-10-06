@@ -21,6 +21,7 @@ from benchmarks.common import (
     write_json,
 )
 from benchmarks.compare import compare, promote_baseline
+from benchmarks.node_engine import protocol_config
 from benchmarks.parallel import worker_count
 from benchmarks.progress import describe, follow, latest_run
 from benchmarks.runner import execute_run, launch_frozen, run_experiment, validate_workspace, verified_summary
@@ -29,7 +30,7 @@ from benchmarks.runner import execute_run, launch_frozen, run_experiment, valida
 def read_config(path, jobs=None):
     config = json.loads(Path(path).read_text())
     config["jobs"] = jobs if jobs and jobs > 0 else worker_count()
-    return validate_config(config)
+    return validate_config(protocol_config(config, ROOT))
 
 
 def main(argv=None):

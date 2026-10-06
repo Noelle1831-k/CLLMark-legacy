@@ -200,3 +200,14 @@ make watch-benchmark
 监控源码、默认配置及 Git 提交，稳定 15 秒后运行完整 loop；执行期间的新变化会排队，结束后对新版本再跑。按 Ctrl-C 停止。当前不会安装后台服务、修改系统 Git hooks 或持续调用生成 API。
 
 多 seed、消融或不同水印实验复制配置并使用 `--config`、独立 `--baseline` 路径，各配置保留完整结果；不能跨 seed 直接使用回归门禁。按照 [实验记录模板](EXPERIMENT_TEMPLATE.md) 记录假设、控制变量、重复次数、结果文件和结论，再把分组 CSV 汇入论文表格。单次默认 seed 只是版本基准，不提供多次重复的置信区间。
+
+## 节点粒度模式
+
+默认运行是文件粒度。节点粒度槽位是独立模式（设计与结果见 `docs/NODE_SLOTS.md`），用单独的配置运行，不改变普通运行的度量协议：
+
+```bash
+.venv-benchmark/bin/python tools/research_loop.py loop --config benchmarks/config-node.json
+```
+
+节点运行的协议指纹包含 `benchmarks/node_engine.py` 的摘要，只能与节点运行比较。
+
