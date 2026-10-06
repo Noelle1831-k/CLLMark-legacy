@@ -152,3 +152,23 @@ v1 已合并进 `claude/admiring-merkle-4012a5`（`8246e38d`）。MBJSP 可嵌�
 - 比特顺序按 3.8 的原则统计；重跑全部 JavaScript 审计（含 js-projects 与扩展审计）、功能抽检与容量统计（S2 表，给出 v1 → v2 的可嵌入单元数）。
 
 验收同 v1：所有规则对幂等/可逆/语法/干扰为 0，功能抽检 0 回退，测试全部通过。每个新规则至少一个正例与一个反例（含 `this` 的回调、`new Array(3)`、`[].length`、`() => ({})`、`let Array = …`）。在同一分支追加提交。
+
+## v3（真实语料接入后，主会话）
+
+语料扩充已合并（`6739d266`）：`js_repos`（14 个仓库）、`js_repo_files`（84 个文件单元）、`exercism_js`（100 题），源码在 `dataset/JS_repos/`、Exercism 相关文件见 `benchmarks/config.json` 与 `docs/plans/2026-10-06-javascript-corpus.selection.md`。这些语料取代 MBJSP 成为 JavaScript 的主要证据。
+
+### T1. 比特顺序按真实语料重定
+
+- 对 `dataset/JS_repos/`（全部被测源文件）与 Exercism 参考解统计全部 25 个规则对两种形式的候选数（与 v1 3.8 同口径；MBJSP 单独列出但不参与决定），**比特 0 = 真实语料中更常见的形式**。写入 `docs/plans/2026-10-06-javascript-rules.forms-real.tsv`，并在回复中列出改变了顺序的规则对。
+- 只改 `rule_dict_bit_acc.py` 的 JavaScript 段顺序。
+
+### T2. 在真实语料上审计与功能检查
+
+- `tools/rule_audit.py --language javascript --against all` 覆盖 `dataset/JS_repos/` 与 Exercism 参考解（若审计脚本的语料来源需要扩展，扩展脚本并说明），验收：幂等/可逆/语法/干扰全部为 0；不为 0 的逐个查明并以守卫修复（不放宽语义约束）。
+- 功能检查：扩展 `tools/js_rule_check.py`，对每个仓库与每道 Exercism 题，逐规则（单独应用每个规则对的两个方向，在所有可应用位置）改写后运行该仓库/该题的测试，统计"干净通过而改写后失败"。已知例外：`ejs/lib/utils.js` 的测试比较函数源码文本（`escapeXML.toString()`），任何改写该函数的规则都会使其失败——这是测试读取源码文本，不是语义变化；单独列出这类情况，不为它加守卫。其他失败均视为语义问题，必须修复。结果写入 `docs/plans/2026-10-06-javascript-rules.functional-real.tsv`。
+
+### T3. 单元超时
+
+- `lodash.js` 单元在负载下需 92–157 s，接近 `unit_timeout_seconds` 180。为 cohort 增加可选的 `unit_timeout_seconds` 覆盖（`benchmarks/config.json` 中 `js_repos`、`js_repo_files` 设为 600），实现于 runner/engine 中现有超时处的最小改动，并加测试。先用 profiler 或计时确认 lodash 单元时间主要花在哪里（解析、性质探测、测试套件），若某处有明显的重复计算，在回复中指出（不要顺手大改）。
+
+验收：测试全部通过；在同一分支提交；回复 ≤ 30 行（改变顺序的规则对、审计结果、功能检查结果与修复、超时实现与 lodash 时间分布、偏离、待决问题）。
