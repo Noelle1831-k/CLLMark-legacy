@@ -540,21 +540,102 @@ def repeated_declaration_type(node):
 
 
 CONSTANT = ['number_literal', 'char_literal', 'string_literal', 'true', 'false', 'null', 'nullptr']
+SIDE_EFFECTS = ['call_expression', 'assignment_expression', 'update_expression', 'new_expression',
+                'delete_expression', 'co_await_expression', 'throw_expression', 'lambda_expression']
+SCALAR_TYPES = ['primitive_type', 'sized_type_specifier']
+
+
+def declarator_parts(declaration):
+    """(names, expressions) of a declaration: the declared names and every expression evaluated
+    at the declaration (initialisers and array sizes of the declarators)."""
+    names, expressions = set(), []
+    for child in declaration.children[1:-1]:
+        if child.type == ',' or child == declaration.child_by_field_name('type') \
+                or child.type in ['storage_class_specifier', 'type_qualifier']:
+            continue
+        if child.type == 'init_declarator':
+            declarator, value = child.child_by_field_name('declarator'), child.child_by_field_name('value')
+        else:
+            declarator, value = child, None
+        contain_id(declarator, names)
+        if value is not None:
+            expressions.append(value)
+        pending = [declarator]
+        while pending:
+            current = pending.pop()
+            if current.type == 'array_declarator' and current.child_by_field_name('size') is not None:
+                expressions.append(current.child_by_field_name('size'))
+            pending.extend(current.children)
+    return names, expressions
+
+
+def is_constant(node):
+    if node.type in CONSTANT:
+        return True
+    if node.type == 'initializer_list':
+        return all(is_constant(child) for child in node.named_children)
+    if node.type == 'unary_expression':
+        operand = node.child_by_field_name('argument')
+        return operand is not None and is_constant(operand)
+    return False
+
+
+def is_pure(node):
+    """No call, assignment, update, allocation or lambda in the subtree (and not a C++ constructor call)."""
+    if node.type in SIDE_EFFECTS or node.type == 'argument_list':
+        return False
+    return all(is_pure(child) for child in node.children)
+
+
+def scalar_declaration(declaration):
+    return declaration.child_by_field_name('type').type in SCALAR_TYPES
+
+
+def referenced_ids(nodes):
+    """Every identifier read in the subtrees (unlike contain_id, also the `a` of `a[i]` and `f` of `f(x)`)."""
+    names, pending = set(), list(nodes)
+    while pending:
+        node = pending.pop()
+        if node.type == 'identifier':
+            names.add(text(node))
+        pending.extend(node.children)
+    return names
+
+
+def mentioned(names, between):
+    return any(re.search(r'\b' + re.escape(name) + r'\b', between) for name in names)
 
 
 def movable_group(block, group):
-    """The declarations that may join the first one: each later declaration is hoisted over the
-    statements in between, so its initialisers must be constants and its names unused in between."""
+    """The declarations that may join the first one: each later declaration D is hoisted over the
+    region R between the first declaration and D. Its names must not occur in R; and unless its
+    expressions are all constants, R may only hold comments and side-effect-free scalar
+    declarations, D must be a scalar declaration, must not read a name of R, and two
+    initialisers that may have effects (or read globals) are never reordered. Declarations that
+    are themselves kept move up in order together with D, so they are not part of R for these
+    conditions (this keeps a second application of the rule from merging more)."""
     first, kept = group[0], [group[0]]
     for declaration in group[1:]:
-        values = [child.child_by_field_name('value') for child in declaration.children if child.type == 'init_declarator']
-        names = set()
-        for child in declaration.children[1:-1]:
-            contain_id(child.child_by_field_name('declarator') if child.type == 'init_declarator' else child, names)
+        names, expressions = declarator_parts(declaration)
         between = block.text[first.end_byte - block.start_byte:declaration.start_byte - block.start_byte].decode('utf-8')
-        if all(value is not None and value.type in CONSTANT for value in values) \
-                and not any(re.search(r'\b' + re.escape(name) + r'\b', between) for name in names):
+        if mentioned(names, between):
+            continue
+        if all(is_constant(expression) for expression in expressions):
             kept.append(declaration)
+            continue
+        region = [child for child in block.children if first.end_byte <= child.start_byte and child.end_byte <= declaration.start_byte and child not in kept]
+        if any(child.type not in ['declaration', 'comment'] for child in region):
+            continue
+        region_parts = [declarator_parts(child)[1] for child in region if child.type == 'declaration']
+        if not all(scalar_declaration(child) and all(is_pure(expression) for expression in parts)
+                   for child, parts in zip([child for child in region if child.type == 'declaration'], region_parts)):
+            continue
+        if mentioned(referenced_ids(expressions), ' '.join(text(child) for child in region)) or not scalar_declaration(declaration):
+            continue
+        if not all(is_pure(expression) for expression in expressions) \
+                and not all(is_constant(expression) for parts in region_parts for expression in parts):
+            continue
+        kept.append(declaration)
     return kept
 
 

@@ -123,6 +123,9 @@ class GoldenRewriteTests(unittest.TestCase):
             ("4.1", "int main(){\n    f();\n}", "int main(void){\n    f();\n    return 0;\n}"),
             ("6.1", "void f(){\n    int a, b;\n}", "void f(){\n    int a;\n    int b;\n    \n}"),
             ("6.2", "void f(){\n    int a;\n    int b;\n}", "void f(){\n    int a, b;\n\n}"),
+            ("6.2", "void f(){\n    int a;\n    g();\n    int b;\n}", "void f(){\n    int a, b;\n    g();\n\n}"),
+            ("6.2", "void f(int n){\n    int a = n;\n    double x;\n    int b = a + 1;\n}",
+             "void f(int n){\n    int a = n, b = a + 1;\n    double x;\n\n}"),
         ],
         "cpp": [
             ("9.1", 'int main(){printf("hi\\n");}', 'int main(){cout << "hi\\n";}'),
@@ -146,3 +149,35 @@ class GoldenRewriteTests(unittest.TestCase):
             for style, before, after in cases:
                 with self.subTest(language=language, style=style):
                     self.assertEqual(scts.change_file_style(style, before)[0], after)
+
+
+@unittest.skipUnless(HAS_GRAMMARS, "pinned parser libraries are not built")
+class DeclarationMergeGuardTests(unittest.TestCase):
+    """6.2 hoists a later declaration over the code in between; it must not cross writes, control flow or reordered effects."""
+
+    def assert_unchanged(self, code, languages=("c", "cpp")):
+        from change_program_style import SCTS
+        for language in languages:
+            with self.subTest(language=language):
+                self.assertEqual(SCTS(language).change_file_style("6.2", code)[0], code)
+
+    def test_rejects_hoisting_over_writes(self):
+        self.assert_unchanged("void f(int x){\n    int a = 0;\n    x = 5;\n    int b = x;\n}")
+
+    def test_rejects_hoisting_over_control_flow(self):
+        self.assert_unchanged("int f(int n, int s){\n    int a = 0;\n    if (n == 0) return 0;\n    int b = s / n;\n    return a + b;\n}")
+
+    def test_rejects_reordering_two_calls(self):
+        self.assert_unchanged("void f(){\n    int a = 0;\n    long t = f();\n    int b = g();\n}")
+
+    def test_rejects_name_used_between(self):
+        self.assert_unchanged("void f(){\n    int a;\n    b = 1;\n    int b;\n}")
+
+    def test_rejects_class_type(self):
+        self.assert_unchanged("void f(int k){\n    int a = 0;\n    std::string s;\n    int b = k;\n}", ("cpp",))
+
+    def test_rejects_reading_array_declared_between(self):
+        self.assert_unchanged("void f(){\n    int i = 0;\n    long a[3] = {1, 2, 3};\n    int b = a[i];\n}")
+
+    def test_rejects_reordering_effect_past_global_read(self):
+        self.assert_unchanged("void f(){\n    int a = 0;\n    long t = g;\n    int b = f();\n}")
