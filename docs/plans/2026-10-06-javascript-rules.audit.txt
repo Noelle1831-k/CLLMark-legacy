@@ -1,0 +1,337 @@
+{
+ "language": "javascript",
+ "files": 1097,
+ "pairs": {
+  "self_assignment": {
+   "styles": [
+    "2.1",
+    "2.2"
+   ],
+   "applicable": 106,
+   "form0": 97,
+   "form1": 7,
+   "idempotence_trials": 212,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 212,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "equal_to_not_equal": {
+   "styles": [
+    "2.4",
+    "2.3"
+   ],
+   "applicable": 435,
+   "form0": 435,
+   "form1": 0,
+   "idempotence_trials": 870,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 870,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "not_equal_to_equal": {
+   "styles": [
+    "2.6",
+    "2.5"
+   ],
+   "applicable": 107,
+   "form0": 107,
+   "form1": 0,
+   "idempotence_trials": 214,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 214,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "reverse_compare": {
+   "styles": [
+    "2.7",
+    "2.8"
+   ],
+   "applicable": 130,
+   "form0": 125,
+   "form1": 0,
+   "idempotence_trials": 260,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 260,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "equal_hash_reverse": {
+   "styles": [
+    "2.12",
+    "2.11"
+   ],
+   "applicable": 189,
+   "form0": 32,
+   "form1": 96,
+   "idempotence_trials": 378,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 378,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "not_equal_hash_reverse": {
+   "styles": [
+    "2.13",
+    "2.14"
+   ],
+   "applicable": 36,
+   "form0": 21,
+   "form1": 11,
+   "idempotence_trials": 72,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 72,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "update_reverse": {
+   "styles": [
+    "3.2",
+    "3.1"
+   ],
+   "applicable": 355,
+   "form0": 354,
+   "form1": 1,
+   "idempotence_trials": 710,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 710,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "declare": {
+   "styles": [
+    "6.1",
+    "6.2"
+   ],
+   "applicable": 177,
+   "form0": 154,
+   "form1": 13,
+   "idempotence_trials": 354,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 354,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "loop_form": {
+   "styles": [
+    "7.1",
+    "7.2"
+   ],
+   "applicable": 55,
+   "form0": 55,
+   "form1": 0,
+   "idempotence_trials": 110,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 110,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "branch_order": {
+   "styles": [
+    "14.1",
+    "14.2"
+   ],
+   "applicable": 44,
+   "form0": 44,
+   "form1": 0,
+   "idempotence_trials": 88,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 88,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "conditional_order": {
+   "styles": [
+    "15.1",
+    "15.2"
+   ],
+   "applicable": 73,
+   "form0": 73,
+   "form1": 0,
+   "idempotence_trials": 146,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 146,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "nested_condition": {
+   "styles": [
+    "16.1",
+    "16.2"
+   ],
+   "applicable": 23,
+   "form0": 23,
+   "form1": 0,
+   "idempotence_trials": 46,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 46,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "void_return": {
+   "styles": [
+    "18.1",
+    "18.2"
+   ],
+   "applicable": 141,
+   "form0": 141,
+   "form1": 0,
+   "idempotence_trials": 282,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 282,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "member_access": {
+   "styles": [
+    "19.1",
+    "19.2"
+   ],
+   "applicable": 723,
+   "form0": 723,
+   "form1": 0,
+   "idempotence_trials": 1446,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 1446,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "property_shorthand": {
+   "styles": [
+    "23.1",
+    "23.2"
+   ],
+   "applicable": 3,
+   "form0": 1,
+   "form1": 2,
+   "idempotence_trials": 6,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 6,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "else_after_return": {
+   "styles": [
+    "20.2",
+    "20.1"
+   ],
+   "applicable": 11,
+   "form0": 9,
+   "form1": 2,
+   "idempotence_trials": 22,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 22,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "arrow_body": {
+   "styles": [
+    "24.1",
+    "24.2"
+   ],
+   "applicable": 130,
+   "form0": 129,
+   "form1": 0,
+   "idempotence_trials": 260,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 260,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "const_let": {
+   "styles": [
+    "25.1",
+    "25.2"
+   ],
+   "applicable": 209,
+   "form0": 101,
+   "form1": 105,
+   "idempotence_trials": 418,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 418,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "logical_assignment": {
+   "styles": [
+    "26.1",
+    "26.2"
+   ],
+   "applicable": 1,
+   "form0": 1,
+   "form1": 0,
+   "idempotence_trials": 2,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 2,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "power": {
+   "styles": [
+    "27.1",
+    "27.2"
+   ],
+   "applicable": 14,
+   "form0": 9,
+   "form1": 5,
+   "idempotence_trials": 28,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 28,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "global_alias": {
+   "styles": [
+    "28.1",
+    "28.2"
+   ],
+   "applicable": 24,
+   "form0": 24,
+   "form1": 0,
+   "idempotence_trials": 48,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 48,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "undefined_literal": {
+   "styles": [
+    "29.1",
+    "29.2"
+   ],
+   "applicable": 2,
+   "form0": 2,
+   "form1": 0,
+   "idempotence_trials": 4,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 4,
+   "reversibility_failures": 0,
+   "interference": {}
+  }
+ },
+ "examples": {}
+}
