@@ -20,7 +20,7 @@ flowchart LR
 
 ```bash
 make setup-benchmark  # 安装独立环境，按固定提交构建本机 Tree-sitter 语法库（含 JavaScript）
-make setup-javascript # lodash、JavaScript 项目的固定提交与测试依赖，复制项目源码到 dataset/JS_projects
+make setup-javascript # lodash、JavaScript 小项目与 14 个中型仓库（按提交下载并校验 tarball，--ignore-scripts 安装依赖，跑一次干净测试）、Exercism 题库；幂等
 make doctor          # 检查所有固定依赖、解析库及三种语言的实际规则导入
 make inventory       # 查看全部 cohort 和实验单元数量
 make smoke           # 每组 2 个单元，包含流程测试；不能作为全量结论
@@ -58,7 +58,7 @@ make benchmark
 
 ## 全量的定义与语料范围
 
-默认配置 [config.json](../benchmarks/config.json) 包含 22 组、10,612 个本地实验单元（git 工作树中的语料；主检出中另有 8 个未入库的历史项目单元）。函数级单元是一份文件，项目级单元是一个非空项目目录内的全部拆分函数。空目录不构成可运行项目，清单会给出选中单元数。
+默认配置 [config.json](../benchmarks/config.json) 包含 25 组、10,810 个本地实验单元（git 工作树中的语料；主检出中另有 8 个未入库的历史项目单元）。函数级单元是一份文件，项目级单元是一个非空项目目录内的全部拆分函数（`js_repos` 为仓库内全部源文件），`project_file` 级单元是仓库中的一个源文件（见下）。空目录不构成可运行项目，清单会给出选中单元数。
 
 | 组别 | 实验单元数 | 功能检查 |
 | --- | ---: | --- |
@@ -70,9 +70,22 @@ make benchmark
 | Python / C / C++ 项目 | 500 / 437 / 458 | 拆分函数缺少项目依赖和 oracle |
 | MBJSP：G / H | 112 / 938 | 本地 MBXP JavaScript 测试（Node，lodash） |
 | JavaScript 项目（bytes、cookie、js-yaml、minimist） | 4 | 各项目自带测试套件，水印后的库文件覆盖到固定检出中运行 |
+| JavaScript 仓库 `js_repos`（14 个固定提交的中型开源仓库） | 14 | 仓库自带测试套件；单元为仓库内全部手写源文件，保持目录结构 |
+| JavaScript 仓库文件 `js_repo_files`（上述仓库中 ≥ 80 行的源文件） | 84 | 同一仓库测试套件，水印只在该文件内，覆盖到仓库原路径 |
+| Exercism JavaScript `exercism_js`（参考解 ≥ 20 行） | 100 | 该题 Jest spec（按 Exercism CI 的方式启用 `xtest`），参考解替换为被测代码 |
 | Python 历史项目 | 497 | 同上 |
 | C 历史项目 test / test2 | 437 / 437 | 同上 |
 | C++ 历史项目 test / test2 | 458 / 458 | 同上 |
+
+**JavaScript 中型仓库与 Exercism 语料**（方案见 [2026-10-06-javascript-corpus.md](plans/2026-10-06-javascript-corpus.md)，入选/淘汰记录见 [selection](plans/2026-10-06-javascript-corpus.selection.md)，规模与容量分布见 [inventory.tsv](plans/2026-10-06-javascript-corpus.inventory.tsv)）：
+
+- `benchmarks/javascript.lock.json` 的 `repositories` 固定每个仓库的 tag、commit、GitHub tarball SHA-256、许可证、源码 glob/排除、扩展名与依赖安装方式（仓库自带 `package-lock.json`，或 `benchmarks/js-locks/` 中固定的锁文件；无依赖的仓库不安装）；`exercism` 固定题库提交及 pnpm 锁文件，并记录 Aider Polyglot 子集（`Aider-AI/polyglot-benchmark` 固定提交）。测试命令与是否 `exclusive` 在 `config.json` 的 `projects`。
+- `tools/setup_javascript.py` 只下载这些固定来源及其 npm/pnpm 依赖，一律 `--ignore-scripts`；干净测试必须通过，耗时与 V8 覆盖写入 `.benchmark-cache/js-projects/<name>.pin.json`；选中的源文件复制到 `dataset/JS_repos/<name>/`（附 LICENSE），Exercism 参考解写入 `dataset/Exercism_JS/`，题目元数据、spec 与支持文件写入 `dataset/Jsonl/exercism_javascript.jsonl`（被排除的题及原因在 `exercism_javascript_excluded.jsonl`）。第二次运行不下载、不改动。
+- 项目级单元 `layout: tree`：legacy 流程在平面目录上工作，重复的基名（多个 `index.js`）按相对路径展平（`lib/a.js` 变为 `lib__a.js`），测试时还原为原路径。`project_file` 单元在 `min_lines`（80）行以上的文件上嵌入，其余文件保持仓库原样；干净文件不进入缓存键，同一仓库的干净运行共享一条缓存。
+- 覆盖写入前若源文件是符号链接则先移除，绝不写穿到固定检出；复制检出时保留符号链接。绑定套接字的套件（express、ws、body-parser）标记 `exclusive`：并发副本会冲突固定端口，甚至偶发冲突临时端口，故用全局文件锁串行化，否则干净代码会出现伪 FAIL。
+- `decimal.js`、`bignumber.js` 的测试脚本打印汇总后总是以 0 退出，命令用 `node -e` 包装器只在“`In total, N of N tests passed`”时返回 0。
+- `exercism` oracle：在每个缓存项的工作区中放入固定检出的 `jest.config.js`/`babel.config.js`、spec（去掉 `xtest`/`xit`/`xdescribe` 标记，沿用 Exercism CI 的逐行首次替换；`.skip` 保持跳过）、支持文件（editor/lib/data）和被测代码，用固定版本的 Jest 只运行该题。
+- 许可证、LOC（1,000–20,000 行）、干净测试通过、每项目 8 并发 ≤ 60 秒是入选条件；`.mjs/.cjs` 以外的构建产物、生成代码、需要构建步骤或子模块的测试（如 ajv 6）被排除。仓库内的容量集中在文件顺序靠前的少数文件：legacy 算法按文件名 SHA-256 顺序依次占用规则位，因此一个 `js_repos` 单元通常只改动 1–2 个文件，`js_repo_files` 才是逐文件的统计。
 
 G/H 标签按现有目录约定定义为 generated/human。MBJSP_G 来自已有的 `generated_javascript_ark.jsonl`（966 条中 112 条有可用补全，其余为限流或无法解析）；MBJSP_H 为 MBJSP 参考解，与 MBCPP_H 的约定相同；JavaScript 项目为人工编写的开源库（role human）。W、`*_test*` 的历史变体标记为 historical，来源未确定的组标记为 unknown。historical 和 unknown 不进入检测混淆矩阵。语料组有重叠，尤其 G_L 与 G、历史变体之间；manifest 额外记录按文件名和内容摘要得到的去重单元数。**汇总值是本地回归套件指标，不是独立论文样本的统计估计。** 科研分析使用分组结果，并在新增来源证据时更新标签。
 
@@ -97,7 +110,7 @@ G/H 标签按现有目录约定定义为 generated/human。MBJSP_G 来自已有�
 | flip_1 / flip_2 | 成功应用 1/2 次相反规则变换后的消息匹配率；报告应用成功的覆盖数 |
 | 时间 | 重新执行分析、嵌入、提取的毫秒中位数和 P95；排除解析器首次创建与功能检查 |
 
-分母为零显示 `N/A`。`NO_TEST_ORACLE`、`NO_PROBLEM_MAPPING`、`NOT_EMBEDDED` 永远不算功能通过。C++ 语料中许多文件只含函数体：功能检查使用本地官方题目 prompt 还原签名并附加测试，提供 macOS 标准头文件兼容层；语法检查仍反映原始片段的 Tree-sitter 状态。JavaScript 单元保存完整函数（prompt 末行的签名加补全），测试先经 `node --check`（失败记为编译错误）再执行；项目单元在固定检出的副本中运行该项目的测试命令（`config.json` 的 `projects`），超时为 `project_test_timeout_seconds`。
+分母为零显示 `N/A`。`NO_TEST_ORACLE`、`NO_PROBLEM_MAPPING`、`NOT_EMBEDDED` 永远不算功能通过。C++ 语料中许多文件只含函数体：功能检查使用本地官方题目 prompt 还原签名并附加测试，提供 macOS 标准头文件兼容层；语法检查仍反映原始片段的 Tree-sitter 状态。JavaScript 单元保存完整函数（prompt 末行的签名加补全），测试先经 `node --check`（失败记为编译错误）再执行；项目与项目文件单元在固定检出的副本中运行该项目的测试命令（`config.json` 的 `projects`），超时为 `project_test_timeout_seconds`；Exercism 单元运行 Jest（`config.json` 的 `exercism`），同一超时。
 
 旧提取依赖嵌入时的 `support_transform.json`，接收预期消息，冲突状态随机取位。流程固定总 seed、Python 哈希种子，并由单元 ID 和阶段派生提取种子；在各阶段开始前重置旧规则的模块全局状态，避免 worker 调度或性质探测影响后续嵌入。不把此结果称为独立提取或模型来源识别。结构性质探测不证明语义保持。11/12 特殊规则缺少通用转换实现，性质探测标记不支持；攻击仅统计实际成功的变换，不能假定一次变换恰好只改变一个码位。
 

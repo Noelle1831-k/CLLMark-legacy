@@ -49,13 +49,13 @@
 
 ```bash
 make setup-benchmark  # 一次性安装 Python 3.11 独立环境并构建固定语法库
-make setup-javascript # 一次性准备 lodash 与 JavaScript 项目测试（需要 Node.js）
+make setup-javascript # 一次性准备 lodash、JavaScript 小项目、14 个固定提交的中型仓库与 Exercism 题库（需要 Node.js、npm、pnpm 与网络）
 make doctor
 make smoke           # 流程测试 + 每组 2 个实验单元
 make benchmark       # 代码改动完成后：更新索引、测试、全量运行、比较固定基线
 ```
 
-默认全量为 22 组、10,612 个实验单元（git 工作树中的语料；含 JavaScript 3 组）。`make baseline` 仅用于首次建立参考；已存在参考时拒绝覆盖。`make watch-benchmark` 在前台监控变更并自动触发完整 loop。详细配置、指标分母、结果位置及续跑命令见[科研循环文档](docs/RESEARCH_LOOP.md)。
+默认全量为 25 组、10,810 个实验单元（git 工作树中的语料；含 JavaScript 6 组，其中 `js_repos`、`js_repo_files`、`exercism_js` 为真实中型仓库与 Exercism 参考解）。`make baseline` 仅用于首次建立参考；已存在参考时拒绝覆盖。`make watch-benchmark` 在前台监控变更并自动触发完整 loop。详细配置、指标分母、结果位置及续跑命令见[科研循环文档](docs/RESEARCH_LOOP.md)。
 
 新入口在每次运行的副本中调用实际旧算法，保留容量不足和失败样本，校验源码及原始输入没有被更改。Python/C++ MBXP 使用本地真实功能测试；CodeNet 缺少 problem_id 映射，其他拆分项目缺少功能 oracle，结果明确记录为 N/A。不同语料组有重叠，汇总用于版本回归，论文分析应使用分组与明确的样本协议。
 
