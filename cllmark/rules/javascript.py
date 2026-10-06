@@ -131,19 +131,31 @@ class Facts:
     base variables of all assignments, the names used by `a = a || b` / `a ||= b` shaped assignments,
     whether the file uses BigInt, and whether its scoping cannot be analysed: dynamic scoping (`with`, `eval`) or
     parse errors (the guards read declarations, and the parser may have misread them).
+
+    The scope facts are collected on first use: the layout rules only read the source bytes. Only the nodes that
+    `visit` acts on are visited, found by tree-sitter queries in C instead of a walk over every node in Python.
     """
+
+    SCOPE = frozenset(["bound", "const", "mutable", "writes", "base_writes", "logical", "bigint", "opaque"])
 
     def __init__(self, root):
         self.root, self.data, self.base, self.root_column = root, root.text, root.start_byte, root.start_point[1]
+
+    def __getattr__(self, name):
+        # Called only while a scope fact is unset; afterwards they are plain attributes.
+        if name not in Facts.SCOPE:
+            raise AttributeError(name)
         self.bound, self.const, self.mutable = set(), set(), set()
         self.writes, self.base_writes, self.logical = [], set(), set()
         self.bigint = False
-        self.opaque = root.has_error
-        stack = [root]
-        while stack:
-            node = stack.pop()
-            stack.extend(node.children)
+        self.opaque = self.root.has_error
+        structure, identifiers = facts_queries()
+        for node, _ in structure.captures(self.root):
             self.visit(node)
+        if b"eval" in self.data or b"BigInt" in self.data:
+            for node, _ in identifiers.captures(self.root):
+                self.visit(node)
+        return getattr(self, name)
 
     def declare(self, names, kind):
         self.bound |= names
@@ -230,6 +242,32 @@ class Facts:
             if scope.start_byte <= position < scope.end_byte:
                 names |= written
         return names
+
+
+# Every node `Facts.visit` acts on: the structural nodes and numbers, and the identifiers, which are queried only
+# when the file contains the bytes of `eval` or `BigInt` (the only identifiers `visit` reacts to). Each node is
+# captured at most once, and the facts are sets (`writes` is only read as a union), so the order of the captures does
+# not matter. Anonymous `function`/`class` keywords are not captured; `visit` finds no name under them. Text
+# predicates are left out: py-tree-sitter evaluates them in Python, after a full match.
+FACT_PATTERNS = """
+[(variable_declarator) (function_declaration) (generator_function_declaration) (class_declaration) (function)
+ (generator_function) (class) (formal_parameters) (arrow_function) (catch_clause) (import_statement)
+ (for_in_statement) (assignment_expression) (augmented_assignment_expression) (update_expression)
+ (with_statement) (number)] @fact
+"""
+_FACT_QUERIES = {}
+
+
+def facts_queries():
+    """(structure query, identifier query) for the grammar that `cllmark.transform` loads, compiled once per library."""
+    from ..transform import library_path, load_grammar
+
+    library = library_path("javascript")
+    queries = _FACT_QUERIES.get(library)
+    if queries is None:
+        language = load_grammar(library, "javascript").language
+        queries = _FACT_QUERIES[library] = (language.query(FACT_PATTERNS), language.query("(identifier) @fact"))
+    return queries
 
 
 def descendants(node):

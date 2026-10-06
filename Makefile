@@ -1,7 +1,7 @@
 BENCH_PYTHON ?= .venv-benchmark/bin/python
 RUFF ?= .venv-benchmark/bin/ruff
 
-.PHONY: corpus setup-benchmark setup-javascript setup-dev doctor inventory test lint format perf smoke benchmark baseline watch-benchmark code-map
+.PHONY: benchmark-ram corpus setup-benchmark setup-javascript setup-dev doctor inventory test lint format perf smoke benchmark baseline watch-benchmark progress code-map
 
 corpus:
 	git submodule update --init corpus
@@ -23,7 +23,7 @@ inventory:
 	$(BENCH_PYTHON) tools/research_loop.py inventory
 
 test:
-	$(BENCH_PYTHON) -m unittest discover -s tests -v
+	$(BENCH_PYTHON) tools/run_tests.py
 
 lint:
 	$(RUFF) check .
@@ -42,8 +42,15 @@ smoke: code-map
 benchmark: code-map
 	$(BENCH_PYTHON) tools/research_loop.py loop
 
+# Full loop on a RAM disk; extra loop arguments: make benchmark-ram ARGS='--hypothesis ...'
+benchmark-ram: code-map
+	$(BENCH_PYTHON) tools/benchmark_ram.py -- $(ARGS)
+
 baseline: code-map
 	$(BENCH_PYTHON) tools/research_loop.py loop --initialize-baseline
+
+progress:
+	$(BENCH_PYTHON) tools/research_loop.py progress --follow
 
 watch-benchmark:
 	$(BENCH_PYTHON) tools/research_loop.py watch

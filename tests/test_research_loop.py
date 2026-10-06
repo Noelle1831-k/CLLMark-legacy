@@ -1,9 +1,11 @@
 """Regression tests for research validity, resumability and functional execution."""
 
 import copy
+import io
 import json
 import tempfile
 import unittest
+import unittest.mock
 from pathlib import Path
 
 from benchmarks.common import (
@@ -190,21 +192,13 @@ class ProvenanceAndResumeTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 load_rows(path)
 
-    def test_frozen_source_or_manifest_tampering_is_detected(self):
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            (root / "source").mkdir()
-            (root / "source" / "algorithm.py").write_text("version = 1\n")
-            manifest = {
-                "source_files": {"algorithm.py": digest(b"version = 1\n")},
-                "input_files": {},
-                "environment": {"parser_toolchain": {"grammars": {}}},
-            }
-            manifest["manifest_sha256"] = digest(manifest)
-            verify_frozen_run(root, manifest)
-            (root / "source" / "algorithm.py").write_text("version = 2\n")
-            with self.assertRaises(ValueError):
-                verify_frozen_run(root, manifest)
+    def test_manifest_tampering_is_detected(self):
+        manifest = {"source_files": {}, "input_files": {}}
+        manifest["manifest_sha256"] = digest(manifest)
+        verify_frozen_run(Path("."), manifest)
+        manifest["source_files"] = {"algorithm.py": "0"}
+        with self.assertRaises(ValueError):
+            verify_frozen_run(Path("."), manifest)
 
     def test_dirty_source_changes_fingerprint_without_commit(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -227,9 +221,11 @@ class ProvenanceAndResumeTests(unittest.TestCase):
             (root / "benchmarks" / "engine.py").write_text("version 2")
             self.assertNotEqual(before, protocol_fingerprint(CONFIG, root))
 
-    def test_original_input_change_is_detected_after_run(self):
+    def test_source_change_is_detected_after_run_and_inputs_are_not_rehashed(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
+            (root / "cllmark").mkdir()
+            (root / "cllmark" / "algorithm.py").write_text("version = 1\n")
             data = root / "corpus.txt"
             data.write_text("original")
             run = root / "run"
@@ -240,8 +236,9 @@ class ProvenanceAndResumeTests(unittest.TestCase):
             }
             self.assertTrue(validate_workspace(root, run, manifest))
             data.write_text("changed")
+            self.assertTrue(validate_workspace(root, run, manifest))
+            (root / "cllmark" / "algorithm.py").write_text("version = 2\n")
             self.assertFalse(validate_workspace(root, run, manifest))
-            self.assertEqual(json.loads((run / "validation.json").read_text())["changed_inputs"], ["corpus.txt"])
 
     def test_summary_cannot_be_promoted_after_raw_results_are_altered(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -812,3 +809,55 @@ class PinnedJavaScriptCorpusTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ProgressTests(unittest.TestCase):
+    def test_bar_eta_and_describe(self):
+        from benchmarks.progress import LiveLog, ProgressTracker, describe, format_duration, render_bar
+
+        self.assertEqual(render_bar(5, 10, 10), "[#####-----] 5/10  50.0%")
+        self.assertEqual(format_duration(3725), "1:02:05")
+        ticks = iter(range(100))
+        tracker = ProgressTracker(4, clock=lambda: next(ticks))
+        with tempfile.TemporaryDirectory() as directory:
+            run = Path(directory)
+            log = LiveLog(run / "progress.log", tracker, stream=io.StringIO())
+            log.record({"id": "a/1", "cohort": "a", "status": "ok", "elapsed_ms": 1500})
+            log.record({"id": "a/2", "cohort": "a", "status": "harness_error"})
+            log.close()
+            self.assertEqual(tracker.done, 2)
+            self.assertGreater(tracker.rate, 0)
+            self.assertIsNotNone(tracker.eta)
+            lines = (run / "progress.log").read_text().splitlines()
+            self.assertTrue(lines[0].endswith("ok a/1 1.50s") and "harness_error a/2" in lines[1])
+            (run / "state.json").write_text(json.dumps({"status": "running", **tracker.state()}))
+            text = describe(run)
+            self.assertIn("2/4", text)
+            self.assertIn("harness_error=1", text)
+            self.assertIn("a/2", text)
+
+
+class StagedExecutionTests(unittest.TestCase):
+    def test_deferred_rows_are_the_ones_needing_functional_tests(self):
+        from benchmarks.staged import DEFERRED, load_functional, needs_functional
+
+        self.assertTrue(needs_functional({"status": "ok", "utility_before": dict(DEFERRED)}))
+        self.assertFalse(needs_functional({"status": "harness_error"}))
+        self.assertFalse(needs_functional({"status": "ok", "utility_before": {"status": "PASS"}}))
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "functional.jsonl"
+            path.write_text('{"id":"a"}\n{"id":"b"}\n{"id":')
+            self.assertEqual(sorted(load_functional(path)), ["a", "b"])
+            self.assertEqual(load_functional(Path(temporary) / "missing.jsonl"), {})
+
+    def test_workers_defer_functional_tests_in_the_engine_only(self):
+        from benchmarks import engine, staged
+
+        original = engine.evaluate_utility
+        try:
+            with unittest.mock.patch.object(engine, "initialize_worker"):
+                staged.initialize_worker("run", {"units": [{"id": "u/1"}]})
+            self.assertEqual(engine.evaluate_utility(), staged.DEFERRED)
+            self.assertEqual(staged.evaluate_utility.__module__, "benchmarks.utility")
+        finally:
+            engine.evaluate_utility = original

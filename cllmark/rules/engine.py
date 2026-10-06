@@ -302,8 +302,8 @@ class Parsed:
         accepts = matcher.accepts
         return [node for node in self.captured(matcher) if accepts(node)]
 
-    def rewrite(self, rule: Rule) -> tuple[str, int]:
-        """Rewritten code and the number of candidates."""
+    def rewrite(self, rule: Rule) -> tuple[str, int, bool]:
+        """Rewritten code, the number of candidates, and whether the code changed beyond spaces and line breaks."""
         rewrite = rule.rewrite
         if rewrite is None:
             raise ValueError(f"Rule without a rewrite: {rule.pattern}")
@@ -317,6 +317,20 @@ class Parsed:
             if edits:
                 groups.append(edits)
         if not groups:
-            return self.source.code, len(nodes)
-        data, _ = apply_edits(self.source.data, groups)
-        return data.decode("utf-8"), len(nodes)
+            return self.source.code, len(nodes), False
+        old = self.source.data
+        data, _ = apply_edits(old, groups)
+        return data.decode("utf-8"), len(nodes), data != old and _beyond_whitespace(old, data, groups)
+
+
+def _beyond_whitespace(old: bytes, new: bytes, groups: Sequence[Sequence[Edit]]) -> bool:
+    """Whether `new` differs from `old` once spaces and line breaks are removed, comparing only the edited window.
+
+    Every edit lies in [start, end), so new = old[:start] + window + old[end:]. Removing characters distributes over
+    concatenation, so the whole texts agree without spaces and line breaks exactly when the two windows do. Both
+    bytes are UTF-8, where a space or line feed byte is always that character.
+    """
+    start = min(edit.start for group in groups for edit in group)
+    end = max(edit.end for group in groups for edit in group)
+    before, after = old[start:end], new[start : len(new) - (len(old) - end)]
+    return before.translate(None, b" \n") != after.translate(None, b" \n")

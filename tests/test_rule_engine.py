@@ -6,7 +6,7 @@ import unittest
 from pathlib import Path
 from typing import ClassVar
 
-from cllmark.rules.engine import Edit, Grammar, Matcher, _conflicts, apply_edits, guard
+from cllmark.rules.engine import Edit, Grammar, Matcher, _beyond_whitespace, _conflicts, apply_edits, guard
 
 ROOT = Path(__file__).resolve().parents[1]
 TOOLCHAIN = ROOT / ".benchmark-cache" / "toolchain"
@@ -77,6 +77,21 @@ class EditApplicationTests(unittest.TestCase):
                 groups.append(group)
             self.assertEqual(outcome(apply_edits, data, groups), outcome(pairwise, data, groups), groups)
 
+    def test_whitespace_change_is_judged_on_the_edited_window(self):
+        def whole(old, new):
+            return old.replace(b" ", b"").replace(b"\n", b"") != new.replace(b" ", b"").replace(b"\n", b"")
+
+        rng = random.Random(20261007)
+        data = b"a b\nc  d\ne f"
+        for _ in range(3000):
+            groups = []
+            for _ in range(rng.randint(1, 4)):
+                start = rng.randint(0, len(data))
+                end = start if rng.random() < 0.4 else min(len(data), start + rng.randint(1, 3))
+                groups.append([Edit(start, end, rng.choice(["", " ", "\n", "a", "b ", " c\n"]))])
+            new, _ = apply_edits(data, groups)
+            self.assertEqual(_beyond_whitespace(data, new, groups), whole(data, new), groups)
+
 
 class GuardTests(unittest.TestCase):
     def test_guards_compose_and_explain(self):
@@ -121,6 +136,38 @@ class CatalogTests(unittest.TestCase):
         expected = transformer.apply("7.8", first)[0]
         transformer.apply("7.8", "int f(){int k=0; while(k){k++;} return k;}")
         self.assertEqual(transformer.apply("7.8", first)[0], expected)
+
+    def test_javascript_scope_facts_are_lazy_and_match_a_walk_over_every_node(self):
+        from cllmark.rules import javascript
+        from cllmark.transform import StyleTransformer
+
+        programs = [
+            "import a, { b as c } from 'm';\nconst d = 1, [e, ...f] = g;\nlet { h, i: j = 2 } = k;\nvar l;\n"
+            "function m(n, o = 1, ...p) { q = n; r.s[t] += 1; u++; try {} catch ({ v }) {}\n"
+            "  for (const w in x) {} for (y of z) {} }\nclass A {} (function B() {}); const C = (D) => D;\n"
+            "E = E || 1; F ??= 2; let G = 10n;",
+            "with (o) { x = 1 }",
+            "const H = eval('1'); const I = BigInt(1); evaluate();",
+            "let a = ;",
+        ]
+        transformer = StyleTransformer("javascript")
+        for code in programs:
+            root = transformer.parse(code).root_node
+            facts = javascript.Facts(root)
+            self.assertNotIn("bound", vars(facts))
+            walked = object.__new__(javascript.Facts)
+            walked.root = root
+            walked.bound, walked.const, walked.mutable = set(), set(), set()
+            walked.writes, walked.base_writes, walked.logical = [], set(), set()
+            walked.bigint, walked.opaque = False, root.has_error
+            stack = [root]
+            while stack:
+                node = stack.pop()
+                stack.extend(node.children)
+                walked.visit(node)
+            for name in ["bound", "const", "mutable", "base_writes", "logical", "bigint", "opaque"]:
+                self.assertEqual(getattr(facts, name), getattr(walked, name), (code, name))
+            self.assertEqual(sorted(facts.writes), sorted(walked.writes), code)
 
 
 @unittest.skipUnless(HAS_GRAMMARS, "pinned parser libraries are not built")

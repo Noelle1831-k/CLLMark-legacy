@@ -53,9 +53,10 @@ class StyleTransformer:
         self.language = language
         self.rules = load_rules(language).RULES
         self.grammar = load_grammar(library_path(language), language)
-        # (style, code) -> (rewritten code, candidates). Rewrites are deterministic, and the pipeline repeats them:
-        # analysis probes both styles of every pair, then property checks and extraction apply the same ones again.
-        self._rewrites: OrderedDict[tuple[str, str], tuple[str, int]] = OrderedDict()
+        # (style, code) -> (rewritten code, candidates, changed beyond whitespace). Rewrites are deterministic, and the
+        # pipeline repeats them: analysis probes both styles of every pair, then property checks and extraction apply
+        # the same ones again.
+        self._rewrites: OrderedDict[tuple[str, str], tuple[str, int, bool]] = OrderedDict()
         self._cache_size = cache_size
 
     def parse(self, code: str):
@@ -67,16 +68,19 @@ class StyleTransformer:
 
         Returns the new code, whether it changed beyond spaces and line breaks, and the number of candidate nodes.
         """
+        if isinstance(styles, str):
+            new_code, candidates, changed = self._rewrite(styles, code)
+            return new_code, changed, candidates
         new_code, candidates = code, 0
-        for style in [styles] if isinstance(styles, str) else styles:
-            new_code, count = self._rewrite(style, new_code)
+        for style in styles:
+            new_code, count, _ = self._rewrite(style, new_code)
             candidates += count
         changed = new_code != code and code.replace(" ", "").replace("\n", "") != new_code.replace(" ", "").replace(
             "\n", ""
         )
         return new_code, changed, candidates
 
-    def _rewrite(self, style: str, code: str) -> tuple[str, int]:
+    def _rewrite(self, style: str, code: str) -> tuple[str, int, bool]:
         key = (style, code)
         result = self._rewrites.get(key)
         if result is None:

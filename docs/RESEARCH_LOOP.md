@@ -43,15 +43,38 @@ make benchmark
 
 `loop` 先运行测试；`run` 直接运行实验，适用于已有验证记录的独立研究试验。`--limit N` 是每组抽样上限；`--cohort NAME` 可以重复指定。两种限制均使 `full=false`，不能通过全量门禁或提升为参考。
 
+## 进度与实时日志
+
+运行时终端显示进度条、速率（最近 60 秒滑动窗口）、已用时间和 ETA；交互终端原地刷新，重定向到文件时每 20 秒输出一行，非 `ok` 的单元立即输出。每个完成的单元还会追加到运行目录的 `progress.log`，`state.json` 同步记录总数、速率、ETA 及状态/组别计数。另开终端查看：
+
+```bash
+make progress                                   # 等价于 progress --follow，运行结束后自动退出
+.venv-benchmark/bin/python tools/research_loop.py progress          # 最新运行的一次性快照
+tail -f benchmark-results/<run_id>/progress.log # 逐单元实时日志
+```
+
+## 并行与内存盘
+
+准备阶段的各步骤都使用本机全部硬件线程（`os.cpu_count()`）：单元测试由 `tools/run_tests.py` 按测试方法轮流分给每个线程一个 `unittest` 进程；冻结时语料和源码在线程池里并行读取、计算 SHA-256 并写入；实验阶段 `--jobs` 默认等于线程数（显式 `--jobs N` 仍然有效）。`jobs` 与基线不同只会使计时不可比，不影响其他指标。
+
+冻结后不再重复校验哈希：每个输入的 SHA-256 在复制时只算一次，写入清单作为语料身份（语料变化会使基线不可比，所以保留）；执行前不再重算冻结副本、每个单元读取输入时不再核对、运行后不再重读原始输入。仍然检查的只有清单自身摘要和运行后的源码摘要是否与冻结时一致（`AGENTS.md` 要求的源码版本标识）。因此运行期间原始语料被改动不会被发现，已保存的快照被改动也不会被发现。
+
+```bash
+make benchmark-ram                                  # 运行目录和临时文件放在内存盘，结束后拷回 benchmark-results/
+make benchmark-ram ARGS='--hypothesis "说明" --jobs 12'
+```
+
+macOS 使用 `hdiutil` 创建 3 GB 内存盘（`/Volumes/CLLMarkRAM`），Linux 使用 `/dev/shm`。结束后拷回结果并卸载；拷回失败则保留内存盘并提示位置。拷回不含 `inputs/` 与 `work/`（清单仍列出全部输入文件及其摘要），因此内存盘运行的结果不能 `resume`；需要完整快照时加 `tools/benchmark_ram.py --keep-inputs`。功能测试缓存 `.benchmark-cache` 仍在硬盘上。`make progress` 会自动找到内存盘上的运行。
+
 ## 每次运行的内容
 
 1. 锁定本地运行目录，防止两个循环同时竞争资源。
 2. 执行流程测试并检查源码没有在测试期间变化。
-3. 保存 Git 提交、工作区状态、所有算法/规则/框架源码、固定语法库、完整输入和功能测试目录。即使代码尚未提交，也以源码 SHA-256 标识该版本。
+3. 保存 Git 提交、工作区状态、所有算法/规则/框架源码、固定语法库、完整输入和功能测试目录（并行复制）。即使代码尚未提交，也以源码 SHA-256 标识该版本。
 4. 使用冻结版本在独立子进程中运行。8 个 worker 各自加载解析器；水印处理始终重新执行。原始语料不会被变换或删除。
 5. 对所有单元重新计算容量；容量不足仍保留在总量中。对可嵌入单元保存原始/水印/攻击代码、预期水印和实际提取码位。
 6. 运行结构性质探测、本地 MBXP 功能测试和反向规则攻击；逐行保存结果，生成汇总、CSV、图表和基线对照。
-7. 再次校验当前源码及原始输入摘要。期间有变化的实验不能代表当前代码版本，也不能自动提升为参考。
+7. 再次校验当前源码摘要。期间有变化的实验不能代表当前代码版本，也不能自动提升为参考。
 
 功能测试按完整拼接代码、测试内容、依赖环境、编译器、超时和评估实现缓存。命中会在行结果中标记；超时不缓存。水印分析、嵌入、提取、规则性质及攻击不会被缓存。每个样本保留功能测试源码和输出，清理共享缓存后仍可阅读失败证据。
 
@@ -159,6 +182,13 @@ benchmark-results/RUN_ID/
 ```bash
 .venv-benchmark/bin/python tools/research_loop.py resume benchmark-results/RUN_ID
 .venv-benchmark/bin/python tools/research_loop.py compare benchmark-results/RUN_ID
+```
+
+算法变更但度量代码不变时，当前 CLI 可以直接核对旧运行。若历史运行的度量实现也已改变，使用该运行保留的冻结 CLI 来核对其原始汇总，再按协议摘要判断可比性，避免用新的指标定义重算旧表：
+
+```bash
+.venv-benchmark/bin/python benchmark-results/OLD_RUN_ID/source/tools/research_loop.py \
+  compare benchmark-results/OLD_RUN_ID --baseline benchmarks/baselines/history/OLD_RUN_ID.json
 ```
 
 如希望每次编辑结束自动触发，可在前台终端执行：

@@ -102,7 +102,9 @@ def download_checkout(name, spec):
     ):
         return pin
     owner_repo = spec["repository"].removeprefix("https://github.com/")
-    url = f"https://codeload.github.com/{owner_repo}/tar.gz/{spec['commit']}"
+    # CLLMARK_CODELOAD_BASE points at a mirror or a directory of pre-fetched tarballs (file:///...); digests still apply.
+    base = os.environ.get("CLLMARK_CODELOAD_BASE", "https://codeload.github.com").rstrip("/")
+    url = f"{base}/{owner_repo}/tar.gz/{spec['commit']}"
     print(f"{name}: downloading {url}", flush=True)
     with urllib.request.urlopen(url, timeout=180) as response:
         blob = response.read()

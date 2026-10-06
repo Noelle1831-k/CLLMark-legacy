@@ -21,13 +21,14 @@ from benchmarks.common import (
     write_json,
 )
 from benchmarks.compare import compare, promote_baseline
+from benchmarks.parallel import worker_count
+from benchmarks.progress import describe, follow, latest_run
 from benchmarks.runner import execute_run, launch_frozen, run_experiment, validate_workspace, verified_summary
 
 
 def read_config(path, jobs=None):
     config = json.loads(Path(path).read_text())
-    if jobs is not None:
-        config["jobs"] = jobs
+    config["jobs"] = jobs if jobs and jobs > 0 else worker_count()
     return validate_config(config)
 
 
@@ -46,19 +47,41 @@ def main(argv=None):
             child.add_argument("--cohort", action="append")
             child.add_argument("--initialize-baseline", action="store_true")
             child.add_argument(
+                "--skip-functional",
+                action="store_true",
+                help="Measure watermarks only; finish later with the `functional` command (the run cannot pass gates before)",
+            )
+            child.add_argument(
                 "--hypothesis", default="", help="Research hypothesis recorded in the immutable manifest"
             )
         if command == "watch":
             child.add_argument("--debounce", type=float, default=15)
             child.add_argument("--poll", type=float, default=2)
-    for command in ["resume", "baseline", "compare", "_execute"]:
+    child = commands.add_parser("progress", help="Show the bar, ETA and recent unit log of a run")
+    child.add_argument("run_dir", type=Path, nargs="?", help="Default: newest run under --output-root")
+    child.add_argument("--output-root", type=Path, default=ROOT / "benchmark-results")
+    child.add_argument("--follow", "-f", action="store_true", help="Refresh until the run ends")
+    child.add_argument("--tail", type=int, default=10, help="Recent unit lines to show")
+    child.add_argument("--interval", type=float, default=2)
+    for command in ["resume", "functional", "baseline", "compare", "_execute"]:
         child = commands.add_parser(command)
         child.add_argument("run_dir", type=Path)
+        if command == "_execute":
+            child.add_argument("--stage", choices=["all", "watermark", "functional"], default="all")
         if command in ["baseline", "compare"]:
             child.add_argument("--baseline", type=Path, default=ROOT / "benchmarks" / "baselines" / "current.json")
     args = parser.parse_args(argv)
+    if args.command == "progress":
+        run_dir = args.run_dir or latest_run(args.output_root)
+        if run_dir is None:
+            parser.error("No run found under " + str(args.output_root))
+        if args.follow:
+            follow(run_dir, args.interval, args.tail)
+        else:
+            print(describe(run_dir, args.tail))
+        return 0
     if args.command == "_execute":
-        return execute_run(args.run_dir)
+        return execute_run(args.run_dir, args.stage)
     if args.command in ["baseline", "compare"]:
         summary, manifest = verified_summary(args.run_dir)
         if args.command == "baseline":
@@ -69,13 +92,13 @@ def main(argv=None):
         write_json(args.run_dir / "comparison.json", result)
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return 0 if result["passed"] else 1
-    if args.command == "resume":
+    if args.command in ["resume", "functional"]:
         run_dir = args.run_dir.resolve()
         manifest = json.loads((run_dir / "manifest.json").read_text())
         if digest(toolchain_environment(ROOT)) != manifest["environment_fingerprint"]:
             parser.error("Resume environment differs from the recorded environment")
         with lock_file(run_dir.parent / ".loop.lock"):
-            code = launch_frozen(run_dir)
+            code = launch_frozen(run_dir, "functional" if args.command == "functional" else "all")
             if not validate_workspace(ROOT, run_dir, manifest):
                 print("Resumed frozen run differs from the current checkout; retained for historical analysis.")
                 return 2
@@ -111,6 +134,7 @@ def main(argv=None):
             args.initialize_baseline,
             tests=args.command == "loop",
             hypothesis=args.hypothesis,
+            stage="watermark" if args.skip_functional else "all",
         )
         print("Result directory: " + str(run_dir))
         return code
