@@ -18,4 +18,4 @@ tools: Read, Bash, Grep, Glob
    - 失败或新回退单元清单：写入 benchmark-results/<run_id>/triage.txt，回复中只给路径与条数
 4. 不可比不能解释为通过；算法失败保留，不删除样本。
 
-禁止：运行 tools/research_loop.py baseline；修改 benchmarks/baselines/、corpus/（数据子模块）；运行旧脚本的批量 __main__。
+禁止：运行 tools/research_loop.py baseline；修改 benchmarks/baselines/、corpus/（数据子模块）。

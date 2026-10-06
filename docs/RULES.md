@@ -4,7 +4,7 @@
 
 ## 一条规则由三部分组成
 
-旧实现中每条规则是 `rec_*`（遍历所有节点、用多层 `if` 判断）、`cvt_*`（返回 `(字节位置, 插入串或删除长度)` 元组）以及登记在四处的编号；不适用的情况常靠抛出异常过滤（例如 `{'==': '!='}['!=']` 的 KeyError、`ret.append()` 的 TypeError）。现在每条规则是 [`rule_engine.Rule`](../rule_engine.py)：
+旧实现中每条规则是 `rec_*`（遍历所有节点、用多层 `if` 判断）、`cvt_*`（返回 `(字节位置, 插入串或删除长度)` 元组）以及登记在四处的编号；不适用的情况常靠抛出异常过滤（例如 `{'==': '!='}['!=']` 的 KeyError、`ret.append()` 的 TypeError）。现在每条规则是 [`cllmark.rules.engine.Rule`](../cllmark/rules/engine.py)：
 
 | 部分 | 表示 | 执行位置 | 承担的约束 |
 | --- | --- | --- | --- |
@@ -33,7 +33,7 @@
 
 ## 规则目录
 
-“水印对”是 `rule_dict_bit_acc.py` 中的一项：`[比特 0 对应样式, 比特 1 对应样式]`。样式编号由 [styleList.json](../styleList.json) 给出名称；`11`/`12` 是 C/C++ 旧方法的检测型子规则（不改写代码，以 7.7/7.8 的目标形式是否存在判断）。
+“水印对”是 [`cllmark/rules/pairs.py`](../cllmark/rules/pairs.py) 中的一项：`(比特 0 对应样式, 比特 1 对应样式)`。样式编号由 [styles.json](../cllmark/rules/styles.json) 给出名称；`11`/`12` 是 C/C++ 旧方法的检测型子规则（不改写代码，以 7.7/7.8 的目标形式是否存在判断）。
 
 ### 原有规则（Python 17 对，C 14 对，C++ 14 对）
 
@@ -101,8 +101,8 @@
 
 ## 新增或修改规则的流程
 
-1. 在语言模块（`python/rules.py`、`c/rules.py`、`cpp/rules.py`、`javascript/rules.py`）中以 `Matcher(pattern).where(guards...).rule(rewrite)` 定义两个方向，键为样式编号；
-2. 在 [styleList.json](../styleList.json) 登记名称，在 `rule_dict_bit_acc.py` 末尾追加水印对（追加在末尾，不改变已有规则的槽位顺序）；
+1. 在语言模块（`cllmark/rules/python.py`、`c.py`、`cpp.py`、`javascript.py`）中以 `Matcher(pattern).where(guards...).rule(rewrite)` 定义两个方向，键为样式编号；
+2. 在 [styles.json](../cllmark/rules/styles.json) 登记名称，在 `cllmark/rules/pairs.py` 末尾追加水印对（追加在末尾，不改变已有规则的槽位顺序）；
 3. 运行审计，确认两个方向的适用数、自然形式（form0 应为常见形式）、幂等、可逆、语法与干扰：
 
 ```bash

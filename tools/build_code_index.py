@@ -7,21 +7,26 @@ import hashlib
 import json
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
 DESTINATION = ROOT / "docs" / "code-index.json"
-SOURCE_DIRECTORIES = ("c", "cpp", "python", "tools", "benchmarks", "tests")
+SOURCE_DIRECTORIES = ("cllmark", "tools", "benchmarks", "tests")
 
 
 def source_paths():
-    paths = list(ROOT.glob("*.py"))
+    paths = []
     for directory in SOURCE_DIRECTORIES:
         paths.extend(p for p in (ROOT / directory).rglob("*.py") if "__pycache__" not in p.parts)
     return sorted(paths, key=lambda path: path.relative_to(ROOT).as_posix())
 
 
 def module_name(path):
-    return ".".join(path.relative_to(ROOT).with_suffix("").parts)
+    parts = path.relative_to(ROOT).with_suffix("").parts
+    return ".".join(parts[:-1] if parts[-1] == "__init__" else parts)
+
+
+def package_of(path, module):
+    """The package that relative imports in `path` resolve against."""
+    return module.split(".") if path.name == "__init__.py" else module.split(".")[:-1]
 
 
 def symbols(nodes, prefix=""):
@@ -29,36 +34,39 @@ def symbols(nodes, prefix=""):
     for node in nodes:
         if isinstance(node, (ast.ClassDef, ast.FunctionDef, ast.AsyncFunctionDef)):
             name = prefix + node.name
-            result.append({
-                "name": name,
-                "kind": "class" if isinstance(node, ast.ClassDef) else "function",
-                "line": node.lineno,
-                "end_line": node.end_lineno,
-            })
+            result.append(
+                {
+                    "name": name,
+                    "kind": "class" if isinstance(node, ast.ClassDef) else "function",
+                    "line": node.lineno,
+                    "end_line": node.end_lineno,
+                }
+            )
             result.extend(symbols(node.body, name + "."))
     return result
 
 
-def imports(tree, module):
+def imports(tree, module, package):
     result = []
-    package = module.split(".")[:-1]
     for node in ast.walk(tree):
         if isinstance(node, ast.Import):
             for alias in node.names:
                 result.append({"module": alias.name, "names": [], "line": node.lineno})
         elif isinstance(node, ast.ImportFrom):
             if node.level:
-                base = package[:len(package) - node.level + 1]
+                base = package[: len(package) - node.level + 1]
                 if node.module:
                     base.extend(node.module.split("."))
                 imported_module = ".".join(base)
             else:
                 imported_module = node.module or ""
-            result.append({
-                "module": imported_module,
-                "names": [alias.name for alias in node.names],
-                "line": node.lineno,
-            })
+            result.append(
+                {
+                    "module": imported_module,
+                    "names": [alias.name for alias in node.names],
+                    "line": node.lineno,
+                }
+            )
     return sorted(result, key=lambda item: (item["line"], item["module"]))
 
 
@@ -70,33 +78,35 @@ def build_index():
         blob = path.read_bytes()
         tree = ast.parse(blob, filename=path.relative_to(ROOT).as_posix())
         module = module_name(path)
-        imported = imports(tree, module)
+        imported = imports(tree, module, package_of(path, module))
         dependencies = set()
         for entry in imported:
             candidates = [entry["module"]]
             candidates.extend(entry["module"] + "." + name for name in entry["names"])
             dependencies.update(modules[name] for name in candidates if name in modules)
-        files.append({
-            "path": path.relative_to(ROOT).as_posix(),
-            "module": module,
-            "sha256": hashlib.sha256(blob).hexdigest(),
-            "line_count": len(blob.splitlines()),
-            "symbols": symbols(tree.body),
-            "imports": imported,
-            "local_dependencies": sorted(dependencies),
-            "has_main_guard": any(
-                isinstance(node, ast.If)
-                and isinstance(node.test, ast.Compare)
-                and isinstance(node.test.left, ast.Name)
-                and node.test.left.id == "__name__"
-                and len(node.test.ops) == 1
-                and isinstance(node.test.ops[0], ast.Eq)
-                and len(node.test.comparators) == 1
-                and isinstance(node.test.comparators[0], ast.Constant)
-                and node.test.comparators[0].value == "__main__"
-                for node in tree.body
-            ),
-        })
+        files.append(
+            {
+                "path": path.relative_to(ROOT).as_posix(),
+                "module": module,
+                "sha256": hashlib.sha256(blob).hexdigest(),
+                "line_count": len(blob.splitlines()),
+                "symbols": symbols(tree.body),
+                "imports": imported,
+                "local_dependencies": sorted(dependencies),
+                "has_main_guard": any(
+                    isinstance(node, ast.If)
+                    and isinstance(node.test, ast.Compare)
+                    and isinstance(node.test.left, ast.Name)
+                    and node.test.left.id == "__name__"
+                    and len(node.test.ops) == 1
+                    and isinstance(node.test.ops[0], ast.Eq)
+                    and len(node.test.comparators) == 1
+                    and isinstance(node.test.comparators[0], ast.Constant)
+                    and node.test.comparators[0].value == "__main__"
+                    for node in tree.body
+                ),
+            }
+        )
     return {
         "schema_version": 1,
         "implementation_version": "legacy",

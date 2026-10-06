@@ -5,12 +5,12 @@ import argparse
 import hashlib
 import json
 import os
-from pathlib import Path
 import shutil
 import subprocess
 import sys
 import tarfile
 import urllib.request
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -25,20 +25,31 @@ def main():
     if not args.build_only:
         uv = shutil.which("uv")
         if not python.exists():
-            command = [uv, "venv", str(environment), "--python", args.python] if uv else [args.python, "-m", "venv", str(environment)]
+            command = (
+                [uv, "venv", str(environment), "--python", args.python]
+                if uv
+                else [args.python, "-m", "venv", str(environment)]
+            )
             subprocess.run(command, check=True)
         command = [uv, "pip", "install", "--python", str(python)] if uv else [str(python), "-m", "pip", "install"]
-        subprocess.run(command + ["-r", str(ROOT / "benchmarks" / "requirements.lock")], check=True)
+        subprocess.run([*command, "-r", str(ROOT / "benchmarks" / "requirements.lock")], check=True)
         subprocess.run([str(python), str(Path(__file__).resolve()), "--build-only"], check=True)
         return
-    from tree_sitter import Language
     from importlib.metadata import version
+
+    from tree_sitter import Language
+
     lock = json.loads((ROOT / "benchmarks" / "toolchain.lock.json").read_text())
     if version("tree-sitter") != lock["tree_sitter"]:
         parser.error("Run this command using .venv-benchmark/bin/python.")
     cache = ROOT / ".benchmark-cache" / "toolchain"
     cache.mkdir(parents=True, exist_ok=True)
-    stamp = {"platform": sys.platform, "architecture": os.uname().machine, "tree_sitter": version("tree-sitter"), "grammars": {}}
+    stamp = {
+        "platform": sys.platform,
+        "architecture": os.uname().machine,
+        "tree_sitter": version("tree-sitter"),
+        "grammars": {},
+    }
     for language, reference in lock["grammars"].items():
         commit = reference["commit"]
         archive = cache / (language + "-" + commit + ".tar.gz")

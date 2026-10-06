@@ -1,6 +1,7 @@
 BENCH_PYTHON ?= .venv-benchmark/bin/python
+RUFF ?= .venv-benchmark/bin/ruff
 
-.PHONY: corpus setup-benchmark setup-javascript doctor inventory test smoke benchmark baseline watch-benchmark code-map
+.PHONY: corpus setup-benchmark setup-javascript setup-dev doctor inventory test lint format smoke benchmark baseline watch-benchmark code-map
 
 corpus:
 	git submodule update --init corpus
@@ -11,6 +12,10 @@ setup-benchmark:
 setup-javascript:
 	$(BENCH_PYTHON) tools/setup_javascript.py
 
+setup-dev:
+	if command -v uv >/dev/null; then uv pip install --python $(BENCH_PYTHON) -r benchmarks/dev-requirements.lock; \
+	else $(BENCH_PYTHON) -m pip install -r benchmarks/dev-requirements.lock; fi
+
 doctor:
 	$(BENCH_PYTHON) tools/research_loop.py doctor
 
@@ -19,6 +24,14 @@ inventory:
 
 test:
 	$(BENCH_PYTHON) -m unittest discover -s tests -v
+
+lint:
+	$(RUFF) check .
+	$(RUFF) format --check .
+
+format:
+	$(RUFF) check --fix .
+	$(RUFF) format .
 
 smoke: code-map
 	$(BENCH_PYTHON) tools/research_loop.py loop --limit 2

@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      # The corpus submodule is private and the JavaScript environment is large; tests that need them are skipped.
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Build the pinned environment and grammars
+        run: make setup-benchmark
+      - name: Install development tools
+        run: make setup-dev
+      - name: Lint
+        run: make lint
+      - name: Test
+        run: make test

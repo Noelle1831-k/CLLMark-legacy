@@ -17,16 +17,17 @@ group touching text already rewritten by an enclosing candidate is skipped, so n
 matches never corrupt each other. Offsets are UTF-8 byte offsets of the parsed source.
 """
 
-from collections import OrderedDict
-from dataclasses import dataclass
 import re
-from typing import Callable, Dict, Iterable, List, NamedTuple, Optional, Sequence, Tuple
+from collections import OrderedDict
+from collections.abc import Callable, Iterable, Sequence
+from dataclasses import dataclass
+from typing import NamedTuple, Optional
 
 from tree_sitter import Language, Node, Parser
 
 
 def text(node: Node) -> str:
-    return node.text.decode('utf-8')
+    return node.text.decode("utf-8")
 
 
 class Reject(Exception):
@@ -36,7 +37,7 @@ class Reject(Exception):
 class Edit(NamedTuple):
     start: int
     end: int
-    text: str = ''
+    text: str = ""
 
 
 def replace(node: Node, new_text: str) -> Edit:
@@ -62,7 +63,7 @@ def delete_between(start: int, end: int) -> Edit:
 class Source:
     """The code under rewrite; rewrites that lay out new lines read indentation from it."""
 
-    __slots__ = ('code', 'data')
+    __slots__ = ("code", "data")
 
     def __init__(self, code: str, data: bytes):
         self.code, self.data = code, data
@@ -73,19 +74,19 @@ class Source:
         This is the layout convention of the original rules: every blank before the
         node on its line counts, not only the leading indentation.
         """
-        line = self.data[self.data.rfind(b'\n', 0, position) + 1:position + 1]
-        return line.count(b' ') + tab * line.count(b'\t')
+        line = self.data[self.data.rfind(b"\n", 0, position) + 1 : position + 1]
+        return line.count(b" ") + tab * line.count(b"\t")
 
-    def leading(self, node: Node) -> Optional[str]:
+    def leading(self, node: Node) -> str | None:
         """The whitespace before `node` on its line, or None when other text precedes it."""
-        prefix = self.data[self.data.rfind(b'\n', 0, node.start_byte) + 1:node.start_byte]
-        return prefix.decode('utf-8') if not prefix.strip(b' \t') else None
+        prefix = self.data[self.data.rfind(b"\n", 0, node.start_byte) + 1 : node.start_byte]
+        return prefix.decode("utf-8") if not prefix.strip(b" \t") else None
 
 
 class Guard:
     """A named predicate over a candidate node."""
 
-    __slots__ = ('test', 'name')
+    __slots__ = ("name", "test")
 
     def __init__(self, test: Callable[[Node], bool], name: str):
         self.test, self.name = test, name
@@ -93,24 +94,24 @@ class Guard:
     def __call__(self, node: Node) -> bool:
         return bool(self.test(node))
 
-    def __and__(self, other: 'Guard') -> 'Guard':
-        return Guard(lambda node: self(node) and other(node), f'({self.name} and {other.name})')
+    def __and__(self, other: "Guard") -> "Guard":
+        return Guard(lambda node: self(node) and other(node), f"({self.name} and {other.name})")
 
-    def __or__(self, other: 'Guard') -> 'Guard':
-        return Guard(lambda node: self(node) or other(node), f'({self.name} or {other.name})')
+    def __or__(self, other: "Guard") -> "Guard":
+        return Guard(lambda node: self(node) or other(node), f"({self.name} or {other.name})")
 
-    def __invert__(self) -> 'Guard':
-        return Guard(lambda node: not self(node), f'not {self.name}')
+    def __invert__(self) -> "Guard":
+        return Guard(lambda node: not self(node), f"not {self.name}")
 
     def __repr__(self) -> str:
-        return f'Guard({self.name})'
+        return f"Guard({self.name})"
 
 
 def guard(name: str) -> Callable[[Callable[[Node], bool]], Guard]:
     return lambda test: Guard(test, name)
 
 
-well_formed = Guard(lambda node: not node.has_error, 'no parse errors in the candidate')
+well_formed = Guard(lambda node: not node.has_error, "no parse errors in the candidate")
 
 
 @dataclass(frozen=True)
@@ -118,18 +119,18 @@ class Matcher:
     """Nodes captured as ``@node`` by `pattern` that satisfy every guard."""
 
     pattern: str
-    guards: Tuple[Guard, ...] = ()
+    guards: tuple[Guard, ...] = ()
 
     def accepts(self, node: Node) -> bool:
         return all(check(node) for check in self.guards)
 
-    def explain(self, node: Node) -> List[str]:
+    def explain(self, node: Node) -> list[str]:
         return [check.name for check in self.guards if not check(node)]
 
-    def where(self, *guards: Guard) -> 'Matcher':
+    def where(self, *guards: Guard) -> "Matcher":
         return Matcher(self.pattern, self.guards + guards)
 
-    def rule(self, rewrite: Callable[[Node, 'Source'], Sequence[Edit]], target: Optional['Matcher'] = None) -> 'Rule':
+    def rule(self, rewrite: Callable[[Node, "Source"], Sequence[Edit]], target: Optional["Matcher"] = None) -> "Rule":
         return Rule(self.pattern, self.guards, rewrite, target)
 
 
@@ -138,16 +139,16 @@ class Rule(Matcher):
     """A rewrite applied to every accepted candidate; `target` recognizes the rewritten form."""
 
     rewrite: Callable[[Node, Source], Sequence[Edit]] = None
-    target: Optional[Matcher] = None
+    target: Matcher | None = None
 
 
-def apply_edits(data: bytes, groups: Iterable[Sequence[Edit]]) -> Tuple[bytes, int]:
+def apply_edits(data: bytes, groups: Iterable[Sequence[Edit]]) -> tuple[bytes, int]:
     """Apply atomic edit groups in order; returns the new bytes and the number of skipped groups.
 
     A group is skipped when one of its edits overlaps text replaced by an accepted group
     or inserts strictly inside it. Insertions at the same offset keep group order.
     """
-    accepted: List[Tuple[int, int, int, str]] = []
+    accepted: list[tuple[int, int, int, str]] = []
     skipped = 0
     for group in groups:
         if any(_conflicts(edit, other) for edit in group for other in accepted):
@@ -158,14 +159,14 @@ def apply_edits(data: bytes, groups: Iterable[Sequence[Edit]]) -> Tuple[bytes, i
     parts, position = [], 0
     for start, end, _, new_text in accepted:
         if start < position:
-            raise ValueError(f'Overlapping edits inside one rewrite at byte {start}')
-        parts += [data[position:start], new_text.encode('utf-8')]
+            raise ValueError(f"Overlapping edits inside one rewrite at byte {start}")
+        parts += [data[position:start], new_text.encode("utf-8")]
         position = end
     parts.append(data[position:])
-    return b''.join(parts), skipped
+    return b"".join(parts), skipped
 
 
-def _conflicts(edit: Edit, other: Tuple[int, int, int, str]) -> bool:
+def _conflicts(edit: Edit, other: tuple[int, int, int, str]) -> bool:
     start, end = other[0], other[1]
     if edit.start == edit.end:
         return start < edit.start < end
@@ -174,7 +175,7 @@ def _conflicts(edit: Edit, other: Tuple[int, int, int, str]) -> bool:
     return edit.start < end and start < edit.end
 
 
-_PREDICATES = {'#eq?', '#not-eq?', '#match?'}
+_PREDICATES = {"#eq?", "#not-eq?", "#match?"}
 
 
 class Grammar:
@@ -184,20 +185,20 @@ class Grammar:
         self.language = Language(library, name)
         self.parser = Parser()
         self.parser.set_language(self.language)
-        self.matchers: Dict[Matcher, int] = {}
+        self.matchers: dict[Matcher, int] = {}
         for matcher in matchers:
             self.matchers.setdefault(matcher, len(self.matchers))
         patterns = []
         for matcher, index in self.matchers.items():
-            unsupported = set(re.findall(r'#[\w-]+\?', matcher.pattern)) - _PREDICATES
-            if unsupported or '@node' not in matcher.pattern:
-                raise ValueError(f'Pattern needs @node and only {sorted(_PREDICATES)}: {matcher.pattern}')
-            patterns.append(re.sub(r'@node\b', f'@m{index}', matcher.pattern))
-        self.query = self.language.query('\n'.join(patterns))
-        self._parsed: 'OrderedDict[str, Parsed]' = OrderedDict()
+            unsupported = set(re.findall(r"#[\w-]+\?", matcher.pattern)) - _PREDICATES
+            if unsupported or "@node" not in matcher.pattern:
+                raise ValueError(f"Pattern needs @node and only {sorted(_PREDICATES)}: {matcher.pattern}")
+            patterns.append(re.sub(r"@node\b", f"@m{index}", matcher.pattern))
+        self.query = self.language.query("\n".join(patterns))
+        self._parsed: OrderedDict[str, Parsed] = OrderedDict()
         self._cache_size = cache_size
 
-    def parse(self, code: str) -> 'Parsed':
+    def parse(self, code: str) -> "Parsed":
         parsed = self._parsed.get(code)
         if parsed is None:
             parsed = Parsed(self, code)
@@ -214,20 +215,21 @@ class Parsed:
 
     def __init__(self, grammar: Grammar, code: str):
         self.grammar = grammar
-        self.source = Source(code, code.encode('utf-8'))
+        self.source = Source(code, code.encode("utf-8"))
         self.tree = grammar.parser.parse(self.source.data)
-        captured: Dict[str, Dict[int, Node]] = {}
+        captured: dict[str, dict[int, Node]] = {}
         for node, name in grammar.query.captures(self.tree.root_node):
-            if name[0] == 'm':
+            if name[0] == "m":
                 captured.setdefault(name, {}).setdefault(node.id, node)
-        self._captured = {name: sorted(nodes.values(), key=lambda n: (n.start_byte, -n.end_byte))
-                          for name, nodes in captured.items()}
+        self._captured = {
+            name: sorted(nodes.values(), key=lambda n: (n.start_byte, -n.end_byte)) for name, nodes in captured.items()
+        }
 
-    def candidates(self, matcher: Matcher) -> List[Node]:
-        nodes = self._captured.get(f'm{self.grammar.matchers[matcher]}', [])
+    def candidates(self, matcher: Matcher) -> list[Node]:
+        nodes = self._captured.get(f"m{self.grammar.matchers[matcher]}", [])
         return [node for node in nodes if matcher.accepts(node)]
 
-    def rewrite(self, rule: Rule) -> Tuple[str, int]:
+    def rewrite(self, rule: Rule) -> tuple[str, int]:
         """Rewritten code and the number of candidates."""
         nodes = self.candidates(rule)
         groups = []
@@ -241,4 +243,4 @@ class Parsed:
         if not groups:
             return self.source.code, len(nodes)
         data, _ = apply_edits(self.source.data, groups)
-        return data.decode('utf-8'), len(nodes)
+        return data.decode("utf-8"), len(nodes)
