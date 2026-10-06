@@ -142,20 +142,24 @@ class Facts:
         self.root, self.data, self.base, self.root_column = root, root.text, root.start_byte, root.start_point[1]
 
     def __getattr__(self, name):
-        # Called only while a scope fact is unset; afterwards they are plain attributes.
+        # Called only while a scope fact is unset; afterwards they are plain attributes. The facts are collected on
+        # a scratch object and published in one step, so a reader never sees half-collected sets.
         if name not in Facts.SCOPE:
             raise AttributeError(name)
-        self.bound, self.const, self.mutable = set(), set(), set()
-        self.writes, self.base_writes, self.logical = [], set(), set()
-        self.bigint = False
-        self.opaque = self.root.has_error
+        scratch = object.__new__(Facts)
+        scratch.root, scratch.data = self.root, self.data
+        scratch.bound, scratch.const, scratch.mutable = set(), set(), set()
+        scratch.writes, scratch.base_writes, scratch.logical = [], set(), set()
+        scratch.bigint = False
+        scratch.opaque = self.root.has_error
         structure, identifiers = facts_queries()
         for node, _ in structure.captures(self.root):
-            self.visit(node)
+            scratch.visit(node)
         if b"eval" in self.data or b"BigInt" in self.data:
             for node, _ in identifiers.captures(self.root):
-                self.visit(node)
-        return getattr(self, name)
+                scratch.visit(node)
+        self.__dict__.update({fact: scratch.__dict__[fact] for fact in Facts.SCOPE})
+        return self.__dict__[name]
 
     def declare(self, names, kind):
         self.bound |= names

@@ -13,7 +13,7 @@ import sys
 from collections.abc import Sequence
 from pathlib import Path
 
-from . import bch, directories, watermark
+from . import bch, directories, nodes, watermark
 from .transform import LANGUAGES, StyleTransformer
 
 EXIT_MATCH, EXIT_NO_MATCH, EXIT_INSUFFICIENT_CAPACITY = 0, 1, 2
@@ -37,17 +37,32 @@ def parser() -> argparse.ArgumentParser:
             sub.add_argument("-b", "--bits", required=True, type=message, help="4-bit message, e.g. 1010")
         return sub
 
-    command("analyze", "Print the usable rule pairs of each file and the project's capacity.", bits=False)
+    analyze = command(
+        "analyze", "Print the usable rule pairs (or node slots) of the project and its capacity.", bits=False
+    )
     embed = command("embed", "Write a watermarked copy of the project.", bits=True)
     embed.add_argument("-o", "--output", required=True, type=Path, help="new directory for the watermarked copy")
+    for sub in (analyze, embed):
+        sub.add_argument(
+            "-g",
+            "--granularity",
+            choices=("file", "node"),
+            default="file",
+            help="one slot per (file, rule pair), or per rewritable syntax node (default: file)",
+        )
     command("extract", "Check a watermarked copy (made by embed) for the message.", bits=True)
     return root
 
 
 def analyze(arguments: argparse.Namespace) -> int:
     transformer = StyleTransformer(arguments.language)
-    support = watermark.analyze(transformer, arguments.language, directories.load_project(arguments.directory))
-    capacity = sum(len(pairs) for pairs in support.values())
+    project = directories.load_project(arguments.directory)
+    if arguments.granularity == "node":
+        support = {"granularity": "node", "slots": nodes.analyze(transformer, arguments.language, project)}
+        capacity = len(support["slots"])
+    else:
+        support = watermark.analyze(transformer, arguments.language, project)
+        capacity = sum(len(pairs) for pairs in support.values())
     print(
         json.dumps(
             {"capacity": capacity, "required": bch.CODE_LENGTH, "support": support}, indent=2, ensure_ascii=False
@@ -61,17 +76,21 @@ def embed(arguments: argparse.Namespace) -> int:
         raise SystemExit(f"cllmark embed: {arguments.output} already exists")
     shutil.copytree(arguments.directory, arguments.output)
     transformer = StyleTransformer(arguments.language)
-    capacity = directories.analyze_directory(arguments.output, arguments.language, transformer)
+    analyze_directory = nodes.analyze_directory if arguments.granularity == "node" else directories.analyze_directory
+    capacity = analyze_directory(arguments.output, arguments.language, transformer)
     if capacity < bch.CODE_LENGTH:
         print(f"capacity {capacity} < {bch.CODE_LENGTH}: not enough usable rules; nothing embedded", file=sys.stderr)
         return EXIT_INSUFFICIENT_CAPACITY
-    written = directories.embed_directory(arguments.output, arguments.language, arguments.bits, transformer)
+    embed_directory = nodes.embed_directory if arguments.granularity == "node" else directories.embed_directory
+    written = embed_directory(arguments.output, arguments.language, arguments.bits, transformer)
     print(f"capacity {capacity}; rewrote {len(written)} file(s) in {arguments.output}")
     return EXIT_MATCH
 
 
 def extract(arguments: argparse.Namespace) -> int:
-    matched, codeword_matched = directories.extract_directory(arguments.directory, arguments.language, arguments.bits)
+    node = nodes.is_support(directories.read_support(arguments.directory))
+    extract_directory = nodes.extract_directory if node else directories.extract_directory
+    matched, codeword_matched = extract_directory(arguments.directory, arguments.language, arguments.bits)
     print(json.dumps({"message_matches": matched, "codeword_matches": codeword_matched}))
     return EXIT_MATCH if matched else EXIT_NO_MATCH
 

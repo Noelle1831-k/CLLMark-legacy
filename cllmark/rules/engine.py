@@ -153,13 +153,20 @@ def apply_edits(data: bytes, groups: Iterable[Sequence[Edit]]) -> tuple[bytes, i
     A group is skipped when one of its edits overlaps text replaced by an accepted group
     or inserts strictly inside it. Insertions at the same offset keep group order.
     """
+    groups = list(groups)
+    data, accepted = apply_groups(data, groups)
+    return data, len(groups) - len(accepted)
+
+
+def apply_groups(data: bytes, groups: Sequence[Sequence[Edit]]) -> tuple[bytes, list[int]]:
+    """`apply_edits` that reports the indices of the accepted groups instead of the number of skipped ones."""
     index = _AcceptedEdits()
-    skipped = 0
-    for group in groups:
+    taken = []
+    for position, group in enumerate(groups):
         if any(index.conflicts(edit) for edit in group):
-            skipped += 1
             continue
         index.accept(group)
+        taken.append(position)
     accepted = sorted(index.edits)
     parts, position = [], 0
     for start, end, _, new_text in accepted:
@@ -168,7 +175,7 @@ def apply_edits(data: bytes, groups: Iterable[Sequence[Edit]]) -> tuple[bytes, i
         parts += [data[position:start], new_text.encode("utf-8")]
         position = end
     parts.append(data[position:])
-    return b"".join(parts), skipped
+    return b"".join(parts), taken
 
 
 class _AcceptedEdits:
@@ -251,10 +258,12 @@ class Grammar:
         self._parsed: OrderedDict[str, Parsed] = OrderedDict()
         self._cache_size = cache_size
 
-    def parse(self, code: str) -> "Parsed":
+    def parse(self, code: str, tree=None) -> "Parsed":
+        """The (cached) parse of `code`; `tree`, when given, is already the syntax tree of `code` (another query's,
+        or one from `edited_tree`), so only this grammar's query runs."""
         parsed = self._parsed.get(code)
         if parsed is None:
-            parsed = Parsed(self, code)
+            parsed = Parsed(self, code, tree)
             self._parsed[code] = parsed
             if len(self._parsed) > self._cache_size:
                 self._parsed.popitem(last=False)
@@ -270,10 +279,10 @@ def _pre_order(node: Node) -> tuple[int, int]:
 class Parsed:
     """One parsed code version with its candidates per matcher (pre-order, deduplicated)."""
 
-    def __init__(self, grammar: Grammar, code: str):
+    def __init__(self, grammar: Grammar, code: str, tree=None):
         self.grammar = grammar
         self.source = Source(code, code.encode("utf-8"))
-        self.tree = grammar.parser.parse(self.source.data)
+        self.tree = tree if tree is not None else grammar.parser.parse(self.source.data)
         groups: dict[str, dict[int, Node]] = {}
         for node, name in grammar.query.captures(self.tree.root_node):
             if name[0] == "m":
@@ -285,6 +294,9 @@ class Parsed:
                     group[key] = node
         self._groups = groups
         self._sorted: dict[str, list[Node]] = {}
+        # Guards and rewrites are functions of the tree, so their results hold for the life of this parse.
+        self._accepted: dict[Matcher, list[Node]] = {}
+        self._edits: dict[Rule, list[tuple[Node, Sequence[Edit]]]] = {}
 
     def captured(self, matcher: Matcher) -> list[Node]:
         """Nodes the matcher's pattern captures, in pre-order (outer before inner), before its guards.
@@ -299,28 +311,87 @@ class Parsed:
         return nodes
 
     def candidates(self, matcher: Matcher) -> list[Node]:
-        accepts = matcher.accepts
-        return [node for node in self.captured(matcher) if accepts(node)]
+        """Captured nodes that satisfy every guard, in pre-order (computed once per matcher)."""
+        nodes = self._accepted.get(matcher)
+        if nodes is None:
+            accepts = matcher.accepts
+            nodes = self._accepted[matcher] = [node for node in self.captured(matcher) if accepts(node)]
+        return nodes
+
+    def edits(self, rule: Rule) -> list[tuple[Node, Sequence[Edit]]]:
+        """Each candidate of `rule` with its edit group, in pre-order; the group is empty when the rewrite rejects
+        the candidate or has nothing to change."""
+        result = self._edits.get(rule)
+        if result is None:
+            rewrite = rule.rewrite
+            if rewrite is None:
+                raise ValueError(f"Rule without a rewrite: {rule.pattern}")
+            result = []
+            for node in self.candidates(rule):
+                try:
+                    group = rewrite(node, self.source) or ()
+                except Reject:
+                    group = ()
+                result.append((node, group))
+            self._edits[rule] = result
+        return result
 
     def rewrite(self, rule: Rule) -> tuple[str, int, bool]:
         """Rewritten code, the number of candidates, and whether the code changed beyond spaces and line breaks."""
-        rewrite = rule.rewrite
-        if rewrite is None:
-            raise ValueError(f"Rule without a rewrite: {rule.pattern}")
-        nodes = self.candidates(rule)
-        groups = []
-        for node in nodes:
-            try:
-                edits = rewrite(node, self.source)
-            except Reject:
-                continue
-            if edits:
-                groups.append(edits)
+        candidates = self.edits(rule)
+        groups = [group for _, group in candidates if group]
         if not groups:
-            return self.source.code, len(nodes), False
+            return self.source.code, len(candidates), False
         old = self.source.data
         data, _ = apply_edits(old, groups)
-        return data.decode("utf-8"), len(nodes), data != old and _beyond_whitespace(old, data, groups)
+        return data.decode("utf-8"), len(candidates), data != old and _beyond_whitespace(old, data, groups)
+
+    def apply(self, groups: Sequence[Sequence[Edit]]) -> str:
+        """The code with the given edit groups applied (later groups that conflict with earlier ones are skipped)."""
+        if not groups:
+            return self.source.code
+        return apply_edits(self.source.data, groups)[0].decode("utf-8")
+
+
+def _point(data: bytes, position: int) -> tuple[int, int]:
+    """Tree-sitter point (row, byte column) of a byte offset."""
+    return data.count(b"\n", 0, position), position - (data.rfind(b"\n", 0, position) + 1)
+
+
+def edited_tree(parser: Parser, tree, old: bytes, new: bytes, edits: Sequence[Edit]):
+    """The syntax tree of `new` (`old` with the accepted `edits` applied), parsed incrementally from `tree`, the tree
+    of `old`, which stays as it is: an incremental parse without edits first gives a private tree that shares all
+    subtrees, and only that one is edited. Edits are told to the tree from the last one back, so the offsets and
+    points of the earlier ones still hold."""
+    private = parser.parse(old, tree)
+    for edit in sorted(edits, key=lambda edit: (edit.start, edit.end), reverse=True):
+        text = edit.text.encode("utf-8")
+        start = _point(old, edit.start)
+        lines = text.count(b"\n")
+        end_column = len(text) - text.rfind(b"\n") - 1 if lines else start[1] + len(text)
+        private.edit(
+            start_byte=edit.start,
+            old_end_byte=edit.end,
+            new_end_byte=edit.start + len(text),
+            start_point=start,
+            old_end_point=_point(old, edit.end),
+            new_end_point=(start[0] + lines, end_column),
+        )
+    return parser.parse(new, private)
+
+
+def changes_beyond_whitespace(data: bytes, group: Sequence[Edit]) -> bool:
+    """Whether applying the one edit group to `data` changes it beyond spaces and line breaks.
+
+    Only the group's window is rewritten and compared (see `_beyond_whitespace`); a single group is never skipped.
+    """
+    if not group:
+        return False
+    start = min(edit.start for edit in group)
+    end = max(edit.end for edit in group)
+    before = data[start:end]
+    after, _ = apply_edits(before, [[Edit(edit.start - start, edit.end - start, edit.text) for edit in group]])
+    return after != before and before.translate(None, b" \n") != after.translate(None, b" \n")
 
 
 def _beyond_whitespace(old: bytes, new: bytes, groups: Sequence[Sequence[Edit]]) -> bool:

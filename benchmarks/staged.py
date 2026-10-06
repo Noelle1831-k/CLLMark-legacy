@@ -23,8 +23,16 @@ UNITS = {}
 
 
 def initialize_worker(run_dir, manifest):
-    """Worker of both stages: the engine measures watermarks with functional tests deferred; `functional_unit` runs them."""
-    engine.initialize_worker(run_dir, manifest)
+    """Worker of both stages: the engine measures watermarks with functional tests deferred; `functional_unit` runs them.
+
+    Runs with "slot_granularity": "node" use the standalone node engine (`node_engine`); others the legacy engine.
+    """
+    from . import node_engine
+
+    if node_engine.granularity(manifest.get("config", {})) == "node":
+        node_engine.initialize_worker(run_dir, manifest)
+    else:
+        engine.initialize_worker(run_dir, manifest)
     engine.evaluate_utility = lambda *args, **kwargs: dict(DEFERRED)
     UNITS.update({unit["id"]: unit for unit in manifest["units"]})
 

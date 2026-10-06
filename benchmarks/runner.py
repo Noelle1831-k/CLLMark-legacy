@@ -24,6 +24,7 @@ from .common import (
 )
 from .compare import compare, promote_baseline
 from .metrics import save_reports, summarize
+from .node_engine import annotate_report
 from .parallel import worker_count
 from .progress import LOG_NAME, LiveLog, ProgressTracker, render_bar
 
@@ -216,6 +217,25 @@ def error_row(item, error):
     }
 
 
+def functional_priority(manifest):
+    """Sort key of the functional stage: longest kinds of test first, so they overlap with the many short ones.
+
+    Suites that bind sockets run one at a time (`utility.exclusive_tests`); dispatched last, as in inventory order,
+    they formed a serial tail after every other unit had finished. Then the other project suites, Exercism's jest
+    runs and finally the compiled or interpreted MBXP tests. Order within a kind (and every result) is unchanged.
+    """
+    units = {unit["id"]: unit for unit in manifest["units"]}
+    projects = manifest["config"].get("projects", {})
+
+    def key(row):
+        unit = units.get(row["id"], {})
+        if unit.get("oracle") == "project_tests":
+            return 0 if projects.get(unit.get("project", unit.get("name")), {}).get("exclusive") else 1
+        return 2 if unit.get("oracle") == "exercism" else 3
+
+    return key
+
+
 def run_stage(run_dir, manifest, items, work, output, live, jobs, phase, on_result=None):
     """Run one stage on its own pool; the queue holds two items per worker, so a thread that finishes takes the next
     item at once and none idles before the stage's last items. Every result is appended to `output` as it arrives."""
@@ -308,7 +328,7 @@ def execute_run(run_dir, stage="all"):
             return 0
         done = load_functional(functional_path)
         waiting = [row for row in rows if needs_functional(row)]
-        todo = [row for row in waiting if row["id"] not in done]
+        todo = sorted((row for row in waiting if row["id"] not in done), key=functional_priority(manifest))
         tracker = ProgressTracker(len(waiting), done=len(waiting) - len(todo))
         write_json(
             run_dir / "state.json",
@@ -340,6 +360,7 @@ def execute_run(run_dir, stage="all"):
             else None
         )
         save_reports(run_dir, summary, manifest, comparison)
+        annotate_report(run_dir, manifest)
         failed = not summary["complete"] or bool(summary["aggregate"]["harness_errors"])
         passed = manifest["full"] and not failed and (comparison is None or comparison["passed"])
         write_json(

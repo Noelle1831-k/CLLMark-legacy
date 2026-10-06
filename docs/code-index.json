@@ -15,8 +15,8 @@
     "build products"
   ],
   "generation_command": "python3 tools/build_code_index.py",
-  "file_count": 40,
-  "symbol_count": 790,
+  "file_count": 45,
+  "symbol_count": 859,
   "files": [
     {
       "path": "benchmarks/__init__.py",
@@ -584,6 +584,143 @@
       "has_main_guard": false
     },
     {
+      "path": "benchmarks/node_engine.py",
+      "module": "benchmarks.node_engine",
+      "sha256": "52b2e3dc5843579b29fe0700da7c91166811670535456ad885e375b280d8ff5c",
+      "line_count": 263,
+      "symbols": [
+        {
+          "name": "granularity",
+          "kind": "function",
+          "line": 29,
+          "end_line": 33
+        },
+        {
+          "name": "protocol_config",
+          "kind": "function",
+          "line": 36,
+          "end_line": 41
+        },
+        {
+          "name": "annotate_report",
+          "kind": "function",
+          "line": 44,
+          "end_line": 53
+        },
+        {
+          "name": "NodeEngine",
+          "kind": "class",
+          "line": 56,
+          "end_line": 257
+        },
+        {
+          "name": "NodeEngine.__init__",
+          "kind": "function",
+          "line": 57,
+          "end_line": 61
+        },
+        {
+          "name": "NodeEngine.node_slots",
+          "kind": "function",
+          "line": 63,
+          "end_line": 68
+        },
+        {
+          "name": "NodeEngine.node_properties",
+          "kind": "function",
+          "line": 70,
+          "end_line": 133
+        },
+        {
+          "name": "NodeEngine.node_properties.check",
+          "kind": "function",
+          "line": 86,
+          "end_line": 90
+        },
+        {
+          "name": "NodeEngine.node_properties.flip",
+          "kind": "function",
+          "line": 92,
+          "end_line": 94
+        },
+        {
+          "name": "NodeEngine.flip_nodes",
+          "kind": "function",
+          "line": 135,
+          "end_line": 157
+        },
+        {
+          "name": "NodeEngine.evaluate",
+          "kind": "function",
+          "line": 159,
+          "end_line": 257
+        },
+        {
+          "name": "initialize_worker",
+          "kind": "function",
+          "line": 260,
+          "end_line": 263
+        }
+      ],
+      "imports": [
+        {
+          "module": "importlib",
+          "names": [],
+          "line": 11
+        },
+        {
+          "module": "json",
+          "names": [],
+          "line": 12
+        },
+        {
+          "module": "os",
+          "names": [],
+          "line": 13
+        },
+        {
+          "module": "shutil",
+          "names": [],
+          "line": 14
+        },
+        {
+          "module": "time",
+          "names": [],
+          "line": 15
+        },
+        {
+          "module": "contextlib",
+          "names": [
+            "redirect_stderr",
+            "redirect_stdout"
+          ],
+          "line": 16
+        },
+        {
+          "module": "benchmarks",
+          "names": [
+            "engine"
+          ],
+          "line": 18
+        },
+        {
+          "module": "benchmarks.common",
+          "names": [
+            "digest",
+            "unit_file_names",
+            "write_json"
+          ],
+          "line": 19
+        }
+      ],
+      "local_dependencies": [
+        "benchmarks/__init__.py",
+        "benchmarks/common.py",
+        "benchmarks/engine.py"
+      ],
+      "has_main_guard": false
+    },
+    {
       "path": "benchmarks/parallel.py",
       "module": "benchmarks.parallel",
       "sha256": "b2aadca30a12a0e8fa62bc7c561c9818a053d727f1c9246873bcc2304e9f5e99",
@@ -759,74 +896,86 @@
     {
       "path": "benchmarks/runner.py",
       "module": "benchmarks.runner",
-      "sha256": "231d2fea692b3029eb44b94d8448147cebb1d69a81e6b03a565b8c8fafab38f2",
-      "line_count": 453,
+      "sha256": "3a33ef4707b3bfdb2899e82f686973831ab6aba2a9a5821c8f5f7cf8baa05060",
+      "line_count": 474,
       "symbols": [
         {
           "name": "freeze_run",
           "kind": "function",
-          "line": 33,
-          "end_line": 138
+          "line": 34,
+          "end_line": 139
         },
         {
           "name": "freeze_run.copy_input",
           "kind": "function",
-          "line": 81,
-          "end_line": 87
+          "line": 82,
+          "end_line": 88
         },
         {
           "name": "verify_frozen_run",
           "kind": "function",
-          "line": 141,
-          "end_line": 145
+          "line": 142,
+          "end_line": 146
         },
         {
           "name": "load_rows",
           "kind": "function",
-          "line": 148,
-          "end_line": 171
+          "line": 149,
+          "end_line": 172
         },
         {
           "name": "verified_summary",
           "kind": "function",
-          "line": 174,
-          "end_line": 185
+          "line": 175,
+          "end_line": 186
         },
         {
           "name": "validate_workspace",
           "kind": "function",
-          "line": 188,
-          "end_line": 204
+          "line": 189,
+          "end_line": 205
         },
         {
           "name": "error_row",
           "kind": "function",
-          "line": 207,
-          "end_line": 216
+          "line": 208,
+          "end_line": 217
+        },
+        {
+          "name": "functional_priority",
+          "kind": "function",
+          "line": 220,
+          "end_line": 236
+        },
+        {
+          "name": "functional_priority.key",
+          "kind": "function",
+          "line": 230,
+          "end_line": 234
         },
         {
           "name": "run_stage",
           "kind": "function",
-          "line": 219,
-          "end_line": 262
+          "line": 239,
+          "end_line": 282
         },
         {
           "name": "execute_run",
           "kind": "function",
-          "line": 265,
-          "end_line": 356
+          "line": 285,
+          "end_line": 377
         },
         {
           "name": "launch_frozen",
           "kind": "function",
-          "line": 359,
-          "end_line": 380
+          "line": 380,
+          "end_line": 401
         },
         {
           "name": "run_experiment",
           "kind": "function",
-          "line": 383,
-          "end_line": 453
+          "line": 404,
+          "end_line": 474
         }
       ],
       "imports": [
@@ -922,11 +1071,18 @@
           "line": 26
         },
         {
+          "module": "benchmarks.node_engine",
+          "names": [
+            "annotate_report"
+          ],
+          "line": 27
+        },
+        {
           "module": "benchmarks.parallel",
           "names": [
             "worker_count"
           ],
-          "line": 27
+          "line": 28
         },
         {
           "module": "benchmarks.progress",
@@ -936,21 +1092,21 @@
             "ProgressTracker",
             "render_bar"
           ],
-          "line": 28
+          "line": 29
         },
         {
           "module": "benchmarks.staged",
           "names": [
             "initialize_worker"
           ],
-          "line": 222
+          "line": 242
         },
         {
           "module": "benchmarks.engine",
           "names": [
             "evaluate_unit"
           ],
-          "line": 268
+          "line": 288
         },
         {
           "module": "benchmarks.staged",
@@ -959,7 +1115,7 @@
             "load_functional",
             "needs_functional"
           ],
-          "line": 269
+          "line": 289
         }
       ],
       "local_dependencies": [
@@ -967,6 +1123,7 @@
         "benchmarks/compare.py",
         "benchmarks/engine.py",
         "benchmarks/metrics.py",
+        "benchmarks/node_engine.py",
         "benchmarks/parallel.py",
         "benchmarks/progress.py",
         "benchmarks/staged.py"
@@ -976,44 +1133,44 @@
     {
       "path": "benchmarks/staged.py",
       "module": "benchmarks.staged",
-      "sha256": "e233378ad7ecbbc69cac9cee2042993291181cae95ae06c790ab3a73d1ac4529",
-      "line_count": 92,
+      "sha256": "b965e2c5e47a51edaa10b7064bf674ab06ea7bf519d3299c079a225e0ec52499",
+      "line_count": 100,
       "symbols": [
         {
           "name": "initialize_worker",
           "kind": "function",
           "line": 25,
-          "end_line": 29
+          "end_line": 37
         },
         {
           "name": "needs_functional",
           "kind": "function",
-          "line": 32,
-          "end_line": 34
+          "line": 40,
+          "end_line": 42
         },
         {
           "name": "work_directory",
-          "kind": "function",
-          "line": 37,
-          "end_line": 38
-        },
-        {
-          "name": "functional_unit",
-          "kind": "function",
-          "line": 41,
-          "end_line": 78
-        },
-        {
-          "name": "functional_unit.timeout",
           "kind": "function",
           "line": 45,
           "end_line": 46
         },
         {
+          "name": "functional_unit",
+          "kind": "function",
+          "line": 49,
+          "end_line": 86
+        },
+        {
+          "name": "functional_unit.timeout",
+          "kind": "function",
+          "line": 53,
+          "end_line": 54
+        },
+        {
           "name": "load_functional",
           "kind": "function",
-          "line": 81,
-          "end_line": 92
+          "line": 89,
+          "end_line": 100
         }
       ],
       "imports": [
@@ -1065,12 +1222,20 @@
             "evaluate_utility"
           ],
           "line": 17
+        },
+        {
+          "module": "benchmarks",
+          "names": [
+            "node_engine"
+          ],
+          "line": 30
         }
       ],
       "local_dependencies": [
         "benchmarks/__init__.py",
         "benchmarks/common.py",
         "benchmarks/engine.py",
+        "benchmarks/node_engine.py",
         "benchmarks/utility.py"
       ],
       "has_main_guard": false
@@ -1346,8 +1511,8 @@
     {
       "path": "cllmark/cli.py",
       "module": "cllmark.cli",
-      "sha256": "92498a0b370cde594153863fdf959db1b769b9712b18708bcc342aca56195edd",
-      "line_count": 81,
+      "sha256": "2e90e55552f9582464e0f56b83a2348247ebcf3aeacd616a6019ba6d7067465b",
+      "line_count": 100,
       "symbols": [
         {
           "name": "message",
@@ -1359,7 +1524,7 @@
           "name": "parser",
           "kind": "function",
           "line": 28,
-          "end_line": 44
+          "end_line": 54
         },
         {
           "name": "parser.command",
@@ -1370,26 +1535,26 @@
         {
           "name": "analyze",
           "kind": "function",
-          "line": 47,
-          "end_line": 56
+          "line": 57,
+          "end_line": 71
         },
         {
           "name": "embed",
           "kind": "function",
-          "line": 59,
-          "end_line": 70
+          "line": 74,
+          "end_line": 87
         },
         {
           "name": "extract",
           "kind": "function",
-          "line": 73,
-          "end_line": 76
+          "line": 90,
+          "end_line": 95
         },
         {
           "name": "main",
           "kind": "function",
-          "line": 79,
-          "end_line": 81
+          "line": 98,
+          "end_line": 100
         }
       ],
       "imports": [
@@ -1439,6 +1604,7 @@
           "names": [
             "bch",
             "directories",
+            "nodes",
             "watermark"
           ],
           "line": 16
@@ -1456,6 +1622,7 @@
         "cllmark/__init__.py",
         "cllmark/bch.py",
         "cllmark/directories.py",
+        "cllmark/nodes.py",
         "cllmark/transform.py",
         "cllmark/watermark.py"
       ],
@@ -1556,6 +1723,303 @@
       ],
       "local_dependencies": [
         "cllmark/__init__.py",
+        "cllmark/source_io.py",
+        "cllmark/transform.py",
+        "cllmark/watermark.py"
+      ],
+      "has_main_guard": false
+    },
+    {
+      "path": "cllmark/nodes.py",
+      "module": "cllmark.nodes",
+      "sha256": "061de19f1b9038d6c8f05d7184d8b64f81f0fb4e964ac2ffbbb5c24d99846ded",
+      "line_count": 496,
+      "symbols": [
+        {
+          "name": "Site",
+          "kind": "class",
+          "line": 66,
+          "end_line": 72
+        },
+        {
+          "name": "sites",
+          "kind": "function",
+          "line": 75,
+          "end_line": 94
+        },
+        {
+          "name": "_sites",
+          "kind": "function",
+          "line": 97,
+          "end_line": 126
+        },
+        {
+          "name": "_Regions",
+          "kind": "class",
+          "line": 133,
+          "end_line": 177
+        },
+        {
+          "name": "_Regions.__init__",
+          "kind": "function",
+          "line": 139,
+          "end_line": 141
+        },
+        {
+          "name": "_Regions.take",
+          "kind": "function",
+          "line": 143,
+          "end_line": 177
+        },
+        {
+          "name": "_holds",
+          "kind": "function",
+          "line": 180,
+          "end_line": 186
+        },
+        {
+          "name": "analyze",
+          "kind": "function",
+          "line": 189,
+          "end_line": 235
+        },
+        {
+          "name": "analyze.select",
+          "kind": "function",
+          "line": 210,
+          "end_line": 228
+        },
+        {
+          "name": "read",
+          "kind": "function",
+          "line": 238,
+          "end_line": 242
+        },
+        {
+          "name": "_shift",
+          "kind": "function",
+          "line": 245,
+          "end_line": 260
+        },
+        {
+          "name": "_follow",
+          "kind": "function",
+          "line": 263,
+          "end_line": 280
+        },
+        {
+          "name": "_locate",
+          "kind": "function",
+          "line": 283,
+          "end_line": 302
+        },
+        {
+          "name": "_locate.qualifies",
+          "kind": "function",
+          "line": 294,
+          "end_line": 295
+        },
+        {
+          "name": "_sites_or_none",
+          "kind": "function",
+          "line": 305,
+          "end_line": 311
+        },
+        {
+          "name": "place",
+          "kind": "function",
+          "line": 314,
+          "end_line": 384
+        },
+        {
+          "name": "embed",
+          "kind": "function",
+          "line": 387,
+          "end_line": 413
+        },
+        {
+          "name": "extract",
+          "kind": "function",
+          "line": 416,
+          "end_line": 431
+        },
+        {
+          "name": "flip",
+          "kind": "function",
+          "line": 434,
+          "end_line": 439
+        },
+        {
+          "name": "is_support",
+          "kind": "function",
+          "line": 447,
+          "end_line": 449
+        },
+        {
+          "name": "_write_support",
+          "kind": "function",
+          "line": 452,
+          "end_line": 454
+        },
+        {
+          "name": "_read_slots",
+          "kind": "function",
+          "line": 457,
+          "end_line": 461
+        },
+        {
+          "name": "analyze_directory",
+          "kind": "function",
+          "line": 464,
+          "end_line": 472
+        },
+        {
+          "name": "embed_directory",
+          "kind": "function",
+          "line": 475,
+          "end_line": 487
+        },
+        {
+          "name": "extract_directory",
+          "kind": "function",
+          "line": 490,
+          "end_line": 496
+        }
+      ],
+      "imports": [
+        {
+          "module": "__future__",
+          "names": [
+            "annotations"
+          ],
+          "line": 35
+        },
+        {
+          "module": "functools",
+          "names": [],
+          "line": 37
+        },
+        {
+          "module": "itertools",
+          "names": [],
+          "line": 38
+        },
+        {
+          "module": "json",
+          "names": [],
+          "line": 39
+        },
+        {
+          "module": "random",
+          "names": [],
+          "line": 40
+        },
+        {
+          "module": "weakref",
+          "names": [],
+          "line": 41
+        },
+        {
+          "module": "bisect",
+          "names": [
+            "bisect_left"
+          ],
+          "line": 42
+        },
+        {
+          "module": "collections",
+          "names": [
+            "OrderedDict"
+          ],
+          "line": 43
+        },
+        {
+          "module": "collections.abc",
+          "names": [
+            "Callable",
+            "Mapping",
+            "Sequence"
+          ],
+          "line": 44
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 45
+        },
+        {
+          "module": "typing",
+          "names": [
+            "NamedTuple"
+          ],
+          "line": 46
+        },
+        {
+          "module": "cllmark",
+          "names": [
+            "bch"
+          ],
+          "line": 48
+        },
+        {
+          "module": "cllmark.directories",
+          "names": [
+            "SUPPORT_FILE",
+            "load_project",
+            "read_support"
+          ],
+          "line": 49
+        },
+        {
+          "module": "cllmark.rules.engine",
+          "names": [
+            "Edit",
+            "Grammar",
+            "apply_groups",
+            "changes_beyond_whitespace",
+            "edited_tree"
+          ],
+          "line": 50
+        },
+        {
+          "module": "cllmark.rules.pairs",
+          "names": [
+            "WATERMARK_PAIRS"
+          ],
+          "line": 51
+        },
+        {
+          "module": "cllmark.source_io",
+          "names": [
+            "reload_written",
+            "write_source"
+          ],
+          "line": 52
+        },
+        {
+          "module": "cllmark.transform",
+          "names": [
+            "StyleTransformer"
+          ],
+          "line": 53
+        },
+        {
+          "module": "cllmark.watermark",
+          "names": [
+            "DETECT_ONLY",
+            "project_order"
+          ],
+          "line": 54
+        }
+      ],
+      "local_dependencies": [
+        "cllmark/__init__.py",
+        "cllmark/bch.py",
+        "cllmark/directories.py",
+        "cllmark/rules/engine.py",
+        "cllmark/rules/pairs.py",
         "cllmark/source_io.py",
         "cllmark/transform.py",
         "cllmark/watermark.py"
@@ -2632,8 +3096,8 @@
     {
       "path": "cllmark/rules/engine.py",
       "module": "cllmark.rules.engine",
-      "sha256": "5cbfec51e94e9fe5fb8b024a613e62d0c372a5153f839c3b7bbd61c8f4a68038",
-      "line_count": 336,
+      "sha256": "028a532f031bc8f54fc343e38f5c41891663613e35164207df483ee3e151b94b",
+      "line_count": 407,
       "symbols": [
         {
           "name": "text",
@@ -2795,103 +3259,139 @@
           "name": "apply_edits",
           "kind": "function",
           "line": 150,
-          "end_line": 171
+          "end_line": 158
+        },
+        {
+          "name": "apply_groups",
+          "kind": "function",
+          "line": 161,
+          "end_line": 178
         },
         {
           "name": "_AcceptedEdits",
           "kind": "class",
-          "line": 174,
-          "end_line": 219
+          "line": 181,
+          "end_line": 226
         },
         {
           "name": "_AcceptedEdits.__init__",
           "kind": "function",
-          "line": 182,
-          "end_line": 187
+          "line": 189,
+          "end_line": 194
         },
         {
           "name": "_AcceptedEdits._replacement_overlaps",
           "kind": "function",
-          "line": 189,
-          "end_line": 192
+          "line": 196,
+          "end_line": 199
         },
         {
           "name": "_AcceptedEdits.conflicts",
           "kind": "function",
-          "line": 194,
-          "end_line": 202
+          "line": 201,
+          "end_line": 209
         },
         {
           "name": "_AcceptedEdits.accept",
           "kind": "function",
-          "line": 204,
-          "end_line": 219
+          "line": 211,
+          "end_line": 226
         },
         {
           "name": "_conflicts",
           "kind": "function",
-          "line": 222,
-          "end_line": 228
+          "line": 229,
+          "end_line": 235
         },
         {
           "name": "Grammar",
           "kind": "class",
-          "line": 234,
-          "end_line": 263
+          "line": 241,
+          "end_line": 272
         },
         {
           "name": "Grammar.__init__",
           "kind": "function",
-          "line": 237,
-          "end_line": 252
+          "line": 244,
+          "end_line": 259
         },
         {
           "name": "Grammar.parse",
           "kind": "function",
-          "line": 254,
-          "end_line": 263
+          "line": 261,
+          "end_line": 272
         },
         {
           "name": "_pre_order",
           "kind": "function",
-          "line": 266,
-          "end_line": 267
+          "line": 275,
+          "end_line": 276
         },
         {
           "name": "Parsed",
           "kind": "class",
-          "line": 270,
-          "end_line": 323
+          "line": 279,
+          "end_line": 353
         },
         {
           "name": "Parsed.__init__",
           "kind": "function",
-          "line": 273,
-          "end_line": 287
+          "line": 282,
+          "end_line": 299
         },
         {
           "name": "Parsed.captured",
           "kind": "function",
-          "line": 289,
-          "end_line": 299
+          "line": 301,
+          "end_line": 311
         },
         {
           "name": "Parsed.candidates",
           "kind": "function",
-          "line": 301,
-          "end_line": 303
+          "line": 313,
+          "end_line": 319
+        },
+        {
+          "name": "Parsed.edits",
+          "kind": "function",
+          "line": 321,
+          "end_line": 337
         },
         {
           "name": "Parsed.rewrite",
           "kind": "function",
-          "line": 305,
-          "end_line": 323
+          "line": 339,
+          "end_line": 347
+        },
+        {
+          "name": "Parsed.apply",
+          "kind": "function",
+          "line": 349,
+          "end_line": 353
+        },
+        {
+          "name": "_point",
+          "kind": "function",
+          "line": 356,
+          "end_line": 358
+        },
+        {
+          "name": "edited_tree",
+          "kind": "function",
+          "line": 361,
+          "end_line": 380
+        },
+        {
+          "name": "changes_beyond_whitespace",
+          "kind": "function",
+          "line": 383,
+          "end_line": 394
         },
         {
           "name": "_beyond_whitespace",
           "kind": "function",
-          "line": 326,
-          "end_line": 336
+          "line": 397,
+          "end_line": 407
         }
       ],
       "imports": [
@@ -2956,8 +3456,8 @@
     {
       "path": "cllmark/rules/javascript.py",
       "module": "cllmark.rules.javascript",
-      "sha256": "a061c5dabdf21a58f75f28359567eab546db573fb0cdba048a118ee1ec4031da",
-      "line_count": 1882,
+      "sha256": "45fcdadc22002799527eaa516da4d44b5e2716bd56d08dea6cfdc9e02b0a0bd8",
+      "line_count": 1886,
       "symbols": [
         {
           "name": "nodes",
@@ -3011,7 +3511,7 @@
           "name": "Facts",
           "kind": "class",
           "line": 126,
-          "end_line": 244
+          "end_line": 248
         },
         {
           "name": "Facts.__init__",
@@ -3023,865 +3523,865 @@
           "name": "Facts.__getattr__",
           "kind": "function",
           "line": 144,
-          "end_line": 158
+          "end_line": 162
         },
         {
           "name": "Facts.declare",
           "kind": "function",
-          "line": 160,
-          "end_line": 165
+          "line": 164,
+          "end_line": 169
         },
         {
           "name": "Facts.visit",
           "kind": "function",
-          "line": 167,
-          "end_line": 205
+          "line": 171,
+          "end_line": 209
         },
         {
           "name": "Facts.write",
           "kind": "function",
-          "line": 207,
-          "end_line": 216
+          "line": 211,
+          "end_line": 220
         },
         {
           "name": "Facts.note_logical",
           "kind": "function",
-          "line": 218,
-          "end_line": 232
+          "line": 222,
+          "end_line": 236
         },
         {
           "name": "Facts.bytes",
           "kind": "function",
-          "line": 234,
-          "end_line": 236
+          "line": 238,
+          "end_line": 240
         },
         {
           "name": "Facts.written_in",
           "kind": "function",
-          "line": 238,
-          "end_line": 244
+          "line": 242,
+          "end_line": 248
         },
         {
           "name": "facts_queries",
           "kind": "function",
-          "line": 261,
-          "end_line": 270
+          "line": 265,
+          "end_line": 274
         },
         {
           "name": "descendants",
           "kind": "function",
-          "line": 273,
-          "end_line": 278
+          "line": 277,
+          "end_line": 282
         },
         {
           "name": "file_facts",
           "kind": "function",
-          "line": 284,
-          "end_line": 296
+          "line": 288,
+          "end_line": 300
         },
         {
           "name": "leading_whitespace",
           "kind": "function",
-          "line": 299,
-          "end_line": 306
+          "line": 303,
+          "end_line": 310
         },
         {
           "name": "negate_equality",
           "kind": "function",
-          "line": 312,
-          "end_line": 315
+          "line": 316,
+          "end_line": 319
         },
         {
           "name": "bare_comparison_allowed",
           "kind": "function",
-          "line": 323,
-          "end_line": 328
+          "line": 327,
+          "end_line": 332
         },
         {
           "name": "negated_test",
           "kind": "function",
-          "line": 331,
-          "end_line": 353
+          "line": 335,
+          "end_line": 357
         },
         {
           "name": "negated_test.test",
           "kind": "function",
-          "line": 334,
-          "end_line": 351
+          "line": 338,
+          "end_line": 355
         },
         {
           "name": "remove_negation",
           "kind": "function",
-          "line": 356,
-          "end_line": 364
+          "line": 360,
+          "end_line": 368
         },
         {
           "name": "literal_comparison",
           "kind": "function",
-          "line": 370,
-          "end_line": 382
+          "line": 374,
+          "end_line": 386
         },
         {
           "name": "literal_comparison.test",
           "kind": "function",
-          "line": 373,
-          "end_line": 378
+          "line": 377,
+          "end_line": 382
         },
         {
           "name": "fuses",
           "kind": "function",
-          "line": 389,
-          "end_line": 398
+          "line": 393,
+          "end_line": 402
         },
         {
           "name": "fuses.joins",
           "kind": "function",
-          "line": 393,
-          "end_line": 396
+          "line": 397,
+          "end_line": 400
         },
         {
           "name": "swap_operands",
           "kind": "function",
-          "line": 404,
-          "end_line": 424
+          "line": 408,
+          "end_line": 428
         },
         {
           "name": "mirror",
           "kind": "function",
-          "line": 427,
-          "end_line": 435
+          "line": 431,
+          "end_line": 439
         },
         {
           "name": "hash_at_least",
           "kind": "function",
-          "line": 438,
-          "end_line": 441
+          "line": 442,
+          "end_line": 445
         },
         {
           "name": "hash_order",
           "kind": "function",
-          "line": 444,
-          "end_line": 461
+          "line": 448,
+          "end_line": 465
         },
         {
           "name": "hash_order.rewrite",
           "kind": "function",
-          "line": 451,
-          "end_line": 459
+          "line": 455,
+          "end_line": 463
         },
         {
           "name": "negated_comparison",
           "kind": "function",
-          "line": 483,
-          "end_line": 488
+          "line": 487,
+          "end_line": 492
         },
         {
           "name": "plain_operand",
           "kind": "function",
-          "line": 491,
-          "end_line": 494
+          "line": 495,
+          "end_line": 498
         },
         {
           "name": "self_assignment",
           "kind": "function",
-          "line": 498,
-          "end_line": 508
+          "line": 502,
+          "end_line": 512
         },
         {
           "name": "compound_assignment",
           "kind": "function",
-          "line": 512,
-          "end_line": 519
+          "line": 516,
+          "end_line": 523
         },
         {
           "name": "to_compound",
           "kind": "function",
-          "line": 522,
-          "end_line": 531
+          "line": 526,
+          "end_line": 535
         },
         {
           "name": "from_compound",
           "kind": "function",
-          "line": 534,
-          "end_line": 541
+          "line": 538,
+          "end_line": 545
         },
         {
           "name": "value_unused",
           "kind": "function",
-          "line": 548,
-          "end_line": 553
+          "line": 552,
+          "end_line": 557
         },
         {
           "name": "prefix_form",
           "kind": "function",
-          "line": 556,
-          "end_line": 559
+          "line": 560,
+          "end_line": 563
         },
         {
           "name": "one_line_update",
           "kind": "function",
-          "line": 563,
-          "end_line": 565
+          "line": 567,
+          "end_line": 569
         },
         {
           "name": "flip_update",
           "kind": "function",
-          "line": 568,
-          "end_line": 571
+          "line": 572,
+          "end_line": 575
         },
         {
           "name": "keyword",
-          "kind": "function",
-          "line": 579,
-          "end_line": 580
-        },
-        {
-          "name": "declarators",
           "kind": "function",
           "line": 583,
           "end_line": 584
         },
         {
-          "name": "cluster_member",
+          "name": "declarators",
           "kind": "function",
           "line": 587,
-          "end_line": 598
+          "end_line": 588
+        },
+        {
+          "name": "cluster_member",
+          "kind": "function",
+          "line": 591,
+          "end_line": 602
         },
         {
           "name": "adjacent_members",
           "kind": "function",
-          "line": 601,
-          "end_line": 611
+          "line": 605,
+          "end_line": 615
         },
         {
           "name": "declaration_cluster",
           "kind": "function",
-          "line": 614,
-          "end_line": 630
+          "line": 618,
+          "end_line": 634
         },
         {
           "name": "splittable_cluster",
           "kind": "function",
-          "line": 634,
-          "end_line": 635
+          "line": 638,
+          "end_line": 639
         },
         {
           "name": "mergeable_cluster",
           "kind": "function",
-          "line": 639,
-          "end_line": 640
+          "line": 643,
+          "end_line": 644
         },
         {
           "name": "split_declaration",
           "kind": "function",
-          "line": 643,
-          "end_line": 650
+          "line": 647,
+          "end_line": 654
         },
         {
           "name": "merge_declarations",
           "kind": "function",
-          "line": 653,
-          "end_line": 657
+          "line": 657,
+          "end_line": 661
         },
         {
           "name": "header",
           "kind": "function",
-          "line": 663,
-          "end_line": 665
+          "line": 667,
+          "end_line": 669
         },
         {
           "name": "condition_only_for",
           "kind": "function",
-          "line": 669,
-          "end_line": 678
+          "line": 673,
+          "end_line": 682
         },
         {
           "name": "plain_while",
           "kind": "function",
-          "line": 682,
-          "end_line": 689
+          "line": 686,
+          "end_line": 693
         },
         {
           "name": "for_to_while",
           "kind": "function",
-          "line": 692,
-          "end_line": 695
+          "line": 696,
+          "end_line": 699
         },
         {
           "name": "while_to_for",
           "kind": "function",
-          "line": 698,
-          "end_line": 703
+          "line": 702,
+          "end_line": 707
         },
         {
           "name": "negated_group",
           "kind": "function",
-          "line": 709,
-          "end_line": 715
+          "line": 713,
+          "end_line": 719
         },
         {
           "name": "negatable",
           "kind": "function",
-          "line": 718,
-          "end_line": 723
+          "line": 722,
+          "end_line": 727
         },
         {
           "name": "statements",
           "kind": "function",
-          "line": 726,
-          "end_line": 727
+          "line": 730,
+          "end_line": 731
         },
         {
           "name": "closed_block",
           "kind": "function",
-          "line": 730,
-          "end_line": 733
+          "line": 734,
+          "end_line": 737
         },
         {
           "name": "condition_value",
           "kind": "function",
-          "line": 736,
-          "end_line": 738
+          "line": 740,
+          "end_line": 742
         },
         {
           "name": "contains",
           "kind": "function",
-          "line": 741,
-          "end_line": 748
+          "line": 745,
+          "end_line": 752
         },
         {
           "name": "has_else",
           "kind": "function",
-          "line": 751,
-          "end_line": 752
+          "line": 755,
+          "end_line": 756
         },
         {
           "name": "exits",
           "kind": "function",
-          "line": 758,
-          "end_line": 772
+          "line": 762,
+          "end_line": 776
         },
         {
           "name": "exiting_if",
           "kind": "function",
-          "line": 775,
-          "end_line": 777
+          "line": 779,
+          "end_line": 781
         },
         {
           "name": "nested_branching",
           "kind": "function",
-          "line": 780,
-          "end_line": 782
+          "line": 784,
+          "end_line": 786
         },
         {
           "name": "braced_if_else",
           "kind": "function",
-          "line": 785,
-          "end_line": 813
+          "line": 789,
+          "end_line": 817
         },
         {
           "name": "braced_if_else.test",
           "kind": "function",
-          "line": 789,
-          "end_line": 809
+          "line": 793,
+          "end_line": 813
         },
         {
           "name": "swap_branches",
           "kind": "function",
-          "line": 816,
-          "end_line": 830
+          "line": 820,
+          "end_line": 834
         },
         {
           "name": "swap_branches.rewrite",
           "kind": "function",
-          "line": 819,
-          "end_line": 828
+          "line": 823,
+          "end_line": 832
         },
         {
           "name": "movable_conditional",
           "kind": "function",
-          "line": 833,
-          "end_line": 850
+          "line": 837,
+          "end_line": 854
         },
         {
           "name": "movable_conditional.test",
           "kind": "function",
-          "line": 834,
-          "end_line": 846
+          "line": 838,
+          "end_line": 850
         },
         {
           "name": "swap_conditional",
           "kind": "function",
-          "line": 853,
-          "end_line": 862
+          "line": 857,
+          "end_line": 866
         },
         {
           "name": "swap_conditional.rewrite",
           "kind": "function",
-          "line": 856,
-          "end_line": 860
+          "line": 860,
+          "end_line": 864
         },
         {
           "name": "conjunct",
           "kind": "function",
-          "line": 865,
-          "end_line": 873
+          "line": 869,
+          "end_line": 877
         },
         {
           "name": "conjunctive_if",
           "kind": "function",
-          "line": 877,
-          "end_line": 893
+          "line": 881,
+          "end_line": 897
         },
         {
           "name": "nested_if",
           "kind": "function",
-          "line": 897,
-          "end_line": 915
+          "line": 901,
+          "end_line": 919
         },
         {
           "name": "split_conjunction",
           "kind": "function",
-          "line": 918,
-          "end_line": 921
+          "line": 922,
+          "end_line": 925
         },
         {
           "name": "join_conjunction",
           "kind": "function",
-          "line": 924,
-          "end_line": 930
+          "line": 928,
+          "end_line": 934
         },
         {
           "name": "function_body",
           "kind": "function",
-          "line": 938,
-          "end_line": 940
+          "line": 942,
+          "end_line": 944
         },
         {
           "name": "blank_between",
           "kind": "function",
-          "line": 943,
-          "end_line": 945
+          "line": 947,
+          "end_line": 949
         },
         {
           "name": "ends_with_bare_return",
           "kind": "function",
-          "line": 949,
-          "end_line": 959
+          "line": 953,
+          "end_line": 963
         },
         {
           "name": "ends_without_return",
           "kind": "function",
-          "line": 963,
-          "end_line": 971
+          "line": 967,
+          "end_line": 975
         },
         {
           "name": "add_final_return",
           "kind": "function",
-          "line": 974,
-          "end_line": 980
+          "line": 978,
+          "end_line": 984
         },
         {
           "name": "drop_final_return",
           "kind": "function",
-          "line": 983,
-          "end_line": 986
+          "line": 987,
+          "end_line": 990
         },
         {
           "name": "alias_access",
           "kind": "function",
-          "line": 997,
-          "end_line": 999
+          "line": 1001,
+          "end_line": 1003
         },
         {
           "name": "dot_access",
           "kind": "function",
-          "line": 1003,
-          "end_line": 1014
+          "line": 1007,
+          "end_line": 1018
         },
         {
           "name": "bracket_access",
           "kind": "function",
-          "line": 1018,
-          "end_line": 1032
+          "line": 1022,
+          "end_line": 1036
         },
         {
           "name": "to_bracket",
           "kind": "function",
-          "line": 1035,
-          "end_line": 1039
+          "line": 1039,
+          "end_line": 1043
         },
         {
           "name": "to_dot",
           "kind": "function",
-          "line": 1042,
-          "end_line": 1045
+          "line": 1046,
+          "end_line": 1049
         },
         {
           "name": "bare_exiting_if",
           "kind": "function",
-          "line": 1053,
-          "end_line": 1054
+          "line": 1057,
+          "end_line": 1058
         },
         {
           "name": "exiting_if_else",
           "kind": "function",
-          "line": 1057,
-          "end_line": 1059
+          "line": 1061,
+          "end_line": 1063
         },
         {
           "name": "holds_exiting_if",
           "kind": "function",
-          "line": 1062,
-          "end_line": 1063
+          "line": 1066,
+          "end_line": 1067
         },
         {
           "name": "raw_text_free",
           "kind": "function",
-          "line": 1066,
-          "end_line": 1070
+          "line": 1070,
+          "end_line": 1074
         },
         {
           "name": "block_scoped_free",
           "kind": "function",
-          "line": 1073,
-          "end_line": 1074
+          "line": 1077,
+          "end_line": 1078
         },
         {
           "name": "function_level",
           "kind": "function",
-          "line": 1077,
-          "end_line": 1088
+          "line": 1081,
+          "end_line": 1092
         },
         {
           "name": "exiting_braced_if_else",
           "kind": "function",
-          "line": 1094,
-          "end_line": 1112
+          "line": 1098,
+          "end_line": 1116
         },
         {
           "name": "trailing_statements",
           "kind": "function",
-          "line": 1115,
-          "end_line": 1120
+          "line": 1119,
+          "end_line": 1124
         },
         {
           "name": "exiting_braced_if_then_rest",
           "kind": "function",
-          "line": 1126,
-          "end_line": 1141
+          "line": 1130,
+          "end_line": 1145
         },
         {
           "name": "reindent",
           "kind": "function",
-          "line": 1144,
-          "end_line": 1146
+          "line": 1148,
+          "end_line": 1150
         },
         {
           "name": "drop_braced_else",
           "kind": "function",
-          "line": 1149,
-          "end_line": 1164
+          "line": 1153,
+          "end_line": 1168
         },
         {
           "name": "add_braced_else",
           "kind": "function",
-          "line": 1167,
-          "end_line": 1179
+          "line": 1171,
+          "end_line": 1183
         },
         {
           "name": "explicit_property",
           "kind": "function",
-          "line": 1186,
-          "end_line": 1195
+          "line": 1190,
+          "end_line": 1199
         },
         {
           "name": "shorthand_property",
           "kind": "function",
-          "line": 1199,
-          "end_line": 1200
+          "line": 1203,
+          "end_line": 1204
         },
         {
           "name": "arrow_closed",
           "kind": "function",
-          "line": 1209,
-          "end_line": 1219
+          "line": 1213,
+          "end_line": 1223
         },
         {
           "name": "in_for_initializer",
           "kind": "function",
-          "line": 1222,
-          "end_line": 1234
+          "line": 1226,
+          "end_line": 1238
         },
         {
           "name": "arrow_site",
           "kind": "function",
-          "line": 1238,
-          "end_line": 1239
+          "line": 1242,
+          "end_line": 1243
         },
         {
           "name": "block_end",
           "kind": "function",
-          "line": 1242,
-          "end_line": 1244
+          "line": 1246,
+          "end_line": 1248
         },
         {
           "name": "returned",
           "kind": "function",
-          "line": 1247,
-          "end_line": 1261
+          "line": 1251,
+          "end_line": 1265
         },
         {
           "name": "ends_with_comment",
           "kind": "function",
-          "line": 1264,
-          "end_line": 1267
+          "line": 1268,
+          "end_line": 1271
         },
         {
           "name": "concise_arrow",
           "kind": "function",
-          "line": 1271,
-          "end_line": 1273
+          "line": 1275,
+          "end_line": 1277
         },
         {
           "name": "returning_arrow",
           "kind": "function",
-          "line": 1277,
-          "end_line": 1284
+          "line": 1281,
+          "end_line": 1288
         },
         {
           "name": "to_block_body",
           "kind": "function",
-          "line": 1287,
-          "end_line": 1290
+          "line": 1291,
+          "end_line": 1294
         },
         {
           "name": "to_expression_body",
           "kind": "function",
-          "line": 1293,
-          "end_line": 1297
+          "line": 1297,
+          "end_line": 1301
         },
         {
           "name": "declared_neighbour",
           "kind": "function",
-          "line": 1305,
-          "end_line": 1312
+          "line": 1309,
+          "end_line": 1316
         },
         {
           "name": "never_written",
           "kind": "function",
-          "line": 1315,
-          "end_line": 1333
+          "line": 1319,
+          "end_line": 1337
         },
         {
           "name": "never_written.test",
           "kind": "function",
-          "line": 1318,
-          "end_line": 1329
+          "line": 1322,
+          "end_line": 1333
         },
         {
           "name": "change_keyword",
           "kind": "function",
-          "line": 1336,
-          "end_line": 1337
+          "line": 1340,
+          "end_line": 1341
         },
         {
           "name": "logical_site",
           "kind": "function",
-          "line": 1346,
-          "end_line": 1360
+          "line": 1350,
+          "end_line": 1364
         },
         {
           "name": "repeated_assignment",
           "kind": "function",
-          "line": 1364,
-          "end_line": 1375
+          "line": 1368,
+          "end_line": 1379
         },
         {
           "name": "logical_assignment",
           "kind": "function",
-          "line": 1379,
-          "end_line": 1385
+          "line": 1383,
+          "end_line": 1389
         },
         {
           "name": "to_logical_assignment",
           "kind": "function",
-          "line": 1388,
-          "end_line": 1395
+          "line": 1392,
+          "end_line": 1399
         },
         {
           "name": "to_repeated_assignment",
           "kind": "function",
-          "line": 1398,
-          "end_line": 1402
+          "line": 1402,
+          "end_line": 1406
         },
         {
           "name": "power_context",
           "kind": "function",
-          "line": 1434,
-          "end_line": 1445
+          "line": 1438,
+          "end_line": 1449
         },
         {
           "name": "power_file",
           "kind": "function",
-          "line": 1448,
-          "end_line": 1450
+          "line": 1452,
+          "end_line": 1454
         },
         {
           "name": "pow_call",
           "kind": "function",
-          "line": 1454,
-          "end_line": 1470
+          "line": 1458,
+          "end_line": 1474
         },
         {
           "name": "pow_operator",
           "kind": "function",
-          "line": 1474,
-          "end_line": 1483
+          "line": 1478,
+          "end_line": 1487
         },
         {
           "name": "to_pow_operator",
           "kind": "function",
-          "line": 1486,
-          "end_line": 1489
+          "line": 1490,
+          "end_line": 1493
         },
         {
           "name": "to_pow_call",
           "kind": "function",
-          "line": 1492,
-          "end_line": 1496
+          "line": 1496,
+          "end_line": 1500
         },
         {
           "name": "global_alias_call",
           "kind": "function",
-          "line": 1504,
-          "end_line": 1523
+          "line": 1508,
+          "end_line": 1527
         },
         {
           "name": "global_alias_call.test",
           "kind": "function",
-          "line": 1508,
-          "end_line": 1521
+          "line": 1512,
+          "end_line": 1525
         },
         {
           "name": "to_global_call",
           "kind": "function",
-          "line": 1526,
-          "end_line": 1529
+          "line": 1530,
+          "end_line": 1533
         },
         {
           "name": "to_member_call",
           "kind": "function",
-          "line": 1532,
-          "end_line": 1535
+          "line": 1536,
+          "end_line": 1539
         },
         {
           "name": "undefined_context",
           "kind": "function",
-          "line": 1541,
-          "end_line": 1569
+          "line": 1545,
+          "end_line": 1573
         },
         {
           "name": "undefined_file",
           "kind": "function",
-          "line": 1572,
-          "end_line": 1574
+          "line": 1576,
+          "end_line": 1578
         },
         {
           "name": "undefined_value",
           "kind": "function",
-          "line": 1578,
-          "end_line": 1579
+          "line": 1582,
+          "end_line": 1583
         },
         {
           "name": "void_zero",
           "kind": "function",
-          "line": 1583,
-          "end_line": 1592
+          "line": 1587,
+          "end_line": 1596
         },
         {
           "name": "callback_position",
           "kind": "function",
-          "line": 1624,
-          "end_line": 1642
+          "line": 1628,
+          "end_line": 1646
         },
         {
           "name": "function_bound",
           "kind": "function",
-          "line": 1645,
-          "end_line": 1660
+          "line": 1649,
+          "end_line": 1664
         },
         {
           "name": "plain_parameters",
           "kind": "function",
-          "line": 1663,
-          "end_line": 1670
+          "line": 1667,
+          "end_line": 1674
         },
         {
           "name": "callback_head",
           "kind": "function",
-          "line": 1673,
-          "end_line": 1681
+          "line": 1677,
+          "end_line": 1685
         },
         {
           "name": "callback",
           "kind": "function",
-          "line": 1684,
-          "end_line": 1701
+          "line": 1688,
+          "end_line": 1705
         },
         {
           "name": "callback.test",
           "kind": "function",
-          "line": 1685,
-          "end_line": 1695
+          "line": 1689,
+          "end_line": 1699
         },
         {
           "name": "to_callback_head",
           "kind": "function",
-          "line": 1704,
-          "end_line": 1713
+          "line": 1708,
+          "end_line": 1717
         },
         {
           "name": "to_callback_head.rewrite",
           "kind": "function",
-          "line": 1707,
-          "end_line": 1711
+          "line": 1711,
+          "end_line": 1715
         },
         {
           "name": "opens_statement_or_body",
           "kind": "function",
-          "line": 1719,
-          "end_line": 1732
+          "line": 1723,
+          "end_line": 1736
         },
         {
           "name": "arrow_result",
           "kind": "function",
-          "line": 1735,
-          "end_line": 1749
+          "line": 1739,
+          "end_line": 1753
         },
         {
           "name": "empty_value_site",
           "kind": "function",
-          "line": 1752,
-          "end_line": 1766
+          "line": 1756,
+          "end_line": 1770
         },
         {
           "name": "empty_literal",
           "kind": "function",
-          "line": 1769,
-          "end_line": 1778
+          "line": 1773,
+          "end_line": 1782
         },
         {
           "name": "empty_literal.test",
           "kind": "function",
-          "line": 1772,
-          "end_line": 1776
+          "line": 1776,
+          "end_line": 1780
         },
         {
           "name": "empty_construction",
           "kind": "function",
-          "line": 1781,
-          "end_line": 1785
+          "line": 1785,
+          "end_line": 1789
         }
       ],
       "imports": [
@@ -3924,7 +4424,7 @@
             "library_path",
             "load_grammar"
           ],
-          "line": 263
+          "line": 267
         }
       ],
       "local_dependencies": [
@@ -4874,6 +5374,398 @@
         "cllmark/rules/pairs.py",
         "cllmark/source_io.py",
         "cllmark/transform.py"
+      ],
+      "has_main_guard": false
+    },
+    {
+      "path": "tests/test_node_engine.py",
+      "module": "tests.test_node_engine",
+      "sha256": "8300992eec684ab66804c9ce47afe90f734e225b64aec830ccec45adaea72b5e",
+      "line_count": 49,
+      "symbols": [
+        {
+          "name": "NodeEngineSelectionTests",
+          "kind": "class",
+          "line": 14,
+          "end_line": 49
+        },
+        {
+          "name": "NodeEngineSelectionTests.test_file_runs_keep_their_config_and_node_runs_carry_the_engine_digest",
+          "kind": "function",
+          "line": 15,
+          "end_line": 23
+        },
+        {
+          "name": "NodeEngineSelectionTests.test_unknown_granularity_is_rejected",
+          "kind": "function",
+          "line": 25,
+          "end_line": 27
+        },
+        {
+          "name": "NodeEngineSelectionTests.test_workers_start_the_engine_of_the_run",
+          "kind": "function",
+          "line": 29,
+          "end_line": 36
+        },
+        {
+          "name": "NodeEngineSelectionTests.test_only_node_reports_are_annotated",
+          "kind": "function",
+          "line": 38,
+          "end_line": 49
+        }
+      ],
+      "imports": [
+        {
+          "module": "json",
+          "names": [],
+          "line": 3
+        },
+        {
+          "module": "tempfile",
+          "names": [],
+          "line": 4
+        },
+        {
+          "module": "unittest",
+          "names": [],
+          "line": 5
+        },
+        {
+          "module": "unittest.mock",
+          "names": [],
+          "line": 6
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 7
+        },
+        {
+          "module": "benchmarks",
+          "names": [
+            "engine",
+            "node_engine",
+            "staged"
+          ],
+          "line": 9
+        }
+      ],
+      "local_dependencies": [
+        "benchmarks/__init__.py",
+        "benchmarks/engine.py",
+        "benchmarks/node_engine.py",
+        "benchmarks/staged.py"
+      ],
+      "has_main_guard": false
+    },
+    {
+      "path": "tests/test_node_slots.py",
+      "module": "tests.test_node_slots",
+      "sha256": "f7365f532b652f1a9d8f638c18ec3061b101b07ca0315772a5acf790e310b788",
+      "line_count": 224,
+      "symbols": [
+        {
+          "name": "round_trips",
+          "kind": "function",
+          "line": 27,
+          "end_line": 37
+        },
+        {
+          "name": "NodeSlotTests",
+          "kind": "class",
+          "line": 41,
+          "end_line": 162
+        },
+        {
+          "name": "NodeSlotTests.setUpClass",
+          "kind": "function",
+          "line": 43,
+          "end_line": 46
+        },
+        {
+          "name": "NodeSlotTests.test_sites_read_the_form_of_each_node",
+          "kind": "function",
+          "line": 48,
+          "end_line": 54
+        },
+        {
+          "name": "NodeSlotTests.test_nodes_add_capacity_where_files_have_too_few_rule_pairs",
+          "kind": "function",
+          "line": 56,
+          "end_line": 66
+        },
+        {
+          "name": "NodeSlotTests.test_slots_interleave_rules_and_different_nodes_never_share_text",
+          "kind": "function",
+          "line": 68,
+          "end_line": 91
+        },
+        {
+          "name": "NodeSlotTests.test_a_slot_that_does_not_read_back_is_dropped_and_replaced",
+          "kind": "function",
+          "line": 93,
+          "end_line": 104
+        },
+        {
+          "name": "NodeSlotTests.test_sites_another_pair_adds_are_followed_by_their_spans",
+          "kind": "function",
+          "line": 106,
+          "end_line": 120
+        },
+        {
+          "name": "NodeSlotTests.test_spans_follow_edits_before_inside_and_around_a_node",
+          "kind": "function",
+          "line": 122,
+          "end_line": 132
+        },
+        {
+          "name": "NodeSlotTests.test_detect_only_loop_sites_carry_bits_only_from_the_rewritable_form",
+          "kind": "function",
+          "line": 134,
+          "end_line": 143
+        },
+        {
+          "name": "NodeSlotTests.test_directories_and_command_line_round_trip",
+          "kind": "function",
+          "line": 145,
+          "end_line": 162
+        },
+        {
+          "name": "CorpusRoundTripTests",
+          "kind": "class",
+          "line": 166,
+          "end_line": 224
+        },
+        {
+          "name": "CorpusRoundTripTests.test_all_messages_round_trip_on_corpus_samples",
+          "kind": "function",
+          "line": 169,
+          "end_line": 192
+        },
+        {
+          "name": "CorpusRoundTripTests.test_incremental_parses_equal_full_parses_and_keep_the_old_tree",
+          "kind": "function",
+          "line": 194,
+          "end_line": 224
+        }
+      ],
+      "imports": [
+        {
+          "module": "io",
+          "names": [],
+          "line": 3
+        },
+        {
+          "module": "itertools",
+          "names": [],
+          "line": 4
+        },
+        {
+          "module": "json",
+          "names": [],
+          "line": 5
+        },
+        {
+          "module": "random",
+          "names": [],
+          "line": 6
+        },
+        {
+          "module": "tempfile",
+          "names": [],
+          "line": 7
+        },
+        {
+          "module": "unittest",
+          "names": [],
+          "line": 8
+        },
+        {
+          "module": "contextlib",
+          "names": [
+            "redirect_stdout"
+          ],
+          "line": 9
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 10
+        },
+        {
+          "module": "cllmark.rules.pairs",
+          "names": [
+            "WATERMARK_PAIRS"
+          ],
+          "line": 12
+        },
+        {
+          "module": "cllmark",
+          "names": [
+            "nodes"
+          ],
+          "line": 29
+        },
+        {
+          "module": "cllmark.transform",
+          "names": [
+            "StyleTransformer"
+          ],
+          "line": 44
+        },
+        {
+          "module": "cllmark",
+          "names": [
+            "nodes"
+          ],
+          "line": 49
+        },
+        {
+          "module": "cllmark",
+          "names": [
+            "bch",
+            "nodes",
+            "watermark"
+          ],
+          "line": 57
+        },
+        {
+          "module": "cllmark",
+          "names": [
+            "nodes",
+            "watermark"
+          ],
+          "line": 69
+        },
+        {
+          "module": "cllmark",
+          "names": [
+            "bch",
+            "nodes"
+          ],
+          "line": 94
+        },
+        {
+          "module": "cllmark",
+          "names": [
+            "nodes"
+          ],
+          "line": 107
+        },
+        {
+          "module": "cllmark.transform",
+          "names": [
+            "StyleTransformer"
+          ],
+          "line": 108
+        },
+        {
+          "module": "cllmark.nodes",
+          "names": [
+            "_follow"
+          ],
+          "line": 123
+        },
+        {
+          "module": "cllmark.rules.engine",
+          "names": [
+            "Edit"
+          ],
+          "line": 124
+        },
+        {
+          "module": "cllmark",
+          "names": [
+            "nodes"
+          ],
+          "line": 135
+        },
+        {
+          "module": "cllmark.transform",
+          "names": [
+            "StyleTransformer"
+          ],
+          "line": 136
+        },
+        {
+          "module": "cllmark",
+          "names": [
+            "cli",
+            "directories"
+          ],
+          "line": 146
+        },
+        {
+          "module": "benchmarks.common",
+          "names": [
+            "discover_units",
+            "unit_file_names"
+          ],
+          "line": 170
+        },
+        {
+          "module": "cllmark",
+          "names": [
+            "bch",
+            "nodes",
+            "source_io"
+          ],
+          "line": 171
+        },
+        {
+          "module": "cllmark.transform",
+          "names": [
+            "StyleTransformer"
+          ],
+          "line": 172
+        },
+        {
+          "module": "benchmarks.common",
+          "names": [
+            "discover_units"
+          ],
+          "line": 195
+        },
+        {
+          "module": "cllmark",
+          "names": [
+            "nodes",
+            "source_io"
+          ],
+          "line": 196
+        },
+        {
+          "module": "cllmark.rules.engine",
+          "names": [
+            "apply_groups",
+            "edited_tree"
+          ],
+          "line": 197
+        },
+        {
+          "module": "cllmark.transform",
+          "names": [
+            "StyleTransformer"
+          ],
+          "line": 198
+        }
+      ],
+      "local_dependencies": [
+        "benchmarks/common.py",
+        "cllmark/__init__.py",
+        "cllmark/bch.py",
+        "cllmark/cli.py",
+        "cllmark/directories.py",
+        "cllmark/nodes.py",
+        "cllmark/rules/engine.py",
+        "cllmark/rules/pairs.py",
+        "cllmark/source_io.py",
+        "cllmark/transform.py",
+        "cllmark/watermark.py"
       ],
       "has_main_guard": false
     },
@@ -5989,6 +6881,44 @@
       "has_main_guard": false
     },
     {
+      "path": "tests/test_scheduling.py",
+      "module": "tests.test_scheduling",
+      "sha256": "ccef019c2498162d469a83410e8ea9ad8ba0fb9fa881493eb6ca6e22ae245693",
+      "line_count": 26,
+      "symbols": [
+        {
+          "name": "FunctionalPriorityTests",
+          "kind": "class",
+          "line": 8,
+          "end_line": 26
+        },
+        {
+          "name": "FunctionalPriorityTests.test_serialized_suites_first_then_longer_kinds_of_test",
+          "kind": "function",
+          "line": 9,
+          "end_line": 26
+        }
+      ],
+      "imports": [
+        {
+          "module": "unittest",
+          "names": [],
+          "line": 3
+        },
+        {
+          "module": "benchmarks.runner",
+          "names": [
+            "functional_priority"
+          ],
+          "line": 5
+        }
+      ],
+      "local_dependencies": [
+        "benchmarks/runner.py"
+      ],
+      "has_main_guard": false
+    },
+    {
       "path": "tools/benchmark_ram.py",
       "module": "tools.benchmark_ram",
       "sha256": "dc62467e3d24a4f7736af920b847a93ea3660072c571d55eeca4e97a023d2ca6",
@@ -6700,157 +7630,191 @@
     {
       "path": "tools/perf_benchmark.py",
       "module": "tools.perf_benchmark",
-      "sha256": "a83e231d991c84c7fea56862d32d471eb546c3e3928d082bcf6553733311a9ad",
-      "line_count": 193,
+      "sha256": "7260831f03249ac90ae6c0a824c06f51610ae2457b9d03b3611ab13d854bf399",
+      "line_count": 246,
       "symbols": [
         {
           "name": "sample_units",
           "kind": "function",
-          "line": 40,
-          "end_line": 49
+          "line": 41,
+          "end_line": 50
         },
         {
           "name": "Workload",
           "kind": "class",
-          "line": 52,
-          "end_line": 129
+          "line": 53,
+          "end_line": 180
         },
         {
           "name": "Workload.__init__",
           "kind": "function",
-          "line": 53,
-          "end_line": 64
+          "line": 54,
+          "end_line": 65
         },
         {
           "name": "Workload.timed",
           "kind": "function",
-          "line": 66,
-          "end_line": 70
+          "line": 67,
+          "end_line": 71
         },
         {
           "name": "Workload.run",
           "kind": "function",
-          "line": 72,
-          "end_line": 74
+          "line": 73,
+          "end_line": 76
+        },
+        {
+          "name": "Workload.evaluate_nodes",
+          "kind": "function",
+          "line": 78,
+          "end_line": 104
+        },
+        {
+          "name": "Workload.node_properties",
+          "kind": "function",
+          "line": 107,
+          "end_line": 125
+        },
+        {
+          "name": "Workload.node_properties.flip",
+          "kind": "function",
+          "line": 110,
+          "end_line": 111
         },
         {
           "name": "Workload.evaluate",
           "kind": "function",
-          "line": 76,
-          "end_line": 107
+          "line": 127,
+          "end_line": 158
         },
         {
           "name": "Workload.properties",
           "kind": "function",
-          "line": 110,
-          "end_line": 129
+          "line": 161,
+          "end_line": 180
         },
         {
           "name": "Workload.properties.change",
           "kind": "function",
-          "line": 111,
-          "end_line": 112
+          "line": 162,
+          "end_line": 163
         },
         {
           "name": "startup",
           "kind": "function",
-          "line": 132,
-          "end_line": 138
+          "line": 183,
+          "end_line": 189
         },
         {
           "name": "main",
           "kind": "function",
-          "line": 141,
-          "end_line": 189
+          "line": 192,
+          "end_line": 242
         }
       ],
       "imports": [
         {
           "module": "argparse",
           "names": [],
-          "line": 16
+          "line": 17
         },
         {
           "module": "contextlib",
           "names": [],
-          "line": 17
+          "line": 18
         },
         {
           "module": "json",
           "names": [],
-          "line": 18
+          "line": 19
         },
         {
           "module": "os",
           "names": [],
-          "line": 19
+          "line": 20
         },
         {
           "module": "platform",
           "names": [],
-          "line": 20
+          "line": 21
         },
         {
           "module": "random",
           "names": [],
-          "line": 21
+          "line": 22
         },
         {
           "module": "subprocess",
           "names": [],
-          "line": 22
+          "line": 23
         },
         {
           "module": "sys",
           "names": [],
-          "line": 23
+          "line": 24
         },
         {
           "module": "time",
           "names": [],
-          "line": 24
+          "line": 25
         },
         {
           "module": "collections",
           "names": [
             "Counter"
           ],
-          "line": 25
+          "line": 26
         },
         {
           "module": "pathlib",
           "names": [
             "Path"
           ],
-          "line": 26
+          "line": 27
         },
         {
           "module": "benchmarks.common",
           "names": [
             "discover_units"
           ],
-          "line": 41
+          "line": 42
         },
         {
           "module": "benchmarks.common",
           "names": [
             "unit_file_names"
           ],
-          "line": 54
+          "line": 55
         },
         {
           "module": "cllmark",
           "names": [
             "source_io"
           ],
-          "line": 55
+          "line": 56
         },
         {
           "module": "cllmark.transform",
           "names": [
             "StyleTransformer"
           ],
-          "line": 56
+          "line": 57
+        },
+        {
+          "module": "cllmark",
+          "names": [
+            "bch",
+            "nodes",
+            "source_io"
+          ],
+          "line": 80
+        },
+        {
+          "module": "cllmark",
+          "names": [
+            "nodes"
+          ],
+          "line": 108
         },
         {
           "module": "cllmark",
@@ -6859,40 +7823,41 @@
             "source_io",
             "watermark"
           ],
-          "line": 77
+          "line": 128
         },
         {
           "module": "cllmark.rules.pairs",
           "names": [
             "WATERMARK_PAIRS"
           ],
-          "line": 78
+          "line": 129
         },
         {
           "module": "resource",
           "names": [],
-          "line": 152
+          "line": 204
         },
         {
           "module": "cProfile",
           "names": [],
-          "line": 161
+          "line": 213
         },
         {
           "module": "io",
           "names": [],
-          "line": 162
+          "line": 214
         },
         {
           "module": "pstats",
           "names": [],
-          "line": 163
+          "line": 215
         }
       ],
       "local_dependencies": [
         "benchmarks/common.py",
         "cllmark/__init__.py",
         "cllmark/bch.py",
+        "cllmark/nodes.py",
         "cllmark/rules/pairs.py",
         "cllmark/source_io.py",
         "cllmark/transform.py",
@@ -6903,20 +7868,20 @@
     {
       "path": "tools/research_loop.py",
       "module": "tools.research_loop",
-      "sha256": "033409f76b413310b88d21c0dfeeb9fb7726cec2199838a22afc69c70f1485f1",
-      "line_count": 186,
+      "sha256": "8daff62475423cdadf4701246d04b9820ff44afd130be814351c1786df76ede8",
+      "line_count": 187,
       "symbols": [
         {
           "name": "read_config",
           "kind": "function",
-          "line": 29,
-          "end_line": 32
+          "line": 30,
+          "end_line": 33
         },
         {
           "name": "main",
           "kind": "function",
-          "line": 35,
-          "end_line": 176
+          "line": 36,
+          "end_line": 177
         }
       ],
       "imports": [
@@ -6975,11 +7940,18 @@
           "line": 23
         },
         {
+          "module": "benchmarks.node_engine",
+          "names": [
+            "protocol_config"
+          ],
+          "line": 24
+        },
+        {
           "module": "benchmarks.parallel",
           "names": [
             "worker_count"
           ],
-          "line": 24
+          "line": 25
         },
         {
           "module": "benchmarks.progress",
@@ -6988,7 +7960,7 @@
             "follow",
             "latest_run"
           ],
-          "line": 25
+          "line": 26
         },
         {
           "module": "benchmarks.runner",
@@ -6999,19 +7971,20 @@
             "validate_workspace",
             "verified_summary"
           ],
-          "line": 26
+          "line": 27
         },
         {
           "module": "tree_sitter",
           "names": [
             "Language"
           ],
-          "line": 109
+          "line": 110
         }
       ],
       "local_dependencies": [
         "benchmarks/common.py",
         "benchmarks/compare.py",
+        "benchmarks/node_engine.py",
         "benchmarks/parallel.py",
         "benchmarks/progress.py",
         "benchmarks/runner.py"

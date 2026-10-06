@@ -6,7 +6,8 @@ The workload mirrors the per-unit work of the evaluation loop without functional
 flip attacks), on a fixed random sample of every cohort of benchmarks/config.json.
 
 Usage:
-    tools/perf_benchmark.py [--per-cohort 12] [--repeat 3] [--json results.json] [--profile profile.txt]
+    tools/perf_benchmark.py [--per-cohort 12] [--repeat 3] [--granularity file|node] [--json results.json]
+        [--profile profile.txt]
 
 Run it with the interpreter under test (for example .venv-benchmark/bin/python). Results report the interpreter, the
 wall time per phase (best of --repeat), process startup (fresh interpreter: import and one transformer per language)
@@ -50,12 +51,12 @@ def sample_units(per_cohort, seed):
 
 
 class Workload:
-    def __init__(self, units):
+    def __init__(self, units, granularity="file"):
         from benchmarks.common import unit_file_names
         from cllmark import source_io
         from cllmark.transform import StyleTransformer
 
-        self.units = units
+        self.units, self.granularity = units, granularity
         self.transformers = {language: StyleTransformer(language) for language in {unit["language"] for unit in units}}
         self.files = []
         for unit in units:
@@ -70,8 +71,58 @@ class Workload:
         return result
 
     def run(self):
+        evaluate = self.evaluate_nodes if self.granularity == "node" else self.evaluate
         for unit, files in zip(self.units, self.files, strict=True):
-            self.evaluate(unit["language"], files)
+            evaluate(unit["language"], files)
+
+    def evaluate_nodes(self, language, files):
+        """The same phases under node granularity (embedding includes its read-back verification)."""
+        from cllmark import bch, nodes, source_io
+
+        transformer, bits = self.transformers[language], [1, 0, 1, 0]
+        available = self.timed("analysis", nodes.analyze, transformer, language, files)
+        self.timed("properties", self.node_properties, transformer, language, files, available[: bch.CODE_LENGTH])
+        self.timed("syntax", lambda: [transformer.check_syntax(code) for code in files.values()])
+        if len(available) < bch.CODE_LENGTH:
+            return
+        random.seed(1)
+        self.timed("extraction", nodes.extract, transformer, language, files, available, bits)
+        written, used, _ = self.timed("embedding", nodes.embed, transformer, language, files, available, bits)
+        marked = {
+            name: source_io.reload_written(written[name]) if name in written else code for name, code in files.items()
+        }
+        self.timed("extraction", nodes.extract, transformer, language, marked, used, bits)
+        self.timed("syntax", lambda: [transformer.check_syntax(code) for code in marked.values()])
+        for count in (1, 2):
+            attacked, applied = dict(marked), 0
+            for name, pair, index in used[: bch.CODE_LENGTH]:
+                new_code = self.timed("attacks", nodes.flip, transformer, language, attacked[name], pair, index)
+                if new_code is not None and new_code != attacked[name]:
+                    attacked[name], applied = source_io.reload_written(new_code), applied + 1
+                if applied == count:
+                    break
+            self.timed("extraction", nodes.extract, transformer, language, attacked, used, bits)
+
+    @staticmethod
+    def node_properties(transformer, language, files, slots):
+        from cllmark import nodes
+
+        def flip(code, slot):
+            return nodes.flip(transformer, language, code, slot[1], slot[2])
+
+        for slot in slots:
+            with contextlib.suppress(Exception):
+                flipped = flip(files[slot[0]], slot)
+                if flipped is not None:
+                    flip(flipped, slot)
+        for index, left in enumerate(slots):
+            for right in slots[index + 1 :]:
+                if left[0] != right[0]:
+                    continue
+                with contextlib.suppress(Exception):
+                    first, second = flip(files[left[0]], left), flip(files[left[0]], right)
+                    if first is not None and second is not None:
+                        flip(first, right), flip(second, left)
 
     def evaluate(self, language, files):
         from cllmark import bch, source_io, watermark
@@ -143,6 +194,7 @@ def main():
     parser.add_argument("--per-cohort", type=int, default=12, help="units sampled per cohort")
     parser.add_argument("--seed", type=int, default=7, help="sampling seed")
     parser.add_argument("--repeat", type=int, default=3, help="workload repetitions (best is reported)")
+    parser.add_argument("--granularity", choices=["file", "node"], default="file", help="watermark slot granularity")
     parser.add_argument("--json", type=Path, help="write the results as JSON")
     parser.add_argument("--profile", type=Path, help="write a cProfile report of one repetition")
     args = parser.parse_args()
@@ -155,7 +207,7 @@ def main():
     units = sample_units(args.per_cohort, args.seed)
     best = None
     for repetition in range(args.repeat):
-        workload = Workload(units)
+        workload = Workload(units, args.granularity)
         started = time.perf_counter()
         if args.profile and repetition == 0:
             import cProfile
@@ -175,6 +227,7 @@ def main():
     import_ms, transformers_ms = startup(max(1, args.repeat))
     result = {
         "python": f"{platform.python_implementation()} {platform.python_version()}",
+        "granularity": args.granularity,
         "units": len(units),
         "seconds": round(best[0], 2) if best else None,
         "phases": {
