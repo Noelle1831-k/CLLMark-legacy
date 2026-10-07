@@ -16,7 +16,7 @@
   ],
   "generation_command": "python3 tools/build_code_index.py",
   "file_count": 73,
-  "symbol_count": 1576,
+  "symbol_count": 1577,
   "files": [
     {
       "path": "benchmarks/__init__.py",
@@ -2988,8 +2988,8 @@
     {
       "path": "cllmark/robust/anchors.py",
       "module": "cllmark.robust.anchors",
-      "sha256": "14ee1e550244523bf5fbd3fc66645e822a3beb2bac6bcbba30cc0d7eaba2fee1",
-      "line_count": 767,
+      "sha256": "fa65450d41c990a0c8427019f05583f67d6ebf573594bff9d1f0e077f2bf30f2",
+      "line_count": 778,
       "symbols": [
         {
           "name": "_names",
@@ -3103,97 +3103,97 @@
           "name": "_skeleton_digest",
           "kind": "function",
           "line": 472,
-          "end_line": 507
+          "end_line": 518
         },
         {
           "name": "anchor_key",
           "kind": "function",
-          "line": 510,
-          "end_line": 519
+          "line": 521,
+          "end_line": 530
         },
         {
           "name": "Entries",
           "kind": "class",
-          "line": 527,
-          "end_line": 531
+          "line": 538,
+          "end_line": 542
         },
         {
           "name": "_site_entries",
           "kind": "function",
-          "line": 534,
-          "end_line": 553
+          "line": 545,
+          "end_line": 564
         },
         {
           "name": "_stable_targets",
           "kind": "function",
-          "line": 556,
-          "end_line": 558
+          "line": 567,
+          "end_line": 569
         },
         {
           "name": "_key_after",
           "kind": "function",
-          "line": 564,
-          "end_line": 572
+          "line": 575,
+          "end_line": 583
         },
         {
           "name": "_place",
           "kind": "function",
-          "line": 575,
-          "end_line": 579
+          "line": 586,
+          "end_line": 590
         },
         {
           "name": "_stable",
           "kind": "function",
-          "line": 582,
-          "end_line": 616
+          "line": 593,
+          "end_line": 627
         },
         {
           "name": "file_entries",
           "kind": "function",
-          "line": 619,
-          "end_line": 644
+          "line": 630,
+          "end_line": 655
         },
         {
           "name": "_stable_pairs",
           "kind": "function",
-          "line": 651,
-          "end_line": 657
+          "line": 662,
+          "end_line": 668
         },
         {
           "name": "allowed_pairs",
           "kind": "function",
-          "line": 660,
-          "end_line": 666
+          "line": 671,
+          "end_line": 677
         },
         {
           "name": "select_entries",
           "kind": "function",
-          "line": 669,
-          "end_line": 682
+          "line": 680,
+          "end_line": 693
         },
         {
           "name": "select_for",
           "kind": "function",
-          "line": 685,
-          "end_line": 687
+          "line": 696,
+          "end_line": 698
         },
         {
           "name": "selected_stable",
           "kind": "function",
-          "line": 693,
-          "end_line": 705
+          "line": 704,
+          "end_line": 716
         },
         {
           "name": "observe_counted",
           "kind": "function",
-          "line": 708,
-          "end_line": 750
+          "line": 719,
+          "end_line": 761
         },
         {
           "name": "observe",
           "kind": "function",
-          "line": 753,
-          "end_line": 767
+          "line": 764,
+          "end_line": 778
         }
       ],
       "imports": [
@@ -3304,7 +3304,7 @@
           "names": [
             "TABLE"
           ],
-          "line": 655
+          "line": 666
         }
       ],
       "local_dependencies": [
@@ -9785,8 +9785,8 @@
     {
       "path": "tests/test_robust_anchors.py",
       "module": "tests.test_robust_anchors",
-      "sha256": "4e56a135df3231ea40cf1dd9e8d803905f340cbc9e9a152b4a29a44059a32751",
-      "line_count": 199,
+      "sha256": "b6ed7070e64ebe59385c56beb69f15bf088c90d40cdbe8a78696a0ffccfbf919",
+      "line_count": 216,
       "symbols": [
         {
           "name": "stable_keys",
@@ -9798,7 +9798,7 @@
           "name": "AnchorTests",
           "kind": "class",
           "line": 17,
-          "end_line": 195
+          "end_line": 212
         },
         {
           "name": "AnchorTests.setUpClass",
@@ -9873,10 +9873,16 @@
           "end_line": 186
         },
         {
-          "name": "AnchorTests.test_support_files_are_not_observed",
+          "name": "AnchorTests.test_long_comparison_chains_take_linear_time",
           "kind": "function",
           "line": 188,
-          "end_line": 195
+          "end_line": 203
+        },
+        {
+          "name": "AnchorTests.test_support_files_are_not_observed",
+          "kind": "function",
+          "line": 205,
+          "end_line": 212
         }
       ],
       "imports": [
@@ -9971,11 +9977,23 @@
           "line": 167
         },
         {
+          "module": "time",
+          "names": [],
+          "line": 190
+        },
+        {
           "module": "cllmark.robust",
           "names": [
             "observe"
           ],
-          "line": 189
+          "line": 192
+        },
+        {
+          "module": "cllmark.robust",
+          "names": [
+            "observe"
+          ],
+          "line": 206
         }
       ],
       "local_dependencies": [
