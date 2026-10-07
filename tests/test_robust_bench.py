@@ -89,7 +89,7 @@ def make_fake_robust():
         per_file: dict
         keys: dict
 
-    def observe(transformer, language, files, anchor):
+    def observe(transformer, language, files, anchor, stability=False):
         found = []
         for name in sorted(files):
             for pair, styles in transformer.pairs.items():
