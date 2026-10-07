@@ -24,6 +24,7 @@ from .engine import Reject, guard, replace, text, well_formed
 SYNC_STDIO = re.compile(rb"\bsync_with_stdio\b|\b(?:cin|cout)\s*\.\s*tie\b")
 IO_MACRO = re.compile(rb"^[ \t]*#[ \t]*define[ \t]+(?:cin|cout|printf|scanf|endl)\b", re.MULTILINE)
 IOSTREAM_INCLUDE = re.compile(rb"^[ \t]*#[ \t]*include[ \t]*[<\"](?:iostream|bits/stdc\+\+\.h)[>\"]", re.MULTILINE)
+STDIO_INCLUDE = re.compile(rb"^[ \t]*#[ \t]*include[ \t]*[<\"](?:cstdio|stdio\.h|bits/stdc\+\+\.h)[>\"]", re.MULTILINE)
 USING_STD = re.compile(rb"\busing\s+namespace\s+std\s*;")
 USING_ANY = re.compile(rb"\busing\s+namespace\b")
 STREAM_FORMATTING = re.compile(
@@ -378,6 +379,13 @@ def iostream_available(node):
     return included and in_use
 
 
+@guard("stdio is included (printf and scanf are declared)")
+def stdio_available(node):
+    """Needed in all four rules, so that each direction can undo the other; fragments get their headers from the
+    harness (see iostream_available)."""
+    return is_snippet(node) or file_matches(node, "stdio", STDIO_INCLUDE)
+
+
 @guard("the file sets no stream formatting (precision, width, base)")
 def default_stream_format(node):
     return not file_matches(node, "formatting", STREAM_FORMATTING)
@@ -555,6 +563,7 @@ RULES = {
         plain_io_names,
         iostream_available,
         default_stream_format,
+        stdio_available,
         convertible(printf_operands),
     )
     .where(well_formed)
@@ -566,6 +575,7 @@ RULES = {
         plain_io_names,
         iostream_available,
         default_stream_format,
+        stdio_available,
         convertible(cout_format),
     )
     .where(well_formed)
@@ -578,6 +588,7 @@ RULES = {
         plain_io_names,
         iostream_available,
         cin_only_in_statements,
+        stdio_available,
         convertible(scanf_operands),
     )
     .where(well_formed)
@@ -589,6 +600,7 @@ RULES = {
         plain_io_names,
         iostream_available,
         cin_only_in_statements,
+        stdio_available,
         convertible(cin_format),
     )
     .where(well_formed)

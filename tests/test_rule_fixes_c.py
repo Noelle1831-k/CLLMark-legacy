@@ -237,7 +237,7 @@ class NestedLoopTests(RuleFixCase):
 class IostreamTests(RuleFixCase):
     """I: stdio <-> iostream rules."""
 
-    HEADER = "#include <iostream>\nusing namespace std;\n"
+    HEADER = "#include <iostream>\n#include <cstdio>\nusing namespace std;\n"
 
     def printf(self, body, declarations="int x; long long y; char c; double d;"):
         return self.HEADER + f"void f(){{ {declarations} {body} }}"
@@ -379,7 +379,7 @@ class IostreamTests(RuleFixCase):
         self.assertRejected("cpp", "9.3", "#include <stdio.h>\n" + code)
         self.assertRejected("cpp", "9.1", "#include <iostream>\n" + code)
         self.assertRewrites("cpp", "9.1", "#include <bits/stdc++.h>\nusing namespace std;\n" + code)
-        self.assertRewrites("cpp", "9.3", "#include <iostream>\nusing namespace std;\n" + code)
+        self.assertRewrites("cpp", "9.3", "#include <iostream>\n#include <cstdio>\nusing namespace std;\n" + code)
 
     def test_a_fragment_without_includes_takes_its_declarations_from_the_harness(self):
         self.assertRewrites(
@@ -390,7 +390,27 @@ class IostreamTests(RuleFixCase):
     def test_the_reverse_directions_need_the_same_declarations(self):
         self.assertRejected("cpp", "9.2", "#include <iostream>\nvoid f(){ int x; cout << x; }")
         self.assertRejected("cpp", "9.4", "#include <iostream>\nvoid f(){ int x; cin >> x; }")
-        self.assertRewrites("cpp", "9.2", "#include <iostream>\nusing namespace std;\nvoid f(){ int x; cout << x; }")
+        self.assertRewrites(
+            "cpp", "9.2", "#include <iostream>\n#include <cstdio>\nusing namespace std;\nvoid f(){ int x; cout << x; }"
+        )
+
+    def test_printf_and_scanf_must_be_declared_for_both_directions(self):
+        iostream = "#include <iostream>\nusing namespace std;\n"
+        printf = 'void f(){ int x; printf("%d\\n", x); }'
+        scanf = 'void f(){ int x; scanf("%d", &x); }'
+        self.assertRejected("cpp", "9.2", iostream + "void f(){ int x; cout << x; }")
+        self.assertRejected("cpp", "9.4", iostream + "void f(){ int x; cin >> x; }")
+        self.assertRejected("cpp", "9.1", iostream + printf)
+        self.assertRejected("cpp", "9.3", iostream + scanf)
+        for header in ["#include <cstdio>\n", "#include <stdio.h>\n", "#include <bits/stdc++.h>\n"]:
+            if "bits" not in header:
+                header += iostream
+            else:
+                header += "using namespace std;\n"
+            self.assertRewrites("cpp", "9.2", header + "void f(){ int x; cout << x; }")
+            self.assertRewrites("cpp", "9.4", header + "void f(){ int x; cin >> x; }")
+            self.assertRewrites("cpp", "9.1", header + printf)
+            self.assertRewrites("cpp", "9.3", header + scanf)
 
     def test_redefined_io_names_block_the_rules(self):
         self.assertRejected("cpp", "9.2", "#define cout cerr\nvoid f(){ int x; cout << x; }")
