@@ -103,6 +103,16 @@ def settings(config):
     }
 
 
+def unit_limit(unit):
+    """The number of messages a sweep of this unit's cohort covers when the cohort overrides `null_messages` (a
+    cohort key, e.g. for large repositories under the 8-bit scheme 2, whose blind search costs 256 detections per
+    reading); None keeps the config's value."""
+    limit = unit.get("null_messages")
+    if limit is not None and (isinstance(limit, bool) or not isinstance(limit, int) or limit < 1):
+        raise ValueError(f"cohort null_messages is a positive integer: {limit!r}")
+    return limit
+
+
 def is_robust(config):
     return "robust" in config
 
@@ -266,7 +276,7 @@ class RobustEngine(rule_sets.ExtendedRules, node_engine.NodeEngine):
 
     # -- readings ---------------------------------------------------------------------------------
 
-    def read_robust(self, language, files, message, sweep=None, exclude=False):
+    def read_robust(self, language, files, message, sweep=None, exclude=False, limit=None):
         """Detection of `files` for the true `message`: the counts, p-values and decisions of the scheme, the keys that
         were read (for anchor survival, not stored in rows) and, when `sweep` is the id of a stage, the p-values against
         the other messages (all, or the configured number of them; `exclude` leaves the true message out)."""
@@ -282,7 +292,9 @@ class RobustEngine(rule_sets.ExtendedRules, node_engine.NodeEngine):
             "decoded": decoded,
             "p_blind": found.p_blind,
             "margin": found.margin,
-            "p_all": getattr(found, "p_all", None),  # informational (scheme 1: all votes); decisions use p_known/p_blind
+            "p_all": getattr(
+                found, "p_all", None
+            ),  # informational (scheme 1: all votes); decisions use p_known/p_blind
             "errors": getattr(found, "errors", 0),  # (file, rule pair) combinations whose rules raised
             "decision": {label(a): found.p_known is not None and found.p_known <= a for a in self.alphas},
             "blind": {
@@ -292,14 +304,14 @@ class RobustEngine(rule_sets.ExtendedRules, node_engine.NodeEngine):
             "elapsed_ms": elapsed,
         }
         if sweep is not None:
-            reading["sweep"] = self.sweep(language, files, message, sweep, exclude)
+            reading["sweep"] = self.sweep(language, files, message, sweep, exclude, limit)
         return reading, dict(found.keys)
 
-    def sweep(self, language, files, message, stage, exclude):
+    def sweep(self, language, files, message, stage, exclude, limit=None):
         """p-values of `files` against the messages of the sweep (see `summarize_p`)."""
         started = time.perf_counter()
         values = [value for value in range(1 << self.bits) if not (exclude and value == to_int(message))]
-        limit = self.settings["null_messages"]
+        limit = self.settings["null_messages"] if limit is None else limit
         if limit != "all" and limit < len(values):
             values = sorted(random.Random(self.seed_for(stage, "sweep")).sample(values, limit))
         parser = self.parser(language)
@@ -389,7 +401,7 @@ class RobustEngine(rule_sets.ExtendedRules, node_engine.NodeEngine):
         """(reading, keys) of one code version; `sweep` adds the all-messages summary (robust schemes)."""
         try:
             if self.keyed:
-                return self.read_robust(language, files, message, stage if sweep else None, exclude)
+                return self.read_robust(language, files, message, stage if sweep else None, exclude, unit_limit(unit))
             return self.read_bch(language, files, support, message, unit["id"], stage, work), {}
         except Exception as error:
             return self.failed(error), {}
