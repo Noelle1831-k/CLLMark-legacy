@@ -164,11 +164,8 @@ class AnchorTests(unittest.TestCase):
             allowed_pairs("legacy", "c", "position")
 
     def test_the_calibration_table_meets_its_own_criteria(self):
-        import json
+        from cllmark.robust.stable_pairs import TABLE as table
 
-        from cllmark.robust.anchors import STABLE_PAIRS_FILE
-
-        table = json.loads(STABLE_PAIRS_FILE.read_text(encoding="utf-8"))
         criteria = table["criteria"]
         self.assertGreaterEqual(table["calibration"]["files"]["python"], 100)
         for rule_set, languages in table["pairs"].items():

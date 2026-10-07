@@ -136,10 +136,7 @@ def core_digest(root):
     if not folder.is_dir():
         return "absent"
     return digest(
-        {
-            path.relative_to(folder).as_posix(): digest(path.read_bytes())
-            for path in sorted([*folder.rglob("*.py"), *folder.rglob("*.json")])  # the calibrated pair table too
-        }
+        {path.relative_to(folder).as_posix(): digest(path.read_bytes()) for path in sorted(folder.rglob("*.py"))}
     )
 
 

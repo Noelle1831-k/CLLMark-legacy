@@ -10,7 +10,7 @@ Usage:
   tools/robust_sample.py run OUT.tsv [--rule-sets legacy extended] [--pairs TABLE.json] [--jobs N]
   tools/robust_sample.py compare NAME=TSV [NAME=TSV ...]
 
-`--pairs` replaces `cllmark/robust/stable_pairs.json` in this process and its workers (threshold experiments); the
+`--pairs TABLE.json` (a `robust_calibrate.py --output X.json` table) replaces `cllmark/robust/stable_pairs.py` in this process and its workers (threshold experiments); the
 benchmark always uses the committed table.
 """
 
@@ -233,7 +233,7 @@ def use_pairs(path):
     if path:
         from cllmark.robust import anchors
 
-        anchors.STABLE_PAIRS_FILE = Path(path)
+        anchors.STABLE_PAIRS_OVERRIDE = Path(path)
         anchors._stable_pairs.cache_clear()
 
 
