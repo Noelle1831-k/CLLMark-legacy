@@ -5,16 +5,19 @@ import copy
 import importlib.util
 import io
 import json
+import os
 import shutil
 import subprocess
 import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from benchmarks import codenet, rule_sets, utility  # noqa: E402
+from benchmarks import engine as engine_module  # noqa: E402
 
 
 def quiet(function, *args, **kwargs):
@@ -185,6 +188,8 @@ class ConfigTests(unittest.TestCase):
                 self.assertEqual(len(config["cohorts"]), 8)
                 self.assertTrue(all(c["oracle"] == codenet.ORACLE for c in config["cohorts"]))
                 self.assertEqual(config["cohorts"][0]["oracle"], codenet.ORACLE)  # not replaced by the stand-in
+                for cohort in config["cohorts"]:  # hand-written code is only read, never embedded
+                    self.assertEqual(cohort.get("embed"), False if cohort["role"] == "human" else None)
 
     def test_invalid_codenet_settings(self):
         base = self.read("config-codenet.json")
@@ -194,6 +199,9 @@ class ConfigTests(unittest.TestCase):
             lambda c: c["codenet"].update(time_factor=True),
             lambda c: c["codenet"].update(problem_file="missing"),
             lambda c: c["cohorts"][0].update(level="project"),
+            lambda c: c["cohorts"][1].update(embed="no"),
+            lambda c: c["cohorts"][1].update(embed=0),
+            lambda c: c["cohorts"][1].update(oracle="none", embed=False),
         ]:
             config = copy.deepcopy(base)
             mutate(config)
@@ -213,6 +221,120 @@ class ConfigTests(unittest.TestCase):
             from benchmarks.common import validate_config
 
             validate_config(utility_config)  # the common validator alone does not know the oracle
+
+
+class DetectOnlyTests(unittest.TestCase):
+    PROGRAM = "a = 1\nb = 2\nif a == b:\n    print('x')\nprint(a != b)\nx = f'{a}'\nprint(x == 'z')\n"
+
+    def make_engine(self, source):
+        """A real `LegacyEngine` over a frozen one-file run directory (the test restores the working directory)."""
+        previous = os.getcwd()
+        self.addCleanup(os.chdir, previous)
+        run_dir = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, run_dir, ignore_errors=True)
+        (run_dir / "source").mkdir()
+        (run_dir / "inputs" / "corpus").mkdir(parents=True)
+        (run_dir / "inputs" / "problems.jsonl").write_text("")
+        blob = source.encode()
+        (run_dir / "inputs" / "corpus" / "p00001.py").write_bytes(blob)
+        config = {
+            "seed": 7,
+            "watermark": [1, 0, 1, 0],
+            "rule_properties": True,
+            "attacks": [1, 2],
+            "problem_files": {"codenet": "problems.jsonl"},
+            "codenet": {"problem_file": "codenet", "time_factor": 1},
+        }
+        manifest = {
+            "config": config,
+            "input_files": {"corpus/p00001.py": {"sha256": utility.digest(blob)}},
+            "environment": {},
+            "utility_cache": str(run_dir / "cache"),
+        }
+        unit = {
+            "id": "codenet_python_human/p00001",
+            "name": "p00001",
+            "language": "python",
+            "role": "human",
+            "level": "function",
+            "oracle": codenet.ORACLE,
+            "embed": False,
+            "source_files": ["corpus/p00001.py"],
+        }
+        return engine_module.LegacyEngine(run_dir, manifest), unit, run_dir
+
+    def test_detect_only_does_not_embed(self):
+        instance, unit, run_dir = self.make_engine(self.PROGRAM)
+        deferred = {"status": "DEFERRED"}
+        with mock.patch.object(engine_module, "evaluate_utility", lambda *a, **k: dict(deferred)):
+            row = quiet(codenet.detect_only, instance, unit)
+        work = run_dir / row["artifacts"]
+        self.assertFalse((work / "marked").exists())
+        self.assertTrue((work / "clean").is_dir() and (work / "result.json").is_file())
+        self.assertIs(row["embedded"], False)
+        self.assertFalse(row["eligible"])
+        self.assertEqual(row["capacity_sufficient"], row["capacity"] >= 7)
+        self.assertEqual(row["required_capacity"], 7)
+        self.assertIsNone(row["marked_extraction"])
+        self.assertEqual((row["attacks"], row["syntax_after"], row["embedding_slots"]), ({}, {}, []))
+        self.assertIsNone(row["properties"])
+        self.assertEqual(row["utility_before"], deferred)
+        self.assertEqual(row["utility_after"], {"status": "NOT_EMBEDDED"})
+        extraction = row["original_extraction"]
+        self.assertEqual(
+            set(extraction) & {"matched", "raw_matched", "bits", "decoded"},
+            {"matched", "raw_matched", "bits", "decoded"},
+        )
+        self.assertEqual(len(extraction["bits"]), min(row["capacity"], 7))
+        self.assertFalse(extraction["raw_matched"] and row["capacity"] < 7)
+        # The same fields as the engine's own row of a unit that is not embedded.
+        expected = set(self.embedded_row_fields(instance, unit)) - {"embedding_ms", "changed_files"}
+        self.assertEqual(set(row) - {"capacity_sufficient", "embedded"}, expected)
+
+    def embedded_row_fields(self, instance, unit):
+        """Fields of the row of the same unit through the engine's own `evaluate` (embedding path)."""
+        with mock.patch.object(engine_module, "evaluate_utility", lambda *a, **k: {"status": "DEFERRED"}):
+            return quiet(instance.evaluate, {**unit, "embed": True})
+
+    def test_nothing_to_read_decodes_the_empty_word(self):
+        instance, unit, _ = self.make_engine("x = 1\n")
+        with mock.patch.object(engine_module, "evaluate_utility", lambda *a, **k: {"status": "DEFERRED"}):
+            row = quiet(codenet.detect_only, instance, unit)
+        self.assertEqual(row["capacity"], 0)
+        extraction = row["original_extraction"]
+        self.assertEqual((extraction["bits"], extraction["decoded"]), ([], [0, 0, 0, 0]))
+        self.assertEqual((extraction["matched"], extraction["raw_matched"]), (False, False))
+
+    def test_a_failing_extraction_is_recorded(self):
+        instance, unit, _ = self.make_engine(self.PROGRAM)
+        with (
+            mock.patch.object(engine_module, "evaluate_utility", lambda *a, **k: {"status": "DEFERRED"}),
+            mock.patch.object(instance, "extract", side_effect=ValueError("boom")),
+        ):
+            row = quiet(codenet.detect_only, instance, unit)
+        self.assertEqual(
+            row["original_extraction"],
+            {"error": "ValueError('boom')", "matched": False, "raw_matched": False, "bits": []},
+        )
+
+    def test_install_routes_by_the_embed_flag(self):
+        class Stub:
+            def __init__(self):
+                self.config = {"codenet": {}}
+
+            def evaluate(self, unit):
+                return {"original": unit["id"]}
+
+        instance = Stub()
+        codenet.install(instance)
+        with mock.patch.object(codenet, "detect_only", lambda engine, unit: {"detect": unit["id"]}):
+            self.assertEqual(instance.evaluate({"id": "a", "embed": True}), {"original": "a"})
+            self.assertEqual(instance.evaluate({"id": "b"}), {"original": "b"})
+            self.assertEqual(instance.evaluate({"id": "c", "embed": False}), {"detect": "c"})
+        plain = type("Plain", (), {"config": {}, "evaluate": lambda self, unit: 1})()
+        before = plain.evaluate
+        codenet.install(plain)
+        self.assertEqual(plain.evaluate, before)  # default configs are left alone
 
 
 def build_dataset(root):
@@ -366,6 +488,58 @@ class ReportTests(unittest.TestCase):
         text = report_tool.render(report)
         self.assertIn("N/A", text)
         self.assertIn("## 5.", text)
+        self.assertEqual([g["role"] for g in report["groups"]], ["generated"])  # human groups: detection table only
+        self.assertNotIn("c_H", text.split("## 6.")[0])
+
+    def test_message_false_positive_rates(self):
+        report_tool = load_tool("codenet_report")
+        from cllmark import bch
+
+        def message_bits(message):
+            return bch.encode([int(c) for c in message])
+
+        def row(name, bits, **extraction):
+            return {
+                "id": f"codenet_c_human/{name}", "cohort": "codenet_c_human", "language": "c", "role": "human",
+                "status": "ok", "eligible": False, "capacity": len(bits), "required_capacity": 7,
+                "original_extraction": {"bits": bits, "matched": False, "raw_matched": False, **extraction},
+                "utility_before": {"status": "PASS"}, "utility_after": {"status": "NOT_EMBEDDED"},
+            }  # fmt: skip
+
+        match = {"matched": True, "raw_matched": True}
+        rows = [
+            row("a", message_bits("1010"), **match),
+            row("b", message_bits("1010")),
+            row("c", message_bits("0110")),
+            row("d", message_bits("0000")),
+            row("e", [1, 0, 1]),  # short: read as the integer 5, corrected to the message 1000
+            row("f", [], error="boom"),
+        ]
+        rows[5]["original_extraction"] = {"error": "boom", "matched": False, "raw_matched": False, "bits": []}
+        stats = report_tool.detection_stats(rows)
+        self.assertEqual((stats["units"], stats["read"], stats["full"], stats["capacity_below_7"]), (6, 6, 4, 2))
+        self.assertEqual(stats["natural_match"], 1 / 6)
+        self.assertEqual(stats["natural_match_full"], 1 / 4)
+        self.assertEqual(stats["raw_match"], 1 / 6)
+        rates = stats["message_rates"]
+        self.assertEqual(
+            (rates["1010"], rates["0110"], rates["0000"], rates["1000"], rates["error"]),
+            (2 / 6, 1 / 6, 1 / 6, 1 / 6, 1 / 6),
+        )
+        self.assertAlmostEqual(sum(rates.values()), 1.0)
+        self.assertAlmostEqual(sum(stats["message_rates_full"].values()), 1.0)
+        self.assertEqual(stats["message_rates_full"]["1010"], 2 / 4)
+        self.assertEqual(stats["max_message"], ("1010", 2 / 6))
+        self.assertEqual(stats["max_message_full"], ("1010", 2 / 4))
+        self.assertAlmostEqual(stats["mean_message_rate"], 5 / 6 / 16)
+        self.assertEqual(stats["top_decoded"][0], ("1010", 2 / 6))
+        self.assertEqual(len(stats["top_decoded"]), 5)
+        report = report_tool.analyse([{"directory": "d", "run_id": "r", "variant": "file/legacy", "rows": rows}])
+        self.assertEqual(report["detection"][0]["role"], "human")
+        self.assertEqual(report["groups"], [])
+        text = report_tool.render(report)
+        self.assertIn("c_H", text)
+        self.assertIn("1010 33.3%", text)
 
 
 if __name__ == "__main__":

@@ -16,12 +16,13 @@ import shutil
 import subprocess
 import sys
 import time
-from contextlib import ExitStack, suppress
+from contextlib import ExitStack, redirect_stderr, redirect_stdout, suppress
 from functools import cache
 from pathlib import Path
 
+from . import engine as engine_module
 from . import utility
-from .common import digest, write_json
+from .common import digest, unit_file_names, write_json
 from .common import validate_config as validate_common_config
 
 ORACLE = "codenet_stdio"
@@ -60,12 +61,121 @@ def validate_config(config):
         for cohort in cohorts:
             if cohort["level"] != "function" or cohort["language"] not in LANGUAGES:
                 raise ValueError("codenet_stdio cohorts are function-level python/c/cpp/javascript cohorts")
+    for cohort in config.get("cohorts", []):
+        if "embed" in cohort and (not isinstance(cohort["embed"], bool) or cohort.get("oracle") != ORACLE):
+            raise ValueError("embed is a boolean and only allowed on codenet_stdio cohorts")
     stand_in = copy.deepcopy(config)
     for cohort in stand_in.get("cohorts", []):
         if cohort.get("oracle") == ORACLE:
             cohort["oracle"] = "none"
+            cohort.pop("embed", None)
     validate_common_config(stand_in)
     return config
+
+
+# Detection-only units (cohorts with "embed": false).
+
+
+def install(engine_instance):
+    """Route units of "embed": false cohorts of a codenet run to `detect_only`; others keep the engine's `evaluate`."""
+    config = getattr(engine_instance, "config", None)
+    if not isinstance(config, dict) or "codenet" not in config:
+        return
+    original = engine_instance.evaluate
+
+    def evaluate(unit):
+        if unit.get("embed", True):
+            return original(unit)
+        return detect_only(engine_instance, unit)
+
+    engine_instance.evaluate = evaluate
+
+
+def detect_only(engine, unit):
+    """The row of a unit that is not embedded: only the unmarked code is analyzed and read for the watermark.
+
+    The row has the fields of `LegacyEngine.evaluate` (also the node engine's), with `embedded` False, no `marked`
+    directory, no attacks and no rule properties. `eligible` is False (the unit is not a watermark candidate, and
+    `metrics.summarize_group` reads `marked_extraction` of every eligible row); `capacity_sufficient` says whether
+    its capacity reaches the codeword length. Unlike the embedding path, the unmarked code is read for every unit,
+    also those with too little capacity, because a natural false match does not depend on room to embed.
+
+    Extraction with capacity < 7 (checked on `cllmark.directories` and `cllmark.nodes`): both granularities still
+    call `bch.decode`, with the bits of the `capacity` slots there are (at most 7; `watermark.slots` yields one slot
+    per usable rule pair in file granularity, node granularity keeps the first 7 stored slots). `bch.decode` reads
+    fewer bits as an integer right-aligned, so a short word decodes to whatever those bits imply and a capacity of 0
+    decodes the empty word to the message 0000. The raw codeword can never match with fewer than 7 bits. A slot
+    that reads as neither or both styles contributes a random bit (seeded per unit), a slot whose probe raised
+    contributes no bit.
+    """
+    started = time.perf_counter()
+    language = unit["language"]
+    engine.parser(language)  # Exclude one-time parser creation from phase timings.
+    work = engine.run_dir / "work" / digest(unit["id"].encode())[:20]
+    if work.exists():
+        shutil.rmtree(work)
+    clean = work / "clean"
+    clean.mkdir(parents=True)
+    filenames = []
+    for relative, name in unit_file_names(unit).items():
+        blob = (engine.run_dir / "inputs" / relative).read_bytes()
+        if digest(blob) != engine.manifest["input_files"][relative]["sha256"]:
+            raise ValueError("Frozen input hash mismatch: " + relative)
+        filenames.append(name)
+        (clean / name).write_bytes(blob)
+    log = engine_module.BoundedLog()
+    result = {
+        "id": unit["id"],
+        "cohort": unit["id"].split("/", 1)[0],
+        "language": language,
+        "role": unit["role"],
+        "level": unit["level"],
+        "source_files": unit["source_files"],
+        "status": "ok",
+        "file_count": len(filenames),
+        "watermark": engine.config["watermark"],
+    }
+    with redirect_stdout(log), redirect_stderr(log):
+        phase = time.perf_counter()
+        analyzer = engine.nodes if hasattr(engine, "nodes") else engine.directories
+        capacity = analyzer.analyze_directory(clean, language, engine.parser(language))
+        result["analysis_ms"] = (time.perf_counter() - phase) * 1000
+        required = len(engine.bch.encode(engine.config["watermark"]))
+        result.update(
+            {
+                "capacity": capacity,
+                "required_capacity": required,
+                "eligible": False,
+                "capacity_sufficient": capacity >= required,
+                "embedded": False,
+                "properties": None,
+                "embedding_slots": [],
+            }
+        )
+        result["syntax_before"] = {
+            name: engine.parser(language).check_syntax(engine.read_source(clean / name)) for name in filenames
+        }
+        try:
+            result["original_extraction"] = engine.extract(clean, language, unit["id"], "original")
+        except Exception as error:
+            result["original_extraction"] = {"error": repr(error), "matched": False, "raw_matched": False, "bits": []}
+        result["marked_extraction"] = None
+        result["syntax_after"], result["attacks"] = {}, {}
+        result["utility_before"] = engine_module.evaluate_utility(
+            unit,
+            clean,
+            engine.problems,
+            engine.config,
+            engine.run_dir,
+            engine.manifest["environment"],
+            engine.manifest["utility_cache"],
+        )
+        result["utility_after"] = {"status": "NOT_EMBEDDED"}
+    (work / "legacy.log").write_text(log.getvalue(), encoding="utf-8")
+    result["elapsed_ms"] = (time.perf_counter() - started) * 1000
+    result["artifacts"] = work.relative_to(engine.run_dir).as_posix()
+    write_json(work / "result.json", result)
+    return result
 
 
 # Checkers (semantics of the dataset repository's lib/checker.py).

@@ -6,6 +6,10 @@ Usage: python tools/codenet_report.py RUN_DIR [RUN_DIR ...] --output PATH.md
 Reads `manifest.json` and `rows.jsonl` of each run (the variant name comes from `slot_granularity` and `rule_set` of
 its config) and writes a Markdown report plus the same data as JSON next to it. Fields that a row type lacks are skipped
 and shown as N/A.
+
+Generated groups are embedded and measured completely (recovery, attacks, syntax, functional preservation). Human
+groups are not embedded (`"embed": false`): they only get the detection table, i.e. how often the unmarked code reads
+as the watermark (or any of the 16 messages) by itself. The same table is given for the unmarked generated code.
 """
 
 import argparse
@@ -15,10 +19,15 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from cllmark import bch
+
 TESTED = {"PASS", "FAIL", "COMPILE_ERROR", "COMPILE_TIMEOUT", "TIMEOUT"}
 LANGUAGE_ORDER = {"python": 0, "c": 1, "cpp": 2, "javascript": 3}
 ROLE_ORDER = {"generated": 0, "human": 1}
 LETTER = {"generated": "G", "human": "H"}
+WATERMARK = "1010"
+MESSAGES = [format(value, "04b") for value in range(16)]
 
 
 def variant_name(config):
@@ -106,6 +115,10 @@ def group_summary(rows):
         "embeddable": rate(len(eligible), len(rows)),
         "capacity_median": median([r["capacity"] for r in ok if "capacity" in r]),
         "capacity_mean": mean([r["capacity"] for r in ok if "capacity" in r]),
+        "capacity_ge": rate(
+            sum(r["capacity"] >= r.get("required_capacity", 7) for r in ok if "capacity" in r),
+            sum("capacity" in r for r in ok),
+        ),
         "recovery": rate(sum(bool(get(r, "marked_extraction", "matched")) for r in eligible), len(eligible)),
         "original_match": rate(sum(bool(get(r, "original_extraction", "matched")) for r in eligible), len(eligible)),
         "correct_bits_mean": mean(
@@ -123,6 +136,66 @@ def group_summary(rows):
         "regressions": len(regressions),
         "analysis_ms": median([r["analysis_ms"] for r in ok if "analysis_ms" in r]),
         "embedding_ms": median([r["embedding_ms"] for r in eligible if "embedding_ms" in r]),
+    }
+
+
+def detection_stats(rows):
+    """How the unmarked code of `rows` reads: natural match of the watermark and false-positive rate of all 16 messages.
+
+    Rows without an `original_extraction` (harness errors, generated units that were too small to embed) are not read
+    and not counted in the denominators; an extraction that raised is counted but belongs to no message. A unit reads
+    `full` when its extraction produced all 7 codeword bits. The rate of message m is the share of read units whose
+    bits `bch.decode` to m (two denominators: all read units, units that read 7 bits).
+    """
+    ok = [r for r in rows if r.get("status") == "ok"]
+    read = [r for r in ok if isinstance(r.get("original_extraction"), dict)]
+    full_length = lambda r: len(get(r, "original_extraction", "bits") or []) == r.get("required_capacity", 7)
+    full = [r for r in read if full_length(r)]
+    capacities = [r["capacity"] for r in ok if "capacity" in r]
+
+    def decoded(row):
+        extraction = row["original_extraction"]
+        if "error" in extraction:
+            return "error"
+        return "".join(map(str, bch.decode(extraction.get("bits") or [])))
+
+    def distribution(selected):
+        counts = Counter(decoded(r) for r in selected)
+        return {
+            name: rate(counts[name], len(selected)) for name in [*MESSAGES, "error"] if counts[name] or name != "error"
+        }
+
+    def share(selected, key):
+        return rate(sum(bool(get(r, "original_extraction", key)) for r in selected), len(selected))
+
+    by_all, by_full = distribution(read), distribution(full)
+
+    def peak(rates):
+        values = {name: value for name, value in rates.items() if name in MESSAGES and value is not None}
+        if not values:
+            return None, None
+        top = max(values, key=lambda name: (values[name], name))
+        return top, values[top]
+
+    ranked = sorted(((name, value) for name, value in by_all.items() if value), key=lambda item: (-item[1], item[0]))
+    return {
+        "units": len(rows),
+        "read": len(read),
+        "capacity_median": median(capacities),
+        "capacity_mean": mean(capacities),
+        "capacity_below_7": sum(c < 7 for c in capacities),
+        "full": len(full),
+        "natural_match": share(read, "matched"),
+        "natural_match_full": share(full, "matched"),
+        "raw_match": share(read, "raw_matched"),
+        "raw_match_full": share(full, "raw_matched"),
+        "message_rates": by_all,
+        "message_rates_full": by_full,
+        "max_message": peak(by_all),
+        "max_message_full": peak(by_full),
+        "mean_message_rate": mean([v for k, v in by_all.items() if k in MESSAGES and v is not None]),
+        "mean_message_rate_full": mean([v for k, v in by_full.items() if k in MESSAGES and v is not None]),
+        "top_decoded": ranked[:5],
     }
 
 
@@ -148,6 +221,8 @@ def analyse(runs):
     report = {
         "runs": [],
         "groups": [],
+        "detection": [],
+        "contrast": [],
         "comparison": [],
         "regressions": [],
         "rules": [],
@@ -157,15 +232,21 @@ def analyse(runs):
     for run in runs:
         variant, rows = run["variant"], run["rows"]
         report["runs"].append({"variant": variant, "run_id": run["run_id"], "units": len(rows)})
-        summaries = {}
+        summaries, detections = {}, {}
         for (language, role, cohort), group in ordered_groups(rows):
             summary = group_summary(group)
             summaries[(language, role)] = summary
-            report["groups"].append(
-                {"variant": variant, "language": language, "role": role, "cohort": cohort, **summary}
+            detection = detection_stats(group)
+            detections[(language, role)] = detection
+            report["detection"].append(
+                {"variant": variant, "language": language, "role": role, "cohort": cohort, **detection}
             )
+            if role != "human":
+                report["groups"].append(
+                    {"variant": variant, "language": language, "role": role, "cohort": cohort, **summary}
+                )
             for row in group:
-                if is_regression(row):
+                if role != "human" and is_regression(row):
                     report["regressions"].append(
                         {
                             "variant": variant,
@@ -194,15 +275,31 @@ def analyse(runs):
                         "variant": variant,
                         "language": language,
                         "capacity_median": [g["capacity_median"], h["capacity_median"]],
-                        "embeddable": [g["embeddable"], h["embeddable"]],
-                        "recovery": [g["recovery"], h["recovery"]],
+                        "capacity_ge": [g["capacity_ge"], h["capacity_ge"]],
                         "capacity_median_diff": diff("capacity_median"),
-                        "embeddable_diff": diff("embeddable"),
-                        "recovery_diff": diff("recovery"),
+                        "capacity_ge_diff": diff("capacity_ge"),
+                    }
+                )
+                hd = detections[(language, "human")]
+                report["contrast"].append(
+                    {
+                        "variant": variant,
+                        "language": language,
+                        "tpr": g["recovery"],
+                        "fpr": hd["natural_match"],
+                        "fpr_full": hd["natural_match_full"],
+                        "max_message": hd["max_message"],
+                        "max_message_full": hd["max_message_full"],
+                        "generated_natural_match": g["original_match"],
                     }
                 )
         paired = [
-            r for r in rows if r.get("status") == "ok" and tested(r, "utility_before") and tested(r, "utility_after")
+            r
+            for r in rows
+            if r.get("role") != "human"
+            and r.get("status") == "ok"
+            and tested(r, "utility_before")
+            and tested(r, "utility_after")
         ]
         appearing, regressing = Counter(), Counter()
         for row in paired:
@@ -213,7 +310,9 @@ def analyse(runs):
             report["rules"].append(
                 {"variant": variant, "rule": rule, "regressed_units": regressing[rule], "paired_units": appearing[rule]}
             )
-        for (_language, _role, cohort), group in ordered_groups(rows):
+        for (_language, role, cohort), group in ordered_groups(rows):
+            if role == "human":
+                continue
             pairs = [
                 r
                 for r in group
@@ -266,12 +365,17 @@ def table(headers, rows):
     return lines
 
 
+def message_text(peak):
+    name, value = peak if peak else (None, None)
+    return "N/A" if name is None else f"{pct(value)} ({name})"
+
+
 def render(report):
     lines = ["# CodeNet evaluation report", ""]
     lines += [f"- {run['variant']}: run `{run['run_id']}`, {run['units']} units" for run in report["runs"]]
-    lines += ["", "## 1. Variant x group", ""]
+    lines += ["", "## 1. Generated groups (embedded)", ""]
     headers = [
-        "variant", "group", "units", "embeddable", "cap med", "cap mean", "recovery", "orig match", "correct bits",
+        "variant", "group", "units", "embeddable", "cap med", "cap mean", "recovery", "natural match", "correct bits",
         "flip_1 applied", "flip_1 recovered", "flip_2 applied", "flip_2 recovered", "syntax ok", "idempotent",
         "reversible", "independent", "before pass", "preserved", "regressions", "harness err", "analysis ms", "embed ms",
     ]  # fmt: skip
@@ -292,19 +396,23 @@ def render(report):
     lines += table(headers, rows)
     lines += [
         "",
-        "Original match is the rate of matching the expected message on unmarked code (FPR for the H groups).",
+        "Natural match is the rate of reading the expected message from the unmarked code of the embeddable units "
+        "(see section 6).",
         "",
     ]
-    lines += ["## 2. Generated vs human", ""]
+    lines += ["## 2. Generated vs human capacity", ""]
     rows = [
         [
-            c["variant"], c["language"], f"{num(c['capacity_median_diff'])}", signed(c["embeddable_diff"], 100, " pt"),
-            signed(c["recovery_diff"], 100, " pt"),
+            c["variant"], c["language"], f"{num(c['capacity_median_diff'])}", signed(c["capacity_ge_diff"], 100, " pt"),
+            pct(c["capacity_ge"][0]), pct(c["capacity_ge"][1]),
         ]
         for c in report["comparison"]
     ]  # fmt: skip
-    lines += table(["variant", "language", "capacity median G-H", "embeddable G-H", "recovery G-H"], rows)
-    lines += ["", "## 3. Functional regressions", ""]
+    lines += table(
+        ["variant", "language", "capacity median G-H", "capacity >= 7 G-H", "G capacity >= 7", "H capacity >= 7"], rows
+    )
+    lines += ["", "The human groups are not embedded, so there is no recovery or preservation to compare.", ""]
+    lines += ["## 3. Functional regressions (generated groups)", ""]
     lines += [f"{len(report['regressions'])} units passed before and did not pass after embedding.", ""]
     rows = [
         [r["variant"], r["id"], r["before"], r["after"], r["first_failure"], ", ".join(r["rules"])]
@@ -316,7 +424,7 @@ def render(report):
         ["variant", "rule", "regressed", "paired"],
         [[r["variant"], r["rule"], r["regressed_units"], r["paired_units"]] for r in report["rules"]],
     )
-    lines += ["", "## 4. Test cases", ""]
+    lines += ["", "## 4. Test cases (generated groups)", ""]
     rows = [
         [
             c["variant"], c["cohort"], c["paired_units"], c["cases_total"], c["before_passed"], c["after_passed"],
@@ -346,6 +454,59 @@ def render(report):
         ["variant", "unit", "status", "first failure"],
         [[r["variant"], r["id"], r["status"], r["first_failure"]] for r in report["human_failures"]],
     )
+    lines += ["", f"## 6. Detection on unmarked code (watermark {WATERMARK})", ""]
+    lines += [
+        "Human groups are read as they are; generated groups are the unmarked code of their embeddable units (control). "
+        "`read` units were extracted; `full` read all 7 codeword bits. Natural match: the extraction decodes to the "
+        f"watermark {WATERMARK}; raw: the 7 bits equal its codeword exactly. Message FPR(m): share of units whose bits "
+        "`bch.decode` to m; max and mean are over the 16 messages.",
+        "",
+    ]
+    headers = [
+        "variant", "group", "units", "read", "cap med", "cap mean", "cap < 7", "full", "match (read)", "match (full)",
+        "raw (read)", "raw (full)", "max FPR(m) (read)", "max FPR(m) (full)", "mean FPR(m) (read)",
+    ]  # fmt: skip
+    rows = [
+        [
+            d["variant"], f"{d['language']}_{LETTER.get(d['role'], d['role'])}", d["units"], d["read"],
+            num(d["capacity_median"]), num(d["capacity_mean"]), d["capacity_below_7"], d["full"],
+            pct(d["natural_match"]), pct(d["natural_match_full"]), pct(d["raw_match"]), pct(d["raw_match_full"]),
+            message_text(d["max_message"]), message_text(d["max_message_full"]), pct(d["mean_message_rate"]),
+        ]
+        for d in report["detection"]
+    ]  # fmt: skip
+    lines += table(headers, rows)
+    lines += ["", "Most frequent decoded messages (share of read units, top 5):", ""]
+    rows = [
+        [
+            d["variant"], f"{d['language']}_{LETTER.get(d['role'], d['role'])}",
+            ", ".join(f"{name} {pct(value)}" for name, value in d["top_decoded"]) or "N/A",
+        ]
+        for d in report["detection"]
+    ]  # fmt: skip
+    lines += table(["variant", "group", "top decoded messages"], rows)
+    lines += ["", "## 7. Detection contrast", ""]
+    rows = [
+        [
+            c["variant"], c["language"], pct(c["tpr"]), pct(c["fpr"]), pct(c["fpr_full"]),
+            message_text(c["max_message"]), message_text(c["max_message_full"]), pct(c["generated_natural_match"]),
+        ]
+        for c in report["contrast"]
+    ]  # fmt: skip
+    lines += table(
+        [
+            "variant",
+            "language",
+            "TPR (generated, marked)",
+            "FPR (human, read)",
+            "FPR (human, full)",
+            "max FPR(m) human (read)",
+            "max FPR(m) human (full)",
+            "generated unmarked match",
+        ],
+        rows,
+    )
+    lines += [""]
     return "\n".join(lines) + "\n"
 
 
