@@ -103,6 +103,7 @@ make codenet-setup [SOURCE=已有检出]          # 导入到被忽略的 extern
 
 ```python
 from cllmark.robust import Scheme, derive_key, embed, detect
+
 result = embed(transformer, "python", files, Scheme("s2", 4, "struct"), key, [1, 0, 1, 1])
 found = detect(transformer, "python", {**files, **result.written}, Scheme("s2", 4, "struct"), key, None)  # 盲提取
 ```

@@ -32,13 +32,13 @@
 from cllmark.robust import Scheme, derive_key, embed, detect
 from cllmark.transform import StyleTransformer
 
-transformer = StyleTransformer("python")             # 规则集与旧版相同（legacy 或 extended）
+transformer = StyleTransformer("python")  # 规则集与旧版相同（legacy 或 extended）
 scheme = Scheme("s2", 4, "struct")
-key = derive_key("secret seed")                       # 部署时使用保密的 32 字节密钥
-result = embed(transformer, "python", files, scheme, key, [1, 0, 1, 1])   # files: {文件名: 源码}
+key = derive_key("secret seed")  # 部署时使用保密的 32 字节密钥
+result = embed(transformer, "python", files, scheme, key, [1, 0, 1, 1])  # files: {文件名: 源码}
 marked = {**files, **result.written}
 found = detect(transformer, "python", marked, scheme, key, [1, 0, 1, 1])  # found.p_known
-blind = detect(transformer, "python", marked, scheme, key, None)          # blind.decoded, blind.p_blind
+blind = detect(transformer, "python", marked, scheme, key, None)  # blind.decoded, blind.p_blind
 ```
 
 `EmbedResult` 给出票数、设上率、选位一致性（标记后代码重新选位与嵌入时选位的 Jaccard）、不稳定的选中位点数与规则异常数；`Detection` 给出票数、一致数、`p_known`、盲提取结果 `decoded`/`p_blind`/`margin`、逐文件票数，以及只作参考的 `p_all`。判定：p ≤ α（实验用 1e-3 与 1e-6）。
