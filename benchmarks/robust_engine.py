@@ -576,7 +576,7 @@ class RobustEngine(rule_sets.ExtendedRules, node_engine.NodeEngine):
                             for pair, selected in details["selected_by_pair"].items()
                         }
                         robust["capacity"]["stable"] = sum(
-                            s - u for s, u in robust["capacity"]["pair_stability"].values()
+                            stable for _, stable in robust["capacity"]["pair_stability"].values()
                         )
                     embedded = {
                         "votes": done.votes,
