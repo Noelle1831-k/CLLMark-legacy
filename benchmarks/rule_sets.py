@@ -27,15 +27,24 @@ def rule_set(config):
 
 
 def protocol_config(config, root):
-    """The config of a run (see `node_engine.protocol_config`); an explicit "legacy" is dropped, as it is the default."""
+    """The config of a run (see `node_engine.protocol_config`); an explicit "legacy" is dropped, as it is the default.
+
+    Robust-watermark runs (a "robust" section) also carry the digests of their engine, attacks and scheme code
+    (`robust_engine.protocol_config`, which leaves other configs unchanged).
+    """
+    from . import robust_engine  # imported here: robust_engine builds on this module
+
     if rule_set(config) == "legacy":
         config = {key: value for key, value in config.items() if key != "rule_set"}
-    return codenet.protocol_config(node_engine.protocol_config(config, root), root)
+    return robust_engine.protocol_config(codenet.protocol_config(node_engine.protocol_config(config, root), root), root)
 
 
 def annotate_report(run_dir, manifest):
     """State the granularity and the rule set under the title of the report of a node or extended run."""
+    from . import robust_engine
+
     node_engine.annotate_report(run_dir, manifest)
+    robust_engine.annotate_report(run_dir, manifest)
     if rule_set(manifest.get("config", {})) == "legacy":
         return
     report = run_dir / "report.md"

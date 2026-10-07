@@ -15,8 +15,8 @@
     "build products"
   ],
   "generation_command": "python3 tools/build_code_index.py",
-  "file_count": 56,
-  "symbol_count": 1225,
+  "file_count": 60,
+  "symbol_count": 1409,
   "files": [
     {
       "path": "benchmarks/__init__.py",
@@ -26,6 +26,295 @@
       "symbols": [],
       "imports": [],
       "local_dependencies": [],
+      "has_main_guard": false
+    },
+    {
+      "path": "benchmarks/attacks.py",
+      "module": "benchmarks.attacks",
+      "sha256": "f115cbd813da0c19fd0dab01e8cc035690f80bcc8aaebd6ab4328e12f1d30e34",
+      "line_count": 755,
+      "symbols": [
+        {
+          "name": "Result",
+          "kind": "class",
+          "line": 63,
+          "end_line": 66
+        },
+        {
+          "name": "parse_name",
+          "kind": "function",
+          "line": 69,
+          "end_line": 90
+        },
+        {
+          "name": "apply",
+          "kind": "function",
+          "line": 93,
+          "end_line": 122
+        },
+        {
+          "name": "apply_edits",
+          "kind": "function",
+          "line": 128,
+          "end_line": 137
+        },
+        {
+          "name": "walk",
+          "kind": "function",
+          "line": 140,
+          "end_line": 146
+        },
+        {
+          "name": "tree_of",
+          "kind": "function",
+          "line": 149,
+          "end_line": 150
+        },
+        {
+          "name": "field_is",
+          "kind": "function",
+          "line": 153,
+          "end_line": 155
+        },
+        {
+          "name": "ancestors",
+          "kind": "function",
+          "line": 158,
+          "end_line": 162
+        },
+        {
+          "name": "function_spans",
+          "kind": "function",
+          "line": 168,
+          "end_line": 199
+        },
+        {
+          "name": "with_line_end",
+          "kind": "function",
+          "line": 202,
+          "end_line": 211
+        },
+        {
+          "name": "flip",
+          "kind": "function",
+          "line": 217,
+          "end_line": 236
+        },
+        {
+          "name": "normalize",
+          "kind": "function",
+          "line": 239,
+          "end_line": 271
+        },
+        {
+          "name": "half_up",
+          "kind": "function",
+          "line": 277,
+          "end_line": 278
+        },
+        {
+          "name": "delete",
+          "kind": "function",
+          "line": 281,
+          "end_line": 299
+        },
+        {
+          "name": "reorder",
+          "kind": "function",
+          "line": 302,
+          "end_line": 332
+        },
+        {
+          "name": "insert",
+          "kind": "function",
+          "line": 335,
+          "end_line": 359
+        },
+        {
+          "name": "word_set",
+          "kind": "function",
+          "line": 365,
+          "end_line": 366
+        },
+        {
+          "name": "in_class_body",
+          "kind": "function",
+          "line": 412,
+          "end_line": 417
+        },
+        {
+          "name": "python_names",
+          "kind": "function",
+          "line": 420,
+          "end_line": 485
+        },
+        {
+          "name": "python_names.collect",
+          "kind": "function",
+          "line": 426,
+          "end_line": 433
+        },
+        {
+          "name": "python_names.parameter",
+          "kind": "function",
+          "line": 435,
+          "end_line": 442
+        },
+        {
+          "name": "declarator_name",
+          "kind": "function",
+          "line": 488,
+          "end_line": 499
+        },
+        {
+          "name": "c_names",
+          "kind": "function",
+          "line": 505,
+          "end_line": 539
+        },
+        {
+          "name": "js_names",
+          "kind": "function",
+          "line": 542,
+          "end_line": 580
+        },
+        {
+          "name": "js_names.collect",
+          "kind": "function",
+          "line": 547,
+          "end_line": 558
+        },
+        {
+          "name": "rename",
+          "kind": "function",
+          "line": 591,
+          "end_line": 631
+        },
+        {
+          "name": "rename.fresh",
+          "kind": "function",
+          "line": 606,
+          "end_line": 614
+        },
+        {
+          "name": "strip_comments",
+          "kind": "function",
+          "line": 658,
+          "end_line": 668
+        },
+        {
+          "name": "string_interiors",
+          "kind": "function",
+          "line": 671,
+          "end_line": 677
+        },
+        {
+          "name": "tidy_lines",
+          "kind": "function",
+          "line": 680,
+          "end_line": 695
+        },
+        {
+          "name": "style_edits",
+          "kind": "function",
+          "line": 698,
+          "end_line": 742
+        },
+        {
+          "name": "style_edits.gap",
+          "kind": "function",
+          "line": 706,
+          "end_line": 709
+        },
+        {
+          "name": "reformat",
+          "kind": "function",
+          "line": 745,
+          "end_line": 755
+        }
+      ],
+      "imports": [
+        {
+          "module": "__future__",
+          "names": [
+            "annotations"
+          ],
+          "line": 24
+        },
+        {
+          "module": "builtins",
+          "names": [],
+          "line": 26
+        },
+        {
+          "module": "keyword",
+          "names": [],
+          "line": 27
+        },
+        {
+          "module": "random",
+          "names": [],
+          "line": 28
+        },
+        {
+          "module": "re",
+          "names": [],
+          "line": 29
+        },
+        {
+          "module": "collections.abc",
+          "names": [
+            "Callable",
+            "Iterable",
+            "Iterator",
+            "Mapping"
+          ],
+          "line": 30
+        },
+        {
+          "module": "dataclasses",
+          "names": [
+            "dataclass",
+            "field"
+          ],
+          "line": 31
+        },
+        {
+          "module": "cllmark",
+          "names": [
+            "nodes"
+          ],
+          "line": 33
+        },
+        {
+          "module": "cllmark.rules.engine",
+          "names": [
+            "apply_groups"
+          ],
+          "line": 34
+        },
+        {
+          "module": "cllmark.source_io",
+          "names": [
+            "reload_written"
+          ],
+          "line": 35
+        },
+        {
+          "module": "cllmark.watermark",
+          "names": [
+            "DETECT_ONLY"
+          ],
+          "line": 36
+        }
+      ],
+      "local_dependencies": [
+        "cllmark/__init__.py",
+        "cllmark/nodes.py",
+        "cllmark/rules/engine.py",
+        "cllmark/source_io.py",
+        "cllmark/watermark.py"
+      ],
       "has_main_guard": false
     },
     {
@@ -1119,10 +1408,274 @@
       "has_main_guard": false
     },
     {
+      "path": "benchmarks/robust_engine.py",
+      "module": "benchmarks.robust_engine",
+      "sha256": "b6791de8a9f47b0d08d90da221ebf22a23e7619d89feeaeb7702caf2db000ba2",
+      "line_count": 613,
+      "symbols": [
+        {
+          "name": "settings",
+          "kind": "function",
+          "line": 52,
+          "end_line": 103
+        },
+        {
+          "name": "is_robust",
+          "kind": "function",
+          "line": 106,
+          "end_line": 107
+        },
+        {
+          "name": "core_digest",
+          "kind": "function",
+          "line": 110,
+          "end_line": 117
+        },
+        {
+          "name": "protocol_config",
+          "kind": "function",
+          "line": 120,
+          "end_line": 132
+        },
+        {
+          "name": "annotate_report",
+          "kind": "function",
+          "line": 135,
+          "end_line": 147
+        },
+        {
+          "name": "derive",
+          "kind": "function",
+          "line": 153,
+          "end_line": 154
+        },
+        {
+          "name": "message_for",
+          "kind": "function",
+          "line": 157,
+          "end_line": 160
+        },
+        {
+          "name": "to_int",
+          "kind": "function",
+          "line": 163,
+          "end_line": 164
+        },
+        {
+          "name": "from_int",
+          "kind": "function",
+          "line": 167,
+          "end_line": 168
+        },
+        {
+          "name": "label",
+          "kind": "function",
+          "line": 171,
+          "end_line": 172
+        },
+        {
+          "name": "summarize_p",
+          "kind": "function",
+          "line": 175,
+          "end_line": 186
+        },
+        {
+          "name": "anchor_survival",
+          "kind": "function",
+          "line": 189,
+          "end_line": 199
+        },
+        {
+          "name": "changed_lines",
+          "kind": "function",
+          "line": 202,
+          "end_line": 206
+        },
+        {
+          "name": "RobustEngine",
+          "kind": "class",
+          "line": 212,
+          "end_line": 607
+        },
+        {
+          "name": "RobustEngine.__init__",
+          "kind": "function",
+          "line": 213,
+          "end_line": 228
+        },
+        {
+          "name": "RobustEngine.embeds",
+          "kind": "function",
+          "line": 233,
+          "end_line": 235
+        },
+        {
+          "name": "RobustEngine.find_donors",
+          "kind": "function",
+          "line": 238,
+          "end_line": 245
+        },
+        {
+          "name": "RobustEngine.donors_of",
+          "kind": "function",
+          "line": 247,
+          "end_line": 262
+        },
+        {
+          "name": "RobustEngine.donors_of.donors",
+          "kind": "function",
+          "line": 250,
+          "end_line": 260
+        },
+        {
+          "name": "RobustEngine.seed_for",
+          "kind": "function",
+          "line": 264,
+          "end_line": 265
+        },
+        {
+          "name": "RobustEngine.read_robust",
+          "kind": "function",
+          "line": 269,
+          "end_line": 294
+        },
+        {
+          "name": "RobustEngine.sweep",
+          "kind": "function",
+          "line": 296,
+          "end_line": 312
+        },
+        {
+          "name": "RobustEngine.read_bch",
+          "kind": "function",
+          "line": 314,
+          "end_line": 364
+        },
+        {
+          "name": "RobustEngine.failed",
+          "kind": "function",
+          "line": 366,
+          "end_line": 382
+        },
+        {
+          "name": "RobustEngine.read",
+          "kind": "function",
+          "line": 384,
+          "end_line": 391
+        },
+        {
+          "name": "RobustEngine.extraction",
+          "kind": "function",
+          "line": 393,
+          "end_line": 416
+        },
+        {
+          "name": "RobustEngine.attack_version",
+          "kind": "function",
+          "line": 420,
+          "end_line": 446
+        },
+        {
+          "name": "RobustEngine.evaluate",
+          "kind": "function",
+          "line": 450,
+          "end_line": 607
+        },
+        {
+          "name": "initialize_worker",
+          "kind": "function",
+          "line": 610,
+          "end_line": 613
+        }
+      ],
+      "imports": [
+        {
+          "module": "hashlib",
+          "names": [],
+          "line": 25
+        },
+        {
+          "module": "importlib",
+          "names": [],
+          "line": 26
+        },
+        {
+          "module": "os",
+          "names": [],
+          "line": 27
+        },
+        {
+          "module": "random",
+          "names": [],
+          "line": 28
+        },
+        {
+          "module": "shutil",
+          "names": [],
+          "line": 29
+        },
+        {
+          "module": "time",
+          "names": [],
+          "line": 30
+        },
+        {
+          "module": "collections",
+          "names": [
+            "Counter"
+          ],
+          "line": 31
+        },
+        {
+          "module": "contextlib",
+          "names": [
+            "redirect_stderr",
+            "redirect_stdout"
+          ],
+          "line": 32
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 33
+        },
+        {
+          "module": "benchmarks",
+          "names": [
+            "attacks",
+            "engine",
+            "node_engine",
+            "rule_sets"
+          ],
+          "line": 35
+        },
+        {
+          "module": "benchmarks.common",
+          "names": [
+            "digest",
+            "unit_file_names",
+            "write_json"
+          ],
+          "line": 36
+        }
+      ],
+      "local_dependencies": [
+        "benchmarks/__init__.py",
+        "benchmarks/attacks.py",
+        "benchmarks/common.py",
+        "benchmarks/engine.py",
+        "benchmarks/node_engine.py",
+        "benchmarks/rule_sets.py"
+      ],
+      "has_main_guard": false
+    },
+    {
       "path": "benchmarks/rule_sets.py",
       "module": "benchmarks.rule_sets",
-      "sha256": "5c079099a10d10b80fc26326db0d08a2acde4ea8e7808e9c8e25c971fc737a83",
-      "line_count": 76,
+      "sha256": "f509a3dfc7c1f3c1832c129c9d72565c67d8ccfc5b3933302c4d65577b22ebde",
+      "line_count": 85,
       "symbols": [
         {
           "name": "rule_set",
@@ -1134,49 +1687,49 @@
           "name": "protocol_config",
           "kind": "function",
           "line": 29,
-          "end_line": 33
+          "end_line": 39
         },
         {
           "name": "annotate_report",
           "kind": "function",
-          "line": 36,
-          "end_line": 46
+          "line": 42,
+          "end_line": 55
         },
         {
           "name": "ExtendedRules",
           "kind": "class",
-          "line": 49,
-          "end_line": 61
+          "line": 58,
+          "end_line": 70
         },
         {
           "name": "ExtendedRules.__init__",
           "kind": "function",
-          "line": 52,
-          "end_line": 56
+          "line": 61,
+          "end_line": 65
         },
         {
           "name": "ExtendedRules.parser",
           "kind": "function",
-          "line": 58,
-          "end_line": 61
+          "line": 67,
+          "end_line": 70
         },
         {
           "name": "ExtendedEngine",
           "kind": "class",
-          "line": 64,
-          "end_line": 65
+          "line": 73,
+          "end_line": 74
         },
         {
           "name": "ExtendedNodeEngine",
           "kind": "class",
-          "line": 68,
-          "end_line": 69
+          "line": 77,
+          "end_line": 78
         },
         {
           "name": "initialize_worker",
           "kind": "function",
-          "line": 72,
-          "end_line": 76
+          "line": 81,
+          "end_line": 85
         }
       ],
       "imports": [
@@ -1198,13 +1751,28 @@
             "node_engine"
           ],
           "line": 13
+        },
+        {
+          "module": "benchmarks",
+          "names": [
+            "robust_engine"
+          ],
+          "line": 35
+        },
+        {
+          "module": "benchmarks",
+          "names": [
+            "robust_engine"
+          ],
+          "line": 44
         }
       ],
       "local_dependencies": [
         "benchmarks/__init__.py",
         "benchmarks/codenet.py",
         "benchmarks/engine.py",
-        "benchmarks/node_engine.py"
+        "benchmarks/node_engine.py",
+        "benchmarks/robust_engine.py"
       ],
       "has_main_guard": false
     },
@@ -1448,44 +2016,44 @@
     {
       "path": "benchmarks/staged.py",
       "module": "benchmarks.staged",
-      "sha256": "6d61f73377459c7d762e1adb69b3b148204535744bec84ac244931da1a0100bb",
-      "line_count": 108,
+      "sha256": "4af35e03e1c726bebde0d9a113cca61b7033f688e121305c5959b2b66b40e83c",
+      "line_count": 113,
       "symbols": [
         {
           "name": "initialize_worker",
           "kind": "function",
           "line": 24,
-          "end_line": 41
+          "end_line": 46
         },
         {
           "name": "needs_functional",
           "kind": "function",
-          "line": 44,
-          "end_line": 46
+          "line": 49,
+          "end_line": 51
         },
         {
           "name": "work_directory",
           "kind": "function",
-          "line": 49,
-          "end_line": 50
+          "line": 54,
+          "end_line": 55
         },
         {
           "name": "functional_unit",
           "kind": "function",
-          "line": 53,
-          "end_line": 94
+          "line": 58,
+          "end_line": 99
         },
         {
           "name": "functional_unit.timeout",
           "kind": "function",
-          "line": 57,
-          "end_line": 58
+          "line": 62,
+          "end_line": 63
         },
         {
           "name": "load_functional",
           "kind": "function",
-          "line": 97,
-          "end_line": 108
+          "line": 102,
+          "end_line": 113
         }
       ],
       "imports": [
@@ -1536,9 +2104,10 @@
           "module": "benchmarks",
           "names": [
             "node_engine",
+            "robust_engine",
             "rule_sets"
           ],
-          "line": 30
+          "line": 32
         }
       ],
       "local_dependencies": [
@@ -1547,6 +2116,7 @@
         "benchmarks/common.py",
         "benchmarks/engine.py",
         "benchmarks/node_engine.py",
+        "benchmarks/robust_engine.py",
         "benchmarks/rule_sets.py"
       ],
       "has_main_guard": false
@@ -8357,6 +8927,687 @@
       "has_main_guard": true
     },
     {
+      "path": "tests/test_robust_bench.py",
+      "module": "tests.test_robust_bench",
+      "sha256": "f9eff7b2da0ae6dd346735fd5fe380ebef15d184a7c28fcdfe6d2cb62ba0e9b9",
+      "line_count": 1170,
+      "symbols": [
+        {
+          "name": "load_tool",
+          "kind": "function",
+          "line": 36,
+          "end_line": 40
+        },
+        {
+          "name": "binomial_tail",
+          "kind": "function",
+          "line": 46,
+          "end_line": 47
+        },
+        {
+          "name": "make_fake_robust",
+          "kind": "function",
+          "line": 50,
+          "end_line": 136
+        },
+        {
+          "name": "make_fake_robust.Scheme",
+          "kind": "class",
+          "line": 56,
+          "end_line": 60
+        },
+        {
+          "name": "make_fake_robust.Observation",
+          "kind": "class",
+          "line": 63,
+          "end_line": 71
+        },
+        {
+          "name": "make_fake_robust.EmbedResult",
+          "kind": "class",
+          "line": 74,
+          "end_line": 79
+        },
+        {
+          "name": "make_fake_robust.Detection",
+          "kind": "class",
+          "line": 82,
+          "end_line": 90
+        },
+        {
+          "name": "make_fake_robust.observe",
+          "kind": "function",
+          "line": 92,
+          "end_line": 99
+        },
+        {
+          "name": "make_fake_robust.target",
+          "kind": "function",
+          "line": 101,
+          "end_line": 102
+        },
+        {
+          "name": "make_fake_robust.embed",
+          "kind": "function",
+          "line": 104,
+          "end_line": 113
+        },
+        {
+          "name": "make_fake_robust.tail",
+          "kind": "function",
+          "line": 115,
+          "end_line": 117
+        },
+        {
+          "name": "make_fake_robust.detect",
+          "kind": "function",
+          "line": 119,
+          "end_line": 132
+        },
+        {
+          "name": "leaves",
+          "kind": "function",
+          "line": 213,
+          "end_line": 219
+        },
+        {
+          "name": "readings",
+          "kind": "function",
+          "line": 222,
+          "end_line": 231
+        },
+        {
+          "name": "top_level_functions",
+          "kind": "function",
+          "line": 234,
+          "end_line": 235
+        },
+        {
+          "name": "AttackNameTests",
+          "kind": "class",
+          "line": 241,
+          "end_line": 254
+        },
+        {
+          "name": "AttackNameTests.test_names_parse",
+          "kind": "function",
+          "line": 242,
+          "end_line": 249
+        },
+        {
+          "name": "AttackNameTests.test_bad_names_are_rejected",
+          "kind": "function",
+          "line": 251,
+          "end_line": 254
+        },
+        {
+          "name": "AttackTests",
+          "kind": "class",
+          "line": 257,
+          "end_line": 498
+        },
+        {
+          "name": "AttackTests.setUpClass",
+          "kind": "function",
+          "line": 259,
+          "end_line": 260
+        },
+        {
+          "name": "AttackTests.run_attack",
+          "kind": "function",
+          "line": 262,
+          "end_line": 264
+        },
+        {
+          "name": "AttackTests.test_attacks_do_not_modify_their_input_and_replay_with_the_seed",
+          "kind": "function",
+          "line": 266,
+          "end_line": 276
+        },
+        {
+          "name": "AttackTests.test_rename_is_a_consistent_fresh_renaming_in_every_language",
+          "kind": "function",
+          "line": 278,
+          "end_line": 299
+        },
+        {
+          "name": "AttackTests.test_rename_keeps_python_programs_running_the_same",
+          "kind": "function",
+          "line": 301,
+          "end_line": 315
+        },
+        {
+          "name": "AttackTests.test_rename_keeps_c_and_cpp_programs_compiling_and_running_the_same",
+          "kind": "function",
+          "line": 317,
+          "end_line": 332
+        },
+        {
+          "name": "AttackTests.test_rename_leaves_members_keywords_and_attributes_alone",
+          "kind": "function",
+          "line": 334,
+          "end_line": 351
+        },
+        {
+          "name": "AttackTests.test_reformat_keeps_tokens_and_normalizes_layout",
+          "kind": "function",
+          "line": 353,
+          "end_line": 378
+        },
+        {
+          "name": "AttackTests.test_reformat_keeps_the_text_of_multiline_strings",
+          "kind": "function",
+          "line": 380,
+          "end_line": 390
+        },
+        {
+          "name": "AttackTests.test_delete_removes_the_fraction_of_top_level_functions",
+          "kind": "function",
+          "line": 392,
+          "end_line": 410
+        },
+        {
+          "name": "AttackTests.test_delete_at_project_level_also_removes_files",
+          "kind": "function",
+          "line": 412,
+          "end_line": 420
+        },
+        {
+          "name": "AttackTests.test_reorder_shuffles_functions_and_file_names_without_changing_content",
+          "kind": "function",
+          "line": 422,
+          "end_line": 439
+        },
+        {
+          "name": "AttackTests.test_flip_rewrites_sites_to_their_other_reading",
+          "kind": "function",
+          "line": 441,
+          "end_line": 454
+        },
+        {
+          "name": "AttackTests.test_normalize_rewrites_whole_pairs",
+          "kind": "function",
+          "line": 456,
+          "end_line": 469
+        },
+        {
+          "name": "AttackTests.test_insert_appends_unmarked_code_of_other_units",
+          "kind": "function",
+          "line": 471,
+          "end_line": 488
+        },
+        {
+          "name": "AttackTests.test_insert_appends_unmarked_code_of_other_units.donors",
+          "kind": "function",
+          "line": 472,
+          "end_line": 474
+        },
+        {
+          "name": "AttackTests.test_combo_chains_rename_flip_and_delete",
+          "kind": "function",
+          "line": 490,
+          "end_line": 498
+        },
+        {
+          "name": "EngineCase",
+          "kind": "class",
+          "line": 504,
+          "end_line": 582
+        },
+        {
+          "name": "EngineCase.setUp",
+          "kind": "function",
+          "line": 509,
+          "end_line": 518
+        },
+        {
+          "name": "EngineCase.build",
+          "kind": "function",
+          "line": 520,
+          "end_line": 573
+        },
+        {
+          "name": "EngineCase.generated",
+          "kind": "function",
+          "line": 575,
+          "end_line": 576
+        },
+        {
+          "name": "EngineCase.human",
+          "kind": "function",
+          "line": 578,
+          "end_line": 579
+        },
+        {
+          "name": "EngineCase.row",
+          "kind": "function",
+          "line": 581,
+          "end_line": 582
+        },
+        {
+          "name": "RobustEngineTests",
+          "kind": "class",
+          "line": 585,
+          "end_line": 779
+        },
+        {
+          "name": "RobustEngineTests.test_a_generated_unit_is_embedded_read_and_attacked",
+          "kind": "function",
+          "line": 586,
+          "end_line": 618
+        },
+        {
+          "name": "RobustEngineTests.test_attack_entries_have_the_legacy_shape_and_the_robust_detail",
+          "kind": "function",
+          "line": 620,
+          "end_line": 640
+        },
+        {
+          "name": "RobustEngineTests.test_summarize_group_reads_the_rows",
+          "kind": "function",
+          "line": 642,
+          "end_line": 651
+        },
+        {
+          "name": "RobustEngineTests.test_hand_written_units_are_only_read_and_attacked",
+          "kind": "function",
+          "line": 653,
+          "end_line": 672
+        },
+        {
+          "name": "RobustEngineTests.test_explicit_embed_flag_and_role_decide_what_is_embedded",
+          "kind": "function",
+          "line": 674,
+          "end_line": 682
+        },
+        {
+          "name": "RobustEngineTests.test_sweeps_cover_all_messages_but_the_true_one_on_marked_code",
+          "kind": "function",
+          "line": 684,
+          "end_line": 696
+        },
+        {
+          "name": "RobustEngineTests.test_eight_bit_messages_and_sweep_size",
+          "kind": "function",
+          "line": 698,
+          "end_line": 703
+        },
+        {
+          "name": "RobustEngineTests.test_messages_are_derived_from_seed_and_unit_and_uniform",
+          "kind": "function",
+          "line": 705,
+          "end_line": 715
+        },
+        {
+          "name": "RobustEngineTests.test_units_without_room_are_kept_unembedded",
+          "kind": "function",
+          "line": 717,
+          "end_line": 726
+        },
+        {
+          "name": "RobustEngineTests.test_a_detector_that_raises_is_recorded_as_no_detection",
+          "kind": "function",
+          "line": 728,
+          "end_line": 747
+        },
+        {
+          "name": "RobustEngineTests.test_a_detector_that_raises_is_recorded_as_no_detection.flaky",
+          "kind": "function",
+          "line": 732,
+          "end_line": 735
+        },
+        {
+          "name": "RobustEngineTests.test_attacks_replay_with_the_seed_and_differ_between_units",
+          "kind": "function",
+          "line": 749,
+          "end_line": 758
+        },
+        {
+          "name": "RobustEngineTests.test_the_rule_set_comes_from_the_config",
+          "kind": "function",
+          "line": 760,
+          "end_line": 764
+        },
+        {
+          "name": "RobustEngineTests.test_projects_use_every_file_and_donors_come_from_hand_written_units",
+          "kind": "function",
+          "line": 766,
+          "end_line": 779
+        },
+        {
+          "name": "BchBaselineTests",
+          "kind": "class",
+          "line": 782,
+          "end_line": 835
+        },
+        {
+          "name": "BchBaselineTests.test_bch_file_and_node_rows_follow_the_legacy_extraction",
+          "kind": "function",
+          "line": 783,
+          "end_line": 812
+        },
+        {
+          "name": "BchBaselineTests.test_bch_reads_attacked_code_by_position_and_fails_without_the_files",
+          "kind": "function",
+          "line": 814,
+          "end_line": 829
+        },
+        {
+          "name": "BchBaselineTests.test_bch_needs_four_bit_messages",
+          "kind": "function",
+          "line": 831,
+          "end_line": 835
+        },
+        {
+          "name": "SelectionTests",
+          "kind": "class",
+          "line": 838,
+          "end_line": 948
+        },
+        {
+          "name": "SelectionTests.section",
+          "kind": "function",
+          "line": 839,
+          "end_line": 840
+        },
+        {
+          "name": "SelectionTests.test_defaults",
+          "kind": "function",
+          "line": 842,
+          "end_line": 848
+        },
+        {
+          "name": "SelectionTests.test_invalid_sections_are_rejected",
+          "kind": "function",
+          "line": 850,
+          "end_line": 871
+        },
+        {
+          "name": "SelectionTests.test_robust_configs_carry_the_digests_and_other_configs_do_not_move",
+          "kind": "function",
+          "line": 873,
+          "end_line": 898
+        },
+        {
+          "name": "SelectionTests.test_existing_configs_keep_their_protocol_config_and_fingerprint",
+          "kind": "function",
+          "line": 900,
+          "end_line": 918
+        },
+        {
+          "name": "SelectionTests.test_workers_start_the_robust_engine_only_for_robust_configs",
+          "kind": "function",
+          "line": 920,
+          "end_line": 935
+        },
+        {
+          "name": "SelectionTests.test_reports_of_robust_runs_name_the_variant_once",
+          "kind": "function",
+          "line": 937,
+          "end_line": 948
+        },
+        {
+          "name": "SummaryFunctionTests",
+          "kind": "class",
+          "line": 951,
+          "end_line": 978
+        },
+        {
+          "name": "SummaryFunctionTests.test_anchor_survival",
+          "kind": "function",
+          "line": 952,
+          "end_line": 957
+        },
+        {
+          "name": "SummaryFunctionTests.test_summarize_p",
+          "kind": "function",
+          "line": 959,
+          "end_line": 966
+        },
+        {
+          "name": "SummaryFunctionTests.test_changed_lines",
+          "kind": "function",
+          "line": 968,
+          "end_line": 972
+        },
+        {
+          "name": "SummaryFunctionTests.test_the_fake_binomial_tail_matches_enumeration",
+          "kind": "function",
+          "line": 974,
+          "end_line": 978
+        },
+        {
+          "name": "ReportTests",
+          "kind": "class",
+          "line": 984,
+          "end_line": 1107
+        },
+        {
+          "name": "ReportTests.make_run",
+          "kind": "function",
+          "line": 985,
+          "end_line": 1005
+        },
+        {
+          "name": "ReportTests.test_robust_variant_report",
+          "kind": "function",
+          "line": 1007,
+          "end_line": 1050
+        },
+        {
+          "name": "ReportTests.test_bch_variant_report_and_cli",
+          "kind": "function",
+          "line": 1052,
+          "end_line": 1074
+        },
+        {
+          "name": "ReportTests.test_runs_that_are_not_robust_are_refused",
+          "kind": "function",
+          "line": 1076,
+          "end_line": 1083
+        },
+        {
+          "name": "ReportTests.test_helpers",
+          "kind": "function",
+          "line": 1085,
+          "end_line": 1107
+        },
+        {
+          "name": "GeneratedConfigTests",
+          "kind": "class",
+          "line": 1110,
+          "end_line": 1170
+        },
+        {
+          "name": "GeneratedConfigTests.configs",
+          "kind": "function",
+          "line": 1116,
+          "end_line": 1120
+        },
+        {
+          "name": "GeneratedConfigTests.test_one_config_per_variant_differing_only_in_the_robust_section",
+          "kind": "function",
+          "line": 1122,
+          "end_line": 1133
+        },
+        {
+          "name": "GeneratedConfigTests.test_groups_follow_the_plan",
+          "kind": "function",
+          "line": 1135,
+          "end_line": 1154
+        },
+        {
+          "name": "GeneratedConfigTests.test_every_config_validates_and_runs_standalone",
+          "kind": "function",
+          "line": 1156,
+          "end_line": 1162
+        },
+        {
+          "name": "GeneratedConfigTests.test_the_stress_group_is_excluded_from_detection_by_role",
+          "kind": "function",
+          "line": 1164,
+          "end_line": 1170
+        }
+      ],
+      "imports": [
+        {
+          "module": "contextlib",
+          "names": [],
+          "line": 9
+        },
+        {
+          "module": "hashlib",
+          "names": [],
+          "line": 10
+        },
+        {
+          "module": "importlib.util",
+          "names": [],
+          "line": 11
+        },
+        {
+          "module": "io",
+          "names": [],
+          "line": 12
+        },
+        {
+          "module": "json",
+          "names": [],
+          "line": 13
+        },
+        {
+          "module": "math",
+          "names": [],
+          "line": 14
+        },
+        {
+          "module": "os",
+          "names": [],
+          "line": 15
+        },
+        {
+          "module": "random",
+          "names": [],
+          "line": 16
+        },
+        {
+          "module": "shutil",
+          "names": [],
+          "line": 17
+        },
+        {
+          "module": "sys",
+          "names": [],
+          "line": 18
+        },
+        {
+          "module": "tempfile",
+          "names": [],
+          "line": 19
+        },
+        {
+          "module": "types",
+          "names": [],
+          "line": 20
+        },
+        {
+          "module": "unittest",
+          "names": [],
+          "line": 21
+        },
+        {
+          "module": "dataclasses",
+          "names": [
+            "dataclass"
+          ],
+          "line": 22
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 23
+        },
+        {
+          "module": "unittest",
+          "names": [
+            "mock"
+          ],
+          "line": 24
+        },
+        {
+          "module": "benchmarks",
+          "names": [
+            "attacks",
+            "codenet",
+            "node_engine",
+            "robust_engine",
+            "rule_sets",
+            "staged"
+          ],
+          "line": 28
+        },
+        {
+          "module": "benchmarks",
+          "names": [
+            "engine"
+          ],
+          "line": 29
+        },
+        {
+          "module": "benchmarks.common",
+          "names": [
+            "digest",
+            "protocol_fingerprint"
+          ],
+          "line": 30
+        },
+        {
+          "module": "benchmarks.metrics",
+          "names": [
+            "summarize_group"
+          ],
+          "line": 31
+        },
+        {
+          "module": "cllmark",
+          "names": [
+            "nodes"
+          ],
+          "line": 32
+        },
+        {
+          "module": "cllmark.transform",
+          "names": [
+            "StyleTransformer"
+          ],
+          "line": 33
+        },
+        {
+          "module": "subprocess",
+          "names": [],
+          "line": 318
+        }
+      ],
+      "local_dependencies": [
+        "benchmarks/__init__.py",
+        "benchmarks/attacks.py",
+        "benchmarks/codenet.py",
+        "benchmarks/common.py",
+        "benchmarks/engine.py",
+        "benchmarks/metrics.py",
+        "benchmarks/node_engine.py",
+        "benchmarks/robust_engine.py",
+        "benchmarks/rule_sets.py",
+        "benchmarks/staged.py",
+        "cllmark/__init__.py",
+        "cllmark/nodes.py",
+        "cllmark/transform.py"
+      ],
+      "has_main_guard": false
+    },
+    {
       "path": "tests/test_rule_engine.py",
       "module": "tests.test_rule_engine",
       "sha256": "3a86a053ca9a5d01931606593e383318892838e4703007f013957a1943402204",
@@ -10984,6 +12235,277 @@
         "benchmarks/rule_sets.py",
         "benchmarks/runner.py"
       ],
+      "has_main_guard": true
+    },
+    {
+      "path": "tools/robust_report.py",
+      "module": "tools.robust_report",
+      "sha256": "403ec0488ee5bd56a68ea4abdccbd69bc9828a748dcd8d51b74f17e5876c605b",
+      "line_count": 824,
+      "symbols": [
+        {
+          "name": "variant_label",
+          "kind": "function",
+          "line": 55,
+          "end_line": 60
+        },
+        {
+          "name": "decision_names",
+          "kind": "function",
+          "line": 63,
+          "end_line": 67
+        },
+        {
+          "name": "load_run",
+          "kind": "function",
+          "line": 70,
+          "end_line": 87
+        },
+        {
+          "name": "rate",
+          "kind": "function",
+          "line": 93,
+          "end_line": 94
+        },
+        {
+          "name": "mean",
+          "kind": "function",
+          "line": 97,
+          "end_line": 99
+        },
+        {
+          "name": "median",
+          "kind": "function",
+          "line": 102,
+          "end_line": 104
+        },
+        {
+          "name": "get",
+          "kind": "function",
+          "line": 107,
+          "end_line": 112
+        },
+        {
+          "name": "wilson_upper",
+          "kind": "function",
+          "line": 115,
+          "end_line": 122
+        },
+        {
+          "name": "stratum",
+          "kind": "function",
+          "line": 125,
+          "end_line": 130
+        },
+        {
+          "name": "usable",
+          "kind": "function",
+          "line": 133,
+          "end_line": 134
+        },
+        {
+          "name": "positives",
+          "kind": "function",
+          "line": 137,
+          "end_line": 138
+        },
+        {
+          "name": "nulls",
+          "kind": "function",
+          "line": 141,
+          "end_line": 142
+        },
+        {
+          "name": "decided",
+          "kind": "function",
+          "line": 145,
+          "end_line": 146
+        },
+        {
+          "name": "blind",
+          "kind": "function",
+          "line": 149,
+          "end_line": 150
+        },
+        {
+          "name": "auc",
+          "kind": "function",
+          "line": 153,
+          "end_line": 164
+        },
+        {
+          "name": "message_text",
+          "kind": "function",
+          "line": 167,
+          "end_line": 168
+        },
+        {
+          "name": "capacity_bin",
+          "kind": "function",
+          "line": 171,
+          "end_line": 175
+        },
+        {
+          "name": "group_key",
+          "kind": "function",
+          "line": 178,
+          "end_line": 179
+        },
+        {
+          "name": "ordered",
+          "kind": "function",
+          "line": 182,
+          "end_line": 185
+        },
+        {
+          "name": "detection_rates",
+          "kind": "function",
+          "line": 191,
+          "end_line": 210
+        },
+        {
+          "name": "sweep_rates",
+          "kind": "function",
+          "line": 213,
+          "end_line": 248
+        },
+        {
+          "name": "to_int",
+          "kind": "function",
+          "line": 251,
+          "end_line": 252
+        },
+        {
+          "name": "analyse_run",
+          "kind": "function",
+          "line": 255,
+          "end_line": 400
+        },
+        {
+          "name": "null_row",
+          "kind": "function",
+          "line": 403,
+          "end_line": 415
+        },
+        {
+          "name": "attack_names",
+          "kind": "function",
+          "line": 418,
+          "end_line": 420
+        },
+        {
+          "name": "attack_rows",
+          "kind": "function",
+          "line": 423,
+          "end_line": 472
+        },
+        {
+          "name": "attack_auc",
+          "kind": "function",
+          "line": 475,
+          "end_line": 491
+        },
+        {
+          "name": "headline",
+          "kind": "function",
+          "line": 494,
+          "end_line": 540
+        },
+        {
+          "name": "analyse",
+          "kind": "function",
+          "line": 543,
+          "end_line": 557
+        },
+        {
+          "name": "pct",
+          "kind": "function",
+          "line": 563,
+          "end_line": 564
+        },
+        {
+          "name": "sci",
+          "kind": "function",
+          "line": 567,
+          "end_line": 568
+        },
+        {
+          "name": "num",
+          "kind": "function",
+          "line": 571,
+          "end_line": 572
+        },
+        {
+          "name": "table",
+          "kind": "function",
+          "line": 575,
+          "end_line": 578
+        },
+        {
+          "name": "per",
+          "kind": "function",
+          "line": 581,
+          "end_line": 582
+        },
+        {
+          "name": "render",
+          "kind": "function",
+          "line": 585,
+          "end_line": 805
+        },
+        {
+          "name": "main",
+          "kind": "function",
+          "line": 808,
+          "end_line": 820
+        }
+      ],
+      "imports": [
+        {
+          "module": "argparse",
+          "names": [],
+          "line": 21
+        },
+        {
+          "module": "json",
+          "names": [],
+          "line": 22
+        },
+        {
+          "module": "statistics",
+          "names": [],
+          "line": 23
+        },
+        {
+          "module": "sys",
+          "names": [],
+          "line": 24
+        },
+        {
+          "module": "bisect",
+          "names": [
+            "bisect_left",
+            "bisect_right"
+          ],
+          "line": 25
+        },
+        {
+          "module": "collections",
+          "names": [
+            "Counter",
+            "defaultdict"
+          ],
+          "line": 26
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 27
+        }
+      ],
+      "local_dependencies": [],
       "has_main_guard": true
     },
     {

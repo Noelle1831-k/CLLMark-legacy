@@ -26,18 +26,23 @@ def initialize_worker(run_dir, manifest):
 
     Runs with "slot_granularity": "node" use the standalone node engine (`node_engine`); others the legacy engine.
     Runs with "rule_set": "extended" use the same engine on the extended rule set (`rule_sets`).
+    Runs with a "robust" section use the robust-watermark engine (`robust_engine`), which also routes the units that
+    are not embedded (hand-written code) itself.
     """
-    from . import node_engine, rule_sets
+    from . import node_engine, robust_engine, rule_sets
 
     config = manifest.get("config", {})
-    if rule_sets.rule_set(config) != "legacy":
+    if robust_engine.is_robust(config):
+        robust_engine.initialize_worker(run_dir, manifest)
+    elif rule_sets.rule_set(config) != "legacy":
         rule_sets.initialize_worker(run_dir, manifest)
     elif node_engine.granularity(config) == "node":
         node_engine.initialize_worker(run_dir, manifest)
     else:
         engine.initialize_worker(run_dir, manifest)
     engine.evaluate_utility = lambda *args, **kwargs: dict(DEFERRED)
-    codenet.install(engine.ENGINE)
+    if not robust_engine.is_robust(config):
+        codenet.install(engine.ENGINE)
     UNITS.update({unit["id"]: unit for unit in manifest["units"]})
 
 
