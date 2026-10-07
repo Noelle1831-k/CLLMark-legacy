@@ -69,6 +69,10 @@ flowchart TD
 | [tools/robust_report.py](../tools/robust_report.py) | 鲁棒水印跨变体报告：容量、嵌入与功能保持、TPR/盲提取、零假设（全部消息）、跨消息误接受、各攻击下的 TPR/锚点存活率/AUC |
 | [benchmarks/metrics.py](../benchmarks/metrics.py) | 显式分母、失败 ID、分组指标、CSV/Markdown/图表 |
 | [benchmarks/compare.py](../benchmarks/compare.py) | 可比性校验、分组和汇总门禁、显式基线提升与历史归档 |
+| [benchmarks/staged.py](../benchmarks/staged.py)、[benchmarks/parallel.py](../benchmarks/parallel.py)、[benchmarks/progress.py](../benchmarks/progress.py) | 分阶段执行（水印阶段 → 功能阶段）、进程池与进度显示 |
+| [benchmarks/rule_sets.py](../benchmarks/rule_sets.py)、[benchmarks/node_engine.py](../benchmarks/node_engine.py) | legacy/extended 规则集与节点粒度槽位的评估引擎，并把各自的协议摘要加入配置 |
+| [benchmarks/codenet.py](../benchmarks/codenet.py)、[tools/import_codenet.py](../tools/import_codenet.py)、[tools/codenet_report.py](../tools/codenet_report.py) | CodeNet 数据集：导入（固定提交、解包 Python 适配器）、`codenet_stdio` oracle（编译、逐用例运行、token/浮点判题）、手写组只检测（`detect_only`）与报告，见 [CODENET.md](CODENET.md) |
+| [tools/repo_check.py](../tools/repo_check.py)、[benchmarks/real_repos.json](../benchmarks/real_repos.json) | 真实仓库功能检查：固定提交、嵌入与逐规则全仓改写后运行仓库自带测试，见 [REAL_REPOS.md](REAL_REPOS.md) |
 | [tools/rule_audit.py](../tools/rule_audit.py) | 全量语料上的适用数、自然形式、幂等、可逆、语法与规则间干扰审计 |
 | [tools/lost_capacity_report.py](../tools/lost_capacity_report.py) | 对比两次运行，解释失去容量的单元与槽位 |
 | [tools/js_rule_check.py](../tools/js_rule_check.py)、[tools/js_corpus_inventory.py](../tools/js_corpus_inventory.py) | JavaScript 规则在真实语料上的位序、容量与功能检查；各组单元与容量分布 |
