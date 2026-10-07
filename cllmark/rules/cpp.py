@@ -2,131 +2,420 @@
 
 import re
 
-from .c import array_dimension, c_extension_rules, c_family_rules, contain_id, nodes, outside_text_sensitive_operands
+from .c import (
+    c_extension_rules,
+    c_family_rules,
+    file_fact,
+    file_matches,
+    is_snippet,
+    no_type_keyword_macro,
+    nodes,
+    outside_text_sensitive_operands,
+    subtree,
+)
 from .engine import Reject, guard, replace, text, well_formed
 
-FORMAT_SPECIFIER = re.compile(r"%[-+]?\d*\.*\d*[cCdiouxXeEfgGsSpn]")
+# ---------------------------------------------------------------- stdio <-> iostream (styles 9.1-9.4)
+#
+# Each direction only converts what the other direction writes back and what means the same in both: whole statements,
+# specifiers without flags, width or precision, arguments whose type follows from a declaration in view. Files that
+# rely on stream state (manipulators, tie, sync_with_stdio, other uses of cin) or redefine the I/O names are left alone.
+
+SYNC_STDIO = re.compile(rb"\bsync_with_stdio\b|\b(?:cin|cout)\s*\.\s*tie\b")
+IO_MACRO = re.compile(rb"^[ \t]*#[ \t]*define[ \t]+(?:cin|cout|printf|scanf|endl)\b", re.MULTILINE)
+IOSTREAM_INCLUDE = re.compile(rb"^[ \t]*#[ \t]*include[ \t]*[<\"](?:iostream|bits/stdc\+\+\.h)[>\"]", re.MULTILINE)
+STDIO_INCLUDE = re.compile(rb"^[ \t]*#[ \t]*include[ \t]*[<\"](?:cstdio|stdio\.h|bits/stdc\+\+\.h)[>\"]", re.MULTILINE)
+USING_STD = re.compile(rb"\busing\s+namespace\s+std\s*;")
+USING_ANY = re.compile(rb"\busing\s+namespace\b")
+STREAM_FORMATTING = re.compile(
+    rb"\b(?:setprecision|setw|setfill|setbase|setiosflags|resetiosflags)\b"
+    rb"|<<\s*(?:std\s*::\s*)?(?:fixed|scientific|hex|oct|showbase|showpos|boolalpha|uppercase)\b"
+    rb"|\.\s*(?:precision|width|fill|setf|unsetf|flags|imbue)\s*\("
+)
+
+# Declared type (one '*' per pointer or array level) -> the specifier cout/printf agree on, and the one scanf needs.
+CANONICAL_TYPES = {
+    "int": "int",
+    "signed": "int",
+    "signed int": "int",
+    "short": "short",
+    "short int": "short",
+    "unsigned": "unsigned",
+    "unsigned int": "unsigned",
+    "long": "long",
+    "long int": "long",
+    "unsigned long": "unsigned long",
+    "unsigned long int": "unsigned long",
+    "long long": "long long",
+    "long long int": "long long",
+    "unsigned long long": "unsigned long long",
+    "unsigned long long int": "unsigned long long",
+    "char": "char",
+    "double": "double",
+    "float": "float",
+    "string": "string",
+}
+OUTPUT_SPECIFIERS = {
+    "int": "%d",
+    "short": "%d",
+    "unsigned": "%u",
+    "long": "%ld",
+    "long long": "%lld",
+    "char": "%c",
+    "char*": "%s",
+    "string": "%s",
+}  # no double/float: cout prints 6 significant digits, %f 6 decimals
+INPUT_SPECIFIERS = {
+    "int": "%d",
+    "unsigned": "%u",
+    "long": "%ld",
+    "unsigned long": "%lu",
+    "long long": "%lld",
+    "unsigned long long": "%llu",
+    "double": "%lf",
+    "float": "%f",
+    "char*": "%s",
+}  # no short (%hd), char (scanf %c does not skip blanks), std::string or long double
+STREAM_SPECIFIER = re.compile(r"%(?:lld|ld|[disuc])")
+SCAN_FORMAT = re.compile(r"(?:\s|\\[nrt])*%(?:llu|lld|lu|ld|lf|[dufs])(?:(?:\s|\\[nrt])*%(?:llu|lld|lu|ld|lf|[dufs]))*")
+SCAN_SPECIFIER = re.compile(r"%(?:llu|lld|lu|ld|lf|[dufs])")
+INTEGER_LITERAL = re.compile(r"[1-9]\d{0,8}|0")
 
 
-def declared_types(block):
-    """{name: type} for the declarations directly in `block` (arrays/pointers get one '*' per level)."""
-    types = {}
-    for child in block.children:
+def declaration_names(declarator):
+    names = set()
+    for current in subtree(declarator):
+        if current.type == "identifier":
+            names.add(text(current))
+    return names
+
+
+def declarator_kind(declarator, base):
+    """(name, kind) of a declarator: kind is `base` plus one '*' per pointer or array level, None when it is not
+    told (references, functions, parenthesised declarators, an unknown base)."""
+    levels, current = 0, declarator
+    while current is not None:
+        if current.type == "init_declarator":
+            current = current.child_by_field_name("declarator")
+        elif current.type in ["pointer_declarator", "array_declarator"]:
+            levels += 1
+            current = current.child_by_field_name("declarator")
+        elif current.type == "identifier":
+            return text(current), None if base is None else base + "*" * levels
+        else:
+            break
+    names = sorted(declaration_names(declarator))
+    return (names[0] if names else None), None
+
+
+def declared_kinds(scope):
+    """{name: kind} for the declarations directly in `scope` (kind None when the type cannot be told)."""
+    kinds = {}
+    for child in scope.children:
         if child.type != "declaration":
             continue
-        kind = text(child.children[0])
-        for declarator in child.children[1:-1]:
-            if declarator.type == ",":
-                continue
-            if declarator.type == "init_declarator":
-                declarator = declarator.children[0]
-            if declarator.type == "array_declarator":
-                types[text(declarator)] = kind + array_dimension(declarator) * "*"
-            elif declarator.type == "pointer_declarator":
-                stars = text(declarator).count("*")
-                types[text(declarator)[stars:]] = kind + stars * "*"
-            else:
-                types[text(declarator)] = kind
-    return types
+        kind = child.child_by_field_name("type")
+        base = None
+        if (
+            kind is not None
+            and child.children[0].id == kind.id
+            and kind.type
+            in [
+                "primitive_type",
+                "sized_type_specifier",
+                "type_identifier",
+            ]
+        ):
+            base = CANONICAL_TYPES.get(" ".join(text(kind).split()))
+        for declarator in child.children_by_field_name("declarator"):
+            name, described = declarator_kind(declarator, base)
+            if name is not None:
+                kinds[name] = described
+    return kinds
 
 
-def format_of(kind):
-    if kind in ["int", "short", "short int", "int short", "unsigned", "unsigned int", "unsigned short int"]:
-        return "%" + ("u" if "unsigned" in kind else "") + "d"
-    if kind in ["char", "unsigned char"]:
-        return "%" + ("u" if "unsigned" in kind else "") + "c"
-    if kind in ["char*", "string"]:
-        return "%s"
-    if kind in ["double", "float"]:
-        return "%f"
-    if kind in ["long", "unsigned long long"]:
-        return "%" + ("u" if "unsigned" in kind else "") + "ld"
-    if kind in ["long long", "unsinged long long"]:
-        return "%" + ("u" if "unsigned" in kind else "") + "lld"
+def visible_kinds(node):
+    """{name: kind} of the variables in view at `node`, innermost declaration first. Names that a loop header,
+    a condition or a lambda declares are in the table with kind None: they hide outer declarations of the same name."""
+    kinds = {}
+    current = node.parent
+    while current is not None:
+        scope = {}
+        if current.type == "compound_statement":
+            scope = declared_kinds(current)
+        elif current.type == "for_statement":
+            scope = dict.fromkeys(declared_kinds(current))
+        elif current.type == "for_range_loop":
+            scope = dict.fromkeys(
+                name
+                for child in current.children
+                if child.type not in ["compound_statement", "expression_statement"]
+                for name in declaration_names(child)
+            )
+        elif current.type == "lambda_expression":
+            body = current.child_by_field_name("body")
+            scope = dict.fromkeys(
+                name
+                for child in current.children
+                if body is None or child.id != body.id
+                for name in declaration_names(child)
+            )
+        elif current.type in ["if_statement", "while_statement", "switch_statement"]:
+            condition = current.child_by_field_name("condition")
+            if condition is not None:
+                scope = dict.fromkeys(
+                    name
+                    for part in subtree(condition)
+                    if part.type == "declaration"
+                    for name in declaration_names(part)
+                )
+        for name, kind in scope.items():
+            kinds.setdefault(name, kind)
+        current = current.parent
+    return kinds
+
+
+def promoted(kind):
+    """The type of an arithmetic operand after the integer promotions (None for pointers, floats and strings)."""
+    if kind in ["char", "short"]:
+        return "int"
+    return kind if kind in ["int", "unsigned", "long", "unsigned long", "long long", "unsigned long long"] else None
+
+
+def expression_kind(node, kinds):
+    """The canonical type of a plain expression (names, subscripts, integer literals, + - * / % of those), else None.
+
+    Every form binds tighter than `<<`, so the text can stand as an operand of a stream chain unchanged."""
+    if node.type == "identifier":
+        return kinds.get(text(node))
+    if node.type == "number_literal":
+        return "int" if INTEGER_LITERAL.fullmatch(text(node)) else None
+    if node.type == "char_literal":
+        return "char" if text(node).startswith("'") else None
+    if node.type == "string_literal":
+        return "char*" if text(node).startswith('"') else None
+    if node.type == "parenthesized_expression" and len(node.children) == 3:
+        return expression_kind(node.children[1], kinds)
+    if node.type == "subscript_expression":
+        base = expression_kind(node.child_by_field_name("argument"), kinds)
+        return base[:-1] if base is not None and base.endswith("*") else None
+    if node.type == "unary_expression" and len(node.children) == 2 and text(node.children[0]) in ["-", "+"]:
+        return promoted(expression_kind(node.children[1], kinds))
+    if node.type == "binary_expression" and len(node.children) == 3 and text(node.children[1]) in "+-*/%":
+        left = promoted(expression_kind(node.children[0], kinds))
+        right = promoted(expression_kind(node.children[2], kinds))
+        if left is None or right is None:
+            return None
+        if left == right or right == "int":
+            return left
+        return right if left == "int" else None
     return None
 
 
-def stream_to_format(node, stream):
-    """cout/cin chain -> (format string, ", args"), typing operands from enclosing declarations; None if unknown."""
-    items, item_nodes = [], []
-    current = node.children[0]
-    while current:
-        items.insert(0, text(current.children[2]))
-        item_nodes.insert(0, current.children[2])
+def lvalue_path(node):
+    """`name`, `name[index]...` or `name.field...`."""
+    if node.type == "identifier":
+        return True
+    if node.type == "subscript_expression":
+        return lvalue_path(node.child_by_field_name("argument"))
+    if node.type == "field_expression" and len(node.children) == 3 and node.children[1].type == ".":
+        return lvalue_path(node.children[0])
+    return False
+
+
+def stream_items(node, stream, operator):
+    """The operands of `stream << a << b;` (or `>>`) as nodes, None when the statement is anything else."""
+    if node.child_count != 2 or node.children[1].type != ";":
+        return None
+    items, current = [], node.children[0]
+    while current.type == "binary_expression":
+        if len(current.children) != 3 or text(current.children[1]) != operator:
+            return None
+        items.insert(0, current.children[2])
         current = current.children[0]
-        if text(current) == stream:
-            break
-    visible = {}
-    while current:
-        if current.type == "compound_statement":
-            visible.update(declared_types(current))
-        current = current.parent
-    types = {}
-    for name, kind in visible.items():
-        types[name[: name.find("[")] if "[" in name else name] = kind
-    format_text, arguments, kind = "", [], ""
-    for position, item in enumerate(items):
-        if item[0] == '"' and item[-1] == '"':
-            format_text += item[1:-1]
-            continue
-        if item == "endl":
-            format_text += "\\n"
-            continue
-        name = item
-        if item not in types:
-            unknown = True
-            if item_nodes[position].type in ["binary_expression", "cast_expression"]:
-                names = set()
-                contain_id(item_nodes[position], names)
-                if names:
-                    name = list(names)[0]
-                    if name not in types:
-                        if "[" in name and name[: name.find("[")] in types:
-                            kind = types[name[: name.find("[")]][: -name.count("[")]
-                            unknown = False
-                    else:
-                        kind = types[name]
-                        unknown = False
-            if "[" in name and name[: name.find("[")] in types:
-                kind = types[name[: name.find("[")]][: -name.count("[")]
-                unknown = False
-            if unknown:
+    if current.type != "identifier" or text(current) != stream or not items:
+        return None
+    return items
+
+
+def literal_content(node):
+    """The raw text between the quotes of a plain string literal (escapes untouched), None for prefixed ones."""
+    value = text(node)
+    return value[1:-1] if node.type == "string_literal" and value.startswith('"') and value.endswith('"') else None
+
+
+def call_values(node):
+    """The arguments of a call as nodes without comments."""
+    arguments = node.child_by_field_name("arguments")
+    return None if arguments is None else [child for child in arguments.named_children if child.type != "comment"]
+
+
+def printf_operands(node):
+    """printf("a %d b", x) -> ['"a "', 'x', '" b"'] (the operands after `cout <<`), None when it is not convertible."""
+    values = call_values(node)
+    if not values:
+        return None
+    content = literal_content(values[0])
+    if content is None or content.count("%") != len(STREAM_SPECIFIER.findall(content)):
+        return None  # a flag, width, precision, float or other specifier, or %%
+    matches = list(STREAM_SPECIFIER.finditer(content))
+    if len(matches) != len(values) - 1:
+        return None
+    kinds = visible_kinds(node)
+    operands, position = [], 0
+    for match, value in zip(matches, values[1:], strict=True):
+        specifier = "%d" if match.group() == "%i" else match.group()
+        piece = content[position : match.start()]
+        operands += [f'"{piece}"'] if piece else []
+        if (
+            value.type == "call_expression"
+            and text(value.child_by_field_name("function")).endswith(".c_str")
+            and not call_values(value)
+        ):
+            target = value.child_by_field_name("function").children[0]
+            if target.type != "identifier" or kinds.get(text(target)) != "string" or specifier != "%s":
                 return None
+            operands.append(text(target))
         else:
-            kind = types[item]
-        specifier = format_of(kind)
+            if OUTPUT_SPECIFIERS.get(expression_kind(value, kinds)) != specifier:
+                return None
+            operands.append(text(value))
+        position = match.end()
+    if content[position:]:
+        operands.append(f'"{content[position:]}"')
+    return operands or None
+
+
+def cout_format(node):
+    """cout << a << "x" << endl; -> (format, [arguments]) for printf, None when some operand is not convertible."""
+    items = stream_items(node, "cout", "<<")
+    if items is None:
+        return None
+    kinds = visible_kinds(node)
+    format_text, arguments = "", []
+    for item in items:
+        content = literal_content(item)
+        if content is not None:
+            if "%" in content:
+                return None
+            format_text += content
+        elif item.type == "identifier" and text(item) == "endl" and "endl" not in kinds:
+            format_text += "\\n"
+        else:
+            kind = expression_kind(item, kinds)
+            specifier = OUTPUT_SPECIFIERS.get(kind)
+            if specifier is None:
+                return None
+            format_text += specifier
+            arguments.append(text(item) + (".c_str()" if kind == "string" else ""))
+    return (format_text, arguments) if format_text or arguments else None
+
+
+def scanf_operands(node):
+    """scanf("%d %d", &a, &b) -> ['a', 'b'] (the operands after `cin >>`), None when it is not convertible.
+
+    Each argument must be a name, element or member whose declared type is the one the specifier reads (the type table
+    of cin -> scanf), so that the conversion back writes the same specifier."""
+    values = call_values(node)
+    if not values:
+        return None
+    content = literal_content(values[0])
+    if content is None or not SCAN_FORMAT.fullmatch(content):
+        return None  # other text, %c, %[, a width, %*, %i, or trailing blanks (scanf would consume them)
+    specifiers = SCAN_SPECIFIER.findall(content)
+    if len(specifiers) != len(values) - 1:
+        return None
+    kinds = visible_kinds(node)
+    operands = []
+    for specifier, value in zip(specifiers, values[1:], strict=True):
+        if specifier == "%s":
+            target = value if value.type == "identifier" else None
+        else:
+            target = value.child_by_field_name("argument") if value.type == "pointer_expression" else None
+            if target is not None and (text(value.children[0]) != "&" or not lvalue_path(target)):
+                target = None
+        if target is None or INPUT_SPECIFIERS.get(expression_kind(target, kinds)) != specifier:
+            return None
+        operands.append(text(target))
+    return operands
+
+
+def cin_format(node):
+    """cin >> a >> b; -> (format, [arguments]) for scanf, None when some operand is not convertible."""
+    items = stream_items(node, "cin", ">>")
+    if items is None:
+        return None
+    kinds = visible_kinds(node)
+    format_text, arguments = "", []
+    for item in items:
+        if item.type not in ["identifier", "subscript_expression"]:
+            return None
+        kind = expression_kind(item, kinds)
+        specifier = INPUT_SPECIFIERS.get(kind)
         if specifier is None:
             return None
         format_text += specifier
-        if stream == "cin" and not (item in types and types[item] == "char*"):
-            item = "&" + item
-        arguments.append(item)
-    for position, argument in enumerate(arguments):
-        if argument in types and types[argument] == "string":
-            if stream == "cin":
-                return None
-            arguments[position] += ".c_str()"
-    joined = ", ".join(arguments)
-    return format_text, (", " + joined if joined else "")
+        arguments.append(text(item) if kind == "char*" else "&" + text(item))
+    return format_text, arguments
 
 
-@guard("cout << ... statement")
-def cout_statement(node):
-    return stream_head(node, "cout", "<<")
+@guard("no sync_with_stdio or tie (mixing the two libraries then reorders or loses input)")
+def synchronized_streams(node):
+    return not file_matches(node, "sync", SYNC_STDIO)
 
 
-@guard("cin >> ... statement")
-def cin_statement(node):
-    return stream_head(node, "cin", ">>")
+@guard("cin, cout, printf, scanf and endl are not macros")
+def plain_io_names(node):
+    return not file_matches(node, "io macro", IO_MACRO)
 
 
-def stream_head(node, stream, operator):
-    current = node.children[0]
-    while current:
-        if current.type != "binary_expression":
-            return text(current) == stream and current.next_sibling.type == operator
-        current = current.children[0]
-    return False
+@guard("iostream is included and std is in use (the rewrite writes cin / cout unqualified)")
+def iostream_available(node):
+    """Both directions need it, so that each can undo the other. A file without any #include or using-directive is a
+    fragment whose headers and `using namespace std;` come from the harness around it."""
+    snippet = is_snippet(node)
+    included = snippet or file_matches(node, "iostream", IOSTREAM_INCLUDE)
+    in_use = file_matches(node, "using std", USING_STD) or (snippet and not file_matches(node, "using", USING_ANY))
+    return included and in_use
+
+
+@guard("stdio is included (printf and scanf are declared)")
+def stdio_available(node):
+    """Needed in all four rules, so that each direction can undo the other; fragments get their headers from the
+    harness (see iostream_available)."""
+    return is_snippet(node) or file_matches(node, "stdio", STDIO_INCLUDE)
+
+
+@guard("the file sets no stream formatting (precision, width, base)")
+def default_stream_format(node):
+    return not file_matches(node, "formatting", STREAM_FORMATTING)
+
+
+def stray_cin(root):
+    """`cin` occurs somewhere other than as the head of a `cin >> ...;` statement (`while (cin >> n)`, `cin.eof()`)."""
+    if b"cin" not in root.text:
+        return False
+    names = heads = 0
+    for current in subtree(root):
+        if current.type == "identifier" and current.text == b"cin":
+            names += 1
+        elif current.type == "expression_statement" and stream_items(current, "cin", ">>") is not None:
+            heads += 1
+    return names != heads
+
+
+@guard("every cin of the file heads a `cin >> ...;` statement")
+def cin_only_in_statements(node):
+    return not file_fact(node, "stray cin", stray_cin)
+
+
+@guard("the call's value is unused (a statement)")
+def call_statement(node):
+    return node.parent is not None and node.parent.type == "expression_statement"
+
+
+def convertible(function):
+    return guard(f"convertible by {function.__name__}")(lambda node: function(node) is not None)
 
 
 def call_to(name):
@@ -141,50 +430,34 @@ def call_to(name):
 
 def printf_to_cout(node, source):
     """printf("a %d b", x) -> cout << "a " << x << " b" """
-    content = text(node.children[1])[1:-1]
-    format_text = content.split('",')[0][1:-1]
-    arguments = [part.replace(" ", "") for part in content.split('",')[1:]]
-    positions = [(match.start(), match.end()) for match in FORMAT_SPECIFIER.finditer(format_text)]
-    if len(positions) != len(arguments):
-        raise Reject("argument count differs from format specifiers")
-    if positions:
-        pieces = [(0, positions[0][0])] + [(positions[i - 1][1], positions[i][0]) for i in range(1, len(positions))]
-        pieces.append((positions[-1][1], len(format_text)))
-    else:
-        pieces = [(0, len(format_text))]
-    stream = ["cout"]
-    for index, (start, end) in enumerate(pieces):
-        if (start, end) != (0, 0) and start != len(format_text):
-            stream.append(f'"{format_text[start:end]}"')
-        if index < len(arguments):
-            if "?" in arguments[index]:
-                raise Reject("conditional argument")
-            stream.append(arguments[index])
-    return [replace(node, " << ".join(part for part in stream if part not in ["''", '""']))]
+    operands = printf_operands(node)
+    if operands is None:
+        raise Reject("not convertible")
+    return [replace(node, " << ".join(["cout", *operands]))]
 
 
 def cout_to_printf(node, source):
-    converted = stream_to_format(node, "cout")
+    converted = cout_format(node)
     if converted is None:
         raise Reject("operand type unknown")
-    return [replace(node, f'printf("{converted[0]}"{converted[1]});')]
+    format_text, arguments = converted
+    return [replace(node, "".join([f'printf("{format_text}"', *(f", {argument}" for argument in arguments), ");"]))]
 
 
 def scanf_to_cin(node, source):
     """scanf("%d", &x) -> cin >> x"""
-    content = text(node.children[1])[1:-1]
-    if '"' in content:
-        content = content[content.find('"', content.count('"')) + 1 :]
-        content = content[content.find(",") + 1 :]
-    stream = ["cin"] + [part.replace(" ", "").replace("&", "") for part in content.split(",")]
-    return [replace(node, " >> ".join(part for part in stream if part != '"'))]
+    operands = scanf_operands(node)
+    if operands is None:
+        raise Reject("not convertible")
+    return [replace(node, " >> ".join(["cin", *operands]))]
 
 
 def cin_to_scanf(node, source):
-    converted = stream_to_format(node, "cin")
+    converted = cin_format(node)
     if converted is None:
         raise Reject("operand type unknown")
-    return [replace(node, f'scanf("{converted[0]}"{converted[1]});')]
+    format_text, arguments = converted
+    return [replace(node, "".join([f'scanf("{format_text}"', *(f", {argument}" for argument in arguments), ");"]))]
 
 
 # ---------------------------------------------------------------- extension rules (styles 21-22)
@@ -275,17 +548,63 @@ RULES = {
     "21.1": nodes("type_definition").where(simple_typedef).where(well_formed).rule(typedef_to_using),
     "21.2": nodes("alias_declaration").where(simple_alias).where(well_formed).rule(using_to_typedef),
     "22.1": nodes("cast_expression")
-    .where(c_style_cast, not_stream_operand, outside_text_sensitive_operands)
+    .where(c_style_cast, not_stream_operand, outside_text_sensitive_operands, no_type_keyword_macro)
     .where(well_formed)
     .rule(to_functional_cast),
     "22.2": nodes("call_expression")
-    .where(functional_cast, not_stream_operand, outside_text_sensitive_operands)
+    .where(functional_cast, not_stream_operand, outside_text_sensitive_operands, no_type_keyword_macro)
     .where(well_formed)
     .rule(to_c_style_cast),
-    "9.1": call_to("printf").where(well_formed).rule(printf_to_cout),
-    "9.2": nodes("expression_statement").where(cout_statement).where(well_formed).rule(cout_to_printf),
-    "9.3": call_to("scanf").where(well_formed).rule(scanf_to_cin),
-    "9.4": nodes("expression_statement").where(cin_statement).where(well_formed).rule(cin_to_scanf),
+    "9.1": call_to("printf")
+    .where(
+        call_statement,
+        no_type_keyword_macro,
+        synchronized_streams,
+        plain_io_names,
+        iostream_available,
+        default_stream_format,
+        stdio_available,
+        convertible(printf_operands),
+    )
+    .where(well_formed)
+    .rule(printf_to_cout),
+    "9.2": nodes("expression_statement")
+    .where(
+        no_type_keyword_macro,
+        synchronized_streams,
+        plain_io_names,
+        iostream_available,
+        default_stream_format,
+        stdio_available,
+        convertible(cout_format),
+    )
+    .where(well_formed)
+    .rule(cout_to_printf),
+    "9.3": call_to("scanf")
+    .where(
+        call_statement,
+        no_type_keyword_macro,
+        synchronized_streams,
+        plain_io_names,
+        iostream_available,
+        cin_only_in_statements,
+        stdio_available,
+        convertible(scanf_operands),
+    )
+    .where(well_formed)
+    .rule(scanf_to_cin),
+    "9.4": nodes("expression_statement")
+    .where(
+        no_type_keyword_macro,
+        synchronized_streams,
+        plain_io_names,
+        iostream_available,
+        cin_only_in_statements,
+        stdio_available,
+        convertible(cin_format),
+    )
+    .where(well_formed)
+    .rule(cin_to_scanf),
 }
 
 

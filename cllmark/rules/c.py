@@ -8,6 +8,7 @@ indentation width the original rules computed (spaces, tab = 4 columns).
 
 import hashlib
 import re
+from collections import OrderedDict
 
 from .braces import add_braces, bare_layout, braced_layout, drop_braces
 from .engine import (
@@ -314,7 +315,10 @@ def to_postfix(node, source):
 MAIN = nodes("function_definition").where(
     guard("main definition")(
         lambda node: node.children[1].type == "function_declarator" and node.children[1].children[0].text == b"main"
-    )
+    ),
+    # `int main() try { ... } catch (...) {}`: the body is a function-try-block, a return placed after its last
+    # statement would land between the try block and its handlers.
+    guard("main with a compound-statement body")(lambda node: node.children[2].type == "compound_statement"),
 )
 PARAMETERS = {
     "void": ("(void)", lambda params: params.child_count == 3 and "void" in text(params)),
@@ -631,10 +635,22 @@ def inner_index(binary_expression, label):
         inner, offset = right, left
     else:
         raise Reject("unsupported " + label)
+    if text(binary_expression.child_by_field_name("operator")) != "+":
+        raise Reject("the offset is not added")
     argument = inner.child_by_field_name("argument")
     if argument.child_count < 2:
         raise Reject("pointer without parentheses")
     return argument.children[1], text(offset)
+
+
+def additive_spine(expression):
+    """`a + i`, `a + i - 1`: the operators along the left spine are + or -, and the one next to the base is +
+    (`*(a - i)` is not `a[i]`)."""
+    operators = []
+    while expression is not None and expression.type == "binary_expression":
+        operators.append(text(expression.child_by_field_name("operator")))
+        expression = expression.child_by_field_name("left")
+    return bool(operators) and operators[-1] == "+" and all(operator in ["+", "-"] for operator in operators)
 
 
 def pointer_to_array(node, source):
@@ -645,18 +661,24 @@ def pointer_to_array(node, source):
         if argument.child_count == 0:
             raise Reject("*p")
         expression = argument.children[1]
+        if not additive_spine(expression):
+            raise Reject("not base + index")
         base = leftmost_identifier(expression)
         index = after_operator(source, base, expression)
         return [replace(node, f"{text(base)}[{index.strip()}]")]
     expression = argument.children[1]
     if dimension == 2:
         expression, second = inner_index(expression, "second index")
+        if not additive_spine(expression):
+            raise Reject("not base + index")
         base = leftmost_identifier(expression)
         first = after_operator(source, base, expression)
         return [replace(node, f"{text(base)}[{first.strip()}][{second.strip()}]")]
     if dimension == 3:
         expression, third = inner_index(expression, "third index")
         expression, second = inner_index(expression, "second index")
+        if expression.type != "binary_expression" or text(expression.child_by_field_name("operator")) != "+":
+            raise Reject("not base + index")
         first = text(expression.child_by_field_name("right"))
         return [
             replace(
@@ -1920,6 +1942,189 @@ def dereference_to_arrow(node, source):
     ]
 
 
+# ---------------------------------------------------------------- file-wide facts and position guards
+#
+# Guards added after the CodeNet evaluation (docs/plans/2026-10-07-rule-fixes.md): each only rejects positions where
+# the rewrite changes the program, never the text a rule writes elsewhere, so both directions stay exact inverses.
+
+_FILE_FACTS: OrderedDict = OrderedDict()
+
+
+def file_fact(node, name, compute):
+    """`compute(root)` for the file containing `node`, once per parse. The cache holds the root node (and so its
+    tree), which keeps the ids of live entries unique."""
+    root = node
+    while root.parent is not None:
+        root = root.parent
+    entry = _FILE_FACTS.get(root.id)
+    if entry is None:
+        entry = _FILE_FACTS[root.id] = (root, {})
+        if len(_FILE_FACTS) > 12:
+            _FILE_FACTS.popitem(last=False)
+    else:
+        _FILE_FACTS.move_to_end(root.id)
+    facts = entry[1]
+    if name not in facts:
+        facts[name] = compute(root)
+    return facts[name]
+
+
+def file_matches(node, name, pattern):
+    """Whether the file's text matches the compiled bytes `pattern` (cached per parse)."""
+    return file_fact(node, name, lambda root: pattern.search(root.text) is not None)
+
+
+TYPE_MACRO = re.compile(
+    rb"^[ \t]*#[ \t]*define[ \t]+(?:int|long|short|char|float|double|signed|unsigned|bool)\b", re.MULTILINE
+)
+OPERATOR_OVERLOAD = re.compile(rb"\boperator\b")
+STDLIB_INCLUDE = re.compile(rb"^[ \t]*#[ \t]*include[ \t]*[<\"](?:stdlib\.h|malloc\.h)[>\"]", re.MULTILINE)
+ANY_INCLUDE = re.compile(rb"^[ \t]*#[ \t]*include\b", re.MULTILINE)
+
+
+@guard("no #define named like a builtin type keyword (`#define int long long` changes what the rules write)")
+def no_type_keyword_macro(node):
+    return not file_matches(node, "type macro", TYPE_MACRO)
+
+
+@guard("no operator overloads in the file (a user type may define only some operators, or define one by another)")
+def no_operator_overloads(node):
+    return not file_matches(node, "operator overload", OPERATOR_OVERLOAD)
+
+
+def is_snippet(node):
+    """A file with no #include at all (a function body or fragment): the headers come from the harness around it."""
+    return not file_matches(node, "any include", ANY_INCLUDE)
+
+
+@guard("malloc is declared (stdlib.h or malloc.h included; an implicit declaration truncates the pointer)")
+def malloc_declared(node):
+    return is_snippet(node) or file_matches(node, "stdlib", STDLIB_INCLUDE)
+
+
+def statement_of(node):
+    """The nearest enclosing statement, declaration or function definition (the root when there is none)."""
+    current = node
+    while current.parent is not None and not (
+        current.type.endswith("statement") or current.type in ["declaration", "function_definition"]
+    ):
+        current = current.parent
+    return current
+
+
+def misparsed_template_arguments(node):
+    """A `template_argument_list` that holds a comparison or logical operation, or belongs to a member template:
+    `a.y < b.y || c > 0` parses as `a.y<...>` with the rest of the expression as its arguments."""
+    if node.type != "template_argument_list":
+        return False
+    if node.parent is not None and node.parent.type in ["template_method", "field_expression"]:
+        return True
+    return any(
+        child.type == "binary_expression"
+        and len(child.children) == 3
+        and text(child.children[1]) in EQUALITY + RELATIONAL + ["&&", "||"]
+        for child in node.children
+    )
+
+
+@guard("not part of a comparison misparsed as template arguments, nor in a tree with parse errors")
+def no_template_misparse(node):
+    if node.has_error:
+        return False
+    ancestor = node
+    while ancestor is not None:
+        if misparsed_template_arguments(ancestor):
+            return False
+        ancestor = ancestor.parent
+    return not any(misparsed_template_arguments(current) for current in subtree(statement_of(node)))
+
+
+def top_level_item(node):
+    """The ancestor directly below the translation unit (the root itself when the unit did not parse)."""
+    current = node
+    while current.parent is not None and current.parent.parent is not None:
+        current = current.parent
+    return current
+
+
+@guard("the top-level item holds no parse errors")
+def item_well_formed(node):
+    return not top_level_item(node).has_error
+
+
+ALLOWED_INDEX_OPERATORS = ["+", "-", "*", "/", "%"]
+LOOSE_INDEX = ["conditional_expression", "assignment_expression", "comma_expression"]
+
+
+def subscript_indices(node):
+    """The index expressions of a[i][j]... from the outermost level in (None when one is missing)."""
+    indices = []
+    while node.type == "subscript_expression":
+        index = node.child_by_field_name("index")
+        if index is None:
+            return None
+        indices.append(index)
+        node = node.child_by_field_name("argument")
+        if node is None:
+            return None
+    return indices
+
+
+@guard("every index binds at least as tight as + (`a[i << 1]` would become `*(a + i << 1)`)")
+def tight_indices(node):
+    indices = subscript_indices(node)
+    if indices is None:
+        return False
+    for index in indices:
+        if index.type in LOOSE_INDEX:
+            return False
+        if index.type == "binary_expression" and (
+            len(index.children) != 3 or text(index.children[1]) not in ALLOWED_INDEX_OPERATORS
+        ):
+            return False
+    return True
+
+
+@guard("not the operand of a postfix operator, member access or call (`*(a + i)++` is not `a[i]++`)")
+def prefix_safe_subscript(node):
+    parent = node.parent
+    if parent is None:
+        return True
+    if parent.type == "update_expression":
+        return node.next_sibling is None or node.next_sibling.type not in ["++", "--"]
+    if parent.type == "field_expression":
+        return parent.children[0] != node
+    if parent.type == "call_expression":
+        return parent.child_by_field_name("function") != node
+    return True
+
+
+@guard("the previous token is not `/` (`mid/f[i]` would become `mid/*(f + i)`)")
+def no_comment_start(node):
+    root = node
+    while root.parent is not None:
+        root = root.parent
+    data = file_fact(node, "text", lambda tree: tree.text)
+    position = node.start_byte - root.start_byte
+    while position > 0 and data[position - 1 : position] in (b" ", b"\t", b"\n", b"\r"):
+        position -= 1
+    return data[position - 1 : position] != b"/"
+
+
+def has_side_effects(node):
+    return any(current.type in IMPURE_EXPRESSIONS for current in subtree(node))
+
+
+@guard("the assigned target has no side effects (`*p++ += c` evaluates `*p++` once, `*p++ = *p++ + c` twice)")
+def pure_target(node):
+    return not has_side_effects(node.children[0])
+
+
+@guard("a statement of a block or of a case (a hoisted `a;` would leave a brace-less loop or branch body)")
+def in_statement_list(node):
+    return node.parent is not None and node.parent.type in ["compound_statement", "translation_unit", "case_statement"]
+
+
 # ---------------------------------------------------------------- registry
 
 
@@ -1944,36 +2149,44 @@ def c_family_rules(dialect):
                 )
             )
         )
+    # C++ only: user types overload some operators and not others, and a template argument list can swallow a
+    # comparison; both make the comparison and compound-assignment rewrites unsound (see no_operator_overloads).
+    cpp_comparison = (no_operator_overloads, no_template_misparse) if dialect == "cpp" else ()
+    cpp_operators = (no_operator_overloads,) if dialect == "cpp" else ()
     rules = {
-        "2.1": nodes("assignment_expression").where(self_assignment).rule(to_compound),
-        "2.2": compound.rule(from_compound),
-        "2.3": equality.where(~negated, binary, real_comparison).rule(negate_equality("==", "!=")),
-        "2.4": negated_test("!=").rule(remove_negation("==")),
-        "2.5": equality.where(~negated, binary, real_comparison).rule(negate_equality("!=", "==")),
-        "2.6": negated_test("==").rule(remove_negation("!=")),
-        "2.7": BINARY.where(operator_in(">", ">="), binary, real_comparison).rule(mirror({">": "<", ">=": "<="})),
-        "2.8": BINARY.where(operator_in("<", "<="), binary, real_comparison).rule(mirror({"<": ">", "<=": ">="})),
+        "2.1": nodes("assignment_expression").where(self_assignment, pure_target, *cpp_operators).rule(to_compound),
+        "2.2": compound.where(pure_target, *cpp_operators).rule(from_compound),
+        "2.3": equality.where(~negated, binary, real_comparison, *cpp_comparison).rule(negate_equality("==", "!=")),
+        "2.4": negated_test("!=").where(*cpp_operators).rule(remove_negation("==")),
+        "2.5": equality.where(~negated, binary, real_comparison, *cpp_comparison).rule(negate_equality("!=", "==")),
+        "2.6": negated_test("==").where(*cpp_operators).rule(remove_negation("!=")),
+        "2.7": BINARY.where(operator_in(">", ">="), binary, real_comparison, *cpp_comparison).rule(
+            mirror({">": "<", ">=": "<="})
+        ),
+        "2.8": BINARY.where(operator_in("<", "<="), binary, real_comparison, *cpp_comparison).rule(
+            mirror({"<": ">", "<=": ">="})
+        ),
         "2.9": BINARY.where(operator_in(*RELATIONAL), ~in_expanded_comparison, binary, real_comparison)
-        .where(expansion_safe(dialect))
+        .where(expansion_safe(dialect), *cpp_comparison)
         .rule(expand_comparison),
         "2.10": nodes("parenthesized_expression")
-        .where(expanded_comparison, expansion_safe(dialect))
+        .where(expanded_comparison, expansion_safe(dialect), *cpp_comparison)
         .rule(contract_comparison),
-        "2.11": equality_any.where(binary, real_comparison).rule(hash_order("==", "!=", True)),
-        "2.12": equality_any.where(binary, real_comparison).rule(hash_order("==", "!=", False)),
-        "2.13": equality_any.where(binary, real_comparison).rule(hash_order("!=", "==", True)),
-        "2.14": equality_any.where(binary, real_comparison).rule(hash_order("!=", "==", False)),
+        "2.11": equality_any.where(binary, real_comparison, *cpp_comparison).rule(hash_order("==", "!=", True)),
+        "2.12": equality_any.where(binary, real_comparison, *cpp_comparison).rule(hash_order("==", "!=", False)),
+        "2.13": equality_any.where(binary, real_comparison, *cpp_comparison).rule(hash_order("!=", "==", True)),
+        "2.14": equality_any.where(binary, real_comparison, *cpp_comparison).rule(hash_order("!=", "==", False)),
         "3.1": nodes("update_expression")
         .where(update_outside_index_call_assignment, update_operand_at(0))
         .rule(to_prefix),
         "3.2": nodes("update_expression")
         .where(update_outside_index_call_assignment, update_operand_at(1))
         .rule(to_postfix),
-        "4.1": MAIN.rule(main_signature("int", "void", True)),
-        "4.2": MAIN.rule(main_signature("int", "void", False)),
-        "4.3": MAIN.rule(main_signature("int", "none", True)),
-        "4.4": MAIN.rule(main_signature("int", "none", False)),
-        "4.5": MAIN.rule(main_signature("int", "args", True)),
+        "4.1": MAIN.where(no_type_keyword_macro).rule(main_signature("int", "void", True)),
+        "4.2": MAIN.where(no_type_keyword_macro).rule(main_signature("int", "void", False)),
+        "4.3": MAIN.where(no_type_keyword_macro).rule(main_signature("int", "none", True)),
+        "4.4": MAIN.where(no_type_keyword_macro).rule(main_signature("int", "none", False)),
+        "4.5": MAIN.where(no_type_keyword_macro).rule(main_signature("int", "args", True)),
         "4.6": MAIN.rule(main_signature("int", "args", False)),
         "4.7": MAIN.rule(main_signature("void", "args", False)),
         "4.8": MAIN.rule(main_signature("void", "none", False)),
@@ -1987,7 +2200,7 @@ def c_family_rules(dialect):
         "7.4": FOR.rule(loop_aoo),
         "7.5": FOR.rule(loop_obo),
         "7.6": FOR.rule(loop_ooc),
-        "7.7": FOR.rule(loop_ooo, target=FOR.where(bare_for)),
+        "7.7": FOR.where(in_statement_list).rule(loop_ooo, target=FOR.where(bare_for)),
         "7.8": LOOP.rule(while_to_for(), target=FOR.where(marked_for)),
         "8.1": nodes("switch_statement").rule(switch_to_if),
         "14.1": braced_if_else(negated_form=True).where(well_formed).rule(swap_branches(negate=False)),
@@ -2014,24 +2227,33 @@ def c_family_rules(dialect):
                 .where(arrow_access, outside_pointer_arithmetic, outside_text_sensitive_operands)
                 .where(well_formed)
                 .rule(arrow_to_dereference),
-                "5.1": nodes("declaration").where(static_array_declaration, movable_array).rule(static_to_dynamic),
+                "5.1": nodes("declaration")
+                .where(static_array_declaration, movable_array, malloc_declared, no_type_keyword_macro)
+                .rule(static_to_dynamic),
                 "5.2": nodes("declaration")
                 .where(
                     guard("malloc-initialised pointer")(
                         lambda node: any(malloc_declarator(child) for child in node.children)
                     ),
                     movable_allocation,
+                    no_type_keyword_macro,
                 )
                 .rule(dynamic_to_static),
                 "5.3": nodes("subscript_expression")
                 .where(
                     plain_subscript,
+                    prefix_safe_subscript,
+                    tight_indices,
+                    no_comment_start,
+                    item_well_formed,
                     ~guard("nested subscript")(nested_brackets),
                     ~guard("pointer arithmetic inside")(lambda node: bool(POINTER_ARITHMETIC.search(text(node)))),
                     guard("at most three dimensions")(lambda node: array_dimension(node) < 4),
                 )
                 .rule(array_to_pointer),
-                "5.4": nodes("pointer_expression").where(outermost_pointer_arithmetic).rule(pointer_to_array),
+                "5.4": nodes("pointer_expression")
+                .where(outermost_pointer_arithmetic, item_well_formed)
+                .rule(pointer_to_array),
             }
         )
     return rules
