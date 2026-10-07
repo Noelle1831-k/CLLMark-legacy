@@ -644,24 +644,26 @@ def file_entries(
     return full
 
 
-STABLE_PAIRS_FILE = Path(__file__).with_name("stable_pairs.json")
+STABLE_PAIRS_OVERRIDE: Path | None = None  # a JSON table instead of `stable_pairs.TABLE` (threshold experiments)
 
 
 @functools.cache
 def _stable_pairs() -> dict:
-    with open(STABLE_PAIRS_FILE, encoding="utf-8") as stream:
-        return json.load(stream)
+    if STABLE_PAIRS_OVERRIDE is not None:
+        with open(STABLE_PAIRS_OVERRIDE, encoding="utf-8") as stream:
+            return json.load(stream)
+    from .stable_pairs import TABLE
+
+    return TABLE
 
 
 def allowed_pairs(rule_set: str, language: str, anchor: str) -> frozenset[str]:
-    """The rule pairs whose sites may carry votes: the calibrated stable pairs of `stable_pairs.json`
+    """The rule pairs whose sites may carry votes: the calibrated stable pairs of `stable_pairs.py`
     (`tools/robust_calibrate.py`). Raises KeyError when the table has no entry for the combination."""
     try:
         return frozenset(_stable_pairs()["pairs"][rule_set][language][anchor]["allowed"])
     except KeyError:
-        raise KeyError(
-            f"stable_pairs.json has no entry for rule set {rule_set!r}, {language}, anchor {anchor!r}"
-        ) from None
+        raise KeyError(f"stable_pairs has no entry for rule set {rule_set!r}, {language}, anchor {anchor!r}") from None
 
 
 def select_entries(entries, allowed: frozenset[str] | None = None) -> list[Entry]:

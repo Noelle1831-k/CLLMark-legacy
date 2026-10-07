@@ -1,7 +1,7 @@
 """Blind detection from the key alone, and the exact binomial tail.
 
 Votes. The sites that carry votes are chosen as embedding chooses them (`anchors.select_for`: usable sites of the
-calibrated stable pairs of `stable_pairs.json`, windows that neither overlap nor touch, greedy in pre-order); the sites of one anchor key cast one vote b(key), the
+calibrated stable pairs of `stable_pairs.py`, windows that neither overlap nor touch, greedy in pre-order); the sites of one anchor key cast one vote b(key), the
 majority of their readings (a tie casts no vote). Nothing is aligned: deleted code only removes votes, inserted code
 adds votes unrelated to the PRF, and keys do not depend on position.
 
