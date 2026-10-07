@@ -662,7 +662,7 @@ def render(report):
         h = v["headline"]
         d = v["decisions"]
         max_message = (
-            " / ".join(f"{m} {pct(r)}" for m, r in (h["null_max_message"] or {}).values())
+            " / ".join(f"{m} {pct(r)}" if m else "-" for m, r in (h["null_max_message"] or {}).values())
             if h["null_max_message"]
             else "N/A"
         )
@@ -788,7 +788,9 @@ def render(report):
                     name, n["source"], n["cohort"], n["read"], num(n["capacity_votes_median"]), per(n["known"], d),
                     per(n["known_upper95"], d), per({k: x["pair_rate"] for k, x in decisions.items()}, d, sci),
                     per({k: x["unit_rate"] for k, x in decisions.items()}, d),
-                    " / ".join(f"{x['max_message']} {pct(x['max_message_rate'])}" for x in decisions.values()),
+                    " / ".join(
+                        f"{x['max_message']} {pct(x['max_message_rate'])}" if x["max_message"] else "-" for x in decisions.values()
+                    ),
                     per(n["p_all_info"], d), n["rule_errors"],
                 ]
             )  # fmt: skip
