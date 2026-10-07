@@ -15,8 +15,8 @@
     "build products"
   ],
   "generation_command": "python3 tools/build_code_index.py",
-  "file_count": 54,
-  "symbol_count": 1087,
+  "file_count": 56,
+  "symbol_count": 1225,
   "files": [
     {
       "path": "benchmarks/__init__.py",
@@ -31,104 +31,122 @@
     {
       "path": "benchmarks/codenet.py",
       "module": "benchmarks.codenet",
-      "sha256": "87cea4a8cfa18634d331ae749384d2ba65dae4cfd1ff907ddb525d5f3a90e15d",
-      "line_count": 362,
+      "sha256": "1d614b3b86d1a485a7f3f963c2ebec899a063d9ec3aaeba21a77f1b9a967e1c5",
+      "line_count": 472,
       "symbols": [
         {
           "name": "protocol_config",
           "kind": "function",
-          "line": 37,
-          "end_line": 41
+          "line": 38,
+          "end_line": 42
         },
         {
           "name": "codenet_cohorts",
           "kind": "function",
-          "line": 44,
-          "end_line": 45
+          "line": 45,
+          "end_line": 46
         },
         {
           "name": "validate_config",
           "kind": "function",
-          "line": 48,
-          "end_line": 68
+          "line": 49,
+          "end_line": 73
+        },
+        {
+          "name": "install",
+          "kind": "function",
+          "line": 79,
+          "end_line": 91
+        },
+        {
+          "name": "install.evaluate",
+          "kind": "function",
+          "line": 86,
+          "end_line": 89
+        },
+        {
+          "name": "detect_only",
+          "kind": "function",
+          "line": 94,
+          "end_line": 178
         },
         {
           "name": "check_token",
           "kind": "function",
-          "line": 74,
-          "end_line": 81
+          "line": 184,
+          "end_line": 191
         },
         {
           "name": "check_float",
           "kind": "function",
-          "line": 84,
-          "end_line": 101
+          "line": 194,
+          "end_line": 211
         },
         {
           "name": "check_token_float",
           "kind": "function",
-          "line": 104,
-          "end_line": 110
+          "line": 214,
+          "end_line": 220
         },
         {
           "name": "check",
           "kind": "function",
-          "line": 113,
-          "end_line": 119
+          "line": 223,
+          "end_line": 229
         },
         {
           "name": "run_process",
           "kind": "function",
-          "line": 125,
-          "end_line": 160
+          "line": 235,
+          "end_line": 270
         },
         {
           "name": "run_case",
           "kind": "function",
-          "line": 163,
-          "end_line": 177
+          "line": 273,
+          "end_line": 287
         },
         {
           "name": "needs_header_shim",
           "kind": "function",
-          "line": 181,
-          "end_line": 189
+          "line": 291,
+          "end_line": 299
         },
         {
           "name": "compiler_version",
           "kind": "function",
-          "line": 193,
-          "end_line": 197
+          "line": 303,
+          "end_line": 307
         },
         {
           "name": "judge",
           "kind": "function",
-          "line": 200,
-          "end_line": 208
+          "line": 310,
+          "end_line": 318
         },
         {
           "name": "build",
           "kind": "function",
-          "line": 211,
-          "end_line": 239
+          "line": 321,
+          "end_line": 349
         },
         {
           "name": "identity",
           "kind": "function",
-          "line": 242,
-          "end_line": 260
+          "line": 352,
+          "end_line": 370
         },
         {
           "name": "evaluate_utility",
           "kind": "function",
-          "line": 263,
-          "end_line": 279
+          "line": 373,
+          "end_line": 389
         },
         {
           "name": "evaluate_cached",
           "kind": "function",
-          "line": 282,
-          "end_line": 358
+          "line": 392,
+          "end_line": 468
         }
       ],
       "imports": [
@@ -176,6 +194,8 @@
           "module": "contextlib",
           "names": [
             "ExitStack",
+            "redirect_stderr",
+            "redirect_stdout",
             "suppress"
           ],
           "line": 19
@@ -197,29 +217,38 @@
         {
           "module": "benchmarks",
           "names": [
-            "utility"
+            "engine"
           ],
           "line": 23
         },
         {
-          "module": "benchmarks.common",
+          "module": "benchmarks",
           "names": [
-            "digest",
-            "write_json"
+            "utility"
           ],
           "line": 24
         },
         {
           "module": "benchmarks.common",
           "names": [
-            "validate_config"
+            "digest",
+            "unit_file_names",
+            "write_json"
           ],
           "line": 25
+        },
+        {
+          "module": "benchmarks.common",
+          "names": [
+            "validate_config"
+          ],
+          "line": 26
         }
       ],
       "local_dependencies": [
         "benchmarks/__init__.py",
         "benchmarks/common.py",
+        "benchmarks/engine.py",
         "benchmarks/utility.py"
       ],
       "has_main_guard": true
@@ -1419,44 +1448,44 @@
     {
       "path": "benchmarks/staged.py",
       "module": "benchmarks.staged",
-      "sha256": "2d87056135e2f1992b463c2edcdc32335f2a610f2347b873b113294f604f9910",
-      "line_count": 107,
+      "sha256": "6d61f73377459c7d762e1adb69b3b148204535744bec84ac244931da1a0100bb",
+      "line_count": 108,
       "symbols": [
         {
           "name": "initialize_worker",
           "kind": "function",
           "line": 24,
-          "end_line": 40
+          "end_line": 41
         },
         {
           "name": "needs_functional",
           "kind": "function",
-          "line": 43,
-          "end_line": 45
+          "line": 44,
+          "end_line": 46
         },
         {
           "name": "work_directory",
           "kind": "function",
-          "line": 48,
-          "end_line": 49
+          "line": 49,
+          "end_line": 50
         },
         {
           "name": "functional_unit",
           "kind": "function",
-          "line": 52,
-          "end_line": 93
+          "line": 53,
+          "end_line": 94
         },
         {
           "name": "functional_unit.timeout",
           "kind": "function",
-          "line": 56,
-          "end_line": 57
+          "line": 57,
+          "end_line": 58
         },
         {
           "name": "load_functional",
           "kind": "function",
-          "line": 96,
-          "end_line": 107
+          "line": 97,
+          "end_line": 108
         }
       ],
       "imports": [
@@ -2425,1034 +2454,1148 @@
     {
       "path": "cllmark/rules/c.py",
       "module": "cllmark.rules.c",
-      "sha256": "3605a7ac3dd793a4d7da7fe11570abb1008b6e17cb3979d279f6fb8fe0f035d1",
-      "line_count": 2278,
+      "sha256": "d9af6c6527128e59fc45d11f291bb80d3b77d9053188aacfd3ce540789c25072",
+      "line_count": 2500,
       "symbols": [
         {
           "name": "nodes",
           "kind": "function",
-          "line": 28,
-          "end_line": 29
+          "line": 29,
+          "end_line": 30
         },
         {
           "name": "child_count",
           "kind": "function",
-          "line": 32,
-          "end_line": 33
+          "line": 33,
+          "end_line": 34
         },
         {
           "name": "contain_id",
           "kind": "function",
-          "line": 36,
-          "end_line": 43
+          "line": 37,
+          "end_line": 44
         },
         {
           "name": "blank_run_start",
           "kind": "function",
-          "line": 46,
-          "end_line": 51
+          "line": 47,
+          "end_line": 52
         },
         {
           "name": "operator_in",
           "kind": "function",
-          "line": 62,
-          "end_line": 63
+          "line": 63,
+          "end_line": 64
         },
         {
           "name": "operands",
           "kind": "function",
-          "line": 66,
-          "end_line": 67
+          "line": 67,
+          "end_line": 68
         },
         {
           "name": "negated",
           "kind": "function",
-          "line": 71,
-          "end_line": 80
+          "line": 72,
+          "end_line": 81
         },
         {
           "name": "in_expanded_comparison",
           "kind": "function",
-          "line": 84,
-          "end_line": 104
+          "line": 85,
+          "end_line": 105
         },
         {
           "name": "expanded_comparison",
           "kind": "function",
-          "line": 108,
-          "end_line": 128
+          "line": 109,
+          "end_line": 129
         },
         {
           "name": "negate_equality",
           "kind": "function",
-          "line": 131,
-          "end_line": 140
+          "line": 132,
+          "end_line": 141
         },
         {
           "name": "negate_equality.rewrite",
           "kind": "function",
-          "line": 134,
-          "end_line": 138
+          "line": 135,
+          "end_line": 139
         },
         {
           "name": "negated_test",
           "kind": "function",
-          "line": 143,
-          "end_line": 159
+          "line": 144,
+          "end_line": 160
         },
         {
           "name": "negated_test.test",
           "kind": "function",
-          "line": 146,
-          "end_line": 157
+          "line": 147,
+          "end_line": 158
         },
         {
           "name": "remove_negation",
           "kind": "function",
-          "line": 162,
-          "end_line": 167
+          "line": 163,
+          "end_line": 168
         },
         {
           "name": "remove_negation.rewrite",
           "kind": "function",
-          "line": 163,
-          "end_line": 165
+          "line": 164,
+          "end_line": 166
         },
         {
           "name": "mirror",
           "kind": "function",
-          "line": 170,
-          "end_line": 172
+          "line": 171,
+          "end_line": 173
         },
         {
           "name": "expand_comparison",
           "kind": "function",
-          "line": 184,
-          "end_line": 187
+          "line": 185,
+          "end_line": 188
         },
         {
           "name": "contract_comparison",
           "kind": "function",
-          "line": 190,
-          "end_line": 192
+          "line": 191,
+          "end_line": 193
         },
         {
           "name": "hash_at_least",
           "kind": "function",
-          "line": 195,
-          "end_line": 198
+          "line": 196,
+          "end_line": 199
         },
         {
           "name": "hash_order",
           "kind": "function",
-          "line": 201,
-          "end_line": 212
+          "line": 202,
+          "end_line": 213
         },
         {
           "name": "hash_order.rewrite",
           "kind": "function",
-          "line": 204,
-          "end_line": 210
+          "line": 205,
+          "end_line": 211
         },
         {
           "name": "self_assignment",
           "kind": "function",
-          "line": 220,
-          "end_line": 229
+          "line": 221,
+          "end_line": 230
         },
         {
           "name": "to_compound",
           "kind": "function",
-          "line": 232,
-          "end_line": 235
+          "line": 233,
+          "end_line": 236
         },
         {
           "name": "from_compound",
           "kind": "function",
-          "line": 261,
-          "end_line": 271
+          "line": 262,
+          "end_line": 272
         },
         {
           "name": "update_outside_index_call_assignment",
           "kind": "function",
-          "line": 278,
-          "end_line": 295
+          "line": 279,
+          "end_line": 296
         },
         {
           "name": "update_operand_at",
           "kind": "function",
-          "line": 298,
-          "end_line": 299
+          "line": 299,
+          "end_line": 300
         },
         {
           "name": "to_prefix",
           "kind": "function",
-          "line": 302,
-          "end_line": 304
+          "line": 303,
+          "end_line": 305
         },
         {
           "name": "to_postfix",
           "kind": "function",
-          "line": 307,
-          "end_line": 309
+          "line": 308,
+          "end_line": 310
         },
         {
           "name": "identifier_names",
           "kind": "function",
-          "line": 326,
-          "end_line": 333
+          "line": 330,
+          "end_line": 337
         },
         {
           "name": "main_signature",
           "kind": "function",
-          "line": 336,
-          "end_line": 363
+          "line": 340,
+          "end_line": 367
         },
         {
           "name": "main_signature.rewrite",
           "kind": "function",
-          "line": 340,
-          "end_line": 361
+          "line": 344,
+          "end_line": 365
         },
         {
           "name": "array_dimension",
           "kind": "function",
-          "line": 369,
-          "end_line": 374
+          "line": 373,
+          "end_line": 378
         },
         {
           "name": "pointer_dimension",
           "kind": "function",
-          "line": 377,
-          "end_line": 383
+          "line": 381,
+          "end_line": 387
         },
         {
           "name": "nested_brackets",
           "kind": "function",
-          "line": 386,
-          "end_line": 396
+          "line": 390,
+          "end_line": 400
         },
         {
           "name": "malloc_declarator",
           "kind": "function",
-          "line": 399,
-          "end_line": 411
+          "line": 403,
+          "end_line": 415
         },
         {
           "name": "split_top_level_stars",
           "kind": "function",
-          "line": 414,
-          "end_line": 433
+          "line": 418,
+          "end_line": 437
         },
         {
           "name": "strip_outer_parentheses",
           "kind": "function",
-          "line": 436,
-          "end_line": 447
+          "line": 440,
+          "end_line": 451
         },
         {
           "name": "element_count",
           "kind": "function",
-          "line": 450,
-          "end_line": 459
+          "line": 454,
+          "end_line": 463
         },
         {
           "name": "enclosing_function_body",
           "kind": "function",
-          "line": 462,
-          "end_line": 466
+          "line": 466,
+          "end_line": 470
         },
         {
           "name": "name_uses",
           "kind": "function",
-          "line": 469,
-          "end_line": 477
+          "line": 473,
+          "end_line": 481
         },
         {
           "name": "lifetime_bound",
           "kind": "function",
-          "line": 480,
-          "end_line": 489
+          "line": 484,
+          "end_line": 493
         },
         {
           "name": "size_bound",
           "kind": "function",
-          "line": 492,
-          "end_line": 499
+          "line": 496,
+          "end_line": 503
         },
         {
           "name": "movable_array",
           "kind": "function",
-          "line": 503,
-          "end_line": 510
+          "line": 507,
+          "end_line": 514
         },
         {
           "name": "movable_allocation",
           "kind": "function",
-          "line": 514,
-          "end_line": 525
+          "line": 518,
+          "end_line": 529
         },
         {
           "name": "static_array_declaration",
           "kind": "function",
-          "line": 529,
-          "end_line": 531
+          "line": 533,
+          "end_line": 535
         },
         {
           "name": "static_to_dynamic",
           "kind": "function",
-          "line": 534,
-          "end_line": 549
+          "line": 538,
+          "end_line": 553
         },
         {
           "name": "dynamic_to_static",
           "kind": "function",
-          "line": 552,
-          "end_line": 571
+          "line": 556,
+          "end_line": 575
         },
         {
           "name": "plain_subscript",
           "kind": "function",
-          "line": 575,
-          "end_line": 578
+          "line": 579,
+          "end_line": 582
         },
         {
           "name": "array_to_pointer",
           "kind": "function",
-          "line": 584,
-          "end_line": 602
+          "line": 588,
+          "end_line": 606
         },
         {
           "name": "leftmost_identifier",
           "kind": "function",
-          "line": 605,
-          "end_line": 612
+          "line": 609,
+          "end_line": 616
         },
         {
           "name": "after_operator",
           "kind": "function",
-          "line": 615,
-          "end_line": 619
+          "line": 619,
+          "end_line": 623
         },
         {
           "name": "inner_index",
           "kind": "function",
-          "line": 622,
-          "end_line": 637
+          "line": 626,
+          "end_line": 643
+        },
+        {
+          "name": "additive_spine",
+          "kind": "function",
+          "line": 646,
+          "end_line": 653
         },
         {
           "name": "pointer_to_array",
           "kind": "function",
-          "line": 640,
-          "end_line": 667
+          "line": 656,
+          "end_line": 689
         },
         {
           "name": "outermost_pointer_arithmetic",
           "kind": "function",
-          "line": 671,
-          "end_line": 686
+          "line": 693,
+          "end_line": 708
         },
         {
           "name": "declared_type",
           "kind": "function",
-          "line": 703,
-          "end_line": 709
+          "line": 725,
+          "end_line": 731
         },
         {
           "name": "multi_name_declaration",
           "kind": "function",
-          "line": 713,
-          "end_line": 718
+          "line": 735,
+          "end_line": 740
         },
         {
           "name": "split_declaration",
           "kind": "function",
-          "line": 721,
-          "end_line": 742
+          "line": 743,
+          "end_line": 764
         },
         {
           "name": "repeated_declaration_type",
           "kind": "function",
-          "line": 746,
-          "end_line": 754
+          "line": 768,
+          "end_line": 776
         },
         {
           "name": "subtree",
           "kind": "function",
-          "line": 805,
-          "end_line": 811
+          "line": 827,
+          "end_line": 833
         },
         {
           "name": "unparenthesized",
           "kind": "function",
-          "line": 814,
-          "end_line": 817
+          "line": 836,
+          "end_line": 839
         },
         {
           "name": "impure_syntax",
           "kind": "function",
-          "line": 820,
-          "end_line": 832
+          "line": 842,
+          "end_line": 854
         },
         {
           "name": "written_through_memory",
           "kind": "function",
-          "line": 835,
-          "end_line": 847
+          "line": 857,
+          "end_line": 869
         },
         {
           "name": "referenced_names",
           "kind": "function",
-          "line": 850,
-          "end_line": 861
+          "line": 872,
+          "end_line": 883
         },
         {
           "name": "written_names",
           "kind": "function",
-          "line": 864,
-          "end_line": 877
+          "line": 886,
+          "end_line": 899
         },
         {
           "name": "array_sizes",
           "kind": "function",
-          "line": 880,
-          "end_line": 885
+          "line": 902,
+          "end_line": 907
         },
         {
           "name": "hoist_blocker",
           "kind": "function",
-          "line": 888,
-          "end_line": 946
+          "line": 910,
+          "end_line": 968
         },
         {
           "name": "movable_group",
           "kind": "function",
-          "line": 949,
-          "end_line": 955
+          "line": 971,
+          "end_line": 977
         },
         {
           "name": "declaration_kinds",
           "kind": "function",
-          "line": 958,
-          "end_line": 969
+          "line": 980,
+          "end_line": 991
         },
         {
           "name": "untyped_kind",
           "kind": "function",
-          "line": 972,
-          "end_line": 974
+          "line": 994,
+          "end_line": 996
         },
         {
           "name": "mergeable_specifiers",
           "kind": "function",
-          "line": 977,
-          "end_line": 987
+          "line": 999,
+          "end_line": 1009
         },
         {
           "name": "array_ranks",
           "kind": "function",
-          "line": 990,
-          "end_line": 999
+          "line": 1012,
+          "end_line": 1021
         },
         {
           "name": "merge_declarations",
           "kind": "function",
-          "line": 1002,
-          "end_line": 1024
+          "line": 1024,
+          "end_line": 1046
         },
         {
           "name": "for_parts",
           "kind": "function",
-          "line": 1030,
-          "end_line": 1042
+          "line": 1052,
+          "end_line": 1064
         },
         {
           "name": "is_marker",
           "kind": "function",
-          "line": 1048,
-          "end_line": 1049
+          "line": 1070,
+          "end_line": 1071
         },
         {
           "name": "not_equality_test",
           "kind": "function",
-          "line": 1052,
-          "end_line": 1062
+          "line": 1074,
+          "end_line": 1084
         },
         {
           "name": "hoist_init",
           "kind": "function",
-          "line": 1068,
-          "end_line": 1072
+          "line": 1090,
+          "end_line": 1094
         },
         {
           "name": "condition_to_break",
           "kind": "function",
-          "line": 1075,
-          "end_line": 1092
+          "line": 1097,
+          "end_line": 1114
         },
         {
           "name": "update_to_end",
           "kind": "function",
-          "line": 1095,
-          "end_line": 1100
+          "line": 1117,
+          "end_line": 1122
         },
         {
           "name": "loop_obc",
           "kind": "function",
-          "line": 1103,
-          "end_line": 1108
+          "line": 1125,
+          "end_line": 1130
         },
         {
           "name": "loop_aoc",
           "kind": "function",
-          "line": 1111,
-          "end_line": 1116
+          "line": 1133,
+          "end_line": 1138
         },
         {
           "name": "loop_abo",
           "kind": "function",
-          "line": 1119,
-          "end_line": 1124
+          "line": 1141,
+          "end_line": 1146
         },
         {
           "name": "loop_aoo",
           "kind": "function",
-          "line": 1127,
-          "end_line": 1137
+          "line": 1149,
+          "end_line": 1159
         },
         {
           "name": "loop_obo",
           "kind": "function",
-          "line": 1140,
-          "end_line": 1152
+          "line": 1162,
+          "end_line": 1174
         },
         {
           "name": "loop_ooc",
           "kind": "function",
-          "line": 1155,
-          "end_line": 1167
+          "line": 1177,
+          "end_line": 1189
         },
         {
           "name": "loop_ooo",
           "kind": "function",
-          "line": 1170,
-          "end_line": 1190
+          "line": 1192,
+          "end_line": 1212
         },
         {
           "name": "loop_continues",
           "kind": "function",
-          "line": 1193,
-          "end_line": 1202
+          "line": 1215,
+          "end_line": 1224
         },
         {
           "name": "bare_for",
           "kind": "function",
-          "line": 1206,
-          "end_line": 1211
+          "line": 1228,
+          "end_line": 1233
         },
         {
           "name": "outermost_loop",
           "kind": "function",
-          "line": 1218,
-          "end_line": 1224
+          "line": 1240,
+          "end_line": 1246
         },
         {
           "name": "loop_counter_update",
           "kind": "function",
-          "line": 1230,
-          "end_line": 1242
+          "line": 1252,
+          "end_line": 1264
         },
         {
           "name": "while_to_for",
           "kind": "function",
-          "line": 1245,
-          "end_line": 1280
+          "line": 1267,
+          "end_line": 1302
         },
         {
           "name": "while_to_for.rewrite",
           "kind": "function",
-          "line": 1255,
-          "end_line": 1278
+          "line": 1277,
+          "end_line": 1300
         },
         {
           "name": "switch_to_if",
           "kind": "function",
-          "line": 1286,
-          "end_line": 1307
+          "line": 1308,
+          "end_line": 1329
         },
         {
           "name": "is_equality",
           "kind": "function",
-          "line": 1319,
-          "end_line": 1320
+          "line": 1341,
+          "end_line": 1342
         },
         {
           "name": "expanded_junction",
           "kind": "function",
-          "line": 1323,
-          "end_line": 1336
+          "line": 1345,
+          "end_line": 1358
         },
         {
           "name": "real_comparison",
           "kind": "function",
-          "line": 1340,
-          "end_line": 1352
+          "line": 1362,
+          "end_line": 1374
         },
         {
           "name": "expansion_safe",
           "kind": "function",
-          "line": 1358,
-          "end_line": 1376
+          "line": 1380,
+          "end_line": 1398
         },
         {
           "name": "expansion_safe.test",
           "kind": "function",
-          "line": 1363,
-          "end_line": 1374
+          "line": 1385,
+          "end_line": 1396
         },
         {
           "name": "is_comparison",
           "kind": "function",
-          "line": 1379,
-          "end_line": 1382
+          "line": 1401,
+          "end_line": 1404
         },
         {
           "name": "outside_text_sensitive_operands",
           "kind": "function",
-          "line": 1386,
-          "end_line": 1398
+          "line": 1408,
+          "end_line": 1420
         },
         {
           "name": "contains",
           "kind": "function",
-          "line": 1401,
-          "end_line": 1408
+          "line": 1423,
+          "end_line": 1430
         },
         {
           "name": "has_else",
           "kind": "function",
-          "line": 1411,
-          "end_line": 1412
+          "line": 1433,
+          "end_line": 1434
         },
         {
           "name": "negated_group",
           "kind": "function",
-          "line": 1415,
-          "end_line": 1422
+          "line": 1437,
+          "end_line": 1444
         },
         {
           "name": "negatable",
           "kind": "function",
-          "line": 1425,
-          "end_line": 1432
+          "line": 1447,
+          "end_line": 1454
         },
         {
           "name": "condition_value",
           "kind": "function",
-          "line": 1435,
-          "end_line": 1440
+          "line": 1457,
+          "end_line": 1462
         },
         {
           "name": "nested_branching",
           "kind": "function",
-          "line": 1443,
-          "end_line": 1445
+          "line": 1465,
+          "end_line": 1467
         },
         {
           "name": "braced_if_else",
           "kind": "function",
-          "line": 1448,
-          "end_line": 1472
+          "line": 1470,
+          "end_line": 1494
         },
         {
           "name": "braced_if_else.test",
           "kind": "function",
-          "line": 1451,
-          "end_line": 1468
+          "line": 1473,
+          "end_line": 1490
         },
         {
           "name": "swap_branches",
           "kind": "function",
-          "line": 1475,
-          "end_line": 1491
+          "line": 1497,
+          "end_line": 1513
         },
         {
           "name": "swap_branches.rewrite",
           "kind": "function",
-          "line": 1478,
-          "end_line": 1489
+          "line": 1500,
+          "end_line": 1511
         },
         {
           "name": "movable_conditional",
           "kind": "function",
-          "line": 1494,
-          "end_line": 1514
+          "line": 1516,
+          "end_line": 1536
         },
         {
           "name": "movable_conditional.test",
           "kind": "function",
-          "line": 1497,
-          "end_line": 1510
+          "line": 1519,
+          "end_line": 1532
         },
         {
           "name": "swap_conditional",
           "kind": "function",
-          "line": 1517,
-          "end_line": 1525
+          "line": 1539,
+          "end_line": 1547
         },
         {
           "name": "swap_conditional.rewrite",
           "kind": "function",
-          "line": 1520,
-          "end_line": 1523
+          "line": 1542,
+          "end_line": 1545
         },
         {
           "name": "conjunct",
           "kind": "function",
-          "line": 1543,
-          "end_line": 1547
+          "line": 1565,
+          "end_line": 1569
         },
         {
           "name": "no_else",
           "kind": "function",
-          "line": 1550,
-          "end_line": 1551
+          "line": 1572,
+          "end_line": 1573
         },
         {
           "name": "conjunctive_if",
           "kind": "function",
-          "line": 1555,
-          "end_line": 1568
+          "line": 1577,
+          "end_line": 1590
         },
         {
           "name": "nested_if",
           "kind": "function",
-          "line": 1572,
-          "end_line": 1593
+          "line": 1594,
+          "end_line": 1615
         },
         {
           "name": "split_conjunction",
           "kind": "function",
-          "line": 1596,
-          "end_line": 1599
+          "line": 1618,
+          "end_line": 1621
         },
         {
           "name": "join_conjunction",
           "kind": "function",
-          "line": 1602,
-          "end_line": 1605
+          "line": 1624,
+          "end_line": 1627
         },
         {
           "name": "parameter_with",
           "kind": "function",
-          "line": 1608,
-          "end_line": 1627
+          "line": 1630,
+          "end_line": 1649
         },
         {
           "name": "parameter_with.test",
           "kind": "function",
-          "line": 1612,
-          "end_line": 1625
+          "line": 1634,
+          "end_line": 1647
         },
         {
           "name": "canonical",
           "kind": "function",
-          "line": 1630,
-          "end_line": 1636
+          "line": 1652,
+          "end_line": 1658
         },
         {
           "name": "array_to_pointer_parameter",
           "kind": "function",
-          "line": 1657,
-          "end_line": 1660
+          "line": 1679,
+          "end_line": 1682
         },
         {
           "name": "pointer_to_array_parameter",
           "kind": "function",
-          "line": 1663,
-          "end_line": 1666
+          "line": 1685,
+          "end_line": 1688
         },
         {
           "name": "void_function",
           "kind": "function",
-          "line": 1669,
-          "end_line": 1682
+          "line": 1691,
+          "end_line": 1704
         },
         {
           "name": "statements",
           "kind": "function",
-          "line": 1685,
-          "end_line": 1686
+          "line": 1707,
+          "end_line": 1708
         },
         {
           "name": "ends_with_bare_return",
           "kind": "function",
-          "line": 1690,
-          "end_line": 1694
+          "line": 1712,
+          "end_line": 1716
         },
         {
           "name": "ends_without_return",
           "kind": "function",
-          "line": 1698,
-          "end_line": 1699
+          "line": 1720,
+          "end_line": 1721
         },
         {
           "name": "add_final_return",
           "kind": "function",
-          "line": 1702,
-          "end_line": 1708
+          "line": 1724,
+          "end_line": 1730
         },
         {
           "name": "drop_final_return",
           "kind": "function",
-          "line": 1711,
-          "end_line": 1714
+          "line": 1733,
+          "end_line": 1736
         },
         {
           "name": "void_function_body",
           "kind": "function",
-          "line": 1717,
-          "end_line": 1719
+          "line": 1739,
+          "end_line": 1741
         },
         {
           "name": "in_main",
           "kind": "function",
-          "line": 1722,
-          "end_line": 1733
+          "line": 1744,
+          "end_line": 1755
         },
         {
           "name": "raw_text_free",
           "kind": "function",
-          "line": 1736,
-          "end_line": 1737
+          "line": 1758,
+          "end_line": 1759
         },
         {
           "name": "exits",
           "kind": "function",
-          "line": 1740,
-          "end_line": 1754
+          "line": 1762,
+          "end_line": 1776
         },
         {
           "name": "exiting_if",
           "kind": "function",
-          "line": 1757,
-          "end_line": 1759
+          "line": 1779,
+          "end_line": 1781
         },
         {
           "name": "bare_exiting_if",
           "kind": "function",
-          "line": 1762,
-          "end_line": 1763
+          "line": 1784,
+          "end_line": 1785
         },
         {
           "name": "exiting_if_else",
           "kind": "function",
-          "line": 1766,
-          "end_line": 1768
+          "line": 1788,
+          "end_line": 1790
         },
         {
           "name": "holds_exiting_if",
           "kind": "function",
-          "line": 1771,
-          "end_line": 1772
+          "line": 1793,
+          "end_line": 1794
         },
         {
           "name": "exiting_braced_if_else",
           "kind": "function",
-          "line": 1776,
-          "end_line": 1793
+          "line": 1798,
+          "end_line": 1815
         },
         {
           "name": "trailing_statements",
           "kind": "function",
-          "line": 1796,
-          "end_line": 1801
+          "line": 1818,
+          "end_line": 1823
         },
         {
           "name": "exiting_braced_if_then_rest",
           "kind": "function",
-          "line": 1805,
-          "end_line": 1820
+          "line": 1827,
+          "end_line": 1842
         },
         {
           "name": "reindent",
           "kind": "function",
-          "line": 1823,
-          "end_line": 1825
+          "line": 1845,
+          "end_line": 1847
         },
         {
           "name": "drop_braced_else",
           "kind": "function",
-          "line": 1828,
-          "end_line": 1843
+          "line": 1850,
+          "end_line": 1865
         },
         {
           "name": "add_braced_else",
           "kind": "function",
-          "line": 1846,
-          "end_line": 1858
+          "line": 1868,
+          "end_line": 1880
         },
         {
           "name": "member_dereference",
           "kind": "function",
-          "line": 1864,
-          "end_line": 1873
+          "line": 1886,
+          "end_line": 1895
         },
         {
           "name": "outside_pointer_arithmetic",
           "kind": "function",
-          "line": 1877,
-          "end_line": 1886
+          "line": 1899,
+          "end_line": 1908
         },
         {
           "name": "arrow_access",
           "kind": "function",
-          "line": 1890,
-          "end_line": 1891
+          "line": 1912,
+          "end_line": 1913
         },
         {
           "name": "dereferenced_access",
           "kind": "function",
-          "line": 1895,
-          "end_line": 1904
+          "line": 1917,
+          "end_line": 1926
         },
         {
           "name": "arrow_to_dereference",
           "kind": "function",
-          "line": 1907,
-          "end_line": 1909
+          "line": 1929,
+          "end_line": 1931
         },
         {
           "name": "dereference_to_arrow",
           "kind": "function",
-          "line": 1912,
-          "end_line": 1920
+          "line": 1934,
+          "end_line": 1942
+        },
+        {
+          "name": "file_fact",
+          "kind": "function",
+          "line": 1953,
+          "end_line": 1969
+        },
+        {
+          "name": "file_matches",
+          "kind": "function",
+          "line": 1972,
+          "end_line": 1974
+        },
+        {
+          "name": "no_type_keyword_macro",
+          "kind": "function",
+          "line": 1986,
+          "end_line": 1987
+        },
+        {
+          "name": "no_operator_overloads",
+          "kind": "function",
+          "line": 1991,
+          "end_line": 1992
+        },
+        {
+          "name": "is_snippet",
+          "kind": "function",
+          "line": 1995,
+          "end_line": 1997
+        },
+        {
+          "name": "malloc_declared",
+          "kind": "function",
+          "line": 2001,
+          "end_line": 2002
+        },
+        {
+          "name": "statement_of",
+          "kind": "function",
+          "line": 2005,
+          "end_line": 2012
+        },
+        {
+          "name": "misparsed_template_arguments",
+          "kind": "function",
+          "line": 2015,
+          "end_line": 2027
+        },
+        {
+          "name": "no_template_misparse",
+          "kind": "function",
+          "line": 2031,
+          "end_line": 2039
+        },
+        {
+          "name": "top_level_item",
+          "kind": "function",
+          "line": 2042,
+          "end_line": 2047
+        },
+        {
+          "name": "item_well_formed",
+          "kind": "function",
+          "line": 2051,
+          "end_line": 2052
+        },
+        {
+          "name": "subscript_indices",
+          "kind": "function",
+          "line": 2059,
+          "end_line": 2070
+        },
+        {
+          "name": "tight_indices",
+          "kind": "function",
+          "line": 2074,
+          "end_line": 2085
+        },
+        {
+          "name": "prefix_safe_subscript",
+          "kind": "function",
+          "line": 2089,
+          "end_line": 2099
+        },
+        {
+          "name": "no_comment_start",
+          "kind": "function",
+          "line": 2103,
+          "end_line": 2111
+        },
+        {
+          "name": "has_side_effects",
+          "kind": "function",
+          "line": 2114,
+          "end_line": 2115
+        },
+        {
+          "name": "pure_target",
+          "kind": "function",
+          "line": 2119,
+          "end_line": 2120
+        },
+        {
+          "name": "in_statement_list",
+          "kind": "function",
+          "line": 2124,
+          "end_line": 2125
         },
         {
           "name": "c_family_rules",
           "kind": "function",
-          "line": 1926,
-          "end_line": 2037
+          "line": 2131,
+          "end_line": 2259
         },
         {
           "name": "return_value",
           "kind": "function",
-          "line": 2050,
-          "end_line": 2056
+          "line": 2272,
+          "end_line": 2278
         },
         {
           "name": "returns_decltype",
           "kind": "function",
-          "line": 2059,
-          "end_line": 2067
+          "line": 2281,
+          "end_line": 2289
         },
         {
           "name": "outside_all_comparisons",
           "kind": "function",
-          "line": 2074,
-          "end_line": 2082
+          "line": 2296,
+          "end_line": 2304
         },
         {
           "name": "logical",
           "kind": "function",
-          "line": 2085,
-          "end_line": 2087
+          "line": 2307,
+          "end_line": 2309
         },
         {
           "name": "holds_operation",
           "kind": "function",
-          "line": 2090,
-          "end_line": 2099
+          "line": 2312,
+          "end_line": 2321
         },
         {
           "name": "plain_return",
           "kind": "function",
-          "line": 2103,
-          "end_line": 2107
+          "line": 2325,
+          "end_line": 2329
         },
         {
           "name": "parenthesized_return",
           "kind": "function",
-          "line": 2111,
-          "end_line": 2121
+          "line": 2333,
+          "end_line": 2343
         },
         {
           "name": "add_return_parentheses",
           "kind": "function",
-          "line": 2124,
-          "end_line": 2127
+          "line": 2346,
+          "end_line": 2349
         },
         {
           "name": "drop_return_parentheses",
           "kind": "function",
-          "line": 2130,
-          "end_line": 2133
+          "line": 2352,
+          "end_line": 2355
         },
         {
           "name": "literal_operation",
           "kind": "function",
-          "line": 2139,
-          "end_line": 2170
+          "line": 2361,
+          "end_line": 2392
         },
         {
           "name": "literal_operation.test",
           "kind": "function",
-          "line": 2145,
-          "end_line": 2167
+          "line": 2367,
+          "end_line": 2389
         },
         {
           "name": "swap_operands",
           "kind": "function",
-          "line": 2173,
-          "end_line": 2176
+          "line": 2395,
+          "end_line": 2398
         },
         {
           "name": "assigned_value",
           "kind": "function",
-          "line": 2182,
-          "end_line": 2188
+          "line": 2404,
+          "end_line": 2410
         },
         {
           "name": "assigned_operation",
           "kind": "function",
-          "line": 2191,
-          "end_line": 2204
+          "line": 2413,
+          "end_line": 2426
         },
         {
           "name": "assigned_operation.test",
           "kind": "function",
-          "line": 2196,
-          "end_line": 2202
+          "line": 2418,
+          "end_line": 2424
         },
         {
           "name": "assignment_parentheses",
           "kind": "function",
-          "line": 2207,
-          "end_line": 2219
+          "line": 2429,
+          "end_line": 2441
         },
         {
           "name": "assignment_parentheses.test",
           "kind": "function",
-          "line": 2210,
-          "end_line": 2216
+          "line": 2432,
+          "end_line": 2438
         },
         {
           "name": "drop_assigned_parentheses",
           "kind": "function",
-          "line": 2222,
-          "end_line": 2224
+          "line": 2444,
+          "end_line": 2446
         },
         {
           "name": "add_assigned_parentheses",
           "kind": "function",
-          "line": 2227,
-          "end_line": 2229
+          "line": 2449,
+          "end_line": 2451
         },
         {
           "name": "c_extension_rules",
           "kind": "function",
-          "line": 2235,
-          "end_line": 2275
+          "line": 2457,
+          "end_line": 2497
         }
       ],
       "imports": [
@@ -3467,6 +3610,13 @@
           "line": 10
         },
         {
+          "module": "collections",
+          "names": [
+            "OrderedDict"
+          ],
+          "line": 11
+        },
+        {
           "module": "cllmark.rules.braces",
           "names": [
             "add_braces",
@@ -3474,7 +3624,7 @@
             "braced_layout",
             "drop_braces"
           ],
-          "line": 12
+          "line": 13
         },
         {
           "module": "cllmark.rules.engine",
@@ -3491,7 +3641,7 @@
             "text",
             "well_formed"
           ],
-          "line": 13
+          "line": 14
         }
       ],
       "local_dependencies": [
@@ -3503,128 +3653,230 @@
     {
       "path": "cllmark/rules/cpp.py",
       "module": "cllmark.rules.cpp",
-      "sha256": "826b4d1ba1d68b64bac6297115ea4f3c62a8e214d453117ff7c89063ad6dd198",
-      "line_count": 293,
+      "sha256": "6ce2c31930c22d97df4d437760f2563bc2f06cd8d095a82aeea0236ba8b22ad3",
+      "line_count": 612,
       "symbols": [
         {
-          "name": "declared_types",
+          "name": "declaration_names",
           "kind": "function",
-          "line": 11,
-          "end_line": 30
+          "line": 85,
+          "end_line": 90
         },
         {
-          "name": "format_of",
+          "name": "declarator_kind",
           "kind": "function",
-          "line": 33,
-          "end_line": 46
+          "line": 93,
+          "end_line": 108
         },
         {
-          "name": "stream_to_format",
+          "name": "declared_kinds",
           "kind": "function",
-          "line": 49,
-          "end_line": 110
+          "line": 111,
+          "end_line": 134
         },
         {
-          "name": "cout_statement",
+          "name": "visible_kinds",
           "kind": "function",
-          "line": 114,
-          "end_line": 115
+          "line": 137,
+          "end_line": 175
         },
         {
-          "name": "cin_statement",
+          "name": "promoted",
           "kind": "function",
-          "line": 119,
-          "end_line": 120
+          "line": 178,
+          "end_line": 182
         },
         {
-          "name": "stream_head",
+          "name": "expression_kind",
           "kind": "function",
-          "line": 123,
-          "end_line": 129
+          "line": 185,
+          "end_line": 212
+        },
+        {
+          "name": "lvalue_path",
+          "kind": "function",
+          "line": 215,
+          "end_line": 223
+        },
+        {
+          "name": "stream_items",
+          "kind": "function",
+          "line": 226,
+          "end_line": 238
+        },
+        {
+          "name": "literal_content",
+          "kind": "function",
+          "line": 241,
+          "end_line": 244
+        },
+        {
+          "name": "call_values",
+          "kind": "function",
+          "line": 247,
+          "end_line": 250
+        },
+        {
+          "name": "printf_operands",
+          "kind": "function",
+          "line": 253,
+          "end_line": 286
+        },
+        {
+          "name": "cout_format",
+          "kind": "function",
+          "line": 289,
+          "end_line": 311
+        },
+        {
+          "name": "scanf_operands",
+          "kind": "function",
+          "line": 314,
+          "end_line": 340
+        },
+        {
+          "name": "cin_format",
+          "kind": "function",
+          "line": 343,
+          "end_line": 359
+        },
+        {
+          "name": "synchronized_streams",
+          "kind": "function",
+          "line": 363,
+          "end_line": 364
+        },
+        {
+          "name": "plain_io_names",
+          "kind": "function",
+          "line": 368,
+          "end_line": 369
+        },
+        {
+          "name": "iostream_available",
+          "kind": "function",
+          "line": 373,
+          "end_line": 379
+        },
+        {
+          "name": "stdio_available",
+          "kind": "function",
+          "line": 383,
+          "end_line": 386
+        },
+        {
+          "name": "default_stream_format",
+          "kind": "function",
+          "line": 390,
+          "end_line": 391
+        },
+        {
+          "name": "stray_cin",
+          "kind": "function",
+          "line": 394,
+          "end_line": 404
+        },
+        {
+          "name": "cin_only_in_statements",
+          "kind": "function",
+          "line": 408,
+          "end_line": 409
+        },
+        {
+          "name": "call_statement",
+          "kind": "function",
+          "line": 413,
+          "end_line": 414
+        },
+        {
+          "name": "convertible",
+          "kind": "function",
+          "line": 417,
+          "end_line": 418
         },
         {
           "name": "call_to",
           "kind": "function",
-          "line": 132,
-          "end_line": 139
+          "line": 421,
+          "end_line": 428
         },
         {
           "name": "printf_to_cout",
           "kind": "function",
-          "line": 142,
-          "end_line": 163
+          "line": 431,
+          "end_line": 436
         },
         {
           "name": "cout_to_printf",
           "kind": "function",
-          "line": 166,
-          "end_line": 170
+          "line": 439,
+          "end_line": 444
         },
         {
           "name": "scanf_to_cin",
           "kind": "function",
-          "line": 173,
-          "end_line": 180
+          "line": 447,
+          "end_line": 452
         },
         {
           "name": "cin_to_scanf",
           "kind": "function",
-          "line": 183,
-          "end_line": 187
+          "line": 455,
+          "end_line": 460
         },
         {
           "name": "simple_typedef",
           "kind": "function",
-          "line": 196,
-          "end_line": 202
+          "line": 469,
+          "end_line": 475
         },
         {
           "name": "simple_alias",
           "kind": "function",
-          "line": 206,
-          "end_line": 211
+          "line": 479,
+          "end_line": 484
         },
         {
           "name": "typedef_to_using",
           "kind": "function",
-          "line": 214,
-          "end_line": 216
+          "line": 487,
+          "end_line": 489
         },
         {
           "name": "using_to_typedef",
           "kind": "function",
-          "line": 219,
-          "end_line": 221
+          "line": 492,
+          "end_line": 494
         },
         {
           "name": "not_stream_operand",
           "kind": "function",
-          "line": 228,
-          "end_line": 229
+          "line": 501,
+          "end_line": 502
         },
         {
           "name": "c_style_cast",
           "kind": "function",
-          "line": 233,
-          "end_line": 247
+          "line": 506,
+          "end_line": 520
         },
         {
           "name": "functional_cast",
           "kind": "function",
-          "line": 251,
-          "end_line": 256
+          "line": 524,
+          "end_line": 529
         },
         {
           "name": "to_functional_cast",
           "kind": "function",
-          "line": 259,
-          "end_line": 263
+          "line": 532,
+          "end_line": 536
         },
         {
           "name": "to_c_style_cast",
           "kind": "function",
-          "line": 266,
-          "end_line": 270
+          "line": 539,
+          "end_line": 543
         }
       ],
       "imports": [
@@ -3636,12 +3888,15 @@
         {
           "module": "cllmark.rules.c",
           "names": [
-            "array_dimension",
             "c_extension_rules",
             "c_family_rules",
-            "contain_id",
+            "file_fact",
+            "file_matches",
+            "is_snippet",
+            "no_type_keyword_macro",
             "nodes",
-            "outside_text_sensitive_operands"
+            "outside_text_sensitive_operands",
+            "subtree"
           ],
           "line": 5
         },
@@ -3654,7 +3909,7 @@
             "text",
             "well_formed"
           ],
-          "line": 6
+          "line": 16
         }
       ],
       "local_dependencies": [
@@ -5163,782 +5418,836 @@
     {
       "path": "cllmark/rules/python.py",
       "module": "cllmark.rules.python",
-      "sha256": "2bb509430196742084f276e834082c51cc1b240f18a8cd1a83bece7bc5245dde",
-      "line_count": 1395,
+      "sha256": "c546eb90b5bb303d9bbe59b297a7b8265337734d51ca40866d5ae5d77c48a968",
+      "line_count": 1508,
       "symbols": [
         {
           "name": "child_count",
           "kind": "function",
-          "line": 25,
-          "end_line": 26
+          "line": 26,
+          "end_line": 27
         },
         {
           "name": "nodes",
           "kind": "function",
-          "line": 29,
-          "end_line": 30
+          "line": 30,
+          "end_line": 31
+        },
+        {
+          "name": "is_word_byte",
+          "kind": "function",
+          "line": 41,
+          "end_line": 43
+        },
+        {
+          "name": "edge_leaf",
+          "kind": "function",
+          "line": 46,
+          "end_line": 56
+        },
+        {
+          "name": "touches_word_before",
+          "kind": "function",
+          "line": 59,
+          "end_line": 61
+        },
+        {
+          "name": "touches_word_after",
+          "kind": "function",
+          "line": 64,
+          "end_line": 66
         },
         {
           "name": "keyword_arguments",
           "kind": "function",
-          "line": 38,
-          "end_line": 44
+          "line": 79,
+          "end_line": 85
         },
         {
           "name": "passes",
           "kind": "function",
-          "line": 47,
-          "end_line": 54
+          "line": 88,
+          "end_line": 95
         },
         {
           "name": "add_keyword",
           "kind": "function",
-          "line": 57,
-          "end_line": 67
+          "line": 98,
+          "end_line": 108
         },
         {
           "name": "add_keyword.rewrite",
           "kind": "function",
-          "line": 60,
-          "end_line": 65
+          "line": 101,
+          "end_line": 106
         },
         {
           "name": "drop_keyword",
           "kind": "function",
-          "line": 70,
-          "end_line": 92
+          "line": 111,
+          "end_line": 133
         },
         {
           "name": "drop_keyword.rewrite",
           "kind": "function",
-          "line": 73,
-          "end_line": 90
+          "line": 114,
+          "end_line": 131
         },
         {
           "name": "call_to",
           "kind": "function",
-          "line": 98,
-          "end_line": 107
+          "line": 139,
+          "end_line": 148
         },
         {
           "name": "first_argument",
           "kind": "function",
-          "line": 110,
-          "end_line": 111
+          "line": 151,
+          "end_line": 152
         },
         {
           "name": "first_argument_is",
           "kind": "function",
-          "line": 114,
-          "end_line": 117
+          "line": 155,
+          "end_line": 158
         },
         {
           "name": "not_argument_of",
           "kind": "function",
-          "line": 120,
-          "end_line": 122
+          "line": 161,
+          "end_line": 163
         },
         {
           "name": "wrap_in",
           "kind": "function",
-          "line": 125,
-          "end_line": 126
+          "line": 166,
+          "end_line": 167
         },
         {
           "name": "unwrap_call",
           "kind": "function",
-          "line": 129,
-          "end_line": 132
+          "line": 170,
+          "end_line": 173
         },
         {
           "name": "add_range_start",
           "kind": "function",
-          "line": 135,
-          "end_line": 140
+          "line": 176,
+          "end_line": 181
         },
         {
           "name": "del_range_start",
           "kind": "function",
-          "line": 143,
-          "end_line": 146
+          "line": 184,
+          "end_line": 187
         },
         {
           "name": "slice_halves",
           "kind": "function",
-          "line": 158,
-          "end_line": 165
+          "line": 199,
+          "end_line": 206
         },
         {
           "name": "negative_count",
           "kind": "function",
-          "line": 168,
-          "end_line": 170
+          "line": 209,
+          "end_line": 211
         },
         {
           "name": "add_slice_index",
           "kind": "function",
-          "line": 173,
-          "end_line": 179
+          "line": 214,
+          "end_line": 220
         },
         {
           "name": "del_slice_index",
           "kind": "function",
-          "line": 182,
-          "end_line": 190
+          "line": 223,
+          "end_line": 231
         },
         {
           "name": "not_triple_quoted",
           "kind": "function",
-          "line": 196,
-          "end_line": 198
+          "line": 237,
+          "end_line": 239
         },
         {
           "name": "requote",
           "kind": "function",
-          "line": 201,
-          "end_line": 220
+          "line": 242,
+          "end_line": 261
         },
         {
           "name": "requote.rewrite",
           "kind": "function",
-          "line": 205,
-          "end_line": 218
+          "line": 246,
+          "end_line": 259
         },
         {
           "name": "literal_without_interpolation",
           "kind": "function",
-          "line": 223,
-          "end_line": 236
+          "line": 264,
+          "end_line": 277
         },
         {
           "name": "literal_without_interpolation.test",
           "kind": "function",
-          "line": 224,
-          "end_line": 234
+          "line": 265,
+          "end_line": 275
         },
         {
           "name": "set_prefix",
           "kind": "function",
-          "line": 239,
-          "end_line": 244
+          "line": 280,
+          "end_line": 285
         },
         {
           "name": "set_prefix.rewrite",
           "kind": "function",
-          "line": 240,
-          "end_line": 242
+          "line": 281,
+          "end_line": 283
         },
         {
           "name": "operator_in",
           "kind": "function",
-          "line": 255,
-          "end_line": 258
+          "line": 296,
+          "end_line": 299
         },
         {
           "name": "operands",
           "kind": "function",
-          "line": 261,
-          "end_line": 262
+          "line": 302,
+          "end_line": 303
         },
         {
           "name": "negated",
           "kind": "function",
-          "line": 266,
-          "end_line": 274
+          "line": 307,
+          "end_line": 315
         },
         {
           "name": "truth_tested",
           "kind": "function",
-          "line": 286,
-          "end_line": 301
+          "line": 327,
+          "end_line": 342
         },
         {
           "name": "side_effect_free",
           "kind": "function",
-          "line": 310,
-          "end_line": 319
+          "line": 351,
+          "end_line": 360
         },
         {
           "name": "numeric_operand",
           "kind": "function",
-          "line": 322,
-          "end_line": 328
+          "line": 363,
+          "end_line": 369
         },
         {
           "name": "pure_comparison",
           "kind": "function",
-          "line": 332,
-          "end_line": 338
+          "line": 373,
+          "end_line": 379
         },
         {
           "name": "numeric_assignments",
           "kind": "function",
-          "line": 341,
-          "end_line": 355
+          "line": 382,
+          "end_line": 396
         },
         {
           "name": "numeric_variable",
           "kind": "function",
-          "line": 359,
-          "end_line": 366
+          "line": 400,
+          "end_line": 407
         },
         {
           "name": "expanded_junction",
           "kind": "function",
-          "line": 369,
-          "end_line": 385
+          "line": 410,
+          "end_line": 426
         },
         {
           "name": "in_expanded_comparison",
           "kind": "function",
-          "line": 389,
-          "end_line": 396
+          "line": 430,
+          "end_line": 437
         },
         {
           "name": "expanded_comparison",
           "kind": "function",
-          "line": 400,
-          "end_line": 403
+          "line": 441,
+          "end_line": 444
         },
         {
           "name": "negate_equality",
           "kind": "function",
-          "line": 406,
-          "end_line": 415
+          "line": 447,
+          "end_line": 456
         },
         {
           "name": "negate_equality.rewrite",
           "kind": "function",
-          "line": 409,
-          "end_line": 413
+          "line": 450,
+          "end_line": 454
         },
         {
           "name": "negated_test",
           "kind": "function",
-          "line": 418,
-          "end_line": 434
+          "line": 459,
+          "end_line": 475
         },
         {
           "name": "negated_test.test",
           "kind": "function",
-          "line": 421,
-          "end_line": 432
+          "line": 462,
+          "end_line": 473
         },
         {
           "name": "remove_negation",
           "kind": "function",
-          "line": 437,
-          "end_line": 444
+          "line": 478,
+          "end_line": 485
         },
         {
           "name": "remove_negation.rewrite",
           "kind": "function",
-          "line": 440,
-          "end_line": 442
+          "line": 481,
+          "end_line": 483
         },
         {
           "name": "mirror",
           "kind": "function",
-          "line": 447,
-          "end_line": 457
+          "line": 488,
+          "end_line": 498
         },
         {
           "name": "mirror.rewrite",
           "kind": "function",
-          "line": 451,
-          "end_line": 455
+          "line": 492,
+          "end_line": 496
         },
         {
           "name": "expand_comparison",
           "kind": "function",
-          "line": 469,
-          "end_line": 472
+          "line": 510,
+          "end_line": 513
         },
         {
           "name": "contract_comparison",
           "kind": "function",
-          "line": 475,
-          "end_line": 478
+          "line": 516,
+          "end_line": 519
         },
         {
           "name": "hash_at_least",
           "kind": "function",
-          "line": 481,
-          "end_line": 484
+          "line": 522,
+          "end_line": 525
         },
         {
           "name": "hash_order",
           "kind": "function",
-          "line": 487,
-          "end_line": 498
+          "line": 528,
+          "end_line": 539
         },
         {
           "name": "hash_order.rewrite",
           "kind": "function",
-          "line": 490,
-          "end_line": 496
+          "line": 531,
+          "end_line": 537
+        },
+        {
+          "name": "not_chained",
+          "kind": "function",
+          "line": 548,
+          "end_line": 549
         },
         {
           "name": "to_augmented",
           "kind": "function",
-          "line": 506,
-          "end_line": 511
+          "line": 552,
+          "end_line": 557
         },
         {
           "name": "from_augmented",
           "kind": "function",
-          "line": 525,
-          "end_line": 537
+          "line": 571,
+          "end_line": 583
+        },
+        {
+          "name": "survives_space_removal",
+          "kind": "function",
+          "line": 589,
+          "end_line": 594
         },
         {
           "name": "tuple_assignment",
           "kind": "function",
-          "line": 543,
-          "end_line": 550
+          "line": 597,
+          "end_line": 606
         },
         {
           "name": "tuple_assignment.test",
           "kind": "function",
-          "line": 544,
-          "end_line": 548
+          "line": 598,
+          "end_line": 604
+        },
+        {
+          "name": "elements",
+          "kind": "function",
+          "line": 609,
+          "end_line": 613
         },
         {
           "name": "unpacked",
           "kind": "function",
-          "line": 553,
-          "end_line": 558
+          "line": 616,
+          "end_line": 620
+        },
+        {
+          "name": "names_in",
+          "kind": "function",
+          "line": 626,
+          "end_line": 634
+        },
+        {
+          "name": "sequentially_assignable",
+          "kind": "function",
+          "line": 638,
+          "end_line": 652
         },
         {
           "name": "split_assignment",
           "kind": "function",
-          "line": 561,
-          "end_line": 567
+          "line": 655,
+          "end_line": 665
         },
         {
           "name": "chain_assignment",
           "kind": "function",
-          "line": 570,
-          "end_line": 573
+          "line": 668,
+          "end_line": 671
         },
         {
           "name": "returns",
           "kind": "function",
-          "line": 581,
-          "end_line": 584
+          "line": 679,
+          "end_line": 682
         },
         {
           "name": "strip_parentheses",
           "kind": "function",
-          "line": 587,
-          "end_line": 595
+          "line": 685,
+          "end_line": 693
         },
         {
           "name": "outside_text_sensitive_operands",
           "kind": "function",
-          "line": 611,
-          "end_line": 623
+          "line": 709,
+          "end_line": 721
         },
         {
           "name": "binds",
           "kind": "function",
-          "line": 626,
-          "end_line": 668
+          "line": 724,
+          "end_line": 766
         },
         {
           "name": "builtin_call",
           "kind": "function",
-          "line": 671,
-          "end_line": 691
+          "line": 769,
+          "end_line": 789
         },
         {
           "name": "builtin_call.test",
           "kind": "function",
-          "line": 674,
-          "end_line": 687
+          "line": 772,
+          "end_line": 785
         },
         {
           "name": "last_argument",
           "kind": "function",
-          "line": 694,
-          "end_line": 695
+          "line": 792,
+          "end_line": 793
         },
         {
           "name": "append_argument",
           "kind": "function",
-          "line": 698,
-          "end_line": 700
+          "line": 796,
+          "end_line": 798
         },
         {
           "name": "drop_last_argument",
           "kind": "function",
-          "line": 703,
-          "end_line": 706
+          "line": 801,
+          "end_line": 804
         },
         {
           "name": "argument_text",
           "kind": "function",
-          "line": 709,
-          "end_line": 714
+          "line": 807,
+          "end_line": 812
         },
         {
           "name": "two_word_test",
           "kind": "function",
-          "line": 717,
-          "end_line": 728
+          "line": 815,
+          "end_line": 826
         },
         {
           "name": "negated_comparison",
           "kind": "function",
-          "line": 731,
-          "end_line": 742
+          "line": 829,
+          "end_line": 840
         },
         {
           "name": "lift_not",
           "kind": "function",
-          "line": 745,
-          "end_line": 747
+          "line": 843,
+          "end_line": 845
         },
         {
           "name": "sink_not",
           "kind": "function",
-          "line": 750,
-          "end_line": 757
+          "line": 848,
+          "end_line": 855
         },
         {
           "name": "sink_not.rewrite",
           "kind": "function",
-          "line": 753,
-          "end_line": 755
+          "line": 851,
+          "end_line": 853
         },
         {
           "name": "plain_or_negated",
           "kind": "function",
-          "line": 760,
-          "end_line": 763
+          "line": 858,
+          "end_line": 861
         },
         {
           "name": "contains",
           "kind": "function",
-          "line": 766,
-          "end_line": 773
+          "line": 864,
+          "end_line": 871
         },
         {
           "name": "has_else",
           "kind": "function",
-          "line": 776,
-          "end_line": 777
+          "line": 874,
+          "end_line": 875
         },
         {
           "name": "nested_branching",
           "kind": "function",
-          "line": 780,
-          "end_line": 782
+          "line": 878,
+          "end_line": 880
         },
         {
           "name": "if_else",
           "kind": "function",
-          "line": 785,
-          "end_line": 804
+          "line": 883,
+          "end_line": 902
         },
         {
           "name": "if_else.test",
           "kind": "function",
-          "line": 791,
-          "end_line": 802
+          "line": 889,
+          "end_line": 900
         },
         {
           "name": "swap_branches",
           "kind": "function",
-          "line": 807,
-          "end_line": 824
+          "line": 905,
+          "end_line": 922
         },
         {
           "name": "swap_branches.rewrite",
           "kind": "function",
-          "line": 810,
-          "end_line": 822
+          "line": 908,
+          "end_line": 920
         },
         {
           "name": "conditional",
           "kind": "function",
-          "line": 827,
-          "end_line": 840
+          "line": 925,
+          "end_line": 938
         },
         {
           "name": "swap_conditional",
           "kind": "function",
-          "line": 843,
-          "end_line": 851
+          "line": 941,
+          "end_line": 949
         },
         {
           "name": "swap_conditional.rewrite",
           "kind": "function",
-          "line": 846,
-          "end_line": 849
+          "line": 944,
+          "end_line": 947
         },
         {
           "name": "unwrap",
           "kind": "function",
-          "line": 866,
-          "end_line": 869
+          "line": 964,
+          "end_line": 967
         },
         {
           "name": "equality_core",
           "kind": "function",
-          "line": 872,
-          "end_line": 877
+          "line": 970,
+          "end_line": 975
         },
         {
           "name": "negatable_condition",
           "kind": "function",
-          "line": 880,
-          "end_line": 891
+          "line": 978,
+          "end_line": 989
         },
         {
           "name": "plain_while",
           "kind": "function",
-          "line": 894,
-          "end_line": 901
+          "line": 997,
+          "end_line": 1004
         },
         {
           "name": "while_true_with_break",
           "kind": "function",
-          "line": 904,
-          "end_line": 919
+          "line": 1007,
+          "end_line": 1022
         },
         {
           "name": "to_while_true",
           "kind": "function",
-          "line": 922,
-          "end_line": 932
+          "line": 1025,
+          "end_line": 1035
         },
         {
           "name": "from_while_true",
           "kind": "function",
-          "line": 935,
-          "end_line": 943
+          "line": 1038,
+          "end_line": 1046
         },
         {
           "name": "has_multiline_string",
           "kind": "function",
-          "line": 946,
-          "end_line": 953
+          "line": 1049,
+          "end_line": 1056
         },
         {
           "name": "reindent",
           "kind": "function",
-          "line": 956,
-          "end_line": 959
+          "line": 1059,
+          "end_line": 1062
         },
         {
           "name": "last_in_block",
           "kind": "function",
-          "line": 962,
-          "end_line": 966
+          "line": 1065,
+          "end_line": 1069
         },
         {
           "name": "exits",
           "kind": "function",
-          "line": 969,
-          "end_line": 986
+          "line": 1072,
+          "end_line": 1089
         },
         {
           "name": "exiting_if",
           "kind": "function",
-          "line": 989,
-          "end_line": 990
+          "line": 1092,
+          "end_line": 1093
         },
         {
           "name": "bare_exiting_if",
           "kind": "function",
-          "line": 993,
-          "end_line": 994
+          "line": 1096,
+          "end_line": 1097
         },
         {
           "name": "exiting_if_else",
           "kind": "function",
-          "line": 997,
-          "end_line": 999
+          "line": 1100,
+          "end_line": 1102
         },
         {
           "name": "siblings",
           "kind": "function",
-          "line": 1002,
-          "end_line": 1003
+          "line": 1105,
+          "end_line": 1106
         },
         {
           "name": "holds_exiting_if",
           "kind": "function",
-          "line": 1006,
-          "end_line": 1007
+          "line": 1109,
+          "end_line": 1110
         },
         {
           "name": "single_exiting_if_else",
           "kind": "function",
-          "line": 1011,
-          "end_line": 1022
+          "line": 1114,
+          "end_line": 1125
         },
         {
           "name": "single_exiting_if_then_rest",
           "kind": "function",
-          "line": 1026,
-          "end_line": 1036
+          "line": 1129,
+          "end_line": 1139
         },
         {
           "name": "drop_else",
           "kind": "function",
-          "line": 1039,
-          "end_line": 1046
+          "line": 1142,
+          "end_line": 1149
         },
         {
           "name": "add_else",
           "kind": "function",
-          "line": 1049,
-          "end_line": 1057
+          "line": 1152,
+          "end_line": 1160
         },
         {
           "name": "outside_comparisons",
           "kind": "function",
-          "line": 1160,
-          "end_line": 1166
+          "line": 1273,
+          "end_line": 1279
         },
         {
           "name": "single_line",
           "kind": "function",
-          "line": 1169,
-          "end_line": 1170
+          "line": 1282,
+          "end_line": 1283
         },
         {
           "name": "keyword_value",
           "kind": "function",
-          "line": 1173,
-          "end_line": 1184
+          "line": 1286,
+          "end_line": 1297
         },
         {
           "name": "plain_return",
           "kind": "function",
-          "line": 1200,
-          "end_line": 1202
+          "line": 1313,
+          "end_line": 1315
         },
         {
           "name": "directly_parenthesized",
           "kind": "function",
-          "line": 1205,
-          "end_line": 1209
+          "line": 1318,
+          "end_line": 1322
         },
         {
           "name": "parenthesized_return",
           "kind": "function",
-          "line": 1213,
-          "end_line": 1214
+          "line": 1326,
+          "end_line": 1327
         },
         {
           "name": "add_parentheses_to",
           "kind": "function",
-          "line": 1217,
-          "end_line": 1222
+          "line": 1330,
+          "end_line": 1335
         },
         {
           "name": "add_parentheses_to.rewrite",
           "kind": "function",
-          "line": 1218,
-          "end_line": 1220
+          "line": 1331,
+          "end_line": 1333
         },
         {
           "name": "drop_parentheses_of",
           "kind": "function",
-          "line": 1225,
-          "end_line": 1230
+          "line": 1338,
+          "end_line": 1343
         },
         {
           "name": "drop_parentheses_of.rewrite",
           "kind": "function",
-          "line": 1226,
-          "end_line": 1228
+          "line": 1339,
+          "end_line": 1341
         },
         {
           "name": "holds_operation",
           "kind": "function",
-          "line": 1236,
-          "end_line": 1245
+          "line": 1349,
+          "end_line": 1358
         },
         {
           "name": "literal_operation",
           "kind": "function",
-          "line": 1251,
-          "end_line": 1267
+          "line": 1364,
+          "end_line": 1380
         },
         {
           "name": "literal_operation.test",
           "kind": "function",
-          "line": 1252,
-          "end_line": 1264
+          "line": 1365,
+          "end_line": 1377
         },
         {
           "name": "swap_operands",
           "kind": "function",
-          "line": 1270,
-          "end_line": 1273
+          "line": 1383,
+          "end_line": 1386
         },
         {
           "name": "without_else",
           "kind": "function",
-          "line": 1287,
-          "end_line": 1289
+          "line": 1400,
+          "end_line": 1402
         },
         {
           "name": "plain_condition",
           "kind": "function",
-          "line": 1293,
-          "end_line": 1295
+          "line": 1406,
+          "end_line": 1408
         },
         {
           "name": "parenthesized_condition",
           "kind": "function",
-          "line": 1299,
-          "end_line": 1300
+          "line": 1412,
+          "end_line": 1413
         },
         {
           "name": "collection_elements",
           "kind": "function",
-          "line": 1306,
-          "end_line": 1307
+          "line": 1419,
+          "end_line": 1420
         },
         {
           "name": "without_trailing_comma",
           "kind": "function",
-          "line": 1311,
-          "end_line": 1318
+          "line": 1424,
+          "end_line": 1431
         },
         {
           "name": "with_trailing_comma",
           "kind": "function",
-          "line": 1322,
-          "end_line": 1333
+          "line": 1435,
+          "end_line": 1446
         },
         {
           "name": "assigned_value",
           "kind": "function",
-          "line": 1339,
-          "end_line": 1345
+          "line": 1452,
+          "end_line": 1458
         },
         {
           "name": "assigned_operation",
           "kind": "function",
-          "line": 1348,
-          "end_line": 1354
+          "line": 1461,
+          "end_line": 1467
         },
         {
           "name": "plain_assigned_operation",
           "kind": "function",
-          "line": 1358,
-          "end_line": 1359
+          "line": 1471,
+          "end_line": 1472
         },
         {
           "name": "parenthesized_assigned_operation",
           "kind": "function",
-          "line": 1363,
-          "end_line": 1365
+          "line": 1476,
+          "end_line": 1478
         }
       ],
       "imports": [
@@ -5946,6 +6255,11 @@
           "module": "hashlib",
           "names": [],
           "line": 8
+        },
+        {
+          "module": "re",
+          "names": [],
+          "line": 9
         },
         {
           "module": "cllmark.rules.engine",
@@ -5962,7 +6276,7 @@
             "text",
             "well_formed"
           ],
-          "line": 10
+          "line": 11
         }
       ],
       "local_dependencies": [
@@ -6284,188 +6598,266 @@
     {
       "path": "tests/test_codenet.py",
       "module": "tests.test_codenet",
-      "sha256": "baae2916cd06040e86044c8b805fee0be2d5fae26d8523ad1a5a53a6f589d359",
-      "line_count": 372,
+      "sha256": "551f440ab49693a2ff1fe94464f75d83023da66dbe07acb6bc960b3d8545c21e",
+      "line_count": 546,
       "symbols": [
         {
           "name": "quiet",
           "kind": "function",
-          "line": 20,
-          "end_line": 22
+          "line": 23,
+          "end_line": 25
         },
         {
           "name": "load_tool",
           "kind": "function",
-          "line": 25,
-          "end_line": 29
+          "line": 28,
+          "end_line": 32
         },
         {
           "name": "problem",
           "kind": "function",
-          "line": 62,
-          "end_line": 68
+          "line": 65,
+          "end_line": 71
         },
         {
           "name": "CheckerTests",
           "kind": "class",
-          "line": 71,
-          "end_line": 92
+          "line": 74,
+          "end_line": 95
         },
         {
           "name": "CheckerTests.test_token_checker",
           "kind": "function",
-          "line": 72,
-          "end_line": 78
+          "line": 75,
+          "end_line": 81
         },
         {
           "name": "CheckerTests.test_float_tolerance",
           "kind": "function",
-          "line": 80,
-          "end_line": 87
+          "line": 83,
+          "end_line": 90
         },
         {
           "name": "CheckerTests.test_unknown_checker",
           "kind": "function",
-          "line": 89,
-          "end_line": 92
+          "line": 92,
+          "end_line": 95
         },
         {
           "name": "OracleTests",
           "kind": "class",
-          "line": 95,
-          "end_line": 173
+          "line": 98,
+          "end_line": 176
         },
         {
           "name": "OracleTests.evaluate",
           "kind": "function",
-          "line": 96,
-          "end_line": 108
+          "line": 99,
+          "end_line": 111
         },
         {
           "name": "OracleTests.test_pass_in_every_language",
           "kind": "function",
-          "line": 110,
-          "end_line": 122
+          "line": 113,
+          "end_line": 125
         },
         {
           "name": "OracleTests.test_c_wrong_answer_and_runtime_error",
           "kind": "function",
-          "line": 124,
-          "end_line": 134
+          "line": 127,
+          "end_line": 137
         },
         {
           "name": "OracleTests.test_c_compile_error",
           "kind": "function",
-          "line": 136,
-          "end_line": 139
+          "line": 139,
+          "end_line": 142
         },
         {
           "name": "OracleTests.test_python_syntax_error",
           "kind": "function",
-          "line": 141,
-          "end_line": 143
+          "line": 144,
+          "end_line": 146
         },
         {
           "name": "OracleTests.test_python_time_limit_skips_the_remaining_cases",
           "kind": "function",
-          "line": 145,
-          "end_line": 151
+          "line": 148,
+          "end_line": 154
         },
         {
           "name": "OracleTests.test_float_checker_applies",
           "kind": "function",
-          "line": 153,
-          "end_line": 157
+          "line": 156,
+          "end_line": 160
         },
         {
           "name": "OracleTests.test_missing_problem",
           "kind": "function",
-          "line": 159,
-          "end_line": 165
+          "line": 162,
+          "end_line": 168
         },
         {
           "name": "OracleTests.test_other_oracles_are_delegated",
           "kind": "function",
-          "line": 167,
-          "end_line": 173
+          "line": 170,
+          "end_line": 176
         },
         {
           "name": "ConfigTests",
           "kind": "class",
-          "line": 176,
-          "end_line": 215
+          "line": 179,
+          "end_line": 223
         },
         {
           "name": "ConfigTests.read",
           "kind": "function",
-          "line": 177,
-          "end_line": 178
+          "line": 180,
+          "end_line": 181
         },
         {
           "name": "ConfigTests.test_codenet_configs_validate",
           "kind": "function",
-          "line": 180,
-          "end_line": 187
+          "line": 183,
+          "end_line": 192
         },
         {
           "name": "ConfigTests.test_invalid_codenet_settings",
           "kind": "function",
-          "line": 189,
-          "end_line": 201
+          "line": 194,
+          "end_line": 209
         },
         {
           "name": "ConfigTests.test_default_configs_are_unchanged",
           "kind": "function",
-          "line": 203,
-          "end_line": 215
+          "line": 211,
+          "end_line": 223
+        },
+        {
+          "name": "DetectOnlyTests",
+          "kind": "class",
+          "line": 226,
+          "end_line": 337
+        },
+        {
+          "name": "DetectOnlyTests.make_engine",
+          "kind": "function",
+          "line": 229,
+          "end_line": 264
+        },
+        {
+          "name": "DetectOnlyTests.test_detect_only_does_not_embed",
+          "kind": "function",
+          "line": 266,
+          "end_line": 292
+        },
+        {
+          "name": "DetectOnlyTests.embedded_row_fields",
+          "kind": "function",
+          "line": 294,
+          "end_line": 297
+        },
+        {
+          "name": "DetectOnlyTests.test_nothing_to_read_decodes_the_empty_word",
+          "kind": "function",
+          "line": 299,
+          "end_line": 306
+        },
+        {
+          "name": "DetectOnlyTests.test_a_failing_extraction_is_recorded",
+          "kind": "function",
+          "line": 308,
+          "end_line": 318
+        },
+        {
+          "name": "DetectOnlyTests.test_install_routes_by_the_embed_flag",
+          "kind": "function",
+          "line": 320,
+          "end_line": 337
+        },
+        {
+          "name": "DetectOnlyTests.test_install_routes_by_the_embed_flag.Stub",
+          "kind": "class",
+          "line": 321,
+          "end_line": 326
+        },
+        {
+          "name": "DetectOnlyTests.test_install_routes_by_the_embed_flag.Stub.__init__",
+          "kind": "function",
+          "line": 322,
+          "end_line": 323
+        },
+        {
+          "name": "DetectOnlyTests.test_install_routes_by_the_embed_flag.Stub.evaluate",
+          "kind": "function",
+          "line": 325,
+          "end_line": 326
         },
         {
           "name": "build_dataset",
           "kind": "function",
-          "line": 218,
-          "end_line": 250
+          "line": 340,
+          "end_line": 372
         },
         {
           "name": "ImporterTests",
           "kind": "class",
-          "line": 253,
-          "end_line": 327
+          "line": 375,
+          "end_line": 449
         },
         {
           "name": "ImporterTests.test_import_a_small_dataset",
           "kind": "function",
-          "line": 254,
-          "end_line": 296
+          "line": 376,
+          "end_line": 418
         },
         {
           "name": "ImporterTests.test_differing_test_cases_are_an_error",
           "kind": "function",
-          "line": 298,
-          "end_line": 313
+          "line": 420,
+          "end_line": 435
         },
         {
           "name": "ImporterTests.test_python_reference_adapters_are_unwrapped",
           "kind": "function",
-          "line": 315,
-          "end_line": 327
+          "line": 437,
+          "end_line": 449
         },
         {
           "name": "ReportTests",
           "kind": "class",
-          "line": 330,
-          "end_line": 368
+          "line": 452,
+          "end_line": 542
         },
         {
           "name": "ReportTests.test_report_from_synthetic_rows",
           "kind": "function",
-          "line": 331,
-          "end_line": 368
+          "line": 453,
+          "end_line": 492
         },
         {
           "name": "ReportTests.test_report_from_synthetic_rows.row",
           "kind": "function",
-          "line": 334,
-          "end_line": 344
+          "line": 456,
+          "end_line": 466
+        },
+        {
+          "name": "ReportTests.test_message_false_positive_rates",
+          "kind": "function",
+          "line": 494,
+          "end_line": 542
+        },
+        {
+          "name": "ReportTests.test_message_false_positive_rates.message_bits",
+          "kind": "function",
+          "line": 498,
+          "end_line": 499
+        },
+        {
+          "name": "ReportTests.test_message_false_positive_rates.row",
+          "kind": "function",
+          "line": 501,
+          "end_line": 507
         }
       ],
       "imports": [
@@ -6495,36 +6887,48 @@
           "line": 7
         },
         {
-          "module": "shutil",
+          "module": "os",
           "names": [],
           "line": 8
         },
         {
-          "module": "subprocess",
+          "module": "shutil",
           "names": [],
           "line": 9
         },
         {
-          "module": "sys",
+          "module": "subprocess",
           "names": [],
           "line": 10
         },
         {
-          "module": "tempfile",
+          "module": "sys",
           "names": [],
           "line": 11
         },
         {
-          "module": "unittest",
+          "module": "tempfile",
           "names": [],
           "line": 12
+        },
+        {
+          "module": "unittest",
+          "names": [],
+          "line": 13
         },
         {
           "module": "pathlib",
           "names": [
             "Path"
           ],
-          "line": 13
+          "line": 14
+        },
+        {
+          "module": "unittest",
+          "names": [
+            "mock"
+          ],
+          "line": 15
         },
         {
           "module": "benchmarks",
@@ -6533,22 +6937,39 @@
             "rule_sets",
             "utility"
           ],
-          "line": 17
+          "line": 19
+        },
+        {
+          "module": "benchmarks",
+          "names": [
+            "engine"
+          ],
+          "line": 20
         },
         {
           "module": "benchmarks.common",
           "names": [
             "validate_config"
           ],
-          "line": 213
+          "line": 221
+        },
+        {
+          "module": "cllmark",
+          "names": [
+            "bch"
+          ],
+          "line": 496
         }
       ],
       "local_dependencies": [
         "benchmarks/__init__.py",
         "benchmarks/codenet.py",
         "benchmarks/common.py",
+        "benchmarks/engine.py",
         "benchmarks/rule_sets.py",
-        "benchmarks/utility.py"
+        "benchmarks/utility.py",
+        "cllmark/__init__.py",
+        "cllmark/bch.py"
       ],
       "has_main_guard": true
     },
@@ -8285,6 +8706,496 @@
       "has_main_guard": false
     },
     {
+      "path": "tests/test_rule_fixes_c.py",
+      "module": "tests.test_rule_fixes_c",
+      "sha256": "e412207a83f3a6d770da67f0a3fceebc12485fecd71710d2ca795e92d79a2e37",
+      "line_count": 421,
+      "symbols": [
+        {
+          "name": "apply",
+          "kind": "function",
+          "line": 12,
+          "end_line": 15
+        },
+        {
+          "name": "RuleFixCase",
+          "kind": "class",
+          "line": 18,
+          "end_line": 26
+        },
+        {
+          "name": "RuleFixCase.assertRejected",
+          "kind": "function",
+          "line": 19,
+          "end_line": 20
+        },
+        {
+          "name": "RuleFixCase.assertRewrites",
+          "kind": "function",
+          "line": 22,
+          "end_line": 26
+        },
+        {
+          "name": "MacroRedefinedTypeTests",
+          "kind": "class",
+          "line": 29,
+          "end_line": 55
+        },
+        {
+          "name": "MacroRedefinedTypeTests.test_main_style_keeps_signed_main",
+          "kind": "function",
+          "line": 34,
+          "end_line": 37
+        },
+        {
+          "name": "MacroRedefinedTypeTests.test_cast_style_and_array_init",
+          "kind": "function",
+          "line": 39,
+          "end_line": 44
+        },
+        {
+          "name": "MacroRedefinedTypeTests.test_stream_rules_keep_their_form",
+          "kind": "function",
+          "line": 46,
+          "end_line": 51
+        },
+        {
+          "name": "MacroRedefinedTypeTests.test_other_defines_do_not_matter",
+          "kind": "function",
+          "line": 53,
+          "end_line": 55
+        },
+        {
+          "name": "MainWithFunctionTryBlockTests",
+          "kind": "class",
+          "line": 58,
+          "end_line": 61
+        },
+        {
+          "name": "MainWithFunctionTryBlockTests.test_try_block_main_is_left_alone",
+          "kind": "function",
+          "line": 59,
+          "end_line": 61
+        },
+        {
+          "name": "UserOperatorTests",
+          "kind": "class",
+          "line": 64,
+          "end_line": 98
+        },
+        {
+          "name": "UserOperatorTests.test_compound_and_comparisons_are_rejected_when_operators_are_overloaded",
+          "kind": "function",
+          "line": 69,
+          "end_line": 86
+        },
+        {
+          "name": "UserOperatorTests.test_recursive_operator_body_is_not_rewritten",
+          "kind": "function",
+          "line": 88,
+          "end_line": 90
+        },
+        {
+          "name": "UserOperatorTests.test_without_overloads_the_rules_still_apply",
+          "kind": "function",
+          "line": 92,
+          "end_line": 95
+        },
+        {
+          "name": "UserOperatorTests.test_c_is_unchanged_by_the_operator_guard",
+          "kind": "function",
+          "line": 97,
+          "end_line": 98
+        },
+        {
+          "name": "TemplateMisparseTests",
+          "kind": "class",
+          "line": 101,
+          "end_line": 120
+        },
+        {
+          "name": "TemplateMisparseTests.test_comparisons_inside_a_misparsed_template_are_not_rewritten",
+          "kind": "function",
+          "line": 106,
+          "end_line": 112
+        },
+        {
+          "name": "TemplateMisparseTests.test_comparison_elsewhere_in_the_file_still_applies",
+          "kind": "function",
+          "line": 114,
+          "end_line": 117
+        },
+        {
+          "name": "TemplateMisparseTests.test_candidate_with_parse_errors_is_rejected",
+          "kind": "function",
+          "line": 119,
+          "end_line": 120
+        },
+        {
+          "name": "ArrayAccessTests",
+          "kind": "class",
+          "line": 123,
+          "end_line": 167
+        },
+        {
+          "name": "ArrayAccessTests.test_postfix_context_is_rejected",
+          "kind": "function",
+          "line": 126,
+          "end_line": 134
+        },
+        {
+          "name": "ArrayAccessTests.test_prefix_and_plain_uses_still_rewrite",
+          "kind": "function",
+          "line": 136,
+          "end_line": 143
+        },
+        {
+          "name": "ArrayAccessTests.test_low_precedence_index_is_rejected",
+          "kind": "function",
+          "line": 145,
+          "end_line": 147
+        },
+        {
+          "name": "ArrayAccessTests.test_tight_index_still_rewrites",
+          "kind": "function",
+          "line": 149,
+          "end_line": 151
+        },
+        {
+          "name": "ArrayAccessTests.test_a_slash_before_the_access_would_start_a_comment",
+          "kind": "function",
+          "line": 153,
+          "end_line": 155
+        },
+        {
+          "name": "ArrayAccessTests.test_items_with_parse_errors_are_rejected",
+          "kind": "function",
+          "line": 157,
+          "end_line": 158
+        },
+        {
+          "name": "ArrayAccessTests.test_pointer_form_needs_a_plus",
+          "kind": "function",
+          "line": 160,
+          "end_line": 167
+        },
+        {
+          "name": "ArrayInitTests",
+          "kind": "class",
+          "line": 170,
+          "end_line": 191
+        },
+        {
+          "name": "ArrayInitTests.test_without_stdlib_the_array_stays",
+          "kind": "function",
+          "line": 173,
+          "end_line": 174
+        },
+        {
+          "name": "ArrayInitTests.test_a_fragment_without_includes_is_left_to_the_harness",
+          "kind": "function",
+          "line": 176,
+          "end_line": 177
+        },
+        {
+          "name": "ArrayInitTests.test_with_stdlib_it_becomes_allocation",
+          "kind": "function",
+          "line": 179,
+          "end_line": 185
+        },
+        {
+          "name": "ArrayInitTests.test_array_semantics_still_block_it",
+          "kind": "function",
+          "line": 187,
+          "end_line": 191
+        },
+        {
+          "name": "SelfAssignmentTests",
+          "kind": "class",
+          "line": 194,
+          "end_line": 209
+        },
+        {
+          "name": "SelfAssignmentTests.test_side_effects_in_the_target_are_rejected",
+          "kind": "function",
+          "line": 197,
+          "end_line": 201
+        },
+        {
+          "name": "SelfAssignmentTests.test_plain_targets_still_rewrite",
+          "kind": "function",
+          "line": 203,
+          "end_line": 209
+        },
+        {
+          "name": "NestedLoopTests",
+          "kind": "class",
+          "line": 212,
+          "end_line": 234
+        },
+        {
+          "name": "NestedLoopTests.test_loop_as_a_braceless_body_is_rejected",
+          "kind": "function",
+          "line": 215,
+          "end_line": 223
+        },
+        {
+          "name": "NestedLoopTests.test_loops_in_blocks_and_cases_still_rewrite",
+          "kind": "function",
+          "line": 225,
+          "end_line": 234
+        },
+        {
+          "name": "IostreamTests",
+          "kind": "class",
+          "line": 237,
+          "end_line": 417
+        },
+        {
+          "name": "IostreamTests.printf",
+          "kind": "function",
+          "line": 242,
+          "end_line": 243
+        },
+        {
+          "name": "IostreamTests.test_printf_format_string_is_taken_from_the_tree",
+          "kind": "function",
+          "line": 245,
+          "end_line": 259
+        },
+        {
+          "name": "IostreamTests.test_printf_with_formatting_or_mismatched_types_is_rejected",
+          "kind": "function",
+          "line": 261,
+          "end_line": 276
+        },
+        {
+          "name": "IostreamTests.test_scanf_to_cin",
+          "kind": "function",
+          "line": 278,
+          "end_line": 294
+        },
+        {
+          "name": "IostreamTests.test_scanf_that_cin_cannot_express_is_rejected",
+          "kind": "function",
+          "line": 296,
+          "end_line": 311
+        },
+        {
+          "name": "IostreamTests.test_cout_to_printf",
+          "kind": "function",
+          "line": 313,
+          "end_line": 322
+        },
+        {
+          "name": "IostreamTests.test_cout_with_floats_manipulators_or_percent_signs_is_rejected",
+          "kind": "function",
+          "line": 324,
+          "end_line": 335
+        },
+        {
+          "name": "IostreamTests.test_cin_to_scanf",
+          "kind": "function",
+          "line": 337,
+          "end_line": 350
+        },
+        {
+          "name": "IostreamTests.test_cin_of_strings_and_small_types_is_rejected",
+          "kind": "function",
+          "line": 352,
+          "end_line": 354
+        },
+        {
+          "name": "IostreamTests.test_inner_declaration_wins_over_the_outer_one",
+          "kind": "function",
+          "line": 356,
+          "end_line": 362
+        },
+        {
+          "name": "IostreamTests.test_any_other_use_of_cin_blocks_the_file",
+          "kind": "function",
+          "line": 364,
+          "end_line": 367
+        },
+        {
+          "name": "IostreamTests.test_synchronization_changes_block_all_four_rules",
+          "kind": "function",
+          "line": 369,
+          "end_line": 374
+        },
+        {
+          "name": "IostreamTests.test_cin_and_cout_must_be_declared_for_the_stdio_directions",
+          "kind": "function",
+          "line": 376,
+          "end_line": 382
+        },
+        {
+          "name": "IostreamTests.test_a_fragment_without_includes_takes_its_declarations_from_the_harness",
+          "kind": "function",
+          "line": 384,
+          "end_line": 388
+        },
+        {
+          "name": "IostreamTests.test_the_reverse_directions_need_the_same_declarations",
+          "kind": "function",
+          "line": 390,
+          "end_line": 395
+        },
+        {
+          "name": "IostreamTests.test_printf_and_scanf_must_be_declared_for_both_directions",
+          "kind": "function",
+          "line": 397,
+          "end_line": 413
+        },
+        {
+          "name": "IostreamTests.test_redefined_io_names_block_the_rules",
+          "kind": "function",
+          "line": 415,
+          "end_line": 417
+        }
+      ],
+      "imports": [
+        {
+          "module": "unittest",
+          "names": [],
+          "line": 5
+        },
+        {
+          "module": "cllmark.transform",
+          "names": [
+            "StyleTransformer"
+          ],
+          "line": 7
+        }
+      ],
+      "local_dependencies": [
+        "cllmark/transform.py"
+      ],
+      "has_main_guard": true
+    },
+    {
+      "path": "tests/test_rule_fixes_python.py",
+      "module": "tests.test_rule_fixes_python",
+      "sha256": "a2a66c84487c93d504d45fc8b03172a21567332e2ab29286ee926c2f32614da9",
+      "line_count": 179,
+      "symbols": [
+        {
+          "name": "rewrite",
+          "kind": "function",
+          "line": 59,
+          "end_line": 60
+        },
+        {
+          "name": "compiles",
+          "kind": "function",
+          "line": 63,
+          "end_line": 70
+        },
+        {
+          "name": "TokenGluingTest",
+          "kind": "class",
+          "line": 73,
+          "end_line": 175
+        },
+        {
+          "name": "TokenGluingTest.test_glued_position_is_left_alone",
+          "kind": "function",
+          "line": 74,
+          "end_line": 77
+        },
+        {
+          "name": "TokenGluingTest.test_spaced_position_is_still_rewritten",
+          "kind": "function",
+          "line": 79,
+          "end_line": 88
+        },
+        {
+          "name": "TokenGluingTest.test_hash_order_leaves_glued_operands_alone",
+          "kind": "function",
+          "line": 90,
+          "end_line": 95
+        },
+        {
+          "name": "TokenGluingTest.test_only_the_glued_candidate_is_skipped",
+          "kind": "function",
+          "line": 97,
+          "end_line": 99
+        },
+        {
+          "name": "TokenGluingTest.test_inverse_direction_removes_prefix_without_gluing",
+          "kind": "function",
+          "line": 101,
+          "end_line": 106
+        },
+        {
+          "name": "TokenGluingTest.test_tuple_assignment_does_not_strip_meaningful_spaces",
+          "kind": "function",
+          "line": 108,
+          "end_line": 116
+        },
+        {
+          "name": "TokenGluingTest.test_split_assignment_keeps_tuple_semantics",
+          "kind": "function",
+          "line": 118,
+          "end_line": 137
+        },
+        {
+          "name": "TokenGluingTest.test_split_assignment_needs_its_own_space_indented_line",
+          "kind": "function",
+          "line": 139,
+          "end_line": 148
+        },
+        {
+          "name": "TokenGluingTest.test_chained_assignment_is_not_made_augmented",
+          "kind": "function",
+          "line": 150,
+          "end_line": 153
+        },
+        {
+          "name": "TokenGluingTest.test_reproduced_codenet_units",
+          "kind": "function",
+          "line": 155,
+          "end_line": 167
+        },
+        {
+          "name": "TokenGluingTest.test_swap_in_codenet_p02920_is_not_split",
+          "kind": "function",
+          "line": 169,
+          "end_line": 175
+        }
+      ],
+      "imports": [
+        {
+          "module": "unittest",
+          "names": [],
+          "line": 3
+        },
+        {
+          "module": "warnings",
+          "names": [],
+          "line": 4
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 5
+        },
+        {
+          "module": "cllmark.transform",
+          "names": [
+            "StyleTransformer"
+          ],
+          "line": 7
+        }
+      ],
+      "local_dependencies": [
+        "cllmark/transform.py"
+      ],
+      "has_main_guard": true
+    },
+    {
       "path": "tests/test_scheduling.py",
       "module": "tests.test_scheduling",
       "sha256": "ccef019c2498162d469a83410e8ea9ad8ba0fb9fa881493eb6ca6e22ae245693",
@@ -8478,150 +9389,186 @@
     {
       "path": "tools/codenet_report.py",
       "module": "tools.codenet_report",
-      "sha256": "91d90649d99614ae1d605f665e0fc7b8f2871b18070ff8eaec5a67be3266cfe0",
-      "line_count": 368,
+      "sha256": "9f040290495dedba3cedabcb7d34cb19201e0e0073fed97e791af19a349d3058",
+      "line_count": 529,
       "symbols": [
         {
           "name": "variant_name",
           "kind": "function",
-          "line": 24,
-          "end_line": 25
+          "line": 33,
+          "end_line": 34
         },
         {
           "name": "load_run",
           "kind": "function",
-          "line": 28,
-          "end_line": 37
+          "line": 37,
+          "end_line": 46
         },
         {
           "name": "rate",
           "kind": "function",
-          "line": 40,
-          "end_line": 41
+          "line": 49,
+          "end_line": 50
         },
         {
           "name": "median",
           "kind": "function",
-          "line": 44,
-          "end_line": 45
+          "line": 53,
+          "end_line": 54
         },
         {
           "name": "mean",
           "kind": "function",
-          "line": 48,
-          "end_line": 49
+          "line": 57,
+          "end_line": 58
         },
         {
           "name": "get",
           "kind": "function",
-          "line": 52,
-          "end_line": 59
+          "line": 61,
+          "end_line": 68
         },
         {
           "name": "status",
           "kind": "function",
-          "line": 62,
-          "end_line": 63
+          "line": 71,
+          "end_line": 72
         },
         {
           "name": "tested",
           "kind": "function",
-          "line": 66,
-          "end_line": 67
+          "line": 75,
+          "end_line": 76
         },
         {
           "name": "is_regression",
           "kind": "function",
-          "line": 70,
-          "end_line": 75
+          "line": 79,
+          "end_line": 84
         },
         {
           "name": "group_summary",
           "kind": "function",
-          "line": 78,
-          "end_line": 126
+          "line": 87,
+          "end_line": 139
+        },
+        {
+          "name": "detection_stats",
+          "kind": "function",
+          "line": 142,
+          "end_line": 199
+        },
+        {
+          "name": "detection_stats.decoded",
+          "kind": "function",
+          "line": 156,
+          "end_line": 160
+        },
+        {
+          "name": "detection_stats.distribution",
+          "kind": "function",
+          "line": 162,
+          "end_line": 166
+        },
+        {
+          "name": "detection_stats.share",
+          "kind": "function",
+          "line": 168,
+          "end_line": 169
+        },
+        {
+          "name": "detection_stats.peak",
+          "kind": "function",
+          "line": 173,
+          "end_line": 178
         },
         {
           "name": "ordered_groups",
           "kind": "function",
-          "line": 129,
-          "end_line": 133
+          "line": 202,
+          "end_line": 206
         },
         {
           "name": "rules_of",
           "kind": "function",
-          "line": 136,
-          "end_line": 137
+          "line": 209,
+          "end_line": 210
         },
         {
           "name": "first_failure_text",
           "kind": "function",
-          "line": 140,
-          "end_line": 144
+          "line": 213,
+          "end_line": 217
         },
         {
           "name": "analyse",
           "kind": "function",
-          "line": 147,
-          "end_line": 248
+          "line": 220,
+          "end_line": 347
         },
         {
           "name": "pct",
           "kind": "function",
-          "line": 251,
-          "end_line": 252
+          "line": 350,
+          "end_line": 351
         },
         {
           "name": "num",
           "kind": "function",
-          "line": 255,
-          "end_line": 256
+          "line": 354,
+          "end_line": 355
         },
         {
           "name": "signed",
           "kind": "function",
-          "line": 259,
-          "end_line": 260
+          "line": 358,
+          "end_line": 359
         },
         {
           "name": "table",
           "kind": "function",
-          "line": 263,
-          "end_line": 266
+          "line": 362,
+          "end_line": 365
+        },
+        {
+          "name": "message_text",
+          "kind": "function",
+          "line": 368,
+          "end_line": 370
         },
         {
           "name": "render",
           "kind": "function",
-          "line": 269,
-          "end_line": 349
+          "line": 373,
+          "end_line": 510
         },
         {
           "name": "main",
           "kind": "function",
-          "line": 352,
-          "end_line": 364
+          "line": 513,
+          "end_line": 525
         }
       ],
       "imports": [
         {
           "module": "argparse",
           "names": [],
-          "line": 11
+          "line": 15
         },
         {
           "module": "json",
           "names": [],
-          "line": 12
+          "line": 16
         },
         {
           "module": "statistics",
           "names": [],
-          "line": 13
+          "line": 17
         },
         {
           "module": "sys",
           "names": [],
-          "line": 14
+          "line": 18
         },
         {
           "module": "collections",
@@ -8629,17 +9576,27 @@
             "Counter",
             "defaultdict"
           ],
-          "line": 15
+          "line": 19
         },
         {
           "module": "pathlib",
           "names": [
             "Path"
           ],
-          "line": 16
+          "line": 20
+        },
+        {
+          "module": "cllmark",
+          "names": [
+            "bch"
+          ],
+          "line": 23
         }
       ],
-      "local_dependencies": [],
+      "local_dependencies": [
+        "cllmark/__init__.py",
+        "cllmark/bch.py"
+      ],
       "has_main_guard": true
     },
     {
