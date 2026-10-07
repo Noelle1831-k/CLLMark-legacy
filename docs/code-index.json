@@ -16,7 +16,7 @@
   ],
   "generation_command": "python3 tools/build_code_index.py",
   "file_count": 54,
-  "symbol_count": 1084,
+  "symbol_count": 1087,
   "files": [
     {
       "path": "benchmarks/__init__.py",
@@ -31,8 +31,8 @@
     {
       "path": "benchmarks/codenet.py",
       "module": "benchmarks.codenet",
-      "sha256": "e7ed7234f8b58cb8b880137aa2e08b8822fdba1bc2280253944d3a568fb49941",
-      "line_count": 347,
+      "sha256": "87cea4a8cfa18634d331ae749384d2ba65dae4cfd1ff907ddb525d5f3a90e15d",
+      "line_count": 362,
       "symbols": [
         {
           "name": "protocol_config",
@@ -89,40 +89,46 @@
           "end_line": 177
         },
         {
-          "name": "compiler_version",
+          "name": "needs_header_shim",
           "kind": "function",
           "line": 181,
-          "end_line": 185
+          "end_line": 189
+        },
+        {
+          "name": "compiler_version",
+          "kind": "function",
+          "line": 193,
+          "end_line": 197
         },
         {
           "name": "judge",
           "kind": "function",
-          "line": 188,
-          "end_line": 196
+          "line": 200,
+          "end_line": 208
         },
         {
           "name": "build",
           "kind": "function",
-          "line": 199,
-          "end_line": 226
+          "line": 211,
+          "end_line": 239
         },
         {
           "name": "identity",
           "kind": "function",
-          "line": 229,
-          "end_line": 245
+          "line": 242,
+          "end_line": 260
         },
         {
           "name": "evaluate_utility",
           "kind": "function",
-          "line": 248,
-          "end_line": 264
+          "line": 263,
+          "end_line": 279
         },
         {
           "name": "evaluate_cached",
           "kind": "function",
-          "line": 267,
-          "end_line": 343
+          "line": 282,
+          "end_line": 358
         }
       ],
       "imports": [
@@ -6278,8 +6284,8 @@
     {
       "path": "tests/test_codenet.py",
       "module": "tests.test_codenet",
-      "sha256": "acfebc2741a43ad9e6f0fcee412dd456eca13a2281bed964cc4c71f4d367703a",
-      "line_count": 358,
+      "sha256": "baae2916cd06040e86044c8b805fee0be2d5fae26d8523ad1a5a53a6f589d359",
+      "line_count": 372,
       "symbols": [
         {
           "name": "quiet",
@@ -6423,7 +6429,7 @@
           "name": "ImporterTests",
           "kind": "class",
           "line": 253,
-          "end_line": 313
+          "end_line": 327
         },
         {
           "name": "ImporterTests.test_import_a_small_dataset",
@@ -6438,22 +6444,28 @@
           "end_line": 313
         },
         {
+          "name": "ImporterTests.test_python_reference_adapters_are_unwrapped",
+          "kind": "function",
+          "line": 315,
+          "end_line": 327
+        },
+        {
           "name": "ReportTests",
           "kind": "class",
-          "line": 316,
-          "end_line": 354
+          "line": 330,
+          "end_line": 368
         },
         {
           "name": "ReportTests.test_report_from_synthetic_rows",
           "kind": "function",
-          "line": 317,
-          "end_line": 354
+          "line": 331,
+          "end_line": 368
         },
         {
           "name": "ReportTests.test_report_from_synthetic_rows.row",
           "kind": "function",
-          "line": 320,
-          "end_line": 330
+          "line": 334,
+          "end_line": 344
         }
       ],
       "imports": [
@@ -7388,8 +7400,8 @@
     {
       "path": "tests/test_research_loop.py",
       "module": "tests.test_research_loop",
-      "sha256": "21bd039d654fdc747ae050675fe30cdfbe0fafd9b22cf423a2694ab6387df83e",
-      "line_count": 863,
+      "sha256": "1414321053a4a7f13ff17e4a191e6071815cb64eced5a7e2dd134cbf1123d198",
+      "line_count": 864,
       "symbols": [
         {
           "name": "javascript_ready",
@@ -7749,7 +7761,7 @@
           "name": "StagedExecutionTests",
           "kind": "class",
           "line": 840,
-          "end_line": 863
+          "end_line": 864
         },
         {
           "name": "StagedExecutionTests.test_deferred_rows_are_the_ones_needing_functional_tests",
@@ -7761,7 +7773,7 @@
           "name": "StagedExecutionTests.test_workers_defer_functional_tests_in_the_engine_only",
           "kind": "function",
           "line": 853,
-          "end_line": 863
+          "end_line": 864
         }
       ],
       "imports": [
@@ -8633,112 +8645,123 @@
     {
       "path": "tools/import_codenet.py",
       "module": "tools.import_codenet",
-      "sha256": "634875fde6b5850d880b5b39944a910a91d09a84fac3ef94850de86f5af9edce",
-      "line_count": 199,
+      "sha256": "8f078c3b831b823dcfb26605076deb4e2e783ddae0199c0640d55d9d96fede00",
+      "line_count": 224,
       "symbols": [
         {
           "name": "sha256",
           "kind": "function",
-          "line": 29,
-          "end_line": 30
+          "line": 31,
+          "end_line": 32
         },
         {
           "name": "git",
           "kind": "function",
-          "line": 33,
-          "end_line": 34
+          "line": 35,
+          "end_line": 36
         },
         {
           "name": "prepare_source",
           "kind": "function",
-          "line": 37,
-          "end_line": 57
+          "line": 39,
+          "end_line": 59
         },
         {
           "name": "read_jsonl",
           "kind": "function",
-          "line": 60,
-          "end_line": 65
+          "line": 62,
+          "end_line": 67
         },
         {
           "name": "load_problems",
           "kind": "function",
-          "line": 68,
-          "end_line": 80
+          "line": 70,
+          "end_line": 82
+        },
+        {
+          "name": "unwrap_adapter",
+          "kind": "function",
+          "line": 92,
+          "end_line": 99
         },
         {
           "name": "checker_of",
           "kind": "function",
-          "line": 83,
-          "end_line": 85
+          "line": 102,
+          "end_line": 104
         },
         {
           "name": "build",
           "kind": "function",
-          "line": 88,
-          "end_line": 155
+          "line": 107,
+          "end_line": 180
         },
         {
           "name": "build.copy",
           "kind": "function",
-          "line": 96,
-          "end_line": 101
+          "line": 115,
+          "end_line": 126
         },
         {
           "name": "output_digest",
           "kind": "function",
-          "line": 158,
-          "end_line": 164
+          "line": 183,
+          "end_line": 189
         },
         {
           "name": "main",
           "kind": "function",
-          "line": 167,
-          "end_line": 195
+          "line": 192,
+          "end_line": 220
         }
       ],
       "imports": [
         {
           "module": "argparse",
           "names": [],
-          "line": 15
-        },
-        {
-          "module": "hashlib",
-          "names": [],
           "line": 16
         },
         {
-          "module": "json",
+          "module": "base64",
           "names": [],
           "line": 17
         },
         {
-          "module": "re",
+          "module": "hashlib",
           "names": [],
           "line": 18
         },
         {
-          "module": "shutil",
+          "module": "json",
           "names": [],
           "line": 19
         },
         {
-          "module": "subprocess",
+          "module": "re",
           "names": [],
           "line": 20
         },
         {
-          "module": "sys",
+          "module": "shutil",
           "names": [],
           "line": 21
+        },
+        {
+          "module": "subprocess",
+          "names": [],
+          "line": 22
+        },
+        {
+          "module": "sys",
+          "names": [],
+          "line": 23
         },
         {
           "module": "pathlib",
           "names": [
             "Path"
           ],
-          "line": 22
+          "line": 24
         }
       ],
       "local_dependencies": [],
