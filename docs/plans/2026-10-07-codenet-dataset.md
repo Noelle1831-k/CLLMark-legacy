@@ -100,3 +100,32 @@
 - 不改 `cllmark/`、规则、BCH；不改度量协议五个文件；不写 `corpus/`；不改或提升 `benchmarks/baselines/`。
 - 不删除或跳过任何失败样本；导入时只排除上面列明的缺失项。
 - 不运行全量 benchmark（由 bench-runner 负责）。
+
+## v2：手写组只测天然误报（不嵌入）
+
+用户纠正实验设计：手写代码不嵌入水印再提取，而是检验未加水印的手写代码是否天然读出水印而误报。生成代码照旧嵌入（恢复、攻击、功能保持）。**属于评估协议改动，只作用于带 `"codenet"` 键的配置**（`codenet.py` 的摘要已在其协议配置中），默认配置的协议指纹不变。
+
+### 1. 配置
+
+四份 `config-codenet*.json` 的四个 human 组加 `"embed": false`。`codenet.validate_config`：`embed` 只能是布尔值，只允许出现在 codenet_stdio 组上。
+
+### 2. `benchmarks/codenet.py`：只检测的单元
+
+- 新函数 `install(engine_instance)`：若 `engine_instance.config` 含 `"codenet"`，把实例的 `evaluate` 包装为：`unit.get("embed", True)` 为真时调用原 `evaluate`；为假时调用 `detect_only(engine_instance, unit)`。在 `benchmarks/staged.py:initialize_worker` 末尾（stub 替换之后）调用 `codenet.install(engine.ENGINE)`。
+- `detect_only(engine, unit)` 产出与原行相同的字段集合，步骤：按原 `evaluate` 的方式把冻结输入复制到 `work/clean`（校验 SHA-256）；分析用 `engine.nodes.analyze_directory`（节点粒度，`hasattr(engine, "nodes")`）或 `engine.directories.analyze_directory`；记录 `capacity`、`required_capacity`、`eligible`、`syntax_before`、`analysis_ms`；**对所有单元（含容量不足者）**调用 `engine.extract(clean, language, unit["id"], "original")` 得到 `original_extraction`，异常时记为 `{"error": repr(e), "matched": False, "raw_matched": False, "bits": []}`；`embedded: False`；`properties: None`、`embedding_slots: []`、`marked_extraction: None`、`attacks: {}`、`syntax_after: {}`；`utility_before = engine_module.evaluate_utility(...)`（staged 下为 DEFERRED 占位），`utility_after = {"status": "NOT_EMBEDDED"}`；写 `legacy.log` 与 `result.json`、`elapsed_ms`、`artifacts`，与原 evaluate 一致。实现前先确认容量 < 7 时两种粒度的提取行为（是否调用 `bch.decode`、读出几位），写进 docstring。
+- `benchmarks/staged.py:functional_unit`：`after` 在 `not row["eligible"] or row.get("embedded") is False` 时为 `NOT_EMBEDDED`。
+
+### 3. 报告 `tools/codenet_report.py`
+
+- 生成组（role generated）照旧：可嵌入率、容量、恢复、攻击、语法、功能保持、回退清单与规则归因、逐用例统计；另加“未嵌入时天然匹配率”（original_extraction）。
+- 手写组只出检测表：单元数、容量分布（中位数、均值、<7 的数量）、读出完整 7 位的单元数；对水印 `1010`：天然匹配率（分母分别为全部单元、读出 7 位的单元）、码字逐位精确匹配率（raw）；**16 种消息的误报率**：用 `cllmark.bch.decode` 解码每个单元的 bits，误报率(m) = 解码结果等于 m 的单元比例（同上两种分母），列出最大值、对应消息、均值，以及解码结果分布的前 5 名；同样对生成组的未嵌入原始代码给出这张表（对照）。
+- 删除手写组的恢复/攻击/功能保持/回退列；第 5 节（手写参考在嵌入前未通过）保留，作为判题环境自检。
+- 新增“检测对照”表：每个变体 × 语言，TPR（生成组嵌入后恢复）与 FPR（手写组全部单元天然匹配 `1010`）及 16 消息最大 FPR。
+
+### 4. 测试
+
+`tests/test_codenet.py` 增加：`detect_only` 在一个最小 python 单元上不产生 `marked` 目录、`embedded` 为假、`original_extraction` 存在；`install` 对 `embed` 为真的单元调用原 evaluate；validate 拒绝非布尔 `embed`；报告的 16 消息误报率在构造的 rows 上计算正确（分布之和为 1）。
+
+### 验收
+
+`make lint`、`make test` 通过；默认 `config.json` 的协议指纹不变（测试断言 `rule_sets.protocol_config(默认配置)` 不含 codenet 键）；`research_loop.py run --config benchmarks/config-codenet.json --limit 2` 正常，human 行无 marked 目录。
