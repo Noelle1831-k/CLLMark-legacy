@@ -312,6 +312,20 @@ class ImporterTests(unittest.TestCase):
             with self.assertRaises(SystemExit):
                 quiet(importer.main, ["--source", str(source), "--commit", commit], root=root)
 
+    def test_python_reference_adapters_are_unwrapped(self):
+        importer = load_tool("import_codenet")
+        program = b"import sys\nprint(sum(map(int, sys.stdin.read().split())))\n"
+        encoded = __import__("base64").b64encode(program).decode()
+        adapter = (
+            "def solve(data: str) -> str:\n"
+            '    """Run the reference submission for this task on one complete stdin."""\n'
+            "    import base64, os, subprocess, sys, tempfile\n"
+            f"    src = base64.b64decode('{encoded}')\n"
+            "    return ''\n"
+        ).encode()
+        self.assertEqual(importer.unwrap_adapter(adapter), program)
+        self.assertIsNone(importer.unwrap_adapter(program))
+
 
 class ReportTests(unittest.TestCase):
     def test_report_from_synthetic_rows(self):

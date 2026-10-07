@@ -11,6 +11,8 @@
 
 导入器字节原样复制到被忽略的 `external/codenet/dataset/{Python,C,CPP,JS}_{G,H}/<pid>.<ext>`（不写 `corpus/`）。
 
+例外：数据集 1006 份 `ref.py` 中有 958 份是同一个适配器模板（`solve(data)` 把 base64 编码的 CodeNet 原始提交写入临时文件并用子进程运行）。对它嵌入水印测量的是共享模板而不是手写代码（文件粒度下 954 份容量相同、节点粒度下未嵌入代码的预期消息误匹配率达 97%），所以 Python_H 改用解码出的原始提交（独立的 stdin/stdout 程序）。解包的题目列在导入报告的 `unwrapped` 中；其余 42 份是普通程序，原样复制。其他语言的参考解没有这种包装。
+
 ## 排除项
 
 导入报告 `external/codenet/import-report.json` 逐项列出：
@@ -48,7 +50,7 @@ make codenet-setup SOURCE=PATH      # 使用已有检出（必须在锁定提交
 
 ## 已知环境限制
 
-编译用本机工具链，不是数据集所用的 gcc。macOS 上的 clang/libc++ 与 gcc 不完全兼容，会产生编译失败，这些按 `COMPILE_ERROR` 如实计入而不是排除，H 组 before 未通过的清单见报告第 5 节。
+编译用本机工具链。数据集参考解在 Linux gcc 上验证；全量在 Linux x86_64 + GCC 13 服务器上运行，H 组 before 通过率 99.9%（未通过的 2 份见报告第 5 节）。macOS 上的 clang/libc++ 与 gcc 不完全兼容，会产生额外的编译失败，这些按 `COMPILE_ERROR` 如实计入而不是排除。
 
 ## 报告工具
 

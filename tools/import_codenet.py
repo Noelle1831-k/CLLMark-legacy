@@ -6,13 +6,15 @@ Usage: python tools/import_codenet.py [--source PATH]
 Without --source the repository is cloned into `.benchmark-cache/codenet-src` and checked out at the locked commit
 (`benchmarks/codenet.lock.json`); with --source the given checkout must already be at that commit. The output
 (ignored by git, never `corpus/`) holds
-  dataset/{Python,C,CPP,JS}_{G,H}/<pid>.<ext>   byte-exact copies of generated/<pid>/sol.<ext> and solutions/<pid>/ref.<ext>
+  dataset/{Python,C,CPP,JS}_{G,H}/<pid>.<ext>   byte-exact copies of generated/<pid>/sol.<ext> and solutions/<pid>/ref.<ext>,
+                                                 except Python_H adapters (see `unwrap_adapter`)
   problems.jsonl                                 one row per problem of hf/python.jsonl with its test cases
   import-report.json                             commit, group counts, exclusions and a digest of all output files
 Running it again with unchanged input leaves the output untouched. See docs/CODENET.md.
 """
 
 import argparse
+import base64
 import hashlib
 import json
 import re
@@ -80,6 +82,23 @@ def load_problems(source):
     return rows, languages
 
 
+ADAPTER = re.compile(
+    rb'"""Run the reference submission for this task on one complete stdin\."""\n'
+    rb"\s+import base64, os, subprocess, sys, tempfile\n"
+    rb"\s+src = base64\.b64decode\('([A-Za-z0-9+/=]+)'\)\n"
+)
+
+
+def unwrap_adapter(blob):
+    """The hand-written submission inside a Python reference adapter, or None for a plain program.
+
+    Most Python references of the dataset are one fixed adapter that writes the base64-encoded CodeNet submission to
+    a temporary file and runs it with stdin. Watermarking the adapter would measure the shared template, not
+    hand-written code, so the submission itself (a standalone stdin/stdout program) is the unit."""
+    match = ADAPTER.search(blob)
+    return base64.b64decode(match.group(1)) if match else None
+
+
 def checker_of(source, pid):
     meta = json.loads((source / "testdata" / pid / "meta.json").read_text(encoding="utf-8"))
     return meta["checker"]["type"]
@@ -90,13 +109,19 @@ def build(source, destination):
     problems, hf_languages = load_problems(source)
     pids = sorted(problems)
     generated = sorted(p.name for p in (source / "generated").iterdir() if p.is_dir() and re.fullmatch(r"p\d+", p.name))
-    report = {"groups": {}, "excluded": []}
+    report = {"groups": {}, "excluded": [], "unwrapped": {"group": "Python_H", "count": 0, "problems": []}}
     files = {}
 
     def copy(group, extension, pid, origin):
         target = destination / "dataset" / group / f"{pid}.{extension}"
         target.parent.mkdir(parents=True, exist_ok=True)
         blob = origin.read_bytes()
+        if group == "Python_H":
+            inner = unwrap_adapter(blob)
+            if inner is not None:
+                blob = inner
+                report["unwrapped"]["count"] += 1
+                report["unwrapped"]["problems"].append(pid)
         target.write_bytes(blob)
         files[target.relative_to(destination).as_posix()] = sha256(blob)
 
