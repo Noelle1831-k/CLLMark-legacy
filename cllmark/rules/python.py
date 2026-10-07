@@ -6,6 +6,7 @@ operators keep their candidate conditions and output text.
 """
 
 import hashlib
+import re
 
 from .engine import (
     Edit,
@@ -28,6 +29,46 @@ def child_count(count):
 
 def nodes(node_type):
     return Matcher(f"(({node_type}) @node)")
+
+
+# ---------------------------------------------------------------- token gluing
+#
+# Rewrites that start or end a node with a different token would fuse with a neighbouring keyword or name when the
+# original had no space there: `for _ in[0]*3` -> `inlist([0])*3`, `return[...]` -> `returnlist(...)`,
+# `or"NO"` -> `orf"NO"`, `x<(1<<31)else y` -> `(1<<31) > xelse y`. The guards reject such positions only.
+
+
+def is_word_byte(byte):
+    """A byte that continues an identifier, keyword or number (non-ASCII bytes belong to identifiers)."""
+    return byte >= 0x80 or byte == 0x5F or chr(byte).isalnum()
+
+
+def edge_leaf(node, forward):
+    """The leaf token directly before (forward=False) or after `node`, or None when whitespace or nothing touches it."""
+    sibling = "next_sibling" if forward else "prev_sibling"
+    while getattr(node, sibling) is None:
+        node = node.parent
+        if node is None:
+            return None
+    leaf = getattr(node, sibling)
+    while leaf.child_count:
+        leaf = leaf.child(0 if forward else leaf.child_count - 1)
+    return leaf
+
+
+def touches_word_before(node):
+    leaf = edge_leaf(node, False)
+    return leaf is not None and leaf.end_byte == node.start_byte and bool(leaf.text) and is_word_byte(leaf.text[-1])
+
+
+def touches_word_after(node):
+    leaf = edge_leaf(node, True)
+    return leaf is not None and leaf.start_byte == node.end_byte and bool(leaf.text) and is_word_byte(leaf.text[0])
+
+
+not_after_word_character = guard("not directly after a word character")(lambda node: not touches_word_before(node))
+not_before_word_character = guard("not directly before a word character")(lambda node: not touches_word_after(node))
+no_word_character_adjacent = not_after_word_character & not_before_word_character
 
 
 # ---------------------------------------------------------------- print(...)
@@ -503,6 +544,11 @@ SELF_ASSIGNMENT = Matcher("((assignment left: _ @_l right: (binary_operator left
 )
 
 
+@guard("not part of a chained assignment (`x[i] = s = s + b` would become `x[i] = s += b`)")
+def not_chained(node):
+    return node.parent.type != "assignment"
+
+
 def to_augmented(node, source):
     """a = a + b -> a += b"""
     right = node.children[2]
@@ -540,9 +586,19 @@ def from_augmented(node, source):
 # ---------------------------------------------------------------- multiple assignment
 
 
+def survives_space_removal(node):
+    """`unpacked` drops every space of the targets and values: `not axis` would become `notaxis`, `"a b"` `"ab"`."""
+    return not any(
+        re.search(r"\w +\w", text(side)) or contains(side, lambda child: child.type == "string" and b" " in child.text)
+        for side in (node.children[0], node.children[2])
+    )
+
+
 def tuple_assignment(equal_values):
     def test(node):
         if node.children[0].type != "pattern_list" or node.children[2].type != "expression_list":
+            return False
+        if not survives_space_removal(node):
             return False
         values = [child.text for child in node.children[2].children if child.text != b","]
         return not equal_values or all(value == node.children[2].children[0].text for value in values)
@@ -550,17 +606,59 @@ def tuple_assignment(equal_values):
     return nodes("assignment").where(guard("a, b = c, d" + (" with equal values" if equal_values else ""))(test))
 
 
+def elements(side):
+    """Texts (spaces removed, as the original rule wrote them) of the syntax-tree elements of one side of `a, b = c, d`."""
+    if any(child.type == "comment" for child in side.children):
+        raise Reject("comment between the elements")
+    return [text(child).replace(" ", "") for child in side.children if child.is_named]
+
+
 def unpacked(node):
-    targets = text(node.children[0]).replace(" ", "").split(",")
-    values = text(node.children[2]).replace(" ", "").split(",")
+    targets, values = elements(node.children[0]), elements(node.children[2])
     if len(targets) != len(values):
         raise Reject("different arity")
     return targets, values
 
 
+EVALUATING = ["call", "await", "yield", "named_expression", "subscript", "attribute", "list_splat", "dictionary_splat"]
+
+
+def names_in(node):
+    """Every identifier below `node`, itself included."""
+    stack, found = [node], set()
+    while stack:
+        current = stack.pop()
+        if current.type == "identifier":
+            found.add(current.text)
+        stack.extend(current.children)
+    return found
+
+
+@guard("independent simple targets: names set by none of the right side's elements, which neither call nor index")
+def sequentially_assignable(node):
+    """Tuple assignment evaluates every right-hand element before binding any target, so `a, b = b, a` swaps; `a = b`
+    then `b = a` does not. Splitting is only equal when no target is read by a right-hand element (and no element
+    has effects or element counts that depend on evaluation order)."""
+    targets = [child for child in node.children[0].children if child.is_named and child.type != "comment"]
+    values = [child for child in node.children[2].children if child.is_named and child.type != "comment"]
+    if len(targets) != len(values) or any(target.type != "identifier" for target in targets):
+        return False
+    written = {target.text for target in targets}
+    return all(
+        not contains(value, lambda child: child.type in EVALUATING)
+        and value.type not in EVALUATING
+        and not names_in(value) & written
+        for value in values
+    )
+
+
 def split_assignment(node, source):
-    """a, b = c, d -> a = c / b = d on separate lines"""
+    """a, b = c, d -> a = c / b = d on separate lines (not mid-line, and not under tab indentation: the new lines
+    are indented with spaces)"""
     targets, values = unpacked(node)
+    indent = source.leading(node)
+    if indent is None or "\t" in indent:
+        raise Reject("statement does not start its line, or its indentation holds tabs")
     separator = "\n" + source.indent(node.start_byte) * " "
     return [
         replace(node, separator.join(f"{target} = {value}" for target, value in zip(targets, values, strict=False)))
@@ -891,6 +989,11 @@ def negatable_condition(condition):
     )
 
 
+condition_not_after_word_character = guard(
+    "`while` is not directly followed by the condition (`while(1)`: `whileTrue`)"
+)(lambda node: not touches_word_before(node.children[1]))
+
+
 def plain_while(node):
     body = node.child_by_field_name("body")
     return (
@@ -1075,14 +1178,18 @@ RULES = {
     "1.2": PRINT_CALL.where(passes(b"flush", b"True")).rule(drop_keyword(b"flush")),
     "1.3": PRINT_CALL.where(~passes(b"end")).rule(add_keyword("end='\\n'")),
     "1.4": PRINT_CALL.where(passes(b"end", b'"\\n"', b"'\\n'")).rule(drop_keyword(b"end")),
-    "2.1": nodes("list").where(child_count(2)).rule(lambda node, source: [replace(node, "list()")]),
+    "2.1": nodes("list")
+    .where(child_count(2), not_after_word_character)
+    .rule(lambda node, source: [replace(node, "list()")]),
     "2.2": call_to("list", 2).rule(lambda node, source: [replace(node, "[]")]),
-    "2.3": nodes("list").where(not_argument_of(b"list")).rule(wrap_in("list")),
+    "2.3": nodes("list").where(not_argument_of(b"list"), not_after_word_character).rule(wrap_in("list")),
     "2.4": call_to("list", 3).where(first_argument_is("list")).rule(unwrap_call),
-    "3.1": nodes("dictionary").where(child_count(2)).rule(lambda node, source: [replace(node, "dict()")]),
+    "3.1": nodes("dictionary")
+    .where(child_count(2), not_after_word_character)
+    .rule(lambda node, source: [replace(node, "dict()")]),
     "3.2": call_to("dict", 2).rule(lambda node, source: [replace(node, "{}")]),
     "3.3": nodes("dictionary")
-    .where(not_argument_of(b"dict"), guard("non-empty")(lambda node: len(node.children) > 2))
+    .where(not_argument_of(b"dict"), guard("non-empty")(lambda node: len(node.children) > 2), not_after_word_character)
     .rule(wrap_in("dict")),
     "3.4": call_to("dict", 3).where(first_argument_is("dictionary", nonempty=True)).rule(unwrap_call),
     "4.1": call_to("range", 3).rule(add_range_start),
@@ -1091,30 +1198,32 @@ RULES = {
     "4.4": SLICE.rule(del_slice_index),
     "6.1": nodes("string").rule(requote("'", '"')),
     "6.2": nodes("string").rule(requote('"', "'")),
-    "6.3": nodes("string").where(literal_without_interpolation(False)).rule(set_prefix(lambda start: "f" + start)),
+    "6.3": nodes("string")
+    .where(literal_without_interpolation(False), not_after_word_character)
+    .rule(set_prefix(lambda start: "f" + start)),
     "6.4": nodes("string")
     .where(literal_without_interpolation(True))
     .rule(set_prefix(lambda start: start.replace("f", ""))),
-    "7.1": SELF_ASSIGNMENT.where(numeric_variable).rule(to_augmented),
+    "7.1": SELF_ASSIGNMENT.where(numeric_variable, not_chained).rule(to_augmented),
     "7.2": nodes("augmented_assignment").where(binary, numeric_variable).rule(from_augmented),
-    "7.3": EQUALITY_TEST.where(~negated, boolean_context).rule(negate_equality("==", "!=")),
-    "7.4": negated_test("!=").where(boolean_context).rule(remove_negation("==")),
-    "7.5": EQUALITY_TEST.where(~negated, boolean_context).rule(negate_equality("!=", "==")),
-    "7.6": negated_test("==").where(boolean_context).rule(remove_negation("!=")),
-    "7.7": COMPARISON.where(operator_in(*RELATIONAL), binary).rule(mirror([">", ">="])),
-    "7.8": COMPARISON.where(operator_in(*RELATIONAL), binary).rule(mirror(["<", "<="])),
+    "7.3": EQUALITY_TEST.where(~negated, boolean_context, not_after_word_character).rule(negate_equality("==", "!=")),
+    "7.4": negated_test("!=").where(boolean_context, not_before_word_character).rule(remove_negation("==")),
+    "7.5": EQUALITY_TEST.where(~negated, boolean_context, not_after_word_character).rule(negate_equality("!=", "==")),
+    "7.6": negated_test("==").where(boolean_context, not_before_word_character).rule(remove_negation("!=")),
+    "7.7": COMPARISON.where(operator_in(*RELATIONAL), binary, no_word_character_adjacent).rule(mirror([">", ">="])),
+    "7.8": COMPARISON.where(operator_in(*RELATIONAL), binary, no_word_character_adjacent).rule(mirror(["<", "<="])),
     "7.9": COMPARISON.where(operator_in(*RELATIONAL), ~in_expanded_comparison, binary)
     .where(boolean_context, pure_comparison)
     .rule(expand_comparison),
     "7.10": nodes("parenthesized_expression")
     .where(expanded_comparison)
-    .where(boolean_context, pure_comparison)
+    .where(boolean_context, pure_comparison, no_word_character_adjacent)
     .rule(contract_comparison),
-    "7.11": EQUALITY_TEST.rule(hash_order("==", "!=", True)),
-    "7.12": EQUALITY_TEST.rule(hash_order("==", "!=", False)),
-    "7.13": EQUALITY_TEST.rule(hash_order("!=", "==", True)),
-    "7.14": EQUALITY_TEST.rule(hash_order("!=", "==", False)),
-    "9.1": tuple_assignment(False).rule(split_assignment),
+    "7.11": EQUALITY_TEST.where(no_word_character_adjacent).rule(hash_order("==", "!=", True)),
+    "7.12": EQUALITY_TEST.where(no_word_character_adjacent).rule(hash_order("==", "!=", False)),
+    "7.13": EQUALITY_TEST.where(no_word_character_adjacent).rule(hash_order("!=", "==", True)),
+    "7.14": EQUALITY_TEST.where(no_word_character_adjacent).rule(hash_order("!=", "==", False)),
+    "9.1": tuple_assignment(False).where(sequentially_assignable).rule(split_assignment),
     "9.2": tuple_assignment(True).rule(chain_assignment),
     "10.1": returns("expression_list").rule(
         lambda node, source: [insert_before(node.children[1], "("), insert_after(node.children[1], ")")]
@@ -1125,13 +1234,17 @@ RULES = {
         lambda node, source: [delete_between(node.children[0].end_byte, node.children[1].end_byte)]
     ),
     "14.1": negated_comparison("in").where(well_formed).rule(sink_not("not in")),
-    "14.2": two_word_test("not", "in").where(well_formed).rule(lift_not("in")),
+    "14.2": two_word_test("not", "in").where(not_after_word_character, well_formed).rule(lift_not("in")),
     "15.1": negated_comparison("is").where(well_formed).rule(sink_not("is not")),
-    "15.2": two_word_test("is", "not").where(well_formed).rule(lift_not("is")),
+    "15.2": two_word_test("is", "not").where(not_after_word_character, well_formed).rule(lift_not("is")),
     "16.1": if_else(negated_form=True).where(well_formed).rule(swap_branches(negate=False)),
     "16.2": if_else(negated_form=False).where(well_formed).rule(swap_branches(negate=True)),
-    "17.1": conditional(negated_form=True).where(well_formed).rule(swap_conditional(negate=False)),
-    "17.2": conditional(negated_form=False).where(well_formed).rule(swap_conditional(negate=True)),
+    "17.1": conditional(negated_form=True)
+    .where(no_word_character_adjacent, well_formed)
+    .rule(swap_conditional(negate=False)),
+    "17.2": conditional(negated_form=False)
+    .where(no_word_character_adjacent, well_formed)
+    .rule(swap_conditional(negate=True)),
     "18.1": builtin_call("sum", 2).where(argument_text(1, "0")).where(well_formed).rule(drop_last_argument),
     "18.2": builtin_call("sum", 1).where(well_formed).rule(append_argument(0)),
     "19.1": RANGE_STEP.where(well_formed).rule(drop_last_argument),
@@ -1141,7 +1254,7 @@ RULES = {
     .where(well_formed)
     .rule(from_while_true),
     "20.2": nodes("while_statement")
-    .where(guard("while C with a negatable C")(plain_while))
+    .where(guard("while C with a negatable C")(plain_while), condition_not_after_word_character)
     .where(well_formed)
     .rule(to_while_true),
     "21.1": nodes("if_statement").where(single_exiting_if_then_rest).where(well_formed).rule(add_else),
@@ -1369,11 +1482,11 @@ EXTENSION_RULES = {
     "40.1": RETURN.where(parenthesized_return).where(well_formed).rule(drop_parentheses_of()),
     "40.2": RETURN.where(plain_return).where(well_formed).rule(add_parentheses_to()),
     "41.1": nodes("binary_operator")
-    .where(literal_operation(True), outside_comparisons)
+    .where(literal_operation(True), outside_comparisons, no_word_character_adjacent)
     .where(well_formed)
     .rule(swap_operands),
     "41.2": nodes("binary_operator")
-    .where(literal_operation(False), outside_comparisons)
+    .where(literal_operation(False), outside_comparisons, no_word_character_adjacent)
     .where(well_formed)
     .rule(swap_operands),
     "42.1": CONDITIONS.where(parenthesized_condition).where(well_formed).rule(drop_parentheses_of("condition")),
