@@ -504,15 +504,17 @@ class AttackTests(unittest.TestCase):
 class EngineCase(unittest.TestCase):
     """Builds a frozen-run-like directory with a few units and a `RobustEngine` on the fake `cllmark.robust`."""
 
+    fake = True  # `cllmark.robust` is the fake above; the real-core tests switch it off
     ATTACKS = ("flip_0.3", "normalize_all", "delete_0.5", "insert_1", "rename", "reformat", "reorder", "combo")
 
     def setUp(self):
         self.temporary = Path(tempfile.mkdtemp())
         self.addCleanup(shutil.rmtree, self.temporary, ignore_errors=True)
         self.addCleanup(os.chdir, os.getcwd())
-        patcher = mock.patch.dict(sys.modules, {"cllmark.robust": make_fake_robust()})
-        patcher.start()
-        self.addCleanup(patcher.stop)
+        if self.fake:
+            patcher = mock.patch.dict(sys.modules, {"cllmark.robust": make_fake_robust()})
+            patcher.start()
+            self.addCleanup(patcher.stop)
         stub = mock.patch.object(engine_module, "evaluate_utility", lambda *args, **kwargs: {"status": "DEFERRED"})
         stub.start()
         self.addCleanup(stub.stop)
@@ -777,6 +779,128 @@ class RobustEngineTests(EngineCase):
         donors = engine.donor_units["python"]
         self.assertEqual([unit["id"] for unit in donors], ["cn_human/h1", "cn_human/h2"])
         self.assertEqual(engine.donor_units.get("c"), None)
+
+
+REAL_PY = (
+    "\n".join(
+        f"""def f{i}(a, b):
+    total = 0
+    if a != b and a > {i}:
+        total += a
+    elif a == {i + 1}:
+        total = total + b
+    items = [x for x in range({i + 2}) if x != {i}]
+    print("v{i}", total, len(items))
+    return total if total > {i} else b
+"""
+        for i in range(14)
+    )
+    + "\nf0(1, 2)\n"
+)
+
+
+class RealCoreTests(EngineCase):
+    """The engine on the real `cllmark.robust` (no fake): embedding, detection, sweeps and attacks end to end."""
+
+    fake = False
+
+    def real_row(self, **robust):
+        engine = self.build(
+            [self.generated(code=REAL_PY), self.human(code=REAL_PY.replace("!=", "==").replace("v1", "w1"))],
+            {"attacks": ["rename", "flip_0.2", "delete_0.5", "reformat"], **robust},
+        )
+        self.assertEqual(type(engine.robust).__name__, "module")
+        self.assertTrue(engine.robust.__file__.endswith("robust/__init__.py"))
+        return engine, self.row(engine, 0), self.row(engine, 1)
+
+    def test_both_schemes_embed_detect_and_survive_deletion(self):
+        for scheme in ("s1", "s2"):
+            with self.subTest(scheme=scheme):
+                _, row, human = self.real_row(scheme=scheme)
+                robust = row["robust"]
+                self.assertGreater(robust["capacity"]["votes"], 100)
+                self.assertTrue(row["eligible"] and row["marked_extraction"]["matched"])
+                marked = robust["marked"]
+                self.assertLess(marked["p_known"], 1e-6)
+                self.assertTrue(all(marked["decision"].values()) and all(marked["blind"].values()))
+                self.assertEqual(marked["decoded"], row["watermark"])
+                self.assertEqual(marked["errors"], 0)
+                self.assertIsNotNone(marked["p_all"])
+                embed = robust["embed"]
+                self.assertEqual(embed["set_rate"], 1.0)
+                self.assertGreater(embed["selection_agreement"], 0.9)
+                self.assertEqual(embed["errors"], 0)
+                self.assertIn("available", embed["details"])
+                stability = robust["capacity"]["pair_stability"]
+                self.assertEqual(sum(u for u, _ in stability.values()), robust["capacity"]["usable"])
+                self.assertTrue(all(0 <= st <= u for u, st in stability.values()))
+                # the wrong messages are not accepted (by p_known), the unmarked code does not claim the message
+                self.assertEqual(marked["sweep"]["messages"], 15)
+                self.assertEqual(marked["sweep"]["hits"], {"0.001": [], "1e-06": []})
+                self.assertGreater(robust["original"]["p_known"], 1e-3)
+                self.assertFalse(row["original_extraction"]["matched"])
+                self.assertTrue(robust["attacks"]["delete_0.5"]["decision"]["0.001"])
+                self.assertTrue(robust["attacks"]["flip_0.2"]["decision"]["0.001"])
+                self.assertEqual(row["attacks"]["delete_0.5"]["extraction"]["matched"], True)
+                # null: hand-written code reads as unmarked, attacked or not, against all 16 messages
+                self.assertFalse(human["original_extraction"]["matched"])
+                for reading in [human["robust"]["original"], *human["robust"]["attacks"].values()]:
+                    if reading.get("changed", True):
+                        self.assertEqual(reading["sweep"]["messages"], 16)
+                json.dumps(row)
+
+    def test_struct_anchors_survive_renaming_and_token_anchors_do_not(self):
+        _, tok, _ = self.real_row(scheme="s2", anchor="tok")
+        _, struct, _ = self.real_row(scheme="s2", anchor="struct")
+        self.assertFalse(tok["robust"]["attacks"]["rename"]["decision"]["0.001"])
+        self.assertTrue(struct["robust"]["attacks"]["rename"]["decision"]["0.001"])
+        self.assertGreater(
+            struct["robust"]["attacks"]["rename"]["anchors"]["retained"],
+            tok["robust"]["attacks"]["rename"]["anchors"]["retained"],
+        )
+
+    def test_eight_bit_sweep_covers_all_256_messages(self):
+        _, row, _ = self.real_row(scheme="s1", bits=8, attacks=["reformat"])
+        self.assertEqual(row["robust"]["original"]["sweep"]["messages"], 256)
+        self.assertEqual(row["robust"]["marked"]["sweep"]["messages"], 255)
+        self.assertEqual(row["robust"]["marked"]["decoded"], row["watermark"])
+
+    def test_the_report_summarizes_the_real_core_fields(self):
+        report_tool = load_tool("robust_report")
+        engine = self.build(
+            [self.generated(code=REAL_PY), self.generated(name="g2", code=REAL_PY), self.human(code=REAL_PY)],
+            {"scheme": "s1", "attacks": ["flip_0.2"]},
+        )
+        rows = [engine.evaluate(unit) for unit in self.manifest["units"]]
+        directory = self.temporary / "real-report"
+        directory.mkdir()
+        (directory / "manifest.json").write_text(json.dumps({"run_id": "r", "config": engine.config, "full": False}))
+        (directory / "rows.jsonl").write_text("".join(json.dumps(row) + "\n" for row in rows))
+        analysis = report_tool.analyse_run(report_tool.load_run(directory))
+        embedding = analysis["embedding"][0]
+        self.assertEqual(embedding["selection_agreement"]["n"], 2)
+        self.assertGreater(embedding["selection_agreement"]["mean"], 0.9)
+        self.assertEqual(embedding["embed_errors"], 0)
+        detection = analysis["detection"][0]
+        self.assertEqual(detection["rule_errors"], 0)
+        self.assertEqual(set(detection["p_all_info"]), {"0.001", "1e-06"})
+        self.assertEqual(detection["p_all_info"]["0.001"], 1.0)
+        self.assertTrue(all(0 <= e["share"] <= 1 for e in analysis["pair_stability"]))
+        self.assertGreater(len(analysis["pair_stability"]), 3)
+        self.assertIn("p_all_info", analysis["null"][0])
+        text = report_tool.render({"runs": [], "variants": {analysis["variant"]: analysis}})
+        for heading in [
+            "## 8. Stable sites per rule pair",
+            "selection agreement",
+            "p_all <= alpha (info)",
+            "sha256 derivation",
+        ]:
+            self.assertIn(heading, text)
+
+    def test_the_protocol_config_carries_the_digest_of_the_real_core(self):
+        digest_value = robust_engine.core_digest(ROOT)
+        self.assertNotEqual(digest_value, "absent")
+        self.assertEqual(len(digest_value), 64)
 
 
 class BchBaselineTests(EngineCase):

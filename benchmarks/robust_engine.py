@@ -282,6 +282,8 @@ class RobustEngine(rule_sets.ExtendedRules, node_engine.NodeEngine):
             "decoded": decoded,
             "p_blind": found.p_blind,
             "margin": found.margin,
+            "p_all": getattr(found, "p_all", None),  # informational (scheme 1: all votes); decisions use p_known/p_blind
+            "errors": getattr(found, "errors", 0),  # (file, rule pair) combinations whose rules raised
             "decision": {label(a): found.p_known is not None and found.p_known <= a for a in self.alphas},
             "blind": {
                 label(a): decoded == list(message) and found.p_blind is not None and found.p_blind <= a
@@ -375,6 +377,8 @@ class RobustEngine(rule_sets.ExtendedRules, node_engine.NodeEngine):
             "decoded": None,
             "p_blind": None,
             "margin": None,
+            "p_all": None,
+            "errors": 0,
             "decision": dict.fromkeys(names, False),
             "blind": dict.fromkeys(names, False),
             "bits": [],
@@ -505,7 +509,13 @@ class RobustEngine(rule_sets.ExtendedRules, node_engine.NodeEngine):
                 stable = [site for site in usable if site.stable]
                 votes = len({site.key for site in stable})
                 capacity = len(usable)
+                pair_stability = {}
+                for site in usable:
+                    counts = pair_stability.setdefault(site.pair, [0, 0])
+                    counts[0] += 1
+                    counts[1] += bool(site.stable)
                 robust["capacity"] = {
+                    "pair_stability": pair_stability,  # rule pair -> [usable sites, stable sites]
                     "sites": len(observed),
                     "readable": sum(site.reading is not None for site in observed),
                     "usable": capacity,
@@ -547,6 +557,9 @@ class RobustEngine(rule_sets.ExtendedRules, node_engine.NodeEngine):
                         "set_sites": done.set_sites,
                         "rounds": done.rounds,
                         "set_rate": done.set_sites / done.targeted_sites if done.targeted_sites else None,
+                        "selection_agreement": getattr(done, "selection_agreement", None),
+                        "errors": getattr(done, "errors", 0),
+                        "details": dict(getattr(done, "details", None) or {}),
                     }
                 else:
                     self.directories.embed_directory(marked, language, message, parser)

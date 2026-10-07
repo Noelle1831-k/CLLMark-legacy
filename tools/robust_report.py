@@ -112,6 +112,32 @@ def get(value, *path):
     return value
 
 
+def quantile(values, q):
+    values = sorted(values)
+    return values[min(len(values) - 1, int(q * len(values)))] if values else None
+
+
+def distribution(values):
+    """n, mean, 10th percentile, minimum and the number of values below 1 (for shares such as Jaccard agreement)."""
+    values = [v for v in values if v is not None]
+    return {
+        "n": len(values),
+        "mean": mean(values),
+        "p10": quantile(values, 0.1),
+        "min": min(values) if values else None,
+        "below_one": sum(v < 1 for v in values),
+    }
+
+
+def info_share(readings, decisions):
+    """Share of readings whose p_all (informational; scheme 1: all votes) is at most each alpha."""
+    readings = [x for x in readings if x and x.get("p_all") is not None]
+    return {
+        name: rate(sum(x["p_all"] <= float(name) for x in readings), len(readings)) if name != BCH else None
+        for name in decisions
+    }
+
+
 def wilson_upper(successes, trials, z=1.96):
     """Upper end of the Wilson 95% interval of a rate (the usual bound when nothing was observed)."""
     if not trials:
@@ -314,6 +340,8 @@ def analyse_run(run):
                     "changed_lines_median": median(e.get("changed_lines", 0) for e in embeds),
                     "embedding_ms_median": median(r["embedding_ms"] for r in embedded if "embedding_ms" in r),
                     "syntax_retained": rate(syntax_kept, syntax_before),
+                    "selection_agreement": distribution(e.get("selection_agreement") for e in embeds),
+                    "embed_errors": sum(e.get("errors", 0) for e in embeds),
                     "functional_tested": len(pairs),
                     "before_pass": len(passed),
                     "regressions": len(regressions),
@@ -343,6 +371,8 @@ def analyse_run(run):
                     "eligible_share": rate(len(embedded), len(group)),
                     **rates,
                     "by_capacity": by_bin,
+                    "p_all_info": info_share([get(r, "robust", "marked") for r in embedded], decisions),
+                    "rule_errors": sum(get(r, "robust", "marked", "errors") or 0 for r in embedded),
                     "auc": auc(
                         [get(r, "robust", "marked", "p_known") for r in embedded],
                         [get(r, "robust", "original", "p_known") for r in peers],
@@ -384,6 +414,7 @@ def analyse_run(run):
                 **null_row(group, decisions, bits),
             }
         )
+    out["pair_stability"] = pair_stability(ok)
     out["attacks"] = attack_rows(rows, decisions, bits)
     out["auc_attacks"] = attack_auc(rows)
     out["readings_with_errors"] = sum(
@@ -400,6 +431,28 @@ def analyse_run(run):
     return out
 
 
+def pair_stability(rows):
+    """Usable and stable sites per rule pair (the self-stability check of the anchors), summed over the units."""
+    totals = defaultdict(lambda: [0, 0])
+    for row in rows:
+        for pair, (usable_sites, stable_sites) in (get(row, "robust", "capacity", "pair_stability") or {}).items():
+            entry = totals[(row["language"], pair)]
+            entry[0] += usable_sites
+            entry[1] += stable_sites
+    return [
+        {
+            "language": language,
+            "pair": pair,
+            "usable": usable_sites,
+            "stable": stable_sites,
+            "share": rate(stable_sites, usable_sites),
+        }
+        for (language, pair), (usable_sites, stable_sites) in sorted(
+            totals.items(), key=lambda item: (LANGUAGE_ORDER.get(item[0][0], 9), item[0][1])
+        )
+    ]
+
+
 def null_row(group, decisions, bits):
     known = detection_rates(group, decisions, version="original")
     sweeps = sweep_rates(group, lambda r: [get(r, "robust", "original")], decisions, bits)
@@ -412,6 +465,8 @@ def null_row(group, decisions, bits):
         "known_hits": {name: round((known["known"][name] or 0) * known["n"]) for name in decisions},
         "read": known["n"],
         "sweep": sweeps,
+        "p_all_info": info_share([get(r, "robust", "original") for r in group], decisions),
+        "rule_errors": sum(get(r, "robust", "original", "errors") or 0 for r in group),
     }
 
 
@@ -452,6 +507,7 @@ def attack_rows(rows, decisions, bits):
                         len(readings),
                     ),
                     "errors": sum("error" in x for x in readings),
+                    "rule_errors": sum(x.get("errors", 0) or 0 for x in readings + null_readings),
                     "anchor_retained": mean(a["retained"] for a in anchors if a.get("retained") is not None),
                     "anchor_survival": mean(a["survival"] for a in anchors if a.get("survival") is not None),
                     "null_units": len(null),
@@ -593,7 +649,10 @@ def render(report):
         "",
         "Decisions: robust schemes decide at alpha 1e-3 and 1e-6 (shown `a / b`); BCH baselines decide once (`match`). "
         "Hand-written groups are the null hypothesis; the `js_repos_stress` group is embedded only to run the repository "
-        "tests and is excluded from detection statistics.",
+        "tests and is excluded from detection statistics. Decisions use only `p_known` (known message) and `p_blind` "
+        "(blind); `p_all` (scheme 1: message and tag votes together) is informational. The experiment key and the "
+        "per-unit messages come from the benchmark's own sha256 derivation of the config seed (not `cllmark.robust."
+        "derive_key`/`derive_message`).",
         "",
         "## 1. Headline (CodeNet, all languages pooled)",
         "",
@@ -649,17 +708,25 @@ def render(report):
                     num(e["changed_files_median"]), num(e["changed_lines_median"]), pct(e["syntax_retained"]),
                     e["functional_tested"], e["before_pass"], e["regressions"], pct(e["preservation"]),
                     num(e["embedding_ms_median"], 1),
+                    f"{num(e['selection_agreement']['mean'], 3)} / {num(e['selection_agreement']['min'], 3)} / {e['selection_agreement']['below_one']}",
+                    e["embed_errors"],
                 ]
             )  # fmt: skip
     lines += table(
         [
             "variant", "stratum", "group", "embedded", "set rate", "rounds", "files changed (med)", "lines changed (med)",
             "syntax kept", "tested pairs", "before pass", "regressions", "preserved", "embed ms (med)",
+            "selection agreement mean / min / units < 1", "embed rule errors",
         ],
         rows,
     )  # fmt: skip
     regressions = [
         (n, e["cohort"], e["regression_ids"]) for n, v in variants.items() for e in v["embedding"] if e["regressions"]
+    ]
+    lines += [
+        "",
+        "Selection agreement is the Jaccard similarity of the keys the detector selects on the marked code and the keys "
+        "selected for embedding (1.0: detection votes on exactly the embedded sites); BCH rows have none.",
     ]
     lines += ["", f"Groups with regressions: {len(regressions)}."]
     lines += [f"- {n} {cohort}: {', '.join(ids)}" for n, cohort, ids in regressions]
@@ -722,6 +789,7 @@ def render(report):
                     per(n["known_upper95"], d), per({k: x["pair_rate"] for k, x in decisions.items()}, d, sci),
                     per({k: x["unit_rate"] for k, x in decisions.items()}, d),
                     " / ".join(f"{x['max_message']} {pct(x['max_message_rate'])}" for x in decisions.values()),
+                    per(n["p_all_info"], d), n["rule_errors"],
                 ]
             )  # fmt: skip
     lines += table(
@@ -736,6 +804,8 @@ def render(report):
             "all m (pair)",
             "unit any",
             "busiest message",
+            "p_all <= alpha (info)",
+            "detector rule errors",
         ],
         rows,
     )
@@ -783,12 +853,13 @@ def render(report):
                     pct(a["decoded_correct"]), pct(a["anchor_retained"]), pct(a["anchor_survival"]),
                     f"{a['null_applied']}/{a['null_units']}", per(a["null_fpr"], d),
                     per({k: x["pair_rate"] for k, x in a["null_sweep"]["decisions"].items()}, d, sci), a["errors"],
+                    a["rule_errors"],
                 ]
             )  # fmt: skip
     lines += table(
         [
             "variant", "stratum", "attack", "applied", "TPR known m", "TPR blind", "msg correct", "anchors retained",
-            "anchor survival", "null applied", "FPR known m", "FPR all m", "errors",
+            "anchor survival", "null applied", "FPR known m", "FPR all m", "reading errors", "detector rule errors",
         ],
         rows,
     )  # fmt: skip
@@ -802,6 +873,18 @@ def render(report):
         "is equivalent to flipping half of the bits at random. It is reported as it is and is not a pass condition.",
         "",
     ]
+    lines += ["", "## 8. Stable sites per rule pair", ""]
+    lines += [
+        "Share of usable sites whose anchor key survives the self-stability check (the unstable ones are neither embedded "
+        "nor read), summed over all units of the language.",
+        "",
+    ]
+    rows = [
+        [name, e["language"], e["pair"], e["usable"], e["stable"], pct(e["share"])]
+        for name, v in variants.items()
+        for e in v["pair_stability"]
+    ]
+    lines += table(["variant", "language", "rule pair", "usable", "stable", "stable share"], rows)
     return "\n".join(lines) + "\n"
 
 
