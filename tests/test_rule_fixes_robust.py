@@ -100,6 +100,10 @@ class MallocToArrayTests(RuleFixCase):
         ]:
             self.assertRejected("c", "5.2", self.HEADER + "void f(S *a, char *q, int n){ " + body + " }")
 
+    def test_a_bare_sizeof_allocation_is_left_alone_without_raising(self):
+        # zstd: `T *p = (T*)malloc(sizeof(T));` raised IndexError in element_count before the size check
+        self.assertRejected("c", "5.2", self.HEADER + "void f(void){ S *p = (S*)malloc(sizeof(S)); p->x = 1; }")
+
     def test_local_buffers_still_become_arrays(self):
         code = self.HEADER + "void f(void){ char *buf = (char*)malloc(sizeof(char) * 16); buf[0] = 1; g(buf); }"
         self.assertRewrites("c", "5.2", code, self.HEADER + "void f(void){ char buf[16]; buf[0] = 1; g(buf); }")

@@ -553,6 +553,8 @@ def stack_sized(declarator):
     arguments = call.children[-1]
     if arguments.type != "argument_list" or len(arguments.children) != 3:
         return False
+    if arguments.children[1].type == "sizeof_expression":
+        return False  # `malloc(sizeof(T))`: no element count (and `element_count` needs a factor besides sizeof)
     count = element_count(text(arguments.children[1]))
     return re.fullmatch(r"[0-9]+[uUlL]*", count) is not None and int(re.sub(r"[uUlL]", "", count)) <= STACK_ELEMENTS
 
