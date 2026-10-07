@@ -230,3 +230,7 @@ make watch-benchmark
 ## CodeNet 数据集评估
 
 在 CodeNet 的生成/手写 stdin/stdout 程序（4 语言 x G/H）上评估四种方法变体，使用独立的功能 oracle 和报告工具，见 `docs/CODENET.md`。首次运行前执行 `make codenet-setup`。
+
+## 鲁棒水印评估
+
+带 `robust` 节的配置（`benchmarks/config-rw-*.json`）使用 `benchmarks/robust_engine.py`：两个带密钥方案与 BCH 基线在同一批单元、消息与攻击下比较，CodeNet 手写组与 JavaScript 仓库只检测（零假设），`js_repos_stress` 只计功能保持。各配置首次运行用 `--initialize-baseline` 建立独立参考（与默认配置的参考分开存放）；跨变体对比用 `tools/robust_report.py`。见 [ROBUST_WATERMARK.md](ROBUST_WATERMARK.md)。

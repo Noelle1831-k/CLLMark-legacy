@@ -37,6 +37,7 @@ flowchart TD
 | [cli.py](../cllmark/cli.py) | `main` | `python -m cllmark analyze/embed/extract`；输入目录只读，`embed` 写到新的输出目录。 |
 | [bch.py](../cllmark/bch.py) | `encode`、`decode`、`remainder` | 系统 BCH(7,4,1)（汉明码），生成多项式 `x^3 + x + 1`，单比特纠错。 |
 | [source_io.py](../cllmark/source_io.py) | `read_source`、`write_source`、`reload_written` | 严格 UTF-8 + universal newlines（与文本模式 `open` 一致），写后再读的语义在内存中复现；非 UTF-8 文件报错并给出路径。语料已统一为 UTF-8/LF（数据仓库 `provenance/normalize_sources.py`）。 |
+| [robust/](../cllmark/robust) | `Scheme`、`observe`、`embed`/`EmbedResult`、`detect`/`Detection`、`score`、`binomial_tail`、`derive_key` | 阶段 2 的带密钥水印：`keys.py`（HMAC-SHA256 PRF、白化、方案目标比特）、`anchors.py`（位点观察、`tok`/`struct` 锚点键、白名单选位、自稳定性检查）、`embed.py`（多轮按位点改写）、`detect.py`（成票、已知消息与盲提取的二项检验）、`stable_pairs.py`（`tools/robust_calibrate.py` 生成的稳定规则对白名单）。说明见 [ROBUST_WATERMARK.md](ROBUST_WATERMARK.md)。 |
 | [rules/engine.py](../cllmark/rules/engine.py) | `Rule`、`Matcher`、`Guard`、`Grammar`、`apply_edits` | 规则表示（tree-sitter 查询 + 具名守卫 + 锚定编辑）、按语言编译单个查询、原子编辑组与冲突处理、解析缓存。设计见 [RULES.md](RULES.md)。 |
 | [rules/pairs.py](../cllmark/rules/pairs.py) | `WATERMARK_PAIRS` | 每种语言的水印对 `(比特 0 样式, 比特 1 样式)`，顺序即槽位顺序。 |
 | [rules/styles.json](../cllmark/rules/styles.json) | 语言 → 编号 → `[类别, 名称]` | 样式目录；测试检查它与规则模块、水印对一致。 |
@@ -72,6 +73,8 @@ flowchart TD
 | [benchmarks/staged.py](../benchmarks/staged.py)、[benchmarks/parallel.py](../benchmarks/parallel.py)、[benchmarks/progress.py](../benchmarks/progress.py) | 分阶段执行（水印阶段 → 功能阶段）、进程池与进度显示 |
 | [benchmarks/rule_sets.py](../benchmarks/rule_sets.py)、[benchmarks/node_engine.py](../benchmarks/node_engine.py) | legacy/extended 规则集与节点粒度槽位的评估引擎，并把各自的协议摘要加入配置 |
 | [benchmarks/codenet.py](../benchmarks/codenet.py)、[tools/import_codenet.py](../tools/import_codenet.py)、[tools/codenet_report.py](../tools/codenet_report.py) | CodeNet 数据集：导入（固定提交、解包 Python 适配器）、`codenet_stdio` oracle（编译、逐用例运行、token/浮点判题）、手写组只检测（`detect_only`）与报告，见 [CODENET.md](CODENET.md) |
+| [benchmarks/robust_engine.py](../benchmarks/robust_engine.py)、[benchmarks/attacks.py](../benchmarks/attacks.py) | 鲁棒水印评估引擎（带 `robust` 节的配置选用；s1/s2 与 BCH 基线同一协议）与 13 种攻击（flip、normalize、delete、insert、rename、reformat、reorder、combo） |
+| [tools/robust_report.py](../tools/robust_report.py)、[tools/robust_calibrate.py](../tools/robust_calibrate.py)、[tools/robust_sample.py](../tools/robust_sample.py) | 变体对比报告、稳定规则对标定、核心抽样与版本对比 |
 | [tools/repo_check.py](../tools/repo_check.py)、[benchmarks/real_repos.json](../benchmarks/real_repos.json) | 真实仓库功能检查：固定提交、嵌入与逐规则全仓改写后运行仓库自带测试，见 [REAL_REPOS.md](REAL_REPOS.md) |
 | [tools/rule_audit.py](../tools/rule_audit.py) | 全量语料上的适用数、自然形式、幂等、可逆、语法与规则间干扰审计 |
 | [tools/lost_capacity_report.py](../tools/lost_capacity_report.py) | 对比两次运行，解释失去容量的单元与槽位 |

@@ -17,6 +17,8 @@
 │   ├── cli.py                  #   python -m cllmark {analyze,embed,extract}
 │   ├── bch.py                  #   BCH(7,4,1) 编码与单比特纠错
 │   ├── source_io.py            #   UTF-8 读写（universal newlines），每个文件读一次、写一次
+│   ├── nodes.py                #   节点粒度位点（sites/slots）与按位点改写
+│   ├── robust/                 #   阶段 2：带密钥的鲁棒水印（keys、anchors、embed、detect、stable_pairs）
 │   └── rules/
 │       ├── engine.py           #   规则表示、单次查询匹配、原子编辑与冲突处理、解析缓存
 │       ├── python.py c.py cpp.py javascript.py   # 各语言规则（RULES：样式编号 → Rule）
@@ -95,6 +97,18 @@ make codenet-setup [SOURCE=已有检出]          # 导入到被忽略的 extern
 
 要点（规则修复后，标签 `codenet-eval-2`）：生成代码功能回退 0、嵌入后检出率 99.8–100%；对固定消息 `1010` 的手写代码误报 0–5%，但换一个消息可高达 13–96%（JavaScript 手写代码 84–96% 读出 `0000`）——预期消息匹配的误报率依赖消息选择。协议、导入与 oracle 见 [CODENET.md](docs/CODENET.md)，结果见 [首轮](docs/experiments/2026-10-07-codenet.md) 与 [规则修复后](docs/experiments/2026-10-07-codenet-v2.md) 的实验记录。
 
+## 鲁棒带密钥水印（阶段 2，实验性）
+
+`cllmark/robust/` 用全部可改写位点承载由密钥决定的比特：位点按位置无关的锚点（`tok`：标识符与字面量；`struct`：结构骨架）寻址，比特经 HMAC 白化，检测只需密钥和待检代码（不需要支持文件），按二项检验给出可校准的 p 值。两个方案：`s1` 重复嵌入消息位并以 HMAC 标签判定，`s2` 全部位点放消息相关的密钥序列；消息 4 或 8 位。只使用在默认语料上标定为稳定的规则对（`cllmark/robust/stable_pairs.py`）。
+
+```python
+from cllmark.robust import Scheme, derive_key, embed, detect
+result = embed(transformer, "python", files, Scheme("s2", 4, "struct"), key, [1, 0, 1, 1])
+found = detect(transformer, "python", {**files, **result.written}, Scheme("s2", 4, "struct"), key, None)  # 盲提取
+```
+
+评估使用 10 份 `benchmarks/config-rw-*.json`（两个方案 × 4/8 位 × 两种锚点，加 BCH 文件/节点粒度基线），在 CodeNet 生成/手写组、多文件项目与 14 个 JavaScript 仓库上测检出率、全部消息上的误报率、跨消息误接受、13 种攻击与功能保持，报告由 `tools/robust_report.py` 生成。设计、用法与限制见 [ROBUST_WATERMARK.md](docs/ROBUST_WATERMARK.md)。
+
 ## 开发
 
 ```bash
@@ -115,6 +129,7 @@ CI（`.github/workflows/ci.yml`）在每次推送和 PR 上运行 lint 与测试
 - [科研循环与全量 benchmark](docs/RESEARCH_LOOP.md)：固定环境、全量重跑、功能检查、基线门禁与续跑。
 - [CodeNet 数据集评估](docs/CODENET.md)：导入、stdin/stdout oracle、手写组只检测的协议与报告工具。
 - [真实仓库功能检查](docs/REAL_REPOS.md)：固定提交的大仓库上嵌入与逐规则全仓改写后运行自带测试。
+- [鲁棒带密钥水印](docs/ROBUST_WATERMARK.md)：阶段 2 的方法、用法、评估配置与已知限制。
 - [分支与版本管理](docs/plans/2026-10-07-branches.md)：本系列工作的分支地图、标签与服务器检出。
 - [性能](docs/PERFORMANCE.md)：剖析结论、采用与放弃的优化、实测数据与修改指南。
 - [论文与实现对照](docs/PAPER_ALIGNMENT.md)：两版论文与现有代码的对应关系。
