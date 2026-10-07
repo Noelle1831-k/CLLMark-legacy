@@ -1,7 +1,7 @@
 BENCH_PYTHON ?= .venv-benchmark/bin/python
 RUFF ?= .venv-benchmark/bin/ruff
 
-.PHONY: repo-setup repo-instant repo-check benchmark-ram corpus setup-benchmark setup-javascript setup-dev doctor inventory test lint format perf smoke benchmark baseline watch-benchmark progress code-map
+.PHONY: codenet-setup repo-setup repo-instant repo-check benchmark-ram corpus setup-benchmark setup-javascript setup-dev doctor inventory test lint format perf smoke benchmark baseline watch-benchmark progress code-map
 
 corpus:
 	git submodule update --init corpus
@@ -35,6 +35,9 @@ format:
 
 perf:
 	$(BENCH_PYTHON) tools/perf_benchmark.py
+
+codenet-setup:
+	$(BENCH_PYTHON) tools/import_codenet.py $(if $(SOURCE),--source $(SOURCE))
 
 repo-setup:
 	$(BENCH_PYTHON) tools/repo_check.py setup

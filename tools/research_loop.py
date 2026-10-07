@@ -10,6 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+from benchmarks import codenet
 from benchmarks.common import (
     digest,
     discover_units,
@@ -17,7 +18,6 @@ from benchmarks.common import (
     parser_smoke,
     source_fingerprint,
     toolchain_environment,
-    validate_config,
     write_json,
 )
 from benchmarks.compare import compare, promote_baseline
@@ -30,7 +30,7 @@ from benchmarks.runner import execute_run, launch_frozen, run_experiment, valida
 def read_config(path, jobs=None):
     config = json.loads(Path(path).read_text())
     config["jobs"] = jobs if jobs and jobs > 0 else worker_count()
-    return validate_config(protocol_config(config, ROOT))
+    return codenet.validate_config(protocol_config(config, ROOT))
 
 
 def main(argv=None):

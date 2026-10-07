@@ -226,3 +226,7 @@ make watch-benchmark
 ## 真实仓库功能保持检查
 
 修改规则或嵌入/提取算法后，除 `make smoke` / `make benchmark` 外再运行 `make repo-check`：在固定提交的 10 万行级真实仓库（networkx、zstd、cppcheck、mathjs）上嵌入水印、逐条样式全仓改写，构建并运行各仓库自带测试，失败变体二分到文件。详见 `docs/REAL_REPOS.md`。
+
+## CodeNet 数据集评估
+
+在 CodeNet 的生成/手写 stdin/stdout 程序（4 语言 x G/H）上评估四种方法变体，使用独立的功能 oracle 和报告工具，见 `docs/CODENET.md`。首次运行前执行 `make codenet-setup`。

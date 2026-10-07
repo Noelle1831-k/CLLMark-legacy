@@ -35,3 +35,4 @@ tree-sitter-*/
 .idea/
 .vscode/
 .DS_Store
+external/

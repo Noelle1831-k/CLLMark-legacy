@@ -1,0 +1,104 @@
+{
+  "protocol_version": "cllmark-3",
+  "seed": 20261005,
+  "watermark": [
+    1,
+    0,
+    1,
+    0
+  ],
+  "rule_set": "extended",
+  "jobs": 8,
+  "unit_timeout_seconds": 900,
+  "compile_timeout_seconds": 20,
+  "test_timeout_seconds": 3,
+  "test_timeout_retries": 1,
+  "rule_properties": true,
+  "attacks": [
+    1,
+    2
+  ],
+  "gates": {
+    "rate_drop_tolerance": 0.01,
+    "fpr_increase_tolerance": 0.01,
+    "new_functional_regressions": 0,
+    "new_harness_errors": 0,
+    "lost_eligible_units": 0,
+    "timing_relative_tolerance": 0.3,
+    "timing_absolute_tolerance_ms": 1.0
+  },
+  "problem_files": {
+    "codenet": "external/codenet/problems.jsonl"
+  },
+  "projects": {},
+  "codenet": {
+    "problem_file": "codenet",
+    "time_factor": 3
+  },
+  "cohorts": [
+    {
+      "name": "codenet_python_generated",
+      "path": "external/codenet/dataset/Python_G",
+      "language": "python",
+      "level": "function",
+      "role": "generated",
+      "oracle": "codenet_stdio"
+    },
+    {
+      "name": "codenet_python_human",
+      "path": "external/codenet/dataset/Python_H",
+      "language": "python",
+      "level": "function",
+      "role": "human",
+      "oracle": "codenet_stdio"
+    },
+    {
+      "name": "codenet_c_generated",
+      "path": "external/codenet/dataset/C_G",
+      "language": "c",
+      "level": "function",
+      "role": "generated",
+      "oracle": "codenet_stdio"
+    },
+    {
+      "name": "codenet_c_human",
+      "path": "external/codenet/dataset/C_H",
+      "language": "c",
+      "level": "function",
+      "role": "human",
+      "oracle": "codenet_stdio"
+    },
+    {
+      "name": "codenet_cpp_generated",
+      "path": "external/codenet/dataset/CPP_G",
+      "language": "cpp",
+      "level": "function",
+      "role": "generated",
+      "oracle": "codenet_stdio"
+    },
+    {
+      "name": "codenet_cpp_human",
+      "path": "external/codenet/dataset/CPP_H",
+      "language": "cpp",
+      "level": "function",
+      "role": "human",
+      "oracle": "codenet_stdio"
+    },
+    {
+      "name": "codenet_javascript_generated",
+      "path": "external/codenet/dataset/JS_G",
+      "language": "javascript",
+      "level": "function",
+      "role": "generated",
+      "oracle": "codenet_stdio"
+    },
+    {
+      "name": "codenet_javascript_human",
+      "path": "external/codenet/dataset/JS_H",
+      "language": "javascript",
+      "level": "function",
+      "role": "human",
+      "oracle": "codenet_stdio"
+    }
+  ]
+}

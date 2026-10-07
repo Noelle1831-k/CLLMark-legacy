@@ -10,7 +10,7 @@ carries the key, so its protocol fingerprint differs from legacy runs and it nee
 import importlib
 import os
 
-from . import engine, node_engine
+from . import codenet, engine, node_engine
 
 RULE_SETS = ("legacy", "extended")
 REPORT_NOTE = (
@@ -30,7 +30,7 @@ def protocol_config(config, root):
     """The config of a run (see `node_engine.protocol_config`); an explicit "legacy" is dropped, as it is the default."""
     if rule_set(config) == "legacy":
         config = {key: value for key, value in config.items() if key != "rule_set"}
-    return node_engine.protocol_config(config, root)
+    return codenet.protocol_config(node_engine.protocol_config(config, root), root)
 
 
 def annotate_report(run_dir, manifest):

@@ -12,9 +12,8 @@ import time
 import traceback
 from pathlib import Path
 
-from . import engine
+from . import codenet, engine
 from .common import digest, write_json
-from .utility import evaluate_utility
 
 DEFERRED = {"status": "DEFERRED"}
 
@@ -69,8 +68,12 @@ def functional_unit(row):
             current.manifest["utility_cache"],
         )
         started = time.perf_counter()
-        before = evaluate_utility(unit, work / "clean", *arguments)
-        after = evaluate_utility(unit, work / "marked", *arguments) if row["eligible"] else {"status": "NOT_EMBEDDED"}
+        before = codenet.evaluate_utility(unit, work / "clean", *arguments)
+        after = (
+            codenet.evaluate_utility(unit, work / "marked", *arguments)
+            if row["eligible"]
+            else {"status": "NOT_EMBEDDED"}
+        )
         merged = {**row, "utility_before": before, "utility_after": after}
         merged["functional_ms"] = (time.perf_counter() - started) * 1000
         write_json(work / "result.json", merged)
