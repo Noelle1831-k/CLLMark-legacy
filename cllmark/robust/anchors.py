@@ -306,7 +306,7 @@ def _operator(node) -> str | None:
     return operator.type if operator is not None else None
 
 
-def _special(node, language: str) -> bytes | None:
+def _special(node, language: str, memo: dict[int, bytes]) -> bytes | None:
     """Digests that equate the two forms of a rule pair whose forms differ in tree shape (None for other nodes).
 
     `x += y` and `x = x + y`; `a <= b` and `(a < b || a == b)`; `a[i]` and `*(a + i)`; `p->x` and `(*p).x`;
@@ -315,7 +315,7 @@ def _special(node, language: str) -> bytes | None:
     kind = node.type
 
     def digest(child) -> bytes:
-        return _skeleton_digest(child, language)
+        return _skeleton_digest(child, language, memo)
 
     if kind in ("augmented_assignment", "augmented_assignment_expression") or (
         kind == "assignment_expression" and _operator(node) in _COMPOUND
@@ -442,9 +442,9 @@ def _special(node, language: str) -> bytes | None:
     return None
 
 
-def _combine(node, operators: list[str], children: list[bytes], language: str) -> bytes:
+def _combine(node, operators: list[str], children: list[bytes], language: str, memo: dict[int, bytes]) -> bytes:
     kind = node.type
-    special = _special(node, language)
+    special = _special(node, language, memo)
     if special is not None:
         return special
     digests = [digest for digest in children if digest]
@@ -469,8 +469,15 @@ def _combine(node, operators: list[str], children: list[bytes], language: str) -
     return _hash("T", kind, ",".join(operators), *digests)
 
 
-def _skeleton_digest(node, language: str) -> bytes:
-    """The structural digest of `node`, computed without recursion (deep expression chains are common)."""
+def _skeleton_digest(node, language: str, memo: dict[int, bytes] | None = None) -> bytes:
+    """The structural digest of `node`, computed without recursion (deep expression chains are common).
+
+    `memo` maps the ids of the nodes of one tree to their digests: `_special` digests operands that the traversal also
+    digests, and without sharing them a chain such as `a == 1 || a == 2 || ...` costs 2^length."""
+    if memo is None:
+        memo = {}
+    if node.id in memo:
+        return memo[node.id]
     stack = [[node, None, 0, [], []]]  # [node, named children, position, child digests, operator families]
     while True:
         frame = stack[-1]
@@ -498,10 +505,14 @@ def _skeleton_digest(node, language: str) -> bytes:
             ]
         if frame[2] < len(frame[1]):
             frame[2] += 1
-            stack.append([frame[1][frame[2] - 1], None, 0, [], []])
+            child = frame[1][frame[2] - 1]
+            if child.id in memo:
+                frame[3].append(memo[child.id])
+            else:
+                stack.append([child, None, 0, [], []])
             continue
         stack.pop()
-        digest = _combine(current, frame[4], frame[3], language)
+        digest = memo[current.id] = _combine(current, frame[4], frame[3], language, memo)
         if not stack:
             return digest
         stack[-1][3].append(digest)

@@ -185,6 +185,23 @@ class AnchorTests(unittest.TestCase):
                         )
                     self.assertEqual(set(entry["allowed"]) | set(entry["excluded"]), set(entry["stats"]))
 
+    def test_long_comparison_chains_take_linear_time(self):
+        """`_special` digests the operands of `||` chains; shared digests keep a 60-term chain fast (it was 2^60)."""
+        import time
+
+        from cllmark.robust import observe
+
+        chains = {
+            "c": "int f(int a) { return " + " || ".join(f"a == {i}" for i in range(60)) + "; }\n",
+            "python": "def f(a):\n    return " + " or ".join(f"a == {i}" for i in range(60)) + "\n",
+            "javascript": "function f(a) { return " + " || ".join(f"a === {i}" for i in range(60)) + "; }\n",
+        }
+        for language, code in chains.items():
+            started = time.perf_counter()
+            found = observe(self.transformers[language], language, {"f": code}, "struct")
+            self.assertTrue(found, language)
+            self.assertLess(time.perf_counter() - started, 5, language)
+
     def test_support_files_are_not_observed(self):
         from cllmark.robust import observe
 
