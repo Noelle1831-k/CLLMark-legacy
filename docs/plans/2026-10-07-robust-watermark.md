@@ -169,3 +169,16 @@ rw-bench 用真实 core 的 `--limit 1` 计时（rw-bench `57a708dd`）：CodeNe
 5. `observe` 增加参数 `stability: bool`（默认 False）；嵌入内部只对选中位点调用稳定性检查。
 
 验收：重跑抽样 tsv，与 v2 对比 p_known 中位数、盲提取正确率、H 文件 p 值的均匀性与单比特邻居误接受率（应仍 ≈ α）；bn.js 的单个检测（无稳定性）耗时 ≤ 10 秒；make lint/test。
+
+## v4：标定的稳定规则对白名单（2026-10-07）
+
+v3（rw-core `586b1668`）把 bn.js 单次检测从约 100 秒降到 0.2 秒，但检测时混入不稳定位点的噪声票，功效明显下降：A-struct/legacy 的方案 1 盲提取最差 67.5%（8 位），p_known ≤ 1e-6 的文件比例从 86% 降到 35%；跨消息误接受与零假设均匀性不变。不稳定主要是规则对的性质（C/C++ `declare`、`for_OOO`、`while_to_for`、`else_after_return` 等两种形式落在不同节点上），不是逐位点随机的。
+
+修订：
+1. **离线标定**：新工具 `tools/robust_calibrate.py`，在**默认语料**（`benchmarks/config.json` 中 role 为 generated/human 的函数级与项目级组，不用 CodeNet，避免用测试数据调参）上，对每个 (语言, 规则集, 锚点, 规则对) 统计 usable 位点中稳定位点的比例（沿用 core 的稳定性定义）。
+2. **白名单**：比例 ≥ 0.95 且 usable 位点数 ≥ 50 的规则对进入白名单，写入 `cllmark/robust/stable_pairs.json`（含标定语料的提交、文件数、每对的比例与位点数）。白名单随源码摘要进入协议。
+3. **选位只在白名单规则对上进行**（嵌入与检测相同）；嵌入仍对选中位点做稳定性检查（v3 第 2 项），不稳定的不设置。检测不做稳定性检查（v3 第 3 项不变）。
+4. 引擎的容量统计不再单独调用 `stability=True` 的 observe，改为使用嵌入结果的 details（选中数、不稳定数、按规则对计数），去掉一次重复的稳定性计算。
+5. 重跑抽样 tsv，与 v2、v3 对比同一组指标（p_known 中位数与 ≤1e-6 比例、盲提取正确率、单比特邻居误接受率、H 文件 p 值均匀性、selection_agreement、unstable_selected），并测 bn.js 的 embed/detect 耗时。
+
+验收：盲提取正确率与 p_known ≤ 1e-6 比例恢复到接近 v2（各格子与 v2 相差 ≤ 5 个百分点，或说明原因）；检测耗时保持 v3 水平；误接受率 ≈ α。
