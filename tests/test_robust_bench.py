@@ -859,6 +859,8 @@ class RealCoreTests(EngineCase):
                 stability = robust["capacity"]["pair_stability"]
                 self.assertEqual(sum(u for u, _ in stability.values()), robust["capacity"]["usable"])
                 self.assertTrue(all(0 <= st <= u for u, st in stability.values()))
+                self.assertEqual(robust["capacity"]["stable"], sum(st for _, st in stability.values()))
+                self.assertGreater(robust["capacity"]["stable"], 0)
                 # the wrong messages are not accepted (by p_known), the unmarked code does not claim the message
                 self.assertEqual(marked["sweep"]["messages"], 15)
                 self.assertEqual(marked["sweep"]["hits"], {"0.001": [], "1e-06": []})

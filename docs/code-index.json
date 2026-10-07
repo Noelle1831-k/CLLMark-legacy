@@ -1410,7 +1410,7 @@
     {
       "path": "benchmarks/robust_engine.py",
       "module": "benchmarks.robust_engine",
-      "sha256": "25b1e07db818fd262d8a807cd62e25d5bad381a812914966514d288c14b8e6ed",
+      "sha256": "4938716cbe7695235e93260da119d73e1a62e1d4bf27c9bb27f3ca8654cdaf2f",
       "line_count": 654,
       "symbols": [
         {
@@ -9992,8 +9992,8 @@
     {
       "path": "tests/test_robust_bench.py",
       "module": "tests.test_robust_bench",
-      "sha256": "54648524b190384b63f25574aafee1bcf04d7f6574957c5a605f93f2c094da25",
-      "line_count": 1319,
+      "sha256": "114f3c15509e5c088f6883351146f67d60feefad4d65fb183b1df60c564afa99",
+      "line_count": 1321,
       "symbols": [
         {
           "name": "load_tool",
@@ -10359,7 +10359,7 @@
           "name": "RealCoreTests",
           "kind": "class",
           "line": 827,
-          "end_line": 928
+          "end_line": 930
         },
         {
           "name": "RealCoreTests.real_row",
@@ -10371,205 +10371,205 @@
           "name": "RealCoreTests.test_both_schemes_embed_detect_and_survive_deletion",
           "kind": "function",
           "line": 841,
-          "end_line": 875
+          "end_line": 877
         },
         {
           "name": "RealCoreTests.test_struct_anchors_survive_renaming_and_token_anchors_do_not",
           "kind": "function",
-          "line": 877,
-          "end_line": 885
+          "line": 879,
+          "end_line": 887
         },
         {
           "name": "RealCoreTests.test_eight_bit_sweep_covers_all_256_messages",
           "kind": "function",
-          "line": 887,
-          "end_line": 891
+          "line": 889,
+          "end_line": 893
         },
         {
           "name": "RealCoreTests.test_the_report_summarizes_the_real_core_fields",
           "kind": "function",
-          "line": 893,
-          "end_line": 923
+          "line": 895,
+          "end_line": 925
         },
         {
           "name": "RealCoreTests.test_the_protocol_config_carries_the_digest_of_the_real_core",
           "kind": "function",
-          "line": 925,
-          "end_line": 928
+          "line": 927,
+          "end_line": 930
         },
         {
           "name": "BchBaselineTests",
           "kind": "class",
-          "line": 931,
-          "end_line": 984
+          "line": 933,
+          "end_line": 986
         },
         {
           "name": "BchBaselineTests.test_bch_file_and_node_rows_follow_the_legacy_extraction",
           "kind": "function",
-          "line": 932,
-          "end_line": 961
+          "line": 934,
+          "end_line": 963
         },
         {
           "name": "BchBaselineTests.test_bch_reads_attacked_code_by_position_and_fails_without_the_files",
           "kind": "function",
-          "line": 963,
-          "end_line": 978
+          "line": 965,
+          "end_line": 980
         },
         {
           "name": "BchBaselineTests.test_bch_needs_four_bit_messages",
           "kind": "function",
-          "line": 980,
-          "end_line": 984
+          "line": 982,
+          "end_line": 986
         },
         {
           "name": "SelectionTests",
           "kind": "class",
-          "line": 987,
-          "end_line": 1097
+          "line": 989,
+          "end_line": 1099
         },
         {
           "name": "SelectionTests.section",
           "kind": "function",
-          "line": 988,
-          "end_line": 989
+          "line": 990,
+          "end_line": 991
         },
         {
           "name": "SelectionTests.test_defaults",
           "kind": "function",
-          "line": 991,
-          "end_line": 997
+          "line": 993,
+          "end_line": 999
         },
         {
           "name": "SelectionTests.test_invalid_sections_are_rejected",
           "kind": "function",
-          "line": 999,
-          "end_line": 1020
+          "line": 1001,
+          "end_line": 1022
         },
         {
           "name": "SelectionTests.test_robust_configs_carry_the_digests_and_other_configs_do_not_move",
           "kind": "function",
-          "line": 1022,
-          "end_line": 1047
+          "line": 1024,
+          "end_line": 1049
         },
         {
           "name": "SelectionTests.test_existing_configs_keep_their_protocol_config_and_fingerprint",
           "kind": "function",
-          "line": 1049,
-          "end_line": 1067
+          "line": 1051,
+          "end_line": 1069
         },
         {
           "name": "SelectionTests.test_workers_start_the_robust_engine_only_for_robust_configs",
           "kind": "function",
-          "line": 1069,
-          "end_line": 1084
+          "line": 1071,
+          "end_line": 1086
         },
         {
           "name": "SelectionTests.test_reports_of_robust_runs_name_the_variant_once",
           "kind": "function",
-          "line": 1086,
-          "end_line": 1097
+          "line": 1088,
+          "end_line": 1099
         },
         {
           "name": "SummaryFunctionTests",
           "kind": "class",
-          "line": 1100,
-          "end_line": 1127
+          "line": 1102,
+          "end_line": 1129
         },
         {
           "name": "SummaryFunctionTests.test_anchor_survival",
           "kind": "function",
-          "line": 1101,
-          "end_line": 1106
+          "line": 1103,
+          "end_line": 1108
         },
         {
           "name": "SummaryFunctionTests.test_summarize_p",
           "kind": "function",
-          "line": 1108,
-          "end_line": 1115
+          "line": 1110,
+          "end_line": 1117
         },
         {
           "name": "SummaryFunctionTests.test_changed_lines",
           "kind": "function",
-          "line": 1117,
-          "end_line": 1121
+          "line": 1119,
+          "end_line": 1123
         },
         {
           "name": "SummaryFunctionTests.test_the_fake_binomial_tail_matches_enumeration",
           "kind": "function",
-          "line": 1123,
-          "end_line": 1127
+          "line": 1125,
+          "end_line": 1129
         },
         {
           "name": "ReportTests",
           "kind": "class",
-          "line": 1133,
-          "end_line": 1256
+          "line": 1135,
+          "end_line": 1258
         },
         {
           "name": "ReportTests.make_run",
           "kind": "function",
-          "line": 1134,
-          "end_line": 1154
+          "line": 1136,
+          "end_line": 1156
         },
         {
           "name": "ReportTests.test_robust_variant_report",
           "kind": "function",
-          "line": 1156,
-          "end_line": 1199
+          "line": 1158,
+          "end_line": 1201
         },
         {
           "name": "ReportTests.test_bch_variant_report_and_cli",
           "kind": "function",
-          "line": 1201,
-          "end_line": 1223
+          "line": 1203,
+          "end_line": 1225
         },
         {
           "name": "ReportTests.test_runs_that_are_not_robust_are_refused",
           "kind": "function",
-          "line": 1225,
-          "end_line": 1232
+          "line": 1227,
+          "end_line": 1234
         },
         {
           "name": "ReportTests.test_helpers",
           "kind": "function",
-          "line": 1234,
-          "end_line": 1256
+          "line": 1236,
+          "end_line": 1258
         },
         {
           "name": "GeneratedConfigTests",
           "kind": "class",
-          "line": 1259,
-          "end_line": 1319
+          "line": 1261,
+          "end_line": 1321
         },
         {
           "name": "GeneratedConfigTests.configs",
           "kind": "function",
-          "line": 1265,
-          "end_line": 1269
+          "line": 1267,
+          "end_line": 1271
         },
         {
           "name": "GeneratedConfigTests.test_one_config_per_variant_differing_only_in_the_robust_section",
           "kind": "function",
-          "line": 1271,
-          "end_line": 1282
+          "line": 1273,
+          "end_line": 1284
         },
         {
           "name": "GeneratedConfigTests.test_groups_follow_the_plan",
           "kind": "function",
-          "line": 1284,
-          "end_line": 1303
+          "line": 1286,
+          "end_line": 1305
         },
         {
           "name": "GeneratedConfigTests.test_every_config_validates_and_runs_standalone",
           "kind": "function",
-          "line": 1305,
-          "end_line": 1311
+          "line": 1307,
+          "end_line": 1313
         },
         {
           "name": "GeneratedConfigTests.test_the_stress_group_is_excluded_from_detection_by_role",
           "kind": "function",
-          "line": 1313,
-          "end_line": 1319
+          "line": 1315,
+          "end_line": 1321
         }
       ],
       "imports": [
