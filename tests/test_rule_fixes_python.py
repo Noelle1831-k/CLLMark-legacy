@@ -115,6 +115,43 @@ class TokenGluingTest(unittest.TestCase):
                     self.assertEqual(rewrite(style, code), code)
         self.assertEqual(rewrite("9.1", "def f():\n    a, b = c, d\n"), "def f():\n    a = c\n    b = d\n")
 
+    def test_split_assignment_keeps_tuple_semantics(self):
+        for code in [
+            "def f(a, b):\n    a, b = b, a\n",
+            "def f(a, b):\n    a, b = b, a + b\n",
+            "def f(a, b):\n    a, b = 1, a\n",
+            "def f(x):\n    a, b = g(x), 2\n",
+            "def f(c):\n    a, b = c[0], 2\n",
+            "def f(c):\n    a, b = c.x, 2\n",
+            "def f(c):\n    a, b = (yield), 2\n",
+            "def f(c):\n    x[0], b = 1, 2\n",
+            "def f(c):\n    a, b, d = g(x, y), 1\n",
+            "def f(c):\n    a, b = [i for i in c], 2\n",
+        ]:
+            with self.subTest(code=code):
+                self.assertEqual(rewrite("9.1", code), code)
+        self.assertEqual(rewrite("9.1", "def f(c):\n    x, y = 0, 1\n"), "def f(c):\n    x = 0\n    y = 1\n")
+        self.assertEqual(rewrite("9.1", "def f(c, d):\n    a, b = c, d\n"), "def f(c, d):\n    a = c\n    b = d\n")
+        self.assertEqual(
+            rewrite("9.1", "def f(c):\n    a, b = c + 1, c * 2\n"), "def f(c):\n    a = c+1\n    b = c*2\n"
+        )
+
+    def test_split_assignment_needs_its_own_space_indented_line(self):
+        for code in [
+            "if c: a, b = 1, 2\n",
+            "x = 1; a, b = 2, 3\n",
+            "def f():\n\ta, b = 1, 2\n",
+            "def f():\n    if c:\n\t\ta, b = 1, 2\n",
+        ]:
+            with self.subTest(code=code):
+                self.assertEqual(rewrite("9.1", code), code)
+        self.assertEqual(rewrite("9.1", "def f():\n    if c:\n        a, b = 1, 2\n")[-20:], "a = 1\n        b = 2\n")
+
+    def test_chained_assignment_is_not_made_augmented(self):
+        chained = "def f(S, x):\n    s = 0\n    S[1] = s = s + x\n"
+        self.assertEqual(rewrite("7.1", chained), chained)
+        self.assertEqual(rewrite("7.1", "def f(x):\n    s = 0\n    s = s + x\n"), "def f(x):\n    s = 0\n    s += x\n")
+
     def test_reproduced_codenet_units(self):
         for name, style in [("p00391", "2.3"), ("p02298", "2.3"), ("p00963", "6.3")]:
             path = ROOT / "external" / "codenet" / "dataset" / "Python_H" / f"{name}.py"
@@ -128,6 +165,14 @@ class TokenGluingTest(unittest.TestCase):
                 self.assertNotIn("returnlist", result)
                 self.assertNotIn("inlist", result)
                 self.assertNotIn("orf", result)
+
+    def test_swap_in_codenet_p02920_is_not_split(self):
+        path = ROOT / "external" / "codenet" / "dataset" / "Python_G" / "p02920.py"
+        if not path.exists():
+            self.skipTest("CodeNet corpus not imported (make codenet-setup)")
+        code = path.read_text()
+        self.assertIn("values[i], values[j] = values[j], values[i]", code)
+        self.assertEqual(rewrite("9.1", code), code)
 
 
 if __name__ == "__main__":

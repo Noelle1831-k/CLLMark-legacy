@@ -233,6 +233,21 @@
    "reversibility_trials": 1132,
    "reversibility_failures": 0,
    "interference": {}
+  },
+  "self_assignment": {
+   "styles": [
+    "7.2",
+    "7.1"
+   ],
+   "applicable": 292,
+   "form0": 36,
+   "form1": 248,
+   "idempotence_trials": 584,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 584,
+   "reversibility_failures": 0,
+   "interference": {}
   }
  },
  "examples": {
