@@ -1,12 +1,14 @@
-"""Hunk attribution of CodeNet functional regressions in a frozen robust-watermark run.
+"""Rule attribution of CodeNet functional regressions in a frozen robust-watermark run.
 
-The keyed embedding rewrites many sites at once, so a regression is attributed by replaying the line hunks of the
-clean -> marked diff on the clean source: first every hunk alone, then (if no single hunk fails) a greedy reduction of
-the full hunk set to a minimal failing subset. The CodeNet oracle of the run judges every candidate.
+The keyed embedding rewrites many sites of many rule pairs at once. A regression is attributed like the phase-1 bisect
+(`2026-10-07-codenet.bisect.py`): every style of every rule pair of the run's rule set is applied file-wide, alone, to
+the clean source, and the CodeNet oracle judges the result. Styles that fail alone are the culprits; a regression no
+single style reproduces is listed as combination-only. (Replaying line hunks of the clean -> marked diff is not used:
+one rewrite such as an if/else branch swap spans several hunks, and a hunk alone is not a program the rule produces.)
 Usage: python 2026-10-08-robust.bisect.py RUN_DIR OUT.json [JOBS]
 """
 
-import difflib
+import collections
 import json
 import os
 import sys
@@ -19,11 +21,20 @@ sys.path.insert(0, str(RUN / "source"))
 os.chdir(RUN / "source")
 
 from benchmarks import codenet, utility  # noqa: E402
+from cllmark.transform import StyleTransformer  # noqa: E402
 
 MANIFEST = json.loads((RUN / "manifest.json").read_text())
 CONFIG = MANIFEST["config"]
+RULE_SET = CONFIG.get("rule_set", "legacy")
 UNITS = {u["id"]: u for u in MANIFEST["units"]}
 PROBLEMS = utility.load_problems(RUN / "inputs", CONFIG)
+PARSERS = {}
+
+
+def parser(language):
+    if language not in PARSERS:
+        PARSERS[language] = StyleTransformer(language, rule_set=RULE_SET)
+    return PARSERS[language]
 
 
 def judge(unit, code):
@@ -41,53 +52,30 @@ def judge(unit, code):
     return result["status"], detail[:200]
 
 
-def hunks(clean, marked):
-    a, b = clean.splitlines(keepends=True), marked.splitlines(keepends=True)
-    return a, [op for op in difflib.SequenceMatcher(None, a, b, autojunk=False).get_opcodes() if op[0] != "equal"], b
-
-
-def apply(a, b, chosen):
-    out, at = [], 0
-    for _, i1, i2, j1, j2 in sorted(chosen, key=lambda op: op[1]):
-        out += a[at:i1] + b[j1:j2]
-        at = i2
-    return "".join(out + a[at:])
-
-
 def bisect(unit_id):
-    unit = UNITS[unit_id]
-    row = ROWS[unit_id]
+    unit, row = UNITS[unit_id], ROWS[unit_id]
     name = Path(unit["source_files"][0]).name
     clean = (RUN / row["artifacts"] / "clean" / name).read_text(encoding="utf-8")
-    marked = (RUN / row["artifacts"] / "marked" / name).read_text(encoding="utf-8")
-    a, ops, b = hunks(clean, marked)
-    status, detail = judge(unit, marked)
-    singles = []
-    for op in ops:
-        verdict = judge(unit, apply(a, b, [op]))
-        if verdict[0] != "PASS":
-            singles.append({"clean": "".join(a[op[1] : op[2]]), "marked": "".join(b[op[3] : op[4]]), "status": verdict})
-    minimal = []
-    if not singles and status != "PASS":
-        keep = list(ops)
-        for op in list(ops):
-            trial = [o for o in keep if o is not op]
-            if judge(unit, apply(a, b, trial))[0] != "PASS":
-                keep = trial
-        minimal = [{"clean": "".join(a[o[1] : o[2]]), "marked": "".join(b[o[3] : o[4]])} for o in keep]
-    return {
-        "id": unit_id,
-        "marked_status": [status, detail],
-        "hunks": len(ops),
-        "failing_single_hunks": singles,
-        "minimal_set": minimal,
-    }
+    transformer = parser(unit["language"])
+    culprits, trials = [], []
+    for pair, styles in transformer.pairs.items():
+        for style in styles:
+            try:
+                changed = transformer.apply(style, clean)[0]
+            except Exception as error:  # recorded: the pair has no sites for the embedding either
+                trials.append({"pair": pair, "style": style, "status": "TRANSFORM_ERROR", "detail": repr(error)[:120]})
+                continue
+            if changed == clean:
+                continue
+            status, detail = judge(unit, changed)
+            trials.append({"pair": pair, "style": style, "status": status, "detail": detail})
+            if status != "PASS":
+                culprits.append(f"{pair}/{style}")
+    return {"id": unit_id, "after": row["utility_after"]["status"], "culprits": culprits, "trials": trials}
 
 
-ROWS = {}
-for line in open(RUN / "rows.jsonl", encoding="utf-8"):
-    row = json.loads(line)
-    ROWS[row["id"]] = row
+with open(RUN / "rows.jsonl", encoding="utf-8") as stream:
+    ROWS = {row["id"]: row for row in map(json.loads, stream)}
 
 
 def regressed(row):
@@ -105,4 +93,10 @@ if __name__ == "__main__":
     with ProcessPoolExecutor(max_workers=jobs) as pool:
         results = list(pool.map(bisect, targets))
     Path(sys.argv[2]).write_text(json.dumps(results, indent=1) + "\n", encoding="utf-8")
-    print(len(targets), "regressions;", sum(bool(r["failing_single_hunks"]) for r in results), "with a single failing hunk")
+    by_style = collections.Counter(c for r in results for c in r["culprits"])
+    combination = [r["id"] for r in results if not r["culprits"]]
+    print(f"{RUN.name} rule_set={RULE_SET}: {len(results)} regressions, {len(combination)} only in combination")
+    for style, count in by_style.most_common():
+        print(f"  {count:4d}  {style}")
+    if combination:
+        print("  combination-only:", " ".join(combination))
