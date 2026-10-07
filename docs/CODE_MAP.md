@@ -65,6 +65,8 @@ flowchart TD
 | [benchmarks/runner.py](../benchmarks/runner.py) | 源码/输入冻结、并行执行、逐行续跑、运行后原始输入校验 |
 | [benchmarks/engine.py](../benchmarks/engine.py) | 在冻结副本中调用 `cllmark`，记录容量、码位、随机设置、结构性质及反向变换攻击 |
 | [benchmarks/utility.py](../benchmarks/utility.py) | MBXP（Python/C++/JavaScript）测试拼接与执行、JavaScript 项目与仓库文件的自带测试套件、Exercism Jest spec、超时与内容摘要缓存 |
+| [benchmarks/robust_engine.py](../benchmarks/robust_engine.py)、[benchmarks/attacks.py](../benchmarks/attacks.py)、[benchmarks/config-rw-*.json](../benchmarks) | 鲁棒水印对比（[方案](plans/2026-10-07-robust-watermark.md)）：`"robust"` 配置节选择引擎（方案 1/2 调用 `cllmark.robust`，`bch-file`/`bch-node` 为现行方法基线），每单元派生消息、手写组只检测、同一批攻击（flip/normalize/delete/insert/rename/reformat/reorder/combo，tree-sitter 实现）；行字段兼容 `metrics`，完整结果在 `robust` 字段；十个变体各一份配置 |
+| [tools/robust_report.py](../tools/robust_report.py) | 鲁棒水印跨变体报告：容量、嵌入与功能保持、TPR/盲提取、零假设（全部消息）、跨消息误接受、各攻击下的 TPR/锚点存活率/AUC |
 | [benchmarks/metrics.py](../benchmarks/metrics.py) | 显式分母、失败 ID、分组指标、CSV/Markdown/图表 |
 | [benchmarks/compare.py](../benchmarks/compare.py) | 可比性校验、分组和汇总门禁、显式基线提升与历史归档 |
 | [tools/rule_audit.py](../tools/rule_audit.py) | 全量语料上的适用数、自然形式、幂等、可逆、语法与规则间干扰审计 |
