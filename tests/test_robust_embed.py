@@ -86,6 +86,21 @@ class EmbedDetectMixin:
             self.assertGreater(self.detect({"f": self.code}, scheme, message).p_known, 1e-4, label)
             self.assertGreater(self.detect({"f": self.code}, scheme, None).p_blind, 1e-4, label)
 
+    def test_scoring_cast_votes_matches_detection(self):
+        """The benchmark sweeps all messages with `score` on the votes of one detection (no repeated blind decoding)."""
+        from cllmark.robust import score
+
+        for scheme in self.schemes():
+            message = MESSAGES[scheme.bits][0]
+            _, marked = self.mark(scheme, message)
+            found = self.detect(marked, scheme, None)
+            for value in range(1 << scheme.bits):
+                other = [(value >> (scheme.bits - 1 - i)) & 1 for i in range(scheme.bits)]
+                quick = score(scheme, self.key, found.keys, other, blind=False)
+                full = self.detect(marked, scheme, other)
+                self.assertEqual((quick.votes, quick.agree, quick.p_known), (full.votes, full.agree, full.p_known))
+                self.assertIsNone(quick.decoded)
+
     def test_deleted_reordered_and_inserted_code_keep_the_watermark(self):
         for scheme in self.schemes():
             message = MESSAGES[scheme.bits][0]

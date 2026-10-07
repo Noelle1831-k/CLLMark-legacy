@@ -317,22 +317,21 @@ class RobustEngine(rule_sets.ExtendedRules, node_engine.NodeEngine):
             "elapsed_ms": elapsed,
         }
         if sweep is not None:
-            reading["sweep"] = self.sweep(language, files, message, sweep, exclude, limit)
+            reading["sweep"] = self.sweep(found.keys, message, sweep, exclude, limit)
         return reading, dict(found.keys)
 
-    def sweep(self, language, files, message, stage, exclude, limit=None):
-        """p-values of `files` against the messages of the sweep (see `summarize_p`)."""
+    def sweep(self, votes, message, stage, exclude, limit=None):
+        """p-values of the cast `votes` ({anchor key: reading}, `Detection.keys`) against the messages of the sweep
+        (see `summarize_p`). Only the known-message test runs per message: the code is observed once and the blind
+        decision (2^bits PRF evaluations per vote) is not repeated for each of the 2^bits messages."""
         started = time.perf_counter()
         values = [value for value in range(1 << self.bits) if not (exclude and value == to_int(message))]
         limit = self.settings["null_messages"] if limit is None else limit
         if limit != "all" and limit < len(values):
             values = sorted(random.Random(self.seed_for(stage, "sweep")).sample(values, limit))
-        parser = self.parser(language)
         p_values = {}
         for value in values:
-            found = self.robust.detect(
-                parser, language, files, self.robust_scheme, self.key, from_int(value, self.bits)
-            )
+            found = self.robust.score(self.robust_scheme, self.key, votes, from_int(value, self.bits), blind=False)
             p_values[value] = found.p_known if found.p_known is not None else 1.0
         summary = summarize_p(p_values, self.alphas)
         summary["elapsed_ms"] = (time.perf_counter() - started) * 1000
