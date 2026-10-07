@@ -858,6 +858,7 @@ class StagedExecutionTests(unittest.TestCase):
             with unittest.mock.patch.object(engine, "initialize_worker"):
                 staged.initialize_worker("run", {"units": [{"id": "u/1"}]})
             self.assertEqual(engine.evaluate_utility(), staged.DEFERRED)
-            self.assertEqual(staged.evaluate_utility.__module__, "benchmarks.utility")
+            # The functional stage dispatches through codenet, which delegates other oracles to the real utility.
+            self.assertEqual(staged.codenet.utility.evaluate_utility.__module__, "benchmarks.utility")
         finally:
             engine.evaluate_utility = original
