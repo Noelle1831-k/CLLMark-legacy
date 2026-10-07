@@ -51,6 +51,7 @@ class EmbedDetectMixin:
             self.assertGreaterEqual(result.votes, 30, label)
             self.assertGreaterEqual(result.set_sites / result.targeted_sites, 0.85, label)
             self.assertLessEqual(result.votes, result.targeted_sites)
+            self.assertGreaterEqual(result.selection_agreement, 0.6, label)  # for(;;) forms lose their key
             self.assertIn("f", result.written)
             self.assertTrue(self.transformer.check_syntax(marked["f"]), label)
             detection = self.detect(marked, scheme, message)
@@ -76,10 +77,10 @@ class EmbedDetectMixin:
             message = MESSAGES[scheme.bits][0]
             _, marked = self.mark(scheme, message)
             label = (self.language, scheme)
-            for other in MESSAGES[scheme.bits][1:]:
+            neighbours = [[bit ^ (j == i) for j, bit in enumerate(message)] for i in range(scheme.bits)]
+            for other in [*MESSAGES[scheme.bits][1:], *neighbours]:
                 self.assertGreater(self.detect({"f": self.code}, scheme, other).p_known, 1e-4, label)
-                if scheme.name == "s2":  # (scheme 1 is lenient to near messages, see test_robust_keys)
-                    self.assertGreater(self.detect(marked, scheme, other).p_known, 1e-4, label)
+                self.assertGreater(self.detect(marked, scheme, other).p_known, 1e-4, (label, other))
             self.assertGreater(self.detect({"f": self.code}, scheme, message).p_known, 1e-4, label)
             self.assertGreater(self.detect({"f": self.code}, scheme, None).p_blind, 1e-4, label)
 

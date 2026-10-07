@@ -1,13 +1,15 @@
 """Blind detection from the key alone, and the exact binomial tail.
 
-Votes. The readable, usable, stable sites of the code are grouped by anchor key (`anchors.observe`); the votes of one
-key are one vote b(key), the majority of their readings (a tie casts no vote). Nothing is aligned: deleted code only
-removes votes, inserted code adds votes unrelated to the PRF, and keys do not depend on position.
+Votes. The sites that carry votes are chosen as embedding chooses them (`anchors.select_entries`: stable, usable,
+windows that neither overlap nor touch, greedy in pre-order); the sites of one anchor key cast one vote b(key), the
+majority of their readings (a tie casts no vote). Nothing is aligned: deleted code only removes votes, inserted code
+adds votes unrelated to the PRF, and keys do not depend on position.
 
 Scheme 1 (`s1`): the votes with role j repeat message bit j (target m_j xor white), the others carry a tag
 PRF(K, tag, m || key) xor white. Blind: majority per bit (ties are uncertain: at most MAX_CANDIDATES messages are
 tried, the first two uncertain bits both ways), then the tag votes test each candidate with Bonferroni over the
-candidates. Known message: all votes against the targets of m.
+candidates. Known message: the tag votes against the tags of m (`p_known`); all votes are tested too (`p_all`,
+informational: a message one bit away shares most message votes and passes it).
 
 Scheme 2 (`s2`): every vote carries PRF(K, seq, m || key) xor white. Known message: the agreeing votes. Blind: all
 2**k messages are tested, p_blind = min(1, 2**k * p_min).
@@ -36,13 +38,16 @@ EXACT_LIMIT = 2000  # largest n with exact integer arithmetic in binomial_tail
 class Detection:
     votes: int  # votes cast (keys with a majority reading)
     agree: int | None  # votes agreeing with the targets of `message` (None without a message)
-    p_known: float | None  # P[Bin(votes, 1/2) >= agree]
+    p_known: float | None  # P[Bin(n, 1/2) >= a] of the known-message test (scheme 1: tag votes only)
     decoded: list[int] | None  # the blind message (None without votes)
     p_blind: float  # p-value of the blind decision, corrected for the messages tried
     margin: float  # log10(p of the runner-up) - log10(p of the decoded message); < 2 is uncertain
     per_file: dict[str, tuple[int, int | None]] = field(default_factory=dict)  # file -> (votes, agree)
     keys: dict[str, int] = field(default_factory=dict)  # vote key -> reading (for the anchor survival)
     errors: int = 0  # (file, rule pair) combinations whose rules raised: they have no sites
+    # Scheme 1: p-value of all votes (message and tag) against the targets of `message`; informational only, a
+    # message one bit away passes it. Scheme 2: equal to p_known. None without a message.
+    p_all: float | None = None
 
 
 # ------------------------------------------------------------------------------------------------ binomial tail
@@ -158,16 +163,20 @@ def score(
     """
     known = message_bytes(scheme, message) if message is not None else None
     total = len(votes)
-    agree = p_known = None
+    agree = p_known = p_all = None
     if known is not None:
         agree = _agreement(key, scheme, known, votes)
-        p_known = binomial_tail(total, agree)
+        p_all = binomial_tail(total, agree)
+        p_known = p_all
+        if scheme.name == "s1":  # only the tag votes decide: they are independent of the message bits
+            tags = {vote: bit for vote, bit in votes.items() if role(key, scheme, bytes.fromhex(vote)) is None}
+            p_known = binomial_tail(len(tags), _agreement(key, scheme, known, tags))
     per_file = {}
     for name, cast in (per_file_votes or {}).items():
         per_file[name] = (len(cast), _agreement(key, scheme, known, cast) if known is not None else None)
     decide = _blind_s1 if scheme.name == "s1" else _blind_s2
     decoded, p_blind, margin = decide(scheme, key, votes) if total and blind else (None, 1.0, 0.0)
-    return Detection(total, agree, p_known, decoded, p_blind, margin, per_file, dict(votes))
+    return Detection(total, agree, p_known, decoded, p_blind, margin, per_file, dict(votes), 0, p_all)
 
 
 def _blind_s2(scheme: Scheme, key: bytes, votes: Mapping[str, int]) -> tuple[list[int], float, float]:
@@ -238,7 +247,7 @@ def detect(
     key: bytes,
     message: Sequence[int] | None,
 ) -> Detection:
-    """Observe the code, cast the votes and decide (known message and blind)."""
-    observations, errors = observe_counted(transformer, language, files, scheme.anchor)
+    """Observe the code, select the sites as embedding does, cast the votes and decide (known message and blind)."""
+    observations, errors = observe_counted(transformer, language, files, scheme.anchor, selected=True)
     votes, per_file = cast_votes(observations)
     return replace(score(scheme, key, votes, message, per_file), errors=errors)

@@ -641,16 +641,33 @@ def file_entries(
     return full
 
 
+def select_entries(entries) -> list[Entry]:
+    """The sites that carry votes: stable, usable, with windows that neither overlap nor touch, taken greedily in
+    pre-order (outer node first, then pair order). Embedding and detection use the same selection."""
+    regions = nodes._Regions()
+    chosen = []
+    ordered = sorted(
+        (entry for entry in entries if entry.stable), key=lambda entry: (entry.site.start, -entry.site.end, entry.pair)
+    )
+    for entry in ordered:
+        if regions.take(entry.site, (entry.pair, entry.index)):
+            chosen.append(entry)
+    return chosen
+
+
 def observe_counted(
-    transformer: StyleTransformer, language: str, files: Mapping[str, str], anchor: str
+    transformer: StyleTransformer, language: str, files: Mapping[str, str], anchor: str, selected: bool = False
 ) -> tuple[list[Observation], int]:
-    """`observe` and the number of (file, rule pair) combinations whose rules raised (they have no sites)."""
+    """`observe` and the number of (file, rule pair) combinations whose rules raised (they have no sites).
+
+    With `selected`, only the sites of `select_entries` (the ones that carry votes) are returned.
+    """
     observations = []
     errors = 0
     for name in project_order(files):
         entries = file_entries(transformer, language, anchor, files[name])
         errors += entries.errors
-        for entry in entries:
+        for entry in select_entries(entries) if selected else entries:
             site = entry.site
             observations.append(
                 Observation(

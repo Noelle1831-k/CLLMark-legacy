@@ -139,57 +139,70 @@ class DecisionStatisticsTests(unittest.TestCase):
                 for trial in range(1500):
                     key = derive_key(f"{name}-{readings}-{trial}")
                     result = detect_module.score(scheme, key, votes, [1, 0, 1, 0], blind=False)
-                    p_values.append(self.randomized_p(rng, result.votes, result.agree))
+                    p_values.append(self.randomized_p(rng, result.votes, result.agree))  # all votes: `p_all`
                 self.assert_uniform(p_values, f"{name} readings={readings}")
 
     def test_conservative_p_values_never_exceed_the_level(self):
         rng = random.Random(4)
-        scheme = Scheme("s2", 4, "tok")
-        votes = random_votes(rng, 60, 0)
-        for alpha in (0.05, 0.01):
-            hits = sum(
-                detect_module.score(scheme, derive_key(f"c{trial}"), votes, [0, 1, 1, 0], blind=False).p_known <= alpha
-                for trial in range(2000)
-            )
-            self.assertLessEqual(hits / 2000, alpha + 3 * math.sqrt(alpha * (1 - alpha) / 2000), alpha)
+        votes = random_votes(rng, 120, 0)
+        for name in ("s1", "s2"):
+            scheme = Scheme(name, 4, "tok")
+            for alpha in (0.05, 0.01):
+                hits = sum(
+                    detect_module.score(scheme, derive_key(f"c{trial}"), votes, [0, 1, 1, 0], blind=False).p_known
+                    <= alpha
+                    for trial in range(2000)
+                )
+                self.assertLessEqual(hits / 2000, alpha + 3 * math.sqrt(alpha * (1 - alpha) / 2000), (name, alpha))
 
     def test_wrong_messages_are_accepted_at_the_level_only(self):
-        """Scheme 2: every wrong message. Scheme 1: wrong messages that differ in at least half of the bits (a message
-        close to the true one shares message votes, see the next test)."""
+        """Every wrong message, in particular the one-bit neighbours, passes `p_known` at the level only."""
         rng = random.Random(5)
         alpha = 0.05
         for name in ("s1", "s2"):
             scheme = Scheme(name, 4, "tok")
-            accepted = trials = 0
-            for trial in range(1500):
+            accepted = near = near_trials = trials = 0
+            for trial in range(2000):
                 key = derive_key(f"x{name}{trial}")
                 message = bits_of(rng.randrange(16), 4)
-                votes = planted(scheme, key, message, random_votes(rng, 70))
+                votes = planted(scheme, key, message, random_votes(rng, 200))
                 self.assertLess(detect_module.score(scheme, key, votes, message, blind=False).p_known, 1e-15)
-                far = [v for v in range(16) if sum(a != b for a, b in zip(bits_of(v, 4), message, strict=True)) >= 2]
-                wrong = bits_of(
-                    rng.choice(far if name == "s1" else [v for v in range(16) if bits_of(v, 4) != message]), 4
-                )
+                wrong = bits_of(rng.choice([v for v in range(16) if bits_of(v, 4) != message]), 4)
                 trials += 1
                 accepted += detect_module.score(scheme, key, votes, wrong, blind=False).p_known <= alpha
-            self.assertLessEqual(accepted / trials, alpha + 0.02, (name, accepted / trials))
+                neighbour = list(message)
+                neighbour[rng.randrange(4)] ^= 1
+                near_trials += 1
+                near += detect_module.score(scheme, key, votes, neighbour, blind=False).p_known <= alpha
+            bound = alpha + 3 * math.sqrt(alpha * (1 - alpha) / trials)
+            self.assertLessEqual(accepted / trials, bound, (name, accepted / trials))
+            self.assertLessEqual(near / near_trials, bound, (name, "one-bit neighbours", near / near_trials))
 
-    def test_scheme_one_known_message_test_is_lenient_to_one_bit_neighbours(self):
-        """Known limitation of the plan's scheme-1 test (message and tag votes against the targets of m): the message
-        votes of a message one bit away agree in 3 of 4 bits, so with many votes the neighbour passes. The tag votes
-        (and `decoded`, `p_blind`) do not have this weakness."""
+    def test_scheme_one_all_votes_p_value_is_lenient_to_one_bit_neighbours_but_only_informational(self):
+        """`p_all` (message and tag votes against the targets of m) accepts a message one bit away when there are many
+        votes: its message votes agree in 3 of 4 bits. `p_known` (tag votes) does not."""
         rng = random.Random(10)
         scheme = Scheme("s1", 4, "tok")
-        accepted = 0
+        passed_all = passed_known = 0
         for trial in range(40):
             key = derive_key(f"lenient{trial}")
             message = bits_of(rng.randrange(16), 4)
             votes = planted(scheme, key, message, random_votes(rng, 300))
             neighbour = list(message)
             neighbour[rng.randrange(4)] ^= 1
-            accepted += detect_module.score(scheme, key, votes, neighbour, blind=False).p_known <= 1e-3
+            result = detect_module.score(scheme, key, votes, neighbour, blind=False)
+            passed_all += result.p_all <= 1e-3
+            passed_known += result.p_known <= 1e-3
             self.assertEqual(detect_module.score(scheme, key, votes, None).decoded, message)
-        self.assertGreater(accepted, 20)
+        self.assertGreater(passed_all, 20)
+        self.assertLessEqual(passed_known, 2)
+
+    def test_scheme_two_p_all_equals_p_known(self):
+        rng = random.Random(11)
+        scheme = Scheme("s2", 4, "tok")
+        key = derive_key("pall")
+        result = detect_module.score(scheme, key, random_votes(rng, 50), [1, 0, 1, 0], blind=False)
+        self.assertEqual(result.p_all, result.p_known)
 
     def test_blind_decoding_recovers_planted_messages(self):
         rng = random.Random(6)

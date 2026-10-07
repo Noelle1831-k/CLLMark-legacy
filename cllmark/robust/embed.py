@@ -20,7 +20,7 @@ from .. import nodes
 from ..source_io import reload_written
 from ..transform import StyleTransformer
 from ..watermark import project_order
-from .anchors import file_entries
+from .anchors import file_entries, select_entries
 from .keys import Scheme, message_bytes, target
 
 MAX_ROUNDS = 4
@@ -35,6 +35,9 @@ class EmbedResult:
     rounds: int  # rounds used (1 = the first pass set everything)
     details: dict = field(default_factory=dict, compare=False)  # extra counters for reports
     errors: int = 0  # (file, rule pair) combinations whose rules raised on the original code: no sites
+    # Jaccard similarity of the anchor keys selected on the marked code (what detection votes on) and the keys
+    # selected for embedding; 1.0 when the marked code selects exactly the embedded votes
+    selection_agreement: float = 1.0
 
 
 def _targets(scheme: Scheme, key: bytes, message: bytes, vote: str) -> int:
@@ -60,18 +63,14 @@ def embed(
     for name, code in current.items():
         found = file_entries(transformer, language, anchor, code)
         errors += found.errors
-        entries = [entry for entry in found if entry.stable]
-        available += len(entries)
-        entries.sort(key=lambda entry: (entry.site.start, -entry.site.end, entry.pair))
-        regions = nodes._Regions()
+        available += sum(entry.stable for entry in found)
         chosen = []
-        for entry in entries:
-            if regions.take(entry.site, (name, entry.pair, entry.index)):
-                goal = goals.get(entry.key)
-                if goal is None:
-                    goal = goals[entry.key] = _targets(scheme, key, encoded, entry.key)
-                chosen.append((entry.pair, entry.index, entry.key, goal))
-                wanted[entry.key] += 1
+        for entry in select_entries(found):
+            goal = goals.get(entry.key)
+            if goal is None:
+                goal = goals[entry.key] = _targets(scheme, key, encoded, entry.key)
+            chosen.append((entry.pair, entry.index, entry.key, goal))
+            wanted[entry.key] += 1
         if chosen:
             plan[name] = chosen
     targeted = sum(wanted.values())
@@ -107,7 +106,14 @@ def embed(
             if entry.key in wanted and entry.site.usable and entry.site.reading == goals[entry.key]:
                 reading[entry.key] += 1
     set_sites = sum(min(count, reading[vote]) for vote, count in wanted.items())
-    return EmbedResult(done, len(wanted), targeted, set_sites, rounds, {"available": available}, errors)
+    detected = {
+        entry.key
+        for text in current.values()
+        for entry in select_entries(file_entries(transformer, language, anchor, text))
+    }
+    union = len(detected | set(wanted))
+    agreement = len(detected & set(wanted)) / union if union else 1.0
+    return EmbedResult(done, len(wanted), targeted, set_sites, rounds, {"available": available}, errors, agreement)
 
 
 def _repair(
