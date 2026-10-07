@@ -2,7 +2,7 @@
 
 本仓库是 CLLMark 旧版方法的实现：通过可逆的语义保持变换（RSPT）对 Python、C、C++ 和 JavaScript 代码做后处理，嵌入并检测多比特水印，使用 BCH(7,4,1) 编码与纠错；并附带可复现的全量评估循环。
 
-规则层是声明式引擎：每条规则由 tree-sitter 查询模式、具名守卫和锚定到节点的原子编辑组成，水印流程在内存中完成（每个文件读一次、写一次）。在原有规则对之外新增了语义保持规则（Python 25 对、C 21 对、C++ 22 对、JavaScript 25 对），并修正了原有规则中会改变程序行为的情形。详见 [规则引擎与规则目录](docs/RULES.md) 与 [实验记录](docs/experiments/2026-10-rule-engine.md)。
+规则层是声明式引擎：每条规则由 tree-sitter 查询模式、具名守卫和锚定到节点的原子编辑组成，水印流程在内存中完成（每个文件读一次、写一次）。在原有规则对之外新增了语义保持规则（Python 25 对、C 21 对、C++ 22 对、JavaScript 25 对），并修正了原有规则中会改变程序行为的情形（包括 CodeNet 评估暴露的位置缺陷，见 [规则修复方案](docs/plans/2026-10-07-rule-fixes.md)）。详见 [规则引擎与规则目录](docs/RULES.md) 与 [实验记录](docs/experiments/2026-10-rule-engine.md)。
 
 **版本定位：当前代码对应旧版论文《Detecting and Tracing LLM Code via Reversible Watermarking》。新版 TOSEM 草稿《CLLMark: Traceability-Enabled Watermarking for LLM-Generated Code》作为后续对照，尚不能据此认定本仓库已完整实现新版方法。** 代码与旧版论文之间的实现差异见 [论文对照](docs/PAPER_ALIGNMENT.md)。
 
@@ -25,7 +25,8 @@
 ├── benchmarks/                 # 评估协议：冻结运行、真实功能测试、指标、门禁与基线
 ├── tools/                      # 环境初始化、科研循环 CLI、规则审计、语料工具、代码索引
 ├── tests/                      # 单元与流程测试
-├── docs/                       # 代码地图、规则目录、科研循环、论文对照、实验记录与方案
+├── docs/                       # 代码地图、规则目录、科研循环、CodeNet、论文对照、实验记录与方案
+├── external/                   # 被忽略：导入的外部数据集（make codenet-setup 生成 external/codenet/）
 ├── corpus/                     # 语料子模块（私有仓库 Noelle1831-k/CLLMark-legacy-data）
 ├── pyproject.toml              # 包元数据、依赖与 ruff 规范
 └── Makefile                    # 日常命令入口
@@ -72,7 +73,27 @@ make smoke       # 流程测试 + 每组 2 个实验单元（只验证运行框�
 make benchmark   # 代码改动后：更新索引、测试、冻结源码与输入、全量运行、对照固定基线
 ```
 
-默认全量为 25 组、10,810 个实验单元（含 JavaScript 6 组）。每次运行在冻结副本中执行，保留容量不足和失败样本，并校验源码与原始输入没有被更改。Python/C++/JavaScript MBXP 与 Exercism 使用本地真实功能测试，JavaScript 仓库使用其自带测试套件；CodeNet 与拆分项目缺少功能 oracle，结果记录为 N/A。配置、指标分母、门禁与续跑见 [科研循环文档](docs/RESEARCH_LOOP.md)。
+默认全量为 25 组、10,810 个实验单元（含 JavaScript 6 组）。每次运行在冻结副本中执行，保留容量不足和失败样本，并校验源码与原始输入没有被更改。Python/C++/JavaScript MBXP 与 Exercism 使用本地真实功能测试，JavaScript 仓库使用其自带测试套件；默认语料中的 CodeNet 组与拆分项目缺少功能 oracle，结果记录为 N/A（有用例的 CodeNet 数据集见下一节）。配置、指标分母、门禁与续跑见 [科研循环文档](docs/RESEARCH_LOOP.md)。
+
+修改规则或嵌入/提取算法后，还要在固定提交的 10 万行级真实仓库上验证功能保持：
+
+```bash
+make repo-setup     # 首次
+make repo-instant   # 约 11 秒
+make repo-check     # 约 7 分钟：逐仓库嵌入水印并逐条规则全仓改写，运行仓库自带测试
+```
+
+## CodeNet 生成/手写数据集评估
+
+在 [Noelle1831-k/dataset](https://github.com/Noelle1831-k/dataset)（固定提交 `8f5f30e8`）上评估：`generated/` 为大模型生成代码（嵌入、提取、攻击、功能保持），`solutions/*/ref.*` 为手写标准答案（**不嵌入**，只检测未加水印的手写代码是否天然读出水印而误报）。功能 oracle 是每题约 11 条 stdin/stdout 用例，全量应在 Linux x86_64 + GCC 上运行。
+
+```bash
+make codenet-setup [SOURCE=已有检出]          # 导入到被忽略的 external/codenet/（不写 corpus/）
+.venv-benchmark/bin/python tools/research_loop.py run --config benchmarks/config-codenet.json   # 另有 -extended/-node/-node-extended
+.venv-benchmark/bin/python tools/codenet_report.py RUN_DIR [RUN_DIR ...] --output docs/experiments/NAME.md
+```
+
+要点（规则修复后，标签 `codenet-eval-2`）：生成代码功能回退 0、嵌入后检出率 99.8–100%；对固定消息 `1010` 的手写代码误报 0–5%，但换一个消息可高达 13–96%（JavaScript 手写代码 84–96% 读出 `0000`）——预期消息匹配的误报率依赖消息选择。协议、导入与 oracle 见 [CODENET.md](docs/CODENET.md)，结果见 [首轮](docs/experiments/2026-10-07-codenet.md) 与 [规则修复后](docs/experiments/2026-10-07-codenet-v2.md) 的实验记录。
 
 ## 开发
 
@@ -92,6 +113,9 @@ CI（`.github/workflows/ci.yml`）在每次推送和 PR 上运行 lint 与测试
 - [代码地图](docs/CODE_MAP.md)：模块职责、调用关系与数据流。
 - [规则引擎与规则目录](docs/RULES.md)：规则表示、约束执行、各语言规则及其等价性依据。
 - [科研循环与全量 benchmark](docs/RESEARCH_LOOP.md)：固定环境、全量重跑、功能检查、基线门禁与续跑。
+- [CodeNet 数据集评估](docs/CODENET.md)：导入、stdin/stdout oracle、手写组只检测的协议与报告工具。
+- [真实仓库功能检查](docs/REAL_REPOS.md)：固定提交的大仓库上嵌入与逐规则全仓改写后运行自带测试。
+- [分支与版本管理](docs/plans/2026-10-07-branches.md)：本系列工作的分支地图、标签与服务器检出。
 - [性能](docs/PERFORMANCE.md)：剖析结论、采用与放弃的优化、实测数据与修改指南。
 - [论文与实现对照](docs/PAPER_ALIGNMENT.md)：两版论文与现有代码的对应关系。
 - [实验记录](docs/experiments/) 与 [方案](docs/plans/)；[实验记录模板](docs/EXPERIMENT_TEMPLATE.md)。

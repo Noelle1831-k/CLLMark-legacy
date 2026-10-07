@@ -48,6 +48,9 @@
 | Python | `range_index` 4.1 | `range(*args)` 拒绝 |
 | Python | `list_index` 4.3/4.4 | `a[:-k] ↔ a[:len(a)-k]` 只用于名字 `a` 与正整数字面量 k（k=0 时两者不等） |
 | Python | `return` 10.2 | `return ()` 拒绝（会变为返回 None） |
+| Python | 在节点前后写入或删除字母的样式（`list` 2.1/2.3、`dict` 3.1/3.3、`f_string` 6.3、比较与否定 7.x、`not in`/`is not` 14.2/15.2 等） | 节点紧贴字母、数字或 `_` 时拒绝（`not_after_word_character` / `not_before_word_character`）：原规则把 `in[0]` 改成 `inlist([0])`、`or"NO"` 改成 `orf"NO"` |
+| Python | `split_assignment` 9.1 | 按语法树取左右元素；元素个数不同、目标不是简单名字、左侧名字出现在右侧、右侧含调用/下标/属性/`await`/`yield`/海象时拒绝（`a, b = b, a` 拆开后不再交换）；语句不在行首或行缩进含制表符时拒绝 |
+| Python | `self_assignment` 7.1 | 链式赋值拒绝（`S[i+1] = s = s + x` 改写后语法错误） |
 | C/C++ | `self_assignment` 2.2 | 右侧为条件/赋值/逗号或结合力不强于运算符时拒绝（C 原把 `a *= b + c` 改成 `a = a * b + c`） |
 | C/C++ | `update_reverse` 3.x | 只改写值未被使用的 `i++`（语句、for 更新子句）；原规则改写 `while (n--)`、`if (i++ > 3)` |
 | C/C++ | `declare` 6.1 | 带定义体的 struct/union/enum、含语法错误节点的声明拒绝（原规则复制类型定义，并把误解析的片段拆成 `int, i;` 之类的残片） |

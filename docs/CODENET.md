@@ -76,3 +76,12 @@ make codenet-setup SOURCE=PATH      # 使用已有检出（必须在锁定提交
 5. H 组 before 未通过清单（判题环境自检，保留）。
 6. 未嵌入代码的检测表（手写组，另给生成组未嵌入原始代码作对照）：单元数、容量中位数/均值/`<7` 个数、读出完整 7 位的单元数；对水印 `1010` 的天然匹配率（分母为全部读出的单元与读出 7 位的单元）、码字逐位精确匹配率；16 种消息的误报率（用 `cllmark.bch.decode` 解码每个单元的位，误报率(m) = 解码结果为 m 的单元比例，两种分母），列出最大值与对应消息、均值和解码结果前 5 名。提取抛异常的单元计入分母但不属于任何消息（分布中以 `error` 列出）。
 7. 检测对照：每个变体 x 语言的 TPR（生成组嵌入后恢复）、FPR（手写组天然匹配 `1010`，两种分母）、手写组 16 消息最大误报率。
+
+## 结果与版本
+
+| 标签 | 内容 | 记录 |
+|---|---|---|
+| `codenet-eval-1` | 首轮四个变体（手写组也嵌入；之后协议改为只检测） | [2026-10-07-codenet.md](experiments/2026-10-07-codenet.md)、[报告](experiments/2026-10-07-codenet.report.md) |
+| `codenet-eval-2` | 规则修复后、手写组只检测 | [2026-10-07-codenet-v2.md](experiments/2026-10-07-codenet-v2.md)、[报告](experiments/2026-10-07-codenet-v2.report.md) |
+
+首轮暴露的规则缺陷与修复见 [plans/2026-10-07-rule-fixes.md](plans/2026-10-07-rule-fixes.md)；规则目录中的“安全修正”表已收录。CodeNet 参考结果保存在服务器 `benchmark-results/codenet-baselines-v2/`，未固定到 `benchmarks/baselines/`（由用户决定）。
