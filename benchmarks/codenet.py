@@ -178,6 +178,18 @@ def run_case(command, directory, timeout, retries, env, stem, stdin_path):
 
 
 @cache
+def needs_header_shim(compiler):
+    """Whether the C++ compiler lacks <bits/stdc++.h> (libc++ on macOS); GNU libstdc++ keeps its own header."""
+    probe = subprocess.run(
+        [compiler, "-std=c++17", "-fsyntax-only", "-x", "c++", "-"],
+        input="#include <bits/stdc++.h>\n",
+        text=True,
+        capture_output=True,
+    )
+    return probe.returncode != 0
+
+
+@cache
 def compiler_version(path):
     try:
         return subprocess.check_output([path, "--version"], text=True, stderr=subprocess.STDOUT).splitlines()[0]
@@ -218,7 +230,8 @@ def build(language, source, cache, config, environment):
         if language == "c":
             command = [compiler, *C_FLAGS, str(program), "-o", str(executable), "-lm"]
         else:
-            command = [compiler, *CPP_FLAGS, "-I", str(INCLUDES), str(program), "-o", str(executable)]
+            shim = ["-I", str(INCLUDES)] if needs_header_shim(compiler) else []
+            command = [compiler, *CPP_FLAGS, *shim, str(program), "-o", str(executable)]
         run = [str(executable)]
     compiled = utility.run_process(command, cache, timeout, "compile")
     if compiled["timed_out"] or compiled["returncode"] != 0:
@@ -235,7 +248,9 @@ def identity(language, source, problem, config, environment):
         "problem": digest(problem),
         "compiler": [compiler, compiler_version(compiler)] if language in ("c", "cpp") and compiler else None,
         "flags": {"c": C_FLAGS, "cpp": CPP_FLAGS}.get(language),
-        "cpp_header": digest((INCLUDES / "bits" / "stdc++.h").read_bytes()) if language == "cpp" else None,
+        "cpp_header": digest((INCLUDES / "bits" / "stdc++.h").read_bytes())
+        if language == "cpp" and compiler and needs_header_shim(compiler)
+        else None,
         "time_factor": section["time_factor"],
         "retries": config.get("test_timeout_retries", 0),
         "node": environment["javascript"].get("node_version") if language == "javascript" else None,

@@ -39,7 +39,7 @@ make codenet-setup SOURCE=PATH      # 使用已有检出（必须在锁定提交
 
 ## 功能 oracle（`benchmarks/codenet.py`）
 
-- 构建：Python 用 `compile` 检查语法，JavaScript 用 `node --check`；C 用 `cc -std=c11 -O2 -pipe src -o exe -lm`；C++ 用 `c++ -std=c++17 -O2 -pipe -I benchmarks/include src -o exe`（`bits/stdc++.h` 兼容头，见下）。
+- 构建：Python 用 `compile` 检查语法，JavaScript 用 `node --check`；C 用 `cc -std=c11 -O2 -pipe src -o exe -lm`；C++ 用 `c++ -std=c++17 -O2 -pipe src -o exe`；只有编译器自身没有 `<bits/stdc++.h>`（macOS libc++）时才加 `-I benchmarks/include` 兼容头，GNU libstdc++ 使用自带的头。数据集参考解在 Linux gcc/g++ 上验证，全量应在 Linux x86_64 + GCC 上运行（macOS 下的 `std::stdin`、x86 intrinsics、`malloc.h` 等失败属于平台差异）。
 - 逐用例运行：stdin 为用例输入；时限为 `time_limit_ms / 1000 * time_factor`，超时按 `test_timeout_retries` 重试；没有内存限制。
 - 判题器（移植数据集 `lib/checker.py`）：`token` 逐 token 比较；`token+float:<eps>` 先逐 token，不等再按 `eps * max(1, |期望|)` 做数值比较。
 - 用例判定 `AC/WA/RE/TLE`；出现第一个最终 TLE 后其余用例记 `SKIPPED`。
