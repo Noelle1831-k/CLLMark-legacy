@@ -1,0 +1,14 @@
+cpp: 9026 unique files
+pair                         applic.  form0  form1 idem.fail rev.fail syntax  interference
+self_assignment                  871    129    731         0       46      0  
+exp_cmp                          824    765     59         1       27      0  not_equal_to_equal:1, not_equal_hash_reverse:1
+for_OOO                            0      0      0         0        0      0  
+main_style                       999    137     90         0       19      0  
+output                          2822   2539    283         0     2031     23  void_return:13, main_style:8, update_reverse:1, declare:1
+input                            663    615     48         0       10      0  
+cast_style                        30     19     11         1        2      0  
+equal_to_not_equal              1418    125   1293         0       34      0  
+not_equal_to_equal               941    885     56         0       15      0  
+reverse_compare                 2933   1975    466         0      131      4  void_return:2, exp_cmp:1
+equal_hash_reverse              1418    554    604         1       39      0  
+not_equal_hash_reverse           941    398    445         0       22      0  

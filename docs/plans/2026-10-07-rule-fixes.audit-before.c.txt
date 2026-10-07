@@ -1,0 +1,8 @@
+c: 8788 unique files
+pair                         applic.  form0  form1 idem.fail rev.fail syntax  interference
+array_access                    2914    112   2760         0     1230      0  equal_hash_reverse:290, not_equal_hash_reverse:116
+array_init                       890    723    166         0      117      0  declare:11
+self_assignment                 1096    930    153         0       84      0  
+exp_cmp                         4248    502   3746         1      199      0  
+for_OOO                            0      0      0         0        0      0  
+main_style                      1087    249     80         0       14      0  
