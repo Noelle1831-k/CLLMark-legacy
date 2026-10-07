@@ -697,6 +697,28 @@ class RobustEngineTests(EngineCase):
         self.assertEqual(again["robust"]["original"]["sweep"]["messages"], 5)
         self.assertEqual(again["robust"]["marked"]["sweep"]["messages"], 5)
 
+    def test_a_cohort_can_override_the_number_of_swept_messages(self):
+        units = [self.generated(), ("c_big", "x", "python", "human", {"x.py": PY_SOURCE}, {"null_messages": 4})]
+        engine = self.build(units, {"attacks": ["rename"]})
+        self.assertEqual(self.row(engine, 0)["robust"]["original"]["sweep"]["messages"], 16)
+        human = self.row(engine, 1)
+        self.assertEqual(human["robust"]["original"]["sweep"]["messages"], 4)
+        self.assertEqual(human["robust"]["attacks"]["rename"]["sweep"]["messages"], 4)
+        for bad in (0, True, "all", 1.5):
+            with self.assertRaises(ValueError):
+                robust_engine.unit_limit({"null_messages": bad})
+        self.assertIsNone(robust_engine.unit_limit({}))
+
+    def test_a_cohort_can_override_the_attacks(self):
+        units = [self.generated(), ("c_big", "x", "python", "generated", {"x.py": PY_SOURCE}, {"attacks": ["rename"]})]
+        engine = self.build(units)
+        self.assertEqual(set(self.row(engine, 0)["attacks"]), set(self.ATTACKS))
+        self.assertEqual(set(self.row(engine, 1)["attacks"]), {"rename"})
+        for bad in ("rename", ["rename", "rename"], ["shuffle"]):
+            with self.assertRaises(ValueError):
+                robust_engine.unit_attacks({"attacks": bad}, [])
+        self.assertEqual(robust_engine.unit_attacks({}, ["flip_0.1"]), ["flip_0.1"])
+
     def test_eight_bit_messages_and_sweep_size(self):
         engine = self.build([self.generated()], {"bits": 8, "attacks": ["reformat"], "null_messages": 7})
         row = self.row(engine)

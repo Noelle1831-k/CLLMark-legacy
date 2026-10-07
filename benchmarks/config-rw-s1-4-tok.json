@@ -3,7 +3,7 @@
   "seed": 20261005,
   "watermark": [1, 0, 1, 0],
   "jobs": 8,
-  "unit_timeout_seconds": 1800,
+  "unit_timeout_seconds": 14400,
   "compile_timeout_seconds": 20,
   "test_timeout_seconds": 3,
   "test_timeout_retries": 1,

@@ -113,6 +113,19 @@ def unit_limit(unit):
     return limit
 
 
+def unit_attacks(unit, default):
+    """The attacks of this unit's cohort: its `attacks` key (a list of attack names) or the config's list. Large
+    repositories are read once per attacked version, and every distinct version costs the scheme a full observation."""
+    names = unit.get("attacks")
+    if names is None:
+        return default
+    if not isinstance(names, list) or len(set(names)) != len(names):
+        raise ValueError(f"cohort attacks is a list of distinct attack names: {names!r}")
+    for name in names:
+        attacks.parse_name(name)
+    return names
+
+
 def is_robust(config):
     return "robust" in config
 
@@ -606,7 +619,7 @@ class RobustEngine(rule_sets.ExtendedRules, node_engine.NodeEngine):
                 result["syntax_after"] = {}
                 attacked_files = None
             if attacked_files is not None:
-                for name in self.settings["attacks"]:
+                for name in unit_attacks(unit, self.settings["attacks"]):
                     entry, detail = self.attack_version(
                         unit, language, attacked_files, message, reference, name, work, support, sweep=not embed
                     )
