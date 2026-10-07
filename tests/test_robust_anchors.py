@@ -1,5 +1,6 @@
 """Robust watermark: anchor keys are position-free and stable, and unstable sites are flagged."""
 
+import itertools
 import re
 import unittest
 
@@ -23,7 +24,7 @@ class AnchorTests(unittest.TestCase):
     def observe(self, language, code, anchor):
         from cllmark.robust import observe
 
-        return observe(self.transformers[language], language, {"f": code}, anchor)
+        return observe(self.transformers[language], language, {"f": code}, anchor, stability=True)
 
     def test_observation_fields(self):
         for language in LANGUAGES:
@@ -100,7 +101,7 @@ class AnchorTests(unittest.TestCase):
             transformer = self.transformers[language]
             code = project(language, 4)
             for anchor in ("tok", "struct"):
-                before = observe(transformer, language, {"f": code}, anchor)
+                before = observe(transformer, language, {"f": code}, anchor, stability=True)
                 keys = {o.key for o in before if o.stable}
                 checked = 0
                 for item in [o for o in before if o.stable][::7]:
@@ -116,6 +117,33 @@ class AnchorTests(unittest.TestCase):
         found = [o for o in self.observe("c", C_DECLARE, "tok") if o.pair == "declare" and o.usable]
         self.assertTrue(found)
         self.assertFalse(any(o.stable for o in found))
+
+    def test_observation_without_stability_checks_nothing_and_selection_ignores_stability(self):
+        from cllmark.robust import observe
+        from cllmark.robust.anchors import observe_counted, select_entries
+
+        for language in LANGUAGES:
+            transformer = self.transformers[language]
+            code = project(language, 4)
+            plain = observe(transformer, language, {"f": code}, "tok")
+            checked = observe(transformer, language, {"f": code}, "tok", stability=True)
+            self.assertFalse(any(o.stable for o in plain))
+            self.assertTrue(any(o.stable for o in checked))
+            self.assertEqual([(o.pair, o.index, o.key) for o in plain], [(o.pair, o.index, o.key) for o in checked])
+            picked, _ = observe_counted(transformer, language, {"f": code}, "tok", selected=True)
+            with_stability, _ = observe_counted(
+                transformer, language, {"f": code}, "tok", selected=True, stability=True
+            )
+            self.assertEqual([(o.pair, o.index) for o in picked], [(o.pair, o.index) for o in with_stability])
+            self.assertTrue(all(o.usable for o in picked))
+            self.assertFalse(any(o.stable for o in picked))
+            self.assertLess(len(picked), len([o for o in plain if o.usable]))  # overlapping windows are left out
+            windows = sorted(o.window for o in picked)
+            self.assertTrue(all(a[1] < b[0] for a, b in itertools.pairwise(windows)))
+            self.assertEqual(
+                {(o.pair, o.index) for o in with_stability if o.stable} <= {(o.pair, o.index) for o in picked}, True
+            )
+            self.assertEqual(select_entries([]), [])
 
     def test_support_files_are_not_observed(self):
         from cllmark.robust import observe

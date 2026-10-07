@@ -1,6 +1,6 @@
 """Blind detection from the key alone, and the exact binomial tail.
 
-Votes. The sites that carry votes are chosen as embedding chooses them (`anchors.select_entries`: stable, usable,
+Votes. The sites that carry votes are chosen as embedding chooses them (`anchors.select_entries`: usable,
 windows that neither overlap nor touch, greedy in pre-order); the sites of one anchor key cast one vote b(key), the
 majority of their readings (a tie casts no vote). Nothing is aligned: deleted code only removes votes, inserted code
 adds votes unrelated to the PRF, and keys do not depend on position.
@@ -121,12 +121,12 @@ def log10_tail(n: int, a: int) -> float:
 def cast_votes(observations: Sequence[Observation]) -> tuple[dict[str, int], dict[str, dict[str, int]]]:
     """The votes of the project ({key: bit}) and of each file ({file: {key: bit}}).
 
-    The readings of the usable, stable, readable sites with one key vote together; a tie casts no vote.
+    The readings of the usable, readable sites with one key vote together; a tie casts no vote.
     """
     total: dict[str, Counter] = {}
     files: dict[str, dict[str, Counter]] = {}
     for item in observations:
-        if item.reading is None or not item.usable or not item.stable:
+        if item.reading is None or not item.usable:
             continue
         total.setdefault(item.key, Counter())[item.reading] += 1
         files.setdefault(item.file, {}).setdefault(item.key, Counter())[item.reading] += 1

@@ -1,7 +1,9 @@
-"""Embedding: set every selected stable site to the target of its vote.
+"""Embedding: set every selected, stable site to the target of its vote.
 
-1. Observe the original code; the stable, usable sites of each file are taken greedily in pre-order when their windows
-   meet no earlier window (`cllmark.nodes._Regions`).
+1. Observe the original code; the usable sites of each file are taken greedily in pre-order when their windows
+   meet no earlier window (`cllmark.nodes._Regions`), whether or not their keys are stable (detection selects the
+   same way, without a stability check). Only the selected sites are checked for stability; a selected site whose
+   key is not stable stays as it was (`EmbedResult.unstable_selected`).
 2. A vote is the set of sites with the same anchor key; its target comes from the scheme (`keys.target`).
 3. Sites that do not read their target are rewritten pair by pair in one pass (`cllmark.nodes.place`). Sites that still
    do not read it (rewrites of other pairs interfere) are rewritten one at a time in the next rounds, found again by
@@ -20,7 +22,7 @@ from .. import nodes
 from ..source_io import reload_written
 from ..transform import StyleTransformer
 from ..watermark import project_order
-from .anchors import file_entries, select_entries
+from .anchors import file_entries, select_entries, selected_stable
 from .keys import Scheme, message_bytes, target
 
 MAX_ROUNDS = 4
@@ -30,7 +32,7 @@ MAX_ROUNDS = 4
 class EmbedResult:
     written: dict[str, str]  # {file: text} of the files that changed
     votes: int  # distinct anchor keys among the targeted sites (the votes the embedding aims at)
-    targeted_sites: int  # sites given a target (stable, usable, non-overlapping)
+    targeted_sites: int  # sites given a target (selected and stable)
     set_sites: int  # of those, the sites that read their target in the marked code (counted per vote)
     rounds: int  # rounds used (1 = the first pass set everything)
     details: dict = field(default_factory=dict, compare=False)  # extra counters for reports
@@ -38,6 +40,7 @@ class EmbedResult:
     # Jaccard similarity of the anchor keys selected on the marked code (what detection votes on) and the keys
     # selected for embedding; 1.0 when the marked code selects exactly the embedded votes
     selection_agreement: float = 1.0
+    unstable_selected: int = 0  # selected sites whose key is not stable: left as they were (noise votes)
 
 
 def _targets(scheme: Scheme, key: bytes, message: bytes, vote: str) -> int:
@@ -55,17 +58,24 @@ def embed(
     encoded = message_bytes(scheme, message)
     anchor = scheme.anchor
     current = {name: files[name] for name in project_order(files)}
-    # 1. sites: non-overlapping stable usable sites per file, in pre-order
+    # 1. selection (as detection makes it), then the stability check of the selected sites only
     plan: dict[str, list[tuple[str, int, str, int]]] = {}  # file -> [(pair, index, key, target)]
     wanted: Counter = Counter()  # anchor key -> targeted sites
     goals: dict[str, int] = {}
-    available = errors = 0
+    available = errors = unstable = 0
+    embedded: set[str] = set()  # keys of all selected sites, stable or not
     for name, code in current.items():
-        found = file_entries(transformer, language, anchor, code)
+        found = file_entries(transformer, language, anchor, code, stability=False)
         errors += found.errors
-        available += sum(entry.stable for entry in found)
+        selection = select_entries(found)
+        available += len(selection)
+        embedded.update(entry.key for entry in selection)
+        stable = selected_stable(transformer, language, anchor, code, selection)  # only selected sites are checked
         chosen = []
-        for entry in select_entries(found):
+        for entry in selection:
+            if (entry.pair, entry.index) not in stable:
+                unstable += 1
+                continue
             goal = goals.get(entry.key)
             if goal is None:
                 goal = goals[entry.key] = _targets(scheme, key, encoded, entry.key)
@@ -109,11 +119,13 @@ def embed(
     detected = {
         entry.key
         for text in current.values()
-        for entry in select_entries(file_entries(transformer, language, anchor, text))
+        for entry in select_entries(file_entries(transformer, language, anchor, text, stability=False))
     }
-    union = len(detected | set(wanted))
-    agreement = len(detected & set(wanted)) / union if union else 1.0
-    return EmbedResult(done, len(wanted), targeted, set_sites, rounds, {"available": available}, errors, agreement)
+    union = len(detected | embedded)
+    agreement = len(detected & embedded) / union if union else 1.0
+    return EmbedResult(
+        done, len(wanted), targeted, set_sites, rounds, {"available": available}, errors, agreement, unstable
+    )
 
 
 def _repair(

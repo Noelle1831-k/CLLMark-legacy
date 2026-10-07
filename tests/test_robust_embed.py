@@ -4,7 +4,7 @@ import unittest
 
 from tests.robust_samples import HAS_GRAMMARS, join, project, split
 
-COUNT = 24
+COUNT = 40
 MESSAGES = {4: [[1, 0, 1, 1], [0, 0, 0, 0], [1, 1, 1, 0]], 8: [[1, 0, 1, 1, 0, 0, 1, 0], [0, 0, 0, 0, 0, 0, 0, 0]]}
 
 
@@ -51,6 +51,8 @@ class EmbedDetectMixin:
             self.assertGreaterEqual(result.votes, 30, label)
             self.assertGreaterEqual(result.set_sites / result.targeted_sites, 0.85, label)
             self.assertLessEqual(result.votes, result.targeted_sites)
+            self.assertGreaterEqual(result.unstable_selected, 0)
+            self.assertEqual(result.targeted_sites + result.unstable_selected, result.details["available"])
             self.assertGreaterEqual(result.selection_agreement, 0.6, label)  # for(;;) forms lose their key
             self.assertIn("f", result.written)
             self.assertTrue(self.transformer.check_syntax(marked["f"]), label)
@@ -169,7 +171,7 @@ class RulesThatRaiseTests(unittest.TestCase):
     """`while_to_for` (7.8/12) raises on C code with `for(;;)`: the pair has no sites there, as in `cllmark.nodes`."""
 
     CODE = (
-        project("c", 24)
+        project("c", 40)
         + "int g(int n) {\n    for (;;) {\n        if (n == 3) { break; }\n        n += 1;\n    }\n    return n;\n}\n"
     )
 

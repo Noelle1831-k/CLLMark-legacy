@@ -642,12 +642,14 @@ def file_entries(
 
 
 def select_entries(entries) -> list[Entry]:
-    """The sites that carry votes: stable, usable, with windows that neither overlap nor touch, taken greedily in
-    pre-order (outer node first, then pair order). Embedding and detection use the same selection."""
+    """The sites that carry votes: usable, with windows that neither overlap nor touch, taken greedily in pre-order
+    (outer node first, then pair order). Embedding and detection use the same selection, which does not depend on
+    the self-stability check (detection cannot afford it)."""
     regions = nodes._Regions()
     chosen = []
     ordered = sorted(
-        (entry for entry in entries if entry.stable), key=lambda entry: (entry.site.start, -entry.site.end, entry.pair)
+        (entry for entry in entries if entry.site.usable),
+        key=lambda entry: (entry.site.start, -entry.site.end, entry.pair),
     )
     for entry in ordered:
         if regions.take(entry.site, (entry.pair, entry.index)):
@@ -655,31 +657,79 @@ def select_entries(entries) -> list[Entry]:
     return chosen
 
 
+_SELECTED_STABLE: weakref.WeakKeyDictionary = weakref.WeakKeyDictionary()  # transformer -> {(anchor, code): set}
+
+
+def selected_stable(
+    transformer: StyleTransformer, language: str, anchor: str, code: str, selected: list[Entry]
+) -> set[tuple[str, int]]:
+    """(pair, index) of the selected sites (see `select_entries`) whose key is stable; only they are checked."""
+    cache = _SELECTED_STABLE.get(transformer)
+    if cache is None:
+        cache = _SELECTED_STABLE[transformer] = OrderedDict()
+    found = cache.get((anchor, code))
+    if found is None:
+        found = cache[(anchor, code)] = _stable(transformer, language, anchor, code, selected)
+        if len(cache) > CACHE_SIZE:
+            cache.popitem(last=False)
+    return found
+
+
 def observe_counted(
-    transformer: StyleTransformer, language: str, files: Mapping[str, str], anchor: str, selected: bool = False
+    transformer: StyleTransformer,
+    language: str,
+    files: Mapping[str, str],
+    anchor: str,
+    selected: bool = False,
+    stability: bool = False,
 ) -> tuple[list[Observation], int]:
     """`observe` and the number of (file, rule pair) combinations whose rules raised (they have no sites).
 
-    With `selected`, only the sites of `select_entries` (the ones that carry votes) are returned.
+    With `selected`, only the sites of `select_entries` (the ones that carry votes) are returned. With `stability`
+    the self-stability check runs (every usable site, or with `selected` the selected ones only) and `stable` is
+    filled in; otherwise `stable` is False ("not checked").
     """
     observations = []
     errors = 0
     for name in project_order(files):
-        entries = file_entries(transformer, language, anchor, files[name])
-        errors += entries.errors
-        for entry in select_entries(entries) if selected else entries:
+        code = files[name]
+        if selected:
+            entries = file_entries(transformer, language, anchor, code, stability=False)
+            errors += entries.errors
+            chosen = select_entries(entries)
+            stable = selected_stable(transformer, language, anchor, code, chosen) if stability else set()
+            use = [entry._replace(stable=(entry.pair, entry.index) in stable) for entry in chosen]
+        else:
+            entries = file_entries(transformer, language, anchor, code, stability=stability)
+            errors += entries.errors
+            use = entries
+        for entry in use:
             site = entry.site
             observations.append(
                 Observation(
-                    name, entry.pair, entry.index, site.reading, site.usable, entry.stable, site.window, entry.key
+                    name,
+                    entry.pair,
+                    entry.index,
+                    site.reading,
+                    site.usable,
+                    entry.stable and stability,
+                    site.window,
+                    entry.key,
                 )
             )
     return observations, errors
 
 
-def observe(transformer: StyleTransformer, language: str, files: Mapping[str, str], anchor: str) -> list[Observation]:
-    """Every site of the project with its anchor key and stability, in project file order, pair order, site order.
+def observe(
+    transformer: StyleTransformer,
+    language: str,
+    files: Mapping[str, str],
+    anchor: str,
+    stability: bool = False,
+) -> list[Observation]:
+    """Every site of the project with its anchor key, in project file order, pair order, site order.
 
-    A (file, rule pair) whose rules raise has no sites (counted by `observe_counted`, `EmbedResult.errors` and
-    `Detection.errors`)."""
-    return observe_counted(transformer, language, files, anchor)[0]
+    `stability` runs the self-stability check (slow on large files: one rewrite per usable site); without it `stable`
+    is False for every site. A (file, rule pair) whose rules raise has no sites (counted by `observe_counted`,
+    `EmbedResult.errors` and `Detection.errors`)."""
+    return observe_counted(transformer, language, files, anchor, stability=stability)[0]

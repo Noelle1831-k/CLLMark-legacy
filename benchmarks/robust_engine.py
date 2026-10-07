@@ -529,7 +529,8 @@ class RobustEngine(rule_sets.ExtendedRules, node_engine.NodeEngine):
             files = {name: self.read_source(clean / name) for name in filenames}
             phase = time.perf_counter()
             if self.keyed:
-                observed = self.robust.observe(parser, language, files, self.settings["anchor"])
+                # capacity statistics need the self-stability check; it runs once, on the clean code (detection never runs it)
+                observed = self.robust.observe(parser, language, files, self.settings["anchor"], stability=True)
                 usable = [site for site in observed if site.usable]
                 stable = [site for site in usable if site.stable]
                 votes = len({site.key for site in stable})
