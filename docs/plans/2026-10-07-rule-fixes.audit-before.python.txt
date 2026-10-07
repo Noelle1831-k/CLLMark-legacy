@@ -1,0 +1,322 @@
+{
+ "language": "python",
+ "rule_set": "extended",
+ "files": 9742,
+ "pairs": {
+  "list": {
+   "styles": [
+    "2.3",
+    "2.4"
+   ],
+   "applicable": 1115,
+   "form0": 40,
+   "form1": 1075,
+   "idempotence_trials": 2230,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 2230,
+   "reversibility_failures": 0,
+   "interference": {
+    "literal_order": 4,
+    "equal_hash_reverse": 2
+   }
+  },
+  "init_list": {
+   "styles": [
+    "2.2",
+    "2.1"
+   ],
+   "applicable": 663,
+   "form0": 581,
+   "form1": 82,
+   "idempotence_trials": 1326,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 1326,
+   "reversibility_failures": 0,
+   "interference": {
+    "list": 612,
+    "equal_hash_reverse": 1
+   }
+  },
+  "f_string": {
+   "styles": [
+    "6.3",
+    "6.4"
+   ],
+   "applicable": 4674,
+   "form0": 372,
+   "form1": 4292,
+   "idempotence_trials": 9348,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 9348,
+   "reversibility_failures": 0,
+   "interference": {
+    "equal_hash_reverse": 170,
+    "not_equal_hash_reverse": 14,
+    "condition_paren": 1,
+    "print_end": 342
+   }
+  },
+  "equal_to_not_equal": {
+   "styles": [
+    "7.3",
+    "7.4"
+   ],
+   "applicable": 1059,
+   "form0": 32,
+   "form1": 1027,
+   "idempotence_trials": 2118,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 2118,
+   "reversibility_failures": 0,
+   "interference": {
+    "condition_paren": 570
+   }
+  },
+  "not_equal_to_equal": {
+   "styles": [
+    "7.6",
+    "7.5"
+   ],
+   "applicable": 233,
+   "form0": 215,
+   "form1": 18,
+   "idempotence_trials": 466,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 466,
+   "reversibility_failures": 0,
+   "interference": {
+    "condition_paren": 69
+   }
+  },
+  "reverse_compare": {
+   "styles": [
+    "7.7",
+    "7.8"
+   ],
+   "applicable": 926,
+   "form0": 399,
+   "form1": 417,
+   "idempotence_trials": 1852,
+   "idempotence_failures": 1,
+   "syntax_regressions": 0,
+   "reversibility_trials": 1852,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "exp_cmp": {
+   "styles": [
+    "7.10",
+    "7.9"
+   ],
+   "applicable": 509,
+   "form0": 487,
+   "form1": 22,
+   "idempotence_trials": 1018,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 1018,
+   "reversibility_failures": 0,
+   "interference": {
+    "condition_paren": 199
+   }
+  },
+  "equal_hash_reverse": {
+   "styles": [
+    "7.11",
+    "7.12"
+   ],
+   "applicable": 1173,
+   "form0": 413,
+   "form1": 480,
+   "idempotence_trials": 2346,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 2346,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "not_equal_hash_reverse": {
+   "styles": [
+    "7.14",
+    "7.13"
+   ],
+   "applicable": 247,
+   "form0": 124,
+   "form1": 105,
+   "idempotence_trials": 494,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 494,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "membership_negation": {
+   "styles": [
+    "14.1",
+    "14.2"
+   ],
+   "applicable": 269,
+   "form0": 269,
+   "form1": 0,
+   "idempotence_trials": 538,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 538,
+   "reversibility_failures": 0,
+   "interference": {
+    "condition_paren": 168
+   }
+  },
+  "identity_negation": {
+   "styles": [
+    "15.1",
+    "15.2"
+   ],
+   "applicable": 43,
+   "form0": 43,
+   "form1": 0,
+   "idempotence_trials": 86,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 86,
+   "reversibility_failures": 0,
+   "interference": {
+    "condition_paren": 10
+   }
+  },
+  "conditional_order": {
+   "styles": [
+    "17.1",
+    "17.2"
+   ],
+   "applicable": 80,
+   "form0": 80,
+   "form1": 0,
+   "idempotence_trials": 160,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 160,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "loop_exit": {
+   "styles": [
+    "20.1",
+    "20.2"
+   ],
+   "applicable": 232,
+   "form0": 232,
+   "form1": 0,
+   "idempotence_trials": 464,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 464,
+   "reversibility_failures": 0,
+   "interference": {}
+  },
+  "literal_order": {
+   "styles": [
+    "41.1",
+    "41.2"
+   ],
+   "applicable": 566,
+   "form0": 478,
+   "form1": 67,
+   "idempotence_trials": 1132,
+   "idempotence_failures": 0,
+   "syntax_regressions": 0,
+   "reversibility_trials": 1132,
+   "reversibility_failures": 0,
+   "interference": {}
+  }
+ },
+ "examples": {
+  "equal_to_not_equal:interferes:condition_paren": [
+   "corpus/dataset/MBPP_G/MBPP_103.py",
+   "corpus/dataset/MBPP_G/MBPP_119.py",
+   "corpus/dataset/MBPP_G/MBPP_149.py",
+   "corpus/dataset/MBPP_G/MBPP_150.py",
+   "corpus/dataset/MBPP_G/MBPP_155.py"
+  ],
+  "not_equal_to_equal:interferes:condition_paren": [
+   "corpus/dataset/MBPP_G/MBPP_109.py",
+   "corpus/dataset/MBPP_G/MBPP_138.py",
+   "corpus/dataset/MBPP_G/MBPP_141.py",
+   "corpus/dataset/MBPP_G/MBPP_175.py",
+   "corpus/dataset/MBPP_G/MBPP_189.py"
+  ],
+  "init_list:interferes:list": [
+   "corpus/dataset/MBPP_G/MBPP_110.py",
+   "corpus/dataset/MBPP_G/MBPP_111.py",
+   "corpus/dataset/MBPP_G/MBPP_114.py",
+   "corpus/dataset/MBPP_G/MBPP_152.py",
+   "corpus/dataset/MBPP_G/MBPP_175.py"
+  ],
+  "exp_cmp:interferes:condition_paren": [
+   "corpus/dataset/MBPP_G/MBPP_125.py",
+   "corpus/dataset/MBPP_G/MBPP_136.py",
+   "corpus/dataset/MBPP_G/MBPP_152.py",
+   "corpus/dataset/MBPP_G/MBPP_167.py",
+   "corpus/dataset/MBPP_G/MBPP_199.py"
+  ],
+  "membership_negation:interferes:condition_paren": [
+   "corpus/dataset/MBPP_G/MBPP_131.py",
+   "corpus/dataset/MBPP_G/MBPP_561.py",
+   "corpus/dataset/MBPP_G/MBPP_691.py",
+   "corpus/dataset/MBPP_G/MBPP_709.py",
+   "corpus/dataset/MBPP_G/MBPP_712.py"
+  ],
+  "f_string:interferes:equal_hash_reverse": [
+   "corpus/dataset/MBPP_G/MBPP_159.py",
+   "corpus/dataset/MBPP_G/MBPP_336.py",
+   "corpus/dataset/MBPP_G/MBPP_406.py",
+   "corpus/dataset/MBPP_G/MBPP_855.py",
+   "corpus/dataset/MBPP_G/MBPP_861.py"
+  ],
+  "list:interferes:literal_order": [
+   "corpus/dataset/MBPP_G/MBPP_516.py",
+   "corpus/dataset/MBPP_H/MBPP_350.py",
+   "corpus/Python_func/Breakneck_Racer_SRDD_Racing_Game_20241218192916/generate_track.py",
+   "corpus/Python_func_test/Breakneck_Racer_SRDD_Racing_Game_20241218192916/generate_track.py"
+  ],
+  "list:interferes:equal_hash_reverse": [
+   "corpus/dataset/MBPP_G/MBPP_521.py",
+   "corpus/dataset/MBPP_G/MBPP_771.py"
+  ],
+  "f_string:interferes:not_equal_hash_reverse": [
+   "corpus/dataset/MBPP_G/MBPP_768.py",
+   "corpus/Python_func/Air_Combat_Squadron_SRDD_Shooter_Game_20241218193021/update.py",
+   "corpus/Python_func/Financial_Goal_Manager_SRDD_Finance_20241218175327/delete_goal.py",
+   "corpus/Python_func/Language_Vocabulary_Builder_SRDD_Language_20241218181843/start_session.py",
+   "corpus/Python_func/Music_Rhythm_Trainer_SRDD_Music_20241218185857/initialize_app.py"
+  ],
+  "init_list:interferes:equal_hash_reverse": [
+   "corpus/dataset/MBPP_G/MBPP_771.py"
+  ],
+  "f_string:interferes:condition_paren": [
+   "corpus/dataset/MBPP_H/MBPP_403.py"
+  ],
+  "reverse_compare:idempotence_failures": [
+   "corpus/Python_func/Battlezone_Strike_SRDD_Shooter_Game_20241218193021/start_multiplayer.py"
+  ],
+  "identity_negation:interferes:condition_paren": [
+   "corpus/Python_func/Expense_Optimizer_SRDD_Budgeting_20241218182947/parse_data.py",
+   "corpus/Python_func/Finance_Assistant_SRDD_Finance_20241218175327/update_profile.py",
+   "corpus/Python_func/Language_Learning_Tracker_SRDD_Language_20241218181844/end_session.py",
+   "corpus/Python_func/Monster_Encyclopedia_SRDD_Role_Playing_Game_20241218192941/update_info.py",
+   "corpus/Python_func/Performance_Tracker_SRDD_Sport_Game_20241218193043/update.py"
+  ],
+  "f_string:interferes:print_end": [
+   "corpus/Python_func_test/Achievement_Tracker_SRDD_Role_Playing_Game_20241218192941/view_progress.py",
+   "corpus/Python_func_test/Alien_Invasion_SRDD_Shooter_Game_20241218193021/load_level.py",
+   "corpus/Python_func_test/Alien_Invasion_SRDD_Shooter_Game_20241218193021/shoot.py",
+   "corpus/Python_func_test/Ancient_Civilization_Builder_SRDD_Simulation_Game_20241218193042/decrease_happiness.py",
+   "corpus/Python_func_test/Animal_Adoption_Adventure_SRDD_Simulation_Game_20241218193043/add_animal.py"
+  ]
+ }
+}
