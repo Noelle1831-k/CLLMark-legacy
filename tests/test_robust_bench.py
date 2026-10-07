@@ -120,6 +120,9 @@ def make_fake_robust():
         votes = {
             s.key: s.reading for s in observe(transformer, language, files, scheme.anchor) if s.reading is not None
         }
+        return score(scheme, key, votes, message)
+
+    def score(scheme, key, votes, message, per_file_votes=None, blind=True):
         agree, p_known = (None, None) if message is None else tail(votes, message)
         best = sorted(
             (tail(votes, [(value >> (scheme.bits - 1 - i)) & 1 for i in range(scheme.bits)])[1], value)
@@ -131,7 +134,7 @@ def make_fake_robust():
             len(votes), agree, p_known, decoded, min(1.0, best[0][0] * (1 << scheme.bits)), margin, {}, dict(votes)
         )
 
-    for item in (Scheme, Observation, EmbedResult, Detection, observe, embed, detect, binomial_tail):
+    for item in (Scheme, Observation, EmbedResult, Detection, observe, embed, detect, score, binomial_tail):
         setattr(module, item.__name__, item)
     return module
 
