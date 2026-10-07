@@ -50,7 +50,8 @@
       "language": "python",
       "level": "function",
       "role": "human",
-      "oracle": "codenet_stdio"
+      "oracle": "codenet_stdio",
+      "embed": false
     },
     {
       "name": "codenet_c_generated",
@@ -66,7 +67,8 @@
       "language": "c",
       "level": "function",
       "role": "human",
-      "oracle": "codenet_stdio"
+      "oracle": "codenet_stdio",
+      "embed": false
     },
     {
       "name": "codenet_cpp_generated",
@@ -82,7 +84,8 @@
       "language": "cpp",
       "level": "function",
       "role": "human",
-      "oracle": "codenet_stdio"
+      "oracle": "codenet_stdio",
+      "embed": false
     },
     {
       "name": "codenet_javascript_generated",
@@ -98,7 +101,8 @@
       "language": "javascript",
       "level": "function",
       "role": "human",
-      "oracle": "codenet_stdio"
+      "oracle": "codenet_stdio",
+      "embed": false
     }
   ]
 }

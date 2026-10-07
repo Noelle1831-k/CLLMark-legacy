@@ -37,6 +37,7 @@ def initialize_worker(run_dir, manifest):
     else:
         engine.initialize_worker(run_dir, manifest)
     engine.evaluate_utility = lambda *args, **kwargs: dict(DEFERRED)
+    codenet.install(engine.ENGINE)
     UNITS.update({unit["id"]: unit for unit in manifest["units"]})
 
 
@@ -71,7 +72,7 @@ def functional_unit(row):
         before = codenet.evaluate_utility(unit, work / "clean", *arguments)
         after = (
             codenet.evaluate_utility(unit, work / "marked", *arguments)
-            if row["eligible"]
+            if row["eligible"] and row.get("embedded") is not False
             else {"status": "NOT_EMBEDDED"}
         )
         merged = {**row, "utility_before": before, "utility_after": after}
