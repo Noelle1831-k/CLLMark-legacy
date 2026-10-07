@@ -22,7 +22,7 @@ from .. import nodes
 from ..source_io import reload_written
 from ..transform import StyleTransformer
 from ..watermark import project_order
-from .anchors import file_entries, select_entries, selected_stable
+from .anchors import file_entries, select_for, selected_stable
 from .keys import Scheme, message_bytes, target
 
 MAX_ROUNDS = 4
@@ -63,18 +63,22 @@ def embed(
     wanted: Counter = Counter()  # anchor key -> targeted sites
     goals: dict[str, int] = {}
     available = errors = unstable = 0
+    by_pair: dict[str, list[int]] = {}  # rule pair -> [selected sites, unstable selected sites]
     embedded: set[str] = set()  # keys of all selected sites, stable or not
     for name, code in current.items():
         found = file_entries(transformer, language, anchor, code, stability=False)
         errors += found.errors
-        selection = select_entries(found)
+        selection = select_for(transformer, language, anchor, found)
         available += len(selection)
         embedded.update(entry.key for entry in selection)
         stable = selected_stable(transformer, language, anchor, code, selection)  # only selected sites are checked
         chosen = []
         for entry in selection:
+            counts = by_pair.setdefault(entry.pair, [0, 0])
+            counts[0] += 1
             if (entry.pair, entry.index) not in stable:
                 unstable += 1
+                counts[1] += 1
                 continue
             goal = goals.get(entry.key)
             if goal is None:
@@ -119,12 +123,29 @@ def embed(
     detected = {
         entry.key
         for text in current.values()
-        for entry in select_entries(file_entries(transformer, language, anchor, text, stability=False))
+        for entry in select_for(
+            transformer, language, anchor, file_entries(transformer, language, anchor, text, stability=False)
+        )
     }
     union = len(detected | embedded)
     agreement = len(detected & embedded) / union if union else 1.0
     return EmbedResult(
-        done, len(wanted), targeted, set_sites, rounds, {"available": available}, errors, agreement, unstable
+        done,
+        len(wanted),
+        targeted,
+        set_sites,
+        rounds,
+        {
+            "available": available,  # selected sites
+            "unstable": unstable,
+            "pairs": len(by_pair),
+            "selected_by_pair": {pair: counts[0] for pair, counts in by_pair.items()},
+            "unstable_by_pair": {pair: counts[1] for pair, counts in by_pair.items()},
+            "selected_votes": len(embedded),  # distinct anchor keys among the selected sites
+        },
+        errors,
+        agreement,
+        unstable,
     )
 
 

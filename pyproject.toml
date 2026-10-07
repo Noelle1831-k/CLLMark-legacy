@@ -22,7 +22,7 @@ Repository = "https://github.com/Noelle1831-k/CLLMark-legacy"
 include = ["cllmark*"]
 
 [tool.setuptools.package-data]
-cllmark = ["rules/styles.json"]
+cllmark = ["rules/styles.json", "robust/stable_pairs.json"]
 
 [tool.ruff]
 line-length = 120
