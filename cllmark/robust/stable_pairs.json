@@ -1,10 +1,10 @@
 {
  "criteria": {
   "min_ratio": 0.95,
-  "min_usable": 50
+  "min_usable": 10
  },
  "calibration": {
-  "source_commit": "c0564c31c50125ca6241ade0385fe87e3fc047c0",
+  "source_commit": "3d940227ed689d0b3e50214ec85965475e26602a",
   "corpus_commit": "9bc0ab3bd43a53f4f41c93dad15113f1ebd00199",
   "config": "benchmarks/config.json",
   "seed": 20261005,
@@ -56,18 +56,18 @@
       "equal_hash_reverse",
       "not_equal_hash_reverse",
       "return",
+      "return_none",
+      "membership_negation",
+      "identity_negation",
+      "branch_order",
+      "conditional_order",
       "loop_exit"
      ],
      "excluded": {
       "print_end": "stable share 0.004 (< 0.95)",
       "range_index": "stable share 0.003 (< 0.95)",
       "list_index": "stable share 0.057 (< 0.95)",
-      "string_quota": "0 usable sites (< 50)",
-      "return_none": "43 usable sites (< 50)",
-      "membership_negation": "41 usable sites (< 50)",
-      "identity_negation": "10 usable sites (< 50)",
-      "branch_order": "15 usable sites (< 50)",
-      "conditional_order": "32 usable sites (< 50)",
+      "string_quota": "0 usable sites (< 10)",
       "sum_start": "stable share 0.238 (< 0.95)",
       "range_step": "stable share 0.920 (< 0.95)",
       "else_after_return": "stable share 0.164 (< 0.95)"
@@ -190,17 +190,17 @@
       "equal_hash_reverse",
       "not_equal_hash_reverse",
       "return",
+      "return_none",
+      "membership_negation",
+      "identity_negation",
+      "branch_order",
+      "conditional_order",
       "loop_exit"
      ],
      "excluded": {
       "range_index": "stable share 0.000 (< 0.95)",
       "list_index": "stable share 0.000 (< 0.95)",
-      "string_quota": "0 usable sites (< 50)",
-      "return_none": "43 usable sites (< 50)",
-      "membership_negation": "41 usable sites (< 50)",
-      "identity_negation": "10 usable sites (< 50)",
-      "branch_order": "15 usable sites (< 50)",
-      "conditional_order": "32 usable sites (< 50)",
+      "string_quota": "0 usable sites (< 10)",
       "sum_start": "stable share 0.000 (< 0.95)",
       "range_step": "stable share 0.000 (< 0.95)",
       "else_after_return": "stable share 0.000 (< 0.95)"
@@ -324,16 +324,16 @@
       "array_access",
       "branch_order",
       "conditional_order",
+      "nested_condition",
       "array_parameter",
       "void_return",
       "member_access"
      ],
      "excluded": {
-      "main_style": "0 usable sites (< 50)",
+      "main_style": "0 usable sites (< 10)",
       "declare": "stable share 0.014 (< 0.95)",
       "for_OOO": "stable share 0.941 (< 0.95)",
       "while_to_for": "stable share 0.341 (< 0.95)",
-      "nested_condition": "43 usable sites (< 50)",
       "else_after_return": "stable share 0.309 (< 0.95)"
      },
      "stats": {
@@ -440,13 +440,13 @@
       "member_access"
      ],
      "excluded": {
-      "main_style": "0 usable sites (< 50)",
+      "main_style": "0 usable sites (< 10)",
       "array_init": "stable share 0.000 (< 0.95)",
       "array_access": "stable share 0.899 (< 0.95)",
       "declare": "stable share 0.000 (< 0.95)",
       "for_OOO": "stable share 0.000 (< 0.95)",
       "while_to_for": "stable share 0.000 (< 0.95)",
-      "nested_condition": "43 usable sites (< 50)",
+      "nested_condition": "stable share 0.000 (< 0.95)",
       "else_after_return": "stable share 0.000 (< 0.95)"
      },
      "stats": {
@@ -550,20 +550,20 @@
       "update_reverse",
       "for_OOO",
       "branch_order",
+      "conditional_order",
       "nested_condition",
-      "void_return"
+      "void_return",
+      "cast_style"
      ],
      "excluded": {
-      "main_style": "0 usable sites (< 50)",
+      "main_style": "0 usable sites (< 10)",
       "declare": "stable share 0.026 (< 0.95)",
       "while_to_for": "stable share 0.404 (< 0.95)",
       "output": "stable share 0.441 (< 0.95)",
-      "input": "12 usable sites (< 50)",
-      "conditional_order": "31 usable sites (< 50)",
-      "array_parameter": "0 usable sites (< 50)",
-      "else_after_return": "29 usable sites (< 50)",
-      "type_alias": "0 usable sites (< 50)",
-      "cast_style": "10 usable sites (< 50)"
+      "input": "stable share 0.000 (< 0.95)",
+      "array_parameter": "0 usable sites (< 10)",
+      "else_after_return": "stable share 0.310 (< 0.95)",
+      "type_alias": "0 usable sites (< 10)"
      },
      "stats": {
       "self_assignment": [
@@ -667,21 +667,21 @@
       "not_equal_hash_reverse",
       "update_reverse",
       "branch_order",
-      "void_return"
+      "conditional_order",
+      "void_return",
+      "cast_style"
      ],
      "excluded": {
-      "main_style": "0 usable sites (< 50)",
+      "main_style": "0 usable sites (< 10)",
       "declare": "stable share 0.000 (< 0.95)",
       "for_OOO": "stable share 0.000 (< 0.95)",
       "while_to_for": "stable share 0.000 (< 0.95)",
       "output": "stable share 0.000 (< 0.95)",
-      "input": "12 usable sites (< 50)",
-      "conditional_order": "31 usable sites (< 50)",
+      "input": "stable share 0.000 (< 0.95)",
       "nested_condition": "stable share 0.000 (< 0.95)",
-      "array_parameter": "0 usable sites (< 50)",
-      "else_after_return": "29 usable sites (< 50)",
-      "type_alias": "0 usable sites (< 50)",
-      "cast_style": "10 usable sites (< 50)"
+      "array_parameter": "0 usable sites (< 10)",
+      "else_after_return": "stable share 0.000 (< 0.95)",
+      "type_alias": "0 usable sites (< 10)"
      },
      "stats": {
       "self_assignment": [
@@ -801,9 +801,9 @@
       "declare": "stable share 0.000 (< 0.95)",
       "property_shorthand": "stable share 0.000 (< 0.95)",
       "else_after_return": "stable share 0.193 (< 0.95)",
-      "logical_assignment": "6 usable sites (< 50)",
-      "power": "29 usable sites (< 50)",
-      "global_alias": "42 usable sites (< 50)",
+      "logical_assignment": "6 usable sites (< 10)",
+      "power": "stable share 0.000 (< 0.95)",
+      "global_alias": "stable share 0.000 (< 0.95)",
       "undefined_literal": "stable share 0.000 (< 0.95)"
      },
      "stats": {
@@ -931,9 +931,9 @@
       "property_shorthand": "stable share 0.000 (< 0.95)",
       "else_after_return": "stable share 0.000 (< 0.95)",
       "arrow_body": "stable share 0.000 (< 0.95)",
-      "logical_assignment": "6 usable sites (< 50)",
-      "power": "29 usable sites (< 50)",
-      "global_alias": "42 usable sites (< 50)",
+      "logical_assignment": "6 usable sites (< 10)",
+      "power": "stable share 0.000 (< 0.95)",
+      "global_alias": "stable share 0.000 (< 0.95)",
       "undefined_literal": "stable share 0.000 (< 0.95)",
       "function_arrow": "stable share 0.000 (< 0.95)",
       "empty_array": "stable share 0.000 (< 0.95)",
@@ -1060,6 +1060,11 @@
       "equal_hash_reverse",
       "not_equal_hash_reverse",
       "return",
+      "return_none",
+      "membership_negation",
+      "identity_negation",
+      "branch_order",
+      "conditional_order",
       "loop_exit",
       "return_paren",
       "literal_order",
@@ -1070,12 +1075,7 @@
       "print_end": "stable share 0.004 (< 0.95)",
       "range_index": "stable share 0.003 (< 0.95)",
       "list_index": "stable share 0.057 (< 0.95)",
-      "string_quota": "0 usable sites (< 50)",
-      "return_none": "43 usable sites (< 50)",
-      "membership_negation": "41 usable sites (< 50)",
-      "identity_negation": "10 usable sites (< 50)",
-      "branch_order": "15 usable sites (< 50)",
-      "conditional_order": "32 usable sites (< 50)",
+      "string_quota": "0 usable sites (< 10)",
       "sum_start": "stable share 0.238 (< 0.95)",
       "range_step": "stable share 0.920 (< 0.95)",
       "else_after_return": "stable share 0.138 (< 0.95)",
@@ -1219,6 +1219,11 @@
       "equal_hash_reverse",
       "not_equal_hash_reverse",
       "return",
+      "return_none",
+      "membership_negation",
+      "identity_negation",
+      "branch_order",
+      "conditional_order",
       "loop_exit",
       "return_paren",
       "literal_order",
@@ -1228,12 +1233,7 @@
      "excluded": {
       "range_index": "stable share 0.000 (< 0.95)",
       "list_index": "stable share 0.000 (< 0.95)",
-      "string_quota": "0 usable sites (< 50)",
-      "return_none": "43 usable sites (< 50)",
-      "membership_negation": "41 usable sites (< 50)",
-      "identity_negation": "10 usable sites (< 50)",
-      "branch_order": "15 usable sites (< 50)",
-      "conditional_order": "32 usable sites (< 50)",
+      "string_quota": "0 usable sites (< 10)",
       "sum_start": "stable share 0.000 (< 0.95)",
       "range_step": "stable share 0.000 (< 0.95)",
       "else_after_return": "stable share 0.000 (< 0.95)",
@@ -1378,6 +1378,7 @@
       "array_access",
       "branch_order",
       "conditional_order",
+      "nested_condition",
       "array_parameter",
       "void_return",
       "member_access",
@@ -1386,11 +1387,10 @@
       "assignment_paren"
      ],
      "excluded": {
-      "main_style": "0 usable sites (< 50)",
+      "main_style": "0 usable sites (< 10)",
       "declare": "stable share 0.014 (< 0.95)",
       "for_OOO": "stable share 0.941 (< 0.95)",
       "while_to_for": "stable share 0.341 (< 0.95)",
-      "nested_condition": "43 usable sites (< 50)",
       "else_after_return": "stable share 0.309 (< 0.95)"
      },
      "stats": {
@@ -1512,13 +1512,13 @@
       "assignment_paren"
      ],
      "excluded": {
-      "main_style": "0 usable sites (< 50)",
+      "main_style": "0 usable sites (< 10)",
       "array_init": "stable share 0.000 (< 0.95)",
       "array_access": "stable share 0.899 (< 0.95)",
       "declare": "stable share 0.000 (< 0.95)",
       "for_OOO": "stable share 0.000 (< 0.95)",
       "while_to_for": "stable share 0.000 (< 0.95)",
-      "nested_condition": "43 usable sites (< 50)",
+      "nested_condition": "stable share 0.000 (< 0.95)",
       "else_after_return": "stable share 0.000 (< 0.95)"
      },
      "stats": {
@@ -1634,24 +1634,24 @@
       "update_reverse",
       "for_OOO",
       "branch_order",
+      "conditional_order",
       "nested_condition",
       "void_return",
+      "cast_style",
       "return_paren",
       "literal_order",
       "assignment_paren",
       "loop_braces"
      ],
      "excluded": {
-      "main_style": "0 usable sites (< 50)",
+      "main_style": "0 usable sites (< 10)",
       "declare": "stable share 0.026 (< 0.95)",
       "while_to_for": "stable share 0.404 (< 0.95)",
       "output": "stable share 0.441 (< 0.95)",
-      "input": "12 usable sites (< 50)",
-      "conditional_order": "31 usable sites (< 50)",
-      "array_parameter": "0 usable sites (< 50)",
-      "else_after_return": "29 usable sites (< 50)",
-      "type_alias": "0 usable sites (< 50)",
-      "cast_style": "10 usable sites (< 50)"
+      "input": "stable share 0.000 (< 0.95)",
+      "array_parameter": "0 usable sites (< 10)",
+      "else_after_return": "stable share 0.310 (< 0.95)",
+      "type_alias": "0 usable sites (< 10)"
      },
      "stats": {
       "self_assignment": [
@@ -1771,24 +1771,24 @@
       "not_equal_hash_reverse",
       "update_reverse",
       "branch_order",
+      "conditional_order",
       "void_return",
+      "cast_style",
       "return_paren",
       "literal_order",
       "assignment_paren"
      ],
      "excluded": {
-      "main_style": "0 usable sites (< 50)",
+      "main_style": "0 usable sites (< 10)",
       "declare": "stable share 0.000 (< 0.95)",
       "for_OOO": "stable share 0.000 (< 0.95)",
       "while_to_for": "stable share 0.000 (< 0.95)",
       "output": "stable share 0.000 (< 0.95)",
-      "input": "12 usable sites (< 50)",
-      "conditional_order": "31 usable sites (< 50)",
+      "input": "stable share 0.000 (< 0.95)",
       "nested_condition": "stable share 0.000 (< 0.95)",
-      "array_parameter": "0 usable sites (< 50)",
-      "else_after_return": "29 usable sites (< 50)",
-      "type_alias": "0 usable sites (< 50)",
-      "cast_style": "10 usable sites (< 50)",
+      "array_parameter": "0 usable sites (< 10)",
+      "else_after_return": "stable share 0.000 (< 0.95)",
+      "type_alias": "0 usable sites (< 10)",
       "loop_braces": "stable share 0.000 (< 0.95)"
      },
      "stats": {
@@ -1923,17 +1923,17 @@
       "return_paren",
       "literal_order",
       "quote_style",
-      "assignment_paren"
+      "assignment_paren",
+      "loop_braces"
      ],
      "excluded": {
       "declare": "stable share 0.000 (< 0.95)",
       "property_shorthand": "stable share 0.000 (< 0.95)",
       "else_after_return": "stable share 0.193 (< 0.95)",
-      "logical_assignment": "6 usable sites (< 50)",
-      "power": "29 usable sites (< 50)",
-      "global_alias": "42 usable sites (< 50)",
-      "undefined_literal": "stable share 0.000 (< 0.95)",
-      "loop_braces": "36 usable sites (< 50)"
+      "logical_assignment": "6 usable sites (< 10)",
+      "power": "stable share 0.000 (< 0.95)",
+      "global_alias": "stable share 0.000 (< 0.95)",
+      "undefined_literal": "stable share 0.000 (< 0.95)"
      },
      "stats": {
       "self_assignment": [
@@ -2084,14 +2084,14 @@
       "property_shorthand": "stable share 0.000 (< 0.95)",
       "else_after_return": "stable share 0.000 (< 0.95)",
       "arrow_body": "stable share 0.000 (< 0.95)",
-      "logical_assignment": "6 usable sites (< 50)",
-      "power": "29 usable sites (< 50)",
-      "global_alias": "42 usable sites (< 50)",
+      "logical_assignment": "6 usable sites (< 10)",
+      "power": "stable share 0.000 (< 0.95)",
+      "global_alias": "stable share 0.000 (< 0.95)",
       "undefined_literal": "stable share 0.000 (< 0.95)",
       "function_arrow": "stable share 0.000 (< 0.95)",
       "empty_array": "stable share 0.000 (< 0.95)",
       "empty_object": "stable share 0.000 (< 0.95)",
-      "loop_braces": "36 usable sites (< 50)"
+      "loop_braces": "stable share 0.000 (< 0.95)"
      },
      "stats": {
       "self_assignment": [

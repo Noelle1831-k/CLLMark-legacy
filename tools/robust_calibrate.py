@@ -162,7 +162,7 @@ def main(argv=None):
     parser.add_argument("--config", default="benchmarks/config.json")
     parser.add_argument("--output", default="cllmark/robust/stable_pairs.json")
     parser.add_argument("--min-ratio", type=float, default=0.95)
-    parser.add_argument("--min-usable", type=int, default=50)
+    parser.add_argument("--min-usable", type=int, default=10)
     parser.add_argument("--function-files", type=int, default=1000, help="files per function-level cohort at most")
     parser.add_argument("--project-files", type=int, default=300, help="files per project-level cohort at most")
     parser.add_argument("--max-bytes", type=int, default=40000)
