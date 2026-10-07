@@ -529,6 +529,18 @@ def functional_cast(node):
     return len(values) == 1 and len(arguments.children) == 3 and values[0].type != "comma_expression"
 
 
+@guard("not at the start of a statement (`void(x);` and `int(x);` declare x)")
+def not_statement_start(node):
+    """`(void)x;` -> `void(x);` would be the declaration of a variable x (the most vexing parse); so would any `T(x)`
+    that starts an expression statement."""
+    current = node
+    while current.parent is not None and current.parent.start_byte == node.start_byte:
+        current = current.parent
+        if current.type in ["expression_statement", "declaration", "for_statement", "condition_clause"]:
+            return False
+    return True
+
+
 def to_functional_cast(node, source):
     """(double)x -> double(x);  (double)(a + b) -> double(a + b)"""
     value = node.child_by_field_name("value")
@@ -548,7 +560,9 @@ RULES = {
     "21.1": nodes("type_definition").where(simple_typedef).where(well_formed).rule(typedef_to_using),
     "21.2": nodes("alias_declaration").where(simple_alias).where(well_formed).rule(using_to_typedef),
     "22.1": nodes("cast_expression")
-    .where(c_style_cast, not_stream_operand, outside_text_sensitive_operands, no_type_keyword_macro)
+    .where(
+        c_style_cast, not_stream_operand, not_statement_start, outside_text_sensitive_operands, no_type_keyword_macro
+    )
     .where(well_formed)
     .rule(to_functional_cast),
     "22.2": nodes("call_expression")

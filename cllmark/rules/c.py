@@ -105,10 +105,18 @@ def in_expanded_comparison(node):
     )
 
 
+CONDITION_PARENTS = ["if_statement", "while_statement", "do_statement", "switch_statement"]
+EXPANSIONS = {("<", "||", "=="), (">", "||", "=="), ("<=", "&&", "!="), (">=", "&&", "!=")}
+
+
 @guard("(a < b || a == b) with simple comparisons")
 def expanded_comparison(node):
+    """(a < b || a == b) and the other forms `expand_comparison` writes: (a > b || a == b), (a <= b && a != b),
+    (a >= b && a != b). Other pairings (`a <= b && a == b`) are not expansions and have no contraction."""
     if len(node.children) != 3:
         return False
+    if node.parent is not None and node.parent.type in CONDITION_PARENTS:
+        return False  # the parentheses of `if (...)`: contracting would drop them
     junction = node.children[1]
     if (
         junction.type != "binary_expression"
@@ -122,8 +130,7 @@ def expanded_comparison(node):
         and second.type == "binary_expression"
         and len(first.children) == 3
         and len(second.children) == 3
-        and text(first.children[1]) in RELATIONAL
-        and text(second.children[1]) in EQUALITY
+        and (text(first.children[1]), text(junction.children[1]), text(second.children[1])) in EXPANSIONS
         and {text(first.children[0]).strip(), text(first.children[2]).strip()}
         == {text(second.children[0]).strip(), text(second.children[2]).strip()}
     )
@@ -514,7 +521,46 @@ def movable_array(node):
     return True
 
 
-@guard("a local malloc'd pointer that is never freed, reallocated, returned or reassigned (an array would not be)")
+POINTER_CARRIERS = ["parenthesized_expression", "cast_expression", "conditional_expression", "comma_expression"]
+
+
+def escapes(use):
+    """The pointer value leaves the block: stored by an assignment or an initialiser (`a->items = p`, `T *q = p`,
+    also as `p + k` or through a cast or conditional), or moved itself (`p++`). An array lives only as long as its
+    block and cannot be moved."""
+    current, parent = use, use.parent
+    while parent is not None and (
+        parent.type in POINTER_CARRIERS
+        or (parent.type == "binary_expression" and text(parent.children[1]) in ["+", "-"])
+    ):
+        current, parent = parent, parent.parent
+    if parent is None:
+        return False
+    if parent.type == "update_expression":
+        return True
+    if parent.type == "assignment_expression":
+        return parent.children[0] != current or current != use  # stored, or the pointer itself reassigned
+    return parent.type in ["init_declarator", "initializer_list", "return_statement"]
+
+
+STACK_ELEMENTS = 4096
+
+
+def stack_sized(declarator):
+    """A literal element count of at most STACK_ELEMENTS: `T a[n]` with a run-time n is a variable-length array on
+    the stack, which can overflow where the heap allocation did not."""
+    call = declarator.children[2].children[-1]
+    arguments = call.children[-1]
+    if arguments.type != "argument_list" or len(arguments.children) != 3:
+        return False
+    count = element_count(text(arguments.children[1]))
+    return re.fullmatch(r"[0-9]+[uUlL]*", count) is not None and int(re.sub(r"[uUlL]", "", count)) <= STACK_ELEMENTS
+
+
+@guard(
+    "a local malloc'd pointer of a small literal size that never leaves its block: not freed, reallocated, returned,"
+    " stored, moved or measured with sizeof/& (an array would not be)"
+)
 def movable_allocation(node):
     body = enclosing_function_body(node)
     if body is None:
@@ -524,8 +570,13 @@ def movable_allocation(node):
             pointer = child.children[0]
             if len(pointer.children) != 2 or pointer.children[1].type != "identifier":
                 return False  # `T *const p`: qualified pointers keep no array spelling
-            if any(lifetime_bound(use) for use in name_uses(body, pointer.children[1].text)):
+            if not stack_sized(child):
                 return False
+            for use in name_uses(body, pointer.children[1].text):
+                if use.parent is not None and use.parent.id == pointer.id:
+                    continue  # the declaration itself
+                if lifetime_bound(use) or escapes(use) or size_bound(use):
+                    return False
     return True
 
 
@@ -575,11 +626,16 @@ def dynamic_to_static(node, source):
     return edits
 
 
-@guard("a[i] outside nested subscripts and member access")
+@guard("a[i] outside nested subscripts and member access, on a plain array name")
 def plain_subscript(node):
-    return node.parent.type not in ["subscript_expression", "pointer_expression", "comma_expression"] and node.children[
-        0
-    ].type not in ["call_expression", "field_expression", "parenthesized_expression"]
+    """The outermost subscript of a chain `a[i][j]...` whose base `a` is an identifier: `array_dimension` counts the
+    first-child chain, so for `p->cells[i][j]` it would also count `p->cells` and split it into `p + cells`."""
+    if node.parent.type in ["subscript_expression", "pointer_expression", "comma_expression"]:
+        return False
+    base = node
+    while base.type == "subscript_expression":
+        base = base.children[0]
+    return base.type == "identifier"
 
 
 POINTER_ARITHMETIC = re.compile(r"\*\([^\+]+\+[^\)]+\)")
@@ -1095,9 +1151,10 @@ def hoist_init(node, source, init):
 
 
 def condition_to_break(source, condition, body):
-    """b becomes `if (!(b)) { break; }` at the start of the body."""
-    if body is None:
-        raise Reject("no body")
+    """b becomes `if (!(b)) { break; }` at the start of the body (a braced body: before the first statement of a
+    brace-less body the test would become the whole loop body)."""
+    if body is None or body.type != "compound_statement":
+        raise Reject("no braced body")
     first = body.children[1] if body.type == "compound_statement" else body
     indent = source.indent(first.start_byte)
     return [
@@ -1115,9 +1172,10 @@ def condition_to_break(source, condition, body):
 
 
 def update_to_end(source, update, body):
-    """c moves after the last statement of the body (skipped by `continue`: an original-method hazard)."""
-    if body is None:
-        raise Reject("no body")
+    """c moves after the last statement of a braced body; a `continue` of this loop would skip it, and after a
+    brace-less body it would leave the loop, so both are rejected."""
+    if body is None or body.type != "compound_statement" or loop_continues(body):
+        raise Reject("no braced body, or a continue would skip the update")
     last = body.children[-2] if body.type == "compound_statement" else body
     return [delete(update), insert_after(last, f"\n{source.indent(last.start_byte) * ' '}{text(update)};")]
 
@@ -1532,8 +1590,37 @@ def movable_conditional(negated_form):
         return negatable(condition)
 
     return nodes("conditional_expression").where(
-        guard("!(c) ? a : b" if negated_form else "c ? a : b")(test), outside_text_sensitive_operands
+        guard("!(c) ? a : b" if negated_form else "c ? a : b")(test),
+        outside_text_sensitive_operands,
+        whole_conditional,
+        outside_error_recovery,
     )
+
+
+@guard("not inside an error-recovered region (its children are fragments, not operands)")
+def outside_error_recovery(node):
+    """C++ `a.x < 0.0 || a.y < 0.0` can open a template argument list that swallows the following statements into an
+    ERROR node; a conditional found there is a fragment (`0 ? s[n - 1] : 0` of `count > 0 ? s[n - 1] : 0`)."""
+    current = node.parent
+    while current is not None:
+        if current.type == "ERROR":
+            return False
+        current = current.parent
+    return True
+
+
+@guard("not the operand of a tighter operator (`x < y ? a : b` misparsed as `x < (y ? a : b)`)")
+def whole_conditional(node):
+    """A conditional cannot be the unparenthesised operand of a binary, unary or cast operator: such a tree is a
+    misparse (C++ reads `<` / `>` as template brackets), and negating its `condition` would negate a lone operand."""
+    return node.parent is None or node.parent.type not in [
+        "binary_expression",
+        "unary_expression",
+        "cast_expression",
+        "pointer_expression",
+        "update_expression",
+        "sizeof_expression",
+    ]
 
 
 def swap_conditional(negate):
@@ -2153,6 +2240,9 @@ def c_family_rules(dialect):
     # comparison; both make the comparison and compound-assignment rewrites unsound (see no_operator_overloads).
     cpp_comparison = (no_operator_overloads, no_template_misparse) if dialect == "cpp" else ()
     cpp_operators = (no_operator_overloads,) if dialect == "cpp" else ()
+    # C++ only: a comparison inside a loop header can swallow the rest of the function as template arguments
+    # (`while (r.count < 8 && seek < cursor) { ... struct S {` became a for loop that deleted the struct).
+    cpp_parse = (no_template_misparse,) if dialect == "cpp" else ()
     rules = {
         "2.1": nodes("assignment_expression").where(self_assignment, pure_target, *cpp_operators).rule(to_compound),
         "2.2": compound.where(pure_target, *cpp_operators).rule(from_compound),
@@ -2194,19 +2284,25 @@ def c_family_rules(dialect):
         "6.2": Matcher("((_ (declaration)) @node) ((ERROR (declaration)) @node)")
         .where(repeated_declaration_type)
         .rule(merge_declarations),
-        "7.1": FOR.rule(loop_obc),
-        "7.2": FOR.rule(loop_aoc),
-        "7.3": FOR.rule(loop_abo),
-        "7.4": FOR.rule(loop_aoo),
-        "7.5": FOR.rule(loop_obo),
-        "7.6": FOR.rule(loop_ooc),
-        "7.7": FOR.where(in_statement_list).rule(loop_ooo, target=FOR.where(bare_for)),
-        "7.8": LOOP.rule(while_to_for(), target=FOR.where(marked_for)),
+        "7.1": FOR.where(*cpp_parse).rule(loop_obc),
+        "7.2": FOR.where(*cpp_parse).rule(loop_aoc),
+        "7.3": FOR.where(*cpp_parse).rule(loop_abo),
+        "7.4": FOR.where(*cpp_parse).rule(loop_aoo),
+        "7.5": FOR.where(*cpp_parse).rule(loop_obo),
+        "7.6": FOR.where(*cpp_parse).rule(loop_ooc),
+        "7.7": FOR.where(in_statement_list, *cpp_parse).rule(loop_ooo, target=FOR.where(bare_for, *cpp_parse)),
+        "7.8": LOOP.where(*cpp_parse).rule(while_to_for(), target=FOR.where(marked_for, *cpp_parse)),
         "8.1": nodes("switch_statement").rule(switch_to_if),
         "14.1": braced_if_else(negated_form=True).where(well_formed).rule(swap_branches(negate=False)),
         "14.2": braced_if_else(negated_form=False).where(well_formed).rule(swap_branches(negate=True)),
-        "15.1": movable_conditional(negated_form=True).where(well_formed).rule(swap_conditional(negate=False)),
-        "15.2": movable_conditional(negated_form=False).where(well_formed).rule(swap_conditional(negate=True)),
+        "15.1": movable_conditional(negated_form=True)
+        .where(*cpp_parse)
+        .where(well_formed)
+        .rule(swap_conditional(negate=False)),
+        "15.2": movable_conditional(negated_form=False)
+        .where(*cpp_parse)
+        .where(well_formed)
+        .rule(swap_conditional(negate=True)),
         "16.1": nodes("if_statement").where(nested_if).where(well_formed).rule(join_conjunction),
         "16.2": nodes("if_statement").where(conjunctive_if).where(well_formed).rule(split_conjunction),
         "17.1": POINTER_PARAMETER.where(well_formed).rule(pointer_to_array_parameter),
