@@ -31,8 +31,8 @@
     {
       "path": "benchmarks/attacks.py",
       "module": "benchmarks.attacks",
-      "sha256": "f115cbd813da0c19fd0dab01e8cc035690f80bcc8aaebd6ab4328e12f1d30e34",
-      "line_count": 755,
+      "sha256": "21b572d5ec3791fff36f3d735e16fc12692ae53c064f2e019318b25ac9c6d95d",
+      "line_count": 763,
       "symbols": [
         {
           "name": "Result",
@@ -116,121 +116,121 @@
           "name": "delete",
           "kind": "function",
           "line": 281,
-          "end_line": 299
+          "end_line": 307
         },
         {
           "name": "reorder",
           "kind": "function",
-          "line": 302,
-          "end_line": 332
+          "line": 310,
+          "end_line": 340
         },
         {
           "name": "insert",
           "kind": "function",
-          "line": 335,
-          "end_line": 359
+          "line": 343,
+          "end_line": 367
         },
         {
           "name": "word_set",
           "kind": "function",
-          "line": 365,
-          "end_line": 366
+          "line": 373,
+          "end_line": 374
         },
         {
           "name": "in_class_body",
           "kind": "function",
-          "line": 412,
-          "end_line": 417
+          "line": 420,
+          "end_line": 425
         },
         {
           "name": "python_names",
           "kind": "function",
-          "line": 420,
-          "end_line": 485
+          "line": 428,
+          "end_line": 493
         },
         {
           "name": "python_names.collect",
           "kind": "function",
-          "line": 426,
-          "end_line": 433
+          "line": 434,
+          "end_line": 441
         },
         {
           "name": "python_names.parameter",
           "kind": "function",
-          "line": 435,
-          "end_line": 442
+          "line": 443,
+          "end_line": 450
         },
         {
           "name": "declarator_name",
           "kind": "function",
-          "line": 488,
-          "end_line": 499
+          "line": 496,
+          "end_line": 507
         },
         {
           "name": "c_names",
           "kind": "function",
-          "line": 505,
-          "end_line": 539
+          "line": 513,
+          "end_line": 547
         },
         {
           "name": "js_names",
           "kind": "function",
-          "line": 542,
-          "end_line": 580
+          "line": 550,
+          "end_line": 588
         },
         {
           "name": "js_names.collect",
           "kind": "function",
-          "line": 547,
-          "end_line": 558
+          "line": 555,
+          "end_line": 566
         },
         {
           "name": "rename",
           "kind": "function",
-          "line": 591,
-          "end_line": 631
+          "line": 599,
+          "end_line": 639
         },
         {
           "name": "rename.fresh",
           "kind": "function",
-          "line": 606,
-          "end_line": 614
+          "line": 614,
+          "end_line": 622
         },
         {
           "name": "strip_comments",
           "kind": "function",
-          "line": 658,
-          "end_line": 668
+          "line": 666,
+          "end_line": 676
         },
         {
           "name": "string_interiors",
           "kind": "function",
-          "line": 671,
-          "end_line": 677
+          "line": 679,
+          "end_line": 685
         },
         {
           "name": "tidy_lines",
           "kind": "function",
-          "line": 680,
-          "end_line": 695
+          "line": 688,
+          "end_line": 703
         },
         {
           "name": "style_edits",
           "kind": "function",
-          "line": 698,
-          "end_line": 742
+          "line": 706,
+          "end_line": 750
         },
         {
           "name": "style_edits.gap",
           "kind": "function",
-          "line": 706,
-          "end_line": 709
+          "line": 714,
+          "end_line": 717
         },
         {
           "name": "reformat",
           "kind": "function",
-          "line": 745,
-          "end_line": 755
+          "line": 753,
+          "end_line": 763
         }
       ],
       "imports": [
@@ -9992,8 +9992,8 @@
     {
       "path": "tests/test_robust_bench.py",
       "module": "tests.test_robust_bench",
-      "sha256": "114f3c15509e5c088f6883351146f67d60feefad4d65fb183b1df60c564afa99",
-      "line_count": 1321,
+      "sha256": "7568cc798057ef5c9b447a86f5c6718007ebba4342b0ac6509baa0a36d0fc9f7",
+      "line_count": 1330,
       "symbols": [
         {
           "name": "load_tool",
@@ -10113,7 +10113,7 @@
           "name": "AttackTests",
           "kind": "class",
           "line": 260,
-          "end_line": 501
+          "end_line": 510
         },
         {
           "name": "AttackTests.setUpClass",
@@ -10176,400 +10176,400 @@
           "end_line": 413
         },
         {
-          "name": "AttackTests.test_delete_at_project_level_also_removes_files",
+          "name": "AttackTests.test_delete_at_project_level_removes_the_fraction_of_all_functions",
           "kind": "function",
           "line": 415,
-          "end_line": 423
+          "end_line": 432
         },
         {
           "name": "AttackTests.test_reorder_shuffles_functions_and_file_names_without_changing_content",
           "kind": "function",
-          "line": 425,
-          "end_line": 442
+          "line": 434,
+          "end_line": 451
         },
         {
           "name": "AttackTests.test_flip_rewrites_sites_to_their_other_reading",
           "kind": "function",
-          "line": 444,
-          "end_line": 457
+          "line": 453,
+          "end_line": 466
         },
         {
           "name": "AttackTests.test_normalize_rewrites_whole_pairs",
           "kind": "function",
-          "line": 459,
-          "end_line": 472
+          "line": 468,
+          "end_line": 481
         },
         {
           "name": "AttackTests.test_insert_appends_unmarked_code_of_other_units",
           "kind": "function",
-          "line": 474,
-          "end_line": 491
+          "line": 483,
+          "end_line": 500
         },
         {
           "name": "AttackTests.test_insert_appends_unmarked_code_of_other_units.donors",
           "kind": "function",
-          "line": 475,
-          "end_line": 477
+          "line": 484,
+          "end_line": 486
         },
         {
           "name": "AttackTests.test_combo_chains_rename_flip_and_delete",
           "kind": "function",
-          "line": 493,
-          "end_line": 501
+          "line": 502,
+          "end_line": 510
         },
         {
           "name": "EngineCase",
           "kind": "class",
-          "line": 507,
-          "end_line": 587
+          "line": 516,
+          "end_line": 596
         },
         {
           "name": "EngineCase.setUp",
           "kind": "function",
-          "line": 513,
-          "end_line": 523
+          "line": 522,
+          "end_line": 532
         },
         {
           "name": "EngineCase.build",
           "kind": "function",
-          "line": 525,
-          "end_line": 578
+          "line": 534,
+          "end_line": 587
         },
         {
           "name": "EngineCase.generated",
           "kind": "function",
-          "line": 580,
-          "end_line": 581
+          "line": 589,
+          "end_line": 590
         },
         {
           "name": "EngineCase.human",
           "kind": "function",
-          "line": 583,
-          "end_line": 584
+          "line": 592,
+          "end_line": 593
         },
         {
           "name": "EngineCase.row",
           "kind": "function",
-          "line": 586,
-          "end_line": 587
+          "line": 595,
+          "end_line": 596
         },
         {
           "name": "RobustEngineTests",
           "kind": "class",
-          "line": 590,
-          "end_line": 806
+          "line": 599,
+          "end_line": 815
         },
         {
           "name": "RobustEngineTests.test_a_generated_unit_is_embedded_read_and_attacked",
           "kind": "function",
-          "line": 591,
-          "end_line": 623
+          "line": 600,
+          "end_line": 632
         },
         {
           "name": "RobustEngineTests.test_attack_entries_have_the_legacy_shape_and_the_robust_detail",
           "kind": "function",
-          "line": 625,
-          "end_line": 645
+          "line": 634,
+          "end_line": 654
         },
         {
           "name": "RobustEngineTests.test_summarize_group_reads_the_rows",
           "kind": "function",
-          "line": 647,
-          "end_line": 656
+          "line": 656,
+          "end_line": 665
         },
         {
           "name": "RobustEngineTests.test_hand_written_units_are_only_read_and_attacked",
           "kind": "function",
-          "line": 658,
-          "end_line": 677
+          "line": 667,
+          "end_line": 686
         },
         {
           "name": "RobustEngineTests.test_explicit_embed_flag_and_role_decide_what_is_embedded",
           "kind": "function",
-          "line": 679,
-          "end_line": 687
+          "line": 688,
+          "end_line": 696
         },
         {
           "name": "RobustEngineTests.test_sweeps_cover_all_messages_but_the_true_one_on_marked_code",
           "kind": "function",
-          "line": 689,
-          "end_line": 701
+          "line": 698,
+          "end_line": 710
         },
         {
           "name": "RobustEngineTests.test_a_cohort_can_override_the_number_of_swept_messages",
           "kind": "function",
-          "line": 703,
-          "end_line": 713
+          "line": 712,
+          "end_line": 722
         },
         {
           "name": "RobustEngineTests.test_a_cohort_can_override_the_attacks",
           "kind": "function",
-          "line": 715,
-          "end_line": 723
+          "line": 724,
+          "end_line": 732
         },
         {
           "name": "RobustEngineTests.test_eight_bit_messages_and_sweep_size",
           "kind": "function",
-          "line": 725,
-          "end_line": 730
+          "line": 734,
+          "end_line": 739
         },
         {
           "name": "RobustEngineTests.test_messages_are_derived_from_seed_and_unit_and_uniform",
           "kind": "function",
-          "line": 732,
-          "end_line": 742
+          "line": 741,
+          "end_line": 751
         },
         {
           "name": "RobustEngineTests.test_units_without_room_are_kept_unembedded",
           "kind": "function",
-          "line": 744,
-          "end_line": 753
+          "line": 753,
+          "end_line": 762
         },
         {
           "name": "RobustEngineTests.test_a_detector_that_raises_is_recorded_as_no_detection",
           "kind": "function",
-          "line": 755,
-          "end_line": 774
+          "line": 764,
+          "end_line": 783
         },
         {
           "name": "RobustEngineTests.test_a_detector_that_raises_is_recorded_as_no_detection.flaky",
           "kind": "function",
-          "line": 759,
-          "end_line": 762
+          "line": 768,
+          "end_line": 771
         },
         {
           "name": "RobustEngineTests.test_attacks_replay_with_the_seed_and_differ_between_units",
           "kind": "function",
-          "line": 776,
-          "end_line": 785
+          "line": 785,
+          "end_line": 794
         },
         {
           "name": "RobustEngineTests.test_the_rule_set_comes_from_the_config",
           "kind": "function",
-          "line": 787,
-          "end_line": 791
+          "line": 796,
+          "end_line": 800
         },
         {
           "name": "RobustEngineTests.test_projects_use_every_file_and_donors_come_from_hand_written_units",
           "kind": "function",
-          "line": 793,
-          "end_line": 806
+          "line": 802,
+          "end_line": 815
         },
         {
           "name": "RealCoreTests",
           "kind": "class",
-          "line": 827,
-          "end_line": 930
+          "line": 836,
+          "end_line": 939
         },
         {
           "name": "RealCoreTests.real_row",
           "kind": "function",
-          "line": 832,
-          "end_line": 839
+          "line": 841,
+          "end_line": 848
         },
         {
           "name": "RealCoreTests.test_both_schemes_embed_detect_and_survive_deletion",
           "kind": "function",
-          "line": 841,
-          "end_line": 877
+          "line": 850,
+          "end_line": 886
         },
         {
           "name": "RealCoreTests.test_struct_anchors_survive_renaming_and_token_anchors_do_not",
           "kind": "function",
-          "line": 879,
-          "end_line": 887
+          "line": 888,
+          "end_line": 896
         },
         {
           "name": "RealCoreTests.test_eight_bit_sweep_covers_all_256_messages",
           "kind": "function",
-          "line": 889,
-          "end_line": 893
+          "line": 898,
+          "end_line": 902
         },
         {
           "name": "RealCoreTests.test_the_report_summarizes_the_real_core_fields",
           "kind": "function",
-          "line": 895,
-          "end_line": 925
+          "line": 904,
+          "end_line": 934
         },
         {
           "name": "RealCoreTests.test_the_protocol_config_carries_the_digest_of_the_real_core",
           "kind": "function",
-          "line": 927,
-          "end_line": 930
+          "line": 936,
+          "end_line": 939
         },
         {
           "name": "BchBaselineTests",
           "kind": "class",
-          "line": 933,
-          "end_line": 986
+          "line": 942,
+          "end_line": 995
         },
         {
           "name": "BchBaselineTests.test_bch_file_and_node_rows_follow_the_legacy_extraction",
           "kind": "function",
-          "line": 934,
-          "end_line": 963
+          "line": 943,
+          "end_line": 972
         },
         {
           "name": "BchBaselineTests.test_bch_reads_attacked_code_by_position_and_fails_without_the_files",
           "kind": "function",
-          "line": 965,
-          "end_line": 980
+          "line": 974,
+          "end_line": 989
         },
         {
           "name": "BchBaselineTests.test_bch_needs_four_bit_messages",
           "kind": "function",
-          "line": 982,
-          "end_line": 986
+          "line": 991,
+          "end_line": 995
         },
         {
           "name": "SelectionTests",
           "kind": "class",
-          "line": 989,
-          "end_line": 1099
+          "line": 998,
+          "end_line": 1108
         },
         {
           "name": "SelectionTests.section",
           "kind": "function",
-          "line": 990,
-          "end_line": 991
+          "line": 999,
+          "end_line": 1000
         },
         {
           "name": "SelectionTests.test_defaults",
           "kind": "function",
-          "line": 993,
-          "end_line": 999
+          "line": 1002,
+          "end_line": 1008
         },
         {
           "name": "SelectionTests.test_invalid_sections_are_rejected",
           "kind": "function",
-          "line": 1001,
-          "end_line": 1022
+          "line": 1010,
+          "end_line": 1031
         },
         {
           "name": "SelectionTests.test_robust_configs_carry_the_digests_and_other_configs_do_not_move",
           "kind": "function",
-          "line": 1024,
-          "end_line": 1049
+          "line": 1033,
+          "end_line": 1058
         },
         {
           "name": "SelectionTests.test_existing_configs_keep_their_protocol_config_and_fingerprint",
           "kind": "function",
-          "line": 1051,
-          "end_line": 1069
+          "line": 1060,
+          "end_line": 1078
         },
         {
           "name": "SelectionTests.test_workers_start_the_robust_engine_only_for_robust_configs",
           "kind": "function",
-          "line": 1071,
-          "end_line": 1086
+          "line": 1080,
+          "end_line": 1095
         },
         {
           "name": "SelectionTests.test_reports_of_robust_runs_name_the_variant_once",
           "kind": "function",
-          "line": 1088,
-          "end_line": 1099
+          "line": 1097,
+          "end_line": 1108
         },
         {
           "name": "SummaryFunctionTests",
           "kind": "class",
-          "line": 1102,
-          "end_line": 1129
+          "line": 1111,
+          "end_line": 1138
         },
         {
           "name": "SummaryFunctionTests.test_anchor_survival",
           "kind": "function",
-          "line": 1103,
-          "end_line": 1108
+          "line": 1112,
+          "end_line": 1117
         },
         {
           "name": "SummaryFunctionTests.test_summarize_p",
           "kind": "function",
-          "line": 1110,
-          "end_line": 1117
+          "line": 1119,
+          "end_line": 1126
         },
         {
           "name": "SummaryFunctionTests.test_changed_lines",
           "kind": "function",
-          "line": 1119,
-          "end_line": 1123
+          "line": 1128,
+          "end_line": 1132
         },
         {
           "name": "SummaryFunctionTests.test_the_fake_binomial_tail_matches_enumeration",
           "kind": "function",
-          "line": 1125,
-          "end_line": 1129
+          "line": 1134,
+          "end_line": 1138
         },
         {
           "name": "ReportTests",
           "kind": "class",
-          "line": 1135,
-          "end_line": 1258
+          "line": 1144,
+          "end_line": 1267
         },
         {
           "name": "ReportTests.make_run",
           "kind": "function",
-          "line": 1136,
-          "end_line": 1156
+          "line": 1145,
+          "end_line": 1165
         },
         {
           "name": "ReportTests.test_robust_variant_report",
           "kind": "function",
-          "line": 1158,
-          "end_line": 1201
+          "line": 1167,
+          "end_line": 1210
         },
         {
           "name": "ReportTests.test_bch_variant_report_and_cli",
           "kind": "function",
-          "line": 1203,
-          "end_line": 1225
+          "line": 1212,
+          "end_line": 1234
         },
         {
           "name": "ReportTests.test_runs_that_are_not_robust_are_refused",
           "kind": "function",
-          "line": 1227,
-          "end_line": 1234
+          "line": 1236,
+          "end_line": 1243
         },
         {
           "name": "ReportTests.test_helpers",
           "kind": "function",
-          "line": 1236,
-          "end_line": 1258
+          "line": 1245,
+          "end_line": 1267
         },
         {
           "name": "GeneratedConfigTests",
           "kind": "class",
-          "line": 1261,
-          "end_line": 1321
+          "line": 1270,
+          "end_line": 1330
         },
         {
           "name": "GeneratedConfigTests.configs",
           "kind": "function",
-          "line": 1267,
-          "end_line": 1271
+          "line": 1276,
+          "end_line": 1280
         },
         {
           "name": "GeneratedConfigTests.test_one_config_per_variant_differing_only_in_the_robust_section",
           "kind": "function",
-          "line": 1273,
-          "end_line": 1284
+          "line": 1282,
+          "end_line": 1293
         },
         {
           "name": "GeneratedConfigTests.test_groups_follow_the_plan",
           "kind": "function",
-          "line": 1286,
-          "end_line": 1305
+          "line": 1295,
+          "end_line": 1314
         },
         {
           "name": "GeneratedConfigTests.test_every_config_validates_and_runs_standalone",
           "kind": "function",
-          "line": 1307,
-          "end_line": 1313
+          "line": 1316,
+          "end_line": 1322
         },
         {
           "name": "GeneratedConfigTests.test_the_stress_group_is_excluded_from_detection_by_role",
           "kind": "function",
-          "line": 1315,
-          "end_line": 1321
+          "line": 1324,
+          "end_line": 1330
         }
       ],
       "imports": [

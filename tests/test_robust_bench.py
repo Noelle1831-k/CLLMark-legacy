@@ -412,15 +412,24 @@ class AttackTests(unittest.TestCase):
                 it = iter(original)
                 self.assertTrue(all(token in it for token in kept))  # what remains is a subsequence
 
-    def test_delete_at_project_level_also_removes_files(self):
+    def test_delete_at_project_level_removes_the_fraction_of_all_functions(self):
         files = {f"f{i}.py": f"def a{i}():\n    return {i}\ndef b{i}():\n    return {i + 1}\n" for i in range(4)}
-        result = self.run_attack("delete_0.5", "python", files)
-        self.assertEqual(len(result.files), 2)
-        self.assertEqual(result.details["files_removed"], 2)
-        self.assertEqual(result.details["functions_removed"], 2)  # one of two functions in each remaining file
-        self.assertEqual(self.run_attack("delete_0.25", "python", files).details["files_removed"], 1)
+        transformer = self.transformers["python"]
+        for name, removed in (("delete_0.5", 4), ("delete_0.25", 2)):
+            result = self.run_attack(name, "python", files)
+            left = sum(top_level_functions(transformer, "python", code) for code in result.files.values())
+            self.assertEqual((result.details["functions_removed"], left), (removed, 8 - removed))
+            emptied = sum(top_level_functions(transformer, "python", code) == 0 for code in result.files.values())
+            self.assertEqual(emptied, 0)  # a file that lost all its functions is gone
+            self.assertEqual(len(result.files), 4 - result.details["files_removed"])
+        # one function per file (the SRDD projects): half of the code goes, not all of it
+        layout = {f"f{i}.py": f"def a{i}():\n    return {i}\n" for i in range(6)}
+        result = self.run_attack("delete_0.5", "python", layout)
+        self.assertEqual((len(result.files), result.details["files_removed"]), (3, 3))
+        result = self.run_attack("delete_0.5", "python", {"a.py": "def a():\n    return 1\n", "b.h": "x = 1\n"})
+        self.assertEqual(sorted(result.files), ["a.py", "b.h"])  # a project keeps at least one function
         single = self.run_attack("delete_0.5", "python", {"only.py": "def a():\n    return 1\n"})
-        self.assertEqual(len(single.files), 1)  # a project keeps at least one file
+        self.assertEqual(len(single.files), 1)
 
     def test_reorder_shuffles_functions_and_file_names_without_changing_content(self):
         for language in SOURCES:
@@ -800,7 +809,7 @@ class RobustEngineTests(EngineCase):
         self.assertEqual(row["file_count"], 2)
         self.assertEqual(row["robust"]["capacity"]["files"], 2)
         self.assertEqual(row["attacks"]["insert_1"]["files"], 4)  # the donors (5 + 18 lines) of a 22-line project
-        self.assertEqual(row["robust"]["attacks"]["delete_0.5"]["details"]["files_removed"], 1)
+        self.assertEqual(row["robust"]["attacks"]["delete_0.5"]["details"]["functions_removed"], 2)  # of 3 + 1
         donors = engine.donor_units["python"]
         self.assertEqual([unit["id"] for unit in donors], ["cn_human/h1", "cn_human/h2"])
         self.assertEqual(engine.donor_units.get("c"), None)
