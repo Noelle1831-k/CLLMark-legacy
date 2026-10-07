@@ -10,7 +10,7 @@ attack replays exactly.
 | -------------- | ---------------------------------------------------------------------------------------------------- |
 | `flip_P`       | every usable site of every rule pair is rewritten to its other reading with probability P            |
 | `normalize_R`  | R random rule pairs (among those with a readable site; `all`: every pair) are rewritten file-wide to a random side |
-| `delete_Q`     | a fraction Q of the top-level functions of every file (projects: also of the files) is removed        |
+| `delete_Q`     | a fraction Q of the top-level functions is removed (projects: of the pooled functions of all files; a file that loses all its functions is removed; one function always stays) |
 | `insert_K`     | K times the amount of unmarked code of other hand-written units is appended (projects: as new files)  |
 | `rename`       | declared locals, parameters and functions get fresh names (tree-sitter declarations, all references)  |
 | `reformat`     | comments and blank lines removed; C/C++/JS also get one indentation scheme and spaces around operators |
@@ -279,24 +279,32 @@ def half_up(value: float) -> int:
 
 
 def delete(transformer, language: str, files: dict[str, str], rng: random.Random, fraction: float) -> Result:
-    """Remove round(fraction * n) of the n top-level functions of each file and, in projects of several files,
-    round(fraction * files) files (always keeping one)."""
+    """Remove round(fraction * n) of the n top-level functions: of the file for a single file; for a project of several
+    files, of the functions of all files together, so that the project loses about the fraction Q of its code whatever
+    its layout (the SRDD projects keep one function per file). A file that loses all its functions is removed; a file
+    without functions (a header) is kept; a project keeps at least one function."""
     names = sorted(files)
-    dropped = []
-    if len(names) > 1:
-        count = min(half_up(fraction * len(names)), len(names) - 1)
-        dropped = sorted(rng.sample(names, count))
-    out, removed = {}, 0
-    for name in names:
-        if name in dropped:
-            continue
+    if len(names) == 1:
+        name = names[0]
         data = files[name].encode("utf-8")
         spans = function_spans(tree_of(transformer, files[name]), language)
         count = half_up(fraction * len(spans))
         victims = sorted(rng.sample(spans, count)) if count else []
-        out[name] = apply_edits(data, [(*with_line_end(data, s, e), b"") for s, e in victims]).decode("utf-8")
-        removed += len(victims)
-    return Result(out, removed + len(dropped), {"functions_removed": removed, "files_removed": len(dropped)})
+        out = {name: apply_edits(data, [(*with_line_end(data, s, e), b"") for s, e in victims]).decode("utf-8")}
+        return Result(out, len(victims), {"functions_removed": len(victims), "files_removed": 0})
+    spans = {name: function_spans(tree_of(transformer, files[name]), language) for name in names}
+    pool = [(name, start, end) for name in names for start, end in spans[name]]
+    count = min(half_up(fraction * len(pool)), max(len(pool) - 1, 0))
+    victims = sorted(rng.sample(pool, count)) if count else []
+    out, dropped = {}, 0
+    for name in names:
+        mine = [(start, end) for owner, start, end in victims if owner == name]
+        if spans[name] and len(mine) == len(spans[name]):
+            dropped += 1
+            continue
+        data = files[name].encode("utf-8")
+        out[name] = apply_edits(data, [(*with_line_end(data, s, e), b"") for s, e in mine]).decode("utf-8")
+    return Result(out, len(victims), {"functions_removed": len(victims), "files_removed": dropped})
 
 
 def reorder(transformer, language: str, files: dict[str, str], rng: random.Random) -> Result:
