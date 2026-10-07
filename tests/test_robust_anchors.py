@@ -145,6 +145,49 @@ class AnchorTests(unittest.TestCase):
             )
             self.assertEqual(select_entries([]), [])
 
+    def test_selection_uses_only_the_calibrated_pairs(self):
+        from cllmark.robust import observe
+        from cllmark.robust.anchors import allowed_pairs
+
+        for language in LANGUAGES:
+            transformer = self.transformers[language]
+            for anchor in ("tok", "struct"):
+                allowed = allowed_pairs("legacy", language, anchor)
+                self.assertTrue(allowed and allowed <= set(transformer.pairs), (language, anchor))
+                picked = observe(transformer, language, {"f": project(language, 6)}, anchor, selected=True)
+                self.assertTrue(picked)
+                self.assertTrue({o.pair for o in picked} <= allowed, (language, anchor))
+        # the pairs whose two forms are different nodes are not in the table
+        self.assertNotIn("declare", allowed_pairs("legacy", "c", "tok"))
+        self.assertNotIn("declare", allowed_pairs("legacy", "javascript", "struct"))
+        with self.assertRaises(KeyError):
+            allowed_pairs("legacy", "c", "position")
+
+    def test_the_calibration_table_meets_its_own_criteria(self):
+        import json
+
+        from cllmark.robust.anchors import STABLE_PAIRS_FILE
+
+        table = json.loads(STABLE_PAIRS_FILE.read_text(encoding="utf-8"))
+        criteria = table["criteria"]
+        self.assertGreaterEqual(table["calibration"]["files"]["python"], 100)
+        for rule_set, languages in table["pairs"].items():
+            for language, anchors in languages.items():
+                for anchor, entry in anchors.items():
+                    for pair in entry["allowed"]:
+                        usable, stable = entry["stats"][pair]
+                        self.assertGreaterEqual(usable, criteria["min_usable"], (rule_set, language, anchor, pair))
+                        self.assertGreaterEqual(
+                            stable / usable, criteria["min_ratio"], (rule_set, language, anchor, pair)
+                        )
+                    for pair in entry["excluded"]:
+                        usable, stable = entry["stats"][pair]
+                        self.assertTrue(
+                            usable < criteria["min_usable"] or stable / usable < criteria["min_ratio"],
+                            (rule_set, language, anchor, pair),
+                        )
+                    self.assertEqual(set(entry["allowed"]) | set(entry["excluded"]), set(entry["stats"]))
+
     def test_support_files_are_not_observed(self):
         from cllmark.robust import observe
 

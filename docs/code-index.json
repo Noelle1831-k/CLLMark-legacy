@@ -15,8 +15,8 @@
     "build products"
   ],
   "generation_command": "python3 tools/build_code_index.py",
-  "file_count": 69,
-  "symbol_count": 1547,
+  "file_count": 72,
+  "symbol_count": 1573,
   "files": [
     {
       "path": "benchmarks/__init__.py",
@@ -1410,8 +1410,8 @@
     {
       "path": "benchmarks/robust_engine.py",
       "module": "benchmarks.robust_engine",
-      "sha256": "8705425633fdcdc500e38db7780cd7003ee476d89ccde74ff2439039c327cbc7",
-      "line_count": 651,
+      "sha256": "fd7a05b8cdd4322be198c83dfa1a982408d543fbd4dfdeef7f4f848f6e5d5170",
+      "line_count": 658,
       "symbols": [
         {
           "name": "settings",
@@ -1441,163 +1441,163 @@
           "name": "core_digest",
           "kind": "function",
           "line": 133,
-          "end_line": 140
+          "end_line": 143
         },
         {
           "name": "protocol_config",
           "kind": "function",
-          "line": 143,
-          "end_line": 155
+          "line": 146,
+          "end_line": 158
         },
         {
           "name": "annotate_report",
           "kind": "function",
-          "line": 158,
-          "end_line": 170
+          "line": 161,
+          "end_line": 173
         },
         {
           "name": "derive",
           "kind": "function",
-          "line": 176,
-          "end_line": 177
+          "line": 179,
+          "end_line": 180
         },
         {
           "name": "message_for",
           "kind": "function",
-          "line": 180,
-          "end_line": 183
+          "line": 183,
+          "end_line": 186
         },
         {
           "name": "to_int",
           "kind": "function",
-          "line": 186,
-          "end_line": 187
+          "line": 189,
+          "end_line": 190
         },
         {
           "name": "from_int",
           "kind": "function",
-          "line": 190,
-          "end_line": 191
+          "line": 193,
+          "end_line": 194
         },
         {
           "name": "label",
           "kind": "function",
-          "line": 194,
-          "end_line": 195
+          "line": 197,
+          "end_line": 198
         },
         {
           "name": "summarize_p",
           "kind": "function",
-          "line": 198,
-          "end_line": 209
+          "line": 201,
+          "end_line": 212
         },
         {
           "name": "anchor_survival",
           "kind": "function",
-          "line": 212,
-          "end_line": 222
+          "line": 215,
+          "end_line": 225
         },
         {
           "name": "changed_lines",
           "kind": "function",
-          "line": 225,
-          "end_line": 229
+          "line": 228,
+          "end_line": 232
         },
         {
           "name": "RobustEngine",
           "kind": "class",
-          "line": 235,
-          "end_line": 645
+          "line": 238,
+          "end_line": 652
         },
         {
           "name": "RobustEngine.__init__",
           "kind": "function",
-          "line": 236,
-          "end_line": 251
+          "line": 239,
+          "end_line": 254
         },
         {
           "name": "RobustEngine.embeds",
           "kind": "function",
-          "line": 256,
-          "end_line": 258
+          "line": 259,
+          "end_line": 261
         },
         {
           "name": "RobustEngine.find_donors",
           "kind": "function",
-          "line": 261,
-          "end_line": 268
+          "line": 264,
+          "end_line": 271
         },
         {
           "name": "RobustEngine.donors_of",
           "kind": "function",
-          "line": 270,
-          "end_line": 285
+          "line": 273,
+          "end_line": 288
         },
         {
           "name": "RobustEngine.donors_of.donors",
           "kind": "function",
-          "line": 273,
-          "end_line": 283
+          "line": 276,
+          "end_line": 286
         },
         {
           "name": "RobustEngine.seed_for",
           "kind": "function",
-          "line": 287,
-          "end_line": 288
+          "line": 290,
+          "end_line": 291
         },
         {
           "name": "RobustEngine.read_robust",
           "kind": "function",
-          "line": 292,
-          "end_line": 321
+          "line": 295,
+          "end_line": 324
         },
         {
           "name": "RobustEngine.sweep",
           "kind": "function",
-          "line": 323,
-          "end_line": 339
+          "line": 326,
+          "end_line": 342
         },
         {
           "name": "RobustEngine.read_bch",
           "kind": "function",
-          "line": 341,
-          "end_line": 391
+          "line": 344,
+          "end_line": 394
         },
         {
           "name": "RobustEngine.failed",
           "kind": "function",
-          "line": 393,
-          "end_line": 411
+          "line": 396,
+          "end_line": 414
         },
         {
           "name": "RobustEngine.read",
           "kind": "function",
-          "line": 413,
-          "end_line": 420
+          "line": 416,
+          "end_line": 423
         },
         {
           "name": "RobustEngine.extraction",
           "kind": "function",
-          "line": 422,
-          "end_line": 445
+          "line": 425,
+          "end_line": 448
         },
         {
           "name": "RobustEngine.attack_version",
           "kind": "function",
-          "line": 449,
-          "end_line": 475
+          "line": 452,
+          "end_line": 478
         },
         {
           "name": "RobustEngine.evaluate",
           "kind": "function",
-          "line": 479,
-          "end_line": 645
+          "line": 482,
+          "end_line": 652
         },
         {
           "name": "initialize_worker",
           "kind": "function",
-          "line": 648,
-          "end_line": 651
+          "line": 655,
+          "end_line": 658
         }
       ],
       "imports": [
@@ -2987,188 +2987,212 @@
     {
       "path": "cllmark/robust/anchors.py",
       "module": "cllmark.robust.anchors",
-      "sha256": "d745a3418206742d1802405b3163b3f5be855db4ff3264f8d986e214b7ac64b1",
-      "line_count": 685,
+      "sha256": "7e0b7759466423b76a50611731f46876fa3ec33062c7bf595653c064883e9613",
+      "line_count": 765,
       "symbols": [
         {
           "name": "_names",
           "kind": "function",
-          "line": 38,
-          "end_line": 39
+          "line": 41,
+          "end_line": 42
         },
         {
           "name": "Observation",
           "kind": "class",
-          "line": 90,
-          "end_line": 98
+          "line": 93,
+          "end_line": 101
         },
         {
           "name": "Entry",
           "kind": "class",
-          "line": 101,
-          "end_line": 108
+          "line": 104,
+          "end_line": 111
         },
         {
           "name": "_unescape",
           "kind": "function",
-          "line": 114,
-          "end_line": 115
+          "line": 117,
+          "end_line": 118
         },
         {
           "name": "string_value",
           "kind": "function",
-          "line": 118,
-          "end_line": 128
+          "line": 121,
+          "end_line": 131
         },
         {
           "name": "_node_of",
           "kind": "function",
-          "line": 131,
-          "end_line": 140
+          "line": 134,
+          "end_line": 143
         },
         {
           "name": "_declared_name",
           "kind": "function",
-          "line": 143,
-          "end_line": 159
+          "line": 146,
+          "end_line": 162
         },
         {
           "name": "function_name",
           "kind": "function",
-          "line": 162,
-          "end_line": 172
+          "line": 165,
+          "end_line": 175
         },
         {
           "name": "tokens",
           "kind": "function",
-          "line": 175,
-          "end_line": 200
+          "line": 178,
+          "end_line": 203
         },
         {
           "name": "_hash",
           "kind": "function",
-          "line": 255,
-          "end_line": 260
+          "line": 258,
+          "end_line": 263
         },
         {
           "name": "_is_negation",
           "kind": "function",
-          "line": 263,
-          "end_line": 266
+          "line": 266,
+          "end_line": 269
         },
         {
           "name": "_is_print_option",
           "kind": "function",
-          "line": 269,
-          "end_line": 274
+          "line": 272,
+          "end_line": 277
         },
         {
           "name": "_leaf_digest",
           "kind": "function",
-          "line": 277,
-          "end_line": 292
+          "line": 280,
+          "end_line": 295
         },
         {
           "name": "_strip",
           "kind": "function",
-          "line": 295,
-          "end_line": 298
+          "line": 298,
+          "end_line": 301
         },
         {
           "name": "_operator",
           "kind": "function",
-          "line": 301,
-          "end_line": 303
+          "line": 304,
+          "end_line": 306
         },
         {
           "name": "_special",
           "kind": "function",
-          "line": 306,
-          "end_line": 439
+          "line": 309,
+          "end_line": 442
         },
         {
           "name": "_special.digest",
           "kind": "function",
-          "line": 314,
-          "end_line": 315
+          "line": 317,
+          "end_line": 318
         },
         {
           "name": "_combine",
           "kind": "function",
-          "line": 442,
-          "end_line": 466
+          "line": 445,
+          "end_line": 469
         },
         {
           "name": "_skeleton_digest",
           "kind": "function",
-          "line": 469,
-          "end_line": 504
+          "line": 472,
+          "end_line": 507
         },
         {
           "name": "anchor_key",
           "kind": "function",
-          "line": 507,
-          "end_line": 516
+          "line": 510,
+          "end_line": 519
         },
         {
           "name": "Entries",
           "kind": "class",
-          "line": 524,
-          "end_line": 528
+          "line": 527,
+          "end_line": 531
         },
         {
           "name": "_site_entries",
           "kind": "function",
-          "line": 531,
-          "end_line": 550
+          "line": 534,
+          "end_line": 553
         },
         {
           "name": "_stable_targets",
           "kind": "function",
-          "line": 553,
-          "end_line": 555
+          "line": 556,
+          "end_line": 558
         },
         {
           "name": "_key_after",
           "kind": "function",
-          "line": 561,
-          "end_line": 569
+          "line": 564,
+          "end_line": 572
         },
         {
           "name": "_place",
           "kind": "function",
-          "line": 572,
-          "end_line": 576
+          "line": 575,
+          "end_line": 579
         },
         {
           "name": "_stable",
           "kind": "function",
-          "line": 579,
-          "end_line": 613
+          "line": 582,
+          "end_line": 616
         },
         {
           "name": "file_entries",
           "kind": "function",
-          "line": 616,
-          "end_line": 641
+          "line": 619,
+          "end_line": 644
+        },
+        {
+          "name": "_stable_pairs",
+          "kind": "function",
+          "line": 651,
+          "end_line": 653
+        },
+        {
+          "name": "allowed_pairs",
+          "kind": "function",
+          "line": 656,
+          "end_line": 664
         },
         {
           "name": "select_entries",
           "kind": "function",
-          "line": 644,
-          "end_line": 655
+          "line": 667,
+          "end_line": 680
+        },
+        {
+          "name": "select_for",
+          "kind": "function",
+          "line": 683,
+          "end_line": 685
+        },
+        {
+          "name": "selected_stable",
+          "kind": "function",
+          "line": 691,
+          "end_line": 703
         },
         {
           "name": "observe_counted",
           "kind": "function",
-          "line": 658,
-          "end_line": 677
+          "line": 706,
+          "end_line": 748
         },
         {
           "name": "observe",
           "kind": "function",
-          "line": 680,
-          "end_line": 685
+          "line": 751,
+          "end_line": 765
         }
       ],
       "imports": [
@@ -3180,82 +3204,99 @@
           "line": 20
         },
         {
-          "module": "hashlib",
+          "module": "functools",
           "names": [],
           "line": 22
         },
         {
-          "module": "re",
+          "module": "hashlib",
           "names": [],
           "line": 23
         },
         {
-          "module": "weakref",
+          "module": "json",
           "names": [],
           "line": 24
+        },
+        {
+          "module": "re",
+          "names": [],
+          "line": 25
+        },
+        {
+          "module": "weakref",
+          "names": [],
+          "line": 26
         },
         {
           "module": "collections",
           "names": [
             "OrderedDict"
           ],
-          "line": 25
+          "line": 27
         },
         {
           "module": "collections.abc",
           "names": [
             "Mapping"
           ],
-          "line": 26
+          "line": 28
         },
         {
           "module": "dataclasses",
           "names": [
             "dataclass"
           ],
-          "line": 27
+          "line": 29
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 30
         },
         {
           "module": "typing",
           "names": [
             "NamedTuple"
           ],
-          "line": 28
+          "line": 31
         },
         {
           "module": "cllmark",
           "names": [
             "nodes"
           ],
-          "line": 30
+          "line": 33
         },
         {
           "module": "cllmark.source_io",
           "names": [
             "reload_written"
           ],
-          "line": 31
+          "line": 34
         },
         {
           "module": "cllmark.transform",
           "names": [
             "StyleTransformer"
           ],
-          "line": 32
+          "line": 35
         },
         {
           "module": "cllmark.watermark",
           "names": [
             "project_order"
           ],
-          "line": 33
+          "line": 36
         },
         {
           "module": "cllmark.robust.keys",
           "names": [
             "ANCHORS"
           ],
-          "line": 34
+          "line": 37
         }
       ],
       "local_dependencies": [
@@ -3271,7 +3312,7 @@
     {
       "path": "cllmark/robust/detect.py",
       "module": "cllmark.robust.detect",
-      "sha256": "7d2fc8768e0d4d1f40dc1ff2fb88f7ad1b7ca0102ed165263f0e30033d7dc7bf",
+      "sha256": "6668cdb4d79804c801f0b1032d12d6ab0cc60c3e0aba4ada73cf6b81ba658741",
       "line_count": 253,
       "symbols": [
         {
@@ -3450,32 +3491,32 @@
     {
       "path": "cllmark/robust/embed.py",
       "module": "cllmark.robust.embed",
-      "sha256": "4e7cae5fa23f0babe7618647e8395bcc17f15c62dcc943b46c30b464a629e4ec",
-      "line_count": 148,
+      "sha256": "6c7209ad13306c25b592c8e4e97f0c99dcdac73f42043095cd46212689cfc6e8",
+      "line_count": 181,
       "symbols": [
         {
           "name": "EmbedResult",
           "kind": "class",
-          "line": 30,
-          "end_line": 40
+          "line": 32,
+          "end_line": 43
         },
         {
           "name": "_targets",
           "kind": "function",
-          "line": 43,
-          "end_line": 44
+          "line": 46,
+          "end_line": 47
         },
         {
           "name": "embed",
           "kind": "function",
-          "line": 47,
-          "end_line": 116
+          "line": 50,
+          "end_line": 149
         },
         {
           "name": "_repair",
           "kind": "function",
-          "line": 119,
-          "end_line": 148
+          "line": 152,
+          "end_line": 181
         }
       ],
       "imports": [
@@ -3484,14 +3525,14 @@
           "names": [
             "annotations"
           ],
-          "line": 13
+          "line": 15
         },
         {
           "module": "collections",
           "names": [
             "Counter"
           ],
-          "line": 15
+          "line": 17
         },
         {
           "module": "collections.abc",
@@ -3499,7 +3540,7 @@
             "Mapping",
             "Sequence"
           ],
-          "line": 16
+          "line": 18
         },
         {
           "module": "dataclasses",
@@ -3507,43 +3548,44 @@
             "dataclass",
             "field"
           ],
-          "line": 17
+          "line": 19
         },
         {
           "module": "cllmark",
           "names": [
             "nodes"
           ],
-          "line": 19
+          "line": 21
         },
         {
           "module": "cllmark.source_io",
           "names": [
             "reload_written"
           ],
-          "line": 20
+          "line": 22
         },
         {
           "module": "cllmark.transform",
           "names": [
             "StyleTransformer"
           ],
-          "line": 21
+          "line": 23
         },
         {
           "module": "cllmark.watermark",
           "names": [
             "project_order"
           ],
-          "line": 22
+          "line": 24
         },
         {
           "module": "cllmark.robust.anchors",
           "names": [
             "file_entries",
-            "select_entries"
+            "select_for",
+            "selected_stable"
           ],
-          "line": 23
+          "line": 25
         },
         {
           "module": "cllmark.robust.keys",
@@ -3552,7 +3594,7 @@
             "message_bytes",
             "target"
           ],
-          "line": 24
+          "line": 26
         }
       ],
       "local_dependencies": [
@@ -9724,92 +9766,115 @@
     {
       "path": "tests/test_robust_anchors.py",
       "module": "tests.test_robust_anchors",
-      "sha256": "ea4e2c29f8e45ffed3cd4174026b76537fc427f24fb92e7ba63ec531069f8afc",
-      "line_count": 131,
+      "sha256": "b6b40834482de7c7a3867f61ba44c52a8edb02d225d37cd2274ee1f00fbdbfb2",
+      "line_count": 202,
       "symbols": [
         {
           "name": "stable_keys",
           "kind": "function",
-          "line": 11,
-          "end_line": 12
+          "line": 12,
+          "end_line": 13
         },
         {
           "name": "AnchorTests",
           "kind": "class",
-          "line": 16,
-          "end_line": 127
+          "line": 17,
+          "end_line": 198
         },
         {
           "name": "AnchorTests.setUpClass",
           "kind": "function",
-          "line": 18,
-          "end_line": 21
+          "line": 19,
+          "end_line": 22
         },
         {
           "name": "AnchorTests.observe",
           "kind": "function",
-          "line": 23,
-          "end_line": 26
+          "line": 24,
+          "end_line": 27
         },
         {
           "name": "AnchorTests.test_observation_fields",
           "kind": "function",
-          "line": 28,
-          "end_line": 38
+          "line": 29,
+          "end_line": 39
         },
         {
           "name": "AnchorTests.test_most_usable_sites_are_stable",
           "kind": "function",
-          "line": 40,
-          "end_line": 46
+          "line": 41,
+          "end_line": 47
         },
         {
           "name": "AnchorTests.test_keys_ignore_position_and_layout",
           "kind": "function",
-          "line": 48,
-          "end_line": 67
+          "line": 49,
+          "end_line": 68
         },
         {
           "name": "AnchorTests.test_inserted_and_deleted_code_keep_the_other_keys",
           "kind": "function",
-          "line": 69,
-          "end_line": 77
+          "line": 70,
+          "end_line": 78
         },
         {
           "name": "AnchorTests.test_rename_changes_tok_keys_but_not_struct_keys",
           "kind": "function",
-          "line": 79,
-          "end_line": 93
+          "line": 80,
+          "end_line": 94
         },
         {
           "name": "AnchorTests.test_stable_keys_survive_rewriting_the_site_itself",
           "kind": "function",
-          "line": 95,
-          "end_line": 112
+          "line": 96,
+          "end_line": 113
         },
         {
           "name": "AnchorTests.test_sites_whose_key_changes_are_not_stable",
           "kind": "function",
-          "line": 114,
-          "end_line": 118
+          "line": 115,
+          "end_line": 119
+        },
+        {
+          "name": "AnchorTests.test_observation_without_stability_checks_nothing_and_selection_ignores_stability",
+          "kind": "function",
+          "line": 121,
+          "end_line": 146
+        },
+        {
+          "name": "AnchorTests.test_selection_uses_only_the_calibrated_pairs",
+          "kind": "function",
+          "line": 148,
+          "end_line": 164
+        },
+        {
+          "name": "AnchorTests.test_the_calibration_table_meets_its_own_criteria",
+          "kind": "function",
+          "line": 166,
+          "end_line": 189
         },
         {
           "name": "AnchorTests.test_support_files_are_not_observed",
           "kind": "function",
-          "line": 120,
-          "end_line": 127
+          "line": 191,
+          "end_line": 198
         }
       ],
       "imports": [
         {
-          "module": "re",
+          "module": "itertools",
           "names": [],
           "line": 3
         },
         {
-          "module": "unittest",
+          "module": "re",
           "names": [],
           "line": 4
+        },
+        {
+          "module": "unittest",
+          "names": [],
+          "line": 5
         },
         {
           "module": "tests.robust_samples",
@@ -9820,33 +9885,26 @@
             "project",
             "split"
           ],
-          "line": 6
+          "line": 7
         },
         {
           "module": "cllmark.transform",
           "names": [
             "StyleTransformer"
           ],
-          "line": 19
+          "line": 20
         },
         {
           "module": "cllmark.robust",
           "names": [
             "observe"
           ],
-          "line": 24
+          "line": 25
         },
         {
           "module": "cllmark",
           "names": [
             "nodes"
-          ],
-          "line": 96
-        },
-        {
-          "module": "cllmark.robust",
-          "names": [
-            "observe"
           ],
           "line": 97
         },
@@ -9855,13 +9913,62 @@
           "names": [
             "observe"
           ],
-          "line": 121
+          "line": 98
+        },
+        {
+          "module": "cllmark.robust",
+          "names": [
+            "observe"
+          ],
+          "line": 122
+        },
+        {
+          "module": "cllmark.robust.anchors",
+          "names": [
+            "observe_counted",
+            "select_entries"
+          ],
+          "line": 123
+        },
+        {
+          "module": "cllmark.robust",
+          "names": [
+            "observe"
+          ],
+          "line": 149
+        },
+        {
+          "module": "cllmark.robust.anchors",
+          "names": [
+            "allowed_pairs"
+          ],
+          "line": 150
+        },
+        {
+          "module": "json",
+          "names": [],
+          "line": 167
+        },
+        {
+          "module": "cllmark.robust.anchors",
+          "names": [
+            "STABLE_PAIRS_FILE"
+          ],
+          "line": 169
+        },
+        {
+          "module": "cllmark.robust",
+          "names": [
+            "observe"
+          ],
+          "line": 192
         }
       ],
       "local_dependencies": [
         "cllmark/__init__.py",
         "cllmark/nodes.py",
         "cllmark/robust/__init__.py",
+        "cllmark/robust/anchors.py",
         "cllmark/transform.py",
         "tests/robust_samples.py"
       ],
@@ -9870,7 +9977,7 @@
     {
       "path": "tests/test_robust_bench.py",
       "module": "tests.test_robust_bench",
-      "sha256": "4f589b75fff50032c54c30c6392408d2e294625dd0782561df8591d58ca1d1b2",
+      "sha256": "9214558b84e4b7b95ab5f024ac2af12870aa4262ff37273de0c34dc8fad336d4",
       "line_count": 1316,
       "symbols": [
         {
@@ -10603,16 +10710,82 @@
       "has_main_guard": false
     },
     {
+      "path": "tests/test_robust_calibrate.py",
+      "module": "tests.test_robust_calibrate",
+      "sha256": "e507b9405d38bd6f0bb71dbc5580df6ad90b85c42833033d57425ef1eb34588e",
+      "line_count": 50,
+      "symbols": [
+        {
+          "name": "CalibrateTests",
+          "kind": "class",
+          "line": 14,
+          "end_line": 46
+        },
+        {
+          "name": "CalibrateTests.test_a_small_calibration_writes_the_table",
+          "kind": "function",
+          "line": 15,
+          "end_line": 46
+        }
+      ],
+      "imports": [
+        {
+          "module": "json",
+          "names": [],
+          "line": 3
+        },
+        {
+          "module": "subprocess",
+          "names": [],
+          "line": 4
+        },
+        {
+          "module": "sys",
+          "names": [],
+          "line": 5
+        },
+        {
+          "module": "tempfile",
+          "names": [],
+          "line": 6
+        },
+        {
+          "module": "unittest",
+          "names": [],
+          "line": 7
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 8
+        },
+        {
+          "module": "tests.robust_samples",
+          "names": [
+            "HAS_GRAMMARS",
+            "ROOT"
+          ],
+          "line": 10
+        }
+      ],
+      "local_dependencies": [
+        "tests/robust_samples.py"
+      ],
+      "has_main_guard": true
+    },
+    {
       "path": "tests/test_robust_embed.py",
       "module": "tests.test_robust_embed",
-      "sha256": "3f522043f558176a9eb09c49851efe27912e9fb2c62a6f0781dd8f7c0e1eb28b",
-      "line_count": 200,
+      "sha256": "e874de262a60189c6de5a2eff82ccf4b942e5a7131323537fb3a2275eee32511",
+      "line_count": 202,
       "symbols": [
         {
           "name": "EmbedDetectMixin",
           "kind": "class",
           "line": 11,
-          "end_line": 140
+          "end_line": 142
         },
         {
           "name": "EmbedDetectMixin.setUpClass",
@@ -10642,79 +10815,79 @@
           "name": "EmbedDetectMixin.test_marked_code_is_detected_and_decoded_without_attack",
           "kind": "function",
           "line": 46,
-          "end_line": 68
+          "end_line": 70
         },
         {
           "name": "EmbedDetectMixin.observe",
           "kind": "function",
-          "line": 70,
-          "end_line": 73
+          "line": 72,
+          "end_line": 75
         },
         {
           "name": "EmbedDetectMixin.test_unmarked_code_and_wrong_messages_are_rejected",
           "kind": "function",
-          "line": 75,
-          "end_line": 85
+          "line": 77,
+          "end_line": 87
         },
         {
           "name": "EmbedDetectMixin.test_deleted_reordered_and_inserted_code_keep_the_watermark",
           "kind": "function",
-          "line": 87,
-          "end_line": 102
+          "line": 89,
+          "end_line": 104
         },
         {
           "name": "EmbedDetectMixin.test_embedding_is_deterministic_and_idempotent",
           "kind": "function",
-          "line": 104,
-          "end_line": 118
+          "line": 106,
+          "end_line": 120
         },
         {
           "name": "EmbedDetectMixin.test_other_messages_and_keys_give_other_code",
           "kind": "function",
-          "line": 120,
-          "end_line": 132
+          "line": 122,
+          "end_line": 134
         },
         {
           "name": "EmbedDetectMixin.test_empty_capacity_embeds_nothing",
           "kind": "function",
-          "line": 134,
-          "end_line": 140
+          "line": 136,
+          "end_line": 142
         },
         {
           "name": "EmbedDetectPython",
           "kind": "class",
-          "line": 144,
-          "end_line": 145
+          "line": 146,
+          "end_line": 147
         },
         {
           "name": "EmbedDetectC",
           "kind": "class",
-          "line": 149,
-          "end_line": 150
+          "line": 151,
+          "end_line": 152
         },
         {
           "name": "EmbedDetectCpp",
           "kind": "class",
-          "line": 154,
-          "end_line": 155
+          "line": 156,
+          "end_line": 157
         },
         {
           "name": "EmbedDetectJavaScript",
           "kind": "class",
-          "line": 159,
-          "end_line": 160
+          "line": 161,
+          "end_line": 162
         },
         {
           "name": "RulesThatRaiseTests",
           "kind": "class",
-          "line": 168,
-          "end_line": 200
+          "line": 170,
+          "end_line": 202
         },
         {
           "name": "RulesThatRaiseTests.test_a_raising_pair_has_no_sites_and_is_counted",
           "kind": "function",
-          "line": 176,
-          "end_line": 200
+          "line": 178,
+          "end_line": 202
         }
       ],
       "imports": [
@@ -10773,7 +10946,7 @@
           "names": [
             "observe"
           ],
-          "line": 71
+          "line": 73
         },
         {
           "module": "cllmark.robust",
@@ -10781,7 +10954,7 @@
             "Scheme",
             "embed"
           ],
-          "line": 105
+          "line": 107
         },
         {
           "module": "cllmark.robust",
@@ -10790,14 +10963,14 @@
             "derive_key",
             "embed"
           ],
-          "line": 121
+          "line": 123
         },
         {
           "module": "cllmark.robust",
           "names": [
             "detect"
           ],
-          "line": 129
+          "line": 131
         },
         {
           "module": "cllmark.robust",
@@ -10805,14 +10978,14 @@
             "Scheme",
             "embed"
           ],
-          "line": 135
+          "line": 137
         },
         {
           "module": "cllmark",
           "names": [
             "nodes"
           ],
-          "line": 177
+          "line": 179
         },
         {
           "module": "cllmark.robust",
@@ -10823,21 +10996,21 @@
             "embed",
             "observe"
           ],
-          "line": 178
+          "line": 180
         },
         {
           "module": "cllmark.robust.anchors",
           "names": [
             "observe_counted"
           ],
-          "line": 179
+          "line": 181
         },
         {
           "module": "cllmark.transform",
           "names": [
             "StyleTransformer"
           ],
-          "line": 180
+          "line": 182
         }
       ],
       "local_dependencies": [
@@ -13725,6 +13898,144 @@
       "has_main_guard": true
     },
     {
+      "path": "tools/robust_calibrate.py",
+      "module": "tools.robust_calibrate",
+      "sha256": "2da1902344d06ed0864431e80aa852f7f391eefa34678d4783907c6913796897",
+      "line_count": 186,
+      "symbols": [
+        {
+          "name": "git_head",
+          "kind": "function",
+          "line": 40,
+          "end_line": 42
+        },
+        {
+          "name": "calibration_files",
+          "kind": "function",
+          "line": 45,
+          "end_line": 72
+        },
+        {
+          "name": "observe_file",
+          "kind": "function",
+          "line": 75,
+          "end_line": 96
+        },
+        {
+          "name": "calibrate",
+          "kind": "function",
+          "line": 99,
+          "end_line": 157
+        },
+        {
+          "name": "main",
+          "kind": "function",
+          "line": 160,
+          "end_line": 182
+        }
+      ],
+      "imports": [
+        {
+          "module": "argparse",
+          "names": [],
+          "line": 18
+        },
+        {
+          "module": "collections",
+          "names": [],
+          "line": 19
+        },
+        {
+          "module": "json",
+          "names": [],
+          "line": 20
+        },
+        {
+          "module": "os",
+          "names": [],
+          "line": 21
+        },
+        {
+          "module": "random",
+          "names": [],
+          "line": 22
+        },
+        {
+          "module": "subprocess",
+          "names": [],
+          "line": 23
+        },
+        {
+          "module": "sys",
+          "names": [],
+          "line": 24
+        },
+        {
+          "module": "time",
+          "names": [],
+          "line": 25
+        },
+        {
+          "module": "concurrent.futures",
+          "names": [
+            "ProcessPoolExecutor"
+          ],
+          "line": 26
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 27
+        },
+        {
+          "module": "benchmarks",
+          "names": [
+            "common"
+          ],
+          "line": 47
+        },
+        {
+          "module": "cllmark.robust",
+          "names": [
+            "observe"
+          ],
+          "line": 78
+        },
+        {
+          "module": "cllmark.source_io",
+          "names": [
+            "read_source"
+          ],
+          "line": 79
+        },
+        {
+          "module": "cllmark.transform",
+          "names": [
+            "StyleTransformer"
+          ],
+          "line": 80
+        },
+        {
+          "module": "cllmark.rules.pairs",
+          "names": [
+            "watermark_pairs"
+          ],
+          "line": 118
+        }
+      ],
+      "local_dependencies": [
+        "benchmarks/__init__.py",
+        "benchmarks/common.py",
+        "cllmark/robust/__init__.py",
+        "cllmark/rules/pairs.py",
+        "cllmark/source_io.py",
+        "cllmark/transform.py"
+      ],
+      "has_main_guard": true
+    },
+    {
       "path": "tools/robust_report.py",
       "module": "tools.robust_report",
       "sha256": "88e028b12c87b79321622476a4e0988579cfb263eef7abb97c43557809f195dd",
@@ -14017,6 +14328,229 @@
         }
       ],
       "local_dependencies": [],
+      "has_main_guard": true
+    },
+    {
+      "path": "tools/robust_sample.py",
+      "module": "tools.robust_sample",
+      "sha256": "6a6e39a3c986cf52d4a9613a8784a9fcd7a8658f6d6936970556aae2e68c18a9",
+      "line_count": 423,
+      "symbols": [
+        {
+          "name": "transformer",
+          "kind": "function",
+          "line": 45,
+          "end_line": 51
+        },
+        {
+          "name": "pick",
+          "kind": "function",
+          "line": 54,
+          "end_line": 57
+        },
+        {
+          "name": "row",
+          "kind": "function",
+          "line": 60,
+          "end_line": 61
+        },
+        {
+          "name": "run_g",
+          "kind": "function",
+          "line": 64,
+          "end_line": 142
+        },
+        {
+          "name": "run_h",
+          "kind": "function",
+          "line": 145,
+          "end_line": 217
+        },
+        {
+          "name": "ks",
+          "kind": "function",
+          "line": 220,
+          "end_line": 223
+        },
+        {
+          "name": "mean",
+          "kind": "function",
+          "line": 226,
+          "end_line": 228
+        },
+        {
+          "name": "use_pairs",
+          "kind": "function",
+          "line": 231,
+          "end_line": 237
+        },
+        {
+          "name": "run",
+          "kind": "function",
+          "line": 240,
+          "end_line": 346
+        },
+        {
+          "name": "load_cells",
+          "kind": "function",
+          "line": 352,
+          "end_line": 361
+        },
+        {
+          "name": "compare",
+          "kind": "function",
+          "line": 364,
+          "end_line": 403
+        },
+        {
+          "name": "main",
+          "kind": "function",
+          "line": 406,
+          "end_line": 419
+        }
+      ],
+      "imports": [
+        {
+          "module": "argparse",
+          "names": [],
+          "line": 17
+        },
+        {
+          "module": "glob",
+          "names": [],
+          "line": 18
+        },
+        {
+          "module": "importlib",
+          "names": [],
+          "line": 19
+        },
+        {
+          "module": "math",
+          "names": [],
+          "line": 20
+        },
+        {
+          "module": "os",
+          "names": [],
+          "line": 21
+        },
+        {
+          "module": "random",
+          "names": [],
+          "line": 22
+        },
+        {
+          "module": "statistics",
+          "names": [],
+          "line": 23
+        },
+        {
+          "module": "sys",
+          "names": [],
+          "line": 24
+        },
+        {
+          "module": "time",
+          "names": [],
+          "line": 25
+        },
+        {
+          "module": "collections",
+          "names": [
+            "defaultdict"
+          ],
+          "line": 26
+        },
+        {
+          "module": "concurrent.futures",
+          "names": [
+            "ProcessPoolExecutor"
+          ],
+          "line": 27
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ],
+          "line": 28
+        },
+        {
+          "module": "cllmark.transform",
+          "names": [
+            "StyleTransformer"
+          ],
+          "line": 46
+        },
+        {
+          "module": "cllmark.robust",
+          "names": [
+            "Scheme",
+            "derive_key",
+            "derive_message",
+            "detect",
+            "embed"
+          ],
+          "line": 66
+        },
+        {
+          "module": "cllmark.robust.anchors",
+          "names": [
+            "observe_counted"
+          ],
+          "line": 67
+        },
+        {
+          "module": "cllmark.source_io",
+          "names": [
+            "read_source"
+          ],
+          "line": 68
+        },
+        {
+          "module": "cllmark.robust",
+          "names": [
+            "Scheme",
+            "derive_key"
+          ],
+          "line": 147
+        },
+        {
+          "module": "cllmark.source_io",
+          "names": [
+            "read_source"
+          ],
+          "line": 150
+        },
+        {
+          "module": "cllmark.robust.anchors",
+          "names": [
+            "observe_counted"
+          ],
+          "line": 157
+        },
+        {
+          "module": "cllmark.robust",
+          "names": [
+            "anchors"
+          ],
+          "line": 234
+        },
+        {
+          "module": "csv",
+          "names": [],
+          "line": 353
+        }
+      ],
+      "local_dependencies": [
+        "cllmark/robust/__init__.py",
+        "cllmark/robust/anchors.py",
+        "cllmark/robust/detect.py",
+        "cllmark/robust/embed.py",
+        "cllmark/source_io.py",
+        "cllmark/transform.py"
+      ],
       "has_main_guard": true
     },
     {

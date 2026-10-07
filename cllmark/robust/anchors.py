@@ -19,12 +19,15 @@ Sites without a rewrite that changes the code beyond whitespace (not usable) can
 
 from __future__ import annotations
 
+import functools
 import hashlib
+import json
 import re
 import weakref
 from collections import OrderedDict
 from collections.abc import Mapping
 from dataclasses import dataclass
+from pathlib import Path
 from typing import NamedTuple
 
 from .. import nodes
@@ -641,20 +644,45 @@ def file_entries(
     return full
 
 
-def select_entries(entries) -> list[Entry]:
-    """The sites that carry votes: usable, with windows that neither overlap nor touch, taken greedily in pre-order
-    (outer node first, then pair order). Embedding and detection use the same selection, which does not depend on
-    the self-stability check (detection cannot afford it)."""
+STABLE_PAIRS_FILE = Path(__file__).with_name("stable_pairs.json")
+
+
+@functools.cache
+def _stable_pairs() -> dict:
+    with open(STABLE_PAIRS_FILE, encoding="utf-8") as stream:
+        return json.load(stream)
+
+
+def allowed_pairs(rule_set: str, language: str, anchor: str) -> frozenset[str]:
+    """The rule pairs whose sites may carry votes: the calibrated stable pairs of `stable_pairs.json`
+    (`tools/robust_calibrate.py`). Raises KeyError when the table has no entry for the combination."""
+    try:
+        return frozenset(_stable_pairs()["pairs"][rule_set][language][anchor]["allowed"])
+    except KeyError:
+        raise KeyError(
+            f"stable_pairs.json has no entry for rule set {rule_set!r}, {language}, anchor {anchor!r}"
+        ) from None
+
+
+def select_entries(entries, allowed: frozenset[str] | None = None) -> list[Entry]:
+    """The sites that carry votes: usable sites of the `allowed` rule pairs (None: every pair), with windows that
+    neither overlap nor touch, taken greedily in pre-order (outer node first, then pair order). Embedding and
+    detection use the same selection, which does not depend on the self-stability check (detection cannot afford it)."""
     regions = nodes._Regions()
     chosen = []
     ordered = sorted(
-        (entry for entry in entries if entry.site.usable),
+        (entry for entry in entries if entry.site.usable and (allowed is None or entry.pair in allowed)),
         key=lambda entry: (entry.site.start, -entry.site.end, entry.pair),
     )
     for entry in ordered:
         if regions.take(entry.site, (entry.pair, entry.index)):
             chosen.append(entry)
     return chosen
+
+
+def select_for(transformer: StyleTransformer, language: str, anchor: str, entries) -> list[Entry]:
+    """`select_entries` over the calibrated pairs of the transformer's rule set."""
+    return select_entries(entries, allowed_pairs(transformer.rule_set, language, anchor))
 
 
 _SELECTED_STABLE: weakref.WeakKeyDictionary = weakref.WeakKeyDictionary()  # transformer -> {(anchor, code): set}
@@ -696,7 +724,7 @@ def observe_counted(
         if selected:
             entries = file_entries(transformer, language, anchor, code, stability=False)
             errors += entries.errors
-            chosen = select_entries(entries)
+            chosen = select_for(transformer, language, anchor, entries)
             stable = selected_stable(transformer, language, anchor, code, chosen) if stability else set()
             use = [entry._replace(stable=(entry.pair, entry.index) in stable) for entry in chosen]
         else:
@@ -726,10 +754,12 @@ def observe(
     files: Mapping[str, str],
     anchor: str,
     stability: bool = False,
+    selected: bool = False,
 ) -> list[Observation]:
     """Every site of the project with its anchor key, in project file order, pair order, site order.
 
+    `selected` returns only the sites that carry votes (calibrated pairs, non-overlapping; see `select_for`).
     `stability` runs the self-stability check (slow on large files: one rewrite per usable site); without it `stable`
     is False for every site. A (file, rule pair) whose rules raise has no sites (counted by `observe_counted`,
     `EmbedResult.errors` and `Detection.errors`)."""
-    return observe_counted(transformer, language, files, anchor, stability=stability)[0]
+    return observe_counted(transformer, language, files, anchor, selected=selected, stability=stability)[0]

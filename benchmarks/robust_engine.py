@@ -136,7 +136,10 @@ def core_digest(root):
     if not folder.is_dir():
         return "absent"
     return digest(
-        {path.relative_to(folder).as_posix(): digest(path.read_bytes()) for path in sorted(folder.rglob("*.py"))}
+        {
+            path.relative_to(folder).as_posix(): digest(path.read_bytes())
+            for path in sorted([*folder.rglob("*.py"), *folder.rglob("*.json")])  # the calibrated pair table too
+        }
     )
 
 
@@ -529,26 +532,18 @@ class RobustEngine(rule_sets.ExtendedRules, node_engine.NodeEngine):
             files = {name: self.read_source(clean / name) for name in filenames}
             phase = time.perf_counter()
             if self.keyed:
-                # capacity statistics need the self-stability check; it runs once, on the clean code (detection never runs it)
-                observed = self.robust.observe(parser, language, files, self.settings["anchor"], stability=True)
-                usable = [site for site in observed if site.usable]
-                stable = [site for site in usable if site.stable]
-                votes = len({site.key for site in stable})
-                capacity = len(usable)
-                pair_stability = {}
-                for site in usable:
-                    counts = pair_stability.setdefault(site.pair, [0, 0])
-                    counts[0] += 1
-                    counts[1] += bool(site.stable)
+                # capacity = the sites that carry votes (calibrated pairs, non-overlapping: the selection embedding and
+                # detection share); the stability counts come from the embedding (`details`), nothing is checked twice
+                observed = self.robust.observe(parser, language, files, self.settings["anchor"], selected=True)
+                votes = len({site.key for site in observed})
+                capacity = len(observed)
                 robust["capacity"] = {
-                    "pair_stability": pair_stability,  # rule pair -> [usable sites, stable sites]
                     "sites": len(observed),
                     "readable": sum(site.reading is not None for site in observed),
                     "usable": capacity,
-                    "stable": len(stable),
                     "votes": votes,
                     "files": len(files),
-                    "pairs": len({site.pair for site in usable}),
+                    "pairs": len({site.pair for site in observed}),
                 }
                 required = self.settings["min_votes"]
                 sufficient = votes >= required
@@ -577,6 +572,16 @@ class RobustEngine(rule_sets.ExtendedRules, node_engine.NodeEngine):
                     done = self.robust.embed(parser, language, files, self.robust_scheme, self.key, message)
                     for name, code in done.written.items():
                         self.source_io.write_source(marked / name, code)
+                    details = dict(getattr(done, "details", None) or {})
+                    if "selected_by_pair" in details:  # stable sites among the selected ones, per rule pair
+                        unstable_by_pair = details["unstable_by_pair"]
+                        robust["capacity"]["pair_stability"] = {
+                            pair: [selected, selected - unstable_by_pair.get(pair, 0)]
+                            for pair, selected in details["selected_by_pair"].items()
+                        }
+                        robust["capacity"]["stable"] = sum(
+                            s - u for s, u in robust["capacity"]["pair_stability"].values()
+                        )
                     embedded = {
                         "votes": done.votes,
                         "targeted_sites": done.targeted_sites,
@@ -585,7 +590,8 @@ class RobustEngine(rule_sets.ExtendedRules, node_engine.NodeEngine):
                         "set_rate": done.set_sites / done.targeted_sites if done.targeted_sites else None,
                         "selection_agreement": getattr(done, "selection_agreement", None),
                         "errors": getattr(done, "errors", 0),
-                        "details": dict(getattr(done, "details", None) or {}),
+                        "unstable_selected": getattr(done, "unstable_selected", None),
+                        "details": details,
                     }
                 else:
                     self.directories.embed_directory(marked, language, message, parser)
