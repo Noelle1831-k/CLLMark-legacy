@@ -108,7 +108,7 @@ result = embed(transformer, "python", files, Scheme("s2", 4, "struct"), key, [1,
 found = detect(transformer, "python", {**files, **result.written}, Scheme("s2", 4, "struct"), key, None)  # 盲提取
 ```
 
-评估使用 10 份 `benchmarks/config-rw-*.json`（两个方案 × 4/8 位 × 两种锚点，加 BCH 文件/节点粒度基线），在 CodeNet 生成/手写组、多文件项目与 14 个 JavaScript 仓库上测检出率、全部消息上的误报率、跨消息误接受、13 种攻击与功能保持，报告由 `tools/robust_report.py` 生成。设计、用法与限制见 [ROBUST_WATERMARK.md](docs/ROBUST_WATERMARK.md)。
+评估使用 10 份 `benchmarks/config-rw-*.json`（两个方案 × 4/8 位 × 两种锚点，加 BCH 文件/节点粒度基线），在 CodeNet 生成/手写组、多文件项目与 14 个 JavaScript 仓库上测检出率、全部消息上的误报率、跨消息误接受、13 种攻击与功能保持，报告由 `tools/robust_report.py` 生成。设计、用法与限制见 [ROBUST_WATERMARK.md](docs/ROBUST_WATERMARK.md)；全量结果（标签 `rw-eval-1`）见 [实验记录](docs/experiments/2026-10-08-robust-watermark.md)：手写代码误报 ≤ α（BCH 基线 6–7%），方案 2 在 CodeNet 生成代码上 α = 1e-6 时检出 99.2–99.8%。
 
 ## 开发
 

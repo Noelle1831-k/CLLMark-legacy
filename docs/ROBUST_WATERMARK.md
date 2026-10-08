@@ -1,6 +1,6 @@
 # 鲁棒带密钥水印（阶段 2，实验性）
 
-`cllmark/robust/` 是在旧版规则之上的第二种嵌入/检测方法：用**全部**可改写位点承载由密钥决定的比特，按位置无关的锚点寻址，检测只需密钥。它与旧版 BCH(7,4) 方法并存（旧版代码路径不变），是方法改动，结果与旧版论文不可直接比较。设计与修订过程见 [plans/2026-10-07-robust-watermark.md](plans/2026-10-07-robust-watermark.md)（v1–v4 与全量前修正），实验结果见 [experiments/](experiments/) 中 `2026-10-08-robust-watermark` 开头的记录。
+`cllmark/robust/` 是在旧版规则之上的第二种嵌入/检测方法：用**全部**可改写位点承载由密钥决定的比特，按位置无关的锚点寻址，检测只需密钥。它与旧版 BCH(7,4) 方法并存（旧版代码路径不变），是方法改动，结果与旧版论文不可直接比较。设计与修订过程见 [plans/2026-10-07-robust-watermark.md](plans/2026-10-07-robust-watermark.md)（v1–v4 与全量前修正），实验结果见 [2026-10-08-robust-watermark.md](experiments/2026-10-08-robust-watermark.md)（标签 `rw-eval-1`）：两个方案在手写代码上的误报都 ≤ α（BCH 基线 6–7%），方案 2 在 CodeNet 上 α = 1e-6 时检出 99.2–99.8%，`struct` 锚点抵抗改名。
 
 ## 为什么
 
