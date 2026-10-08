@@ -99,7 +99,7 @@ make codenet-setup [SOURCE=已有检出]          # 导入到被忽略的 extern
 
 ## 鲁棒带密钥水印（阶段 2，实验性）
 
-`cllmark/robust/` 用全部可改写位点承载由密钥决定的比特：位点按位置无关的锚点（`tok`：标识符与字面量；`struct`：结构骨架）寻址，比特经 HMAC 白化，检测只需密钥和待检代码（不需要支持文件），按二项检验给出可校准的 p 值。两个方案：`s1` 重复嵌入消息位并以 HMAC 标签判定，`s2` 全部位点放消息相关的密钥序列；消息 4 或 8 位。只使用在默认语料上标定为稳定的规则对（`cllmark/robust/stable_pairs.py`）。
+`cllmark/robust/` 用全部可改写位点承载由密钥决定的比特：位点按位置无关的锚点（`tok`：标识符与字面量；`struct`：结构骨架）寻址，比特经 HMAC 白化，检测只需密钥和待检代码（不需要支持文件），按二项检验给出可校准的 p 值。主选方法为 `s2`（全部位点放消息相关的密钥伪随机序列）+ `struct` 锚点、4 位消息；`s1`（重复嵌入消息位并以 HMAC 标签判定）、`tok` 锚点与 8 位消息作为消融。只使用在默认语料上标定为稳定的规则对（`cllmark/robust/stable_pairs.py`）。
 
 ```python
 from cllmark.robust import Scheme, derive_key, embed, detect
